@@ -1,0 +1,4 @@
+nav:
+    - Introduction: index.md    
+    - Prerequisites: Prerequisites
+    - Discrete-math: Discrete-math.md
