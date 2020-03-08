@@ -1,0 +1,98 @@
+edit_uri: ''
+extra_css:
+- css/extra.css
+extra_javascript:
+- https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML
+google_analytics:
+- UA-27795084-5
+- mkdocs.org
+markdown_extensions:
+- toc:
+    permalink: '#'
+    separator: '-'
+- admonition
+- def_list
+- mdx_gh_links:
+    repo: mkdocs
+    user: mkdocs
+- pymdownx.arithmatex
+- pymdownx.betterem:
+    smart_enable: all
+- pymdownx.caret
+- pymdownx.critic
+- pymdownx.details
+- pymdownx.emoji:
+    emoji_generator: '!!python/name:pymdownx.emoji.to_svg'
+- pymdownx.inlinehilite
+- pymdownx.magiclink
+- pymdownx.mark
+- pymdownx.smartsymbols
+- pymdownx.superfences
+- pymdownx.tasklist:
+    custom_checkbox: true
+- pymdownx.tilde
+nav:
+- Home: index.md
+- What-is-discrete-math:
+  - Introduction: What-is-discrete-math/index.md
+  - Discrete-math: What-is-discrete-math/Discrete-math.md
+- Structure:
+  - Introduction: Structure/index.md
+  - Structure: Structure/Structure.md
+  - Discrete-structure: Structure/Discrete-structure.md
+- Guide:
+  - Introduction: Guide/index.md
+  - Induction-and-Recursion:
+    - Induction-and-deduction:
+      - Introduction: Guide/Induction-and-Recursion/Induction-and-deduction/index.md
+      - Induction-and-deduction: Guide/Induction-and-Recursion/Induction-and-deduction/Induction-and-deduction.md
+      - Induction: Guide/Induction-and-Recursion/Induction-and-deduction/Induction.md
+      - Coinduction: Guide/Induction-and-Recursion/Induction-and-deduction/Coinduction.md
+    - Recursion:
+      - Introduction: Guide/Induction-and-Recursion/Recursion/index.md
+      - Recursive-Definition: Guide/Induction-and-Recursion/Recursion/Recursive-definition.md
+      - Recursive-data-type: Guide/Induction-and-Recursion/Recursion/Recursive-data-type.md
+      - Recursion: Guide/Induction-and-Recursion/Recursion/Recursion.md
+      - Corecursion: Guide/Induction-and-Recursion/Recursion/Corecursion.md
+      - Recurrence-relation: Guide/Induction-and-Recursion/Recursion/Recurrence-relation.md
+      - Recursion(computer-science): Guide/Induction-and-Recursion/Recursion/Recursion(computer-science).md
+      - Recursion-analysis-and-representation: Guide/Induction-and-Recursion/Recursion/Recursion-analysis-and-representation.md
+      - Recursion-and-iteration: Guide/Induction-and-Recursion/Recursion/Recursion-and-iteration.md
+      - Term-with-recursion-in-computer-science: Guide/Induction-and-Recursion/Recursion/Term-with-recursion-in-computer-science.md
+    - Summary: Guide/Induction-and-Recursion/Summary.md
+  - Relation:
+    - Introduction: Guide/Relation/index.md
+    - Relation: Guide/Relation/Relation.md
+    - Order-theory:
+      - Introduction: Guide/Relation/Order-theory/Order-theory.md
+      - Preorder: Guide/Relation/Order-theory/Preorder.md
+      - Partially-order: Guide/Relation/Order-theory/Partially-order.md
+      - Total-order: Guide/Relation/Order-theory/Total-order.md
+      - Well-order: Guide/Relation/Order-theory/Well-order.md
+      - Greatest-and-least-elements: Guide/Relation/Order-theory/Greatest-and-least-elements.md
+      - Application: Guide/Relation/Order-theory/Application.md
+  - Combinatorics:
+    - Introduction: Guide/Combinatorics/index.md
+    - Combinatorics: Guide/Combinatorics/Combinatorics.md
+    - Enumerative-combinatorics:
+      - Enumerative-combinatorics: Guide/Combinatorics/Enumerative-combinatorics/Enumerative-combinatorics.md
+      - Catalan-number:
+        - Catalan-number: Guide/Combinatorics/Enumerative-combinatorics/Catalan-number/Catalan-number.md
+  - Iteration:
+    - Introduction: Guide/Iteration/index.md
+- Book-Discrete-Mathematics-and-Its-Applications:
+  - Introduction: Book-Discrete-Mathematics-and-Its-Applications/index.md
+  - Preface: Book-Discrete-Mathematics-and-Its-Applications/Preface.md
+  - Chapter-2-Basic-Structures:
+    - Chapter-2-Basic-Structures: Book-Discrete-Mathematics-and-Its-Applications/Chapter-2-Basic-Structures/index.md
+  - Chpater-9-Relations:
+    - Chpater-9-Relations: Book-Discrete-Mathematics-and-Its-Applications/Chpater-9-Relations/index.md
+plugins:
+- search
+repo_url: https://github.com/dengking/discrete-math
+site_author: DengKing
+site_description: Project documentation with Markdown.
+site_name: discrete-math
+site_url: https://dengking.github.io/discrete-math
+theme:
+  name: material
