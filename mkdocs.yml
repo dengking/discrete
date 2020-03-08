@@ -36,6 +36,7 @@ nav:
 - What-is-discrete-math:
   - Introduction: What-is-discrete-math/index.md
   - Discrete-math: What-is-discrete-math/Discrete-math.md
+- Discrete-math-and-computer-science: Discrete-math-and-computer-science.md
 - Structure:
   - Introduction: Structure/index.md
   - Structure: Structure/Structure.md
@@ -43,6 +44,7 @@ nav:
 - Guide:
   - Introduction: Guide/index.md
   - Induction-and-Recursion:
+    - Introduction: Guide/Induction-and-Recursion/index.md
     - Induction-and-deduction:
       - Introduction: Guide/Induction-and-Recursion/Induction-and-deduction/index.md
       - Induction-and-deduction: Guide/Induction-and-Recursion/Induction-and-deduction/Induction-and-deduction.md
@@ -80,11 +82,16 @@ nav:
         - Catalan-number: Guide/Combinatorics/Enumerative-combinatorics/Catalan-number/Catalan-number.md
   - Iteration:
     - Introduction: Guide/Iteration/index.md
+    - Iteration: Guide/Iteration/Iteration.md
 - Book-Discrete-Mathematics-and-Its-Applications:
   - Introduction: Book-Discrete-Mathematics-and-Its-Applications/index.md
   - Preface: Book-Discrete-Mathematics-and-Its-Applications/Preface.md
   - Chapter-2-Basic-Structures:
     - Chapter-2-Basic-Structures: Book-Discrete-Mathematics-and-Its-Applications/Chapter-2-Basic-Structures/index.md
+  - Chapter-5-Induction-and-Recursion:
+    - Chapter-5-Induction-and-Recursion: Book-Discrete-Mathematics-and-Its-Applications/Chapter-5-Induction-and-Recursion/index.md
+  - Chapter-6-Counting:
+    - Chapter-6-Counting: Book-Discrete-Mathematics-and-Its-Applications/Chapter-6-Counting/index.md
   - Chpater-9-Relations:
     - Chpater-9-Relations: Book-Discrete-Mathematics-and-Its-Applications/Chpater-9-Relations/index.md
 plugins:
