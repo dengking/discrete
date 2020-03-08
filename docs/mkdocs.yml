@@ -1,4 +1,5 @@
 nav:
     - Home: index.md
-    - Prerequisites: Prerequisites
-    
+    - What-is-discrete-math: What-is-discrete-math
+    - Guide: Guide
+    - Book-Discrete-Mathematics-and-Its-Applications: Book-Discrete-Mathematics-and-Its-Applications
