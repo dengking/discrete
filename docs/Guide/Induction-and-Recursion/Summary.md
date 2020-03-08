@@ -16,7 +16,7 @@
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [Recursion](./Recursion/Recursion.md)                        | [Induction](./Induction-and-deduction/Induction.md)          |
 | [Corecursion](./Recursion/Corecursion.md)                    | [Coinduction](./Induction-and-deduction/Coinduction.md)      |
-| [Structural recursion](./Recursion/Induction-and-deduction/Induction.md) | [Structural induction](./Induction-and-deduction/Induction.md) |
+| [Structural recursion](./Induction-and-deduction/Induction.md) | [Structural induction](./Induction-and-deduction/Induction.md) |
 
 关于Structural recursion和Structural induction，参见[Structural induction](./Induction-and-deduction/Induction.md)。
 

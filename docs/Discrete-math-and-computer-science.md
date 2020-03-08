@@ -7,3 +7,6 @@
 作为一个software engineer，对上面这段话的感受越来越深刻，总的来说，我越来越觉得：
 
 > Computer science is discrete.
+
+
+
