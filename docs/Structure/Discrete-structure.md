@@ -16,5 +16,5 @@
 
 ## [Discrete Mathematics and Its Applications](https://www.amazon.com/Discrete-Mathematics-Applications-Kenneth-Rosen/dp/125967651X)
 
-在这本书的[Preface](../Book-Discrete-Mathematics-and-Its-Applications/Preface.md)、[chapter 2](../Book-Discrete-Mathematics-and-Its-Applications/Chapter-2-Basic-Structures/index.md)、[chapter 9](../Book-Discrete-Mathematics-and-Its-Applications/Chapter-9-Relations/index.md)中有对discrete structure的描述。
+在这本书的[Preface](../Book-Discrete-Mathematics-and-Its-Applications/Preface.md)、[chapter 2](../Book-Discrete-Mathematics-and-Its-Applications/Chapter-2-Basic-Structures/index.md)、[chapter 9](../Book-Discrete-Mathematics-and-Its-Applications/Chpater-9-Relations/index.md)中有对discrete structure的描述。
 
