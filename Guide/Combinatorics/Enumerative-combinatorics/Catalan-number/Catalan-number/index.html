@@ -1,0 +1,1451 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Project documentation with Markdown.">
+      
+      
+        <link rel="canonical" href="https://dengking.github.io/discrete-math/Guide/Combinatorics/Enumerative-combinatorics/Catalan-number/Catalan-number/">
+      
+      
+        <meta name="author" content="DengKing">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>Catalan-number - discrete-math</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../../../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../../../../css/extra.css">
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-27795084-5", "mkdocs.org")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#catalan-number" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://dengking.github.io/discrete-math" title="discrete-math" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              discrete-math
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Catalan-number
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/dengking/discrete-math" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://dengking.github.io/discrete-math" title="discrete-math" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    discrete-math
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/dengking/discrete-math" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      What-is-discrete-math
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        What-is-discrete-math
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../What-is-discrete-math/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../What-is-discrete-math/Discrete-math/" title="Discrete-math" class="md-nav__link">
+      Discrete-math
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../Discrete-math-and-computer-science/" title="Discrete-math-and-computer-science" class="md-nav__link">
+      Discrete-math-and-computer-science
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Structure
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Structure
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../Structure/Structure/" title="Structure" class="md-nav__link">
+      Structure
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../Structure/Discrete-structure/" title="Discrete-structure" class="md-nav__link">
+      Discrete-structure
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+    
+    <label class="md-nav__link" for="nav-5">
+      Guide
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-2" type="checkbox" id="nav-5-2">
+    
+    <label class="md-nav__link" for="nav-5-2">
+      Induction-and-Recursion
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-2">
+        Induction-and-Recursion
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Induction-and-Recursion/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-2-2" type="checkbox" id="nav-5-2-2">
+    
+    <label class="md-nav__link" for="nav-5-2-2">
+      Induction-and-deduction
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-5-2-2">
+        Induction-and-deduction
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Induction-and-Recursion/Induction-and-deduction/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Induction-and-Recursion/Induction-and-deduction/Induction-and-deduction/" title="Induction-and-deduction" class="md-nav__link">
+      Induction-and-deduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Induction-and-Recursion/Induction-and-deduction/Induction/" title="Induction" class="md-nav__link">
+      Induction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Induction-and-Recursion/Induction-and-deduction/Coinduction/" title="Coinduction" class="md-nav__link">
+      Coinduction
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-2-3" type="checkbox" id="nav-5-2-3">
+    
+    <label class="md-nav__link" for="nav-5-2-3">
+      Recursion
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-5-2-3">
+        Recursion
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Induction-and-Recursion/Recursion/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Induction-and-Recursion/Recursion/Recursive-definition/" title="Recursive-Definition" class="md-nav__link">
+      Recursive-Definition
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Induction-and-Recursion/Recursion/Recursive-data-type/" title="Recursive-data-type" class="md-nav__link">
+      Recursive-data-type
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Induction-and-Recursion/Recursion/Recursion/" title="Recursion" class="md-nav__link">
+      Recursion
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Induction-and-Recursion/Recursion/Corecursion/" title="Corecursion" class="md-nav__link">
+      Corecursion
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Induction-and-Recursion/Recursion/Recurrence-relation/" title="Recurrence-relation" class="md-nav__link">
+      Recurrence-relation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Induction-and-Recursion/Recursion/Recursion(computer-science)/" title="Recursion(computer-science)" class="md-nav__link">
+      Recursion(computer-science)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Induction-and-Recursion/Recursion/Recursion-analysis-and-representation/" title="Recursion-analysis-and-representation" class="md-nav__link">
+      Recursion-analysis-and-representation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Induction-and-Recursion/Recursion/Recursion-and-iteration/" title="Recursion-and-iteration" class="md-nav__link">
+      Recursion-and-iteration
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Induction-and-Recursion/Recursion/Term-with-recursion-in-computer-science/" title="Term-with-recursion-in-computer-science" class="md-nav__link">
+      Term-with-recursion-in-computer-science
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Induction-and-Recursion/Summary/" title="Summary" class="md-nav__link">
+      Summary
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-3" type="checkbox" id="nav-5-3">
+    
+    <label class="md-nav__link" for="nav-5-3">
+      Relation
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-3">
+        Relation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Relation/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Relation/Relation/" title="Relation" class="md-nav__link">
+      Relation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-3-3" type="checkbox" id="nav-5-3-3">
+    
+    <label class="md-nav__link" for="nav-5-3-3">
+      Order-theory
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-5-3-3">
+        Order-theory
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Relation/Order-theory/Order-theory/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Relation/Order-theory/Preorder/" title="Preorder" class="md-nav__link">
+      Preorder
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Relation/Order-theory/Partially-order/" title="Partially-order" class="md-nav__link">
+      Partially-order
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Relation/Order-theory/Total-order/" title="Total-order" class="md-nav__link">
+      Total-order
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Relation/Order-theory/Well-order/" title="Well-order" class="md-nav__link">
+      Well-order
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Relation/Order-theory/Greatest-and-least-elements/" title="Greatest-and-least-elements" class="md-nav__link">
+      Greatest-and-least-elements
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Relation/Order-theory/Application/" title="Application" class="md-nav__link">
+      Application
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-4" type="checkbox" id="nav-5-4" checked>
+    
+    <label class="md-nav__link" for="nav-5-4">
+      Combinatorics
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-4">
+        Combinatorics
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Combinatorics/" title="Combinatorics" class="md-nav__link">
+      Combinatorics
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-4-3" type="checkbox" id="nav-5-4-3" checked>
+    
+    <label class="md-nav__link" for="nav-5-4-3">
+      Enumerative-combinatorics
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-5-4-3">
+        Enumerative-combinatorics
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Enumerative-combinatorics/" title="Enumerative-combinatorics" class="md-nav__link">
+      Enumerative-combinatorics
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-4-3-2" type="checkbox" id="nav-5-4-3-2" checked>
+    
+    <label class="md-nav__link" for="nav-5-4-3-2">
+      Catalan-number
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-5-4-3-2">
+        Catalan-number
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Catalan-number
+      </label>
+    
+    <a href="./" title="Catalan-number" class="md-nav__link md-nav__link--active">
+      Catalan-number
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    Properties
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#applications-in-combinatorics" class="md-nav__link">
+    Applications in combinatorics
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proof-of-the-formula" class="md-nav__link">
+    Proof of the formula
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generalizations" class="md-nav__link">
+    Generalizations
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-5" type="checkbox" id="nav-5-5">
+    
+    <label class="md-nav__link" for="nav-5-5">
+      Iteration
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-5">
+        Iteration
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Iteration/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Iteration/Iteration/" title="Iteration" class="md-nav__link">
+      Iteration
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Book-Discrete-Mathematics-and-Its-Applications
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Book-Discrete-Mathematics-and-Its-Applications
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../Book-Discrete-Mathematics-and-Its-Applications/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../Book-Discrete-Mathematics-and-Its-Applications/Preface/" title="Preface" class="md-nav__link">
+      Preface
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-3" type="checkbox" id="nav-6-3">
+    
+    <label class="md-nav__link" for="nav-6-3">
+      Chapter-2-Basic-Structures
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-3">
+        Chapter-2-Basic-Structures
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../Book-Discrete-Mathematics-and-Its-Applications/Chapter-2-Basic-Structures/" title="Chapter-2-Basic-Structures" class="md-nav__link">
+      Chapter-2-Basic-Structures
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-4" type="checkbox" id="nav-6-4">
+    
+    <label class="md-nav__link" for="nav-6-4">
+      Chapter-5-Induction-and-Recursion
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-4">
+        Chapter-5-Induction-and-Recursion
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../Book-Discrete-Mathematics-and-Its-Applications/Chapter-5-Induction-and-Recursion/" title="Chapter-5-Induction-and-Recursion" class="md-nav__link">
+      Chapter-5-Induction-and-Recursion
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-5" type="checkbox" id="nav-6-5">
+    
+    <label class="md-nav__link" for="nav-6-5">
+      Chapter-6-Counting
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-5">
+        Chapter-6-Counting
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../Book-Discrete-Mathematics-and-Its-Applications/Chapter-6-Counting/" title="Chapter-6-Counting" class="md-nav__link">
+      Chapter-6-Counting
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-6" type="checkbox" id="nav-6-6">
+    
+    <label class="md-nav__link" for="nav-6-6">
+      Chpater-9-Relations
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-6">
+        Chpater-9-Relations
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../Book-Discrete-Mathematics-and-Its-Applications/Chpater-9-Relations/" title="Chpater-9-Relations" class="md-nav__link">
+      Chpater-9-Relations
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    Properties
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#applications-in-combinatorics" class="md-nav__link">
+    Applications in combinatorics
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proof-of-the-formula" class="md-nav__link">
+    Proof of the formula
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generalizations" class="md-nav__link">
+    Generalizations
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="catalan-number"><a href="https://en.wikipedia.org/wiki/Catalan_number">Catalan number</a><a class="headerlink" href="#catalan-number" title="Permanent link">#</a></h1>
+<p>In <a href="https://en.wikipedia.org/wiki/Combinatorics">combinatorial mathematics</a>, the <strong>Catalan numbers</strong> form a <a href="https://en.wikipedia.org/wiki/Sequence">sequence</a> of <a href="https://en.wikipedia.org/wiki/Natural_number">natural numbers</a> that occur in various <a href="https://en.wikipedia.org/wiki/Enumeration">counting problems</a>, often involving <a href="https://en.wikipedia.org/wiki/Recursion">recursively</a>-defined objects. They are named after the <a href="https://en.wikipedia.org/wiki/Belgium">Belgian</a> <a href="https://en.wikipedia.org/wiki/Mathematician">mathematician</a> <a href="https://en.wikipedia.org/wiki/Eugène_Charles_Catalan">Eugène Charles Catalan</a> (1814–1894). </p>
+<p>The *n*th Catalan number is given directly in terms of <a href="https://en.wikipedia.org/wiki/Binomial_coefficient">binomial coefficients</a> by </p>
+<p>$ C_{n}={\frac {1}{n+1}}{2n \choose n}={\frac {(2n)!}{(n+1)!\,n!}}=\prod \limits _{k=2}^{n}{\frac {n+k}{k}}\qquad {\text{for }}n\geq 0. $ </p>
+<p><strong><em>SUMMARY</em></strong> : 注意是连乘，上式给出的是Catalan number的计算方式，但是在实际地解决问题过程中，我们更多的是使用Catalan number的递归表达式；</p>
+<p>The first Catalan numbers for <em>n</em> = 0, 1, 2, 3, ... are </p>
+<p><a href="https://en.wikipedia.org/wiki/1_(number)">1</a>, 1, <a href="https://en.wikipedia.org/wiki/2_(number)">2</a>, <a href="https://en.wikipedia.org/wiki/5_(number)">5</a>, <a href="https://en.wikipedia.org/wiki/14_(number)">14</a>, <a href="https://en.wikipedia.org/wiki/42_(number)">42</a>, <a href="https://en.wikipedia.org/wiki/132_(number)">132</a>, 429, 1430, 4862, 16796, 58786, 208012, 742900, 2674440, 9694845, 35357670, 129644790, 477638700, 1767263190, 6564120420, 24466267020, 91482563640, 343059613650, 1289904147324, 4861946401452, ... (sequence <a href="https://oeis.org/A000108">A000108</a> in the <a href="https://en.wikipedia.org/wiki/On-Line_Encyclopedia_of_Integer_Sequences">OEIS</a>). </p>
+<p><a href="https://en.wikipedia.org/wiki/File:Noncrossing_partitions_5.svg"><img alt="img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Noncrossing_partitions_5.svg/220px-Noncrossing_partitions_5.svg.png" /></a> </p>
+<p>The <span><span class="MathJax_Preview">C_5 = 42</span><script type="math/tex">C_5 = 42</script></span> <a href="https://en.wikipedia.org/wiki/Noncrossing_partition">noncrossing partitions</a> of a 5-element set (below, the other 10 of the <a href="https://en.wikipedia.org/wiki/Bell_number">52</a> <a href="https://en.wikipedia.org/wiki/Partition_of_a_set">partitions</a>) </p>
+<h2 id="properties">Properties<a class="headerlink" href="#properties" title="Permanent link">#</a></h2>
+<p>An alternative expression for <span><span class="MathJax_Preview">C_n</span><script type="math/tex">C_n</script></span> is </p>
+<p>$ C_{n}={2n \choose n}-{2n \choose n+1}={1 \over n+1}{2n \choose n}\quad {\text{ for }}n\geq 0, $ </p>
+<p>which is equivalent to the expression given above because $ {\tbinom {2n}{n+1}}={\tfrac {n}{n+1}}{\tbinom {2n}{n}} $. This shows that  <span><span class="MathJax_Preview">C_n</span><script type="math/tex">C_n</script></span>is an <a href="https://en.wikipedia.org/wiki/Integer">integer</a>, which is not immediately obvious from the first formula given. This expression forms the basis for a <a href="https://en.wikipedia.org/wiki/Catalan_number#Second_proof">proof of the correctness of the formula</a>. </p>
+<p>The Catalan numbers satisfy the <a href="https://en.wikipedia.org/wiki/Recurrence_relation">recurrence relations</a>[<a href="https://en.wikipedia.org/wiki/Catalan_number#cite_note-1">1]</a> </p>
+<p>$ C_{0}=1\quad {\text{and}}\quad C_{n+1}=\sum <em>{i=0}^{n}C</em>{i}\,C_{n-i}\quad {\text{for }}n\geq 0, $ </p>
+<p><strong><em>SUMMARY</em></strong> : 为什么是<span><span class="MathJax_Preview">C_{i}</span><script type="math/tex">C_{i}</script></span> 乘以<span><span class="MathJax_Preview">C_{n-i}</span><script type="math/tex">C_{n-i}</script></span>，而不是相加呢？如何来结和具体案例对这个问题进行分析？</p>
+<p>$ \sum <em>{i</em>{1}+\cdots +i_{m}=n,i_{1},\ldots ,i_{m}\geq 0}C_{i_{1}}\cdots C_{i_{m}}={\begin{cases}{\dfrac {m(n+1)(n+2)\cdots (n+m/2-1)}{2(n+m/2+2)(n+m/2+3)\cdots (n+m)}}C_{n+m/2},&amp;m{\text{ even}}\[5pt]{\dfrac {m(n+1)(n+2)\cdots (n+(m-1)/2)}{(n+(m+3)/2)(n+(m+3)/2+1)\cdots (n+m)}}C_{n+(m-1)/2},&amp;m{\text{ odd,}}\end{cases}} $ </p>
+<p>and </p>
+<p>$ C_{0}=1\quad {\text{and}}\quad C_{n+1}={\frac {2(2n+1)}{n+2}}C_{n}. $ </p>
+<p>Asymptotically, the Catalan numbers grow as </p>
+<p>$ C_{n}\sim {\frac {4<sup>{n}}{n</sup>{3/2}{\sqrt {\pi }}}} $ </p>
+<p>in the sense that the quotient of the <em>n*th Catalan number and the expression on the right <a href="https://en.wikipedia.org/wiki/Limit_of_a_function">tends towards</a> 1 as *n</em> approaches infinity. This can be proved by using <a href="https://en.wikipedia.org/wiki/Stirling's_approximation">Stirling's approximation</a> for <em>n</em>! or via generating functions; see the <a href="https://en.wikipedia.org/wiki/Generating_function#Asymptotic_growth_of_the_Catalan_numbers">Asymptotic growth of the Catalan numbers</a> section of the <a href="https://en.wikipedia.org/wiki/Generating_function">Generating function</a> article. </p>
+<p>The only Catalan numbers <span><span class="MathJax_Preview">C_n</span><script type="math/tex">C_n</script></span> that are odd are those for which <span><span class="MathJax_Preview">n = 2^k − 1</span><script type="math/tex">n = 2^k − 1</script></span>; all others are even. The only prime Catalan numbers are <span><span class="MathJax_Preview">C_2 = 2</span><script type="math/tex">C_2 = 2</script></span> and <span><span class="MathJax_Preview">C_3 = 5</span><script type="math/tex">C_3 = 5</script></span>.[<a href="https://en.wikipedia.org/wiki/Catalan_number#cite_note-2">2]</a> </p>
+<p>The Catalan numbers have an integral representation </p>
+<p>$ C_{n}=\int _{0}<sup>{4}x</sup>{n}\rho (x)\,dx, $ </p>
+<p>where $ \rho (x)={\tfrac {1}{2\pi }}{\sqrt {\tfrac {4-x}{x}}}. $ This means that the Catalan numbers are a solution of the <a href="https://en.wikipedia.org/wiki/Hausdorff_moment_problem">Hausdorff moment problem</a> on the interval [0, 4] instead of [0, 1]. The <a href="https://en.wikipedia.org/wiki/Orthogonal_polynomials">orthogonal polynomials</a> having the weight function $ \rho (x) $ on $ [0,4] $ are </p>
+<p>$ H_{n}(x)=\sum _{k=0}^{n}{n+k \choose n-k}(-x)^{k}. $ </p>
+<h2 id="applications-in-combinatorics">Applications in combinatorics<a class="headerlink" href="#applications-in-combinatorics" title="Permanent link">#</a></h2>
+<p>There are many counting problems in <a href="https://en.wikipedia.org/wiki/Combinatorics">combinatorics</a> whose solution is given by the <strong>Catalan numbers</strong>. The book <em>Enumerative Combinatorics: Volume 2</em> by combinatorialist <a href="https://en.wikipedia.org/wiki/Richard_P._Stanley">Richard P. Stanley</a> contains a set of exercises which describe 66 different interpretations（解释） of the <strong>Catalan numbers</strong>. Following are some examples, with illustrations of the cases <span><span class="MathJax_Preview">C_3 = 5</span><script type="math/tex">C_3 = 5</script></span> and <span><span class="MathJax_Preview">C_4 = 14</span><script type="math/tex">C_4 = 14</script></span>. </p>
+<ul>
+<li><span><span class="MathJax_Preview">C_n</span><script type="math/tex">C_n</script></span> is the number of <a href="https://en.wikipedia.org/wiki/Dyck_word">Dyck words</a>[<a href="https://en.wikipedia.org/wiki/Catalan_number#cite_note-3">3]</a> of length <span><span class="MathJax_Preview">2n</span><script type="math/tex">2n</script></span>. A Dyck word is a <a href="https://en.wikipedia.org/wiki/String_(computer_science)">string</a> consisting of <em>n</em> X's and <em>n</em> Y's such that no initial segment of the string has more Y's than X's. For example, the following are the Dyck words of length 6:</li>
+</ul>
+<p><code>XXXYYY   XYXXYY   XYXYXY   XXYYXY   XXYXYY.</code></p>
+<ul>
+<li>Re-interpreting the symbol X as an open <a href="https://en.wikipedia.org/wiki/Bracket#Parentheses">parenthesis</a> and Y as a close parenthesis, <span><span class="MathJax_Preview">C_n</span><script type="math/tex">C_n</script></span> counts the number of expressions containing <em>n</em> pairs of parentheses which are correctly matched:</li>
+</ul>
+<p><code>((()))   ()(())   ()()()   (())()   (()())</code> </p>
+<ul>
+<li><span><span class="MathJax_Preview">C_n</span><script type="math/tex">C_n</script></span> is the number of different ways <em>n</em> + 1 factors can be completely <a href="https://en.wikipedia.org/wiki/Bracket">parenthesized</a> (or the number of ways of <a href="https://en.wikipedia.org/wiki/Associativity">associating</a> <em>n</em> applications of a <a href="https://en.wikipedia.org/wiki/Binary_operator">binary operator</a>). For <em>n</em> = 3, for example, we have the following five different parenthesizations of four factors:</li>
+</ul>
+<p><code>((ab)c)d   (a(bc))d   (ab)(cd)   a((bc)d)   a(b(cd))</code> </p>
+<ul>
+<li>Successive applications of a binary operator can be represented in terms of a full <a href="https://en.wikipedia.org/wiki/Binary_tree">binary tree</a>. (A rooted binary tree is <em>full</em> if every vertex has either two children or no children.) It follows that <span><span class="MathJax_Preview">C_n</span><script type="math/tex">C_n</script></span> is the number of full binary <a href="https://en.wikipedia.org/wiki/Tree_(graph_theory)">trees</a> with <em>n</em> + 1 leaves:</li>
+</ul>
+<p><a href="https://en.wikipedia.org/wiki/File:Catalan_number_binary_tree_example.png"><img alt="Catalan number binary tree example.png" src="https://upload.wikimedia.org/wikipedia/commons/0/01/Catalan_number_binary_tree_example.png" /></a> </p>
+<p><strong><em>SUMMARY</em></strong> : 如果将 <code>((ab)c)d   (a(bc))d   (ab)(cd)   a((bc)d)   a(b(cd))</code> 中的字符看做上面树中的leaf node的话，则它们是一一对应的，这说明它们本质上是同一类问题；这说明catalan number和二叉树之间也是存在着一定的关联的；</p>
+<ul>
+<li>
+<p><span><span class="MathJax_Preview">C_n</span><script type="math/tex">C_n</script></span> is the number of non-isomorphic ordered trees with <em>n</em> + 1 vertices. (An ordered tree is a rooted tree in which the children of each vertex are given a fixed left-to-right order.)[<a href="https://en.wikipedia.org/wiki/Catalan_number#cite_note-4">4]</a> </p>
+</li>
+<li>
+<p><span><span class="MathJax_Preview">C_n</span><script type="math/tex">C_n</script></span> is the number of monotonic <a href="https://en.wikipedia.org/wiki/Lattice_path">lattice paths</a> along the edges of a grid with <em>n</em> × <em>n</em> square cells, which do not pass above the diagonal. A monotonic path is one which starts in the lower left corner, finishes in the upper right corner, and consists entirely of edges pointing rightwards or upwards. Counting such paths is equivalent to counting Dyck words: X stands for "move right" and Y stands for "move up". </p>
+</li>
+</ul>
+<h2 id="proof-of-the-formula">Proof of the formula<a class="headerlink" href="#proof-of-the-formula" title="Permanent link">#</a></h2>
+<p>There are several ways of explaining why the formula </p>
+<p>$ C_{n}={\frac {1}{n+1}}{2n \choose n} $ </p>
+<h2 id="generalizations">Generalizations<a class="headerlink" href="#generalizations" title="Permanent link">#</a></h2>
+<p>The two-parameter sequence of non-negative integers $ {\frac {(2m)!(2n)!}{(m+n)!m!n!}} $ is a generalization of the Catalan numbers. These are named <strong>super-Catalan numbers</strong>, by <a href="https://en.wikipedia.org/wiki/Ira_Gessel">Ira Gessel</a>. These number should not confused with the <a href="https://en.wikipedia.org/wiki/Schröder–Hipparchus_number">Schröder–Hipparchus numbers</a>, which sometimes are also called super-Catalan numbers.</p>
+<p>For $ m=1 $, this is just two times the ordinary Catalan numbers, and for $ m=n $, the numbers have an easy combinatorial description. However, other combinatorial descriptions are only known[<a href="https://en.wikipedia.org/wiki/Catalan_number#cite_note-Chen2012-15">15]</a> for $ m=2 $ and $ m=3 $, and it is an open problem to find a general combinatorial interpretation.</p>
+<p><a href="https://en.wikipedia.org/wiki/Sergey_Fomin">Sergey Fomin</a> and Nathan Reading have given a generalized Catalan number associated to any finite crystalographic <a href="https://en.wikipedia.org/wiki/Coxeter_group">Coxeter group</a>, namely the number of fully commutative elements of the group; in terms of the associated <a href="https://en.wikipedia.org/wiki/Root_system">root system</a>, it is the number of anti-chains (or order ideals) in the poset of positive roots. The classical Catalan number $ C_{n} $ corresponds to the root system of type $ A_{n} $. The classical recurrence relation generalizes: the Catalan number of a Coxeter diagram is equal to the sum of the Catalan numbers of all its maximal proper sub-diagrams.[<a href="https://en.wikipedia.org/wiki/Catalan_number#cite_note-16">16]</a></p>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../Enumerative-combinatorics/" title="Enumerative-combinatorics" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Enumerative-combinatorics
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../../../Iteration/" title="Introduction" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Introduction
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../../../assets/javascripts/application.808e90bb.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../../../.."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>

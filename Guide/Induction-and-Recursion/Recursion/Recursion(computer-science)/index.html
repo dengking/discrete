@@ -1,0 +1,2138 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Project documentation with Markdown.">
+      
+      
+        <link rel="canonical" href="https://dengking.github.io/discrete-math/Guide/Induction-and-Recursion/Recursion/Recursion(computer-science)/">
+      
+      
+        <meta name="author" content="DengKing">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>Recursion(computer-science) - discrete-math</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../../../css/extra.css">
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-27795084-5", "mkdocs.org")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#recursion-computer-science" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://dengking.github.io/discrete-math" title="discrete-math" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              discrete-math
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Recursion(computer-science)
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/dengking/discrete-math" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://dengking.github.io/discrete-math" title="discrete-math" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    discrete-math
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/dengking/discrete-math" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      What-is-discrete-math
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        What-is-discrete-math
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../What-is-discrete-math/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../What-is-discrete-math/Discrete-math/" title="Discrete-math" class="md-nav__link">
+      Discrete-math
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Discrete-math-and-computer-science/" title="Discrete-math-and-computer-science" class="md-nav__link">
+      Discrete-math-and-computer-science
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Structure
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Structure
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Structure/Structure/" title="Structure" class="md-nav__link">
+      Structure
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Structure/Discrete-structure/" title="Discrete-structure" class="md-nav__link">
+      Discrete-structure
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+    
+    <label class="md-nav__link" for="nav-5">
+      Guide
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-2" type="checkbox" id="nav-5-2" checked>
+    
+    <label class="md-nav__link" for="nav-5-2">
+      Induction-and-Recursion
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-2">
+        Induction-and-Recursion
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-2-2" type="checkbox" id="nav-5-2-2">
+    
+    <label class="md-nav__link" for="nav-5-2-2">
+      Induction-and-deduction
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-5-2-2">
+        Induction-and-deduction
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Induction-and-deduction/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Induction-and-deduction/Induction-and-deduction/" title="Induction-and-deduction" class="md-nav__link">
+      Induction-and-deduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Induction-and-deduction/Induction/" title="Induction" class="md-nav__link">
+      Induction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Induction-and-deduction/Coinduction/" title="Coinduction" class="md-nav__link">
+      Coinduction
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-2-3" type="checkbox" id="nav-5-2-3" checked>
+    
+    <label class="md-nav__link" for="nav-5-2-3">
+      Recursion
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-5-2-3">
+        Recursion
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Recursive-definition/" title="Recursive-Definition" class="md-nav__link">
+      Recursive-Definition
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Recursive-data-type/" title="Recursive-data-type" class="md-nav__link">
+      Recursive-data-type
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Recursion/" title="Recursion" class="md-nav__link">
+      Recursion
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Corecursion/" title="Corecursion" class="md-nav__link">
+      Corecursion
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Recurrence-relation/" title="Recurrence-relation" class="md-nav__link">
+      Recurrence-relation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Recursion(computer-science)
+      </label>
+    
+    <a href="./" title="Recursion(computer-science)" class="md-nav__link md-nav__link--active">
+      Recursion(computer-science)
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#recursion-computer-science_1" class="md-nav__link">
+    维基百科Recursion (computer science)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recursive-functions-and-algorithms" class="md-nav__link">
+    Recursive functions and algorithms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recursive-data-types" class="md-nav__link">
+    Recursive data types
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inductively-defined-data" class="md-nav__link">
+    Inductively defined data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coinductively-defined-data-and-corecursion" class="md-nav__link">
+    Coinductively defined data and corecursion
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#types-of-recursion" class="md-nav__link">
+    Types of recursion
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#single-recursion-and-multiple-recursion" class="md-nav__link">
+    Single recursion and multiple recursion
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#indirect-recursion" class="md-nav__link">
+    Indirect recursion
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#anonymous-recursion" class="md-nav__link">
+    Anonymous recursion
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#structural-versus-generative-recursion" class="md-nav__link">
+    Structural versus generative recursion
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recursive-programs" class="md-nav__link">
+    Recursive programs
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recursive-procedures" class="md-nav__link">
+    Recursive procedures
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#factorial" class="md-nav__link">
+    Factorial
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#greatest-common-divisor" class="md-nav__link">
+    Greatest common divisor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#towers-of-hanoi" class="md-nav__link">
+    Towers of Hanoi
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#binary-search" class="md-nav__link">
+    Binary search
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recursive-data-structures-structural-recursion" class="md-nav__link">
+    Recursive data structures (structural recursion)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linked-lists" class="md-nav__link">
+    Linked lists
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#binary-trees" class="md-nav__link">
+    Binary trees
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation-issues" class="md-nav__link">
+    Implementation issues
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recursion-versus-iteration" class="md-nav__link">
+    Recursion versus iteration
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multiply-recursive-problems" class="md-nav__link">
+    Multiply recursive problems
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#refactoring-recursion" class="md-nav__link">
+    Refactoring recursion
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tail-recursive-functions" class="md-nav__link">
+    Tail-recursive functions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#time-efficiency-of-recursive-algorithms" class="md-nav__link">
+    Time-efficiency of recursive algorithms
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#shortcut-rule-master-theorem" class="md-nav__link">
+    Shortcut rule (master theorem)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Recursion-analysis-and-representation/" title="Recursion-analysis-and-representation" class="md-nav__link">
+      Recursion-analysis-and-representation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Recursion-and-iteration/" title="Recursion-and-iteration" class="md-nav__link">
+      Recursion-and-iteration
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Term-with-recursion-in-computer-science/" title="Term-with-recursion-in-computer-science" class="md-nav__link">
+      Term-with-recursion-in-computer-science
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Summary/" title="Summary" class="md-nav__link">
+      Summary
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-3" type="checkbox" id="nav-5-3">
+    
+    <label class="md-nav__link" for="nav-5-3">
+      Relation
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-3">
+        Relation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Relation/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Relation/Relation/" title="Relation" class="md-nav__link">
+      Relation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-3-3" type="checkbox" id="nav-5-3-3">
+    
+    <label class="md-nav__link" for="nav-5-3-3">
+      Order-theory
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-5-3-3">
+        Order-theory
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Relation/Order-theory/Order-theory/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Relation/Order-theory/Preorder/" title="Preorder" class="md-nav__link">
+      Preorder
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Relation/Order-theory/Partially-order/" title="Partially-order" class="md-nav__link">
+      Partially-order
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Relation/Order-theory/Total-order/" title="Total-order" class="md-nav__link">
+      Total-order
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Relation/Order-theory/Well-order/" title="Well-order" class="md-nav__link">
+      Well-order
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Relation/Order-theory/Greatest-and-least-elements/" title="Greatest-and-least-elements" class="md-nav__link">
+      Greatest-and-least-elements
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Relation/Order-theory/Application/" title="Application" class="md-nav__link">
+      Application
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-4" type="checkbox" id="nav-5-4">
+    
+    <label class="md-nav__link" for="nav-5-4">
+      Combinatorics
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-4">
+        Combinatorics
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Combinatorics/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Combinatorics/Combinatorics/" title="Combinatorics" class="md-nav__link">
+      Combinatorics
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-4-3" type="checkbox" id="nav-5-4-3">
+    
+    <label class="md-nav__link" for="nav-5-4-3">
+      Enumerative-combinatorics
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-5-4-3">
+        Enumerative-combinatorics
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Combinatorics/Enumerative-combinatorics/Enumerative-combinatorics/" title="Enumerative-combinatorics" class="md-nav__link">
+      Enumerative-combinatorics
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-4-3-2" type="checkbox" id="nav-5-4-3-2">
+    
+    <label class="md-nav__link" for="nav-5-4-3-2">
+      Catalan-number
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-5-4-3-2">
+        Catalan-number
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Combinatorics/Enumerative-combinatorics/Catalan-number/Catalan-number/" title="Catalan-number" class="md-nav__link">
+      Catalan-number
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-5" type="checkbox" id="nav-5-5">
+    
+    <label class="md-nav__link" for="nav-5-5">
+      Iteration
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-5">
+        Iteration
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Iteration/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Iteration/Iteration/" title="Iteration" class="md-nav__link">
+      Iteration
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Book-Discrete-Mathematics-and-Its-Applications
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Book-Discrete-Mathematics-and-Its-Applications
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Book-Discrete-Mathematics-and-Its-Applications/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Book-Discrete-Mathematics-and-Its-Applications/Preface/" title="Preface" class="md-nav__link">
+      Preface
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-3" type="checkbox" id="nav-6-3">
+    
+    <label class="md-nav__link" for="nav-6-3">
+      Chapter-2-Basic-Structures
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-3">
+        Chapter-2-Basic-Structures
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Book-Discrete-Mathematics-and-Its-Applications/Chapter-2-Basic-Structures/" title="Chapter-2-Basic-Structures" class="md-nav__link">
+      Chapter-2-Basic-Structures
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-4" type="checkbox" id="nav-6-4">
+    
+    <label class="md-nav__link" for="nav-6-4">
+      Chapter-5-Induction-and-Recursion
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-4">
+        Chapter-5-Induction-and-Recursion
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Book-Discrete-Mathematics-and-Its-Applications/Chapter-5-Induction-and-Recursion/" title="Chapter-5-Induction-and-Recursion" class="md-nav__link">
+      Chapter-5-Induction-and-Recursion
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-5" type="checkbox" id="nav-6-5">
+    
+    <label class="md-nav__link" for="nav-6-5">
+      Chapter-6-Counting
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-5">
+        Chapter-6-Counting
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Book-Discrete-Mathematics-and-Its-Applications/Chapter-6-Counting/" title="Chapter-6-Counting" class="md-nav__link">
+      Chapter-6-Counting
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-6" type="checkbox" id="nav-6-6">
+    
+    <label class="md-nav__link" for="nav-6-6">
+      Chpater-9-Relations
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-6">
+        Chpater-9-Relations
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Book-Discrete-Mathematics-and-Its-Applications/Chpater-9-Relations/" title="Chpater-9-Relations" class="md-nav__link">
+      Chpater-9-Relations
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#recursion-computer-science_1" class="md-nav__link">
+    维基百科Recursion (computer science)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recursive-functions-and-algorithms" class="md-nav__link">
+    Recursive functions and algorithms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recursive-data-types" class="md-nav__link">
+    Recursive data types
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inductively-defined-data" class="md-nav__link">
+    Inductively defined data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coinductively-defined-data-and-corecursion" class="md-nav__link">
+    Coinductively defined data and corecursion
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#types-of-recursion" class="md-nav__link">
+    Types of recursion
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#single-recursion-and-multiple-recursion" class="md-nav__link">
+    Single recursion and multiple recursion
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#indirect-recursion" class="md-nav__link">
+    Indirect recursion
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#anonymous-recursion" class="md-nav__link">
+    Anonymous recursion
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#structural-versus-generative-recursion" class="md-nav__link">
+    Structural versus generative recursion
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recursive-programs" class="md-nav__link">
+    Recursive programs
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recursive-procedures" class="md-nav__link">
+    Recursive procedures
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#factorial" class="md-nav__link">
+    Factorial
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#greatest-common-divisor" class="md-nav__link">
+    Greatest common divisor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#towers-of-hanoi" class="md-nav__link">
+    Towers of Hanoi
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#binary-search" class="md-nav__link">
+    Binary search
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recursive-data-structures-structural-recursion" class="md-nav__link">
+    Recursive data structures (structural recursion)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linked-lists" class="md-nav__link">
+    Linked lists
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#binary-trees" class="md-nav__link">
+    Binary trees
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation-issues" class="md-nav__link">
+    Implementation issues
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recursion-versus-iteration" class="md-nav__link">
+    Recursion versus iteration
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multiply-recursive-problems" class="md-nav__link">
+    Multiply recursive problems
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#refactoring-recursion" class="md-nav__link">
+    Refactoring recursion
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tail-recursive-functions" class="md-nav__link">
+    Tail-recursive functions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#time-efficiency-of-recursive-algorithms" class="md-nav__link">
+    Time-efficiency of recursive algorithms
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#shortcut-rule-master-theorem" class="md-nav__link">
+    Shortcut rule (master theorem)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="recursion-computer-science">Recursion (computer science)<a class="headerlink" href="#recursion-computer-science" title="Permanent link">#</a></h1>
+<p>在<a href="https://dengking.github.io/Post/Recursion/">Recursion</a>中，我们已经接触了recursion 的概念，本文将分析computer science中的recursion。</p>
+<h2 id="recursion-computer-science_1">维基百科<a href="https://en.wikipedia.org/wiki/Recursion_(computer_science)">Recursion (computer science)</a><a class="headerlink" href="#recursion-computer-science_1" title="Permanent link">#</a></h2>
+<p><strong>Recursion</strong> in <a href="https://en.wikipedia.org/wiki/Computer_science">computer science</a> is a method of solving a problem where the solution depends on solutions to smaller instances of the same problem (as opposed to <a href="https://en.wikipedia.org/wiki/Iteration#Computing">iteration</a>). The approach can be applied to many types of problems, and <a href="https://en.wikipedia.org/wiki/Recursion">recursion</a> is one of the central ideas of computer science. </p>
+<blockquote>
+<p>The power of <strong>recursion</strong> evidently lies in the possibility of defining an infinite（无限的） set of objects by a finite（有限的） statement. In the same manner, an infinite number of computations can be described by a finite recursive program, even if this program contains no explicit repetitions.</p>
+<p>— <a href="https://en.wikipedia.org/wiki/Niklaus_Wirth">Niklaus Wirth</a>, <em>Algorithms + Data Structures = Programs</em>, 1976</p>
+<p>NOTE: 维基百科<a href="https://en.wikipedia.org/wiki/Recursion">Recursion</a>是从定义（如何进行递归定义，参见维基百科<a href="https://en.wikipedia.org/wiki/Recursive_definition">Recursive definition</a>）的角度来描述递归，维基百科<a href="https://en.wikipedia.org/wiki/Recursion_(computer_science)">Recursion (computer science)</a>中，是从解决问题的角度（如何编码实现）来描述递归，正如它的开头所述：</p>
+<blockquote>
+<p><em>This article is about recursive approaches to solving problems.</em></p>
+</blockquote>
+<p>NOTE: 从finite（有限的） statement到 infinite（无限的），这正是recursion的强大所在；</p>
+</blockquote>
+<p>Most computer <a href="https://en.wikipedia.org/wiki/Programming_language">programming languages</a> support recursion by allowing a <a href="https://en.wikipedia.org/wiki/Function_(computer_science)">function</a> to call itself from within its own code. Some <a href="https://en.wikipedia.org/wiki/Functional_programming">functional programming</a> languages do not define any looping constructs but rely solely on recursion to repeatedly call code. <a href="https://en.wikipedia.org/wiki/Computability_theory">Computability theory</a> proves that these recursive-only languages are <a href="https://en.wikipedia.org/wiki/Turing_completeness">Turing complete</a>; they are as computationally powerful as Turing complete imperative languages, meaning they can solve the same kinds of problems as imperative languages even without iterative control structures such as <code>while</code> and <code>for</code>.</p>
+<h3 id="recursive-functions-and-algorithms">Recursive functions and algorithms<a class="headerlink" href="#recursive-functions-and-algorithms" title="Permanent link">#</a></h3>
+<p>A common <a href="https://en.wikipedia.org/wiki/Computer_programming">computer programming</a> tactic is to divide a problem into sub-problems of the same type as the original, solve those sub-problems, and combine the results. This is often referred to as the <a href="https://en.wikipedia.org/wiki/Divide-and-conquer_method">divide-and-conquer method</a>; when combined with a <a href="https://en.wikipedia.org/wiki/Lookup_table">lookup table</a> that stores the results of solving sub-problems (to avoid solving them repeatedly and incurring extra computation time), it can be referred to as <a href="https://en.wikipedia.org/wiki/Dynamic_programming">dynamic programming</a> or <a href="https://en.wikipedia.org/wiki/Memoization">memoization</a>.</p>
+<blockquote>
+<p>NOTE:  TODO 需要添加工程<a href="https://dengking.github.io/algorithm/">algorithm</a>中，关于recursion和dynamic programming的比较。</p>
+</blockquote>
+<p>A recursive function definition has one or more <em>base cases</em>, meaning input(s) for which the function produces a result <a href="https://en.wikipedia.org/wiki/Trivial_(mathematics)">trivially</a> (without recurring), and one or more <em>recursive cases</em>, meaning input(s) for which the program recurs（递归，重现，重复） (calls itself). For example, the <a href="https://en.wikipedia.org/wiki/Factorial">factorial</a> function can be defined recursively by the equations 0! = 1 and, for all <em>n</em> &gt; 0, <em>n</em>! = <em>n</em>(<em>n</em> − 1)!. Neither equation by itself constitutes a complete definition; the first is the base case, and the second is the recursive case. Because the base case breaks the chain of recursion, it is sometimes also called the "terminating case".</p>
+<p>The job of the <strong>recursive cases</strong> can be seen as breaking down complex inputs into simpler ones. In a properly designed recursive function, with each recursive call, the input problem must be simplified in such a way that eventually the <strong>base case</strong> must be reached. (Functions that are not intended to terminate under normal circumstances—for example, some <a href="https://en.wikipedia.org/wiki/Daemon_(computer_software)">system and server processes</a>—are an exception to this.) Neglecting to write a base case, or testing for it incorrectly, can cause an <a href="https://en.wikipedia.org/wiki/Infinite_loop">infinite loop</a>.</p>
+<p>For some functions (such as one that computes the <a href="https://en.wikipedia.org/wiki/Series_(mathematics)">series</a> for <em>e</em> = 1/0! + 1/1! + &frac12;! + &#8531;! + ...) there is not an obvious <strong>base case</strong> implied by the input data; for these one may add a <a href="https://en.wikipedia.org/wiki/Parameter">parameter</a> (such as the number of terms to be added, in our series example) to provide a 'stopping criterion' that establishes the <strong>base case</strong>. Such an example is more naturally treated by <strong>co-recursion</strong>, where successive terms in the output are the partial sums; this can be converted to a recursion by using the indexing parameter to say "compute the *n*th term (*n*th partial sum)".</p>
+<blockquote>
+<p>NOTE: 在递归函数中添加一个入参，这个入参就表示停止条件；关于co-recursion，参见<a href="../Corecursion/">Corecursion</a>。</p>
+</blockquote>
+<h3 id="recursive-data-types">Recursive data types<a class="headerlink" href="#recursive-data-types" title="Permanent link">#</a></h3>
+<p>Many <a href="https://en.wikipedia.org/wiki/Computer_program">computer programs</a> must process or generate an arbitrarily large quantity of <a href="https://en.wikipedia.org/wiki/Data">data</a>. Recursion is one technique for representing data whose exact size the <a href="https://en.wikipedia.org/wiki/Programmer">programmer</a> does not know: the programmer can specify this data with a <a href="https://en.wikipedia.org/wiki/Self_reference">self-referential</a> definition. There are two types of <strong>self-referential definitions</strong>: inductive and <a href="https://en.wikipedia.org/wiki/Coinduction">coinductive</a> definitions.</p>
+<p>Further information: <a href="https://en.wikipedia.org/wiki/Algebraic_data_type">Algebraic data type</a></p>
+<h4 id="inductively-defined-data">Inductively defined data<a class="headerlink" href="#inductively-defined-data" title="Permanent link">#</a></h4>
+<p><em>Main article:</em> <a href="https://en.wikipedia.org/wiki/Recursive_data_type">Recursive data type</a></p>
+<p>Similarly recursive <a href="https://en.wikipedia.org/wiki/Definition">definitions</a> are often used to model the structure of <a href="https://en.wikipedia.org/wiki/Expression_(programming)">expressions</a> and <a href="https://en.wikipedia.org/wiki/Statement_(programming)">statements</a> in programming languages. Language designers often express grammars in a syntax such as <a href="https://en.wikipedia.org/wiki/Backus–Naur_form">Backus–Naur form</a>; here is such a grammar, for a simple language of arithmetic expressions with multiplication and addition:</p>
+<div class="highlight"><pre><span></span> &lt;expr&gt; ::= &lt;number&gt;
+          | (&lt;expr&gt; * &lt;expr&gt;)
+          | (&lt;expr&gt; + &lt;expr&gt;)
+</pre></div>
+
+<p>This says that an expression is either a number, a product of two expressions, or a sum of two expressions. By recursively referring to expressions in the second and third lines, the grammar permits arbitrarily complex arithmetic expressions such as <code>(5 * ((3 * 6) + 8))</code>, with more than one product or sum operation in a single expression.</p>
+<h4 id="coinductively-defined-data-and-corecursion">Coinductively defined data and corecursion<a class="headerlink" href="#coinductively-defined-data-and-corecursion" title="Permanent link">#</a></h4>
+<p><em>Main articles:</em> <a href="https://en.wikipedia.org/wiki/Coinduction">Coinduction</a> <em>and</em> <a href="https://en.wikipedia.org/wiki/Corecursion">Corecursion</a></p>
+<h3 id="types-of-recursion">Types of recursion<a class="headerlink" href="#types-of-recursion" title="Permanent link">#</a></h3>
+<h4 id="single-recursion-and-multiple-recursion">Single recursion and multiple recursion<a class="headerlink" href="#single-recursion-and-multiple-recursion" title="Permanent link">#</a></h4>
+<p>Recursion that only contains a single self-reference is known as <strong>single recursion</strong>, while recursion that contains multiple self-references is known as <strong>multiple recursion</strong>. Standard examples of single recursion include list traversal, such as in a linear search, or computing the factorial function, while standard examples of multiple recursion include <a href="https://en.wikipedia.org/wiki/Tree_traversal">tree traversal</a>, such as in a <strong>depth-first search</strong>.</p>
+<p><strong>Single recursion</strong> is often much more efficient than <strong>multiple recursion</strong>, and can generally be replaced by an <strong>iterative computation</strong>, running in linear time and requiring constant space. <strong>Multiple recursion</strong>, by contrast, may require exponential time and space, and is more fundamentally recursive, not being able to be replaced by iteration without an <strong>explicit stack</strong>.</p>
+<blockquote>
+<p>NOTE: 通过Fibonacci和tree traversal 的例子就可以验证上面这段话</p>
+<p>NOTE: Multiple recursion的复杂性</p>
+</blockquote>
+<p>Multiple recursion can sometimes be converted to single recursion (and, if desired, thence to iteration). For example, while computing the Fibonacci sequence naively is multiple iteration, as each value requires <strong>two previous values</strong>, it can be computed by single recursion by passing two successive values as parameters. This is more naturally framed as <strong>corecursion</strong>, building up from the <strong>initial values</strong>, tracking at each step two successive values – see <a href="https://en.wikipedia.org/wiki/Corecursion#Examples">corecursion: examples</a>. A more sophisticated example is using a <a href="https://en.wikipedia.org/wiki/Threaded_binary_tree">threaded binary tree</a>, which allows iterative tree traversal, rather than multiple recursion.</p>
+<blockquote>
+<p>NOTE : Fibonacci 函数的表达式中包含了两个递归调用，但是正如上面所说的： it can be computed by single recursion by passing two successive values as parameters；这样就可以将它转换为一个tail recursion了，这样就可以消除掉tail recursion，使用iterative方法来实现了；</p>
+</blockquote>
+<h4 id="indirect-recursion">Indirect recursion<a class="headerlink" href="#indirect-recursion" title="Permanent link">#</a></h4>
+<p><em>Main article:</em> <a href="https://en.wikipedia.org/wiki/Mutual_recursion">Mutual recursion</a></p>
+<p>Most basic examples of <strong>recursion</strong>, and most of the examples presented here, demonstrate <strong>direct recursion</strong>, in which a function calls itself. <em>Indirect</em> recursion occurs when a function is called not by itself but by another function that it called (either directly or indirectly). For example, if <em>f</em> calls <em>f,</em> that is direct recursion, but if <em>f</em> calls <em>g</em> which calls <em>f,</em> then that is indirect recursion of <em>f.</em> Chains of three or more functions are possible; for example, function 1 calls function 2, function 2 calls function 3, and function 3 calls function 1 again.</p>
+<p>Indirect recursion is also called <a href="https://en.wikipedia.org/wiki/Mutual_recursion">mutual recursion</a>, which is a more symmetric term, though this is simply a difference of emphasis, not a different notion. That is, if <em>f</em> calls <em>g</em> and then <em>g</em> calls <em>f,</em> which in turn calls <em>g</em> again, from the point of view of <em>f</em> alone, <em>f</em> is indirectly recursing, while from the point of view of <em>g</em> alone, it is indirectly recursing, while from the point of view of both, <em>f</em> and <em>g</em> are mutually recursing on each other. Similarly a set of three or more functions that call each other can be called a set of mutually recursive functions.</p>
+<h4 id="anonymous-recursion">Anonymous recursion<a class="headerlink" href="#anonymous-recursion" title="Permanent link">#</a></h4>
+<p><em>Main article:</em> <a href="https://en.wikipedia.org/wiki/Anonymous_recursion">Anonymous recursion</a></p>
+<p>Recursion is usually done by explicitly calling a function by name. However, recursion can also be done via implicitly calling a function based on the current context, which is particularly useful for <a href="https://en.wikipedia.org/wiki/Anonymous_function">anonymous functions</a>, and is known as <a href="https://en.wikipedia.org/wiki/Anonymous_recursion">anonymous recursion</a>.</p>
+<h4 id="structural-versus-generative-recursion">Structural versus generative recursion<a class="headerlink" href="#structural-versus-generative-recursion" title="Permanent link">#</a></h4>
+<p><em>See also:</em> <a href="https://en.wikipedia.org/wiki/Structural_recursion">Structural recursion</a></p>
+<p>Some authors classify recursion as either "<strong>structural</strong>" or "<strong>generative</strong>". The distinction is related to where a recursive procedure gets the data that it works on, and how it processes that data:</p>
+<blockquote>
+<p>[Functions that consume <strong>structured data</strong>] typically decompose their arguments into their immediate structural components and then process those components. If one of the immediate components belongs to the same class of data as the input, the function is recursive. For that reason, we refer to these functions as (STRUCTURALLY) RECURSIVE FUNCTIONS.</p>
+<p>— Felleisen, Findler, Flatt, and Krishnaurthi, <em>How to Design Programs</em>, 2001[<a href="https://en.wikipedia.org/wiki/Recursion_(computer_science)#cite_note-Felleisen_HtDP_2001-4">4]</a></p>
+</blockquote>
+<p>Thus, the defining characteristic of a <strong>structurally recursive function</strong> is that the argument to each <strong>recursive call</strong> is the content of a field of the original input. <strong>Structural recursion</strong> includes nearly all <strong>tree traversals</strong>, including <strong>XML processing</strong>, <strong>binary tree creation and search</strong>, etc. By considering the algebraic structure of the natural numbers (that is, a natural number is either zero or the successor of a natural number), functions such as factorial may also be regarded as <strong>structural recursion</strong>.</p>
+<p><strong>Generative recursion</strong> is the alternative:</p>
+<blockquote>
+<p>Many well-known <strong>recursive algorithms</strong> generate an entirely new piece of data from the given data and recur on it. <a href="https://en.wikipedia.org/wiki/How_to_Design_Programs"><em>HtDP</em> (<em>How to Design Programs</em>)</a> refers to this kind as <strong>generative recursion</strong>. Examples of generative recursion include: <a href="https://en.wikipedia.org/wiki/Euclidean_algorithm">gcd</a>, <a href="https://en.wikipedia.org/wiki/Quicksort">quicksort</a>, <a href="https://en.wikipedia.org/wiki/Binary_search">binary search</a>, <a href="https://en.wikipedia.org/wiki/Mergesort">mergesort</a>, <a href="https://en.wikipedia.org/wiki/Newton's_method">Newton's method</a>, <a href="https://en.wikipedia.org/wiki/Fractal">fractals</a>, and <a href="https://en.wikipedia.org/wiki/Adaptive_quadrature">adaptive integration</a>.</p>
+<p>— Matthias Felleisen, <em>Advanced Functional Programming</em>, 2002[<a href="https://en.wikipedia.org/wiki/Recursion_(computer_science)#cite_note-Felleisen_2002_108-5">5]</a></p>
+</blockquote>
+<p>This distinction is important in <a href="https://en.wikipedia.org/wiki/Termination_analysis#Termination_proof">proving termination</a> of a function.</p>
+<ul>
+<li>All <strong>structurally recursive functions</strong> on finite (<a href="https://en.wikipedia.org/wiki/Recursive_data_type">inductively defined</a>) data structures can easily be shown to terminate, via <a href="https://en.wikipedia.org/wiki/Structural_induction">structural induction</a>: intuitively, each recursive call receives a smaller piece of input data, until a base case is reached.</li>
+<li><strong>Generatively recursive functions</strong>, in contrast, do not necessarily feed smaller input to their recursive calls, so proof of their termination is not necessarily as simple, and avoiding <a href="https://en.wikipedia.org/wiki/Infinite_loops">infinite loops</a> requires greater care. These <strong>generatively recursive functions</strong> can often be interpreted as <strong>corecursive functions</strong> – each step generates the new data, such as successive approximation in Newton's method – and terminating this <strong>corecursion</strong> requires that the data eventually satisfy some condition, which is not necessarily guaranteed.</li>
+<li>In terms of <a href="https://en.wikipedia.org/wiki/Loop_variant">loop variants</a>, <strong>structural recursion</strong> is when there is an obvious loop variant, namely size or complexity, which starts off finite and decreases at each recursive step.</li>
+<li>By contrast, <strong>generative recursion</strong> is when there is not such an obvious <strong>loop variant</strong>, and termination depends on a function, such as "error of approximation" that does not necessarily decrease to zero, and thus termination is not guaranteed without further analysis.</li>
+</ul>
+<h3 id="recursive-programs">Recursive programs<a class="headerlink" href="#recursive-programs" title="Permanent link">#</a></h3>
+<h4 id="recursive-procedures">Recursive procedures<a class="headerlink" href="#recursive-procedures" title="Permanent link">#</a></h4>
+<h5 id="factorial">Factorial<a class="headerlink" href="#factorial" title="Permanent link">#</a></h5>
+<h5 id="greatest-common-divisor">Greatest common divisor<a class="headerlink" href="#greatest-common-divisor" title="Permanent link">#</a></h5>
+<p>The <a href="https://en.wikipedia.org/wiki/Euclidean_algorithm">Euclidean algorithm</a>, which computes the <a href="https://en.wikipedia.org/wiki/Greatest_common_divisor">greatest common divisor</a> of two integers, can be written recursively.</p>
+<p>Function definition*:*</p>
+<p>$ \gcd(x,y)={\begin{cases}x&amp;{\mbox{if }}y=0\\gcd(y,\operatorname {remainder} (x,y))&amp;{\mbox{if }}y&gt;0\\end{cases}} $</p>
+<p><a href="https://en.wikipedia.org/wiki/Pseudocode">Pseudocode</a> <strong>(recursive):</strong></p>
+<div class="highlight"><pre><span></span>function gcd is:
+input: integer x, integer y such that x &gt; 0 and y &gt;= 0
+
+
+    1. if y is 0, return x
+    2. otherwise, return [ gcd( y, (remainder of x/y) ) ]
+
+
+end gcd
+</pre></div>
+
+<p><a href="https://en.wikipedia.org/wiki/Recurrence_relation">Recurrence relation</a> for greatest common divisor, where $ x\%y $ expresses the <a href="https://en.wikipedia.org/wiki/Remainder">remainder</a> of $ x/y $:</p>
+<p>$ \gcd(x,y)=\gcd(y,x\%y) $ if $ y\neq 0 $</p>
+<p>$ \gcd(x,0)=x $</p>
+<p>Computing the recurrence relation for x = 27 and y = 9:</p>
+<div class="highlight"><pre><span></span>gcd(27, 9)   = gcd(9, 27% 9)
+             = gcd(9, 0)
+             = 9    
+</pre></div>
+
+<p>The <strong>recursive program</strong> above is <a href="https://en.wikipedia.org/wiki/Tail-recursive">tail-recursive</a>; it is equivalent to an <strong>iterative algorithm</strong>, and the computation shown above shows the steps of evaluation that would be performed by a language that eliminates <strong>tail calls</strong>. Below is a version of the same algorithm using explicit iteration, suitable for a language that does not eliminate tail calls. By maintaining its state entirely in the variables <em>x</em> and <em>y</em> and using a looping construct, the program avoids making recursive calls and growing the call stack.</p>
+<p><strong>Pseudocode (iterative):</strong></p>
+<div class="highlight"><pre><span></span>function gcd is:
+input: integer x, integer y such that x &gt;= y and y &gt;= 0
+
+    1. create new variable called remainder
+
+    2. begin loop
+          1. if y is zero, exit loop
+          2. set remainder to the remainder of x/y
+          3. set x to y
+          4. set y to remainder
+          5. repeat loop
+
+    3. return x
+
+end gcd
+</pre></div>
+
+<p>The iterative algorithm requires a temporary variable, and even given knowledge of the Euclidean algorithm it is more difficult to understand the process by simple inspection, although the two algorithms are very similar in their steps.</p>
+<h5 id="towers-of-hanoi">Towers of Hanoi<a class="headerlink" href="#towers-of-hanoi" title="Permanent link">#</a></h5>
+<p><em>Main article:</em> <a href="https://en.wikipedia.org/wiki/Towers_of_Hanoi">Towers of Hanoi</a></p>
+<p>The Towers of Hanoi is a mathematical puzzle whose solution illustrates recursion.[<a href="https://en.wikipedia.org/wiki/Recursion_(computer_science)#cite_note-6">6]</a>[<a href="https://en.wikipedia.org/wiki/Recursion_(computer_science)#cite_note-7">7]</a> There are three pegs which can hold stacks of disks of different diameters. A larger disk may never be stacked on top of a smaller. Starting with <em>n</em> disks on one peg, they must be moved to another peg one at a time. What is the smallest number of steps to move the stack?</p>
+<p><em>Function definition</em>:</p>
+<p>$ \operatorname {hanoi} (n)={\begin{cases}1&amp;{\mbox{if }}n=1\2\cdot \operatorname {hanoi} (n-1)+1&amp;{\mbox{if }}n&gt;1\\end{cases}} $</p>
+<p><em>Recurrence relation for hanoi</em>:</p>
+<p>$ h_{n}=2h_{n-1}+1 $</p>
+<p>$ h_{1}=1 $</p>
+<p><strong>Computing the recurrence relation for n = 4:</strong></p>
+<div class="highlight"><pre><span></span>hanoi(4)     = 2*hanoi(3) + 1
+             = 2*(2*hanoi(2) + 1) + 1
+             = 2*(2*(2*hanoi(1) + 1) + 1) + 1
+             = 2*(2*(2*1 + 1) + 1) + 1
+             = 2*(2*(3) + 1) + 1
+             = 2*(7) + 1
+             = 15
+</pre></div>
+
+<p>Example implementations:</p>
+<h5 id="binary-search">Binary search<a class="headerlink" href="#binary-search" title="Permanent link">#</a></h5>
+<p>The <a href="https://en.wikipedia.org/wiki/Binary_search">binary search</a> algorithm is a method of searching a <a href="https://en.wikipedia.org/wiki/Sorted_array">sorted array</a> for a single element by cutting the array in half with each recursive pass. The trick is to pick a midpoint near the center of the array, compare the data at that point with the data being searched and then responding to one of three possible conditions: the data is found at the midpoint, the data at the midpoint is greater than the data being searched for, or the data at the midpoint is less than the data being searched for.</p>
+<p>Recursion is used in this algorithm because with each pass a new array is created by cutting the old one in half. The binary search procedure is then called recursively, this time on the new (and smaller) array. Typically the array's size is adjusted by manipulating a beginning and ending index. The algorithm exhibits a logarithmic order of growth because it essentially divides the problem domain in half with each pass.</p>
+<p>Example implementation of binary search in C:</p>
+<div class="highlight"><pre><span></span> <span class="cm">/*</span>
+<span class="cm">  Call binary_search with proper initial conditions.</span>
+
+<span class="cm">  INPUT:</span>
+<span class="cm">    data is an array of integers SORTED in ASCENDING order,</span>
+<span class="cm">    toFind is the integer to search for,</span>
+<span class="cm">    count is the total number of elements in the array</span>
+
+<span class="cm">  OUTPUT:</span>
+<span class="cm">    result of binary_search</span>
+
+<span class="cm"> */</span>
+ <span class="kt">int</span> <span class="nf">search</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">data</span><span class="p">,</span> <span class="kt">int</span> <span class="n">toFind</span><span class="p">,</span> <span class="kt">int</span> <span class="n">count</span><span class="p">)</span>
+ <span class="p">{</span>
+    <span class="c1">//  Start = 0 (beginning index)</span>
+    <span class="c1">//  End = count - 1 (top index)</span>
+    <span class="k">return</span> <span class="n">binary_search</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">toFind</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">count</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+ <span class="p">}</span>
+
+ <span class="cm">/*</span>
+<span class="cm">   Binary Search Algorithm.</span>
+
+<span class="cm">   INPUT:</span>
+<span class="cm">        data is a array of integers SORTED in ASCENDING order,</span>
+<span class="cm">        toFind is the integer to search for,</span>
+<span class="cm">        start is the minimum array index,</span>
+<span class="cm">        end is the maximum array index</span>
+<span class="cm">   OUTPUT:</span>
+<span class="cm">        position of the integer toFind within array data,</span>
+<span class="cm">        -1 if not found</span>
+<span class="cm"> */</span>
+ <span class="kt">int</span> <span class="nf">binary_search</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">data</span><span class="p">,</span> <span class="kt">int</span> <span class="n">toFind</span><span class="p">,</span> <span class="kt">int</span> <span class="n">start</span><span class="p">,</span> <span class="kt">int</span> <span class="n">end</span><span class="p">)</span>
+ <span class="p">{</span>
+    <span class="c1">//Get the midpoint.</span>
+    <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="p">(</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>   <span class="c1">//Integer division</span>
+
+    <span class="c1">//Stop condition.</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">start</span> <span class="o">&gt;</span> <span class="n">end</span><span class="p">)</span>
+       <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">==</span> <span class="n">toFind</span><span class="p">)</span>        <span class="c1">//Found?</span>
+       <span class="k">return</span> <span class="n">mid</span><span class="p">;</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">toFind</span><span class="p">)</span>         <span class="c1">//Data is greater than toFind, search lower half</span>
+       <span class="k">return</span> <span class="n">binary_search</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">toFind</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">mid</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+    <span class="k">else</span>                                 <span class="c1">//Data is less than toFind, search upper half</span>
+       <span class="k">return</span> <span class="n">binary_search</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">toFind</span><span class="p">,</span> <span class="n">mid</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">end</span><span class="p">);</span>
+ <span class="p">}</span>
+</pre></div>
+
+<h4 id="recursive-data-structures-structural-recursion">Recursive data structures (structural recursion)<a class="headerlink" href="#recursive-data-structures-structural-recursion" title="Permanent link">#</a></h4>
+<p><em>Main article:</em> <a href="https://en.wikipedia.org/wiki/Recursive_data_type">Recursive data type</a></p>
+<p>An important application of recursion in computer science is in defining dynamic <strong>data structures</strong> such as <a href="https://en.wikipedia.org/wiki/List_(abstract_data_type)">lists</a> and <a href="https://en.wikipedia.org/wiki/Tree_(data_structure)">trees</a>. <strong>Recursive data structures</strong> can dynamically grow to a theoretically infinite size in response to runtime requirements; in contrast, the size of a static array must be set at compile time.</p>
+<blockquote>
+<p>"<strong>Recursive algorithms</strong> are particularly appropriate when the underlying problem or the data to be treated are defined in recursive terms."[<a href="https://en.wikipedia.org/wiki/Recursion_(computer_science)#cite_note-9">9]</a></p>
+</blockquote>
+<p>The examples in this section illustrate what is known as "<a href="https://en.wikipedia.org/wiki/Structural_recursion">structural recursion</a>". This term refers to the fact that the <strong>recursive procedures</strong> are acting on data that is defined recursively.</p>
+<blockquote>
+<p>As long as a programmer derives the template from a data definition, functions employ structural recursion. That is, the recursions in a function's body consume some immediate piece of a given compound value.[<a href="https://en.wikipedia.org/wiki/Recursion_(computer_science)#cite_note-Felleisen_2002_108-5">5]</a></p>
+</blockquote>
+<h5 id="linked-lists">Linked lists<a class="headerlink" href="#linked-lists" title="Permanent link">#</a></h5>
+<p><em>Main article:</em> <a href="https://en.wikipedia.org/wiki/Linked_list">Linked list</a></p>
+<p>Below is a C definition of a linked list node structure. Notice especially how the node is defined in terms of itself. The "next" element of <em>struct node</em> is a pointer to another <em>struct node</em>, effectively creating a list type.</p>
+<div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">node</span>
+<span class="p">{</span>
+  <span class="kt">int</span> <span class="n">data</span><span class="p">;</span>           <span class="c1">// some integer data</span>
+  <span class="k">struct</span> <span class="n">node</span> <span class="o">*</span><span class="n">next</span><span class="p">;</span>  <span class="c1">// pointer to another struct node</span>
+<span class="p">};</span>
+</pre></div>
+
+<p>Because the <em>struct node</em> data structure is defined <strong>recursively</strong>, procedures that operate on it can be implemented naturally as <strong>recursive procedures</strong>. The <em>list_print</em> procedure defined below walks down the list until the list is empty (i.e., the list pointer has a value of NULL). For each node it prints the data element (an integer). In the C implementation, the list remains unchanged by the <em>list_print</em> procedure.</p>
+<div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">list_print</span><span class="p">(</span><span class="k">struct</span> <span class="n">node</span> <span class="o">*</span><span class="n">list</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">list</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span>               <span class="c1">// base case</span>
+    <span class="p">{</span>
+       <span class="n">printf</span> <span class="p">(</span><span class="s">&quot;%d &quot;</span><span class="p">,</span> <span class="n">list</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">);</span>  <span class="c1">// print integer data followed by a space</span>
+       <span class="n">list_print</span> <span class="p">(</span><span class="n">list</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">);</span>     <span class="c1">// recursive call on the next node</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<h5 id="binary-trees">Binary trees<a class="headerlink" href="#binary-trees" title="Permanent link">#</a></h5>
+<p><em>Main article:</em> <a href="https://en.wikipedia.org/wiki/Binary_tree">Binary tree</a></p>
+<p>Below is a simple definition for a binary tree node. Like the node for linked lists, it is defined in terms of itself, recursively. There are two self-referential pointers: left (pointing to the left sub-tree) and right (pointing to the right sub-tree).</p>
+<div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">node</span>
+<span class="p">{</span>
+  <span class="kt">int</span> <span class="n">data</span><span class="p">;</span>            <span class="c1">// some integer data</span>
+  <span class="k">struct</span> <span class="n">node</span> <span class="o">*</span><span class="n">left</span><span class="p">;</span>   <span class="c1">// pointer to the left subtree</span>
+  <span class="k">struct</span> <span class="n">node</span> <span class="o">*</span><span class="n">right</span><span class="p">;</span>  <span class="c1">// point to the right subtree</span>
+<span class="p">};</span>
+</pre></div>
+
+<p>Operations on the tree can be implemented using recursion. Note that because there are two self-referencing pointers (left and right), tree operations may require two recursive calls:</p>
+<div class="highlight"><pre><span></span><span class="c1">// Test if tree_node contains i; return 1 if so, 0 if not.</span>
+<span class="kt">int</span> <span class="nf">tree_contains</span><span class="p">(</span><span class="k">struct</span> <span class="n">node</span> <span class="o">*</span><span class="n">tree_node</span><span class="p">,</span> <span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">tree_node</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>  <span class="c1">// base case</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">tree_node</span><span class="o">-&gt;</span><span class="n">data</span> <span class="o">==</span> <span class="n">i</span><span class="p">)</span>
+        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">else</span>
+        <span class="k">return</span> <span class="n">tree_contains</span><span class="p">(</span><span class="n">tree_node</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="o">||</span> <span class="n">tree_contains</span><span class="p">(</span><span class="n">tree_node</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>At most two recursive calls will be made for any given call to <em>tree_contains</em> as defined above.</p>
+<div class="highlight"><pre><span></span><span class="c1">// Inorder traversal:</span>
+<span class="kt">void</span> <span class="nf">tree_print</span><span class="p">(</span><span class="k">struct</span> <span class="n">node</span> <span class="o">*</span><span class="n">tree_node</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">tree_node</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>                  <span class="c1">// base case</span>
+                <span class="n">tree_print</span><span class="p">(</span><span class="n">tree_node</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>      <span class="c1">// go left</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d &quot;</span><span class="p">,</span> <span class="n">tree_node</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">);</span>   <span class="c1">// print the integer followed by a space</span>
+                <span class="n">tree_print</span><span class="p">(</span><span class="n">tree_node</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>     <span class="c1">// go right</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<div class="highlight"><pre><span></span>                              5
+                        3              7
+                  2          4    6            8
+</pre></div>
+
+<div class="highlight"><pre><span></span>P(5)
+    P(3)
+        P(2)
+            P(NULL) return 
+            printf(2)
+            P(NULL) return
+        printf(3)
+        p(4)
+            P(NULL) return 
+            printf(4)
+            P(NULL) return
+</pre></div>
+
+<p>写递归函数的核心在于把我递归的本质：自顶向下，只有子问题都解了，才能够解上一层的问题。使用系统堆栈来实现该过程，因为系统堆栈能够不断地按照递归的顺序进行入栈，直到达到最小的子问题，从而将子问题解决，然后出栈，然后解决上一层子问题，直至最顶层的问题解决了；</p>
+<p>每个递归调用都是一条直线，如果递归函数中，出现了两次递归调用，则就是两条线了；</p>
+<p>对于有递归性质的问题或者结构，我们可以按照上述递归的思想去编写程序。当谈及需要验证或者模拟递归函数的执行过程的时候，就需要从相反的方向来解决问题了，我们需要从底向上来执行。</p>
+<h3 id="implementation-issues">Implementation issues<a class="headerlink" href="#implementation-issues" title="Permanent link">#</a></h3>
+<p>In actual implementation, rather than a pure recursive function (single check for base case, otherwise recursive step), a number of modifications may be made, for purposes of clarity or efficiency. These include:</p>
+<ul>
+<li>Wrapper function (at top)</li>
+<li>Short-circuiting（简化） the <strong>base case</strong>, aka "Arm's-length recursion" (at bottom)</li>
+<li>Hybrid algorithm (at bottom) – switching to a different algorithm once data is small enough</li>
+</ul>
+<p>On the basis of elegance, <strong>wrapper functions</strong> are generally approved, while short-circuiting the base case is frowned upon, particularly in academia. Hybrid algorithms are often used for efficiency, to reduce the overhead of recursion in small cases, and arm's-length recursion is a special case of this.</p>
+<h3 id="recursion-versus-iteration">Recursion versus iteration<a class="headerlink" href="#recursion-versus-iteration" title="Permanent link">#</a></h3>
+<p>Recursion and <a href="https://en.wikipedia.org/wiki/Iteration">iteration</a> are equally expressive: recursion can be replaced by iteration with an explicit <a href="https://en.wikipedia.org/wiki/Call_stack">call stack</a>, while iteration can be replaced with <a href="https://en.wikipedia.org/wiki/Tail_call">tail recursion</a>. Which approach is preferable depends on the problem under consideration and the language used. In <a href="https://en.wikipedia.org/wiki/Imperative_programming">imperative programming</a>, iteration is preferred, particularly for simple recursion, as it avoids the overhead of function calls and call stack management, but recursion is generally used for <strong>multiple recursion</strong>. By contrast, in <a href="https://en.wikipedia.org/wiki/Functional_programming">functional languages</a> recursion is preferred, with tail recursion optimization leading to little overhead. Implementing an algorithm using iteration may not be easily achievable.</p>
+<p>For example, a <a href="https://en.wikipedia.org/wiki/Factorial">factorial</a> function may be implemented iteratively in <a href="https://en.wikipedia.org/wiki/C_(programming_language)">C</a> by assigning to an loop index variable and accumulator variable, rather than by passing arguments and returning values by recursion:</p>
+<div class="highlight"><pre><span></span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="nf">factorial</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">product</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// empty product is 1</span>
+  <span class="k">while</span> <span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">product</span> <span class="o">*=</span> <span class="n">n</span><span class="p">;</span>
+    <span class="o">--</span><span class="n">n</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="n">product</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+<h4 id="multiply-recursive-problems">Multiply recursive problems<a class="headerlink" href="#multiply-recursive-problems" title="Permanent link">#</a></h4>
+<p>Multiply recursive problems are inherently recursive, because of prior state they need to track. One example is <a href="https://en.wikipedia.org/wiki/Tree_traversal">tree traversal</a> as in <a href="https://en.wikipedia.org/wiki/Depth-first_search">depth-first search</a>; though both recursive and iterative methods are used,[<a href="https://en.wikipedia.org/wiki/Recursion_(computer_science)#cite_note-19">19]</a> they contrast with list traversal and linear search in a list, which is a singly recursive and thus naturally iterative method. Other examples include <a href="https://en.wikipedia.org/wiki/Divide-and-conquer_algorithm">divide-and-conquer algorithms</a> such as <a href="https://en.wikipedia.org/wiki/Quicksort">Quicksort</a>, and functions such as the <a href="https://en.wikipedia.org/wiki/Ackermann_function">Ackermann function</a>. All of these algorithms can be implemented iteratively with the help of an explicit <a href="https://en.wikipedia.org/wiki/Stack_(data_structure)">stack</a>, but the programmer effort involved in managing the stack, and the complexity of the resulting program, arguably outweigh any advantages of the iterative solution.</p>
+<h4 id="refactoring-recursion">Refactoring recursion<a class="headerlink" href="#refactoring-recursion" title="Permanent link">#</a></h4>
+<p>Recursive algorithms can be replaced with non-recursive counterparts.[<a href="https://en.wikipedia.org/wiki/Recursion_(computer_science)#cite_note-20">20]</a>. One method for replacing recursive algorithms is to simulate them using <a href="https://en.wikipedia.org/wiki/Memory_management">heap memory</a> in place of <a href="https://en.wikipedia.org/wiki/Stack-based_memory_allocation">stack memory</a>.[<a href="https://en.wikipedia.org/wiki/Recursion_(computer_science)#cite_note-21">21]</a> An alternative is to develop a replacement algorithm entirely based on non-recursive methods, which can be challenging.[<a href="https://en.wikipedia.org/wiki/Recursion_(computer_science)#cite_note-22">22]</a> For example, recursive algorithms for <a href="https://en.wikipedia.org/wiki/Matching_wildcards">matching wildcards</a>, such as <a href="https://en.wikipedia.org/wiki/Rich_Salz">Rich Salz</a>' <a href="https://en.wikipedia.org/wiki/Wildmat">wildmat</a> algorithm,[<a href="https://en.wikipedia.org/wiki/Recursion_(computer_science)#cite_note-23">23]</a> were once typical. Non-recursive algorithms for the same purpose, such as the <a href="https://en.wikipedia.org/wiki/Krauss_matching_wildcards_algorithm">Krauss matching wildcards algorithm</a>, have been developed to avoid the drawbacks of recursion[<a href="https://en.wikipedia.org/wiki/Recursion_(computer_science)#cite_note-24">24]</a> and have improved only gradually based on techniques such as collecting <a href="https://en.wikipedia.org/wiki/Software_testing">tests</a> and <a href="https://en.wikipedia.org/wiki/Profiling_(computer_programming)">profiling</a> performance.[<a href="https://en.wikipedia.org/wiki/Recursion_(computer_science)#cite_note-25">25]</a></p>
+<h3 id="tail-recursive-functions">Tail-recursive functions<a class="headerlink" href="#tail-recursive-functions" title="Permanent link">#</a></h3>
+<p>Tail-recursive functions are functions in which all recursive calls are <a href="https://en.wikipedia.org/wiki/Tail_call">tail calls</a> and hence do not build up any deferred operations. For example, the gcd function (shown again below) is tail-recursive. In contrast, the factorial function (also below) is <strong>not</strong> tail-recursive; because its recursive call is not in tail position, it builds up deferred multiplication operations that must be performed after the final recursive call completes. With a <a href="https://en.wikipedia.org/wiki/Compiler">compiler</a> or <a href="https://en.wikipedia.org/wiki/Interpreter_(computing)">interpreter</a> that treats <strong>tail-recursive calls</strong> as <a href="https://en.wikipedia.org/wiki/Goto">jumps</a> rather than <strong>function calls</strong>, a <strong>tail-recursive function</strong> such as gcd will execute using <strong>constant space</strong>. Thus the program is essentially iterative, equivalent to using imperative language control structures like the "for" and "while" loops.</p>
+<p><a href="https://en.wikipedia.org/wiki/Tail_recursion">Tail recursion</a><strong>:</strong></p>
+<div class="highlight"><pre><span></span><span class="c1">//INPUT: Integers x, y such that x &gt;= y and y &gt;= 0</span>
+<span class="kt">int</span> <span class="nf">gcd</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">y</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+     <span class="k">return</span> <span class="n">x</span><span class="p">;</span>
+  <span class="k">else</span>
+     <span class="k">return</span> <span class="n">gcd</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span> <span class="o">%</span> <span class="n">y</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+<p><strong>Augmenting recursion:</strong></p>
+<div class="highlight"><pre><span></span><span class="c1">//INPUT: n is an Integer such that n &gt;= 0</span>
+<span class="kt">int</span> <span class="nf">fact</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
+<span class="p">{</span>
+   <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+      <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+   <span class="k">else</span>
+      <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">fact</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>The significance of <strong>tail recursion</strong> is that when making a <strong>tail-recursive call</strong> (or any tail call), the caller's return position need not be saved on the <a href="https://en.wikipedia.org/wiki/Call_stack">call stack</a>; when the recursive call returns, it will branch directly on the previously saved return position. Therefore, in languages that recognize this property of tail calls, tail recursion saves both space and time.</p>
+<h3 id="time-efficiency-of-recursive-algorithms">Time-efficiency of recursive algorithms<a class="headerlink" href="#time-efficiency-of-recursive-algorithms" title="Permanent link">#</a></h3>
+<p>The <a href="https://en.wikipedia.org/wiki/Time_complexity">time efficiency</a> of recursive algorithms can be expressed in a <a href="https://en.wikipedia.org/wiki/Recurrence_relation">recurrence relation</a> of <a href="https://en.wikipedia.org/wiki/Big_O_notation">Big O notation</a>. They can (usually) then be simplified into a single Big-O term.</p>
+<h4 id="shortcut-rule-master-theorem">Shortcut rule (master theorem)<a class="headerlink" href="#shortcut-rule-master-theorem" title="Permanent link">#</a></h4>
+<p><em>Main article:</em> <a href="https://en.wikipedia.org/wiki/Master_theorem_(analysis_of_algorithms)">Master theorem (analysis of algorithms)</a></p>
+<p>If the time-complexity of the function is in the form</p>
+<p>$ T(n)=a\cdot T(n/b)+f(n) $</p>
+<p>Then the Big O of the time-complexity is thus:</p>
+<ul>
+<li>If $ f(n)=O(n^{\log _{b}a-\epsilon }) $ for some constant $ \epsilon &gt;0 $, then $ T(n)=\Theta (n^{\log _{b}a}) $</li>
+<li>If $ f(n)=\Theta (n^{\log _{b}a}) $, then $ T(n)=\Theta (n^{\log _{b}a}\log n) $</li>
+<li>If $ f(n)=\Omega (n^{\log _{b}a+\epsilon }) $ for some constant $ \epsilon &gt;0 $, and if $ a\cdot f(n/b)\leq c\cdot f(n) $ for some constant <em>c</em> &lt; 1 and all sufficiently large <em>n</em>, then $ T(n)=\Theta (f(n)) $</li>
+</ul>
+<p>where <em>a</em> represents the number of recursive calls at each level of recursion, <em>b</em> represents by what factor smaller the input is for the next level of recursion (i.e. the number of pieces you divide the problem into), and <em>f</em> (<em>n</em>) represents the work the function does independent of any recursion (e.g. partitioning, recombining) at each level of recursion.</p>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../Recurrence-relation/" title="Recurrence-relation" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Recurrence-relation
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../Recursion-analysis-and-representation/" title="Recursion-analysis-and-representation" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Recursion-analysis-and-representation
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../../assets/javascripts/application.808e90bb.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../../.."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>
