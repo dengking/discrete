@@ -40,7 +40,7 @@ A [recursive](https://en.wikipedia.org/wiki/Recursive) [definition](https://en.w
 
 Most recursive definitions have two foundations: a base case (basis) and an **inductive clause**.
 
-> NOTE: “inductive clause”的含义是“归纳子句”，关于“inductive ”，参见[Induction](./Induction-and-deduction/Induction.md)。
+> NOTE: “inductive clause”的含义是“归纳子句”，关于“inductive ”，参见[Induction](../Induction-and-deduction/Induction.md)。
 
 That recursive definitions are valid – meaning that a recursive definition identifies a unique function – is a theorem of set theory known as the [recursion theorem](https://en.wikipedia.org/wiki/Recursion#The_recursion_theorem), the proof of which is non-trivial. Where the domain of the function is the **natural numbers**, sufficient conditions for the definition to be valid are that the value of `f(0)` (i.e., base case) is given, and that for n > 0, an algorithm is given for determining `f(n)` in terms of `f(0)`,`f(1)`, ... ,`f(n-1)` (i.e., inductive clause).
 

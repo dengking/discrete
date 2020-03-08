@@ -10,3 +10,12 @@
 
 
 
+## Example of discrete objects
+
+[discrete structure](./Structure/Discrete-structure.md)、[recurrence relation](./Guide/Induction-and-Recursion/Recursion/Recurrence-relation.md)
+
+
+
+## Computation on discrete objects
+
+在[Discrete math](./What-is-discrete-math/Discrete-math.md)中，我们已经总结了discrete的computable的特性，那如何来进行实现呢？

@@ -1,8 +1,8 @@
 # Iteration
 
-我们已经研究了[recursion](../Recursion/index.md)，现在来看和recursion密切相关的另外一种在计算机科学中广泛存在的：iteration。
+我们已经研究了[recursion](../Induction-and-Recursion/index.md)，现在来看和recursion密切相关的另外一种在计算机科学中广泛存在的：iteration。
 
-我觉得之所以recursion和iteration如此重要，是因为computer science中，[离散结构](../Discrete.md)是广泛存在的，在基于这些离散结构进行计算的时候，我们最最常用的就是recursion和iteration。
+我觉得之所以recursion和iteration如此重要，是因为computer science中，[离散](../../../What-is-discrete-math/Discrete-math.md)是广泛存在的，在基于这些离散结构进行计算的时候，我们最最常用的就是recursion和iteration。
 
 正如在维基百科[Iteration](https://en.wikipedia.org/wiki/Iteration)中有这样的总结：
 

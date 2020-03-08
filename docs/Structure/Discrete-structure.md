@@ -1,6 +1,6 @@
 # Discrete structure
 
-有了[discrete](../What-is-discrete-math/Discrete-VS-continuous.md)概念和[structure](./Structure.md)概念，那么理解what is discrete structure就比较容易了。下面是一些关于discrete structure的内容：
+有了[discrete](../What-is-discrete-math/Discrete-math.md)概念和[structure](./Structure.md)概念，那么理解what is discrete structure就比较容易了。下面是一些关于discrete structure的内容：
 
 
 
