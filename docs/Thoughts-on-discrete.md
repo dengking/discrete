@@ -1,5 +1,9 @@
 # Discrete
 
+只有离散才能够计数，这就衍生出了[Combinatorics](https://en.wikipedia.org/wiki/Combinatorics)。
+
+从structure到discrete structures。
+
 ## 计算机科学是离散的
 
 

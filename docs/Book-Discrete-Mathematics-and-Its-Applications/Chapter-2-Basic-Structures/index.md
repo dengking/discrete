@@ -1,0 +1,3 @@
+# 2 Basic Structures: Sets, Functions, Sequences, Sums, and Matrices
+
+Much of discrete mathematics is devoted to the study of discrete structures, used to represent **discrete objects**. Many important **discrete structures** are built using sets, which are collections of objects. Among the discrete structures built from sets are **combinations**,unordered collections of objects used extensively in counting; **relations**, sets of ordered pairs that represent relationships between objects; **graphs**, sets of vertices and edges that connect vertices; and finite state machines, used to model computing machines. These are some of the topics we will study in later chapters.

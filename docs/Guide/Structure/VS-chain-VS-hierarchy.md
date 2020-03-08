@@ -1,5 +1,0 @@
-# Chain VS hierarchy
-
-经过前面章节的分析，我们已经知道了chain对应的是total order，hierarchy对应的是partial order，这就是两者本质的差异所在。
-
-其实，如果将hierarchy的同一层的所有节点合并为一个节点，则hierarchy就转换成了chain。这说明hierarchy是具备一定的线性特征的。

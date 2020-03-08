@@ -1,4 +1,6 @@
 nav:
     - Introduction: index.md
+    - Induction-and-Recursion: Induction-and-Recursion
     - Relation: Relation
-    - 
+    - Combinatorics: Combinatorics
+    - Iteration: Iteration

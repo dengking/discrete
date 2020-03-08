@@ -1,0 +1,3 @@
+# 9 Relations
+
+Relationships between elements of sets are represented using the structure called a **relation**, which is just as sub set of the Cartesian product of the sets. Relations can be used to solve problems such as determining which pairs of cities are linked by airline flights in a network, finding a viable order for the different phases of a complicated project, or producing a useful way to store information in computer databases.
