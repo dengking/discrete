@@ -2,7 +2,7 @@
 
 我们已经研究了[recursion](../Induction-and-Recursion/index.md)，现在来看和recursion密切相关的另外一种在计算机科学中广泛存在的：iteration。
 
-我觉得之所以recursion和iteration如此重要，是因为computer science中，[离散](../../What-is-discrete-math/Discrete-math.md)是广泛存在的，在基于这些离散结构进行计算的时候，我们最最常用的就是recursion和iteration。
+我觉得之所以recursion和iteration如此重要，是因为computer science中，[离散](../../What-is-discrete-math/Discrete-math.md)是广泛存在的，在基于这些[离散结构](../../Structure/Discrete-structure.md)进行计算的时候，我们最最常用的就是[recursion](../Induction-and-Recursion/Recursion/index.md)和iteration。
 
 正如在维基百科[Iteration](https://en.wikipedia.org/wiki/Iteration)中有这样的总结：
 
@@ -14,6 +14,8 @@
 
 - [Iterator](https://en.wikipedia.org/wiki/Iterator)
 - [Iterator pattern](https://en.wikipedia.org/wiki/Iterator_pattern)
+- [Iterative method](https://en.wikipedia.org/wiki/Iterative_method)
+- [Iterative deepening depth-first search](https://en.wikipedia.org/wiki/Iterative_deepening_depth-first_search)
 
 
 
@@ -25,9 +27,7 @@ stream是一种线性结构。
 
 不同的programming language，以不同的方式来支持iteration的方式是不同的，c中直接使用裸指针来支持iteration，c++中抽象出来iterator（参见[Iterator library](https://en.cppreference.com/w/cpp/iterator)）。python中使用magic function来支持iteration。python中并没有显式地定义iterator类型。
 
-## 编写计划
 
-将iteration和放到recursion之下。与它们相关的另外一个概念就是discrete、structure。
 
 ## 容器与算法的分离
 

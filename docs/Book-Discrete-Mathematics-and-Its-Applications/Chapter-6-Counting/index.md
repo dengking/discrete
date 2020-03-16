@@ -10,6 +10,10 @@ Combinatorics, the study of arrangements of objects, is an important part of dis
 
 **Counting problems** can be solved using tree diagrams. A tree consists of a root, a number of branches leaving the root, and possible additional branches leaving the endpoints of other branches. (We will study trees in detail in Chapter 11.)To use trees in counting, we use a branch to represent each possible choice. We represent the possible outcomes by the **leaves**, which are the endpoints of branches not having other branches starting at them.
 
+> NOTE: 当使用tree diagram来解决counting problem的时候，采用的是自顶向下策略来构建tree。在上面这段中描述的这种关系，其实也可以使用tree model的nesting关系来进行表达。
+>
+> 关于“自顶向下策略”、“nesting关系”，参见工程[data-structure](https://dengking.github.io/data-structure/)的[Tree](https://dengking.github.io/data-structure/Tree/)章节。
+
 Note that when a tree diagram is used to solve a counting problem, the number of choices of which branch to follow to reach a leaf can vary (see Example 21, for example).
 
 **EXAMPLE 22** A play off between two teams consists of at most five games. The first team that wins three games wins the playoff. In how many different ways can the playoff occur?
