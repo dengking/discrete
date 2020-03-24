@@ -16,7 +16,7 @@ In [computer programming](https://en.wikipedia.org/wiki/Computer_programming), a
 
 Internal iterators are [higher order functions](https://en.wikipedia.org/wiki/Higher_order_functions) (often taking [anonymous functions](https://en.wikipedia.org/wiki/Anonymous_functions)) such as *map*, *reduce* etc., implementing the traversal across a container, applying the given function to every element in turn.
 
-> NOTE: 其实这属于functional programming paradigm，结合python的Functional Programming Modules[¶](https://docs.python.org/3/library/functional.html#functional-programming-modules)、Functional Programming HOWTO[¶](https://docs.python.org/3/howto/functional.html#functional-programming-howto)来理解是非常好理解的。所谓的internal iterator是指使用`map`等 higher order function（这些函数接收一个函数作为参数），这些函数在内部这些iteration操作，所以对于使用者而言，它就无需显式地使用`for`、`while`等循环语句了，这就是所谓的“Internal Iterators”。
+> NOTE: 其实这属于functional programming paradigm，结合python的Functional Programming Modules[¶](https://docs.python.org/3/library/functional.html#functional-programming-modules)、Functional Programming HOWTO[¶](https://docs.python.org/3/howto/functional.html#functional-programming-howto)来理解是非常好理解的。所谓的internal iterator是指使用`map`等 higher order function（这些函数接收一个函数作为参数），这些函数在内部执行iteration操作，所以对于使用者而言，它就无需显式地使用`for`、`while`等循环语句了，这就是所谓的“Internal Iterators”。
 
 #### External iterators and the iterator pattern
 
@@ -42,3 +42,5 @@ Implicit iterators are often manifested by a "[foreach](https://en.wikipedia.org
 for value in iterable:
     print(value)
 ```
+
+> NOTE: c++中将此称为[range-for](https://en.cppreference.com/w/cpp/language/range-for)

@@ -36,10 +36,13 @@ nav:
 - What-is-discrete-math:
   - Introduction: What-is-discrete-math/index.md
   - Discrete-math: What-is-discrete-math/Discrete-math.md
+- Property-of-discrete-objects: Property-of-discrete-objects.md
+- Discrete-VS-continuous: Discrete-VS-continuous.md
 - Discrete-math-and-computer-science: Discrete-math-and-computer-science.md
 - Structure:
   - Structure: Structure/Structure.md
   - Discrete-structure: Structure/Discrete-structure.md
+  - Summary-of-structure: Structure/Summary-of-structure.md
 - Guide:
   - Introduction: Guide/index.md
   - Induction-and-Recursion:
@@ -72,6 +75,8 @@ nav:
       - Well-order: Guide/Relation/Order-theory/Well-order.md
       - Greatest-and-least-elements: Guide/Relation/Order-theory/Greatest-and-least-elements.md
       - Application: Guide/Relation/Order-theory/Application.md
+    - Structure-and-relation: Guide/Relation/Structure-and-relation.md
+    - Rrelation-model: Guide/Relation/Rrelation-model.md
   - Combinatorics:
     - Introduction: Guide/Combinatorics/index.md
     - Combinatorics: Guide/Combinatorics/Combinatorics.md
@@ -82,6 +87,7 @@ nav:
   - Iteration:
     - Introduction: Guide/Iteration/index.md
     - Iteration: Guide/Iteration/Iteration.md
+    - Iterator: Guide/Iteration/Iterator.md
 - Book-Discrete-Mathematics-and-Its-Applications:
   - Introduction: Book-Discrete-Mathematics-and-Its-Applications/index.md
   - Preface: Book-Discrete-Mathematics-and-Its-Applications/Preface.md
