@@ -44,3 +44,9 @@ for value in iterable:
 ```
 
 > NOTE: c++中将此称为[range-for](https://en.cppreference.com/w/cpp/language/range-for)
+
+
+
+#### [Contrasting with indexing](https://en.wikipedia.org/wiki/Iterator#Contrasting_with_indexing)
+
+> NOTE: 原文这一段总结的非常好。
