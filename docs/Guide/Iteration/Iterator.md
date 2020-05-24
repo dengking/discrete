@@ -22,7 +22,7 @@ Internal iterators are [higher order functions](https://en.wikipedia.org/wiki/Hi
 
 An external **iterator** may be thought of as a type of [pointer](https://en.wikipedia.org/wiki/Pointer_(computer_programming)) that has two primary operations: **referencing** one particular element in the object collection (called *element access*), and **modifying** itself so it points to the next element (called *element traversal*). There must also be a way to create an iterator so it points to some first element as well as some way to determine when the iterator has exhausted all of the elements in the container. Depending on the language and intended use, iterators may also provide additional operations or exhibit different behaviors.
 
-> NOTE: 将iterator比作pointer，是非常任意理解的。
+> NOTE: 将iterator比作pointer，是非常容易理解的。
 
 The primary purpose of an iterator is to allow a user to process every element of a container while isolating the user from the internal structure of the container. This allows the container to store elements in any manner it wishes while allowing the user to treat it as if it were a simple sequence or list. An iterator class is usually designed in tight coordination with the corresponding container class. Usually, the container provides the methods for creating iterators.
 
@@ -50,3 +50,13 @@ for value in iterable:
 #### [Contrasting with indexing](https://en.wikipedia.org/wiki/Iterator#Contrasting_with_indexing)
 
 > NOTE: 原文这一段总结的非常好。
+
+## Iterator VS pointer 
+
+我觉得，最最能够说明iterator VS pointer的是[Iterator pattern](https://en.wikipedia.org/wiki/Iterator_pattern)，在维基百科[Iterator pattern#Overview](https://en.wikipedia.org/wiki/Iterator_pattern#Overview)中说明了我们为什么要使用iterator pattern，其实就是iterator pattern相比于pointer的优势所在，iterator更加地抽象，我们依赖于抽象，而不是依赖于具体。
+
+## Application of iterator
+
+### Generic programming
+
+参见`Theory\Programming-paradigm\Generic-programming`，典型例子就是STL，其中使用iterator来作为container的抽象描述。

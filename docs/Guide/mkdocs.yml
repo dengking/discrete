@@ -1,6 +1,8 @@
 nav:
     - Introduction: index.md
+    # 归纳与递归
     - Induction-and-Recursion: Induction-and-Recursion
+    # 关系
     - Relation: Relation
     - Combinatorics: Combinatorics
     # discrete objects的问题常常会涉及的一种计算方式
