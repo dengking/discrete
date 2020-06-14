@@ -67,6 +67,8 @@ https://www.elsevier.com/books/discrete-computational-structures/korfhage/978-0-
 
 ## one-by-one
 
+one-by-one是沿着structure、relation逐个进行处理，它和optional sub structure密切相关。
+
 所有的one-by-one的，都是enumerable、countable。
 
 ### 函数的执行是离散的
