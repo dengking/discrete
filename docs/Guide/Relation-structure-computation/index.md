@@ -1,32 +1,31 @@
 ## 关于本章
 
-本章的标题是“Relation-structure-computation”，它的含义是关系、结构、计算”，它们是discrete math涉及的之一课题。
-
-“relation”将在[Relation](./Relation/index.md)中进行描述；
-
-“structure”将在[Structure](./Structure/index.md)中进行描述；
-
-“computation”将在[Computation](./Computation/index.md)中进行描述；
-
-本文对本章的内容进行综述，以从一个较高的角度来掌握本章的内容。
+本章的标题是“Relation-structure-computation”，它的含义是关系、结构、计算”，它们是discrete math涉及的之一课题。本文对本章的内容进行综述，以从一个较高的角度来掌握本章的内容。
 
 ## 综述
 
 如果discrete object之间没有relation，那么它们就是一堆杂乱无章、毫无规律可言的混沌系统，无法使用精简的数学语言对其进行描述（formal description），我们所关注的是那些具备中**relation**的discrete objects。
 
-对于具备relation的discrete objects（可以看做是**node**），通过relation将discrete objects进行关联，显然它们形成了一个一个的**ordered pair**（可以看做是edge），这些order pair就形成了一定的structure。
+对于具备relation的discrete objects（可以看做是**node**），通过relation将discrete objects进行关联，显然它们形成了一个一个的**ordered pair**（可以看做是edge），这些order pair就形成了一定的structure。我们将在`Structure`章节讨论relation and structure，我们将使用relation的理论知识来描述structure。
 
 graph是表示relation的有效工具，后面我们会看到graph的定义和relation的定义是非常类似的，基于graph的algorithm，可以解决很多relation的问题。
 
-作为software engineer，我们需要思考的问题是：“哪些问题是可计算的？”、“该如何实现计算”。
+作为software engineer，我们需要思考的问题是：“哪些问题是可计算的？”、“该如何实现计算”。在discrete领域，我们考虑的computation主要是具备relation的discrete objects的computation，后面我们将看到，对于某些relation，我们可以设计出非常高效的algorithm来对它们进行computation，我们将在`Computation`章节来讨论relation and computation。
+
+“relation”将在[Relation](./Relation/index.md)章节进行描述；
+
+“structure”将在[Structure](./Structure/index.md)章节进行描述；
+
+“computation”将在[Computation](./Computation/index.md)章节进行描述；
+
+
 
 ### relation and structure
 
 将讨论如下问题：
 
 - 有哪些structure
-
-  
+- relation和structure之间的关系，我们需要思考：relation的哪些特性决定了structure
 
 ### relation and computation
 

@@ -63,3 +63,33 @@ https://books.google.com/books/about/Discrete_Computational_Structures.html?id=K
 
 https://www.elsevier.com/books/discrete-computational-structures/korfhage/978-0-12-420850-6
 
+
+
+## one-by-one
+
+所有的one-by-one的，都是enumerable、countable。
+
+### 函数的执行是离散的
+
+名称中的sub，表示去具备包含关系。
+
+将函数抽象成一个一个的节点，则我们所描述的是一张图。
+
+显然它是具备离散特性的。
+
+它的执行模型是离散的
+
+### CPU对指令的执行是离散的
+
+CPU的指令的执行是一条一条的，它是离散的
+
+### abstract machine
+
+#### stack machine
+
+显然是离散的
+
+#### Turing machine
+
+Turing machine也是one-by-one地执行的，所以它是离散的
+
