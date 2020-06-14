@@ -4,37 +4,15 @@
 
 从structure到discrete structures。
 
-## 计算机科学是离散的
 
 
 
-## 计算思维
-
-### 哪些问题是可计算的？
-
-其实是分析结构、formal、规律，而这些都是离散的。
-
-## 结构是离散的
-
-结构就是离散的。关系是在离散数学课程中讲述的。它们都可以使用graph来进行表示，而graph是典型的离散结构。
-
-### 函数调用过程是离散的
-
-函数的调用过程也是离散的，将调用一个函数看做是画一个点的话。
 
 
 
-## 如何解决离散问题
-
-one-by-one
-
-离散的结构、问题我们可以使用递归、iteration的方式对它们进行解决。
 
 
 
-## 离散 and 递归
-
-离散的结构可能具备递归特性，这样就可以进行递归定义了，就可以使用structural recursion来进行解决了。
 
 ## [Discrete mathematics](https://en.wikipedia.org/wiki/Discrete_mathematics)
 
