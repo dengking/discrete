@@ -6,7 +6,7 @@
 
 “discrete”即“离散”，“continuous”即“连续”，两者可以看做是一对反义词，如果是discrete的话，则必然就不是continuous的。
 
-关于“discrete”的概念，维基百科[Discrete space](https://en.wikipedia.org/wiki/Discrete_space)给出了解释。我的直观理解就是不相连的、是一个一个node。
+关于“discrete”的概念，维基百科[Discrete space](https://en.wikipedia.org/wiki/Discrete_space)给出了解释。我的直观理解就是不相连的、是一个一个node，后面我们将它称为“discrete object”。
 
 关于“continuous”的概念，维基百科[Continuous function](https://en.wikipedia.org/wiki/Continuous_function)给出了解释，我的直观理解是相连的、是（平滑的）曲线。
 
@@ -36,12 +36,20 @@
 
 
 
-## discrete、relation、structure、graph
+## Discrete、relation、structure、graph
+
+本节的标题的含义是“离散、关系、结构体、图”，它们是discrete math涉及的主要课题。
 
 如果discrete object之间没有relation，那么它们就是一堆杂乱无章、毫无规律可言的混沌系统，无法使用精简的数学语言对其进行描述，我们所研究的是那些具备中relation的discrete objects。
 
-relation是核心所在，我们通过relation将discrete object进行关联，然后形成了structure，graph是表示structure，或者更加本质地说表示relation的有效工具。
+对于具备relation的discrete objects（可以看做是**node**），我们通过relation将discrete objects进行关联，显然它们形成了一个一个的**ordered pair**，这些order pair就形成了一定的structure。
+
+graph是表示relation的有效工具，后面我们会看到graph的定义和relation的定义是非常类似的，基于graph的algorithm，可以解决很多relation的问题。
 
 ### 结构化思维
 
-有形的结构、逻辑结构3
+
+
+在当我们使用relation来描述事物的时候（即按照上面描述的node、orderd-pair的方式来进行组织），我们会发现它们会形成一定的structure，比如graph、tree、chain，我们建这种思维称为“结构化思维”。
+
+结构，可以是有形的结构，也可以是无形的、逻辑的结构。

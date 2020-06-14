@@ -3,8 +3,6 @@
 > NOTE: 主要讨论如下议题：
 >
 > - 对于discrete objects的相关问题，如何设计algorithm来实现computation
->
-> 本节可以使用`Book-Discrete-Mathematics-and-Its-Applications/Preface.md`来作为开头
 
 正如在维基百科[Discrete mathematics](https://en.wikipedia.org/wiki/Discrete_mathematics)中所述：
 
@@ -14,11 +12,19 @@
 
 > Computer science is discrete.
 
+即“计算机科学是离散的”
+
 
 
 ## Example of discrete objects
 
 [discrete structure](./Structure/Discrete-structure.md)、[recurrence relation](./Guide/Induction-and-Recursion/Recursion/Recurrence-relation.md)
+
+
+
+### 函数调用过程是离散的
+
+将调用一个函数看做是画一个点的话，函数的调用过程将呈现树结构，它是包含关系。
 
 
 
@@ -41,10 +47,19 @@ Turing的可计算理论是对此的研究，下面是我基于discrete的直观
 
 #### 该如何实现计算
 
-在“Computation on discrete objects”总结了两种非常常见的computation形式，其实这是非常粗浅的，
+在“Computation on discrete objects”总结了两种非常常见的computation形式，其实这是非常粗浅的，更加具体说来是：基于discrete objects的relation、structure来设计algorithm。
 
-基于discrete objects的relation、structure来设计algorithm。
 
-## 结构思维
 
-discrete objects之间具备着relation，
+##### relation and recursion
+
+同一个关系、transitive relation、的structure，往往是recursive的
+
+离散的结构可能具备递归特性，这样就可以进行递归定义了，就可以使用structural recursion来进行解决了。
+
+
+
+什么样的关系可以形成什么样的结构。比如chain、tree、graph。
+
+什么样的关系可以使用recursion来进行处理。
+
