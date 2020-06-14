@@ -33,3 +33,15 @@
 
 
 
+
+
+
+## discrete、relation、structure、graph
+
+如果discrete object之间没有relation，那么它们就是一堆杂乱无章、毫无规律可言的混沌系统，无法使用精简的数学语言对其进行描述，我们所研究的是那些具备中relation的discrete objects。
+
+relation是核心所在，我们通过relation将discrete object进行关联，然后形成了structure，graph是表示structure，或者更加本质地说表示relation的有效工具。
+
+### 结构化思维
+
+有形的结构、逻辑结构3

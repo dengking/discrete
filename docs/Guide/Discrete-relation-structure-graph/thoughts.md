@@ -1,0 +1,1 @@
+如果从“使用graph来表示relation”的角度来思考，chain、hierarchy、tree都是一种graph，或者说它们都是graph的退化。
