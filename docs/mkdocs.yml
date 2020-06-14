@@ -1,8 +1,7 @@
 nav:
     - Home: index.md
-    # 首先描述说明是discrete math，然后描述discrete objects的特性，discrete objects的这些特性使它是computable的，这样我们就可以设计algorithm来解决与它相关的问题，
-    # 和computer science之间的关系
-    - What-is-discrete-math: What-is-discrete-math
+    # 回答的是What is discrete和What is discrete math
+    - Discrete-and-discrete-math: Discrete-and-discrete-math
     # discrete objects的这些特性是能够设计algorithm来解决与相关的问题的前提
     - Property-of-discrete-objects: Property-of-discrete-objects.md
     # 离散和连续之间的对比

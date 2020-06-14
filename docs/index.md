@@ -4,6 +4,8 @@
 
 > Computer science is discrete.
 
-这也是我写作本工程的动机。
+这也是我写作本工程的动机。这个想法让我想起了在大学二年级时学习discrete math课程，当时使用的教材是非常经典的[Discrete Mathematics and Its Applications](https://www.amazon.com/Discrete-Mathematics-Applications-Kenneth-Rosen/dp/125967651X)。
 
-本工程主要是关于discrete math（离散数学）的知识，是我以一个有一定工作经验的software engineer的视角来回顾在大学二年级时学习这门课程，使用的教材是非常经典的[Discrete Mathematics and Its Applications](https://www.amazon.com/Discrete-Mathematics-Applications-Kenneth-Rosen/dp/125967651X)。
+首先说明什么是discrete math，然后描述discrete objects的特性，discrete objects的这些特性使得它是computable的，这样我们就可以设计algorithm来解决与它相关的问题，
+
+需要结合具体的例子来证实“computer science is discrete”观点。

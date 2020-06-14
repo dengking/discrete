@@ -24,4 +24,5 @@ discrete objects一般是countable的（有的是无法count的）。
 
 关于“computable”，参见维基百科[Computability theory](https://en.wikipedia.org/wiki/Computability_theory)、维基百科[Computability](https://en.wikipedia.org/wiki/Computability)。
 
-关于discrete objects的问题，一般是computable的。
+discrete objects，一般是computable的，作为software engineer，我们就需要思考：如何来实现“Computation on discrete objects”；显然与此相关的一个重要课题就是：算法，这在后续的章节中会进行介绍。
+
