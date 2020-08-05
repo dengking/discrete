@@ -58,3 +58,21 @@ graph是表示relation的有效工具，后面我们会看到graph的定义和re
 
 基本上目前我碰到的这些离散的结构，都可以使用one-by-one的方式来设计算法。
 
+#### 结构化思维 and deep learning
+
+从computational graph出发来进行解释。
+
+素材：维基百科[Backpropagation](https://en.wikipedia.org/wiki/Backpropagation)：forward network对应的数学公式：
+$$
+g(x):=f^{L}(W^{L}f^{L-1}(W^{L-1}\cdots f^{1}(W^{1}x)\cdots ))
+$$
+
+
+
+素材：`machine-learning\docs\Theory\Deep-learning\Book-deep-learning\Part-II-Deep-Networks-Modern-Practices\Model-And-layer-And-computation-And-computational-graph.md`
+
+#### Thoughts
+
+regular language是linear structure，hierarchy language是hierarchy 结构
+
+结构：产生式是树结构；函数是computation graph

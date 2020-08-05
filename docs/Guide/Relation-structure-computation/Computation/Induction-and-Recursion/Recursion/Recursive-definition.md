@@ -2,7 +2,7 @@
 
 软件工程师，对于definition（定义）这个词肯定不会陌生，因为我们每天都在“定义一个函数”、“定义一个类”。维基百科的[definition](https://en.wikipedia.org/wiki/Definition)内容比较深奥，本文将简单地来说definition，定义就是在前文中所提及的“描述”，不过定义有着更多限制。本文重点简述的是[Recursive definition](https://en.wikipedia.org/wiki/Recursive_definition)，在计算机科学中，[recursion](https://en.wikipedia.org/wiki/Recursion)无处不在，软件工程师应该对它保持敏感，对于所有具备[recursion](https://en.wikipedia.org/wiki/Recursion)特性的（包括类型、过程等），都能够给出其[Recursive definition](https://en.wikipedia.org/wiki/Recursive_definition)。
 
-## [Recursive definition](https://en.wikipedia.org/wiki/Recursive_definition)
+## wikipedia [Recursive definition](https://en.wikipedia.org/wiki/Recursive_definition)
 
 In [mathematics](https://en.wikipedia.org/wiki/Mathematics) and [computer science](https://en.wikipedia.org/wiki/Computer_science), a **recursive definition**, or **inductive definition**（归纳定义）, is used to define the [elements](https://en.wikipedia.org/wiki/Element_(mathematics)) in a [set](https://en.wikipedia.org/wiki/Set_(mathematics)) in terms of other elements in the set ([Aczel](https://en.wikipedia.org/wiki/Peter_Aczel) 1977:740ff). Some examples of **recursively-definable objects** include [factorials](https://en.wikipedia.org/wiki/Factorial), [natural numbers](https://en.wikipedia.org/wiki/Natural_number), [Fibonacci numbers](https://en.wikipedia.org/wiki/Fibonacci_number), and the [Cantor ternary set](https://en.wikipedia.org/wiki/Cantor_set).
 
@@ -10,7 +10,7 @@ In [mathematics](https://en.wikipedia.org/wiki/Mathematics) and [computer scienc
 >
 > 规定属于同一个set的所有元素都是具有相同类型的元素，则recursively-definable object是由相同类型的其他object（即这个集合中的其他元素）来进行定义的（构成）。
 >
-> 可以看到，当我们将set理解为type后，原来的描述就变成了software engineer非常任意理解的了。
+> 可以看到，当我们将set理解为type后，原来的描述就变成了software engineer非常容易理解的了。
 >
 > 上述定义是非常严谨的，使用了数学中的 [set](https://en.wikipedia.org/wiki/Set_(mathematics)) 的概念，可以认为它使用的是一种数学语言。在其他文章中都可以看到完全使用自然语言描述的recursive definition，比如：
 >
@@ -48,7 +48,7 @@ More generally, recursive definitions of functions can be made whenever the doma
 
 > NOTE: 上面这段话并没有理解。
 
-### 总结
+## 总结
 
 按照原文第一段中对recursive definition的描述，发现其实它非常类似于induction（归纳法），我们知道，induction是bottom-up的，尤其是[natural numbers](https://en.wikipedia.org/wiki/Natural_number)的例子。而我对recursion的惯常印象是它是top-down。这两者不是矛盾吗？
 
@@ -71,28 +71,38 @@ More generally, recursive definitions of functions can be made whenever the doma
 - 自底向上
 - 自顶向下
 
-### [Examples of recursive definitions](https://en.wikipedia.org/wiki/Recursive_definition#Examples_of_recursive_definitions)
+## [Examples of recursive definitions](https://en.wikipedia.org/wiki/Recursive_definition#Examples_of_recursive_definitions)
 
-#### Recursive grammar
+### Recursive grammar
 
 参见：
 
 - 维基百科[Recursive grammar](https://en.wikipedia.org/wiki/Recursive_grammar)
 - 龙书[2.2.1 Definition of Grammars](https://dengking.github.io/compiler-principle/Chapter-2-A-Simple-Syntax-Directed-Translator/2.2-Syntax-Definition/#221-definition-of-grammars)
 
-#### Recursive definition in computer science
+### Recursive definition in computer science
 
-有太多太多的算法、结构都是可以使用recursive definition的。
+有太多太多的算法、结构都是可以使用recursive definition的，能够recursive definition的，称它具备递归性。
 
-一般带有“sub”的都是可以进行recursive definition的，比如subtree，sublist
+#### sub structure
 
- 能够recursive definition的，称它具备递归性。
-
-在维基百科[Structural induction](https://en.wikipedia.org/wiki/Structural_induction)中所提及的：
+一般带有“sub”的都是可以进行recursive definition的，比如subtree，sublist，在维基百科[Structural induction](https://en.wikipedia.org/wiki/Structural_induction)中所提及的：
 
 > [recursively defined](https://en.wikipedia.org/wiki/Recursive_definition) structure, such as [formulas](https://en.wikipedia.org/wiki/First-order_logic#Formulas), [lists](https://en.wikipedia.org/wiki/List_(computer_science)), or [trees](https://en.wikipedia.org/wiki/Tree_(graph_theory))
 
+#### multiple-dimensional array
 
+在阅读 https://stackoverflow.com/a/4810676 时，其中有这样的描述：
+
+>  Multidimensional arrays are often referred to as "arrays of arrays"
+
+显然，这是典型的recursive definition。
+
+与此类似的还有：multiple-level pointer。
+
+multiple-dimensional array和multiple-level pointer可以看做是具备nesting关系（参见工程`data-structure`的`Graph\Tree\Tree-structure.md`章节）。
+
+multiple-dimensional array和multiple-level pointer可以递归的进行处理，在文章 https://stackoverflow.com/a/5580952 中给出了示例程序。
 
 ## Recursive definition and [closure](https://en.wikipedia.org/wiki/Closure_(mathematics)) 
 
