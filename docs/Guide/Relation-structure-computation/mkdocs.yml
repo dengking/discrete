@@ -4,9 +4,4 @@ nav:
     - Relation: Relation
     # 结构，结构就是典型的具备离散特性的
     - Structure: Structure
-    # 对一些专题进行总结，给出read guide
-    - Guide: Guide
-    
-    - Combinatorics: Combinatorics
-    # discrete objects的问题常常会涉及的一种计算方式
-    - Iteration: Iteration
+    - Computation: Computation
