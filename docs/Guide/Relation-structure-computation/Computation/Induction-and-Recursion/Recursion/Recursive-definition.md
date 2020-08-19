@@ -86,7 +86,7 @@ More generally, recursive definitions of functions can be made whenever the doma
 
 #### sub structure
 
-一般带有“sub”的都是可以进行recursive definition的，它是一种典型的containing关系，它是可以使用CFG来进行描述的
+一般带有“sub”的都是可以进行recursive definition的，它是一种典型的**containing关系**，它是可以使用CFG来进行描述的。下面是典型的sub structure：
 
 - subtree，sublist，在维基百科[Structural induction](https://en.wikipedia.org/wiki/Structural_induction)中所提及的：
 
