@@ -87,7 +87,7 @@ for any natural number *n*.
 
 ## In computer science
 
-参见工程文章 [Recursion(computer-science)](./Recursion(computer-science))。
+参见工程文章 `Recursion-in-computer-science\Recursion(computer-science).md`。
 
 
 
