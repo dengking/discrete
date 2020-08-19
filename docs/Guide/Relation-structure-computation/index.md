@@ -69,10 +69,14 @@ $$
 
 素材：`machine-learning\docs\Theory\Deep-learning\Book-deep-learning\Part-II-Deep-Networks-Modern-Practices\Model-And-layer-And-computation-And-computational-graph.md`
 
-#### Thoughts
-
-regular language是linear structure，context free language是hierarchy 结构。
 
 
+## Thoughts
 
-结构：产生式是树结构；函数是computation graph
+- regular language是linear structure，context free language是hierarchy 结构。
+
+- 结构：产生式是containing关系，是树结构；函数是computation graph
+- 都是根据relation进行expand。在parsing中，是根据production进行expand，production所表达的是包含关系。在实际的graph中，则是根据相邻关系来进行expand的
+- 不同类型的graph支持不同的操作，但是有一些基本操作是全部都要支持的，比如查询一个node的adjacent node
+- 图，排序，关系，有序性，方向
+- 简单仅仅是复杂的一种简化，比如：chain《-tree《-graph；binary-search其实是一种deep-first-search
