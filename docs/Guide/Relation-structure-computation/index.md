@@ -1,42 +1,63 @@
-## 关于本章
+# 关于本章
 
 本章的标题是“Relation-structure-computation”，它的含义是关系、结构、计算”。本文对本章的内容进行综述，以从一个较高的角度来掌握本章的内容。
 
-### 综述
+## 综述
 
 如果discrete object之间没有relation，那么它们就是一堆杂乱无章、毫无规律可言的混沌系统，无法使用精简的数学语言对其进行描述（formal description），我们所关注的是那些具备中**relation**的discrete objects。
 
 对于具备relation的discrete objects（可以看做是**node**），通过relation将discrete objects进行关联，显然它们形成了一个一个的**ordered pair**（可以看做是**edge**），这些order pair就形成了一定的**structure**。我们将在`Structure`章节讨论relation and structure，我们将使用relation的理论知识来描述structure。
 
-**graph**是表示relation的有效工具，后面我们会看到graph的定义和relation的定义是非常类似的，基于graph的algorithm，可以解决很多relation的问题。
+### 综述：关系-结构-计算
 
-作为software engineer，我们需要思考的问题是：“哪些问题是可计算的？”、“该如何实现计算”。在discrete领域，我们考虑的computation主要是：具备relation的discrete objects的computation，后面我们将看到，对于某些relation，我们可以设计出非常高效的algorithm来对它们进行computation，我们将在`Computation`章节来讨论relation and computation。
+**relation**决定**structure**，相同的**relation**决定了它们具备相同的**structure**，进而可以使用相同的algorithm来进行计算。
 
-“relation”将在[Relation](./Relation/index.md)章节进行描述；
+一个典型的例子：class hierarchy、grammar tree都是containing关系，进而决定了对它们进行搜索的时候，可以采用相同的算法。
 
-“structure”将在[Structure](./Structure/index.md)章节进行描述；
+所以，relation是核心所在，relation决定structure  `->` 决定采用的algorithm。因此，我们基于relation来建立model（模型）：
 
-“computation”将在[Computation](./Computation/index.md)章节进行描述；
+- 设计出非常高效的algorithm来对它相关的问题进行computation（典型的例子containing关系，在computer science中，CFG、class inheritance都服从这种关系）
 
+> NOTE: 上述这种建立model的思想在science中是广泛存在的，比如在概率论中，有着非常多的概率模型，数学家使用这些概率模型来描述实际问题，比如：
+>
+> - 正态分布
+> - 二项式发布
 
+后续，我会对computer science中常见的relation会进行深入研究，这样我们就可以使用已有的model来解决问题。
+
+computation包含了为解决问题采用的algorithm；
 
 ### relation and structure
 
-将讨论如下问题：
+在上一节，我们提出了“**relation**决定**structure**”，关于此argument，我们需要进行深入思考：
 
-- 有哪些structure
-- relation和structure之间的关系，我们需要思考：relation的哪些特性决定了structure
+- relation和structure之间的关系：relation的哪些特性决定了structure
+- 在computer science中，常见的relation以及常见的structure
 
-### relation and computation
+### graph and relation
 
-将讨论如下问题：
+**graph**是表示relation的有效工具，后面我们会看到graph的定义和relation的定义是非常类似的，基于graph的algorithm，可以解决很多relation的问题。
+
+
+
+### computation
+
+在discrete领域，我们考虑的主要是：对于具备relation的discrete objects的computation，后面我们将看到，对于某些relation，我们可以设计出非常高效的algorithm来对它们进行computation，我们将在`Computation`章节来讨论computation。
+
+作为software engineer，我们需要思考的问题有：
+
+- 哪些问题是可计算的？（可计算理论）
+- 该如何实现计算（algorithm、常见的计算方式）
+- 计算的耗费（算法复杂度）
+
+将会对如下两种重要的computation方式进行讨论：
 
 - iteration
 - recursion
 
 
 
-### 结构化思维
+## 结构化思维
 
 在当我们使用relation来描述事物的时候（即按照上面描述的node、orderd-pair的方式来进行组织），我们会发现它们会形成一定的structure，比如graph、tree、chain，我们建这种思维称为“结构化思维”。
 
@@ -44,21 +65,11 @@
 
 下面结合具体的例子来对上述观点进行说明。
 
-#### 离散结构来描述物理结构和数学公式
+### 数学公式的结构
 
-数学使用relation来描述结构，relation是一个一个的ordered pair，
+**Example: computational graph of formula**
 
-[recurrence relation](./Recursion/Recurrence-relation.md)其实所描述的是两个元素的关系，这种关系可能是线性的。
-
-[recurrence relation](./Recursion/Recurrence-relation.md)是非常适合于使用computer algorithm来实现的，因为它是离散的，它是可以使用one-by-one来计算出来的，我们也可以说它具有离散结构。
-
-其实上面这段话已经体现了使用结构的思维来看待数学公式了，我觉得计算机科学是需要这种思维的，只有结构化了之后，计算机才能够进行计算，这里所说的结构化如果往更高层面来思考的话，其实是：形式化，只有形式化后才能够使用计算机算法来进行计算，或者更加通俗地来说：结构化是形式化的一种。
-
-基本上目前我碰到的这些离散的结构，都可以使用one-by-one的方式来设计算法。
-
-#### 结构化思维 and deep learning
-
-从computational graph出发来进行解释。
+使用computational graph来描述formula。
 
 素材：维基百科[Backpropagation](https://en.wikipedia.org/wiki/Backpropagation)：forward network对应的数学公式：
 $$
@@ -71,12 +82,39 @@ $$
 
 
 
+**Example: recurrence relation**
+
+[recurrence relation](./Recursion/Recurrence-relation.md)其实所描述的是两个元素的关系，这种关系可能是线性的。
+
+[recurrence relation](./Recursion/Recurrence-relation.md)是非常适合于使用computer algorithm来实现的，因为它是离散的，它是可以使用one-by-one来计算出来的，我们也可以说它具有离散结构。
+
+其实上面这段话已经体现了使用结构的思维来看待数学公式了，我觉得计算机科学是需要这种思维的，只有结构化了之后，计算机才能够进行计算，这里所说的结构化如果往更高层面来思考的话，其实是：形式化，只有形式化后才能够使用计算机算法来进行计算，或者更加通俗地来说：结构化是形式化的一种。
+
+
+
+
+
+基本上目前我碰到的这些离散的结构，都可以使用one-by-one的方式来设计算法。
+
+
+
+## 章节说明
+
+“relation”将在[Relation](./Relation/index.md)章节进行描述；
+
+“structure”将在[Structure](./Structure/index.md)章节进行描述；
+
+“computation”将在[Computation](./Computation/index.md)章节进行描述；
+
+
+
 ## Thoughts
 
 - regular language是linear structure，context free language是hierarchy 结构。
 
 - 结构：产生式是containing关系，是树结构；函数是computation graph
-- 都是根据relation进行expand。在parsing中，是根据production进行expand，production所表达的是包含关系。在实际的graph中，则是根据相邻关系来进行expand的
+- 基于relation来设计algorithm：根据relation进行expand。在parsing中，是根据production进行expand，production所表达的是包含关系。在实际的graph中，则是根据相邻关系来进行expand的。
 - 不同类型的graph支持不同的操作，但是有一些基本操作是全部都要支持的，比如查询一个node的adjacent node
 - 图，排序，关系，有序性，方向
 - 简单仅仅是复杂的一种简化，比如：chain《-tree《-graph；binary-search其实是一种deep-first-search
+
