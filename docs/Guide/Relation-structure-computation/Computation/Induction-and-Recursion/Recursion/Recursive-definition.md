@@ -86,9 +86,17 @@ More generally, recursive definitions of functions can be made whenever the doma
 
 #### sub structure
 
-一般带有“sub”的都是可以进行recursive definition的，比如subtree，sublist，在维基百科[Structural induction](https://en.wikipedia.org/wiki/Structural_induction)中所提及的：
+一般带有“sub”的都是可以进行recursive definition的，它是一种典型的containing关系，它是可以使用CFG来进行描述的
+
+- subtree，sublist，在维基百科[Structural induction](https://en.wikipedia.org/wiki/Structural_induction)中所提及的：
 
 > [recursively defined](https://en.wikipedia.org/wiki/Recursive_definition) structure, such as [formulas](https://en.wikipedia.org/wiki/First-order_logic#Formulas), [lists](https://en.wikipedia.org/wiki/List_(computer_science)), or [trees](https://en.wikipedia.org/wiki/Tree_(graph_theory))
+
+下面是一些例子：
+
+- Subobjects（参见cppreference [Object#Subobjects](https://en.cppreference.com/w/cpp/language/object#Polymorphic_objects)）
+
+
 
 #### multiple-dimensional array
 

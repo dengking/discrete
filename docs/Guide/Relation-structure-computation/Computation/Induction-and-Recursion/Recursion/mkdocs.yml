@@ -1,11 +1,6 @@
 nav:
     - Introduction: index.md
     - Recursive-Definition: Recursive-definition.md
-    - Recursive-data-type: Recursive-data-type.md
     - Recursion: Recursion.md
-    - Corecursion: Corecursion.md
     - Recurrence-relation: Recurrence-relation.md
-    - Recursion(computer-science): Recursion(computer-science).md
-    - Analysis-and-representation-of-recursion: Analysis-and-representation-of-recursion.md
-    - Recursion-and-iteration: Recursion-and-iteration.md
-    - Term-with-recursion-in-computer-science: Term-with-recursion-in-computer-science.md
+    
