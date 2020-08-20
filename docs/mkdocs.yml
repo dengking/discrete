@@ -1,7 +1,5 @@
 nav:
     - Home: index.md
     - Discrete-math: Discrete-math
-    # 这是核心所在
-    - Relation-structure-computation: Relation-structure-computation
-    # 组合学
-    - Combinatorics: Combinatorics
+    - Relation-structure-computation: Relation-structure-computation.md
+    

@@ -5,3 +5,4 @@ nav:
     # 结构，结构就是典型的具备离散特性的
     - Structure: Structure
     - Computation: Computation
+    - Model: Model

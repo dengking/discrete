@@ -3,4 +3,5 @@ nav:
     # discrete objects的问题常常会涉及的一种计算方式
     - Iteration: Iteration
     # 归纳与递归
-    - Induction-and-Recursion: Induction-and-Recursion    
+    - Induction-and-Recursion: Induction-and-Recursion 
+    - Computer-algebra: Computer-algebra
