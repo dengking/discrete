@@ -1,6 +1,7 @@
 nav:
     - Home: index.md
-    - Why-need-discrete-math: Why-need-discrete-math.md
-    # 对一些专题进行总结，给出read guide
-    - Guide: Guide
-    - Book-Discrete-Mathematics-and-Its-Applications: Book-Discrete-Mathematics-and-Its-Applications
+    - Discrete-math: Discrete-math
+    # 这是核心所在
+    - Relation-structure-computation: Relation-structure-computation
+    # 组合学
+    - Combinatorics: Combinatorics
