@@ -77,17 +77,17 @@ algorithm、常见的计算方式。
 
 ## 结构化思维
 
-在当我们使用relation来描述事物的时候（即按照上面描述的node、orderd-pair的方式来进行组织），我们会发现它们会形成一定的structure，比如graph、tree、chain，我们建这种思维称为“结构化思维”。
+在当我们使用relation来描述事物的时候（即按照上面描述的node、orderd-pair的方式来进行组织），我们会发现它们会形成一定的structure，比如graph、tree、chain，我们建这种思维称为“**结构化思维**”。
 
-结构，可以是有形的结构，也可以是无形的、逻辑的结构。
+结构，可以是**有形**的结构，也可以是**无形**的、**逻辑**的结构。
 
 下面结合具体的例子来对上述观点进行说明。
 
 ### 数学公式的结构
 
-**Example: computational graph of formula**
+**Example: computational graph of math expression**
 
-使用computational graph来描述formula。
+使用computational graph来描述math expression。
 
 素材：维基百科[Backpropagation](https://en.wikipedia.org/wiki/Backpropagation)：forward network对应的数学公式：
 $$
@@ -106,9 +106,20 @@ $$
 
 [recurrence relation](./Recursion/Recurrence-relation.md)是非常适合于使用computer algorithm来实现的，因为它是离散的，它是可以使用one-by-one来计算出来的，我们也可以说它具有离散结构。
 
-其实上面这段话已经体现了使用结构的思维来看待数学公式了，我觉得计算机科学是需要这种思维的，只有结构化了之后，计算机才能够进行计算，这里所说的结构化如果往更高层面来思考的话，其实是：形式化，只有形式化后才能够使用计算机算法来进行计算，或者更加通俗地来说：结构化是形式化的一种。
+### 结构化表示
+
+上一节已经体现了使用**结构化思维**来看待**数学表达式**了，我觉得**计算机科学**是需要这种思维的，只有**结构化**了之后，计算机才能够对其进行表示（representation）、进而进行**计算**；这里所说的**结构化**如果往更高层面来思考的话，其实是：**形式化**，只有**形式化**后才能够使用计算机算法来进行计算，或者更加通俗地来说：**结构化**是**形式化**的一种。
 
 
+
+产生式、函数表达式（expression）都是数学**语言**，它们描述了**关系**。
+
+在computer science中，我们知道，graph也可以用来描述**关系**。
+
+在计算机科学中，我们应该使用discrete relation来分析事物，从而对它们进行描述、计算：
+
+- 产生式可以使用tree structure来表示，tree 是一种 graph
+- 函数表达式可以使用computation graph来表示
 
 
 
