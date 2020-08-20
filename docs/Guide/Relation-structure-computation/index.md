@@ -27,33 +27,51 @@
 
 computation包含了为解决问题采用的algorithm；
 
-### relation and structure
+## relation and structure
 
 在上一节，我们提出了“**relation**决定**structure**”，关于此argument，我们需要进行深入思考：
 
 - relation和structure之间的关系：relation的哪些特性决定了structure
 - 在computer science中，常见的relation以及常见的structure
 
-### graph and relation
+## graph and relation
 
-**graph**是表示relation的有效工具，后面我们会看到graph的定义和relation的定义是非常类似的，基于graph的algorithm，可以解决很多relation的问题。
+**graph**是表示relation的有效工具，后面我们会看到graph的定义和relation的定义是非常类似的，基于graph的algorithm，可以解决很多relation的问题。所以，我们有必要学习graph-theory的知识。
 
 
 
-### computation
+## Computation
 
 在discrete领域，我们考虑的主要是：对于具备relation的discrete objects的computation，后面我们将看到，对于某些relation，我们可以设计出非常高效的algorithm来对它们进行computation，我们将在`Computation`章节来讨论computation。
 
 作为software engineer，我们需要思考的问题有：
 
-- 哪些问题是可计算的？（可计算理论）
-- 该如何实现计算（algorithm、常见的计算方式）
-- 计算的耗费（算法复杂度）
+### 哪些问题是可计算的？
+
+可计算理论是对此问题的研究
+
+
+
+### 该如何实现计算？
+
+algorithm、常见的计算方式。
 
 将会对如下两种重要的computation方式进行讨论：
 
 - iteration
 - recursion
+
+### 计算的耗费
+
+算法复杂度理论
+
+
+
+### 计算的方向
+
+沿着关系、结构来进行计算。
+
+递归是自顶向下、动态规划是自底向上、backprop是自顶向下、bottom-up parsing。
 
 
 

@@ -22,15 +22,13 @@
 
 ### 维基百科[One-to-many (data model)](https://en.wikipedia.org/wiki/One-to-many_(data_model))
 
-
+一对多关系使用有向图来表示就是一个节点与多个节点相邻，相邻节点都有边指向它。
 
 ### Example
 
 多态
 
 race condition
-
-一对多关系使用有向图来表示就是一个节点与多个节点相邻，相邻节点都有边指向它。
 
 对于单核CPU、支持multitask的OS，则多个process共享一个CPU，这也是一种one-to-many relation
 

@@ -10,9 +10,13 @@
 
 In [mathematics](https://en.wikipedia.org/wiki/Mathematics), a **binary relation** over two [sets](https://en.wikipedia.org/wiki/Set_(mathematics)) *A* and *B* is a set of [ordered pairs](https://en.wikipedia.org/wiki/Ordered_pair) (*a*, *b*), consisting of elements *a* of *A* and elements *b* of *B*. That is, it is a subset of the [Cartesian product](https://en.wikipedia.org/wiki/Cartesian_product) *A* × *B*. It encodes the information of relation: an element *a* is related to an element *b*, if and only if the pair (*a*, *b*) belongs to the set. 
 
-relation的本质上是set。
 
-查看[Binary relation](https://en.wikipedia.org/wiki/Binary_relation)和[Function](https://en.wikipedia.org/wiki/Function_(mathematics))可知，[Binary relation](https://en.wikipedia.org/wiki/Binary_relation)是一个比[Function](https://en.wikipedia.org/wiki/Function_(mathematics))更加宽泛的概念：[Function](https://en.wikipedia.org/wiki/Function_(mathematics))是一种[Binary relation](https://en.wikipedia.org/wiki/Binary_relation)，但是反之则不一定成立。
+
+> NOTE: 
+>
+> relation的本质上是set。
+>
+> 查看[Binary relation](https://en.wikipedia.org/wiki/Binary_relation)和[Function](https://en.wikipedia.org/wiki/Function_(mathematics))可知，[Binary relation](https://en.wikipedia.org/wiki/Binary_relation)是一个比[Function](https://en.wikipedia.org/wiki/Function_(mathematics))更加宽泛的概念：[Function](https://en.wikipedia.org/wiki/Function_(mathematics))是一种[Binary relation](https://en.wikipedia.org/wiki/Binary_relation)，但是反之则不一定成立。
 
 ## 关系的性质
 
