@@ -36,7 +36,9 @@ Transitive特性是一个非常优良的特性。
 
 一个例子就是：stock：证券、股票；股票：A股、B股，则stock：A股、B股。
 
+#### Recursive
 
+具备传递性关系，所形成的结构往往具备递归性，因为它的子结构也是具备这种传递性递归关系的。
 
 ### [Reflexive relation](https://en.wikipedia.org/wiki/Reflexive_relation)
 
