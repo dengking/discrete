@@ -24,7 +24,19 @@ In [mathematics](https://en.wikipedia.org/wiki/Mathematics), a **binary relation
 
 "transitive"的中文意思是“传递性”
 
-Transitivity is a key property of both [partial orders](https://en.wikipedia.org/wiki/Partial_order) and [equivalence relations](https://en.wikipedia.org/wiki/Equivalence_relation)。
+> Transitivity is a key property of both [partial orders](https://en.wikipedia.org/wiki/Partial_order) and [equivalence relations](https://en.wikipedia.org/wiki/Equivalence_relation)。
+
+Transitive特性是一个非常优良的特性。
+
+#### Order
+
+要想进行排序，则关系必须具备transitive特性。 
+
+#### Rewrite（proof）
+
+一个例子就是：stock：证券、股票；股票：A股、B股，则stock：A股、B股。
+
+
 
 ### [Reflexive relation](https://en.wikipedia.org/wiki/Reflexive_relation)
 
