@@ -1,2 +1,2 @@
-# discrete-math
- knowledge of discrete math
+# discrete
+ I think **computer science is discrete**.
