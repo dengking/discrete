@@ -20,12 +20,7 @@ relation：它是discrete math中对relationship的表示，它是一个set
 
 严格来说，我们平时所说的“关系”应该使用“relationship”这个词语。
 
-## Implementation of relation
 
-在computer science中，如何实现relation呢？这是一个非常宏大的问题，在computer science的不同领域，实现方式是不同的;
-
-- 在DBMS中，广泛采用entity-relationship model，使用table来保存relation
-- 在OOP中，inheritance、combination可以描述大部分relationship
 
 
 
@@ -80,9 +75,11 @@ stock：证券、股票；
 
 #### Recursive
 
-具备传递性关系，所形成的结构往往具备递归性，因为它的子结构也是具备这种传递性递归关系的。
+具备传递性的relation，它的computation可以采用recursion：不断地应用这个relation。
 
+具备传递性的relation，它所形成的结构往往具备递归性。
 
+在`Relation-structure-computation\Computation\index.md`的“relation and recursion”章节，对这个问题进行了讨论。
 
 ### [Reflexive relation](https://en.wikipedia.org/wiki/Reflexive_relation)
 

@@ -28,7 +28,7 @@ class 1---|						  |-class 4
           |---Class 3-------------|           	
 ```
 
-上图从左至右表示继承关系，上图不是一个tree，而是graph。但是上图是满足hierarchy结果的。
+上图从左至右表示继承关系，上图不是一个tree，而是graph。但是上图是满足hierarchy结构的。
 
 
 

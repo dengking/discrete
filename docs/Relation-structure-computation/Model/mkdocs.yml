@@ -1,3 +1,5 @@
 nav:
-    - Dependency-relation-model: Dependency-relation-model.md
-    - Containing-relation-model: Containing-relation-model.md
+    - Hierarchy-relation-model: Hierarchy-relation-model
+    - Containing-relation-model: Containing-relation-model
+    - Dependency-relation: Dependency-relation-model    
+    - Chain: Chain

@@ -31,21 +31,7 @@ representation和computation都具备**discrete**特性，可以使用discrete m
 
 关于discrete math，我想起了在大学二年级时学习discrete math课程，当时使用的教材是非常经典的[Discrete Mathematics and Its Applications](https://www.amazon.com/Discrete-Mathematics-Applications-Kenneth-Rosen/dp/125967651X)，因此这个工程中的一些内容是源自于这本教材。
 
-
-
-下面论证“computer scientific is discrete”的例子（其实是一些**废话**）：
-
-### 0 and 1
-
-everything in computer is 0 or 1.
-
-### 数字电路
-
-computer往往采用的是数字电路
-
-### 函数调用过程是离散的
-
-将调用一个函数看做是画一个点的话，函数的调用过程将呈现树结构，它是**包含关系**（在`Relation-structure-computation`章节会对此进行描述）。
+在 [`Computer-science-is-discrete.md`](./Computer-science-is-discrete.md) 中给出了论证该观点的例子。
 
 
 

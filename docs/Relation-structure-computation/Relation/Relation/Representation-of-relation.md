@@ -1,6 +1,28 @@
-# 如何描述structure？
+# Representation/implementation/of relation
 
-如何来描述结构的结构？我们可以使用不同的语言来进行描述，在计算机科学中，我们往往描述方式往往是human-readable 且 machine-readable的。下面枚举了一些例子：
+在computer science中，如何实现relation呢？这是一个非常宏大的问题，在computer science的不同领域，使用不同的语言来，在计算机科学中，我们往往描述方式往往是human-readable 且 machine-readable的。
+
+## DBMS
+
+在DBMS中，广泛采用entity-relationship model，使用table来保存relation
+
+## OOP
+
+在OOP中，inheritance、combination可以描述大部分relationship
+
+## Book-Discrete-Mathematics-and-Its-Applications
+
+在`Book-Discrete-Mathematics-and-Its-Applications\Chpater-9-Relations\9.3-Representing-Relations`中给出了如下两种方式：
+
+1. **Representing Relations Using Matrices**
+
+    
+
+2. **Representing Relations Using Digraphs( directed graphs )**
+
+   directed graph是一种非常强大的表达方式，在本书中，基本上都是基于directed graph来描述relation的。在`Relation-structure-computation\Structure\Data-structure\Graph`中对graph进行描述。
+
+
 
 ## ASDL
 
@@ -35,11 +57,3 @@ Grammar是对语言结构的描述，使用[production](https://en.wikipedia.org
 按照数学定义，relation是集合的笛卡尔积的子集。表示一个relation，一种可选的方式是枚举出所有的ordered pair，可以将它们组织成graph。另外一种方式是使用类似于grammar、function的工具来描述relation的“生成方法”，所谓“生成方法”其实就是确定哪些ordered pair是符合该关系的。
 
 
-
-## 图与关系
-
-图能够表示关系
-
-如果从逻辑学的角度来看的话，我觉得关系其实是一种推导
-
-production其实所表达的就是一种关系，nesting关系。这种关系可以使用tree来进行表示。

@@ -2,92 +2,99 @@
 
 本章讨论“Computation on discrete objects“。
 
-## Computation on discrete objects
-
-### 计算思维
+## 计算思维
 
 在`index.md`中，我们已经总结了discrete objects的computable的特性，那如何来实现Computation 呢？当我们开始思考“Computation on discrete objects”的时候，其实就已经萌发了“计算思维”，即开始思考“哪些问题是可计算的？”、“该如何实现计算”。
 
-#### 如何设计algorithm
+## 计算模型: one-by-one
 
-- 对于discrete objects，分析其结构，找出relation，给出formal definition，那么我们就设计algorithm，对其进行计算
-- 基于discrete objects的relation、structure来设计algorithm
+在讲解具体的算法设计之前，我们首先介绍一种非常抽象的的计算模型：one-by-one。
 
-#### 该如何实现计算: one-by-one
+|                                | unit        | 解释                                                         |
+| ------------------------------ | ----------- | ------------------------------------------------------------ |
+| CPU                            | instruction | CPU的执行过程是one instruction by another，直至到达终点      |
+| Turing-machine                 | instruction | Turing-machine的computation也是one-by-one。                  |
+| graph                          | node        | 基于graph的algorithm的执行过程往往是one node by another node，直至终止条件 |
+| relation-based algorithm model | node        | 在下面章节会进行详细介绍                                     |
+| function                       | subfunction | 函数的执行过程可以用one-by-one来进行描述：<br>将整个program简化为由function组成，<br>将函数简化为的节点，<br>存在调用关系的函数之间，使用连线<br>则形成了一个graph。<br>则函数的执行过程：<br>one subfunction by another subfunction<br>one node by another |
+
+所有的one-by-one，都是enumerable、countable。
+
+### unit
+
+unit表示的是计算单位，在文章`Unit.md`中对一些常见的unit进行了总结。
+
+### computation的度量
+
+我们可以基于unit来对computation进行度量。通过度量computation的量，可以计算得到算法复杂度。
+
+### 可计算性
+
+再复杂的问题也需要转换为one-by-one的方式来进行计算，即使复杂如back-prop也是如此，否则是不可计算的。
+
+Turing的可计算理论是对此的研究。
+
+
+
+### 如何实现计算?
+
+前面介绍了ono-by-one model，本节介绍如何来进行实现。
 
 下面是两种非常重要的computation形式：
 
 - iteration
 - recursion
 
-后面我们将上述两种computation形式统称为“**one-by-one computation**”，很多的algorithm都是基于上述两种形式。
+很多的algorithm都是基于上述两种形式。
 
-**one-by-one computation的直观理解：**
+## 如何设计algorithm？
 
-- 基于discrete objects的relation、structure来设计algorithm，algorithm采用one-by-one computation
-
-- one-by-one是沿着structure、relation逐个进行处理，它和optional sub structure密切相关。
-
-- 所有的one-by-one的，都是enumerable、countable。
+这是一个非常复杂的问题，下面是我的一些经验之谈。
 
 
 
-##### relation and recursion
+### Relation-based algorithm model
+
+“Relation-based algorithm model”即“基于relation的algorithm model”，简单而言是：基于relation来设计algorithm。下面是对它的概括描述：
+
+沿着structure、relation逐个进行处理，采用one-by-one computation（one node by another node）。
+
+#### step 1
+
+分析relation。
+
+对于discrete objects，分析其结构，找出relation，给出formal definition，后面我们就可以开始设计algorithm，对其进行计算。
+
+#### step 2
+
+rewrite/expand operation
+
+根据relation进行rewrite/expand，比如：
+
+- 在parsing中，是根据production进行expand，production所表达的是包含关系
+
+- 在graph中，则是根据相邻关系来进行expand的
+
+上述过程，需要one-by-one执行。
+
+
+
+#### Relation and recursion
 
 同一个relation、transitive relation、的structure，往往是recursive的，可以进行递归定义了，可以使用structural recursion来进行解决。
 
-什么样的关系可以形成什么样的结构。比如chain、tree、graph。
+关于relation、transitive relation，参见`Relation-structure-computation\Relation\Relation`章节。
 
-什么样的关系可以使用recursion来进行处理。
-
-
-
-#### 哪些问题是可计算的？
-
-Turing的可计算理论是对此的研究，下面是一些想法:
-
-- 再复杂的问题也需要转换为one-by-one的方式来进行计算，即使复杂如back-prop也是如此，通过度量computation的量，可以计算得到算法复杂度
-
-### 离散和图灵机
-
-Turing-machine的computation也是one-by-one。
+它和optional sub structure密切相关。
 
 
 
-### recursive definition and discrete
+#### 计算的方向
 
-任何recursive definition，都是离散的，都可以进行计算
+沿着关系、结构来进行计算，一般，我们可以选择两个不同的方向。
 
-
-
-### 函数的执行是离散的
-
-名称中的sub，表示去具备包含关系。
-
-将函数抽象成一个一个的节点，则我们所描述的是一张图。
-
-显然它是具备离散特性的。
-
-它的执行模型是离散的
-
-### CPU对指令的执行是离散的
-
-CPU的指令的执行是一条一条的，它是离散的
-
-### abstract machine
-
-#### stack machine
-
-显然是离散的
-
-#### Turing machine
-
-Turing machine也是one-by-one地执行的，所以它是离散的
+比如：递归是自顶向下、动态规划是自底向上、backprop是自顶向下、bottom-up parsing。
 
 
 
-## Book 《Discrete Computational Structures》
 
-https://books.google.com/books/about/Discrete_Computational_Structures.html?id=KrLiBQAAQBAJ&source=kp_book_description
-
-https://www.elsevier.com/books/discrete-computational-structures/korfhage/978-0-12-420850-6
