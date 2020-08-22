@@ -1,12 +1,14 @@
 # Hierarchy
 
+
+
 ## 本文动机
 
 在写作本文的时候，主要有如下两个动机：
 
 ### 写作动机一
 
-对文章[Structure](./Structure.md)的“结构的形状”章节中的话题“深入分析我们肉眼看到的各种形状背后的relation的性质”进行解答。
+对文章`Relation-structure-computation\Structure\Structure\Structure.md`的“**结构的形状**”章节中的话题“深入分析我们肉眼看到的各种形状背后的relation的性质”进行解答。
 
 ### 写作动机二
 
@@ -14,13 +16,13 @@
 
 > A **tree structure** or **tree diagram** is a way of representing the [hierarchical](https://en.wikipedia.org/wiki/Hierarchy) nature of a [structure](https://en.wikipedia.org/wiki/Structure) in a graphical form. 
 
-促使我对这个观念产生怀疑的是在文章[Structure](./Structure.md)中提出的一个问题：
+促使我对这个观念产生怀疑的是在文章`Relation-structure-computation\Structure\Structure\Structure.md`中提出的一个问题：
 
 > 按照inheritance关系来组织类，如果不允许多继承的话，则最终形成的是树；如果允许多继承的话，则最终形成的是图
 
 按照inheritance关系来组织类，如果支持多继承的话，则它依然是hierarchy结构，但是它不能是tree了，因为它成环了（关于这一点，参见[Discrete Mathematics and Its Applications](https://www.amazon.com/Discrete-Mathematics-Applications-Kenneth-Rosen/dp/125967651X)中Tree章节），如下图所示：
 
-```
+```python
           |---Class 2-------------|          
           |                       |
 class 1---|						  |-class 4
@@ -29,6 +31,10 @@ class 1---|						  |-class 4
 ```
 
 上图从左至右表示继承关系，上图不是一个tree，而是graph。但是上图是满足hierarchy结构的。
+
+### 写作动机三
+
+“hierarchy”结构是computer science中非常常见的一种结构。
 
 
 
