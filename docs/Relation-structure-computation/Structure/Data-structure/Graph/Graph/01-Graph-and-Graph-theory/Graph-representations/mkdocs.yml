@@ -1,0 +1,4 @@
+nav:
+    - Graph-representations: Graph-representations.md
+    - Adjacency-list: Adjacency-list
+    - Incidence-matrix: Incidence-matrix
