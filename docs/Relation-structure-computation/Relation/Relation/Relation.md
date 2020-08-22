@@ -12,9 +12,7 @@
 
 显然discrete math中，关于relation的definition，是基于set的（参见）。
 
-在DBMS中，entity-relationship model，使用table来保存relation。
-
-### Relationship和relation
+## Relationship和relation
 
 需要区分清楚relationship和relation：
 
@@ -24,6 +22,15 @@ relation：它是discrete math中对relationship的表示，它是一个set
 
 严格来说，我们平时所说的“关系”应该使用“relationship”这个词语。
 
+## Implementation of relation
+
+在computer science中，如何实现relation呢？这是一个非常宏大的问题，在computer science的不同领域，实现方式是不同的;
+
+- 在DBMS中，广泛采用entity-relationship model，使用table来保存relation
+- 在OOP中，inheritance、combination可以描述大部分relationship
+
+
+
 ## 维基百科[Finitary relation](https://en.wikipedia.org/wiki/Finitary_relation)
 
 [Finitary relation](https://en.wikipedia.org/wiki/Finitary_relation)的含义是“有限元关系”，我们主要讨论的是[Binary relation](https://en.wikipedia.org/wiki/Binary_relation)（二元关系）。
@@ -31,8 +38,6 @@ relation：它是discrete math中对relationship的表示，它是一个set
 ## 维基百科[Binary relation](https://en.wikipedia.org/wiki/Binary_relation)
 
 In [mathematics](https://en.wikipedia.org/wiki/Mathematics), a **binary relation** over two [sets](https://en.wikipedia.org/wiki/Set_(mathematics)) *A* and *B* is a set of [ordered pairs](https://en.wikipedia.org/wiki/Ordered_pair) (*a*, *b*), consisting of elements *a* of *A* and elements *b* of *B*. That is, it is a subset of the [Cartesian product](https://en.wikipedia.org/wiki/Cartesian_product) *A* × *B*. It encodes the information of relation: an element *a* is related to an element *b*, if and only if the pair (*a*, *b*) belongs to the set. 
-
-
 
 > NOTE: 
 >
@@ -69,15 +74,17 @@ stock：证券、股票；
 
 
 
+#### Closure
+
+参见`Closures-of-relation.md`
+
+
+
 #### Recursive
 
 具备传递性关系，所形成的结构往往具备递归性，因为它的子结构也是具备这种传递性递归关系的。
 
 
-
-#### Closure
-
-参见`Closures-of-relation.md`
 
 ### [Reflexive relation](https://en.wikipedia.org/wiki/Reflexive_relation)
 
