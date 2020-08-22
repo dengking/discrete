@@ -11,10 +11,12 @@
 | Relation            | Structure | Cardinality | 说明                           |
 | ------------------- | --------- | ----------- | ------------------------------ |
 | Hierarchy relation  | graph     | `N:N`       | 根据形状来对这种relation命名的 |
-| Containing relation | tree      | `1:N`       |                                |
+| Nestingrelation     | tree      | `1:N`       |                                |
 | Dependency relation | graph     |             |                                |
 
- 
+ 关于graph，参见`Relation-structure-computation\Structure\Data-structure\Graph\Graph`章节；
+
+ 关于tree，参见`Relation-structure-computation\Structure\Data-structure\Graph\Tree`章节；
 
 ## chain、tree、hierarchy、graph
 
