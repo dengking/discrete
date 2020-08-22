@@ -1,6 +1,5 @@
 nav:
     - Introduction: index.md
-    - Relation: Relation.md
+    - Relation: Relation
     - Entity–relationship-model: Entity–relationship-model
     - Order-theory: Order-theory
-    - Structure-and-relation: Structure-and-relation.md

@@ -78,6 +78,10 @@ stock：证券、股票；
 - dead lock
 - circular reference
 
+#### Closure
+
+参见`Closures-of-relation.md`
+
 ### [Reflexive relation](https://en.wikipedia.org/wiki/Reflexive_relation)
 
 “reflexive”即“反射性”。
