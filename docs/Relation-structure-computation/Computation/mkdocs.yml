@@ -4,4 +4,6 @@ nav:
     - Iteration: Iteration
     # 归纳与递归
     - Induction-and-Recursion: Induction-and-Recursion 
+    - Algorithm: Algorithm
+    - Combinatorics: Combinatorics
     - Computer-algebra: Computer-algebra
