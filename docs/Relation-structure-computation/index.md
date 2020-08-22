@@ -2,17 +2,19 @@
 
 本章的标题是“Relation-structure-computation”，它的含义是关系、结构、计算”。本文对本章的内容进行综述，以从一个较高的角度来掌握本章的内容。
 
-## 综述
+## 综述: 关系-结构-计算
 
 如果discrete object之间没有relation，那么它们就是一堆杂乱无章、毫无规律可言的混沌系统，无法使用精简的数学语言对其进行描述（formal description），我们所关注的是那些具备中**relation**的discrete objects。
 
-对于具备relation的discrete objects（可以看做是**node**），通过relation将discrete objects进行关联，显然它们形成了一个一个的**ordered pair**（可以看做是**edge**），这些order pair就形成了一定的**structure**。我们将在`Structure`章节讨论relation and structure，我们将使用relation的理论知识来描述structure。
+对于具备relation的discrete objects（可以看做是**node**），通过relation将discrete objects进行关联，显然它们形成了一个一个的**ordered pair**（可以看做是**edge**），这些**order pair**就形成了一定的**structure**。我们将在`Structure`章节讨论relation and structure，我们将使用relation的理论知识来描述structure。
 
-### 综述：关系-结构-计算
+> NOTE: “ordered”说明relation是具备**方向性**的
 
 **relation**决定**structure**，相同的**relation**决定了它们具备相同的**structure**，进而可以使用相同的algorithm来进行计算。
 
-一个典型的例子：class hierarchy、grammar tree都是containing关系，进而决定了对它们进行搜索的时候，可以采用相同的算法。
+一个典型的例子：class hierarchy、grammar tree都是**containing关系**，进而决定了对它们进行搜索的时候，可以采用相同的算法。
+
+> NOTE: 在`Relation-structure-computation\Model\Containing-relation-model.md`中对**containing关系**进行了描述。
 
 所以，relation是核心所在，relation决定structure  `->` 决定采用的algorithm。因此，我们基于relation来建立model（模型）：
 
@@ -25,7 +27,9 @@
 
 后续，我会对computer science中常见的relation会进行深入研究，这样我们就可以使用已有的model来解决问题。
 
-computation包含了为解决问题采用的algorithm；
+> NOTE: 在`Relation-structure-computation\Model`中对model进行描述。
+
+computation是指为解决问题采用的algorithm；
 
 ## relation and structure
 
@@ -69,9 +73,9 @@ algorithm、常见的计算方式。
 
 ### 计算的方向
 
-沿着关系、结构来进行计算。
+沿着关系、结构来进行计算，一般，我们可以选择两个不同的方向。
 
-递归是自顶向下、动态规划是自底向上、backprop是自顶向下、bottom-up parsing。
+比如：递归是自顶向下、动态规划是自底向上、backprop是自顶向下、bottom-up parsing。
 
 
 
@@ -139,7 +143,7 @@ $$
 
 ## Thoughts
 
-- regular language是linear structure，context free language是hierarchy 结构。
+- regular language是linear structure，context free language是hierarchy 结构。因为regular language的grammar，即regular grammar无法表达containing关系
 
 - 结构：产生式是containing关系，是树结构；函数是computation graph
 - 基于relation来设计algorithm：根据relation进行expand。在parsing中，是根据production进行expand，production所表达的是包含关系。在实际的graph中，则是根据相邻关系来进行expand的。

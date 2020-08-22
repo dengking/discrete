@@ -58,9 +58,6 @@ https://support.airtable.com/hc/en-us/articles/218734758-A-beginner-s-guide-to-m
 
 https://dzone.com/articles/how-to-handle-a-many-to-many-relationship-in-datab
 
-## relation and circular
-可以使用graph来表示relation
 
-当relation是dependency关系、reference关系（[Reference counting](https://en.wikipedia.org/wiki/Reference_counting)）的时候，如果图成环，则就会导致一些列问题
 
 
