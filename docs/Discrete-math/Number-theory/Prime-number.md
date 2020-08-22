@@ -1,0 +1,1 @@
+# [Prime number](https://en.wikipedia.org/wiki/Prime_number)

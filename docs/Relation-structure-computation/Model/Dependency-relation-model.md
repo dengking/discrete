@@ -10,7 +10,7 @@
 
 在龙书的chapter 5.2 Evaluation Orders for SDD's中有关于此的讨论。
 
-## 相互依赖
+## circular
 
 显然，相互依赖就是无法拍序的典型情况。
 
@@ -24,9 +24,17 @@
 
 
 
+当relation是dependency关系、reference关系（[Reference counting](https://en.wikipedia.org/wiki/Reference_counting)）的时候，如果图成环，则就会导致一些列问题。
+
+- dead lock
+- circular reference
+
 与此相关的文章：
 
 - [Acyclic dependencies principle](https://en.wikipedia.org/wiki/Acyclic_dependencies_principle)
 
 
 
+## Example
+
+makefile就是典型的描述dependency relation，它所描述的最终构成了一个dependency graph。

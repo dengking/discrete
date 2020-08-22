@@ -10,13 +10,17 @@
 >
 > **Relationships** between elements of **sets** are represented using the structure called a **relation**, which is just as sub set of the **Cartesian product** of the sets. Relations can be used to solve problems such as determining which pairs of cities are linked by airline flights in a network, finding a viable order for the different phases of a complicated project, or producing a useful way to store information in computer databases.
 
+显然discrete math中，关于relation的definition，是基于set的（参见）。
+
+在DBMS中，entity-relationship model，使用table来保存relation。
+
+### Relationship和relation
+
 需要区分清楚relationship和relation：
 
 relationship：就是我们平时所说的“关系”，比如“大于”、“小于”
 
 relation：它是discrete math中对relationship的表示，它是一个set
-
-显然discrete math中，关于relation的definition，采用的是概括法。
 
 严格来说，我们平时所说的“关系”应该使用“relationship”这个词语。
 
@@ -69,14 +73,7 @@ stock：证券、股票；
 
 具备传递性关系，所形成的结构往往具备递归性，因为它的子结构也是具备这种传递性递归关系的。
 
-#### relation and circular
 
-沿着relation不停地进行rewrite（或者说 推导），通过最终到达了远点，则形成了circle。当使用graph来表示relation时，这种现象是非常任意理解的。
-
-当relation是dependency关系、reference关系（[Reference counting](https://en.wikipedia.org/wiki/Reference_counting)）的时候，如果图成环，则就会导致一些列问题。
-
-- dead lock
-- circular reference
 
 #### Closure
 
@@ -97,3 +94,30 @@ stock：证券、股票；
 ## [Relational algebra](https://en.wikipedia.org/wiki/Relational_algebra)
 
 关系代数，这是DBMS的基础。
+
+
+
+
+
+## Circular
+
+关于relation，一个比较有趣的问题就是：circular。我们讨论两种circular：
+
+- 同一个relation内形成circular
+- 多个relation间形成circular
+
+
+
+### 同一个relation内形成circular
+
+沿着relation不停地进行rewrite（或者说 推导），通过最终到达了源点，则形成了circular。当使用graph来表示relation时，这种现象是非常任意理解的。
+
+### 多个relation间形成circulars
+
+在`Book-Discrete-Mathematics-and-Its-Applications\Chpater-9-Relations\Supplementary Exercises`中给出了circular的描述：
+
+> Arelation R is called circular if `aRb` and `bRc` imply that `cRa`. Show that `R` is reflexive and circular if and only if it is an equivalence relation.
+
+## TO READ
+
+[Hasse diagram](https://en.wikipedia.org/wiki/Hasse_diagram)

@@ -1,0 +1,1 @@
+# [Closure (mathematics)](https://en.wikipedia.org/wiki/Closure_(mathematics))
