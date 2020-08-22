@@ -10,8 +10,6 @@
 >
 > **Relationships** between elements of **sets** are represented using the structure called a **relation**, which is just as sub set of the **Cartesian product** of the sets. Relations can be used to solve problems such as determining which pairs of cities are linked by airline flights in a network, finding a viable order for the different phases of a complicated project, or producing a useful way to store information in computer databases.
 
-显然discrete math中，关于relation的definition，是基于set的（参见）。
-
 ## Relationship和relation
 
 需要区分清楚relationship和relation：
@@ -49,11 +47,11 @@ In [mathematics](https://en.wikipedia.org/wiki/Mathematics), a **binary relation
 
 ### [Transitive relation](https://en.wikipedia.org/wiki/Transitive_relation)
 
-"transitive"的中文意思是“传递性”
+"transitive"的中文意思是“传递性”，transitive特性是一个非常优良的特性，它是很多**computation**的前提条件。
 
 > Transitivity is a key property of both [partial orders](https://en.wikipedia.org/wiki/Partial_order) and [equivalence relations](https://en.wikipedia.org/wiki/Equivalence_relation)。
 
-Transitive特性是一个非常优良的特性。
+
 
 #### Order
 
@@ -117,7 +115,7 @@ stock：证券、股票；
 
 ### 同一个relation内形成circular
 
-沿着relation不停地进行rewrite（或者说 推导），通过最终到达了源点，则形成了circular。当使用graph来表示relation时，这种现象是非常任意理解的。
+沿着relation不停地进行rewrite（或者说 推导，参见前面相应的章节），通过最终到达了源点，则形成了circular。当使用graph来表示relation时，这种现象是非常任意理解的。
 
 ### 多个relation间形成circulars
 

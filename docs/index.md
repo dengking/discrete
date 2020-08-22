@@ -1,14 +1,55 @@
 # 关于本工程
 
+
+
+## Computer scientific is discrete
+
 作为一个software engineer，我越来越觉得：
 
 > Computer science is discrete.
 
-这也是我写作本工程的动机。这个想法让我想起了在大学二年级时学习discrete math课程，当时使用的教材是非常经典的[Discrete Mathematics and Its Applications](https://www.amazon.com/Discrete-Mathematics-Applications-Kenneth-Rosen/dp/125967651X)，因此这个工程中的一些内容是源自于这本教材。
+computer science中两个非常基本的问题是：
 
-本文的书写思路如下：
+- representation（往具体说，它包含data structure）
+- computation（往具体说，它包含algorithm）
+
+> representation和computation密切相关：好的representation是高效地实现computation的前提。
+
+representation和computation都具备**discrete**特性，可以使用discrete math中的理论、思想来进行理解和描述，正如在维基百科[Discrete mathematics](https://en.wikipedia.org/wiki/Discrete_mathematics)中所述：
+
+> Concepts and notations from discrete mathematics are useful in studying and describing objects and problems in branches of [computer science](https://en.wikipedia.org/wiki/Computer_science), such as [computer algorithms](https://en.wikipedia.org/wiki/Computer_algorithm), [programming languages](https://en.wikipedia.org/wiki/Programming_language), [cryptography](https://en.wikipedia.org/wiki/Cryptography), [automated theorem proving](https://en.wikipedia.org/wiki/Automated_theorem_proving), and [software development](https://en.wikipedia.org/wiki/Software_development). Conversely, computer implementations are significant in applying ideas from discrete mathematics to real-world problems, such as in [operations research](https://en.wikipedia.org/wiki/Operations_research).
+
+关于此的思考，触发了我写作本书，我的写作目的主要是：梳理discrete math的理论知识，用这些知识，更好地解决computer scientific中representation、computation，往更加具体来说是：
+
+- 对于discrete objects相关的computation问题，如何设计algorithm？如何设计representation？
+
+在`Discrete-math\Why-we-need-discrete-math.md`中，也阐述了我的写作动机。
+
+关于discrete math，我想起了在大学二年级时学习discrete math课程，当时使用的教材是非常经典的[Discrete Mathematics and Its Applications](https://www.amazon.com/Discrete-Mathematics-Applications-Kenneth-Rosen/dp/125967651X)，因此这个工程中的一些内容是源自于这本教材。
+
+
+
+下面论证“computer scientific is discrete”的例子（其实是一些**废话**）：
+
+### 0 and 1
+
+everything in computer is 0 or 1.
+
+### 数字电路
+
+computer往往采用的是数字电路
+
+### 函数调用过程是离散的
+
+将调用一个函数看做是画一个点的话，函数的调用过程将呈现树结构，它是**包含关系**（在`Relation-structure-computation`章节会对此进行描述）。
+
+
+
+## 书写思路
 
 首先说明什么是discrete、discrete math，然后描述discrete objects的特性，discrete objects的这些特性使得它是computable的，这样我们就可以设计algorithm来解决与它相关的问题。discrete math中的理论知识是后续algorithm、data-structure的基础。
+
+
 
 ## Discrete VS continuous
 
@@ -70,45 +111,3 @@ discrete objects一般是countable的（有的是无法count的）。
 
 discrete objects，一般是computable的，作为software engineer，我们就需要思考：如何来实现“Computation on discrete objects”；显然与此相关的一个重要课题就是：算法，这在后续的章节中会进行介绍。
 
-
-
-## Discrete math and computer science
-
-> NOTE: 主要讨论如下议题：
->
-> - 对于discrete objects的相关问题，如何设计algorithm来实现computation
-
-正如在维基百科[Discrete mathematics](https://en.wikipedia.org/wiki/Discrete_mathematics)中所述：
-
-> Concepts and notations from discrete mathematics are useful in studying and describing objects and problems in branches of [computer science](https://en.wikipedia.org/wiki/Computer_science), such as [computer algorithms](https://en.wikipedia.org/wiki/Computer_algorithm), [programming languages](https://en.wikipedia.org/wiki/Programming_language), [cryptography](https://en.wikipedia.org/wiki/Cryptography), [automated theorem proving](https://en.wikipedia.org/wiki/Automated_theorem_proving), and [software development](https://en.wikipedia.org/wiki/Software_development). Conversely, computer implementations are significant in applying ideas from discrete mathematics to real-world problems, such as in [operations research](https://en.wikipedia.org/wiki/Operations_research).
-
-作为一个software engineer，对上面这段话的感受越来越深刻，总的来说，我越来越觉得：
-
-> Computer science is discrete.
-
-即“计算机科学是离散的”
-
-需要结合具体的例子来证实“computer science is discrete”观点：
-
-- discrete math的理论在computer science有着广泛的application。使用discrete math中的理论知识能够方便的描述computer science中的各种问题
-- algorithm、data structure都涉及discrete math
-
-下面是一些更加具体的例子：
-
-### 0 and 1
-
-everything in computer is 0 or 1.
-
-### 数字电路
-
-computer往往采用的是数字电路
-
-### Example of discrete objects
-
-[discrete structure](./Structure/Discrete-structure.md)、[recurrence relation](./Guide/Induction-and-Recursion/Recursion/Recurrence-relation.md)
-
-
-
-### 函数调用过程是离散的
-
-将调用一个函数看做是画一个点的话，函数的调用过程将呈现树结构，它是包含关系。
