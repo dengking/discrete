@@ -1,9 +1,8 @@
 nav:
     - Introduction: index.md
     - Tree-structure:  Tree-structure
-    - Tree(set-theory): Tree(set-theory).md
     - Tree(data-structure): Tree(data-structure).md
-    - Application-of-tree-data-structure: Application-of-tree-data-structure.md
+    - Application-of-tree: Application-of-tree.md
     - Implicit-tree: Implicit-tree.md
     - Tree-operation: Tree-operation
     - Trie: Trie
