@@ -109,7 +109,8 @@ nested hierarchy structure是一种特殊的hierarchy structure，tree是一种�
 
 在原文的[Informal representation](https://en.wikipedia.org/wiki/Hierarchy#Informal_representation)中有非严格的描述。其实简而言之就是元素之间需要存在着[**partial order**](https://en.wikipedia.org/wiki/Partially_ordered_set#Formal_definition)。
 
-
+- transitive
+- `N:N`
 
 ### Hierarchy and data structure
 
@@ -121,6 +122,7 @@ Nested hierarchy structure可以是要弄tree来进行表示。
 
 ### [Hierarchy](https://en.wikipedia.org/wiki/Hierarchy) structure and recursion
 
-具备[hierarchical](https://en.wikipedia.org/wiki/Hierarchical)结构的往往具备recursive的特征。
+由于hierarchy relation基本“transitive”性质，所有[hierarchical](https://en.wikipedia.org/wiki/Hierarchical)结构的往往具备recursive的特征。
 
 从数学的角度来看，[Hierarchy](https://en.wikipedia.org/wiki/Hierarchy) structure是一个[partially ordered set](https://en.wikipedia.org/wiki/Partially_ordered_set)，所以讨论hierarchy structure的递归性最终应该还是归于讨论poset的递归性。我觉得是可以使用tree的递归性来思考poset的递归性的，一个poset的subset也应该是一个poset。另外一个就是poset各层使用的是同一个relation。
+
