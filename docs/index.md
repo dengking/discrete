@@ -13,7 +13,11 @@ computer science中两个非常基本的问题是：
 - representation（往具体说，它包含data structure）
 - computation（往具体说，它包含algorithm）
 
-> representation和computation密切相关：好的representation是高效地实现computation的前提。
+> representation和computation密切相关：
+>
+> - 解决设计问题的第一步往往是：给出它的结构化的representation
+>
+> - 好的representation是高效地实现computation的前提
 
 representation和computation都具备**discrete**特性，可以使用discrete math中的理论、思想来进行理解和描述，正如在维基百科[Discrete mathematics](https://en.wikipedia.org/wiki/Discrete_mathematics)中所述：
 
