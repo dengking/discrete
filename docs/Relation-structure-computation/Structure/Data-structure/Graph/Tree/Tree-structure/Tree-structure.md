@@ -6,7 +6,17 @@
 
 > A **tree structure** or **tree diagram** is a way of representing the [hierarchical](https://en.wikipedia.org/wiki/Hierarchy) nature of a [structure](https://en.wikipedia.org/wiki/Structure) in a graphical form. It is named a "tree structure" because the classic [representation](https://en.wikipedia.org/wiki/Tree_structure#Representing_trees) resembles a [tree](https://en.wikipedia.org/wiki/Tree).
 
-在[Hierarchy](../Structure/Hierarchy.md)中，我们已经总结了**tree structure**对应的是 nested hierarchy structure。**tree structure** 的最最典型的特性是：一个节点可以有（包含）多个子节点，一个子节点只能够有一个父节点，root节点没有父节点。**tree structure** 的 “一个子节点只能够有一个父节点” 的要求，将它和graph区分开来了（参见[Discrete Mathematics and Its Applications](https://www.amazon.com/Discrete-Mathematics-Applications-Kenneth-Rosen/dp/125967651X)的Tree章节）。在本文的后面我们使用“**nesting** ”这个词来描述**tree structure**的这个特性。“**nesting**”的中文含义是“嵌套”，显然，它能够描述元素之间的嵌套关系；这个词的含义是丰富的，它的表面意思是“嵌套”，“嵌套”蕴含着“包含”的含义，“嵌套”蕴含着“递归”的含义；显然具备nesting特性，就具备了如下特性：
+在[Hierarchy](../Structure/Hierarchy.md)中，我们已经总结了**tree structure**对应的是 nested hierarchy structure。
+
+**tree structure** 的最最典型的特性是：
+
+- 一个节点可以有（包含）多个子节点
+
+- 一个子节点只能够有一个父节点
+
+- root节点没有父节点。
+
+**tree structure** 的 “一个子节点只能够有一个父节点” 的要求，将它和graph区分开来了（参见[Discrete Mathematics and Its Applications](https://www.amazon.com/Discrete-Mathematics-Applications-Kenneth-Rosen/dp/125967651X)的Tree章节）。在本文的后面我们使用“**nesting** ”这个词来描述**tree structure**的这个特性。“**nesting**”的中文含义是“嵌套”，显然，它能够描述元素之间的嵌套关系；这个词的含义是丰富的，它的表面意思是“嵌套”，“嵌套”蕴含着“包含”的含义，“嵌套”蕴含着“递归”的含义；显然具备nesting特性，就具备了如下特性：
 
 - [hierarchical](https://en.wikipedia.org/wiki/Hierarchy)，即树结构是层次的
 - [recursive](../Data-structure/Recursive-data-type.md)，nesting的递归性：我觉得nesting的递归性可以使用关系的transitive特性来进行解释。比如[recursive](https://en.wikipedia.org/wiki/Scope_(programming)) scope rules ，这种包含关系一种transitive relation。与nesting相关的另外一个词是：level，其实它就和树的深度相关。
@@ -53,7 +63,7 @@ Formal grammar的production的head可以derive得到body，这个过程其实非
 
 ### 最终答案
 
-这种关系需要是N:1的（记得在大学的数据库课程所使用的教材中有过这样的理论，这个理论应该是属于[Relational algebra](https://en.wikipedia.org/wiki/Relational_algebra)，参见：[Relational model](https://en.wikipedia.org/wiki/Relational_model)、[Database normalization](https://en.wikipedia.org/wiki/Database_normalization)）。
+这种关系需要是`N:1`的（记得在大学的数据库课程所使用的教材中有过这样的理论，这个理论应该是属于[Relational algebra](https://en.wikipedia.org/wiki/Relational_algebra)，参见：[Relational model](https://en.wikipedia.org/wiki/Relational_model)、[Database normalization](https://en.wikipedia.org/wiki/Database_normalization)）。
 
 这种关系应该是[Transitive relation](https://en.wikipedia.org/wiki/Transitive_relation)。
 
