@@ -29,13 +29,21 @@
 | graph                          | node | 基于graph的algorithm的执行过程往往是one node by another node，直至终止条件 |
 | relation-based algorithm model | node | 在下面章节会进行详细介绍                                     |
 
-relation可以使用graph来实现，所以上述两者，其实是重复的。
+relation可以使用graph来实现，所以上述两者，其实本质上是相同的。
 
 #### Iterative method
 
-多见于[Mathematical optimization](https://en.wikipedia.org/wiki/Mathematical_optimization) `#` [Computational optimization techniques](https://en.wikipedia.org/wiki/Mathematical_optimization#Computational_optimization_techniques)，下面是一些例子：
+参见：
+
+- 维基百科 [Iterative method](https://en.wikipedia.org/wiki/Iterative_method)
+
+- 维基百科 [Mathematical optimization](https://en.wikipedia.org/wiki/Mathematical_optimization) `#` [Computational optimization techniques](https://en.wikipedia.org/wiki/Mathematical_optimization#Computational_optimization_techniques)，
+
+下面是一些例子：
 
 - [Gradient descent](https://en.wikipedia.org/wiki/Gradient_descent) 
+
+主要用于解决 Continuous optimization problem，参见`Relation-structure-computation\Computation\Algorithm\Application\Optimization`。
 
 
 
@@ -130,3 +138,4 @@ rewrite/expand operation
 
 - `Relation-structure-computation\Structure\Data-structure\Graph\Search-algorithm`
 - CFG的parsing
+- Combinatorial-optimization，参见 `Relation-structure-computation\Computation\Algorithm\Application\Optimization\Combinatorial-optimization`
