@@ -1,5 +1,5 @@
 nav:
-    - Summary-of-search-method: Summary-of-search-method
+    - Summary: Summary
     - DFS-and-BFS: DFS-and-BFS.md
     - A-star-search-algorithm: A-star-search-algorithm.md
     - Beam-search: Beam-search.md
