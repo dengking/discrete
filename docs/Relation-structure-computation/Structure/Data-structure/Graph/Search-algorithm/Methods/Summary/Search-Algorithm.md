@@ -93,7 +93,7 @@ the algorithm will always find the shortest path (it might not be the optimal pa
 
 - **local** (greedy, hill-climbing) versus **global** (uniform cost, `A*`, etc)
 
-- **systematic** (depth-first, `A*`, etc) versus **stochastic** (simulated annealing, genetic algorithms)
+- **systematic** (depth-first, `A*`, etc) versus **stochastic** (simulated annealing, genetic algorithms（遗传算法）)
 
 > NOTE: 
 >
