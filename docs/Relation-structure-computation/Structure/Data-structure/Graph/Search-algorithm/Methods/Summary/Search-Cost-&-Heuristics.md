@@ -1,19 +1,15 @@
-# Search: Cost & Heuristics
+# washington [Search: Cost & Heuristics](https://courses.cs.washington.edu/courses/cse473/14au/slides/03-hsearch.pdf)
 
-graph search algorithm是非常之多的，需要首先建立起一个完整的视图。
+## Search thru a Problem Space / State Space 
 
-## [Search: Cost & Heuristics](https://courses.cs.washington.edu/courses/cse473/14au/slides/03-hsearch.pdf)
-
-### Search thru a Problem Space / State Space 
-
-#### Input
+### Input
 
 - Set of states
 - Operators [and costs]
 - Start state
 - Goal state [test] 
 
-#### Output
+### Output
 
 - Path: start ⇒ a state satisfying goal test 
 - [May require shortest path] 
@@ -21,15 +17,15 @@ graph search algorithm是非常之多的，需要首先建立起一个完整的�
 
 
 
-### Search Methods 
+## Search Methods 
 
-#### Blind search
+### Blind search
 
 - Depth first search (DFS) 
 - Breadth first search (BFS)
 - Iterative deepening depth-first search (IDS) 
 
-#### Heuristic search
+### Heuristic search
 
 - Best first search
 - Uniform cost search (UCS) 

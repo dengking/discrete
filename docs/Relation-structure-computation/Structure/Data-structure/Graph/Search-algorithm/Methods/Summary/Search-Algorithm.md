@@ -1,14 +1,14 @@
-# Search Algorithms
+# umn [CSci 4511w: Class Notes on Search](https://www-users.cs.umn.edu/~gini/4511/search)
 
-## [CSci 4511w: Class Notes on Search](https://www-users.cs.umn.edu/~gini/4511/search)
+> NOTE: 这篇文章，总结得非常好
 
 The description of most of the search algorithms in these notes is taken from J. Pearl, "Heuristics", Addison-Wesley, 1984.
 
-### Important issues about Search Algorithms
+## Important issues about Search Algorithms
 
 We will address:
 
-#### 1. how to write search algorithms. 
+### 1. how to write search algorithms. 
 
 In particular we will examine:
 
@@ -21,7 +21,7 @@ In particular we will examine:
 
 > NOTE: 上述过程，非常类似于一个automaton，在工程[compiler-principle](https://dengking.github.io/compiler-principle/)和工程[automata-and-formal-language](https://dengking.github.io/automata-and-formal-language)中有涉及，parsing的过程与上述过程非常类似，需要结合top-down parsing和bottom-up parsing来一起进行理解，另外可以参见维基百科[Pushdown automaton](https://en.wikipedia.org/wiki/Pushdown_automaton)。
 
-#### 2. properties of search algorithms and the solutions they find:
+### 2. properties of search algorithms and the solutions they find:
 
 - Termination: the computation is guaranteed to terminate, no matter how large the search space is.
 
@@ -85,7 +85,7 @@ the algorithm will always find the shortest path (it might not be the optimal pa
 
 
 
-#### 3. classes of search algorithms.
+### 3. classes of search algorithms.
 
 - **uninformed** (depth-first, breadth-first, uniform cost, depth-limited, iterative deepening) versus **informed** (greedy, `A*`, `IDA*`, `SMA*`)
 
@@ -118,9 +118,9 @@ the algorithm will always find the shortest path (it might not be the optimal pa
 >
 > 
 
-### Description of an Uninformed Search Algorithm:
+## Description of an Uninformed Search Algorithm:
 
-#### Depth-First Search with depth bound
+### Depth-First Search with depth bound
 
 > NOTE: 带深度限制的深度优先搜索
 
@@ -174,9 +174,9 @@ Notes:
 
 
 
-### Description of an Informed Search Algorithm
+## Description of an Informed Search Algorithm
 
-#### Best-First Search
+### Best-First Search
 
 The term **best-first search** is used in different ways by different authors:
 
@@ -257,7 +257,7 @@ Notes:
 
 > NOTE: best-first search和[Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra's_algorithm)是比较类似的
 
-#### `A*`
+### `A*`
 
 ```c++
 1. Put the start node S on OPEN.  Attach to s the cost 
@@ -323,7 +323,7 @@ Notes:
 
 
 
-#### `Iterative-Deepening A*` (`IDA*`)
+### `Iterative-Deepening A*` (`IDA*`)
 
 `IDA*` is similar to Depth-First Iterative-Deepening, the difference being the cutoff criteria. A path is cutoff when its total cots f(n) exceeds a cost threshold. `IDA*` starts with a threshold equal to f(s) (which is equal to h'(s) since g(s) = 0). Each iteration is a depth-first search, cutting off a branch when its f(n) value exceeds the threshold. If a solution is found, the algorithm terminates. Otherwise, the threshold is increased to the minimum f value that exceeded the previous threshold and another depth-first search is started from scratch. This continues until a solution is found.
 

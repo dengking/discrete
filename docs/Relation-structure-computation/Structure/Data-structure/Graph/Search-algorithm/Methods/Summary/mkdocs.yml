@@ -1,3 +1,4 @@
 nav:
+    - Introduction: index.md
     - Search-Algorithm: Search-Algorithm.md
     - Search-Cost-&-Heuristics: Search-Cost-&-Heuristics.md   
