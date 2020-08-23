@@ -1,4 +1,5 @@
 nav:
+    - Optimization: Optimization.md
     - Mathematical-optimization: Mathematical-optimization
     - Combinatorial-optimization: Combinatorial-optimization
     - Linear-programming: Linear-programming

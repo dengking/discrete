@@ -1,12 +1,24 @@
+# Optimization
 
 
-# [Optimization problem](https://en.wikipedia.org/wiki/Optimization_problem)
+
+## wikipedia [Mathematical optimization](https://en.wikipedia.org/wiki/Mathematical_optimization)
+
+**Mathematical optimization** (alternatively spelled *optimisation*) or **mathematical programming** is the selection of a best element (with regard to some criterion) from some set of available alternatives.[[1\]](https://en.wikipedia.org/wiki/Mathematical_optimization#cite_note-1) Optimization problems of sorts arise in all quantitative disciplines from [computer science](https://en.wikipedia.org/wiki/Computer_science) and [engineering](https://en.wikipedia.org/wiki/Engineering) to [operations research](https://en.wikipedia.org/wiki/Operations_research) and [economics](https://en.wikipedia.org/wiki/Economics), and the development of solution methods has been of interest in [mathematics](https://en.wikipedia.org/wiki/Mathematics) for centuries.[[2\]](https://en.wikipedia.org/wiki/Mathematical_optimization#cite_note-2)
+
+In the simplest case, an [optimization problem](https://en.wikipedia.org/wiki/Optimization_problem) consists of [maximizing or minimizing](https://en.wikipedia.org/wiki/Maxima_and_minima) a [real function](https://en.wikipedia.org/wiki/Function_of_a_real_variable) by systematically choosing [input](https://en.wikipedia.org/wiki/Argument_of_a_function) values from within an allowed set and computing the [value](https://en.wikipedia.org/wiki/Value_(mathematics)) of the function. The generalization of optimization theory and techniques to other formulations constitutes a large area of [applied mathematics](https://en.wikipedia.org/wiki/Applied_mathematics). More generally, optimization includes finding "best available" values of some objective function given a defined [domain](https://en.wikipedia.org/wiki/Domain_of_a_function) (or input), including a variety of different types of objective functions and different types of domains.
+
+
+
+
+
+## wikipedia [Optimization problem](https://en.wikipedia.org/wiki/Optimization_problem)
 
 For broader coverage of this topic, see [Mathematical optimization](https://en.wikipedia.org/wiki/Mathematical_optimization).
 
 In [mathematics](https://en.wikipedia.org/wiki/Mathematics) and [computer science](https://en.wikipedia.org/wiki/Computer_science), an **optimization problem** is the [problem](https://en.wikipedia.org/wiki/Computational_problem) of finding the *best* solution from all [feasible solutions](https://en.wikipedia.org/wiki/Feasible_solution). Optimization problems can be divided into two categories depending on whether the [variables](https://en.wikipedia.org/wiki/Variable_(mathematics)) are [continuous](https://en.wikipedia.org/wiki/Continuous_variable) or [discrete](https://en.wikipedia.org/wiki/Discrete_variable). An optimization problem with [discrete](https://en.wikipedia.org/wiki/Discrete_mathematics) variables is known as a [discrete optimization](https://en.wikipedia.org/wiki/Discrete_optimization). In a discrete optimization problem, we are looking for an object such as an [integer](https://en.wikipedia.org/wiki/Integer), [permutation](https://en.wikipedia.org/wiki/Permutation) or [graph](https://en.wikipedia.org/wiki/Graph_(discrete_mathematics)) from a [countable set](https://en.wikipedia.org/wiki/Countable_set). Problems with continuous variables include constrained problems and multimodal problems.
 
-## Continuous optimization problem
+### Continuous optimization problem
 
 The *standard form* of a [continuous](https://en.wikipedia.org/wiki/Continuity_(mathematics)) optimization problem is[[1\]](https://en.wikipedia.org/wiki/Optimization_problem#cite_note-1)
 
@@ -21,7 +33,7 @@ where
 
 If $ m $ and $ p $ equal 0, the problem is an unconstrained optimization problem. By convention, the standard form defines a **minimization problem**. A **maximization problem** can be treated by [negating](https://en.wikipedia.org/wiki/Additive_inverse) the objective function.
 
-## Combinatorial optimization problem
+### Combinatorial optimization problem
 
 Main article: [Combinatorial optimization](https://en.wikipedia.org/wiki/Combinatorial_optimization)
 
