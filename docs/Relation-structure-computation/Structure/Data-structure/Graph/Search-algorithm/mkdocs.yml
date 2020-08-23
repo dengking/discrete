@@ -1,0 +1,7 @@
+nav:
+    # 首先介绍traversal policy，然后介绍graph、tree基于这些policy的实现
+    - Method-of-search: Method-of-search
+    # 
+    - Graph-traversal: Graph-traversal
+    - Tree-traversal: Tree-traversal
+    

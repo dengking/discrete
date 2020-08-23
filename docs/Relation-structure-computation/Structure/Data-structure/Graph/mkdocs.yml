@@ -3,4 +3,4 @@ nav:
     - Graph: Graph
     - Tree: Tree
     # graph和tree中都会存在的一种问题
-    - Graph-and-tree-search-algorithm: Graph-and-tree-search-algorithm
+    - Search-algorithm: Search-algorithm

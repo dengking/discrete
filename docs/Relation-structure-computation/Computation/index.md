@@ -10,15 +10,38 @@
 
 在讲解具体的算法设计之前，我们首先介绍一种非常抽象的的计算模型：one-by-one。
 
-|                                | unit        | 解释                                                         |
-| ------------------------------ | ----------- | ------------------------------------------------------------ |
-| CPU                            | instruction | CPU的执行过程是one instruction by another，直至到达终点      |
-| Turing-machine                 | instruction | Turing-machine的computation也是one-by-one。                  |
-| graph                          | node        | 基于graph的algorithm的执行过程往往是one node by another node，直至终止条件 |
-| relation-based algorithm model | node        | 在下面章节会进行详细介绍                                     |
-| function                       | subfunction | 函数的执行过程可以用one-by-one来进行描述：<br>将整个program简化为由function组成，<br>将函数简化为的节点，<br>存在调用关系的函数之间，使用连线<br>则形成了一个graph。<br>则函数的执行过程：<br>one subfunction by another subfunction<br>one node by another |
+### Classification
+
+#### 顺序执行，直至终点
+
+|                | unit        | 解释                                                         |
+| -------------- | ----------- | ------------------------------------------------------------ |
+| CPU            | instruction | CPU的执行过程是one instruction by another，直至到达终点      |
+| Turing-machine | instruction | Turing-machine的computation也是one-by-one。                  |
+| function       | subfunction | 函数的执行过程可以用one-by-one来进行描述：<br>将整个program简化为由function组成，<br>将函数简化为的节点，<br>存在调用关系的函数之间，使用连线<br>则形成了一个graph。<br>则函数的执行过程：<br>one subfunction by another subfunction<br>one node by another |
+
+
+
+#### 基于relation进行搜索，直至目标点
+
+|                                | unit | 解释                                                         |
+| ------------------------------ | ---- | ------------------------------------------------------------ |
+| graph                          | node | 基于graph的algorithm的执行过程往往是one node by another node，直至终止条件 |
+| relation-based algorithm model | node | 在下面章节会进行详细介绍                                     |
+
+relation可以使用graph来实现，所以上述两者，其实是重复的。
+
+#### Iterative method
+
+多见于[Mathematical optimization](https://en.wikipedia.org/wiki/Mathematical_optimization) `#` [Computational optimization techniques](https://en.wikipedia.org/wiki/Mathematical_optimization#Computational_optimization_techniques)，下面是一些例子：
+
+- [Gradient descent](https://en.wikipedia.org/wiki/Gradient_descent) 
+
+
 
 所有的one-by-one，都是enumerable、countable。
+
+
 
 ### unit
 
