@@ -95,6 +95,7 @@ More generally, recursive definitions of functions can be made whenever the doma
 下面是一些例子：
 
 - Subobjects（参见cppreference [Object#Subobjects](https://en.cppreference.com/w/cpp/language/object#Polymorphic_objects)）
+- 维基百科 [Optimal substructure](https://en.wikipedia.org/wiki/Optimal_substructure)
 
 
 

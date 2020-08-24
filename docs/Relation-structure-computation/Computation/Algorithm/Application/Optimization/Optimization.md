@@ -78,4 +78,20 @@ For each combinatorial optimization problem, there is a corresponding [decision 
 | Continuous optimization problem    | - 维基百科 [Continuous optimization](https://en.wikipedia.org/wiki/Continuous_optimization) | - [Unconstrained nonlinear](https://en.wikipedia.org/wiki/Nonlinear_programming) <br>- [Constrained nonlinear](https://en.wikipedia.org/wiki/Nonlinear_programming) <br>- [Convex optimization](https://en.wikipedia.org/wiki/Convex_optimization) <br> | 比较典型的有: <br/>- Iterative method              |
 | Combinatorial optimization problem | - 维基百科 [Discrete optimization](https://en.wikipedia.org/wiki/Discrete_optimization) <br>- 维基百科 [Combinatorial optimization](https://en.wikipedia.org/wiki/Combinatorial_optimization) |                                                              | 比较典型的有: <br>- relation-based algorithm model |
 
+## 方法论
+
 一般，在实践中， 上述两种类别的optimization problem采用的是不同的计算方法。
+
+
+
+一般要我们解决的optimization问题中往往只包含一个最值，如：
+
+- [All nearest smaller values](https://en.wikipedia.org/wiki/All_nearest_smaller_values)的最值是nearest
+- [Maximum subarray problem](https://en.wikipedia.org/wiki/Maximum_subarray_problem)的最值是largest
+
+所以在求解最值问题的时候，一个非常重要的前提是要搞清楚它的最值是什么。
+
+其次，我们往往是基于**比较**（打擂台）来求解最值，但是有有些是可以直接进行比较的，比如数值，但是有些是无法直接进行比较的，比如在[All nearest smaller values](https://en.wikipedia.org/wiki/All_nearest_smaller_values)中最值是nearest，除非记录每个元素的位置，否则只能够借助一个stack来实现nearest；
+
+
+
