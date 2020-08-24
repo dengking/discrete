@@ -1,0 +1,6 @@
+nav:
+    - index: index.md
+    - Theory-of-computation: Theory-of-computation.md
+    - Model-of-computation: Model-of-computation
+    - Computability-theory: Computability-theory
+    - Automata-theory: Automata-theory

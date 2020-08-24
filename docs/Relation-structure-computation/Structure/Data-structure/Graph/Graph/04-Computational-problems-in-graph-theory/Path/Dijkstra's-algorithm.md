@@ -2,6 +2,25 @@
 
 
 
+## 计算机算法设计与分析
+
+按照在`Relation-structure-computation\Structure\Data-structure\Graph\Search-algorithm\Methods\Summary\Search-Algorithm.md`中描述的算法框架来分析Dijkstra's algorithm。
+
+集合S为**CLOSED**集，在该算法中，并没有显式地维护**OPEN集**。
+
+对于Dijkstra's algorithm，它的“strategies for selecting which node to expand next”是采用的greedy策略，即每次选择最小的distance。
+
+dijkstra的算法思想：
+
+- greedy
+- dynamic programming
+
+
+
+
+
+
+
 ## 维基百科[Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra's_algorithm)
 
 The algorithm exists in many variants. Dijkstra's original algorithm found the shortest path between two given nodes,[[5\]](https://en.wikipedia.org/wiki/Dijkstra's_algorithm#cite_note-Dijkstra1959-5) but a more common variant fixes a single node as the "source" node and finds shortest paths from the source to all other nodes in the graph, producing a [shortest-path tree](https://en.wikipedia.org/wiki/Shortest-path_tree).
