@@ -137,6 +137,14 @@ regular language是linear structure，context free language是hierarchy 结构�
 
 
 
+TODO:
+
+结构化表示后，才能够进行computation
+结构化表示是一种计算机语言，
+典型的例子就是compile principle中，广泛地使用tree、graph来，对于语言这种看似非常灵活的、无规律的东西，进行**形式化**的描述，这让programming language称为了可能
+
+另外，youdao `representation`
+
 ## 章节说明
 
 “relation”将在[Relation](./Relation/index.md)章节进行描述；

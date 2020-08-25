@@ -97,9 +97,17 @@ More generally, recursive definitions of functions can be made whenever the doma
 - Subobjects（参见cppreference [Object#Subobjects](https://en.cppreference.com/w/cpp/language/object#Polymorphic_objects)）
 - 维基百科 [Optimal substructure](https://en.wikipedia.org/wiki/Optimal_substructure)
 
+#### pointer of pointer
 
+无论是在computer science还是在实际生活中，都存在着大量的类似于pointer of pointer的例子：
 
-#### multiple-dimensional array
+- pointer of pointer
+- array of array（其实是一种sub structure，一个array可以看做是由多个sub array 组成）
+- mother of mother （家族hierarchy）
+
+它们都是都是非常典型的recursion definition。下面对array of array即multiple-dimensional array进行说明。
+
+**multiple-dimensional array**
 
 在阅读 https://stackoverflow.com/a/4810676 时，其中有这样的描述：
 
