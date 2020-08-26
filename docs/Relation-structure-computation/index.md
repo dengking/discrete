@@ -116,36 +116,9 @@ $$
 
 ### 结构化表示
 
-上一节使用**结构化思维**来看待**数学表达式**了，我觉得**计算机科学**是需要这种思维的，只有**结构化**了之后，计算机才能够对其进行**表示**（representation）、进而进行**计算**；这里所说的**结构化**如果往更高层面来思考的话，其实是：**形式化**，只有**形式化**后才能够使用计算机算法来进行计算，或者更加通俗地来说：**结构化**是**形式化**的一种。
+上一节使用**结构化思维**来看待**数学表达式**了，我觉得**计算机科学**是需要这种思维的，只有**结构化**了之后，计算机才能够对其进行**表示**（representation）、进而进行**计算**（computation）；这里所说的**结构化**如果往更高层面来思考的话，其实是：**形式化**，只有**形式化**后才能够使用计算机算法来进行计算，或者更加通俗地来说：**结构化**是**形式化**的一种。
 
-产生式、函数表达式（expression）都是数学**语言**，它们描述了**关系**。
-
-在computer science中，我们知道，graph也可以用来描述**关系**。
-
-在计算机科学中，我们应该使用discrete relation来分析事物，从而对它们进行描述、计算：
-
-- 产生式可以使用tree structure来表示，tree 是一种 graph
-- 函数表达式可以使用computation graph来表示
-
-
-
-#### [Linguistics](https://en.wikipedia.org/wiki/Linguistics)
-
-在语言学中使用[Grammar](https://en.wikipedia.org/wiki/Grammar)、[Syntax](https://en.wikipedia.org/wiki/Syntax)来表示语言的结构，最最典型的就是[Phrase structure grammar](https://en.wikipedia.org/wiki/Parsing_of_natural_language)。
-
-regular language是linear structure，context free language是hierarchy 结构。因为regular language的grammar，即regular grammar无法表达containing关系
-
-
-
-TODO:
-
-需要论述结构化表示和computation之间的关系。
-
-结构化表示后，才能够进行computation
-结构化表示是一种计算机语言，
-典型的例子就是compile principle中，广泛地使用tree、graph来，对于语言这种看似非常灵活的、无规律的东西，进行**形式化**的描述，这让programming language称为了可能
-
-另外，youdao `representation`
+在`Relation-structure-computation\Representation-and-computation.md`中，对这个话题进行了展开。
 
 ## 章节说明
 

@@ -1,5 +1,6 @@
 nav:
-    - Home: index.md
+    - Introduction: index.md
+    - Representation-and-computation: Representation-and-computation.md
     # 关系
     - Relation: Relation
     # 结构，结构就是典型的具备离散特性的

@@ -2,7 +2,7 @@
 
 “search”是一个非常宏大的主题，有时候有这样的感觉：computer science解决很多问题的解法最终都可以归入search的范轴。
 
-## 维基百科[Search algorithm](https://en.wikipedia.org/wiki/Search_algorithm)
+## 维基百科 [Search algorithm](https://en.wikipedia.org/wiki/Search_algorithm)
 
 > NOTE: 这篇文章对search algorithm的描述是非常好的，尤其是对问题的分类
 
@@ -135,6 +135,23 @@ Categories:
 
 
 
+## Search in virtual space VS search in concrete structure
+
+virtual space的搜索和concrete structure的搜索的过程、实现方式非常类似。
+
+virtual space包括：
+
+- 解空间
+- 状态空间
+
+以**结构化思维**来看，virtual space也有着**结构**，最最典型的例子是eight-queen puzzle，它可以使用**nesting关系**来解释：第一次包含n个选择，第二次包含n-1个选择，所以它最终呈现树形，所以可以使用**Relation-based algorithm model**。
+
+参见：
+
+- 结构化思维：`Relation-structure-computation\index.md`
+- Relation-based algorithm model：`Relation-structure-computation\Computation\Relation-based-algorithm-model.md`
+- nesting关系：`Relation-structure-computation\Model\Nesting-relation-model`
+
 ## [Graph](https://en.wikipedia.org/wiki/Graph_traversal) **and** [tree search algorithms](https://en.wikipedia.org/wiki/Tree_traversal)
 
 这部分内容`Relation-structure-computation\Structure\Data-structure\Graph\Search-algorithm`章节进行了描述。
@@ -148,3 +165,5 @@ Categories:
 [如何直观地解释 backpropagation 算法？ - Anonymous的回答 - 知乎]( https://www.zhihu.com/question/27239198/answer/89853077)中有这样的说明：
 
 > 梯度下降法需要给定一个初始点，并求出该点的梯度向量，然后以负梯度方向为搜索方向，以一定的步长进行搜索，从而确定下一个迭代点，再计算该新的梯度方向，如此重复直到cost收敛。
+
+Optimization algorithm的目标是寻找最优解。
