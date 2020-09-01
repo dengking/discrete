@@ -2,23 +2,29 @@
 
 “backtracking”即“回溯”。
 
+
+
+## Backtracking is a kind of search
+
+使用search的思想来看待backtracking。
+
+- search tree
+- deep-first order
+- prune（剪枝）
+
 ## wikipedia [Backtracking](https://en.wikipedia.org/wiki/Backtracking)
 
 **Backtracking** is a general [algorithm](https://en.wikipedia.org/wiki/Algorithm) for finding all (or some) solutions to some [computational problems](https://en.wikipedia.org/wiki/Computational_problem), notably [constraint satisfaction problems](https://en.wikipedia.org/wiki/Constraint_satisfaction_problem), that incrementally builds **candidates** to the solutions, and abandons a candidate ("backtracks") as soon as it determines that the candidate cannot possibly be completed to a valid solution.[[1\]](https://en.wikipedia.org/wiki/Backtracking#cite_note-1)[[2\]](https://en.wikipedia.org/wiki/Backtracking#cite_note-2)
 
 > NOTE: 上面这段话的最后一句，就点明了backtrack的含义所在，非常精准。
 
-> NOTE : 当我们需要进行穷举的时候，使用[Backtracking](https://en.wikipedia.org/wiki/Backtracking)，其实从本质上来说，[Backtracking](https://en.wikipedia.org/wiki/Backtracking)对应的是permutation，关于[Backtracking](https://en.wikipedia.org/wiki/Backtracking)和permutation，可以参看如下文章：
->
-> - [Write a program to print all permutations of a given string](https://www.geeksforgeeks.org/write-a-c-program-to-print-all-permutations-of-a-given-string/)
 
-The classic textbook example of the use of backtracking is the [eight queens puzzle](https://en.wikipedia.org/wiki/Eight_queens_puzzle), that asks for all arrangements of eight [chess](https://en.wikipedia.org/wiki/Chess) [queens](https://en.wikipedia.org/wiki/Queen_(chess)) on a standard [chessboard](https://en.wikipedia.org/wiki/Chessboard) so that no queen attacks any other. In the common backtracking approach, **the partial candidates** are arrangements of *k* queens in the first *k* rows of the board, all in different rows and columns. Any **partial solution** that contains two mutually attacking queens can be abandoned.
-
-> NOTE : 不断地再进行尝试，所以对应的solution才是partial的，而不是全部的；并且有的时候是可以提前终止这个尝试的；
 
 Backtracking can be applied only for problems which admit the concept of a "partial candidate solution" and a relatively quick test of whether it can possibly be completed to a valid solution. It is useless, for example, for locating a given value in an unordered table. When it is applicable, however, backtracking is often much faster than [brute force enumeration](https://en.wikipedia.org/wiki/Brute_force_search) of all complete candidates, since it can eliminate（消除） many candidates with a single test.
 
-> NOTE : [Backtracking](https://en.wikipedia.org/wiki/Backtracking) VS  [brute force enumeration](https://en.wikipedia.org/wiki/Brute_force_search) 
+> NOTE : 上面这段话说明了可以使用backtrack解决的问题
+>
+> [Backtracking](https://en.wikipedia.org/wiki/Backtracking) VS  [brute force enumeration](https://en.wikipedia.org/wiki/Brute_force_search) 
 
 Backtracking is an important tool for solving [constraint satisfaction problems](https://en.wikipedia.org/wiki/Constraint_satisfaction_problem),[[3\]](https://en.wikipedia.org/wiki/Backtracking#cite_note-BiereHeule2009-3) such as [crosswords](https://en.wikipedia.org/wiki/Crosswords), [verbal arithmetic](https://en.wikipedia.org/wiki/Verbal_arithmetic), [Sudoku](https://en.wikipedia.org/wiki/Algorithmics_of_sudoku), and many other puzzles. It is often the most convenient (if not the most efficient[*citation needed*]) technique for [parsing](https://en.wikipedia.org/wiki/Parsing),[[4\]](https://en.wikipedia.org/wiki/Backtracking#cite_note-Watson2017-4) for the [knapsack problem](https://en.wikipedia.org/wiki/Knapsack_problem) and other [combinatorial optimization](https://en.wikipedia.org/wiki/Combinatorial_optimization) problems. It is also the basis of the so-called [logic programming](https://en.wikipedia.org/wiki/Logic_programming) languages such as [Icon](https://en.wikipedia.org/wiki/Icon_programming_language), [Planner](https://en.wikipedia.org/wiki/Planner_programming_language) and [Prolog](https://en.wikipedia.org/wiki/Prolog).
 
@@ -26,7 +32,7 @@ Backtracking depends on user-given "[black box procedures](https://en.wikipedia.
 
 > NOTE: 需要注意的是，backtracking是一种算法框架，或者说是一种算法技术，而不是一种专用的算法。
 
-The term "backtrack" was coined by American mathematician [D. H. Lehmer](https://en.wikipedia.org/wiki/Derrick_Henry_Lehmer) in the 1950s.[[5\]](https://en.wikipedia.org/wiki/Backtracking#cite_note-5) The pioneer string-processing language [SNOBOL](https://en.wikipedia.org/wiki/SNOBOL) (1962) may have been the first to provide a built-in general backtracking facility.
+
 
 
 

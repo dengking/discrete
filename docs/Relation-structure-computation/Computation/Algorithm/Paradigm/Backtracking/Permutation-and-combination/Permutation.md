@@ -18,3 +18,10 @@ An obvious way to generate permutations of *n* is to generate values for the **L
 n可能很小(特别是如果需要生成所有排列)，这不是什么大问题，但事实证明，无论是随机生成还是系统生成，都有简单的替代方法可以做得更好。
 因此，使用一种特殊的数据结构，允许在O(n log n)时间内执行从Lehmer代码到置换的转换，虽然这种数据结构肯定是可行的，但似乎并不有用。
 
+
+
+
+
+## TO READ
+
+[Write a program to print all permutations of a given string](https://www.geeksforgeeks.org/write-a-c-program-to-print-all-permutations-of-a-given-string/)
