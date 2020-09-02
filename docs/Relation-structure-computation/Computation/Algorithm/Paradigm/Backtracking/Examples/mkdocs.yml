@@ -1,4 +1,5 @@
 nav:
     - Sudoku-solving: Sudoku-solving.md
-    - Eight-queens-puzzle: Eight-queens-puzzle.md
+    - N-queen: N-queen
+    - Symbol-triangle: Symbol-triangle
     
