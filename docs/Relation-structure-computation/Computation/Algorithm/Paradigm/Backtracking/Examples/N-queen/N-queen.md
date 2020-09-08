@@ -235,3 +235,6 @@ void Backtrack()
 
 显然，经过上述代码后，`k == 0`，所以，就退出了主循环体，显然上述算法是符合预期的。
 
+
+
+## wikipedia [Eight queens puzzle](https://en.wikipedia.org/wiki/Eight_queens_puzzle)
