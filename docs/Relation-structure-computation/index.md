@@ -33,7 +33,7 @@ computation是指为解决问题采用的algorithm；
 
 ## relation and structure
 
-在上一节，我们提出了“**relation**决定**structure**”，关于此argument，我们需要进行深入思考：
+在上一节，我们提出了“**relation**决定**structure**”，关于此algorithm，我们需要进行深入思考：
 
 - relation和structure之间的关系：relation的哪些特性决定了structure，或者说：什么样的关系可以形成什么样的结构。比如chain、tree、graph。
 

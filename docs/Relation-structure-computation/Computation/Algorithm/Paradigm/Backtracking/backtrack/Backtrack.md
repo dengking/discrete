@@ -2,23 +2,28 @@
 
 书写思路：
 
-需要一search algorithm的思路来描述Backtrack。
+- 从search algorithm的角度来描述Backtrack：对接空间进行deep-first search
+- 从relation-based algorithmd的角度
 
-## 解空间
+## 解 与 解空间
 
 
 
 从以下几个方面来进行描述：
 
-- 使用nesting关系来进行描述
-- 呈现出tree structure
+- 逐步（one-by-one）构造出完整的解，完整解的长度$n$
+
+- 使用nesting关系来进行描述：第$1$步包含$x_1$个选择、第$2$步包含$x_2$个选择, ..., 第$n$步包含$x_n$个选择，因此，整个解空间的$size = x_1 * x_2 * \dots * x_n $，后面所有的例子，都会使用这个关系来进行描述
+- 解空间呈现出tree structure
 - 解空间是一种virtual space，解空间和state space类似
+- 问题的解$X$：对应的是解空间树的一条**路径**，一般可以使用 **动态数组** 来实现
+- 解空间的size决定了算法的时间复杂度
 
 > 上面这种描述思想是符合 结构化思维的
 
 对于解空间满足nesting关系的的问题，都可以使用Backtrack来进行求解。
 
-问题的解：对应的是解空间树的一条**路径**
+
 
 
 
@@ -174,11 +179,21 @@ void IterativeBacktrack(void)
 
 ### 子集树 与 排列树
 
+
+
 ![](./subset-tree-and-permutation-tree-1.jpg)
 
 ![](./subset-tree-and-permutation-tree-2.jpg)
 
 
+
+原文中，关于子集树、排列树的命名，其实是根据解空间的构成来命名的。
+
+#### 子集树 and 组合树
+
+
+
+#### 排列树的回溯法算法框架
 
 用回溯法搜索排列树的算法框架可描述如下：
 
