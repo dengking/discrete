@@ -187,9 +187,9 @@ void IterativeBacktrack(void)
 
 
 
-原文中，关于子集树、排列树的命名，其实是根据解空间的构成来命名的，在`Relation-structure-computation\Structured-thinking-model.md`中组合树、排列树进行了描述。
+原文中，关于子集树、排列树的命名，其实是根据**解空间**的构成来命名的。
 
-子集树 and 组合树
+在`Relation-structure-computation\Structured-thinking-model.md`中对**组合树**、**排列树**进行了描述，上述**子集树**，其实属于**组合树**。
 
 
 
