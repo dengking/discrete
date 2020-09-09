@@ -1,4 +1,5 @@
 nav:
+    - Introduction: index.md
     - Sudoku-solving: Sudoku-solving.md
     - N-queen: N-queen
     - Symbol-triangle: Symbol-triangle
