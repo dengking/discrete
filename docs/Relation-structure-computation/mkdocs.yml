@@ -1,5 +1,6 @@
 nav:
     - Introduction: index.md
+    - Structured-thinking-model: Structured-thinking-model.md
     - Representation-and-computation: Representation-and-computation.md
     # 关系
     - Relation: Relation
