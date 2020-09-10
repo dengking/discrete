@@ -67,7 +67,7 @@ Turing的可计算理论是对此的研究。
 
 
 
-### 如何实现计算?
+## 如何实现计算?
 
 前面介绍了ono-by-one model，本节介绍如何来进行实现。
 
@@ -78,8 +78,18 @@ Turing的可计算理论是对此的研究。
 
 很多的algorithm都是基于上述两种形式。
 
-## 如何设计algorithm？
+### 如何设计algorithm？
 
-这是一个非常复杂的问题，下面是我的一些经验之谈。
+设计algorithm是实现computation的非常重要的一环，是一个非常复杂的问题，有着非常多的技巧，我们将在`Relation-structure-computation\Computation\Algorithm`中进行讨论。
 
-- Relation-based algorithm model
+### 计算的方向
+
+我们常常会听到：
+
+- 自底向上
+- 自定向下
+- 反向传播
+- ......
+
+上述这些都体现了计算的方向。
+
