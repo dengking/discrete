@@ -8,11 +8,9 @@
 
 ## 计算模型: one-by-one
 
-在讲解具体的算法设计之前，我们首先介绍一种非常抽象的的计算模型：one-by-one。
+在讲解具体的算法设计之前，我们首先介绍一种非常抽象的的计算模型：one-by-one。下面列举了案例
 
-### Classification
-
-#### 顺序执行，直至终点
+### 顺序执行，直至终点
 
 |                | unit        | 解释                                                         |
 | -------------- | ----------- | ------------------------------------------------------------ |
@@ -22,7 +20,7 @@
 
 
 
-#### 基于relation进行搜索，直至目标点
+### 基于relation进行搜索，直至目标点
 
 |                                | unit | 解释                                                         |
 | ------------------------------ | ---- | ------------------------------------------------------------ |
@@ -31,7 +29,7 @@
 
 relation可以使用graph来实现，所以上述两者，其实本质上是相同的。
 
-#### Iterative method
+### Iterative method
 
 参见：
 
@@ -45,9 +43,16 @@ relation可以使用graph来实现，所以上述两者，其实本质上是相�
 
 主要用于解决 Continuous optimization problem，参见`Relation-structure-computation\Computation\Algorithm\Application\Optimization`。
 
+#### Iterative method 和 greedy algorithm
+
+Iterative method 和 greedy algorithm 是比较类似的：
+
+- iterative method 和 greedy algorithm都是重复执行着 **贪心选择** 过程，从而实现 不断的 向 **目标** 靠近 
+- 两种都可能无法获得全局最优
 
 
-所有的one-by-one，都是enumerable、countable。
+
+## 所有的one-by-one，都是enumerable、countable
 
 
 
@@ -76,7 +81,14 @@ Turing的可计算理论是对此的研究。
 - iteration
 - recursion
 
-很多的algorithm都是基于上述两种形式。
+很多的algorithm都是基于上述两种形式，我们需要深入思考为什么很多算法都是基于这两种computation形式？
+
+下面是我的一些思考：
+
+iteration 和 recursion使我们能够“重复执行某个computation”，下面结合具体案例来说明这种 “重复执行某个computation” 计算方式的重要价值：
+
+- iterative method 和 greedy algorithm就是重复执行着 **贪心选择** 过程，从而实现 不断的 向 **目标** 靠近 
+- relation-based algorithm
 
 ### 如何设计algorithm？
 
@@ -84,12 +96,18 @@ Turing的可计算理论是对此的研究。
 
 ### 计算的方向
 
-我们常常会听到：
+沿着关系、结构来进行计算，一般，我们可以选择两个不同的方向：
 
-- 自底向上
-- 自定向下
-- 反向传播
-- ......
+比如：
+
+- 自底向上 与 自顶向下
+- 正向传播 与 反向传播
+
+比如：递归是自顶向下、动态规划是自底向上、backprop是自顶向下、bottom-up parsing。
 
 上述这些都体现了计算的方向。
+
+
+
+
 

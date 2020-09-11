@@ -29,28 +29,46 @@ rewrite/expand operation
 - 在parsing中，是根据production进行expand，production所表达的是包含关系
 - 在graph中，则是根据相邻关系来进行expand的
 - [Function composition](https://en.wikipedia.org/wiki/Function_composition)
+- 在backtracing中，往往是根据nesting关系进行expand
+
+## Implementation: recursion and iteration
+
+本节标题的含义是，可以使用recursion 和 iteration来实现relation-based algorithm，下面对此进行分析。
+
+使用同一个relation、transitive relation形成的structure，往往是recursive的，是可以给出递归定义了，可以使用structural recursion来进行解决。
 
 
 
-## Relation and recursion
+下面是我在学习backtracing算法的实现时，所总结的：
 
-同一个relation、transitive relation、的structure，往往是recursive的，可以进行递归定义了，可以使用structural recursion来进行解决。
+- structure是使用同一种relation形成的（比如 backtracing中的nesting relation），因此可以使用同一种computation
+- 对于同一种computation的重复执行，我们往往可以使用 recursion 和 iteration 来实现
 
-关于relation、transitive relation，参见`Relation-structure-computation\Relation\Relation`章节。
+下面描述基于recursion的实现：
 
-它和optional sub structure密切相关。
+使用**递归函数**可以实现沿着**结构**重复执行相同的操作（computation），进而逐步构建出完整的**structure**（这其实就是前面描述的expand模型，需要注意的是，此处的structure可能是虚拟的，不一定要显式地构造出来，或者说，这个过程呈现出一定的structure）；因此，一般将结构的 node、level 作为递归函数的入参（这其实是one-by-one computation model，即 逐步构建完整的结构），当node、level 达到完整结构时，表示已经构造出了完整的解，则可以终止递归了，即终止expand了。下面是这个过程的展示
+
+|                    | expand                                   |      |
+| ------------------ | ---------------------------------------- | ---- |
+| `backtrace(level)` | 过渡到下一level: `backtrace(level + 1)`  |      |
+| `backtrace(node)`  | 过渡到下一node: `backtrace( next_node )` |      |
+
+需要结合backtracing来理解上面的内容。
+
+参见：
+
+- 关于relation、transitive relation，参见`Relation-structure-computation\Relation\Relation`章节
+- 关于backtracing，参见`Relation-structure-computation\Computation\Algorithm\Paradigm\Backtracking\Backtrack`
 
 
 
-## 计算的方向
+## Optional sub structure
 
-沿着关系、结构来进行计算，一般，我们可以选择两个不同的方向。
-
-比如：递归是自顶向下、动态规划是自底向上、backprop是自顶向下、bottom-up parsing。
-
-
+最优子结构，它是非常典型的可以使用relation-based algorithm解决的问题。
 
 ## Application
+
+
 
 ### Graph search algorithm
 
