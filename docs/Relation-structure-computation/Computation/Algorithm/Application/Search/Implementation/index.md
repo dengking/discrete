@@ -2,7 +2,8 @@
 
 本章描述实现search algorithm的常见Paradigm：
 
-Backtracking: 深度优先搜索
-
-Branch-and-Bound: 广度优先搜索、最小耗费优先搜索
+| algorithm paradigm | search strategy                               |
+| ------------------ | --------------------------------------------- |
+| Backtracking       | - Depth-first search                          |
+| Branch-and-Bound   | - Breadth-first search<br>- Best-first search |
 
