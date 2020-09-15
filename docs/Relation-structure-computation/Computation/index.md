@@ -43,14 +43,20 @@ relation可以使用graph来实现，所以上述两者，其实本质上是相�
 
 主要用于解决 Continuous optimization problem，参见`Relation-structure-computation\Computation\Algorithm\Application\Optimization`。
 
-#### Iterative method 和 greedy algorithm
+### 逐步向目标靠近
 
-Iterative method 和 greedy algorithm 是比较类似的：
+很多求最值的algorithm都可以看做是：逐步向目标靠近，即重复执行着 **贪心选择** 过程，从而实现 不断的 向 **目标** 靠近 ，显然它是符合one-by-one的，下面是这些例子：
 
-- iterative method 和 greedy algorithm都是重复执行着 **贪心选择** 过程，从而实现 不断的 向 **目标** 靠近 
-- 两种都可能无法获得全局最优
+- best-first search
+- Iterative method 
+- greedy algorithm
 
+这些algorithm的另外一个共性是：
+- 可能无法获得全局最优
 
+从search algorithm的角度来看，“逐步向目标靠近”也可以看做是一种search，关于search algorithm，参见：
+
+- `Relation-structure-computation\Computation\Algorithm\Application\Search`
 
 ## 所有的one-by-one，都是enumerable、countable
 
