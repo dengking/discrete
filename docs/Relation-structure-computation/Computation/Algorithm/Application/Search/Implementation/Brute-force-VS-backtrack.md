@@ -1,3 +1,5 @@
+
+
 暴搜与回溯，两者之间密切相关：
 
 https://www.cnblogs.com/dusf/p/kmp.html

@@ -1,0 +1,5 @@
+nav:
+    - Introduction: index.md    
+    - Backtracking: Backtracking
+    - Branch-and-Bound-Algorithm: 06-Branch-and-Bound-Algorithm
+    - Brute-force-VS-backtrack: Brute-force-VS-backtrack.md
