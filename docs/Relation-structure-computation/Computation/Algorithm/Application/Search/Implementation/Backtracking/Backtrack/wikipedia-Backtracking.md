@@ -2,16 +2,6 @@
 
 “backtracking”即“回溯”。
 
-
-
-## Backtracking is a kind of search
-
-使用search的思想来看待backtracking。
-
-- search tree
-- deep-first order
-- prune（剪枝）
-
 ## wikipedia [Backtracking](https://en.wikipedia.org/wiki/Backtracking)
 
 **Backtracking** is a general [algorithm](https://en.wikipedia.org/wiki/Algorithm) for finding all (or some) solutions to some [computational problems](https://en.wikipedia.org/wiki/Computational_problem), notably [constraint satisfaction problems](https://en.wikipedia.org/wiki/Constraint_satisfaction_problem), that incrementally builds **candidates** to the solutions, and abandons a candidate ("backtracks") as soon as it determines that the candidate cannot possibly be completed to a valid solution.[[1\]](https://en.wikipedia.org/wiki/Backtracking#cite_note-1)[[2\]](https://en.wikipedia.org/wiki/Backtracking#cite_note-2)
