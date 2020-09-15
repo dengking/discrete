@@ -1,8 +1,12 @@
-# [Permutation](https://en.wikipedia.org/wiki/Permutation#Algorithms_to_generate_permutations)
+# Permutation 
 
 
 
-## [Permutations in computing](https://en.wikipedia.org/wiki/Permutation#Permutations_in_computing)
+## Permutation [Permutation](https://en.wikipedia.org/wiki/Permutation#Algorithms_to_generate_permutations)
+
+
+
+## wikipedia [Permutations in computing](https://en.wikipedia.org/wiki/Permutation#Permutations_in_computing)
 
 
 
@@ -24,4 +28,8 @@ n可能很小(特别是如果需要生成所有排列)，这不是什么大问�
 
 ## TO READ
 
-[Write a program to print all permutations of a given string](https://www.geeksforgeeks.org/write-a-c-program-to-print-all-permutations-of-a-given-string/)
+geeksforgeeks [Write a program to print all permutations of a given string](https://www.geeksforgeeks.org/write-a-c-program-to-print-all-permutations-of-a-given-string/)
+
+
+
+https://leetcode-cn.com/problems/permutations-ii/solution/hui-su-suan-fa-python-dai-ma-java-dai-ma-by-liwe-2/
