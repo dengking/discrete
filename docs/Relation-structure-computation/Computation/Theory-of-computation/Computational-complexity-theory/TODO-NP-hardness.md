@@ -1,0 +1,1 @@
+# [NP-hardness](https://en.wikipedia.org/wiki/NP-hardness)
