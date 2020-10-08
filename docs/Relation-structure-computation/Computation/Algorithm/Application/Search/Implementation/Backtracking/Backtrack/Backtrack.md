@@ -5,6 +5,8 @@
 - 从search algorithm的角度来描述Backtrack：对接空间进行deep-first search
 - 从relation-based algorithmd的角度
 
+> TODO: Google: is backtracking algorithm a kind of search
+
 ## 解 与 解空间
 
 
