@@ -1,3 +1,4 @@
 nav:
     - Automata-theory: Automata-theory.md
     - Abstract-machine: Abstract-machine.md
+    - Finite-state-machine: Finite-state-machine
