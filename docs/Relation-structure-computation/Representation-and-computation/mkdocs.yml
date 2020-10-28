@@ -1,3 +1,4 @@
 nav:
     - Introduction: index.md
-    - Symbol: Symbol
+    - Structured-representation: Structured-representation.md
+    - Symbol-expression: Symbol-expression
