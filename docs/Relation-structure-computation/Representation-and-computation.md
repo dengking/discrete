@@ -44,10 +44,6 @@ regular language是linear structure，context free language是hierarchy 结构�
 
 
 
-另外，youdao `representation`，来描述computational graph。
-
-
-
 ### Entity-relation model
 
 使用Entity-relation model来描述现实世界，从后使用table来进行存储。
