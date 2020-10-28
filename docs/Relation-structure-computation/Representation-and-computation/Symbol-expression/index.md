@@ -1,12 +1,20 @@
-# Symbol
+# Symbol expression
+
+在computer science、mathematics中 ，symbol expression是一种非常有效的、广泛采用的描述方式/语言，本章将对它进行专门描述。
 
 ## What is symbol?
+
+"symbol"即"符号"。
+
+### wikipedia [Symbol (formal)](https://en.wikipedia.org/wiki/Symbol_(formal))
+
+
 
 ### symbol是一种抽象、指代
 
 Symbol是一种抽象、指代:
 
-1) 函数的入参可以看做是symbol，它可以指代多种类型的事物
+1) 函数的入参可以看做是symbol，它可以指代多种类型的入参
 
 
 
@@ -18,23 +26,19 @@ Symbol是一种抽象、指代:
 
 wikipedia [Computer algebra](https://en.wikipedia.org/wiki/Computer_algebra)
 
-### wikipedia [Symbol (formal)](https://en.wikipedia.org/wiki/Symbol_(formal))
 
 
 
-## Symbol in computer science
 
-在computer science中，使用symbol来描述abstract structure，这其实是一次抽象过程；
+## Symbol expression in computer science
 
-然后依据此structure来生成computation。比如formal language、computational graph。理解语义。
+在computer science中，使用symbol expression来描述abstract structure(这其实是一次抽象过程)，然后依据此structure来生成computation。比如formal language、computational graph。理解语义。
 
 
 
 本文是在computer algebra、formal language之上的，以一个更高的角度来描述它们，或者说，它们都可以看做是symbol的一种application 。
 
-## Symbolic programming
 
-参见工程programming-language的`Theory\Programming-paradigm\Symbolic-programming`章节。
 
 ## Symbolic computation
 
@@ -122,3 +126,8 @@ These categories (which present different views to the same field with strong ov
 
 4) [Formal Semantics and Formal Pragmatics, Lecture 1](http://people.umass.edu/partee/MGU_2009/materials/MGU091_2-up.pdf)  这篇文章不错，已经将他保存到了本地
 
+
+
+## Implementation: symbolic programming
+
+参见`./Symbolic-programming`章节。

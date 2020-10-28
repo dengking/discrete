@@ -43,3 +43,8 @@ regular language是linear structure，context free language是hierarchy 结构�
 
 参见工程machine-learning的`Application\NLP\Representation-of-word`章节 。
 
+
+
+## draft: 结构化表示
+
+使用computational graph来表示expression，使用tree来表示formal language。它们都是使用计算机能够接受的language来描述事物的典型例子，它们都是一种language。计算机能够接受的语言：structure。所以，结构化方式，即使用结构化的语言进行描述是解决计算问题的第一步。这需要和结构化思维一起。

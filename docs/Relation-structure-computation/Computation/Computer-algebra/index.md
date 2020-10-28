@@ -128,36 +128,6 @@ Expression template是C++ TMP中的一种重要trick，参见`C-family-language\
 
 
 
-## Computational graph
-
-在wikipedia [Computer algebra](https://en.wikipedia.org/wiki/Computer_algebra) “`Computer science aspects#Expressions`”段中，让我想起了在compiler principle中描述的对expression的表示：syntax tree、grammar tree，显然computational graph也是一种表达方式；显然在计算代数中，非常重要的一个课题就是如何来表示computation，显然computational graph是一种非常强大的工具；各种各样的问题，如果要使用computer来进行解决，那么一个非常重要的课题就是：如何来表示？显然这是各种data structure排上用场的时候了。
-
-symbolic computation: computational graph是就是一种典型的symbolic computation，它在6.5.5 Symbol-to-Symbol Derivatives、6.5.4 Back-Propagation Computation in Fully-Connected MLP 中有描述
-
-关于computational graph，参见：
-
-https://www.zhihu.com/question/27239198/answer/734273315
-
-https://zhuanlan.zhihu.com/p/69175484
-
-https://zhuanlan.zhihu.com/p/70075944
-
-https://zhuanlan.zhihu.com/p/71869192
 
 
 
-
-
-## 结构化表示
-
-使用computational graph来表示expression，使用tree来表示formal language。它们都是使用计算机能够接受的language来描述事物的典型例子，它们都是一种language。计算机能够接受的语言：structure。所以，结构化方式，即使用结构化的语言进行描述是解决计算问题的第一步。这需要和结构化思维一起。
-
-
-
-## 结构化思维
-
-在文章：如何直观地解释 backpropagation 算法？ - Anonymous的回答 - 知乎
-
-https://www.zhihu.com/question/27239198/answer/89853077 中有如下描述：
-
-多层神经网络本质上是一个多层复合函数，数学是一门简洁但是含义丰富的原因，简单的公式，但是能够表达强大的结构
