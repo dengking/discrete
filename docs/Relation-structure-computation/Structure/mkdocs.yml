@@ -1,3 +1,4 @@
 nav:
+    - Introduction: index.md
     - Structure: Structure
     - Discrete-structure: Discrete-structure.md

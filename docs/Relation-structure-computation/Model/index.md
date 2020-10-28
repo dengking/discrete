@@ -1,12 +1,14 @@
 # 关于本章
 
-按照`Relation-structure-computation\index.md`中总结的“基于relation来建立model”思想，本章总结在computer science中，非常典型的relation以及它的structure、algorithm。
+按照`Relation-structure-computation\index.md`中总结的""**基于relation来建立model**"思想，本章总结在computer science中，非常典型的relation以及它的structure、algorithm。
 
 需要使用`Relation-structure-computation\Relation`章节中描述的理论来对每种relation进行分析：
 
-- 关系的性质
-- entity参与这种关系的cardinality （基数）
-- 关系形成的structure的形状
+1) 关系的性质
+
+2) entity参与这种关系的cardinality （基数）
+
+3) 关系形成的structure的形状
 
 | Relation            | Structure | Cardinality | 说明                           |
 | ------------------- | --------- | ----------- | ------------------------------ |

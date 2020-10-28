@@ -1,4 +1,4 @@
 nav:
-    - Relation: Relation.md
+    - Introduction: index.md
     - Representation-of-relation: Representation-of-relation.md
     - Closures-of-relation: Closures-of-relation.md

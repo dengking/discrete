@@ -42,17 +42,17 @@ In [mathematics](https://en.wikipedia.org/wiki/Mathematics), a **binary relation
 
 ### [Transitive relation](https://en.wikipedia.org/wiki/Transitive_relation)
 
-"transitive"的中文意思是“传递性”，transitive特性是一个非常优良的特性，它是很多**computation**的前提条件。
+"transitive"的中文意思是“传递性”，transitive特性是一个非常优良的特性，它是很多**computation**的前提条件，下面会对此进行说明。
 
 > Transitivity is a key property of both [partial orders](https://en.wikipedia.org/wiki/Partial_order) and [equivalence relations](https://en.wikipedia.org/wiki/Equivalence_relation)。
 
+#### Application in computation
 
-
-#### Order
+**1) Order**
 
 要想进行排序，则关系必须具备transitive特性。 
 
-#### Rewrite（proof）
+**2) Rewrite（proof）**
 
 按照工程`automata-and-formal-language`中的思想，rewrite的过程其实就是“推导”的过程。
 
@@ -65,17 +65,13 @@ stock：证券、股票；
 则stock：A股、B股。
 ```
 
-
-
-#### Closure
+**3) Closure**
 
 参见`Closures-of-relation.md`
 
+**4) Recursive**
 
-
-#### Recursive
-
-具备传递性的relation，它的computation可以采用recursion：不断地应用这个relation。
+具备传递性的relation，它的computation可以采用recursion：重复地应用这个relation。
 
 具备传递性的relation，它所形成的结构往往具备递归性。
 
@@ -96,8 +92,6 @@ stock：证券、股票；
 ## [Relational algebra](https://en.wikipedia.org/wiki/Relational_algebra)
 
 关系代数，这是DBMS的基础。
-
-
 
 
 

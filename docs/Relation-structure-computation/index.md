@@ -10,19 +10,19 @@
 
 > NOTE: “ordered”说明relation是具备**方向性**的
 
-**relation**决定**structure**，相同的**relation**决定了它们具备相同的**structure**，进而可以使用相同的algorithm来进行计算。
+**relation**决定**structure**，相同的**relation**决定了它们具备相同的**structure**，进而可以使用相同的algorithm来进行计算(**computation**)。
 
 一个典型的例子：class hierarchy、grammar tree都是**containing关系**，进而决定了对它们进行搜索的时候，可以采用相同的算法。
 
-所以，relation是核心所在，relation决定structure  `->` 决定采用的algorithm。因此，我们基于relation来建立model（模型）：
+所以，**relation是核心所在**: **relation决定structure**  `->` 决定采用的algorithm(**computation**)。因此，我们**基于relation来建立model**（模型）：
 
-- 设计出非常高效的algorithm来对它相关的问题进行computation（典型的例子containing关系，在computer science中，CFG、class inheritance都服从这种关系）
+> 设计出非常高效的algorithm来对它相关的问题进行computation（典型的例子containing关系，在computer science中，CFG、class inheritance都服从这种关系）
 
 后续，我会对computer science中常见的relation会进行深入研究，这样我们就可以使用已有的model来解决问题。
 
-> NOTE: 在`Relation-structure-computation\Model`中对model进行描述。
+在`Relation-structure-computation\Model`中对model进行描述。
 
-> NOTE: 在`Relation-structure-computation\Model\Containing-relation-model.md`中对**containing关系**进行了描述。
+在`Relation-structure-computation\Model\Containing-relation-model.md`中对**containing关系**进行了描述。
 
 > NOTE: 上述这种建立model的思想在science中是广泛存在的，比如在概率论中，有着非常多的概率模型，数学家使用这些概率模型来描述实际问题，比如：
 >
@@ -31,13 +31,9 @@
 
 computation是指为解决问题采用的algorithm；
 
-## relation and structure
 
-在上一节，我们提出了“**relation**决定**structure**”，关于此algorithm，我们需要进行深入思考：
 
-- relation和structure之间的关系：relation的哪些特性决定了structure，或者说：什么样的关系可以形成什么样的结构。比如chain、tree、graph。
-
-## graph and relation
+## Graph and relation
 
 **graph**是表示relation的有效工具，后面我们会看到graph的定义和relation的定义是非常类似的，基于graph的algorithm，可以解决很多relation的问题。所以，我们有必要学习graph-theory的知识。
 
