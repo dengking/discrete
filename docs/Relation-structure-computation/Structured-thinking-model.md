@@ -67,17 +67,3 @@ permutation和combination都是使用的乘法，它们都是nesting关系，都
 
 对于现实生活中的复杂的relation，在DBMS中，需要考虑如何来表示、存储它们，DBMS中的entity-relation model就是对这个问题的回答。
 
-## 结构化表示
-
-上一节使用**结构化思维**来看待**数学表达式**了，我觉得**计算机科学**是需要这种思维的，只有**结构化**了之后，计算机才能够对其进行**表示**（representation）、进而进行**计算**（computation）；这里所说的**结构化**如果往更高层面来思考的话，其实是：**形式化**，只有**形式化**后才能够使用计算机算法来进行计算，或者更加通俗地来说：**结构化**是**形式化**的一种。
-
-在`Relation-structure-computation\Representation-and-computation.md`中，对这个话题进行了展开。
-
-
-
-## Thoughts
-
-- 结构：产生式是containing关系，是树结构；函数是computation graph
-- 不同类型的graph支持不同的操作，但是有一些基本操作是全部都要支持的，比如查询一个node的adjacent node
-- 图，排序，关系，有序性，方向
-- 简单仅仅是复杂的一种简化，比如：chain《-tree《-graph；binary-search其实是一种deep-first-search

@@ -1,5 +1,27 @@
 # Representation and computation
 
+
+
+## 不同的描述语言
+
+对于同一个结构，可以使用不同的语言来进行描述。典型的例子就是对于MLP，可以使用**graph**、**math expression**来进行描述
+
+素材：
+
+结构化思维：
+
+在文章：如何直观地解释 backpropagation 算法？ - Anonymous的回答 - 知乎
+
+https://www.zhihu.com/question/27239198/answer/89853077 中有如下描述：
+
+多层神经网络本质上是一个多层复合函数，数学是一门简洁但是含义丰富的原因，简单的公式，但是能够表达强大的结构
+
+
+
+## 结构化表示
+
+上一节使用**结构化思维**来看待**数学表达式**了，我觉得**计算机科学**是需要这种思维的，只有**结构化**了之后，计算机才能够对其进行**表示**（representation）、进而进行**计算**（computation）；这里所说的**结构化**如果往更高层面来思考的话，其实是：**形式化**，只有**形式化**后才能够使用计算机算法来进行计算，或者更加通俗地来说：**结构化**是**形式化**的一种。
+
 各种各样的问题，如果要使用computer来进行解决，一个非常重要的课题就是：如何来表示？在应用计算机科学中，寻找合适的representation，对于解决问题至关重要(在computer science中，representation是一个非常核心的问题)。
 
 在上一章提出的**结构化思维**，能够帮助我们理解、创造适合于问题的representation。
@@ -50,18 +72,3 @@ regular language是linear structure，context free language是hierarchy 结构�
 
 典型的例子就是iterator、range。iterator是一种非常强大的抽象的描述方式，可以抽象地描述container、stream
 
-### 不同的描述语言
-
-对于同一个结构，可以使用不同的语言来进行描述。
-
-典型的例子就是对于MLP，可以使用graph、math expression来进行描述
-
-素材：
-
-结构化思维：
-
-在文章：如何直观地解释 backpropagation 算法？ - Anonymous的回答 - 知乎
-
-https://www.zhihu.com/question/27239198/answer/89853077 中有如下描述：
-
-多层神经网络本质上是一个多层复合函数，数学是一门简洁但是含义丰富的原因，简单的公式，但是能够表达强大的结构
