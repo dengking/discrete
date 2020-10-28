@@ -47,3 +47,41 @@ regular language是linear structure，context free language是hierarchy 结构�
 ### Entity-relation model
 
 使用Entity-relation model来描述现实世界，从后使用table来进行存储。
+
+
+
+## draft
+
+
+
+各种各样的问题，如果要使用computer来进行解决，那么一个非常重要的课题就是：如何来表示？显然这是各种data structure派上用场的时候了。
+
+在computer science中，representation是一个非常核心的问题：
+
+representation of words：D:\github\dengking\AI\machine-learning\docs\Application\NLP\Representation-of-word
+
+computation graph也是一种representation
+
+representation of image
+
+- iterator是一种非常强大的抽象的描述方式，可以抽象地描述container、stream
+
+
+- 使用更加抽象的语言
+
+典型的例子就是iterator、range
+
+
+- 对于同一个结构，可以使用不同的语言来进行描述
+
+典型的例子就是对于MLP，可以使用graph、math expression来进行描述
+
+素材：
+
+结构化思维：
+
+在文章：如何直观地解释 backpropagation 算法？ - Anonymous的回答 - 知乎
+
+https://www.zhihu.com/question/27239198/answer/89853077 中有如下描述：
+
+多层神经网络本质上是一个多层复合函数，数学是一门简洁但是含义丰富的原因，简单的公式，但是能够表达强大的结构

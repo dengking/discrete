@@ -1,7 +1,7 @@
 nav:
     - Introduction: index.md
     - Structured-thinking-model: Structured-thinking-model.md
-    - Representation-and-computation: Representation-and-computation.md
+    - Representation-and-computation: Representation-and-computation
     # 关系
     - Relation: Relation
     # 结构，结构就是典型的具备离散特性的
