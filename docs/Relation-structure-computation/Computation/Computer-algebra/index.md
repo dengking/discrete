@@ -10,9 +10,63 @@
 
 In [mathematics](https://en.wikipedia.org/wiki/Mathematics) and [computer science](https://en.wikipedia.org/wiki/Computer_science), **computer algebra**, also called **symbolic computation** or **algebraic computation**, is a scientific area that refers to the study and development of [algorithms](https://en.wikipedia.org/wiki/Algorithm) and [software](https://en.wikipedia.org/wiki/Software) for manipulating [mathematical expressions](https://en.wikipedia.org/wiki/Expression_(mathematics)) and other [mathematical objects](https://en.wikipedia.org/wiki/Mathematical_object). 
 
+> NOTE: 需要注意的是，在一些场合常常使用symbolic computation
+
+> NOTE: 关于symbol，参见`Relation-structure-computation\Symbol`章节
+
+### Computer algebra  VS scientific computing
+
+Although computer algebra could be considered a subfield of [scientific computing](https://en.wikipedia.org/wiki/Scientific_computing), they are generally considered as distinct fields because scientific computing is usually based on [numerical computation](https://en.wikipedia.org/wiki/Numerical_computation) with approximate [floating point numbers](https://en.wikipedia.org/wiki/Floating_point_number), while symbolic computation emphasizes *exact* computation with expressions containing [variables](https://en.wikipedia.org/wiki/Variable_(mathematics)) that have no given value and are manipulated as **symbols**.
+
+### Computer algebra systems
+
+[Software](https://en.wikipedia.org/wiki/Software) applications that perform symbolic calculations are called *[computer algebra systems](https://en.wikipedia.org/wiki/Computer_algebra_system)*.
+
+> NOTE: TensorFlow其实可以看做是一个computer algebra system
 
 
 
+### Computer science aspects
+
+> NOTE: 这是作为software engineer的人需要关注的
+
+#### Data representation
+
+It is common, in computer algebra, to emphasize *exact* computation with exactly represented data. Such an exact representation implies that, even when the size of the output is small, the intermediate data generated during a computation may grow in an unpredictable way. This behavior is called *expression swell*（膨胀）. To obviate this problem, various methods are used in the representation of the data, as well as in the algorithms that manipulate them.
+
+> NOTE: 原文这一节所讨论的是: 如何来使用计算机语言来表示Numbers、Expressions？
+
+##### Numbers
+
+> NOTE: 本节所讨论的是如何来表示number？
+
+##### Expressions
+
+[![img](https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Cassidy.1985.015.gif/400px-Cassidy.1985.015.gif)](https://en.wikipedia.org/wiki/File:Cassidy.1985.015.gif)
+
+> Representation of the expression `(8-6)*(3+1)` as a [Lisp](https://en.wikipedia.org/wiki/Lisp_(programming_language)) tree, from a 1985 Master's Thesis.[[7\]](https://en.wikipedia.org/wiki/Computer_algebra#cite_note-7)
+
+> NOTE: expression能够方便的使用tree来进行表示，然后转换为三地址码。
+
+Except for [numbers](https://en.wikipedia.org/wiki/Number) and [variables](https://en.wikipedia.org/wiki/Variable_(mathematics)), every [mathematical expression](https://en.wikipedia.org/wiki/Expression_(mathematics)) may be viewed as the symbol of an operator followed by a [sequence](https://en.wikipedia.org/wiki/Sequence) of operands. In computer algebra software, the expressions are usually represented in this way. This representation is very flexible, and many things that seem not to be mathematical expressions at first glance, may be represented and manipulated as such. For example, an equation is an expression with “=” as an operator, a matrix may be represented as an expression with “matrix” as an operator and its rows as operands.
+
+
+
+Even programs may be considered and represented as expressions with operator “**procedure**” and, at least, two operands, the list of parameters and the body, which is itself an expression with “body” as an operator and a sequence of instructions as operands. 
+
+Conversely, any mathematical expression may be viewed as a program. For example, the expression *a* + *b* may be viewed as a program for the addition, with **a** and **b** as parameters. Executing this program consists in *evaluating* the expression for given values of **a** and **b**; if they do not have any value—that is they are indeterminates—, the result of the evaluation is simply its input.
+
+**This process of delayed evaluation is fundamental in computer algebra**. For example, the operator “=” of the equations is also, in most computer algebra systems, the name of the program of the equality test: normally, the evaluation of an equation results in an equation, but, when an equality test is needed,—either explicitly asked by the user through an “evaluation to a Boolean” command, or automatically started by the system in the case of a test inside a program—then the evaluation to a boolean 0 or 1 is executed.
+
+As the size of the operands of an expression is unpredictable and may change during a working session, the sequence of the operands is usually represented as a sequence of either [pointers](https://en.wikipedia.org/wiki/Pointer_(computer_programming)) (like in [Macsyma](https://en.wikipedia.org/wiki/Macsyma)) or entries in a [hash table](https://en.wikipedia.org/wiki/Hash_table) (like in [Maple](https://en.wikipedia.org/wiki/Maple_(software))).
+
+
+
+#### Simplification
+
+> NOTE: 对expression进行simplification是非常重要的，重要能够大大地降低运算的复杂性。
+
+This simplification is normally done through [rewriting rules](https://en.wikipedia.org/wiki/Rewriting). There are several classes of rewriting rules that have to be considered. The simplest consists in the rewriting rules that always reduce the size of the expression, like *E* − *E* → 0 or sin(0) → 0. They are systematically applied in computer algebra systems.
 
 ## Implementation of computer algebra: symbolic programming 
 
