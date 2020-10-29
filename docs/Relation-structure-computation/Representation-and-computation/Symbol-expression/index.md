@@ -2,6 +2,10 @@
 
 在computer science、mathematics中 ，symbol expression是一种非常有效的、广泛采用的描述方式/语言，本章将对它进行专门描述。
 
+Symbol使我们能够方便的创造、实现DSL；
+
+Symbolic programming将symbol暴露给programmer，或者说允许programmer构建symbol expression，并且对symbolic expression进行操作。这样programmer就能够使用DSL进行描述，这大大增加了灵活性，一种典型的例子就是math language。
+
 ## What is symbol?
 
 "symbol"即"符号"。

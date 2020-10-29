@@ -39,4 +39,6 @@ guacamole:
 season(mash(slice(peel(wash(avocado)))))
 ```
 
+
+
 Functions are composed so that the output of one function is the input of the next function(pipelined). Functional programming works well with distributed cloud computing: the function can be replicated on many servers and executed in parallel on massive amounts of data.
