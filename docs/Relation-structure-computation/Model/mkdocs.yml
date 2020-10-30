@@ -3,3 +3,4 @@ nav:
     - Nesting-relation-model: Nesting-relation-model
     - Dependency-relation: Dependency-relation-model    
     - Chain: Chain
+    - Stream: Stream

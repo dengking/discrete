@@ -38,4 +38,4 @@
 
 ## Stream
 
-Stream是一种非常强大的抽象，在computer science中被广泛应用，本章将对它进行专门的总结。
+Stream是一种非常强大的抽象结构，在computer science中被广泛应用，本章将对它进行专门的总结。
