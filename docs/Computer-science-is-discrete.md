@@ -6,7 +6,7 @@
 
 在`Relation-structure-computation\Computation\index.md`中描述的one-by-one model体现了“Computer science is discrete"。one-by-one是典型的离散的，而不是连续的。
 
-## recursive definition and discrete
+## Recursive definition and discrete
 
 任何recursive definition，都是离散的，都可以进行计算
 
@@ -14,7 +14,7 @@
 
 ## 函数的执行是离散的
 
-名称中的sub，表示其具备包含关系。
+名称中的sub，表示其具备**包含关系**。
 
 将函数抽象成一个一个的节点，则我们所描述的是一张图。
 

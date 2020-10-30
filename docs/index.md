@@ -10,8 +10,11 @@
 
 computer science中两个非常基本的问题是：
 
-- representation（往具体说，它包含data structure）
-- computation（往具体说，它包含algorithm）
+1) representation
+
+关于representation，在文章Language介绍了与它相关的内容；往具体说，它包含data structure。
+
+2) computation（往具体说，它包含algorithm）
 
 > representation和computation密切相关：
 >
@@ -31,13 +34,13 @@ representation和computation都具备**discrete**特性，可以使用discrete m
 
 关于discrete math，我想起了在大学二年级时学习discrete math课程，当时使用的教材是非常经典的[Discrete Mathematics and Its Applications](https://www.amazon.com/Discrete-Mathematics-Applications-Kenneth-Rosen/dp/125967651X)，因此这个工程中的一些内容是源自于这本教材。
 
-在 [`Computer-science-is-discrete.md`](./Computer-science-is-discrete.md) 中给出了论证该观点的例子。
+在 [`Computer-science-is-discrete.md`](./Computer-science-is-discrete.md) 中给出了论证"Computer scientific is discrete"观点的例子。
 
 
 
 ## 书写思路
 
-首先说明什么是discrete、discrete math，然后描述discrete objects的特性，discrete objects的这些特性使得它是computable的，这样我们就可以设计algorithm来解决与它相关的问题。discrete math中的理论知识是后续algorithm、data-structure的基础。
+首先说明什么是discrete、discrete math，然后描述discrete objects的特性，discrete objects的这些特性使得它是**computable**的，这样我们就可以设计algorithm来解决与它相关的问题。discrete math中的理论知识是后续algorithm、data-structure的基础。
 
 
 
@@ -99,5 +102,5 @@ discrete objects一般是countable的（有的是无法count的）。
 
 关于“computable”，参见维基百科[Computability theory](https://en.wikipedia.org/wiki/Computability_theory)、维基百科[Computability](https://en.wikipedia.org/wiki/Computability)。
 
-discrete objects，一般是computable的，作为software engineer，我们就需要思考：如何来实现“Computation on discrete objects”；显然与此相关的一个重要课题就是：算法，这在后续的章节中会进行介绍。
+discrete objects，一般是computable的，作为software engineer，我们就需要思考：如何来实现“Computation on discrete objects”；显然与此相关的一个重要课题就是：算法，这在后续的章节中会进行介绍。Countable是对computation进行量化进而进行**算法复杂度分析**的前提。
 
