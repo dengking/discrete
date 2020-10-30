@@ -16,11 +16,18 @@ Symbolic programming将symbol暴露给programmer，或者说允许programmer构�
 
 ### symbol是一种抽象、指代
 
-Symbol是一种抽象、指代:
+Symbol是一种抽象、指代，它无处不在:
 
 1) 函数的入参可以看做是symbol，它可以指代多种类型的入参
 
+2) polymorphism其实是依赖于symbol的
 
+它使用一个symbol进行指代:
+
+- single interface to entities of different types
+- use of a single symbol to represent multiple different types
+
+关于此参见wikipedia [**Polymorphism**](http://en.wikipedia.org/wiki/Polymorphism_(computer_science))。
 
 2) formal grammar中，就是 使用symbol expression来描述language的abstract structure
 
