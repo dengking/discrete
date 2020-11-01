@@ -61,7 +61,8 @@ Streams can be used as the underlying data type for [channels](https://en.wikipe
 | [Bitstream](https://en.wikipedia.org/wiki/Bitstream) | 单位是bit                                                    |
 | byte stream                                          | 单位是byte                                                   |
 | character stream                                     | 单位是character                                              |
-| data stream                                          | 单位是data，显然data是一个抽象的概念，它是big data、parallel computing背景的产物 |
+| data stream                                          | 单位是data，显然data是一个抽象的概念，它是big data、parallel computing等时代背景的产物。<br>另外与它相关的是: dataflow programming paradigm，其实dataflow就是data stream |
+| message/event stream                                 | 单位是message/event，参见下面的`Stream-based message/event processing system`章节 |
 
 需要注意的是，上面这些stream并不是具体的分类，更多的是在具体的实际应用中的抽象。
 
@@ -100,6 +101,8 @@ A **bytestream** is a sequence of [bytes](https://en.wikipedia.org/wiki/Byte). T
 - 源: 数据从何处流入
 - 目的: 数据流向何处
 
+
+
 ## 特性
 
 stream有着非常好的特性，这些优良的特性决定了它在computer science中的广泛应用。
@@ -132,16 +135,30 @@ stream结构的简单决定了对它进行computation是非常简单的。stream
 
 TCP就是典型的例子，参见工程Linux-OS的`Network\Theory\TCP`章节。
 
-### Big-data
 
-参见upsolver [7 Popular Stream Processing Frameworks Compared](https://www.upsolver.com/blog/popular-stream-processing-frameworks-compared)。
 
 ### Parallel computing
 
-wikipedia [Parallel computing](https://en.wikipedia.org/wiki/Parallel_computing)。
+参见工程parallel-computing。
+
+#### Stream-based message/event processing system
+
+参见工程parallel-computing的`Application\Message-processing-system\Stream-based-message-processing-system`章节。
 
 
+
+### Dataflow programming paradigm
+
+关于Dataflow programming paradigm，参见工程programming-language的`Theory\Programming-paradigm\Dataflow-programming`章节。
+
+#### TensorFlow
+
+TensorFlow就是典型的采用dataflow programming的，在TensorFlow的中，显然它的stream的单位是tensor。
 
 ## Programming model
 
 在维基百科 [Stream (computing)](https://en.wikipedia.org/wiki/Stream_(computing))中，其实已经涉及了对stream的programming model的描述，从中可以看出，stream的programming model可以采用functional programming paradigm的思想。
+
+在下面章节中，描述了相关内容:
+
+1) 工程parallel-computing的`Programming-model`章节。
