@@ -33,6 +33,12 @@ computation是指为解决问题采用的algorithm；
 
 
 
+## Relation and structure are abstraction
+
+Relation 和 structure 都是 abstraction，relation 是从 concrete 中抽象出来的，于此类似的是 structure 也是如此的。
+
+
+
 ## Graph and relation
 
 **graph**是表示relation的有效工具，后面我们会看到graph的定义和relation的定义是非常类似的，基于graph的algorithm，可以解决很多relation的问题。所以，我们有必要学习graph-theory的知识。
