@@ -4,3 +4,4 @@ nav:
     - Dependency-relation: Dependency-relation-model    
     - Chain: Chain
     - Stream: Stream
+    - Circular: Circular

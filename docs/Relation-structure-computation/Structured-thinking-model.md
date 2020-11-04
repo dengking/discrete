@@ -73,6 +73,10 @@ permutation和combination都是使用的乘法，它们都是nesting关系，都
 
 
 
+## What is 结构化/形式化?
+
+我们将根据relation得出其structure、**结构化表示**的过程称为**结构化**/**形式化**。**结构化**/**形式化**后才能够实现computation。
+
 ## 结构化表示/语言
 
 在文章`Language.md`中，我们已经知道**一切“描述”都是语言**。我们可以使用不同的language来进行描述，在computer science中，我们需要采用computer能够理解的语言来进行描述，这就是本节提出的"**结构化表示/语言**":
@@ -131,7 +135,3 @@ regular language是linear structure，context free language是hierarchy 结构�
 使用computational graph来表示expression，使用tree来表示formal language。它们都是使用计算机能够接受的language来描述事物的典型例子，它们都是一种language。计算机能够接受的语言：structure。所以，结构化方式，即使用结构化的语言进行描述是解决计算问题的第一步。这需要和结构化思维一起。
 
 
-
-## What is 结构化?
-
-我们将根据relation得出其structure、结构化表示进而实现computation的过程称为**结构化**。

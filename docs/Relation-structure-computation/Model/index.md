@@ -6,6 +6,8 @@
 
 2) 在`Structure/Structure/index`章节提出的：**Relation的哪些特性决定了structure，或者说：什么样的relation可以形成什么样的结构**
 
+本章所描述的主要是**abstract structure**。
+
 ## 常见relation、structure、algorithm
 
 本节以computer science中，非常典型的relation以及它的structure、algorithm作为主要内容。
