@@ -1,4 +1,8 @@
-# 结构化思维
+# 结构化思维与结构化表示
+
+本文讨论: 以结构化是思维来看待事物，同时讨论结构化表示/语言，只有**结构化**后，才能够进行计算。
+
+## 结构化思维
 
 在当我们使用relation来描述事物的时候（即按照上面描述的node、orderd-pair的方式来进行组织），我们会发现它们会形成一定的structure，比如graph、tree、chain，我们建这种思维称为“**结构化思维**”。
 
@@ -6,11 +10,13 @@
 
 下面结合具体的例子来对上述观点进行说明。
 
-## 数学公式的结构
+
+
+### 数学公式的结构
 
 
 
-### Example: computational graph of math expression
+#### Example: computational graph of math expression
 
 使用computational graph来描述math expression。
 
@@ -25,7 +31,7 @@ $$
 
 
 
-### Example: recurrence relation
+#### Example: recurrence relation
 
 [recurrence relation](./Recursion/Recurrence-relation.md)其实所描述的是两个元素的关系，这种关系可能是线性的。
 
@@ -37,15 +43,17 @@ $$
 
 
 
-### Example: permutation and combination
+#### Example: permutation and combination
 
 permutation和combination都是使用的乘法，它们都是nesting关系，都呈现出 tree 结构，在`Relation-structure-computation\Computation\Algorithm\Paradigm\Backtracking\Backtrack`章节中有**组合树**、**排列树**的描述。
 
-## 过程的结构
+
+
+### 过程的结构
 
 一些动态过程，比如函数执行过程、推导过程等，都呈现出一定的结构，本节对此进行分析，显然这种结构就是前面提到的逻辑结构。
 
-### Proof过程呈现出list或tree结构
+#### Proof过程呈现出list或tree结构
 
 在阅读[Proof theory](https://en.wikipedia.org/wiki/Proof_theory)时，其中的一段话：
 
@@ -53,17 +61,77 @@ permutation和combination都是使用的乘法，它们都是nesting关系，都
 
 上面这段话的意思是，如果将推导的过程可以展示为一种数据结构，比如列表、树。[Parse tree](http://en.wikipedia.org/wiki/Parse_tree)就是一个典型的例子，在自顶向下[parsing](https://en.wikipedia.org/wiki/Parsing)的过程中，parser不断地使用production进行推导（expand），最终生成了一棵parse tree。
 
-### Parsing过程产生[Parse tree](http://en.wikipedia.org/wiki/Parse_tree)
+#### Parsing过程产生[Parse tree](http://en.wikipedia.org/wiki/Parse_tree)
 
 在工程[automata-and-formal-language](https://dengking.github.io/automata-and-formal-language/)的[Formal-language](https://dengking.github.io/automata-and-formal-language/Formal-language/)章节的[Summary-of-theory](https://dengking.github.io/automata-and-formal-language/Formal-language/Summary-of-theory/)文章中我们已经总结了生成parse tree的过程相当于进行Proof，所以将本节置于“Proof过程呈现出list或tree结构”中。
 
-### 函数调用过程呈现tree结构
+
+
+#### 函数调用过程呈现tree结构
 
 在[Compilers Principles, Techniques and Tools Second Edition(aka ***dragon book***)](https://en.wikipedia.org/wiki/Compilers:_Principles,_Techniques,_and_Tools) 的[7.2.1 Activation Trees](https://dengking.github.io/compiler-principle/Chapter-7-Run-Time-Environments/7.2-Stack-Allocation-of-Space/#721-activation-trees)中对此进行了详细分析。
 
 
 
-## Entity-relation model
+## 结构化表示/语言
 
-对于现实生活中的复杂的relation，在DBMS中，需要考虑如何来表示、存储它们，DBMS中的entity-relation model就是对这个问题的回答。
+在文章`Language.md`中，我们已经知道**一切“描述”都是语言**。我们可以使用不同的language来进行描述，在computer science中，我们需要采用computer能够理解的语言来进行描述，这就是本节提出的"**结构化表示/语言**":
 
+上一节使用**结构化思维**来看待**数学表达式**了，我觉得**计算机科学**是需要这种思维的，只有**结构化**了之后，计算机才能够对其进行**表示**（representation）、进而进行**计算**（computation）；这里所说的**结构化**如果往更高层面来思考的话，其实是：**形式化**，只有**形式化**后才能够使用计算机算法来进行计算，或者更加通俗地来说：**结构化**是**形式化**的一种。
+
+各种各样的问题，如果要使用computer来进行解决，一个非常重要的课题就是：如何来表示？在应用计算机科学中，寻找合适的representation，对于解决问题至关重要(在computer science中，representation是一个非常核心的问题)。
+
+在上一节提出的**结构化思维**，能够帮助我们理解、创造适合于问题的representation。
+
+**结构化表示/语言**是一种**计算机语言**，结构化表示后，才能够进行**computation**。
+
+
+
+### Examples
+
+不同的领域有着各自的representation。
+
+#### [Linguistics](https://en.wikipedia.org/wiki/Linguistics) 
+
+在语言学中使用[Grammar](https://en.wikipedia.org/wiki/Grammar)、[Syntax](https://en.wikipedia.org/wiki/Syntax)来表示语言的结构，最最典型的就是[Phrase structure grammar](https://en.wikipedia.org/wiki/Parsing_of_natural_language)。
+
+regular language是linear structure，context free language是hierarchy 结构。因为regular language的grammar，即regular grammar无法表达containing关系。
+
+典型的例子就是compile principle中，广泛地使用tree、graph来，对于语言这种看似非常灵活的、无规律的东西，进行**形式化**的描述，这让programming language称为了可能。
+
+
+
+#### Computer algebra
+
+产生式、函数表达式（expression）都是数学**语言**，它们描述了**关系**。
+
+在computer science中，我们知道，graph也可以用来描述**关系**。
+
+在计算机科学中，我们应该使用discrete relation来分析事物，从而对它们进行描述、计算：
+
+- 产生式可以使用tree structure来表示，tree 是一种 graph
+- 函数表达式可以使用computation graph来表示
+
+
+
+#### Entity-relation model
+
+使用Entity-relation model来描述现实世界，从后使用table来进行存储。
+
+
+
+#### Representation of word
+
+参见工程machine-learning的`Application\NLP\Representation-of-word`章节 。
+
+
+
+### draft: 结构化表示
+
+使用computational graph来表示expression，使用tree来表示formal language。它们都是使用计算机能够接受的language来描述事物的典型例子，它们都是一种language。计算机能够接受的语言：structure。所以，结构化方式，即使用结构化的语言进行描述是解决计算问题的第一步。这需要和结构化思维一起。
+
+
+
+## What is 结构化?
+
+我们将根据relation得出其structure、结构化表示进而实现computation的过程称为**结构化**。
