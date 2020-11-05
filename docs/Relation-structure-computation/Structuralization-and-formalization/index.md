@@ -10,7 +10,11 @@
 
 在当我们使用relation来描述事物的时候（即按照上面描述的node、orderd-pair的方式来进行组织），我们会发现它们会形成一定的structure，比如graph、tree、chain，我们建这种思维称为“**结构化思维**”。
 
-结构，可以是**有形**的结构，也可以是**无形**的、**逻辑**的结构。
+结构，可以是**有形**的结构，也可以是**无形**的、**逻辑**的结构，这就是**abstract structure**。
+
+> NOTE: 在wikipedia [Language of mathematics](https://en.wikipedia.org/wiki/Language_of_mathematics)中，有对abstract structure的描述:
+>
+> **Mathematics describes abstract structures**: on the other hand, there are areas of pure mathematics which deal with [abstract structures](https://en.wikipedia.org/wiki/Abstract_structure), which have no known physical counterparts at all. However, it is difficult to give any categorical examples here, as even the most abstract structures can be co-opted as models in some branch of physics (see [Calabi-Yau spaces](https://en.wikipedia.org/wiki/Calabi-Yau_spaces) and [string theory](https://en.wikipedia.org/wiki/String_theory)).
 
 下面结合具体的例子来对上述观点进行说明。
 
@@ -140,4 +144,17 @@ regular language是linear structure，context free language是hierarchy 结构�
 
 使用computational graph来表示expression，使用tree来表示formal language。它们都是使用计算机能够接受的language来描述事物的典型例子，它们都是一种language。计算机能够接受的语言：structure。所以，结构化方式，即使用结构化的语言进行描述是解决计算问题的第一步。这需要和结构化思维一起。
 
+
+
+### Structureed data
+
+结构化数据
+
+### SQL
+
+http://en.wikipedia.org/wiki/SQL
+
+### File format
+
+描述文件的结构
 

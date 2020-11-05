@@ -58,6 +58,10 @@ relation可以使用graph来实现，所以上述两者，其实本质上是相�
 
 - `Relation-structure-computation\Computation\Algorithm\Application\Search`
 
+
+
+
+
 ## 所有的one-by-one，都是enumerable、countable
 
 
@@ -82,19 +86,22 @@ Turing的可计算理论是对此的研究。
 
 前面介绍了ono-by-one model，本节介绍如何来进行实现。
 
-下面是两种非常重要的computation形式：
+### Repetition
+
+从前面描述的one-byone computation中，我们可以看出:
+
+1) iterative method 和 greedy algorithm就是重复执行着 **贪心选择** 过程，从而实现 不断的 向 **目标** 靠近 
+
+2) relation-based algorithm: 重复执行relation对应的computation
+
+显然，它们都是典型的"重复执行某个computation"，我们简称为"repetition"，这是computation一种重要的特征，具备这种特征的computation是非常容易实现的，这种computation具备重要价值。前面所描述的one-by-one model，其实是偏向于理论的，repetition computation则让我们能够轻松地实现。
+
+下面是实现repetition("重复执行某个computation")的两种方式：
 
 - iteration
 - recursion
 
-很多的algorithm都是基于上述两种形式，我们需要深入思考为什么很多算法都是基于这两种computation形式？
 
-下面是我的一些思考：
-
-iteration 和 recursion使我们能够“重复执行某个computation”，下面结合具体案例来说明这种 “重复执行某个computation” 计算方式的重要价值：
-
-- iterative method 和 greedy algorithm就是重复执行着 **贪心选择** 过程，从而实现 不断的 向 **目标** 靠近 
-- relation-based algorithm
 
 ### 如何设计algorithm？
 
@@ -106,12 +113,31 @@ iteration 和 recursion使我们能够“重复执行某个computation”，下�
 
 比如：
 
-- 自底向上 与 自顶向下
-- 正向传播 与 反向传播
+1) 自底向上 与 自顶向下
 
-比如：递归是自顶向下、动态规划是自底向上、backprop是自顶向下、bottom-up parsing。
+2) 正向传播 与 反向传播
+
+3) 递归是自顶向下、动态规划是自底向上
+
+4) backprop是自顶向下
+
+5) parsing:
+
+Recursive descent parser: https://en.wikipedia.org/wiki/Recursive_descent_parser 
+
+Top-down parsing: https://en.wikipedia.org/wiki/Top-down_parsing 
+
+Bottom-up parsing: https://en.wikipedia.org/wiki/Bottom-up_parsing 
+
+LR parser: https://en.wikipedia.org/wiki/LR_parser
+
+
 
 上述这些都体现了计算的方向。
+
+
+
+
 
 
 

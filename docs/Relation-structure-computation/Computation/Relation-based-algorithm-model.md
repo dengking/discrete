@@ -1,5 +1,3 @@
-
-
 # Relation-based algorithm model
 
 “Relation-based algorithm model”即“基于relation的algorithm model”，简单而言是：基于relation来设计algorithm。下面是对它的概括描述：
@@ -72,7 +70,7 @@ rewrite/expand operation
 
 ### Graph search algorithm
 
-`Relation-structure-computation\Structure\Data-structure\Graph\Search-algorithm`
+参见`Relation-structure-computation\Structure\Data-structure\Graph\Search-algorithm`。
 
 ### CFG
 
