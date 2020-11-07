@@ -42,13 +42,15 @@ Traverse是functional programming中apply的基础。
 
 ### Traverse on nonlinear structure
 
-这种structure不一定是线性结构(sequence)，只要能够按照某种顺序可以顺序访问其node即可。
+这种structure不一定是线性结构(sequence)，只要能够按照某种顺序访问其node即可。
 
-对list、tree、graph进行遍历，如果使用sequencial algorithm，则这个过程其实就相当于flat，对tree、graph等非线性结构进行顺序遍历的过程，其实就是将它转换为一个线性的结构，这个过程可以简称为flat。顺序遍历非常重要，它是很多algorithm的基础。比如graph的遍历是很多graph algorithm的基础。
+对tree、graph等nonlinear structure进行traverse，如果使用sequencial algorithm，则这个过程其实就相当于flat，对tree、graph等非线性结构进行顺序遍历的过程，其实就是将它转换为一个**线性**的结构，这个过程可以简称为**flat**。**顺序遍历**非常重要，它是很多algorithm的基础。比如graph的遍历是很多graph algorithm的基础。
 
 
 
-对一个structure进行traverse是computer science中非常常见的一种operation:
+
+
+### List comprehension and generator
 
 - List comprehension
 
@@ -58,11 +60,7 @@ https://infogalactic.com/info/List_comprehension
 
 https://infogalactic.com/info/Generator_(computer_programming)#C.2B.2B
 
-- traverse data structure
 
-参见`Relation-structure-computation/Structure/Data-structure`章节。
-
-- Functional programming 
 
 
 

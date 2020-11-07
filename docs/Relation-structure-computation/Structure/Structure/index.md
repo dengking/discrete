@@ -2,7 +2,7 @@
 
 “structure”即“结构”，在阅读维基百科computer science、数学相关的文章中，经常碰到“structure”概念，这引起了我思考：what is structure？本文就对这个问题进行剖析。
 
-Structure是一个宏大的话题，structure不仅仅局限于我们肉眼可见的物理structure，它还包括我们肉眼无法看到的逻辑（抽象）structure。
+Structure是一个宏大的话题，structure不仅仅局限于我们肉眼可见的物理structure，它还包括我们肉眼无法看到的逻辑（抽象）structure(abstract structure)。
 
 ## What is structure?
 
@@ -77,6 +77,20 @@ Structure是一个宏大的话题，structure不仅仅局限于我们肉眼可�
 | Tree      | `Relation-structure-computation\Model\Containing-relation-model` |               |
 | Chain     | `Relation-structure-computation\Model\Chain`                 |               |
 | Network   |                                                              | 其实就是graph |
+
+
+
+## Classification
+
+对structure的分类:
+
+1) linear
+
+线性结构
+
+2) nonlinear
+
+非线性结构
 
 
 
