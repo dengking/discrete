@@ -3,6 +3,6 @@ nav:
     - List-of-data-structure: List-of-data-structure.md
     - VS-of-trees: VS-of-tree.md
     - Graph-and-tree-and-list: Graph-and-tree-and-list.md
-    - VS-of-implementation-of-ADT: VS-of-implementation-of-ADT.md
-    - VS-of-search-tree-and-hash-table: VS-of-search-tree-and-hash-table.md
-    - VS-of-search-tree-and-skip-list: VS-of-search-tree-and-skip-list.md
+    - Implementation-of-ADT: Implementation-of-ADT.md
+    - Search-tree-and-hash-table: Search-tree-and-hash-table.md
+    - Search-tree-and-skip-list: Search-tree-and-skip-list.md

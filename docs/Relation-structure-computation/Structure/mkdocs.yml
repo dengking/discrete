@@ -1,4 +1,5 @@
 nav:
     - Introduction: index.md
     - Structure: Structure
-    - Discrete-structure: Discrete-structure.md
+    - Computation-on-structure: Computation-on-structure.md
+    - Data-structure: Data-structure

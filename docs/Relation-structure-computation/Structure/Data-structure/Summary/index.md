@@ -19,3 +19,17 @@ So how to choose data structure ? It is an art and worth learning。
 > In data storage and retrieval applications, use of a hash function is a trade off between **search time** and **data storage space**. If search time were unbounded, a very compact unordered linear list would be the best medium; if storage space were unbounded, a randomly accessible structure indexable by the key value would be very large, very sparse, but very fast. A hash function takes a finite amount of time to map a potentially large key space to a feasible amount of storage space searchable in a bounded amount of time regardless of the number of keys. 
 
 在选择data structure的时候，我们总是在time和space上进行权衡。
+
+
+
+## Classification
+
+本节讨论对ADT的分类:
+
+1) sequence
+
+2) mapping
+
+底层的data structure，则分为非常多的类别。
+
+

@@ -88,20 +88,15 @@ Turing的可计算理论是对此的研究。
 
 ### Repetition
 
-从前面描述的one-byone computation中，我们可以看出:
+从前面描述的one-by-one computation中，我们可以看出:
 
 1) iterative method 和 greedy algorithm就是重复执行着 **贪心选择** 过程，从而实现 不断的 向 **目标** 靠近 
 
 2) relation-based algorithm: 重复执行relation对应的computation
 
-显然，它们都是典型的"重复执行某个computation"，我们简称为"repetition"，这是computation一种重要的特征，具备这种特征的computation是非常容易实现的，这种computation具备重要价值。前面所描述的one-by-one model，其实是偏向于理论的，repetition computation则让我们能够轻松地实现。
+显然，它们都是典型的"重复执行某个computation"，我们简称为"repetition"，具备"repetition"特征的computation是非常容易编程实现的，这也是这种computation具备重要价值的原因。前面所描述的one-by-one model，其实是偏向于理论、太过抽象，repetition computation则让我们能够编程实现。在computer science中，我们可以看到repetition是无处不在的。
 
-下面是实现repetition("重复执行某个computation")的两种方式：
-
-- iteration
-- recursion
-
-
+在`./Repetition`章节，将对它进行详细说明。
 
 ### 如何设计algorithm？
 
