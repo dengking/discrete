@@ -110,13 +110,14 @@ Structure是一个宏大的话题，structure不仅仅局限于我们肉眼可�
 
 本节对structure的进行分类，需要注意的是此处的structure更多的是指abstract structure，当然也包含data structure。
 
-1) linear
+### 1) linear
 
 线性结构。这样的structure是非常普遍的，并且非常容易computation，下面是一些例子:
 
 - [Chomsky hierarchy](https://en.wikipedia.org/wiki/Chomsky_hierarchy)中的Type-3 language即[Regular](https://en.wikipedia.org/wiki/Regular_language)就是linear结构
+- Factorial是典型的线性结构，关于此，参见: https://infogalactic.com/info/Recursion_(computer_science)
 
-2) nonlinear
+### 2) nonlinear
 
 非线性结构
 
