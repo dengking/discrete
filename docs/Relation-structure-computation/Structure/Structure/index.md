@@ -80,13 +80,41 @@ Structure是一个宏大的话题，structure不仅仅局限于我们肉眼可�
 
 
 
+## Discrete structure
+
+有了[discrete](../What-is-discrete-math/Discrete-math.md)概念和[structure](./Structure.md)概念，那么理解what is discrete structure就比较容易了。下面是一些关于discrete structure的内容：
+
+
+
+### quora [Explain what is the role of Discrete Structures in Computer Science](https://www.quora.com/Explain-what-is-the-role-of-Discrete-Structures-in-Computer-Science#:~:text=)
+
+**Discrete structures** is study of mathematical **structures** that are fundamentally **discrete** (that is not continuous). This is usually the first **mathematics** course for **computer science** students; it helps them to start thinking about problems in a way **computers** can solve.
+
+
+
+### [ACM Discrete structures](http://wiki.acm.org/cs2001/index.php?title=Discrete_structures)
+
+
+
+### [Discrete Mathematics and Its Applications](https://www.amazon.com/Discrete-Mathematics-Applications-Kenneth-Rosen/dp/125967651X)
+
+在这本书的[Preface](../Book-Discrete-Mathematics-and-Its-Applications/Preface.md)、[chapter 2](../Book-Discrete-Mathematics-and-Its-Applications/Chapter-2-Basic-Structures/index.md)、[chapter 9](../Book-Discrete-Mathematics-and-Its-Applications/Chpater-9-Relations/index.md)中有对discrete structure的描述。
+
+
+
+## Abstract structure
+
+在`Relation-structure-computation\Structuralization-and-formalization`章节中介绍了abstract structure。
+
 ## Classification
 
-对structure的分类:
+本节对structure的进行分类，需要注意的是此处的structure更多的是指abstract structure，当然也包含data structure。
 
 1) linear
 
-线性结构
+线性结构。这样的structure是非常普遍的，并且非常容易computation，下面是一些例子:
+
+- [Chomsky hierarchy](https://en.wikipedia.org/wiki/Chomsky_hierarchy)中的Type-3 language即[Regular](https://en.wikipedia.org/wiki/Regular_language)就是linear结构
 
 2) nonlinear
 
