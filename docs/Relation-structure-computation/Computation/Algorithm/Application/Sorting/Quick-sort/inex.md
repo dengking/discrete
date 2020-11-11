@@ -266,3 +266,11 @@ int main()
 “hackerearth [Quick Sort](https://www.hackerearth.com/zh/practice/algorithms/sorting/quick-sort/tutorial/)”中的实现方式的思路是：自左向右进行扩展。
 
 分三段，只需要两个boundary，分别对应`i`和`j`。
+
+
+
+
+
+## TODO
+
+developer.51cto [坐在马桶上看算法：快速排序](https://developer.51cto.com/art/201403/430986.htm)
