@@ -42,7 +42,9 @@ The term "stream" is used in a number of similar ways:
 
 6) In the [Smalltalk](https://en.wikipedia.org/wiki/Smalltalk) [standard library](https://en.wikipedia.org/wiki/Standard_library) and in other [programming languages](https://en.wikipedia.org/wiki/Programming_language) as well, a stream is an **external iterator**. As in Scheme, streams can represent finite or infinite sequences.
 
-7) **Stream processing** — in [parallel processing](https://en.wikipedia.org/wiki/Parallel_computing), especially in graphic processing, the term stream is applied to [hardware](https://en.wikipedia.org/wiki/Computer_hardware) as well as [software](https://en.wikipedia.org/wiki/Software). There it defines the quasi-continuous flow of data that is processed in a [dataflow programming](https://en.wikipedia.org/wiki/Dataflow_programming) language as soon as the [program state](https://en.wikipedia.org/wiki/Program_state) meets the starting condition of the stream.
+7) [Stream processing](https://en.wikipedia.org/wiki/Stream_processing) — in [parallel processing](https://en.wikipedia.org/wiki/Parallel_computing), especially in graphic processing, the term stream is applied to [hardware](https://en.wikipedia.org/wiki/Computer_hardware) as well as [software](https://en.wikipedia.org/wiki/Software). There it defines the quasi-continuous flow of data that is processed in a [dataflow programming](https://en.wikipedia.org/wiki/Dataflow_programming) language as soon as the [program state](https://en.wikipedia.org/wiki/Program_state) meets the starting condition of the stream.
+
+> NOTE: stream processing是parallel computing中的重要model，参见工程parallel-computing的`Model\Stream-model`章节。
 
 ### Applications
 
@@ -139,7 +141,7 @@ TCP就是典型的例子，参见工程Linux-OS的`Network\Theory\TCP`章节。
 
 ### Parallel computing
 
-参见工程parallel-computing。
+参见工程parallel-computing的`Model\Stream-model`章节。
 
 #### Stream-based message/event processing system
 
