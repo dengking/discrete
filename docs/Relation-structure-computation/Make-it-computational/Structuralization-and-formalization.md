@@ -22,7 +22,7 @@
 
 ### 数学公式的结构
 
-
+数学公式的结构是典型的abstract structure。
 
 #### Example: computational graph of math expression
 

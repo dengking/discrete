@@ -1,6 +1,6 @@
 nav:
     - Introduction: index.md
-    - Structuralization-and-formalization: Structuralization-and-formalization
+    - Make-it-computational: Make-it-computational
     # 关系
     - Relation: Relation
     # 结构，结构就是典型的具备离散特性的
