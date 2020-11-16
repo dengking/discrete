@@ -2,4 +2,5 @@ nav:
     - Introduction: index.md
     - Graph: Graph
     - Probabilistic-data-structures: Probabilistic-data-structures
+    - Hash: Hash
     - Summary: Summary

@@ -1,0 +1,1 @@
+# [Randomization function](https://en.wikipedia.org/wiki/Randomization_function)
