@@ -2,25 +2,104 @@
 
 本文讨论如下主题
 
-1) 结构化思维: 以结构化是思维来看待事物
+1) 结构化(structuralization)/形式化(formalization): 只有**结构化**后，才能够进行计算
 
-2) 结构化(structuralization)/形式化(formalization): 只有**结构化**后，才能够进行计算
+2) 结构化思维: 以结构化是思维来看待事物
+
+## 结构化/形式化
+
+我们将根据relation得出其**structure**、**结构化表示**的过程称为**结构化**/**形式化**。**结构化**/**形式化**后才能够实现**computation**。
+
+### 从"语言"的角度来看待结构化
+
+> NOTE: 从语言的角度来看待结构化
+
+在文章`Language.md`中，我们已经知道**一切“描述”都是语言**。我们可以使用不同的language来进行描述，在computer science中，我们需要采用computer能够理解的语言来进行描述，这就是本节提出的"**结构化表示/语言**":
+
+上一节使用**结构化思维**来看待**数学表达式**了，我觉得**计算机科学**是需要这种思维的，只有**结构化**了之后，计算机才能够对其进行**表示**（representation）、进而进行**计算**（computation）；这里所说的**结构化**如果往更高层面来思考的话，其实是：**形式化**，只有**形式化**后才能够使用计算机算法来进行计算，或者更加通俗地来说：**结构化**是**形式化**的一种。
+
+各种各样的问题，如果要使用computer来进行解决，一个非常重要的课题就是：如何来表示？在应用计算机科学中，寻找合适的representation，对于解决问题至关重要(在computer science中，representation是一个非常核心的问题)。
+
+在上一节提出的**结构化思维**，能够帮助我们理解、创造适合于问题的representation。
+
+**结构化表示/语言**是一种**计算机语言**，结构化表示后，才能够进行**computation**。
+
+
+
+### Structureed data
+
+结构化数据
+
+### SQL
+
+http://en.wikipedia.org/wiki/SQL
+
+### File format
+
+描述文件的结构
+
+
 
 ## 结构化思维
 
-在当我们使用relation来描述事物的时候（即按照上面描述的node、orderd-pair的方式来进行组织），我们会发现它们会形成一定的structure，比如graph、tree、chain，我们建这种思维称为“**结构化思维**”。
+在当我们使用**relation**来描述事物的时候（即按照上面描述的node、orderd-pair的方式来进行组织），我们会发现它们会形成一定的structure，比如graph、tree、chain，我们建这种思维称为“**结构化思维**”。
 
-结构，可以是**有形**的结构，也可以是**无形**的、**逻辑**的结构，这就是**abstract structure**。
 
-> NOTE: 在wikipedia [Language of mathematics](https://en.wikipedia.org/wiki/Language_of_mathematics)中，有对abstract structure的描述:
->
+
+## Abstract structure
+
+结构，可以是**有形**的结构，也可以是**无形**的、**逻辑**的结构，这就是**abstract structure**。显然，我们**结构化**得到的是abstract structure。
+
+在wikipedia [Language of mathematics](https://en.wikipedia.org/wiki/Language_of_mathematics)中，有对abstract structure的描述:
+
 > **Mathematics describes abstract structures**: on the other hand, there are areas of pure mathematics which deal with [abstract structures](https://en.wikipedia.org/wiki/Abstract_structure), which have no known physical counterparts at all. However, it is difficult to give any categorical examples here, as even the most abstract structures can be co-opted as models in some branch of physics (see [Calabi-Yau spaces](https://en.wikipedia.org/wiki/Calabi-Yau_spaces) and [string theory](https://en.wikipedia.org/wiki/String_theory)).
 
 下面结合具体的例子来对上述观点进行说明。
 
 
 
-### 数学公式的结构
+### Examples
+
+不同的领域有着各自的representation。
+
+### Example: [Linguistics](https://en.wikipedia.org/wiki/Linguistics) 
+
+在语言学中使用[Grammar](https://en.wikipedia.org/wiki/Grammar)、[Syntax](https://en.wikipedia.org/wiki/Syntax)来表示语言的结构，最最典型的就是[Phrase structure grammar](https://en.wikipedia.org/wiki/Parsing_of_natural_language)。
+
+regular language是linear structure，context free language是hierarchy 结构。因为regular language的grammar，即regular grammar无法表达containing关系。
+
+典型的例子就是compile principle中，广泛地使用tree、graph来，对于语言这种看似非常灵活的、无规律的东西，进行**形式化**的描述，这让programming language称为了可能。
+
+
+
+#### Representation of word
+
+参见工程machine-learning的`Application\NLP\Representation-of-word`章节 。
+
+
+
+### Example: Computer algebra
+
+产生式、函数表达式（expression）都是数学**语言**，它们描述了**关系**。
+
+在computer science中，我们知道，graph也可以用来描述**关系**。
+
+在计算机科学中，我们应该使用discrete relation来分析事物，从而对它们进行描述、计算：
+
+- 产生式可以使用tree structure来表示，tree 是一种 graph
+- 函数表达式可以使用computation graph来表示
+
+
+
+#### Computational graph and tree
+
+使用computational graph来表示expression，使用tree来表示formal language。它们都是使用计算机能够接受的language来描述事物的典型例子，它们都是一种language。计算机能够接受的语言：structure。所以，结构化方式，即使用结构化的语言进行描述是解决计算问题的第一步。这需要和结构化思维一起。
+
+
+
+
+
+#### 数学公式的结构
 
 数学公式的结构是典型的abstract structure。
 
@@ -57,7 +136,27 @@ permutation和combination都是使用的乘法，它们都是nesting关系，都
 
 
 
-### 过程的结构
+
+
+#### [Algebraic structure](https://infogalactic.com/info/Algebraic_structure)
+
+
+
+#### [Mathematical structure](https://en.wikipedia.org/wiki/Mathematical_structure)
+
+In [mathematics](https://en.wikipedia.org/wiki/Mathematics), a **structure** is a [set](https://en.wikipedia.org/wiki/Set_(mathematics)) endowed with some additional features on the set (e.g., [operation](https://en.wikipedia.org/wiki/Operation_(mathematics)), [relation](https://en.wikipedia.org/wiki/Relation_(math)), [metric](https://en.wikipedia.org/wiki/Metric_(mathematics)), [topology](https://en.wikipedia.org/wiki/Topology#Topologies_on_sets)).[[1\]](https://en.wikipedia.org/wiki/Mathematical_structure#cite_note-1) Often, the additional features are attached or related to the set, so as to provide it with some additional meaning or significance.
+
+
+
+### Example: Entity-relation model in DBMS
+
+使用Entity-relation model来描述现实世界，从后使用table来进行存储。
+
+参见: [Entity-relation model](https://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model)。
+
+
+
+### Example: 过程的结构
 
 一些动态过程，比如函数执行过程、推导过程等，都呈现出一定的结构，本节对此进行分析，显然这种结构就是前面提到的逻辑结构。
 
@@ -78,83 +177,4 @@ permutation和combination都是使用的乘法，它们都是nesting关系，都
 #### 函数调用过程呈现tree结构
 
 在[Compilers Principles, Techniques and Tools Second Edition(aka ***dragon book***)](https://en.wikipedia.org/wiki/Compilers:_Principles,_Techniques,_and_Tools) 的[7.2.1 Activation Trees](https://dengking.github.io/compiler-principle/Chapter-7-Run-Time-Environments/7.2-Stack-Allocation-of-Space/#721-activation-trees)中对此进行了详细分析。
-
-
-
-## 结构化/形式化
-
-我们将根据relation得出其structure、**结构化表示**的过程称为**结构化**/**形式化**。**结构化**/**形式化**后才能够实现**computation**。
-
-### 从"语言"的角度来看待结构化
-
-> NOTE: 从语言的角度来看待结构化
-
-在文章`Language.md`中，我们已经知道**一切“描述”都是语言**。我们可以使用不同的language来进行描述，在computer science中，我们需要采用computer能够理解的语言来进行描述，这就是本节提出的"**结构化表示/语言**":
-
-上一节使用**结构化思维**来看待**数学表达式**了，我觉得**计算机科学**是需要这种思维的，只有**结构化**了之后，计算机才能够对其进行**表示**（representation）、进而进行**计算**（computation）；这里所说的**结构化**如果往更高层面来思考的话，其实是：**形式化**，只有**形式化**后才能够使用计算机算法来进行计算，或者更加通俗地来说：**结构化**是**形式化**的一种。
-
-各种各样的问题，如果要使用computer来进行解决，一个非常重要的课题就是：如何来表示？在应用计算机科学中，寻找合适的representation，对于解决问题至关重要(在computer science中，representation是一个非常核心的问题)。
-
-在上一节提出的**结构化思维**，能够帮助我们理解、创造适合于问题的representation。
-
-**结构化表示/语言**是一种**计算机语言**，结构化表示后，才能够进行**computation**。
-
-
-
-### Examples
-
-不同的领域有着各自的representation。
-
-#### [Linguistics](https://en.wikipedia.org/wiki/Linguistics) 
-
-在语言学中使用[Grammar](https://en.wikipedia.org/wiki/Grammar)、[Syntax](https://en.wikipedia.org/wiki/Syntax)来表示语言的结构，最最典型的就是[Phrase structure grammar](https://en.wikipedia.org/wiki/Parsing_of_natural_language)。
-
-regular language是linear structure，context free language是hierarchy 结构。因为regular language的grammar，即regular grammar无法表达containing关系。
-
-典型的例子就是compile principle中，广泛地使用tree、graph来，对于语言这种看似非常灵活的、无规律的东西，进行**形式化**的描述，这让programming language称为了可能。
-
-
-
-#### Computer algebra
-
-产生式、函数表达式（expression）都是数学**语言**，它们描述了**关系**。
-
-在computer science中，我们知道，graph也可以用来描述**关系**。
-
-在计算机科学中，我们应该使用discrete relation来分析事物，从而对它们进行描述、计算：
-
-- 产生式可以使用tree structure来表示，tree 是一种 graph
-- 函数表达式可以使用computation graph来表示
-
-
-
-#### Entity-relation model
-
-使用Entity-relation model来描述现实世界，从后使用table来进行存储。
-
-
-
-#### Representation of word
-
-参见工程machine-learning的`Application\NLP\Representation-of-word`章节 。
-
-
-
-#### Computational graph and tree
-
-使用computational graph来表示expression，使用tree来表示formal language。它们都是使用计算机能够接受的language来描述事物的典型例子，它们都是一种language。计算机能够接受的语言：structure。所以，结构化方式，即使用结构化的语言进行描述是解决计算问题的第一步。这需要和结构化思维一起。
-
-
-
-### Structureed data
-
-结构化数据
-
-### SQL
-
-http://en.wikipedia.org/wiki/SQL
-
-### File format
-
-描述文件的结构
 
