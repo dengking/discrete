@@ -2,7 +2,11 @@
 
 [排序问题](https://en.wikipedia.org/wiki/Sorting_algorithm)是计算机科学中的一类典型问题， 有很多的问题最终都可以转换为排序问题，比如（TODO 增加一些例子，如循环依赖图），本章将研究排序的理论：order theory进行总结，经过本章，我们将对order有一个更加科学的认识。
 
-## 维基百科[Order theory](https://en.wikipedia.org/wiki/Order_theory)
+Order theory非常重要，它对于实现computation非常重要，正如在`Relation-structure-computation\Make-it-computational`章节所总结的: 
+
+> 只有**有序**才能够实现computation，才能够实现可靠性
+
+## wikipedia [Order theory](https://en.wikipedia.org/wiki/Order_theory)
 
 ### 笔记
 
