@@ -2,7 +2,7 @@
 
 Iterator是一个非常重要的概念。
 
-## 维基百科[Iterator](https://en.wikipedia.org/wiki/Iterator)
+## wikipedia [Iterator](https://en.wikipedia.org/wiki/Iterator)
 
 In [computer programming](https://en.wikipedia.org/wiki/Computer_programming), an **iterator** is an [object](https://en.wikipedia.org/wiki/Object_(computing)) that enables a programmer to traverse a [container](https://en.wikipedia.org/wiki/Container_(data_structure)), particularly [lists](https://en.wikipedia.org/wiki/List_(abstract_data_type)). Various types of iterators are often provided via a container's [interface](https://en.wikipedia.org/wiki/Interface_(object-oriented_programming)). Though the interface and semantics of a given iterator are fixed, iterators are often implemented in terms of the structures underlying a container implementation and are often tightly coupled to the container to enable the operational semantics of the iterator. An iterator performs traversal and also gives access to data elements in a container, but does not itself perform [iteration](https://en.wikipedia.org/wiki/Iteration) (i.e., not without some significant liberty taken with that concept or with trivial use of the terminology). An iterator is behaviorally similar to a [database cursor](https://en.wikipedia.org/wiki/Cursor_(databases)).  
 

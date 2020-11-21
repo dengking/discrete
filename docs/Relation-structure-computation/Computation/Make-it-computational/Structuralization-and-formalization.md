@@ -1,20 +1,12 @@
 # 结构化(structuralization) 和 形式化(formalization)
 
+## 结构化(structuralization)
+
 在当我们使用**relation**来描述事物的时候（即按照上面描述的node、orderd-pair的方式来进行组织），我们会发现它们会形成一定的structure，比如graph、tree、chain，我们建这种思维称为“**结构化思维**”，它其实就是"**计算思维**"(参见`Relation-structure-computation\Computation`章节)。
 
 我们将根据relation得出其**structure**、**结构化表示**的过程称为**结构化**/**形式化**。只有**结构化**/**形式化**后才能够实现**computation**。
 
 我觉得**计算机科学**是需要这种思维的，只有**结构化**了之后，计算机才能够对其进行**表示**（representation）、进而进行**计算**（computation）；这里所说的**结构化**如果往更高层面来思考的话，其实是：**形式化**，只有**形式化**后才能够使用计算机算法来进行计算，或者更加通俗地来说：**结构化**是**形式化**的一种。
-
-
-
-## 从"语言"的角度来看待结构化
-
-> NOTE: 从语言的角度来看待结构化
-
-在文章`Language.md`中，我们已经知道**一切“描述”都是语言**。我们可以使用不同的language来进行描述，在computer science中，我们需要采用computer能够理解的语言来进行描述，这就是本节提出的"**结构化表示/语言**"，在上一节提出的**结构化思维**，能够帮助我们理解、创造适合于问题的representation。
-
-**结构化表示/语言**是一种**计算机语言**，结构化表示后，才能够进行**computation**。
 
 ### Examples
 
@@ -32,6 +24,16 @@ http://en.wikipedia.org/wiki/SQL
 
 
 
+## 从"语言"的角度来看待结构化
+
+> NOTE: 从语言的角度来看待结构化
+
+在文章`Language.md`中，我们已经知道**一切“描述”都是语言**。我们可以使用不同的language来进行描述，在computer science中，我们需要采用computer能够理解的语言来进行描述，这就是本节提出的"**结构化表示/语言**"，在上一节提出的**结构化思维**，能够帮助我们理解、创造适合于问题的representation。
+
+**结构化表示/语言**是一种**计算机语言**，结构化表示后，才能够进行**computation**。
+
+
+
 ## Abstract structure
 
 结构，可以是**有形**的结构，也可以是**无形**的、**逻辑**的结构，这就是**abstract structure**。显然，我们**结构化**得到的是**abstract structure**。
@@ -40,13 +42,15 @@ http://en.wikipedia.org/wiki/SQL
 
 > **Mathematics describes abstract structures**: on the other hand, there are areas of pure mathematics which deal with [abstract structures](https://en.wikipedia.org/wiki/Abstract_structure), which have no known physical counterparts at all. However, it is difficult to give any categorical examples here, as even the most abstract structures can be co-opted as models in some branch of physics (see [Calabi-Yau spaces](https://en.wikipedia.org/wiki/Calabi-Yau_spaces) and [string theory](https://en.wikipedia.org/wiki/String_theory)).
 
-下面结合具体的例子来对上述观点进行说明。
 
 
 
-### Examples
 
-不同的领域有着各自的representation。
+## Examples
+
+下面结合具体的例子来对上述观点进行说明。不同的领域有着各自的representation。
+
+
 
 ### Example: [Linguistics](https://en.wikipedia.org/wiki/Linguistics) 
 

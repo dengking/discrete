@@ -28,17 +28,35 @@ add的方式非常多:
 
 Traverse是一种基础的操作，很多其他的operation、algorithm都是建立在traverse的基础之上的。
 
-Traverse其实对应的computation是repetition，因此有两种实现traverse的方式:
+### 如何实现？
+
+Traverse对应的computation是repetition，因此有两种实现traverse的方式:
 
 1) iteration
 
-2)  recursion
+2) recursion
+
+下面是一些相关内容: 
+
+Pointer: 参见工程programming-language的`C-family-language\C-and-C++\Pointer-and-array`章节。
+
+Iterator: 参见`Relation-structure-computation\Computation\Repetition\Iteration`章节。
+
+Iterator pattern: 参见工程programming-language的`Theory\Programming-paradigm\Object-oriented-programming\Design-pattern\Behavioral-pattern\Iterator-pattern\Iterator-pattern`章节。
+
+Visitor pattern: 参见工程programming-language的`Theory\Programming-paradigm\Object-oriented-programming\Design-pattern\Behavioral-pattern\Visitor-pattern\`章节
+
+[Database](https://infogalactic.com/info/Database) [Cursor](https://infogalactic.com/info/Cursor_(databases)): 参见工程DB
+
+
+
+
 
 ### Traverse and functional programming apply
 
 Traverse是functional programming中apply的基础。
 
-在traverse的过程中，往往对structure中的node同时执行同一个computation，这是非常多的algorithm的模式。我决定functional programming就是基于这种模式。后续我们将此成为"对structure顺序执行某个computation"，或者是`apply`模型，感觉apply模型是更加简单的。
+在traverse的过程中，往往对structure中的node同时执行同一个computation，这是非常多的algorithm的模式。我觉得functional programming就是基于这种模式。后续我们将此成为"对structure顺序执行某个computation"，或者是`apply`模型，感觉apply模型是更加简单的。
 
 ### Traverse on nonlinear structure
 
@@ -48,9 +66,7 @@ Traverse是functional programming中apply的基础。
 
 
 
-
-
-### List comprehension and generator
+## List comprehension and generator
 
 - List comprehension
 
