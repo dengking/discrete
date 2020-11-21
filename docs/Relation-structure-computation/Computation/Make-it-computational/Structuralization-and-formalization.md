@@ -1,54 +1,40 @@
-# 结构化思维与结构化/形式化
+# 结构化(structuralization) 和 形式化(formalization)
 
-本文讨论如下主题
+在当我们使用**relation**来描述事物的时候（即按照上面描述的node、orderd-pair的方式来进行组织），我们会发现它们会形成一定的structure，比如graph、tree、chain，我们建这种思维称为“**结构化思维**”，它其实就是"**计算思维**"(参见`Relation-structure-computation\Computation`章节)。
 
-1) 结构化(structuralization)/形式化(formalization): 只有**结构化**后，才能够进行计算
+我们将根据relation得出其**structure**、**结构化表示**的过程称为**结构化**/**形式化**。只有**结构化**/**形式化**后才能够实现**computation**。
 
-2) 结构化思维: 以结构化是思维来看待事物
+我觉得**计算机科学**是需要这种思维的，只有**结构化**了之后，计算机才能够对其进行**表示**（representation）、进而进行**计算**（computation）；这里所说的**结构化**如果往更高层面来思考的话，其实是：**形式化**，只有**形式化**后才能够使用计算机算法来进行计算，或者更加通俗地来说：**结构化**是**形式化**的一种。
 
-## 结构化/形式化
 
-我们将根据relation得出其**structure**、**结构化表示**的过程称为**结构化**/**形式化**。**结构化**/**形式化**后才能够实现**computation**。
 
-### 从"语言"的角度来看待结构化
+## 从"语言"的角度来看待结构化
 
 > NOTE: 从语言的角度来看待结构化
 
-在文章`Language.md`中，我们已经知道**一切“描述”都是语言**。我们可以使用不同的language来进行描述，在computer science中，我们需要采用computer能够理解的语言来进行描述，这就是本节提出的"**结构化表示/语言**":
-
-上一节使用**结构化思维**来看待**数学表达式**了，我觉得**计算机科学**是需要这种思维的，只有**结构化**了之后，计算机才能够对其进行**表示**（representation）、进而进行**计算**（computation）；这里所说的**结构化**如果往更高层面来思考的话，其实是：**形式化**，只有**形式化**后才能够使用计算机算法来进行计算，或者更加通俗地来说：**结构化**是**形式化**的一种。
-
-各种各样的问题，如果要使用computer来进行解决，一个非常重要的课题就是：如何来表示？在应用计算机科学中，寻找合适的representation，对于解决问题至关重要(在computer science中，representation是一个非常核心的问题)。
-
-在上一节提出的**结构化思维**，能够帮助我们理解、创造适合于问题的representation。
+在文章`Language.md`中，我们已经知道**一切“描述”都是语言**。我们可以使用不同的language来进行描述，在computer science中，我们需要采用computer能够理解的语言来进行描述，这就是本节提出的"**结构化表示/语言**"，在上一节提出的**结构化思维**，能够帮助我们理解、创造适合于问题的representation。
 
 **结构化表示/语言**是一种**计算机语言**，结构化表示后，才能够进行**computation**。
 
+### Examples
 
-
-### Structureed data
+**Structureed data**
 
 结构化数据
 
-### SQL
+**SQL**
 
 http://en.wikipedia.org/wiki/SQL
 
-### File format
+**File format**
 
 描述文件的结构
 
 
 
-## 结构化思维
-
-在当我们使用**relation**来描述事物的时候（即按照上面描述的node、orderd-pair的方式来进行组织），我们会发现它们会形成一定的structure，比如graph、tree、chain，我们建这种思维称为“**结构化思维**”。
-
-
-
 ## Abstract structure
 
-结构，可以是**有形**的结构，也可以是**无形**的、**逻辑**的结构，这就是**abstract structure**。显然，我们**结构化**得到的是abstract structure。
+结构，可以是**有形**的结构，也可以是**无形**的、**逻辑**的结构，这就是**abstract structure**。显然，我们**结构化**得到的是**abstract structure**。
 
 在wikipedia [Language of mathematics](https://en.wikipedia.org/wiki/Language_of_mathematics)中，有对abstract structure的描述:
 

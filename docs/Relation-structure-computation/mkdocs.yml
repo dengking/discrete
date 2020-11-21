@@ -1,9 +1,9 @@
 nav:
     - Introduction: index.md
-    - Make-it-computational: Make-it-computational
-    # 关系
+   
     - Relation: Relation
     # 结构，结构就是典型的具备离散特性的
     - Structure: Structure
+    # 关系
     - Computation: Computation
     - Model: Model

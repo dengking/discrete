@@ -1,5 +1,6 @@
 nav:
     - Introduction: index.md
+    - Make-it-computational: Make-it-computational
     - Relation-based-algorithm-model: Relation-based-algorithm-model.md
     - Repetition: Repetition
     - Algorithm: Algorithm
