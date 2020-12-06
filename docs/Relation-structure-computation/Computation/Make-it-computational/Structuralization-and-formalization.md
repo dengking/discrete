@@ -2,7 +2,7 @@
 
 ## 结构化(structuralization)
 
-在当我们使用**relation**来描述事物的时候（即按照上面描述的node、orderd-pair的方式来进行组织），我们会发现它们会形成一定的structure，比如graph、tree、chain，我们建这种思维称为“**结构化思维**”，它其实就是"**计算思维**"(参见`Relation-structure-computation\Computation`章节)。
+在当我们使用**relation**来描述事物的时候（即按照前面描述的node、orderd-pair的方式来进行组织），我们会发现它们会形成一定的structure，比如graph、tree、chain，我们建这种思维称为“**结构化思维**”，它其实就是"**计算思维**"(参见`Relation-structure-computation\Computation`章节)。
 
 我们将根据relation得出其**structure**、**结构化表示**的过程称为**结构化**/**形式化**。只有**结构化**/**形式化**后才能够实现**computation**。
 

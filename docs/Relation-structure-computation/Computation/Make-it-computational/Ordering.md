@@ -32,7 +32,11 @@
 
 ## Ordering的维度
 
-基于空间维度
+### 基于空间维度
 
-基于时间维度
+### 基于时间维度
+
+时间是一种非常有效的order维度，在诸多领域中都有着基于time的ordering:
+
+1) 工程parallel-computing的`Concurrent-computing\Concurrency-control\Time-based-concurrency-control`章节。
 
