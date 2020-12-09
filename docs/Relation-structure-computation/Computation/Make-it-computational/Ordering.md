@@ -24,7 +24,11 @@
 
 4) type ordering
 
-参见`Theory\Type-system\Type-relation`章节。
+参见工程programming-language的`Theory\Type-system\Type-relation`章节。
+
+5) Static Initialization Order Fiasco
+
+参见工程programming-language的相关章节。
 
 ## Order theory
 

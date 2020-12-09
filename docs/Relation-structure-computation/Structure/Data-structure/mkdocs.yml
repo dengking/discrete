@@ -1,6 +1,11 @@
 nav:
     - Introduction: index.md
+    - Array: Array
+    - List: List
+    - Stack: Stack    
     - Graph: Graph
+    - Set: Set
     - Probabilistic-data-structures: Probabilistic-data-structures
     - Hash: Hash
     - Summary: Summary
+    - TODO: TODO.md
