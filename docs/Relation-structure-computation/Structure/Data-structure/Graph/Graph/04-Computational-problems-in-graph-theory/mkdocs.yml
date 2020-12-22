@@ -1,6 +1,7 @@
 nav:
-    - Computational-problems-in-graph-theory: Computational-problems-in-graph-theory.md
+    - Introduction: index.md
     - Circular: Circular
     - Dominator: Dominator
     - Sorting: Sorting
     - Spanning-tree: Spanning-tree
+    - Closure: Closure
