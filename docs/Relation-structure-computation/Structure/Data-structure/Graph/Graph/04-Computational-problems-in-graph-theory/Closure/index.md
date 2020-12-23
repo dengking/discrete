@@ -47,3 +47,18 @@ the TensorFlow implementation can compute the **transitive closure** of all node
 ### 20201123
 
 重复运用一个relation，从而形成一条path。
+
+
+
+### 20201223
+
+- 在龙书中有关于闭包的描述
+- 在离散数学的关系章节中有闭包的描述
+- [Kleene star](https://en.wikipedia.org/wiki/Kleene_star)
+- [Context-free grammar](https://en.wikipedia.org/wiki/Context-free_grammar#Closure_properties)中也有关于closure的描述
+- 从[Formation rule](https://en.wikipedia.org/wiki/Formation_rule)/[Production rule](https://en.wikipedia.org/wiki/Production_(computer_science))的角度来看待闭包
+- 从逻辑学推导的角度来看待闭包
+
+我一直想要搞清楚的closure就是基于逻辑推导和集合论的。
+
+[Set theory](https://en.wikipedia.org/wiki/Set_theory)是数学的基石所在，很多其他数学学科都是建立在它的基础之上。
