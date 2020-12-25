@@ -1,7 +1,9 @@
 nav:
     - index: index.md
+    - Great-Theoretical-Ideas-in-Computer-Science: Great-Theoretical-Ideas-in-Computer-Science
     - Theory-of-computation: Theory-of-computation.md
     - Model-of-computation: Model-of-computation
     - Computability-theory: Computability-theory
     - Automata-theory: Automata-theory
     - Computational-complexity-theory: Computational-complexity-theory
+
