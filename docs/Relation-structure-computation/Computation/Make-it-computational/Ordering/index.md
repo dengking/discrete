@@ -2,6 +2,16 @@
 
 ## Thoughts
 
+### Thought: chao(混乱的、混沌的)
+
+"chao"这个此是经常看到的，它表示的是uncomputational。
+
+这是我在 阅读 wikipedia [Leslie Lamport](https://en.wikipedia.org/wiki/Leslie_Lamport) 时，发现的:
+
+> Leslie Lamport was the winner of the 2013 [Turing Award](https://en.wikipedia.org/wiki/Turing_Award)[[4\]](https://en.wikipedia.org/wiki/Leslie_Lamport#cite_note-4) for imposing clear, well-defined coherence on the seemingly **chaotic** behavior of [distributed computing](https://en.wikipedia.org/wiki/Distributed_computing) systems, in which several autonomous computers communicate with each other by passing messages.
+
+在我碰到的很多错误中，其实都可以归入到这一类中
+
 ### Thought1
 
 对于无序、混乱、不可重复、随机、二义性，这些都是不可计算的，这些是需要被克服的，需要programmer进行显式的控制。只有**有序**才能够实现computation，才能够实现可靠性。
@@ -46,7 +56,7 @@ Order是一种abstract relation，通过order这个relation来构造出abstract 
 
 5) ordering and object lifetime
 
-参见 `./Ordering-and-object-lifetime`。
+参见工程programming language的 `Ordering-and-object-lifetime`章节。
 
 ## Order theory
 
@@ -62,4 +72,4 @@ Order是一种abstract relation，通过order这个relation来构造出abstract 
 
 1) 工程parallel-computing的`Concurrent-computing\Concurrency-control\Time-based-concurrency-control`章节。
 
-2) logical clock
+2) Lamport timestamp，参见工程parallel-computing的相关章节
