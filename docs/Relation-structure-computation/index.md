@@ -2,6 +2,8 @@
 
 本章的标题是"Relation-structure-computation"，它的含义是关系、结构、计算”。本文对本章的内容进行综述，以从一个较高的角度来掌握本章的内容。
 
+
+
 ## 综述: relation-structure-computation
 
 如果discrete object之间没有relation，那么它们就是一堆杂乱无章、毫无规律可言的混沌系统，无法使用精简的数学语言对其进行描述（**formal description**），我们所关注的是那些具备中**relation**的discrete objects。

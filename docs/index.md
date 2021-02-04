@@ -28,7 +28,7 @@ representation和computation密切相关：
 
 
 
-representation和computation都具备**discrete**特性，可以使用discrete math中的理论、思想来进行理解和描述，正如在维基百科[Discrete mathematics](https://en.wikipedia.org/wiki/Discrete_mathematics)中所述：
+representation和computation都具备**discrete**特性，可以使用discrete math中的理论、思想来进行理解和描述，正如在wikipedia [Discrete mathematics](https://en.wikipedia.org/wiki/Discrete_mathematics)中所述：
 
 > Concepts and notations from discrete mathematics are useful in studying and describing objects and problems in branches of [computer science](https://en.wikipedia.org/wiki/Computer_science), such as [computer algorithms](https://en.wikipedia.org/wiki/Computer_algorithm), [programming languages](https://en.wikipedia.org/wiki/Programming_language), [cryptography](https://en.wikipedia.org/wiki/Cryptography), [automated theorem proving](https://en.wikipedia.org/wiki/Automated_theorem_proving), and [software development](https://en.wikipedia.org/wiki/Software_development). Conversely, computer implementations are significant in applying ideas from discrete mathematics to real-world problems, such as in [operations research](https://en.wikipedia.org/wiki/Operations_research).
 
@@ -36,11 +36,11 @@ representation和computation都具备**discrete**特性，可以使用discrete m
 
 - 对于discrete objects相关的computation问题，如何设计algorithm？如何设计representation？
 
-在`Discrete-math\Why-we-need-discrete-math.md`中，也阐述了我的写作动机。
+在`Discrete-math\Why-we-need-discrete-math`中，也阐述了我的写作动机。
 
 关于discrete math，我想起了在大学二年级时学习discrete math课程，当时使用的教材是非常经典的[Discrete Mathematics and Its Applications](https://www.amazon.com/Discrete-Mathematics-Applications-Kenneth-Rosen/dp/125967651X)，因此这个工程中的一些内容是源自于这本教材。
 
-在 [`Computer-science-is-discrete.md`](./Computer-science-is-discrete.md) 中给出了论证"Computer scientific is discrete"观点的例子。
+在 [`Computer-science-is-discrete`](./Computer-science-is-discrete.md) 中给出了论证"Computer scientific is discrete"观点的例子。
 
 
 
@@ -70,7 +70,7 @@ representation和computation都具备**discrete**特性，可以使用discrete m
 
 本节回答“what is discrete math”，以及看看topics in discrete mathematics。
 
-### 维基百科[Discrete mathematics](https://en.wikipedia.org/wiki/Discrete_mathematics)
+### wikipedia [Discrete mathematics](https://en.wikipedia.org/wiki/Discrete_mathematics)
 
 **Discrete mathematics** is the study of [mathematical structures](https://en.wikipedia.org/wiki/Mathematical_structures) that are fundamentally [discrete](https://en.wikipedia.org/wiki/Discrete_space) rather than [continuous](https://en.wikipedia.org/wiki/Continuous_function). In contrast to [real numbers](https://en.wikipedia.org/wiki/Real_number) that have the property of varying "smoothly", the objects studied in discrete mathematics – such as [integers](https://en.wikipedia.org/wiki/Integer), [graphs](https://en.wikipedia.org/wiki/Graph_(discrete_mathematics)), and [statements](https://en.wikipedia.org/wiki/Statement_(logic)) in [logic](https://en.wikipedia.org/wiki/Mathematical_logic) – do not vary smoothly in this way, but have distinct, separated values. Discrete mathematics therefore excludes topics in "continuous mathematics" such as [calculus](https://en.wikipedia.org/wiki/Calculus) or [Euclidean geometry](https://en.wikipedia.org/wiki/Euclidean_geometry). Discrete objects can often be [enumerated](https://en.wikipedia.org/wiki/Enumeration) by integers. More formally, discrete mathematics has been characterized as the branch of mathematics dealing with [countable sets](https://en.wikipedia.org/wiki/Countable_set) (finite sets or sets with the same [cardinality](https://en.wikipedia.org/wiki/Cardinality) as the natural numbers). 
 
@@ -98,7 +98,7 @@ representation和computation都具备**discrete**特性，可以使用discrete m
 
 ### Countable
 
-关于“countable”，可以参见维基百科[Countable set](https://en.wikipedia.org/wiki/Countable_set)。
+关于“countable”，可以参见wikipedia [Countable set](https://en.wikipedia.org/wiki/Countable_set)。
 
 discrete objects一般是countable的（有的是无法count的）。
 
