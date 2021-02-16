@@ -1,2 +1,4 @@
 nav:
     - Introduction: index.md
+    - Top-down-and-bottom-up: Top-down-and-bottom-up
+    - FIFO-and-FILO: FIFO-and-FILO
