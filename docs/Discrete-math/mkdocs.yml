@@ -1,4 +1,5 @@
 nav:
+    - Introduction: index.md
     - Why-we-need-discrete-math: Why-we-need-discrete-math.md
     - Book-Discrete-Mathematics-and-Its-Applications: Book-Discrete-Mathematics-and-Its-Applications
     - Set-theory: Set-theory

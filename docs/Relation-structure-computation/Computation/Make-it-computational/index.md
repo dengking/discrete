@@ -2,11 +2,15 @@
 
 本章标题的含义是: 使之可计算。
 
-本章探讨的话题是: 
+本章探讨的话题是: 各种各样的问题，如果要使用computer来进行解决，那要如何进行设计呢？有哪些指导思想呢？
 
-各种各样的问题，如果要使用computer来进行解决，一个非常重要的课题就是：
+下面是一些重要的思路、指导思想：
 
-1) 如何来表示(**representation**)？在应用计算机科学中，寻找合适的representation，对于解决问题至关重要(在computer science中，representation是一个非常核心的问题)。
+1) 如何来表示(**representation**)？
+
+在应用计算机科学中，寻找合适的representation，对于解决问题至关重要(在computer science中，representation是一个非常核心的问题)。
+
+在 `Structuralization-and-formalization` 章节对此进行了探讨。
 
 2) 如何让它**有序**? 
 
