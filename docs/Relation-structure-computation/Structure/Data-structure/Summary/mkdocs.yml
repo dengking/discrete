@@ -1,7 +1,7 @@
 nav:
     - Introduction: index.md
     - List-of-data-structure: List-of-data-structure.md
-    - VS-of-trees: VS-of-tree.md
+
     - Graph-and-tree-and-list: Graph-and-tree-and-list.md
     - Implementation-of-ADT: Implementation-of-ADT.md
     - Search-tree-and-hash-table: Search-tree-and-hash-table.md

@@ -195,7 +195,8 @@ nav:
       - Set:
         - Set: Relation-structure-computation/Structure/Data-structure/Set/Set(abstract-data-type).md
       - Probabilistic-data-structures:
-        - Bloom-filter: Relation-structure-computation/Structure/Data-structure/Probabilistic-data-structures/Bloom-filter.md
+        - Bloom-filter:
+          - Bloom-filter: Relation-structure-computation/Structure/Data-structure/Probabilistic-data-structures/Bloom-filter/index.md
         - Random-tree: Relation-structure-computation/Structure/Data-structure/Probabilistic-data-structures/Random-tree.md
         - Skip-list: Relation-structure-computation/Structure/Data-structure/Probabilistic-data-structures/Skip-list.md
       - Hash:
@@ -213,7 +214,6 @@ nav:
       - Summary:
         - Introduction: Relation-structure-computation/Structure/Data-structure/Summary/index.md
         - List-of-data-structure: Relation-structure-computation/Structure/Data-structure/Summary/List-of-data-structure.md
-        - VS-of-trees: Relation-structure-computation/Structure/Data-structure/Summary/VS-of-tree.md
         - Graph-and-tree-and-list: Relation-structure-computation/Structure/Data-structure/Summary/Graph-and-tree-and-list.md
         - Implementation-of-ADT: Relation-structure-computation/Structure/Data-structure/Summary/Implementation-of-ADT.md
         - Search-tree-and-hash-table: Relation-structure-computation/Structure/Data-structure/Summary/Search-tree-and-hash-table.md
@@ -223,7 +223,8 @@ nav:
     - Introduction: Relation-structure-computation/Computation/index.md
     - Make-it-computational:
       - Introduction: Relation-structure-computation/Computation/Make-it-computational/index.md
-      - Structuralization-and-formalization: Relation-structure-computation/Computation/Make-it-computational/Structuralization-and-formalization.md
+      - Structuralization-and-formalization:
+        - Introduction: Relation-structure-computation/Computation/Make-it-computational/Structuralization-and-formalization/index.md
       - Ordering:
         - Introduction: Relation-structure-computation/Computation/Make-it-computational/Ordering/index.md
     - Relation-based-algorithm-model:
@@ -273,7 +274,6 @@ nav:
             - Greedy-algorithm: Relation-structure-computation/Computation/Algorithm/Paradigm/02-Dynamic-Programming&Greedy-Algorithm/Greedy-algorithm/Greedy-algorithm.md
             - Huffman-Coding: Relation-structure-computation/Computation/Algorithm/Paradigm/02-Dynamic-Programming&Greedy-Algorithm/Greedy-algorithm/Huffman-Coding.md
             - Reading-list: Relation-structure-computation/Computation/Algorithm/Paradigm/02-Dynamic-Programming&Greedy-Algorithm/Greedy-algorithm/Reading-list.md
-          - Optimization-summary: Relation-structure-computation/Computation/Algorithm/Paradigm/02-Dynamic-Programming&Greedy-Algorithm/Optimization-summary.md
           - Dynamic-programming-VS-search-algorithm-VS-greedy-algorithm: Relation-structure-computation/Computation/Algorithm/Paradigm/02-Dynamic-Programming&Greedy-Algorithm/Dynamic-programming-VS-search-algorithm-VS-greedy-algorithm.md
         - Heuristic:
           - Heuristic(computer-science): Relation-structure-computation/Computation/Algorithm/Paradigm/Heuristic/Heuristic(computer-science).md
@@ -298,7 +298,8 @@ nav:
                 - wikipedia-Backtracking: Relation-structure-computation/Computation/Algorithm/Application/Search/Implementation/Backtracking/Backtrack/wikipedia-Backtracking.md
               - Examples:
                 - Introduction: Relation-structure-computation/Computation/Algorithm/Application/Search/Implementation/Backtracking/Examples/index.md
-                - Sudoku-solving: Relation-structure-computation/Computation/Algorithm/Application/Search/Implementation/Backtracking/Examples/Sudoku-solving.md
+                - Sudoku-solving:
+                  - Introduction: Relation-structure-computation/Computation/Algorithm/Application/Search/Implementation/Backtracking/Examples/Sudoku-solving/index.md
                 - N-queen:
                   - Introduction: Relation-structure-computation/Computation/Algorithm/Application/Search/Implementation/Backtracking/Examples/N-queen/N-queen.md
                 - Symbol-triangle:
