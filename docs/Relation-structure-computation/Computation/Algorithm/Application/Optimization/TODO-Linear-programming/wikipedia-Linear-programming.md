@@ -1,6 +1,3 @@
-[TOC]
-
-
 
 # [Linear programming](https://en.wikipedia.org/wiki/Linear_programming)
 

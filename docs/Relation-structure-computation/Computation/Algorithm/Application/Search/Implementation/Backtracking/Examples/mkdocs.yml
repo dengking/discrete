@@ -3,7 +3,7 @@ nav:
     - Sudoku-solving: Sudoku-solving.md
     - N-queen: N-queen
     - Symbol-triangle: Symbol-triangle
-    - Max-circle-in-graph: Max-circle-in-graph
-    - Max-loading: Max-loading
+    # - Max-circle-in-graph: Max-circle-in-graph
+    # - Max-loading: Max-loading
     - M-coloring-of-graph: M-coloring-of-graph
     - Permutation-of-circle: Permutation-of-circle

@@ -2,7 +2,7 @@ nav:
     - Home: index.md
     - Computer-science-is-discrete: Computer-science-is-discrete.md
     - Discrete-math: Discrete-math
-    - Relation-structure-computation: Relation-structure-computation.md
+    - Relation-structure-computation: Relation-structure-computation
     - TODO: TODO
     
     
