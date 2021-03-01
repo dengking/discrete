@@ -1,7 +1,3 @@
-[TOC]
-
-
-
 # [Aho-Corasick algorithm](https://cp-algorithms.com/string/aho_corasick.html)
 
 Let there be a set of strings with the total length mm (sum of all lengths). The Aho-Corasick algorithm constructs a data structure similar to a trie with some additional links, and then constructs a **finite state machine** (automaton) in $O(mk)$ time, where $k$ is the size of the used alphabet.

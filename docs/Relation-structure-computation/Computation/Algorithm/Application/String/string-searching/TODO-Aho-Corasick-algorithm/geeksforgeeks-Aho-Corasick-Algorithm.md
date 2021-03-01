@@ -1,7 +1,3 @@
-[TOC]
-
-
-
 # [Aho-Corasick Algorithm for Pattern Searching](https://www.geeksforgeeks.org/aho-corasick-algorithm-pattern-searching/)
 
 Given an input text and an array of `k` words, `arr[]`, find all occurrences of all words in the input text. Let **n** be the length of text and **m** be the total number characters in all words, i.e. `m = length(arr[0]) + length(arr[1]) + … + length(arr[k-1])`. Here **k** is total numbers of input words.

@@ -77,14 +77,14 @@ nav:
       - Array:
         - Introduction: Relation-structure-computation/Structure/Data-structure/Array/index.md
         - Array-data-structure: Relation-structure-computation/Structure/Data-structure/Array/Array-data-structure.md
-        - bit-array:
-          - Bit-array: Relation-structure-computation/Structure/Data-structure/Array/bit-array/Bit-array.md
-        - circular-array:
-          - Circular-buffer: Relation-structure-computation/Structure/Data-structure/Array/circular-array/Circular-buffer.md
+        - Bit-array:
+          - Introduction: Relation-structure-computation/Structure/Data-structure/Array/Bit-array/index.md
+        - Circular-array:
+          - Introduction: Relation-structure-computation/Structure/Data-structure/Array/Circular-array/index.md
           - spdlog-circular_q:
-            - Introduction: Relation-structure-computation/Structure/Data-structure/Array/circular-array/spdlog-circular_q/index.md
+            - Introduction: Relation-structure-computation/Structure/Data-structure/Array/Circular-array/spdlog-circular_q/index.md
           - martinbroadhurst-cirque:
-            - Introduction: Relation-structure-computation/Structure/Data-structure/Array/circular-array/martinbroadhurst-cirque/index.md
+            - Introduction: Relation-structure-computation/Structure/Data-structure/Array/Circular-array/martinbroadhurst-cirque/index.md
       - List:
         - List: Relation-structure-computation/Structure/Data-structure/List/List.md
         - VS-double-linked-list-VS-binary-tree: Relation-structure-computation/Structure/Data-structure/List/VS-double-linked-list-VS-binary-tree.md
@@ -120,6 +120,10 @@ nav:
             - Graph-operation: Relation-structure-computation/Structure/Data-structure/Graph/Graph/03-Graph-operation/Graph-operation.md
           - 04-Computational-problems-in-graph-theory:
             - Introduction: Relation-structure-computation/Structure/Data-structure/Graph/Graph/04-Computational-problems-in-graph-theory/index.md
+            - Path:
+              - Dijkstra's-algorithm:
+                - Introduction: Relation-structure-computation/Structure/Data-structure/Graph/Graph/04-Computational-problems-in-graph-theory/Path/Dijkstra's-algorithm/index.md
+              - TODO-Max-path: Relation-structure-computation/Structure/Data-structure/Graph/Graph/04-Computational-problems-in-graph-theory/Path/TODO-Max-path.md
             - Circular:
               - Cycle-detection: Relation-structure-computation/Structure/Data-structure/Graph/Graph/04-Computational-problems-in-graph-theory/Circular/Cycle-detection.md
               - Circular-dependency: Relation-structure-computation/Structure/Data-structure/Graph/Graph/04-Computational-problems-in-graph-theory/Circular/Circular-dependency.md
@@ -150,6 +154,13 @@ nav:
                 - Visitor-Concepts: Relation-structure-computation/Structure/Data-structure/Graph/Graph/Implementation/Boost-Graph-Library/Visitor-Concepts/Visitor-Concepts.md
               - Algorithms:
                 - Named-parameters: Relation-structure-computation/Structure/Data-structure/Graph/Graph/Implementation/Boost-Graph-Library/Algorithms/Named-parameters.md
+                - Core-Searches:
+                  - breadth_first_search: Relation-structure-computation/Structure/Data-structure/Graph/Graph/Implementation/Boost-Graph-Library/Algorithms/Core-Searches/breadth_first_search.md
+                  - depth_first_search: Relation-structure-computation/Structure/Data-structure/Graph/Graph/Implementation/Boost-Graph-Library/Algorithms/Core-Searches/depth_first_search.md
+              - Example:
+                - bfs-example: Relation-structure-computation/Structure/Data-structure/Graph/Graph/Implementation/Boost-Graph-Library/Example/bfs-example.md
+              - Implementation:
+                - Graph-representation: Relation-structure-computation/Structure/Data-structure/Graph/Graph/Implementation/Boost-Graph-Library/Implementation/Graph-representation.md
         - Tree:
           - Introduction: Relation-structure-computation/Structure/Data-structure/Graph/Tree/index.md
           - Tree-structure:
@@ -169,6 +180,12 @@ nav:
           - Trie:
             - Introduction: Relation-structure-computation/Structure/Data-structure/Graph/Tree/Trie/index.md
             - Trie: Relation-structure-computation/Structure/Data-structure/Graph/Tree/Trie/Trie.md
+            - geeksforgeeks-trie: Relation-structure-computation/Structure/Data-structure/Graph/Tree/Trie/geeksforgeeks-trie.md
+          - VS-of-tree: Relation-structure-computation/Structure/Data-structure/Graph/Tree/VS-of-tree.md
+          - Implementation:
+            - Introduction: Relation-structure-computation/Structure/Data-structure/Graph/Tree/Implementation/index.md
+            - nltk-tree: Relation-structure-computation/Structure/Data-structure/Graph/Tree/Implementation/nltk-tree.md
+            - Python-library: Relation-structure-computation/Structure/Data-structure/Graph/Tree/Implementation/Python-library.md
           - TODO: Relation-structure-computation/Structure/Data-structure/Graph/Tree/TODO.md
         - Search-algorithm:
           - Methods:
@@ -182,6 +199,8 @@ nav:
             - A-star-search-algorithm: Relation-structure-computation/Structure/Data-structure/Graph/Search-algorithm/Methods/A-star-search-algorithm.md
             - B-star-search-algorithm: Relation-structure-computation/Structure/Data-structure/Graph/Search-algorithm/Methods/B-star-search-algorithm.md
             - Beam-search: Relation-structure-computation/Structure/Data-structure/Graph/Search-algorithm/Methods/Beam-search.md
+            - Uniform-cost-search:
+              - Uniform-cost-search: Relation-structure-computation/Structure/Data-structure/Graph/Search-algorithm/Methods/Uniform-cost-search/Uniform-cost-search.md
           - Graph-traversal:
             - Graph-traversal: Relation-structure-computation/Structure/Data-structure/Graph/Search-algorithm/Graph-traversal/Graph-traversal.md
             - BFS-src:
@@ -189,6 +208,7 @@ nav:
           - Tree-traversal:
             - Tree-traversal: Relation-structure-computation/Structure/Data-structure/Graph/Search-algorithm/Tree-traversal/Tree-traversal.md
             - Iterative-deepening-depth-first-search: Relation-structure-computation/Structure/Data-structure/Graph/Search-algorithm/Tree-traversal/Iterative-deepening-depth-first-search.md
+        - Expert-martinbroadhurst: Relation-structure-computation/Structure/Data-structure/Graph/Expert-martinbroadhurst.md
       - Set:
         - Set: Relation-structure-computation/Structure/Data-structure/Set/Set(abstract-data-type).md
       - Probabilistic-data-structures:
@@ -208,6 +228,13 @@ nav:
             - Cryptographic-hash-function: Relation-structure-computation/Structure/Data-structure/Hash/Hash-function/Cryptographic-hash-functions/Cryptographic-hash-function.md
             - Cipher: Relation-structure-computation/Structure/Data-structure/Hash/Hash-function/Cryptographic-hash-functions/Cipher.md
             - Salt(cryptography): Relation-structure-computation/Structure/Data-structure/Hash/Hash-function/Cryptographic-hash-functions/Salt(cryptography).md
+        - Hash-based-data-structures:
+          - Hash-table:
+            - Hash-table: Relation-structure-computation/Structure/Data-structure/Hash/Hash-based-data-structures/Hash-table/Hash-table.md
+          - Merkle-tree:
+            - Introduction: Relation-structure-computation/Structure/Data-structure/Hash/Hash-based-data-structures/Merkle-tree/index.md
+          - Summary-of-Hash-based-data-structures: Relation-structure-computation/Structure/Data-structure/Hash/Hash-based-data-structures/Summary-of-Hash-based-data-structures.md
+        - Application-of-hash: Relation-structure-computation/Structure/Data-structure/Hash/Application-of-hash.md
       - Summary:
         - Introduction: Relation-structure-computation/Structure/Data-structure/Summary/index.md
         - List-of-data-structure: Relation-structure-computation/Structure/Data-structure/Summary/List-of-data-structure.md
@@ -224,6 +251,12 @@ nav:
         - Introduction: Relation-structure-computation/Computation/Make-it-computational/Structuralization-and-formalization/index.md
       - Ordering:
         - Introduction: Relation-structure-computation/Computation/Make-it-computational/Ordering/index.md
+    - Computation-direction:
+      - Introduction: Relation-structure-computation/Computation/Computation-direction/index.md
+      - Top-down-and-bottom-up:
+        - Introduction: Relation-structure-computation/Computation/Computation-direction/Top-down-and-bottom-up/index.md
+      - FIFO-and-FILO:
+        - Introduction: Relation-structure-computation/Computation/Computation-direction/FIFO-and-FILO/index.md
     - Relation-based-algorithm-model:
       - Introduction: Relation-structure-computation/Computation/Relation-based-algorithm-model/index.md
     - Repetition:
@@ -244,6 +277,13 @@ nav:
           - Recursive-Definition: Relation-structure-computation/Computation/Repetition/Induction-and-Recursion/Recursion/Recursive-definition.md
           - Recursion: Relation-structure-computation/Computation/Repetition/Induction-and-Recursion/Recursion/Recursion.md
           - Recurrence-relation: Relation-structure-computation/Computation/Repetition/Induction-and-Recursion/Recursion/Recurrence-relation.md
+          - Recursion-in-computer-science:
+            - Recursive-data-type: Relation-structure-computation/Computation/Repetition/Induction-and-Recursion/Recursion/Recursion-in-computer-science/Recursive-data-type.md
+            - Recursion(computer-science): Relation-structure-computation/Computation/Repetition/Induction-and-Recursion/Recursion/Recursion-in-computer-science/Recursion(computer-science).md
+            - Analysis-and-representation-of-recursion: Relation-structure-computation/Computation/Repetition/Induction-and-Recursion/Recursion/Recursion-in-computer-science/Analysis-and-representation-of-recursion.md
+            - Recursion-and-iteration: Relation-structure-computation/Computation/Repetition/Induction-and-Recursion/Recursion/Recursion-in-computer-science/Recursion-and-iteration.md
+            - Term-with-recursion-in-computer-science: Relation-structure-computation/Computation/Repetition/Induction-and-Recursion/Recursion/Recursion-in-computer-science/Term-with-recursion-in-computer-science.md
+            - Corecursion: Relation-structure-computation/Computation/Repetition/Induction-and-Recursion/Recursion/Recursion-in-computer-science/Corecursion.md
         - Summary: Relation-structure-computation/Computation/Repetition/Induction-and-Recursion/Summary.md
     - Computation-on-structure:
       - Introduction: Relation-structure-computation/Computation/Computation-on-structure/index.md
@@ -313,6 +353,9 @@ nav:
                   - Enum-permutation-reading-list: Relation-structure-computation/Computation/Algorithm/Application/Search/Implementation/Backtracking/Permutation-and-combination/Enum-permutation/Enum-permutation-reading-list.md
                 - Reading-list: Relation-structure-computation/Computation/Algorithm/Application/Search/Implementation/Backtracking/Permutation-and-combination/Reading-list.md
               - Reading-list: Relation-structure-computation/Computation/Algorithm/Application/Search/Implementation/Backtracking/Reading-list.md
+            - Branch-and-Bound:
+              - Branch-and-bound: Relation-structure-computation/Computation/Algorithm/Application/Search/Implementation/Branch-and-Bound/Branch-and-bound.md
+              - Branch-and-cut: Relation-structure-computation/Computation/Algorithm/Application/Search/Implementation/Branch-and-Bound/Branch-and-cut.md
             - Branch-and-bound-Algorithm:
               - Branch-and-bound: Relation-structure-computation/Computation/Algorithm/Application/Search/Implementation/Branch-and-bound/Branch-and-bound.md
               - Branch-and-cut: Relation-structure-computation/Computation/Algorithm/Application/Search/Implementation/Branch-and-bound/Branch-and-cut.md
@@ -325,6 +368,9 @@ nav:
             - K-way-merge-algorithm: Relation-structure-computation/Computation/Algorithm/Application/Sorting/merge-sorts/k-way-merge-algorithm.md
           - Quick-sort:
             - Quick-sort: Relation-structure-computation/Computation/Algorithm/Application/Sorting/Quick-sort/index.md
+          - Timsort:
+            - Introduction: Relation-structure-computation/Computation/Algorithm/Application/Sorting/Timsort/index.md
+          - Summary: Relation-structure-computation/Computation/Algorithm/Application/Sorting/Summary.md
         - Optimization:
           - Optimization: Relation-structure-computation/Computation/Algorithm/Application/Optimization/Optimization.md
           - Mathematical-optimization:
@@ -339,8 +385,8 @@ nav:
               - Combinatorics: Relation-structure-computation/Computation/Algorithm/Application/Optimization/Combinatorial-optimization/Combinatorics/Combinatorics.md
               - Enumerative-combinatorics:
                 - Enumerative-combinatorics: Relation-structure-computation/Computation/Algorithm/Application/Optimization/Combinatorial-optimization/Combinatorics/Enumerative-combinatorics/Enumerative-combinatorics.md
-                - Catalan-number:
-                  - Catalan-number: Relation-structure-computation/Computation/Algorithm/Application/Optimization/Combinatorial-optimization/Combinatorics/Enumerative-combinatorics/Catalan-number/Catalan-number.md
+                - TODO-Catalan-number:
+                  - Catalan-number: Relation-structure-computation/Computation/Algorithm/Application/Optimization/Combinatorial-optimization/Combinatorics/Enumerative-combinatorics/TODO-Catalan-number/Catalan-number.md
           - TODO-Linear-programming:
             - wikipedia-Linear-programming: Relation-structure-computation/Computation/Algorithm/Application/Optimization/TODO-Linear-programming/wikipedia-Linear-programming.md
             - wikipedia-Integer-programming: Relation-structure-computation/Computation/Algorithm/Application/Optimization/TODO-Linear-programming/wikipedia-Integer-programming.md
@@ -372,6 +418,7 @@ nav:
         - TODO-NP-completeness: Relation-structure-computation/Computation/Theory-of-computation/Computational-complexity-theory/TODO-NP-completeness.md
         - TODO-NP-hardness: Relation-structure-computation/Computation/Theory-of-computation/Computational-complexity-theory/TODO-NP-hardness.md
   - Model:
+    - Introduction: Relation-structure-computation/Model/index.md
     - Hierarchy-relation-model:
       - Hierarchy-relation-model: Relation-structure-computation/Model/Hierarchy-relation-model/Hierarchy-relation-model.md
     - Nesting-relation-model:

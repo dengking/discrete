@@ -1,5 +1,3 @@
-[TOC]
-
 # Introduction
 
 It takes me some effort to master KMP algorithm. Here are three articles that helped me solve the mystery as I learned. 

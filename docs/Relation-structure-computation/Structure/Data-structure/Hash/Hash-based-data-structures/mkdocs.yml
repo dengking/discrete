@@ -1,5 +1,5 @@
 nav:
     - Hash-table: Hash-table
-    - Distributed-hash-table: Distributed-hash-table
+
     - Merkle-tree: Merkle-tree
     - Summary-of-Hash-based-data-structures: Summary-of-Hash-based-data-structures.md

@@ -1,4 +1,4 @@
 nav:
-    - Circular-buffer: Circular-buffer.md
+    - Introduction: index.md
     - spdlog-circular_q: spdlog-circular_q
     - martinbroadhurst-cirque: martinbroadhurst-cirque

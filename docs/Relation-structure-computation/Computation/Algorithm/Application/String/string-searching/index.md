@@ -1,7 +1,3 @@
-[TOC]
-
-
-
 # [String-searching algorithm](https://en.wikipedia.org/wiki/String-searching_algorithm)
 
 

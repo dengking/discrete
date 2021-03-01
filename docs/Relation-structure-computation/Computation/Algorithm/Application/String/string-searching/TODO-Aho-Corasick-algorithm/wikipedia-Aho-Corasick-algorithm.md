@@ -1,7 +1,3 @@
-[TOC]
-
-
-
 # [Aho–Corasick algorithm](https://en.wikipedia.org/wiki/Aho%E2%80%93Corasick_algorithm)
 
 In [computer science](https://en.wikipedia.org/wiki/Computer_science), the **Aho–Corasick algorithm** is a [string-searching algorithm](https://en.wikipedia.org/wiki/String-searching_algorithm) invented by [Alfred V. Aho](https://en.wikipedia.org/wiki/Alfred_V._Aho) and Margaret J. Corasick.[[1\]](https://en.wikipedia.org/wiki/Aho–Corasick_algorithm#cite_note-1) It is a kind of dictionary-matching algorithm that locates elements of a finite set of strings (the "dictionary") within an input text. It matches all strings simultaneously. The [complexity](https://en.wikipedia.org/wiki/Time_complexity) of the algorithm is linear in the length of the strings plus the length of the searched text plus the number of output matches. Note that because all matches are found, there can be a quadratic number of matches if every substring matches (e.g. dictionary = `a`, `aa`, `aaa`, `aaaa` and input string is `aaaa`).
