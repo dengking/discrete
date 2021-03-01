@@ -8,8 +8,7 @@ google_analytics:
 - mkdocs.org
 markdown_extensions:
 - toc:
-    permalink: '#'
-    separator: '-'
+    separator: '#'
 - admonition
 - def_list
 - mdx_gh_links:
@@ -21,8 +20,6 @@ markdown_extensions:
 - pymdownx.caret
 - pymdownx.critic
 - pymdownx.details
-- pymdownx.emoji:
-    emoji_generator: '!!python/name:pymdownx.emoji.to_svg'
 - pymdownx.inlinehilite
 - pymdownx.magiclink
 - pymdownx.mark
@@ -393,10 +390,10 @@ nav:
   - 20201028-thoughts: TODO/20201028-thoughts.md
 plugins:
 - search
-repo_url: https://github.com/dengking/discrete-math
+repo_url: https://github.com/dengking/discrete
 site_author: DengKing
 site_description: Project documentation with Markdown.
-site_name: discrete-math
-site_url: https://dengking.github.io/discrete-math
+site_name: discrete
+site_url: https://dengking.github.io/discrete
 theme:
   name: material
