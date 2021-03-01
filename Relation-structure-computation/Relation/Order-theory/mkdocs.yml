@@ -1,0 +1,7 @@
+nav:
+    - Introduction: Order-theory.md
+    - Preorder: Preorder.md
+    - Partially-order: Partially-order.md
+    - Total-order: Total-order.md
+    - Well-order: Well-order.md
+    - Greatest-and-least-elements: Greatest-and-least-elements.md

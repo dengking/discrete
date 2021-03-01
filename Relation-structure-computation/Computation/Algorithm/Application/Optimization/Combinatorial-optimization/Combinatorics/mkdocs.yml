@@ -1,0 +1,4 @@
+nav:
+    - Introduction: index.md
+    - Combinatorics: Combinatorics.md
+    - Enumerative-combinatorics: Enumerative-combinatorics

@@ -1,0 +1,6 @@
+nav:
+    - Introduction: index.md
+    - Graph: Graph
+    - Tree: Tree
+    # graph和tree中都会存在的一种问题
+    - Search-algorithm: Search-algorithm

@@ -1,0 +1,7 @@
+nav:
+    - Introduction: index.md
+    - Circular: Circular
+    - Dominator: Dominator
+    - Sorting: Sorting
+    - Spanning-tree: Spanning-tree
+    - Closure: Closure

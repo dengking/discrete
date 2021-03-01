@@ -1,0 +1,4 @@
+nav:
+    - Cryptographic-hash-function: Cryptographic-hash-function.md
+    - Cipher: Cipher.md
+    - Salt(cryptography): Salt(cryptography).md

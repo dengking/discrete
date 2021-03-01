@@ -1,0 +1,9 @@
+nav:
+    - Introduction: index.md    
+    - Brute-force: 00-Brute-force
+    - Divide-and-Conquer: 01-Divide-and-Conquer
+    - Dynamic-Programming&Greedy-Algorithm: 02-Dynamic-Programming&Greedy-Algorithm
+
+
+    - Heuristic: Heuristic
+    - Statistical-algorithms: Statistical-algorithms

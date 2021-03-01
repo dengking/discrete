@@ -1,0 +1,7 @@
+1.meycpy：c和c++使用的内存拷贝函数，memcpy函数的功能是从源src所指的内存地址的起始位置开始拷贝n个字节到目标dest所指的内存地址的起始位置中。
+函数原型：void *memcpy(void *dest, const void *src, size_t n);
+所需头文件：
+C语言中使用#include <string.h>;
+C++中使用#include <cstring>和#include <string.h>都可以。
+返回值：
+函数返回指向dest的指针。

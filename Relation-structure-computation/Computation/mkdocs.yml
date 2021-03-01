@@ -1,0 +1,9 @@
+nav:
+    - Introduction: index.md
+    - Make-it-computational: Make-it-computational
+    - Relation-based-algorithm-model: Relation-based-algorithm-model
+    - Repetition: Repetition
+    - Computation-on-structure: Computation-on-structure
+    - Algorithm: Algorithm
+    - Computer-algebra: Computer-algebra
+    - Theory-of-computation: Theory-of-computation
