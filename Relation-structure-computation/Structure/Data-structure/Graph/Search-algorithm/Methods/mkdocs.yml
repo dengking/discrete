@@ -6,6 +6,6 @@ nav:
     - A-star-search-algorithm: A-star-search-algorithm.md
     - B-star-search-algorithm: B-star-search-algorithm.md
     - Beam-search: Beam-search.md
-    
+    - Uniform-cost-search: Uniform-cost-search
     
     

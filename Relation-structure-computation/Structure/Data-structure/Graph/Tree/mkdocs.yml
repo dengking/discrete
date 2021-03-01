@@ -6,4 +6,6 @@ nav:
     - Implicit-tree: Implicit-tree.md
     - Tree-operation: Tree-operation
     - Trie: Trie
+    - VS-of-tree: VS-of-tree.md
+    - Implementation: Implementation
     - TODO: TODO.md

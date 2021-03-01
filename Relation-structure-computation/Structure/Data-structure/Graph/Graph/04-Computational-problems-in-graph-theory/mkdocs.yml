@@ -1,5 +1,6 @@
 nav:
     - Introduction: index.md
+    - Path: Path
     - Circular: Circular
     - Dominator: Dominator
     - Sorting: Sorting

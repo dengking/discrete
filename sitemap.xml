@@ -120,6 +120,22 @@
      <lastmod>2021-03-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://dengking.github.io/discrete/Relation-structure-computation/Structure/Data-structure/Array/Bit-array/</loc>
+     <lastmod>2021-03-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://dengking.github.io/discrete/Relation-structure-computation/Structure/Data-structure/Array/Circular-array/</loc>
+     <lastmod>2021-03-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://dengking.github.io/discrete/Relation-structure-computation/Structure/Data-structure/Array/Circular-array/spdlog-circular_q/</loc>
+     <lastmod>2021-03-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://dengking.github.io/discrete/Relation-structure-computation/Structure/Data-structure/Array/Circular-array/martinbroadhurst-cirque/</loc>
+     <lastmod>2021-03-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://dengking.github.io/discrete/Relation-structure-computation/Structure/Data-structure/List/List/</loc>
      <lastmod>2021-03-01</lastmod>
      <changefreq>daily</changefreq>
@@ -200,6 +216,14 @@
      <lastmod>2021-03-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://dengking.github.io/discrete/Relation-structure-computation/Structure/Data-structure/Graph/Graph/04-Computational-problems-in-graph-theory/Path/Dijkstra%27s-algorithm/</loc>
+     <lastmod>2021-03-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://dengking.github.io/discrete/Relation-structure-computation/Structure/Data-structure/Graph/Graph/04-Computational-problems-in-graph-theory/Path/TODO-Max-path/</loc>
+     <lastmod>2021-03-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://dengking.github.io/discrete/Relation-structure-computation/Structure/Data-structure/Graph/Graph/04-Computational-problems-in-graph-theory/Circular/Cycle-detection/</loc>
      <lastmod>2021-03-01</lastmod>
      <changefreq>daily</changefreq>
@@ -272,6 +296,22 @@
      <lastmod>2021-03-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://dengking.github.io/discrete/Relation-structure-computation/Structure/Data-structure/Graph/Graph/Implementation/Boost-Graph-Library/Algorithms/Core-Searches/breadth_first_search/</loc>
+     <lastmod>2021-03-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://dengking.github.io/discrete/Relation-structure-computation/Structure/Data-structure/Graph/Graph/Implementation/Boost-Graph-Library/Algorithms/Core-Searches/depth_first_search/</loc>
+     <lastmod>2021-03-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://dengking.github.io/discrete/Relation-structure-computation/Structure/Data-structure/Graph/Graph/Implementation/Boost-Graph-Library/Example/bfs-example/</loc>
+     <lastmod>2021-03-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://dengking.github.io/discrete/Relation-structure-computation/Structure/Data-structure/Graph/Graph/Implementation/Boost-Graph-Library/Implementation/Graph-representation/</loc>
+     <lastmod>2021-03-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://dengking.github.io/discrete/Relation-structure-computation/Structure/Data-structure/Graph/Tree/</loc>
      <lastmod>2021-03-01</lastmod>
      <changefreq>daily</changefreq>
@@ -316,6 +356,22 @@
      <lastmod>2021-03-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://dengking.github.io/discrete/Relation-structure-computation/Structure/Data-structure/Graph/Tree/VS-of-tree/</loc>
+     <lastmod>2021-03-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://dengking.github.io/discrete/Relation-structure-computation/Structure/Data-structure/Graph/Tree/Implementation/</loc>
+     <lastmod>2021-03-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://dengking.github.io/discrete/Relation-structure-computation/Structure/Data-structure/Graph/Tree/Implementation/nltk-tree/</loc>
+     <lastmod>2021-03-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://dengking.github.io/discrete/Relation-structure-computation/Structure/Data-structure/Graph/Tree/Implementation/Python-library/</loc>
+     <lastmod>2021-03-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://dengking.github.io/discrete/Relation-structure-computation/Structure/Data-structure/Graph/Tree/TODO/</loc>
      <lastmod>2021-03-01</lastmod>
      <changefreq>daily</changefreq>
@@ -356,6 +412,10 @@
      <lastmod>2021-03-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://dengking.github.io/discrete/Relation-structure-computation/Structure/Data-structure/Graph/Search-algorithm/Methods/Uniform-cost-search/Uniform-cost-search/</loc>
+     <lastmod>2021-03-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://dengking.github.io/discrete/Relation-structure-computation/Structure/Data-structure/Graph/Search-algorithm/Graph-traversal/Graph-traversal/</loc>
      <lastmod>2021-03-01</lastmod>
      <changefreq>daily</changefreq>
@@ -369,6 +429,10 @@
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/discrete/Relation-structure-computation/Structure/Data-structure/Graph/Search-algorithm/Tree-traversal/Iterative-deepening-depth-first-search/</loc>
+     <lastmod>2021-03-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://dengking.github.io/discrete/Relation-structure-computation/Structure/Data-structure/Graph/Expert-martinbroadhurst/</loc>
      <lastmod>2021-03-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -424,6 +488,18 @@
      <lastmod>2021-03-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://dengking.github.io/discrete/Relation-structure-computation/Structure/Data-structure/Hash/Hash-based-data-structures/Hash-table/Hash-table/</loc>
+     <lastmod>2021-03-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://dengking.github.io/discrete/Relation-structure-computation/Structure/Data-structure/Hash/Hash-based-data-structures/Merkle-tree/</loc>
+     <lastmod>2021-03-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://dengking.github.io/discrete/Relation-structure-computation/Structure/Data-structure/Hash/Hash-based-data-structures/Summary-of-Hash-based-data-structures/</loc>
+     <lastmod>2021-03-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://dengking.github.io/discrete/Relation-structure-computation/Structure/Data-structure/Summary/</loc>
      <lastmod>2021-03-01</lastmod>
      <changefreq>daily</changefreq>
@@ -465,6 +541,18 @@
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/discrete/Relation-structure-computation/Computation/Make-it-computational/Ordering/</loc>
+     <lastmod>2021-03-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://dengking.github.io/discrete/Relation-structure-computation/Computation/Computation-direction/</loc>
+     <lastmod>2021-03-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://dengking.github.io/discrete/Relation-structure-computation/Computation/Computation-direction/Top-down-and-bottom-up/</loc>
+     <lastmod>2021-03-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://dengking.github.io/discrete/Relation-structure-computation/Computation/Computation-direction/FIFO-and-FILO/</loc>
      <lastmod>2021-03-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -521,6 +609,30 @@
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/discrete/Relation-structure-computation/Computation/Repetition/Induction-and-Recursion/Recursion/Recurrence-relation/</loc>
+     <lastmod>2021-03-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://dengking.github.io/discrete/Relation-structure-computation/Computation/Repetition/Induction-and-Recursion/Recursion/Recursion-in-computer-science/Recursive-data-type/</loc>
+     <lastmod>2021-03-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://dengking.github.io/discrete/Relation-structure-computation/Computation/Repetition/Induction-and-Recursion/Recursion/Recursion-in-computer-science/Recursion%28computer-science%29/</loc>
+     <lastmod>2021-03-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://dengking.github.io/discrete/Relation-structure-computation/Computation/Repetition/Induction-and-Recursion/Recursion/Recursion-in-computer-science/Analysis-and-representation-of-recursion/</loc>
+     <lastmod>2021-03-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://dengking.github.io/discrete/Relation-structure-computation/Computation/Repetition/Induction-and-Recursion/Recursion/Recursion-in-computer-science/Recursion-and-iteration/</loc>
+     <lastmod>2021-03-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://dengking.github.io/discrete/Relation-structure-computation/Computation/Repetition/Induction-and-Recursion/Recursion/Recursion-in-computer-science/Term-with-recursion-in-computer-science/</loc>
+     <lastmod>2021-03-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://dengking.github.io/discrete/Relation-structure-computation/Computation/Repetition/Induction-and-Recursion/Recursion/Recursion-in-computer-science/Corecursion/</loc>
      <lastmod>2021-03-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -692,6 +804,14 @@
      <lastmod>2021-03-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://dengking.github.io/discrete/Relation-structure-computation/Computation/Algorithm/Application/Search/Implementation/Branch-and-Bound/Branch-and-bound/</loc>
+     <lastmod>2021-03-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://dengking.github.io/discrete/Relation-structure-computation/Computation/Algorithm/Application/Search/Implementation/Branch-and-Bound/Branch-and-cut/</loc>
+     <lastmod>2021-03-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://dengking.github.io/discrete/Relation-structure-computation/Computation/Algorithm/Application/Search/Implementation/Compared-with-brute-force/</loc>
      <lastmod>2021-03-01</lastmod>
      <changefreq>daily</changefreq>
@@ -713,6 +833,14 @@
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/discrete/Relation-structure-computation/Computation/Algorithm/Application/Sorting/Quick-sort/</loc>
+     <lastmod>2021-03-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://dengking.github.io/discrete/Relation-structure-computation/Computation/Algorithm/Application/Sorting/Timsort/</loc>
+     <lastmod>2021-03-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://dengking.github.io/discrete/Relation-structure-computation/Computation/Algorithm/Application/Sorting/Summary/</loc>
      <lastmod>2021-03-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -752,7 +880,7 @@
      <lastmod>2021-03-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://dengking.github.io/discrete/Relation-structure-computation/Computation/Algorithm/Application/Optimization/Combinatorial-optimization/Combinatorics/Enumerative-combinatorics/Catalan-number/Catalan-number/</loc>
+     <loc>https://dengking.github.io/discrete/Relation-structure-computation/Computation/Algorithm/Application/Optimization/Combinatorial-optimization/Combinatorics/Enumerative-combinatorics/TODO-Catalan-number/Catalan-number/</loc>
      <lastmod>2021-03-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -829,6 +957,10 @@
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/discrete/Relation-structure-computation/Computation/Theory-of-computation/Computational-complexity-theory/TODO-NP-hardness/</loc>
+     <lastmod>2021-03-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://dengking.github.io/discrete/Relation-structure-computation/Model/</loc>
      <lastmod>2021-03-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
