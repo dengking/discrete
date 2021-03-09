@@ -1,5 +1,5 @@
 nav:
-    - Introduction: Order-theory.md
+    - Introduction: index.md
     - Preorder: Preorder.md
     - Partially-order: Partially-order.md
     - Total-order: Total-order.md

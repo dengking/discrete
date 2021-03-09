@@ -14,13 +14,13 @@
 
 在`Book-Discrete-Mathematics-and-Its-Applications\Chpater-9-Relations\9.3-Representing-Relations`中给出了如下两种方式：
 
-1. **Representing Relations Using Matrices**
+1、**Representing Relations Using Matrices**
 
-    
+ 
 
-2. **Representing Relations Using Digraphs( directed graphs )**
+2、**Representing Relations Using Digraphs( directed graphs )**
 
-   directed graph是一种非常强大的表达方式，在本书中，基本上都是基于directed graph来描述relation的。在`Relation-structure-computation\Structure\Data-structure\Graph`中对graph进行描述。
+directed graph是一种非常强大的表达方式，在本书中，基本上都是基于directed graph来描述relation的。在`Relation-structure-computation\Structure\Data-structure\Graph`中对graph进行描述。
 
 
 
