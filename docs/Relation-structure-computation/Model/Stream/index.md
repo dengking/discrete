@@ -8,7 +8,7 @@ Stream可以用做描述**数据流**的**抽象结构**。
 
 
 
-## 维基百科 [Stream (computing)](https://en.wikipedia.org/wiki/Stream_(computing))
+## wikipedia [Stream (computing)](https://en.wikipedia.org/wiki/Stream_(computing))
 
 In [computer science](https://en.wikipedia.org/wiki/Computer_science), a **stream** is a [sequence](https://en.wikipedia.org/wiki/Sequence) of [data elements](https://en.wikipedia.org/wiki/Data_element) made available over time. A stream can be thought of as items on a [conveyor belt](https://en.wikipedia.org/wiki/Conveyor_belt) (传送带) being processed one at a time rather than in large batches.
 

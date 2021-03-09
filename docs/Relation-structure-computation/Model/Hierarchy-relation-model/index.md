@@ -8,7 +8,7 @@
 
 ### 写作动机一
 
-对文章`Relation-structure-computation\Structure\Structure\Structure.md`的“**结构的形状**”章节中的话题“深入分析我们肉眼看到的各种形状背后的relation的性质”进行解答。
+对文章`Relation-structure-computation\Structure`的“**结构的形状**”章节中的话题“深入分析我们肉眼看到的各种形状背后的relation的性质”进行解答。
 
 ### 写作动机二
 
@@ -16,7 +16,7 @@
 
 > A **tree structure** or **tree diagram** is a way of representing the [hierarchical](https://en.wikipedia.org/wiki/Hierarchy) nature of a [structure](https://en.wikipedia.org/wiki/Structure) in a graphical form. 
 
-促使我对这个观念产生怀疑的是在文章`Relation-structure-computation\Structure\Structure\Structure.md`中提出的一个问题：
+促使我对这个观念产生怀疑的是在文章`Relation-structure-computation\Structure`中提出的一个问题：
 
 > 按照inheritance关系来组织类，如果不允许多继承的话，则最终形成的是树；如果允许多继承的话，则最终形成的是图
 
@@ -109,8 +109,9 @@ nested hierarchy structure是一种特殊的hierarchy structure，tree是一种�
 
 在原文的[Informal representation](https://en.wikipedia.org/wiki/Hierarchy#Informal_representation)中有非严格的描述。其实简而言之就是元素之间需要存在着[**partial order**](https://en.wikipedia.org/wiki/Partially_ordered_set#Formal_definition)。
 
-- transitive
-- `N:N`
+1、transitive
+
+2、`N:N`
 
 ### Hierarchy and data structure
 

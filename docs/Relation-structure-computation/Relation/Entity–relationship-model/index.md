@@ -2,11 +2,11 @@
 
 使用Entity–relationship model可以描述非常多在计算机科学、实际生活中的问题。
 
-## 维基百科[Entity–relationship model](https://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model)
+## wikipedia [Entity–relationship model](https://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model)
 
 
 
-## 维基百科[Cardinality (data modeling)](https://en.wikipedia.org/wiki/Cardinality_(data_modeling))
+## wikipedia [Cardinality (data modeling)](https://en.wikipedia.org/wiki/Cardinality_(data_modeling))
 
 > NOTE: Cardinality 的中文意思是“基数”
 
@@ -14,33 +14,33 @@
 
 ## One-to-one relation model
 
-### 维基百科[One-to-one (data model](https://en.wikipedia.org/wiki/One-to-one_(data_model)))
+### wikipedia [One-to-one (data model](https://en.wikipedia.org/wiki/One-to-one_(data_model)))
 
 
 
 ## One-to-many relation model
 
-### 维基百科[One-to-many (data model)](https://en.wikipedia.org/wiki/One-to-many_(data_model))
+### wikipedia [One-to-many (data model)](https://en.wikipedia.org/wiki/One-to-many_(data_model))
 
 一对多关系使用有向图来表示就是一个节点与多个节点相邻，相邻节点都有边指向它。
 
 ### Example
 
-多态
+1、polymorphism 多态
 
-race condition
+2、race condition
 
-对于单核CPU、支持multitask的OS，则多个process共享一个CPU，这也是一种one-to-many relation
+3、对于单核CPU、支持multitask的OS，则多个process共享一个CPU，这也是一种one-to-many relation
 
-thread共享process的resource
+4、thread共享process的resource
 
-多个process共享computer resource。
+4、多个process共享computer resource。
 
 ## many-to-many relation model
 
 
 
-### 维基百科[Many-to-many (data model)](https://en.wikipedia.org/wiki/Many-to-many_(data_model))
+### wikipedia [Many-to-many (data model)](https://en.wikipedia.org/wiki/Many-to-many_(data_model))
 
 
 
