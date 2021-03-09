@@ -16,7 +16,7 @@
 
 relationship：就是我们平时所说的“关系”，比如“大于”、“小于”
 
-relation：它是discrete math中对relationship的表示，它是一个set
+relation：它是discrete math中对relationship的表示，它是一个set，它包含所有的ordered-pair
 
 严格来说，我们平时所说的“关系”应该使用“relationship”这个词语。
 
@@ -67,7 +67,7 @@ stock：证券、股票；
 
 **3) Closure**
 
-参见`Closures-of-relation.md`
+参见`Closures-of-relation`
 
 **4) Recursive**
 

@@ -24,7 +24,7 @@
 
 在`Relation-structure-computation\Model`中对model进行描述。
 
-在`Relation-structure-computation\Model\Containing-relation-model.md`中对**containing关系**进行了描述。
+在`Relation-structure-computation\Model\Containing-relation-model`中对**containing关系**进行了描述。
 
 > NOTE: 上述这种建立model的思想在science中是广泛存在的，比如在概率论中，有着非常多的概率模型，数学家使用这些概率模型来描述实际问题，比如：
 >
@@ -60,8 +60,6 @@ Relation 和 structure 都是 abstraction，relation 是从 concrete 中抽象�
 “structure”将在[Structure](./Structure/index.md)章节进行描述；
 
 “computation”将在[Computation](./Computation/index.md)章节进行描述；
-
-
 
 
 
