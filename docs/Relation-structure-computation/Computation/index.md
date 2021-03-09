@@ -4,11 +4,11 @@
 
 ## 计算思维
 
-在`index`中，我们已经总结了discrete objects的computable的特性，作为software engineer，我们需要思考: 如何来**实现Computation** ？当我们开始思考“Computation on discrete objects”的时候，其实就已经萌发了"计算思维"，即开始思考“哪些问题是可计算的？”、“该如何实现计算”。这是一个非常宏大的问题，我只能基于对现有理论的解读、具体的经验来进行总结，本章就是描述的这个主题。
+在`Computer-science-is-discrete`章节中，我们已经总结了discrete objects的computable的特性，作为software engineer，我们需要思考: 如何来**实现Computation** ？当我们开始思考“Computation on discrete objects”的时候，其实就已经萌发了"计算思维"，即开始思考“哪些问题是可计算的？”、“该如何实现计算”。这是一个非常宏大的问题，我只能基于对现有理论的解读、具体的经验来进行总结，本章就是描述的这个主题。
 
 ## Make it computational
 
-现实生活中的问题是非常复杂的，实现**计算**的第一步是使用一种language/representation来对问题进行描述，这种language/representation需要是computer能够理解的、是适合计算的。这是实现计算的前提条件，只有这样这样我们才能够在此基础上设计algorithm、实现computation。在`./Make-it-computational`章节中对这个话题进行讨论。
+现实生活中的问题是非常复杂的，实现**计算**的第一步是使用一种language/representation来对问题进行描述，这种language/representation需要是computer能够理解的、是适合计算的。这是实现计算的前提条件，只有这样这样我们才能够在此基础上设计algorithm、实现computation。在`Make-it-computational`章节中对这个话题进行讨论。
 
 
 
@@ -41,26 +41,29 @@ relation可以使用graph来实现，所以上述两者，其实本质上是相�
 
 参见：
 
-- 维基百科 [Iterative method](https://en.wikipedia.org/wiki/Iterative_method)
+1、维基百科 [Iterative method](https://en.wikipedia.org/wiki/Iterative_method)
 
-- 维基百科 [Mathematical optimization](https://en.wikipedia.org/wiki/Mathematical_optimization) `#` [Computational optimization techniques](https://en.wikipedia.org/wiki/Mathematical_optimization#Computational_optimization_techniques)，
+2、维基百科 [Mathematical optimization](https://en.wikipedia.org/wiki/Mathematical_optimization) `#` [Computational optimization techniques](https://en.wikipedia.org/wiki/Mathematical_optimization#Computational_optimization_techniques)，
 
 下面是一些例子：
 
-- [Gradient descent](https://en.wikipedia.org/wiki/Gradient_descent) 
+1、[Gradient descent](https://en.wikipedia.org/wiki/Gradient_descent) 
 
 主要用于解决 Continuous optimization problem，参见`Relation-structure-computation\Computation\Algorithm\Application\Optimization`。
 
 ### 逐步向目标靠近
 
-很多求最值的algorithm都可以看做是：逐步向目标靠近，即重复执行着 **贪心选择** 过程，从而实现 不断的 向 **目标** 靠近 ，显然它是符合one-by-one的，下面是这些例子：
+很多求最值的algorithm都可以看做是：逐步向目标靠近，即重复执行着 **贪心选择**(greedy) 过程，从而实现 不断的 向 **目标** 靠近 ，显然它是符合one-by-one的，下面是这些例子：
 
-- best-first search
-- Iterative method 
-- greedy algorithm
+1、best-first search
+
+2、Iterative method 
+
+3、greedy algorithm
 
 这些algorithm的另外一个共性是：
-- 可能无法获得全局最优
+
+1、可能无法获得全局最优
 
 从search algorithm的角度来看，“逐步向目标靠近”也可以看做是一种search，关于search algorithm，参见：
 
@@ -106,7 +109,7 @@ unit表示的是计算单位，在文章`Unit.md`中对一些常见的unit进行
 
 显然，它们都是典型的"重复执行某个computation"，我们简称为"repetition"，具备"repetition"特征的computation是非常容易编程实现的，这也是这种computation具备重要价值的原因。前面所描述的one-by-one model，其实是偏向于理论、太过抽象，repetition computation则让我们能够编程实现。在computer science中，我们可以看到repetition是无处不在的。
 
-在`./Repetition`章节，将对它进行详细说明。
+在`Repetition`章节，将对它进行详细说明。
 
 
 

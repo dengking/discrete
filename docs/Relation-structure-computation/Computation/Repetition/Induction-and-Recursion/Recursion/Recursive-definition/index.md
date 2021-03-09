@@ -1,6 +1,6 @@
 # Recursive definition
 
-软件工程师，对于definition（定义）这个词肯定不会陌生，因为我们每天都在“定义一个函数”、“定义一个类”。维基百科的[definition](https://en.wikipedia.org/wiki/Definition)内容比较深奥，本文将简单地来说definition，定义就是在前文中所提及的“描述”，不过定义有着更多限制。本文重点简述的是[Recursive definition](https://en.wikipedia.org/wiki/Recursive_definition)，在计算机科学中，[recursion](https://en.wikipedia.org/wiki/Recursion)无处不在，软件工程师应该对它保持敏感，对于所有具备[recursion](https://en.wikipedia.org/wiki/Recursion)特性的（包括类型、过程等），都能够给出其[Recursive definition](https://en.wikipedia.org/wiki/Recursive_definition)。
+软件工程师，对于definition（定义）这个词肯定不会陌生，因为我们每天都在“定义一个函数”、“定义一个类”。wikipedia [definition](https://en.wikipedia.org/wiki/Definition)内容比较深奥，本文将简单地来说definition，定义就是在前文中所提及的“描述”(description)，不过定义有着更多限制。本文重点简述的是[Recursive definition](https://en.wikipedia.org/wiki/Recursive_definition)，在计算机科学中，[recursion](https://en.wikipedia.org/wiki/Recursion)无处不在，软件工程师应该对它保持敏感，对于所有具备[recursion](https://en.wikipedia.org/wiki/Recursion)特性的（包括类型、过程等），都能够给出其[Recursive definition](https://en.wikipedia.org/wiki/Recursive_definition)。
 
 ## wikipedia [Recursive definition](https://en.wikipedia.org/wiki/Recursive_definition)
 
@@ -14,11 +14,11 @@ In [mathematics](https://en.wikipedia.org/wiki/Mathematics) and [computer scienc
 >
 > 上述定义是非常严谨的，使用了数学中的 [set](https://en.wikipedia.org/wiki/Set_(mathematics)) 的概念，可以认为它使用的是一种数学语言。在其他文章中都可以看到完全使用自然语言描述的recursive definition，比如：
 >
-> 在维基百科[Recursion](https://en.wikipedia.org/wiki/Recursion)中：
+> 在wikipedia [Recursion](https://en.wikipedia.org/wiki/Recursion)中：
 >
 > > **Recursion** (adjective: *recursive*) occurs when a thing is defined in terms of itself or of its type.
 >
-> 在维基百科[Recursive acronym](https://en.wikipedia.org/wiki/Recursive_acronym)中：
+> 在wikipedia [Recursive acronym](https://en.wikipedia.org/wiki/Recursive_acronym)中：
 >
 > > A **recursive acronym** is an [acronym](https://en.wikipedia.org/wiki/Acronym) that [refers to itself](https://en.wikipedia.org/wiki/Recursion).
 >
@@ -40,7 +40,7 @@ A [recursive](https://en.wikipedia.org/wiki/Recursive) [definition](https://en.w
 
 Most recursive definitions have two foundations: a base case (basis) and an **inductive clause**.
 
-> NOTE: “inductive clause”的含义是“归纳子句”，关于“inductive ”，参见[Induction](../Induction-and-deduction/Induction.md)。
+> NOTE: “inductive clause”的含义是“归纳子句”，关于“inductive ”，参见"Induction"。
 
 That recursive definitions are valid – meaning that a recursive definition identifies a unique function – is a theorem of set theory known as the [recursion theorem](https://en.wikipedia.org/wiki/Recursion#The_recursion_theorem), the proof of which is non-trivial. Where the domain of the function is the **natural numbers**, sufficient conditions for the definition to be valid are that the value of `f(0)` (i.e., base case) is given, and that for n > 0, an algorithm is given for determining `f(n)` in terms of `f(0)`,`f(1)`, ... ,`f(n-1)` (i.e., inductive clause).
 
@@ -77,33 +77,37 @@ More generally, recursive definitions of functions can be made whenever the doma
 
 参见：
 
-- 维基百科[Recursive grammar](https://en.wikipedia.org/wiki/Recursive_grammar)
-- 龙书[2.2.1 Definition of Grammars](https://dengking.github.io/compiler-principle/Chapter-2-A-Simple-Syntax-Directed-Translator/2.2-Syntax-Definition/#221-definition-of-grammars)
+1、维基百科[Recursive grammar](https://en.wikipedia.org/wiki/Recursive_grammar)
+
+2、龙书[2.2.1 Definition of Grammars](https://dengking.github.io/compiler-principle/Chapter-2-A-Simple-Syntax-Directed-Translator/2.2-Syntax-Definition/#221-definition-of-grammars)
 
 ### Recursive definition in computer science
 
 有太多太多的算法、结构都是可以使用recursive definition的，能够recursive definition的，称它具备递归性。
 
-#### sub structure
+#### Sub structure
 
 一般带有“sub”的都是可以进行recursive definition的，它是一种典型的**containing关系**，它是可以使用CFG来进行描述的。下面是典型的sub structure：
 
-- subtree，sublist，在维基百科[Structural induction](https://en.wikipedia.org/wiki/Structural_induction)中所提及的：
+1、subtree，sublist，在维基百科[Structural induction](https://en.wikipedia.org/wiki/Structural_induction)中所提及的：
 
 > [recursively defined](https://en.wikipedia.org/wiki/Recursive_definition) structure, such as [formulas](https://en.wikipedia.org/wiki/First-order_logic#Formulas), [lists](https://en.wikipedia.org/wiki/List_(computer_science)), or [trees](https://en.wikipedia.org/wiki/Tree_(graph_theory))
 
 下面是一些例子：
 
-- Subobjects（参见cppreference [Object#Subobjects](https://en.cppreference.com/w/cpp/language/object#Polymorphic_objects)）
-- 维基百科 [Optimal substructure](https://en.wikipedia.org/wiki/Optimal_substructure)
+2、Subobjects（参见cppreference [Object#Subobjects](https://en.cppreference.com/w/cpp/language/object#Polymorphic_objects)）
 
-#### pointer of pointer
+3、维基百科 [Optimal substructure](https://en.wikipedia.org/wiki/Optimal_substructure)
+
+#### Pointer of pointer
 
 无论是在computer science还是在实际生活中，都存在着大量的类似于pointer of pointer的例子：
 
-- pointer of pointer
-- array of array（其实是一种sub structure，一个array可以看做是由多个sub array 组成）
-- mother of mother （家族hierarchy）
+1、pointer of pointer
+
+2、array of array（其实是一种sub structure，一个array可以看做是由多个sub array 组成）
+
+3、mother of mother （家族hierarchy）
 
 它们都是都是非常典型的recursion definition。下面对array of array即multiple-dimensional array进行说明。
 
@@ -129,7 +133,7 @@ multiple-dimensional array和multiple-level pointer可以递归的进行处理�
 
 ## Recursive definition and structure
 
-[Recursive data types](https://en.wikipedia.org/wiki/Recursive_data_type)中专门描述可以使用recursive definition的structure，这在[data-structure](https://dengking.github.io/data-structure/)中会进行讨论。
+[Recursive data types](https://en.wikipedia.org/wiki/Recursive_data_type)中专门描述可以使用recursive definition的structure，这在"Data-structure"章节中会进行讨论。
 
 可以使用recursive definition进行定义的structure，都具备递归特性。 
 

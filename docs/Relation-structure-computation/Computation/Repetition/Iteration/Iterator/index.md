@@ -26,7 +26,11 @@ An external **iterator** may be thought of as a type of [pointer](https://en.wik
 
 The primary purpose of an iterator is to allow a user to process every element of a container while isolating the user from the internal structure of the container. This allows the container to store elements in any manner it wishes while allowing the user to treat it as if it were a simple sequence or list. An iterator class is usually designed in tight coordination with the corresponding container class. Usually, the container provides the methods for creating iterators.
 
-> NOTE: separation
+> NOTE: 
+>
+> 1、separation of algorithm and structure
+>
+> 2、iterator is an good abstraction and is an abstract language
 
 A [loop counter](https://en.wikipedia.org/wiki/Loop_counter) is sometimes also referred to as a loop iterator. A [loop counter](https://en.wikipedia.org/wiki/Loop_counter), however, only provides the traversal functionality and not the element access functionality.
 
@@ -55,8 +59,33 @@ for value in iterable:
 
 我觉得，最最能够说明iterator VS pointer的是[Iterator pattern](https://en.wikipedia.org/wiki/Iterator_pattern)，在维基百科[Iterator pattern#Overview](https://en.wikipedia.org/wiki/Iterator_pattern#Overview)中说明了我们为什么要使用iterator pattern，其实就是iterator pattern相比于pointer的优势所在，iterator更加地抽象，我们依赖于抽象，而不是依赖于具体。
 
+
+
+
+
+## Separation of algorithm and structure principle
+
+本节标题的含义是: 容器与算法的分离。iterator是实现它的一种方式，在下面文章中对此进行了描述:
+
+1、wikipedia [Iterator pattern](https://en.wikipedia.org/wiki/Iterator_pattern)
+
+> The iterator pattern decouples [algorithms](https://en.wikipedia.org/wiki/Algorithm) from containers; in some cases, algorithms are necessarily container-specific and thus cannot be decoupled.
+
+2、 wikipedia [Iterator](https://en.wikipedia.org/wiki/Iterator)
+
+> The primary purpose of an iterator is to allow a user to process every element of a container while isolating the user from the internal structure of the container. This allows the container to store elements in any manner it wishes while allowing the user to treat it as if it were a simple sequence or list. An iterator class is usually designed in tight coordination with the corresponding container class. Usually, the container provides the methods for creating iterators.
+
+## iteration and algorithm
+
+在algorithm中，最最常使用的就是iteration了，而iterator pattern正是将两者进行分离。visitor pattern感觉就是运用算法。
+
 ## Application of iterator
 
 ### Generic programming
 
 参见`Theory\Programming-paradigm\Generic-programming`，典型例子就是STL，其中使用iterator来作为container的抽象描述。
+
+
+
+
+

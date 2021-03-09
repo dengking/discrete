@@ -2,7 +2,9 @@
 
 “Relation-based algorithm model”即“基于relation的algorithm model”，简单而言是：基于relation来设计algorithm。下面是对它的概括描述：
 
-沿着structure、relation逐个进行处理，采用one-by-one computation（one node by another node）。
+> 沿着structure、relation逐个进行处理，采用one-by-one computation（one node by another node）。
+
+这是一个非常强大的algorithm model，我们后面接触到的很多algorithm都可以归入到它的范畴。
 
 ## 前提
 
@@ -24,10 +26,13 @@ rewrite/expand operation
 
 比如：
 
-- 在parsing中，是根据production进行expand，production所表达的是包含关系
-- 在graph中，则是根据相邻关系来进行expand的
-- [Function composition](https://en.wikipedia.org/wiki/Function_composition)
-- 在backtracing中，往往是根据nesting关系进行expand
+1、在parsing中，是根据production进行expand，production所表达的是包含关系
+
+2、在graph中，则是根据相邻关系来进行expand的
+
+3、[Function composition](https://en.wikipedia.org/wiki/Function_composition)
+
+4、在backtracing中，往往是根据nesting关系进行expand
 
 ## Implementation: recursion and iteration
 
@@ -39,8 +44,9 @@ rewrite/expand operation
 
 下面是我在学习backtracing算法的实现时，所总结的：
 
-- structure是使用同一种relation形成的（比如 backtracing中的nesting relation），因此可以使用同一种computation
-- 对于同一种computation的重复执行，我们往往可以使用 recursion 和 iteration 来实现
+1、structure是使用同一种relation形成的（比如 backtracing中的nesting relation），因此可以使用同一种computation
+
+2、对于同一种computation的重复执行，我们往往可以使用 recursion 和 iteration 来实现
 
 下面描述基于recursion的实现：
 
@@ -55,8 +61,9 @@ rewrite/expand operation
 
 参见：
 
-- 关于relation、transitive relation，参见`Relation-structure-computation\Relation\Relation`章节
-- 关于backtracing，参见`Relation-structure-computation\Computation\Algorithm\Paradigm\Backtracking\Backtrack`
+1、关于relation、transitive relation，参见`Relation-structure-computation\Relation\Relation`章节
+
+2、关于backtracing，参见`Relation-structure-computation\Computation\Algorithm\Paradigm\Backtracking\Backtrack`
 
 
 
