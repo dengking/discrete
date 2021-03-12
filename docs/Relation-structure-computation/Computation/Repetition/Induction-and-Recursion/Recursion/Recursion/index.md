@@ -1,8 +1,8 @@
 # Recursion
 
-本文描述Recursion，其实上一篇[Recursive-definition](./Recursive-definition.md)中的内容是更加容易理解的。
+本文描述Recursion，其实上一篇"Recursive-definition"中的内容是更加容易理解的。
 
-## 维基百科[Recursion](https://en.wikipedia.org/wiki/Recursion)
+## wikipedia [Recursion](https://en.wikipedia.org/wiki/Recursion)
 
 **Recursion** (adjective: *recursive*) occurs when a thing is defined in terms of **itself** or of its type. 
 
@@ -12,12 +12,13 @@ Recursion is used in a variety of disciplines ranging from [linguistics](https:/
 
 > NOTE: 如果出现loop或者infinite chain，则程序就会出现死循环；
 
-## Formal definitions
+### Formal definitions
 
 In mathematics and computer science, a class of objects or methods exhibits **recursive behavior** when it can be defined by two properties:
 
-1. A simple **base case** (or cases)—a **terminating scenario** that does not use **recursion** to produce an answer
-2. A set of rules that **reduces**（这个词用得非常好） all other cases toward the **base case**
+1、A simple **base case** (or cases)—a **terminating scenario** that does not use **recursion** to produce an answer
+
+2、A set of rules that **reduces**（这个词用得非常好） all other cases toward the **base case**
 
 > NOTE: “reduce”说明recursion是自顶向下的。
 
@@ -39,23 +40,23 @@ Recursively defined mathematical objects include [functions](https://en.wikipedi
 
 > NOTE: 软件工程师应该对recursive definition敏感。
 
-## [In mathematics](https://en.wikipedia.org/wiki/Recursion#In_mathematics)
+### [In mathematics](https://en.wikipedia.org/wiki/Recursion#In_mathematics)
 
 
 
-### Recursively defined sets
+#### Recursively defined sets
 
-参见文章[Recursive definition](./Recursive-definition.md)。
+> 参见文章Recursive definition。
 
-#### [Example: the natural numbers](https://en.wikipedia.org/wiki/Recursion#Example:_the_natural_numbers)
+[Example: the natural numbers](https://en.wikipedia.org/wiki/Recursion#Example:_the_natural_numbers)
 
-#### [Example: Proof procedure](https://en.wikipedia.org/wiki/Recursion#Example:_Proof_procedure)
+[Example: Proof procedure](https://en.wikipedia.org/wiki/Recursion#Example:_Proof_procedure)
 
 
 
 ### [Functional recursion](https://en.wikipedia.org/wiki/Recursion#Functional_recursion)
 
-递归函数
+> 递归函数
 
 A [function](https://en.wikipedia.org/wiki/Function_(mathematics)) may be recursively defined in terms of itself. A familiar example is the [Fibonacci number](https://en.wikipedia.org/wiki/Fibonacci_number) sequence: *F*(*n*) = *F*(*n* − 1) + *F*(*n* − 2). For such a definition to be useful, it must be reducible to non-recursively defined values: in this case *F*(0) = 0 and *F*(1) = 1.
 
@@ -71,7 +72,7 @@ Main article: [Finite subdivision rule](https://en.wikipedia.org/wiki/Finite_sub
 
 ### The recursion theorem
 
- 递归定理
+> 递归定理
 
 In [set theory](https://en.wikipedia.org/wiki/Set_theory), this is a theorem guaranteeing that recursively defined functions exist. Given a set *X*, an element *a* of *X* and a function $ f:X\rightarrow X $, the theorem states that there is a unique function $ F:\mathbb {N} \rightarrow X $ (where $ \mathbb {N} $ denotes the set of natural numbers including zero) such that
 
@@ -85,9 +86,9 @@ for any natural number *n*.
 
 
 
-## In computer science
+### In computer science
 
-参见工程文章 `Recursion-in-computer-science\Recursion(computer-science).md`。
+> 参见工程文章 `Recursion-in-computer-science\Recursion(computer-science)`。
 
 
 

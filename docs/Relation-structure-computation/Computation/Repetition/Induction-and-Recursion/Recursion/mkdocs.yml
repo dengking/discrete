@@ -1,7 +1,7 @@
 nav:
     - Introduction: index.md
     - Recursive-Definition: Recursive-definition
-    - Recursion: Recursion.md
+    - Recursion: Recursion
     - Recurrence-relation: Recurrence-relation.md
     - Recursion-in-computer-science: Recursion-in-computer-science
     
