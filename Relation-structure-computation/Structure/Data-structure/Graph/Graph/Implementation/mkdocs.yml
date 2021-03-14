@@ -1,5 +1,0 @@
-nav:
-    - Introduction: index.md
-    - Cpp-library: Cpp-library.md
-    - Python-library: Python-library.md
-    - Boost-Graph-Library: Boost-Graph-Library
