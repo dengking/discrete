@@ -2,8 +2,9 @@
 
 书写思路：
 
-- 从search algorithm的角度来描述Backtrack：对接空间进行deep-first search
-- 从relation-based algorithmd的角度
+1、从search algorithm的角度来描述Backtrack：对接空间进行deep-first search
+
+2、从relation-based algorithmd的角度
 
 > TODO: Google: is backtracking algorithm a kind of search
 
@@ -25,7 +26,7 @@
 
 > 上面这种描述思想是符合 结构化思维的
 
-推广：
+### 推广
 
 对于解空间满足nesting关系的的问题，都可以使用Backtrack来进行求解。
 
@@ -137,6 +138,8 @@ void BackTrack(int t)
 */
 ```
 
+
+
 ![](./recursive-backtrack.jpg)
 
 
@@ -187,6 +190,8 @@ void IterativeBacktrack(void)
 */
 ```
 
+
+
 ![](./iteration-backtrack.jpg)
 
 
@@ -200,11 +205,15 @@ void IterativeBacktrack(void)
 - 当进入下一层时：`t++`
 - 当**回溯**，即返回上一层时：`t--`
 
+
+
 ### 子集树 与 排列树
 
 
 
 ![](./subset-tree-and-permutation-tree-1.jpg)
+
+
 
 ![](./subset-tree-and-permutation-tree-2.jpg)
 

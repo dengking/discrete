@@ -1,5 +1,5 @@
 nav:
-    - Optimization: Optimization.md
+    - Introduction: index.md
     - Mathematical-optimization: Mathematical-optimization
     - Combinatorial-optimization: Combinatorial-optimization
     - TODO-Linear-programming: TODO-Linear-programming

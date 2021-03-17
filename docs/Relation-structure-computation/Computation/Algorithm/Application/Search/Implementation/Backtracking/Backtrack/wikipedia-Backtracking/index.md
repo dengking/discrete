@@ -1,8 +1,8 @@
-# Backtracking
+# wikipedia [Backtracking](https://en.wikipedia.org/wiki/Backtracking)
 
-“backtracking”即“回溯”。
-
-## wikipedia [Backtracking](https://en.wikipedia.org/wiki/Backtracking)
+> NOTE: 
+>
+> 1、“backtracking”即“回溯”。
 
 **Backtracking** is a general [algorithm](https://en.wikipedia.org/wiki/Algorithm) for finding all (or some) solutions to some [computational problems](https://en.wikipedia.org/wiki/Computational_problem), notably [constraint satisfaction problems](https://en.wikipedia.org/wiki/Constraint_satisfaction_problem), that incrementally builds **candidates** to the solutions, and abandons a candidate ("backtracks") as soon as it determines that the candidate cannot possibly be completed to a valid solution.[[1\]](https://en.wikipedia.org/wiki/Backtracking#cite_note-1)[[2\]](https://en.wikipedia.org/wiki/Backtracking#cite_note-2)
 
@@ -26,7 +26,7 @@ Backtracking depends on user-given "[black box procedures](https://en.wikipedia.
 
 
 
-### Description of the method
+## Description of the method
 
 The **backtracking algorithm** enumerates a set of ***partial candidates*** that, in principle, could be *completed* in various ways to give all the possible solutions to the given problem. The completion is done incrementally, by a sequence of ***candidate extension steps.***
 
@@ -40,7 +40,7 @@ Therefore, the *actual search tree* that is traversed by the algorithm is only a
 
 
 
-#### Pseudocode
+### Pseudocode
 
 In order to apply **backtracking** to a specific class of problems, one must provide the data *P* for the particular instance of the problem that is to be solved, and six [procedural parameters](https://en.wikipedia.org/wiki/Procedural_parameter), *root*, *reject*, *accept*, *first*, *next*, and *output*. These procedures should take the instance data *P* as a parameter and should do the following:
 
@@ -63,7 +63,7 @@ procedure bt(c)
     s ← next(P,s)
 ```
 
-#### Usage considerations
+### Usage considerations
 
 The *reject* procedure should be a [boolean-valued function](https://en.wikipedia.org/wiki/Boolean-valued_function) that returns *true* only if it is certain that no possible extension of *c* is a valid solution for *P*. If the procedure cannot reach a definite conclusion, it should return *false*. An incorrect *true* result may cause the *bt* procedure to miss some valid solutions. The procedure may assume that *reject*(*P*,*t*) returned *false* for every ancestor *t* of *c* in the search tree.
 
@@ -77,7 +77,7 @@ The *first* and *next* procedures are used by the backtracking algorithm to enum
 
 Together, the *root*, *first*, and *next* functions define the set of partial candidates and the potential search tree. They should be chosen so that every solution of *P* occurs somewhere in the tree, and no partial candidate occurs more than once. Moreover, they should admit an efficient and effective *reject* predicate.
 
-### Examples
+## Examples
 
 Examples where backtracking can be used to solve puzzles or problems include:
 
@@ -87,7 +87,7 @@ Examples where backtracking can be used to solve puzzles or problems include:
 
 The following is an example where backtracking is used for the [constraint satisfaction problem](https://en.wikipedia.org/wiki/Constraint_satisfaction_problem):
 
-#### Constraint satisfaction
+### Constraint satisfaction
 
 The general [constraint satisfaction problem](https://en.wikipedia.org/wiki/Constraint_satisfaction_problem) consists in finding a list of integers *x* = (*x*[1], *x*[2], …, *x*[*n*]), each in some range {1, 2, …, *m*}, that satisfies some arbitrary constraint (boolean function) *F*.
 
