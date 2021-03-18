@@ -1,6 +1,6 @@
 nav:
-    - Search-algorithm: Search-algorithm.md
+    - Introduction: index.md
     - Property-of-search-algorithm: Property-of-search-algorithm
-    - State-space: State-space
-    - Implementation: Implementation
+    - State-space-search: State-space-search
+    
     
