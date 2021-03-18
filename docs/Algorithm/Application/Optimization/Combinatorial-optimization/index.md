@@ -4,7 +4,7 @@
 
 Combinatorial optimization基本上可以采用relation-based algorithm model（参见`Relation-structure-computation\Computation\index.md`）。
 
-## 维基百科[Combinatorial optimization](https://en.wikipedia.org/wiki/Combinatorial_optimization)
+## wikipedia [Combinatorial optimization](https://en.wikipedia.org/wiki/Combinatorial_optimization)
 
 
 
