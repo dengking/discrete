@@ -1,10 +1,10 @@
 # 关于本章
 
+本章讨论algorithm。
 
 
 
-
-## Implementation
+## 库
 
 ### [martinbroadhurst](http://www.martinbroadhurst.com/)
 
