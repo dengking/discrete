@@ -1,10 +1,8 @@
-
-
 # 递归函数的表示与分析
 
+下面总结了表示递归函数执行过程的表示方法。
 
-
-## 递归函数调用过程的表示
+## 递归调用树
 
 对递归函数进行复杂度分析是非常重要的，因为所有使用递归的函数都涉及这个问题；其实复杂度分析本质上来说是统计递归函数的执行次数、执行深度等问题，所以如果对递归函数的调用过程有一个直观，准确地描述的话，那么分析其递归函数的复杂度也会非常容易，目前流行的表示方法是：递归调用树，如下是一些使用递归调用树来表示：
 
@@ -32,9 +30,57 @@
 
 
 
-![MatrixChain](/matrixchainmultiplication.png) 
+![MatrixChain](./matrixchainmultiplication.png) 
 
 
+
+
+
+## 使用括号表示
+
+在 wikipedia [Recursion (computer science) # Recursive programs](https://en.wikipedia.org/wiki/Recursion_(computer_science)#Recursive_programs) 中给出了使用括号来表示recursive function execution的例子。
+
+### Factorial
+
+$$
+\operatorname {fact} (n)={\begin{cases}1&{\mbox{if }}n=0\\n\cdot \operatorname {fact} (n-1)&{\mbox{if }}n>0\\\end{cases}}
+$$
+
+
+
+Computing the recurrence relation for `n = 4`:
+
+```C++
+b4       = 4 * b3         
+         = 4 * (3 * b2)
+         = 4 * (3 * (2 * b1))
+         = 4 * (3 * (2 * (1 * b0)))
+         = 4 * (3 * (2 * (1 * 1)))
+         = 4 * (3 * (2 * 1))
+         = 4 * (3 * 2)
+         = 4 * 6
+         = 24
+```
+### Towers of Hanoi
+
+*Main article:* [Towers of Hanoi](https://en.wikipedia.org/wiki/Towers_of_Hanoi)
+
+
+$$
+\operatorname {hanoi} (n)={\begin{cases}1&{\mbox{if }}n=1\\2\cdot \operatorname {hanoi} (n-1)+1&{\mbox{if }}n>1\\\end{cases}}
+$$
+Computing the recurrence relation for n = 4:
+
+
+```C++
+hanoi(4)     = 2*hanoi(3) + 1
+             = 2*(2*hanoi(2) + 1) + 1
+             = 2*(2*(2*hanoi(1) + 1) + 1) + 1
+             = 2*(2*(2*1 + 1) + 1) + 1
+             = 2*(2*(3) + 1) + 1
+             = 2*(7) + 1
+             = 15
+```
 
 
 

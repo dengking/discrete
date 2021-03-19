@@ -27,7 +27,7 @@ The correctness of a divide-and-conquer algorithm is usually proved by [mathemat
 >
 > 1、[recurrence relations](https://en.wikipedia.org/wiki/Recurrence_relation) 的意思是：递推关系
 >
-> 2、 [mathematical induction](https://en.wikipedia.org/wiki/Mathematical_induction) 的意思是: 数学归纳法
+> 2、[mathematical induction](https://en.wikipedia.org/wiki/Mathematical_induction) 的意思是: 数学归纳法
 
 
 
@@ -59,6 +59,12 @@ These algorithms can be implemented more efficiently than general divide-and-con
 
 ### Memory access
 
-
+> NOTE: 
+>
+> 1、这一段关于 memory、cache的论述是非常好的
 
 ### Roundoff control
+
+> NOTE: 
+>
+> 1、"Roundoff"的含义是 "圆整"

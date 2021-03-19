@@ -1,0 +1,3 @@
+# wikipedia [Analysis of algorithms](https://en.wikipedia.org/wiki/Analysis_of_algorithms)
+
+In [computer science](https://infogalactic.com/info/Computer_science), the **analysis of algorithms** is the determination of the amount of resources (such as time and storage) necessary to [execute them](https://infogalactic.com/info/Computation). Most [algorithms](https://infogalactic.com/info/Algorithm) are designed to work with inputs of arbitrary length. Usually, the efficiency or running time of an algorithm is stated as a function relating the input length to the number of steps ([time complexity](https://infogalactic.com/info/Time_complexity)) or storage locations ([space complexity](https://infogalactic.com/info/Space_complexity)).
