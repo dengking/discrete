@@ -177,3 +177,27 @@ int main()
 
 这种实现和上面的那种实现是完全不同的；
 
+
+
+## draft: 源代码
+
+```C++
+//此算法应用迭代法求最大子段和
+Int MaxSum(int *a,int n,int &besti,int & bestj)
+{
+   int sum=0;
+   for(int i=0;i<n;i++)//i和j是子段的起始下标和终止下标
+     for(int j=i;j<n;j++)
+     {
+        int thissum=0;
+        for(int k=i;k<=j)thissum+=a[k];
+        if(thissum>sum){
+          sum=thissum;
+          besti=i;
+          bestj=j;
+　　　}
+　　　return sum;
+}
+
+```
+

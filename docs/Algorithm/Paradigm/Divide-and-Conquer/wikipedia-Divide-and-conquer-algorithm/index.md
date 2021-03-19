@@ -39,3 +39,26 @@ These algorithms can be implemented more efficiently than general divide-and-con
 >
 > 1、tail recursion: recursion to loop
 
+## Advantages
+
+
+
+### Solving difficult problems
+
+
+
+### Algorithm efficiency
+
+
+
+### Parallelism
+
+> NOTE: 
+>
+> 1、需要思考，如何并行化divide and conquer algorithm
+
+### Memory access
+
+
+
+### Roundoff control
