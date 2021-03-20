@@ -1,3 +1,4 @@
 nav:
-    - Tree-traversal: Tree-traversal.md
+    - Introduction: index.md
+    - Implementation: Implementation.md
     - Iterative-deepening-depth-first-search: Iterative-deepening-depth-first-search.md
