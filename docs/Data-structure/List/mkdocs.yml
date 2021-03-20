@@ -1,4 +1,5 @@
 nav:
-    - List: List.md
+    - Introduction: index.md
     - VS-double-linked-list-VS-binary-tree: VS-double-linked-list-VS-binary-tree.md
     - VS-Unrolled-linked list-VS-B-tree: VS-Unrolled-linked list-VS-B-tree.md
+    - Circle-detection: Circle-detection
