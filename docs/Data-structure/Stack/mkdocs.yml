@@ -1,3 +1,6 @@
 nav:
-    - Stack: Stack(abstract-data-type).md
+    - Introduction: index.md
+    - wikipedia-Stack(abstract-data-type): wikipedia-Stack(abstract-data-type)
     - Application-of-stack: Application-of-stack.md
+    - Stack-sort: Stack-sort
+    - All-nearest-smaller-values: All-nearest-smaller-values

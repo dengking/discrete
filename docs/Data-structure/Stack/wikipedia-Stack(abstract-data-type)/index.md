@@ -1,4 +1,4 @@
-# [Stack (abstract data type)](https://en.wikipedia.org/wiki/Stack_(abstract_data_type))
+# wikipedia [Stack (abstract data type)](https://en.wikipedia.org/wiki/Stack_(abstract_data_type))
 
 In [computer science](https://en.wikipedia.org/wiki/Computer_science), a *stack* is an [abstract data type](https://en.wikipedia.org/wiki/Abstract_data_type) that serves as a [collection](https://en.wikipedia.org/wiki/Collection_(computing)) of elements, with two principal operations:
 
@@ -54,7 +54,7 @@ Several [algorithms](https://en.wikipedia.org/wiki/Algorithm) use a stack (separ
 
 
 
-***SUMMARY*** : 栈的后进先出的特性是一种倒序的特性，它非常适合于实现一些需要执行逆转操作的算法；
+> NOTE: 栈的后进先出的特性是一种倒序的特性，它非常适合于实现一些需要执行逆转操作的算法；
 
 ## Security
 
