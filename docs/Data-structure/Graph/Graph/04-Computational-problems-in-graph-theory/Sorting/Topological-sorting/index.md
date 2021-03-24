@@ -1,5 +1,15 @@
 # Topological sorting
 
+一、[207. 课程表](https://leetcode-cn.com/problems/course-schedule/) # [力扣官方题解](https://leetcode-cn.com/problems/course-schedule/solution/ke-cheng-biao-by-leetcode-solution/)
+
+1、如果图 `G` 中存在环（即图 `G` 不是「有向无环图」），那么图 `G` 不存在拓扑排序。
+
+这是因为假设图中存在环 $x_1, x_2, \cdots, x_n, x_1$ ，那么 $x_1$ 在排列中必须出现在 $x_n$的前面，但 $x_n$ 同时也必须出现在 $x_1$  的前面，因此不存在一个满足要求的排列，也就不存在拓扑排序；
+
+2、如果图 $G$ 是有向无环图，那么它的拓扑排序可能不止一种。举一个最极端的例子，如果图 $G$ 值包含 $n$ 个节点却没有任何边，那么任意一种编号的排列都可以作为拓扑排序。
+
+二、
+
 
 
 ## wikipedia [Topological sorting](https://en.wikipedia.org/wiki/Topological_sorting)
