@@ -54,16 +54,42 @@ Several special cases of graphs imply(蕴含) the visitation of other vertices i
 
 ## graph traversal and circle
 
-graph的结构是比tree要复杂的，所以相比于tree它能够表达更多的relation；
+1、graph的结构是比tree要复杂的，所以相比于tree它能够表达更多的relation；
 
-graph是允许circle，因此在各种algorithm中，需要对circle进行特殊处理。
+2、graph是允许circle，因此在各种algorithm中，需要对circle进行特殊处理。
 
-graph是运行disconnect。
-
-在graph traversal中，为了避免由于circle而导致的dead loop，graph traversal algorithm普遍采用的是“标记已经visit过的vertex，对于已经visit过的vertex，再次遇到的时候，直接pass掉”。
+3、graph是运行disconnect。
 
 
 
-## Dijkstra's algorithm and breadth-first search
 
-Dijkstra's algorithm和breadth-first search非常类似
+
+## Visited array
+
+1、在graph traversal中，为了避免由于circle而导致的dead loop，graph traversal algorithm普遍采用的是“标记已经visit过的vertex，对于已经visit过的vertex，再次遇到的时候，直接pass掉”。
+
+2、对于graph中的一个node，可能有多条path通向它，在对它进行traverse的时候，为了避免重复，因此需要标注它是否已经被访问了。
+
+3、采用哪种标注策略呢？
+
+对于采用recursive implementation，
+
+
+
+## Graph traversal VS tree traversal
+
+### Depth first traversal
+
+Tree的depth first traversal是较复杂的，它分为preorder、inorder、postorder；
+
+Graph的depth first traversal是非常简单的，它采用的是类似于preorder的策略；
+
+
+
+
+
+## Graph traversal and topological sorting
+
+Graph traversal 是实现 topological sorting 的基础。
+
+Topological sorting 和 Breadth-first search 是非常类似的: 不同level之间存在着 hierarchy 。
