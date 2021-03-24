@@ -1,4 +1,4 @@
 nav:
-    - Spanning-tree: Spanning-tree.md
+    - Introduction: index.md
     - Minimum-spanning-tree: Minimum-spanning-tree.md
     - Borůvka's-algorithm: Borůvka's-algorithm.md
