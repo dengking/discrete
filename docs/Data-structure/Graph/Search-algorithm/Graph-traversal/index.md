@@ -36,6 +36,8 @@ Several special cases of graphs imply(蕴含) the visitation of other vertices i
 
 ### Graph traversal algorithms
 
+
+
 #### Depth-first search
 
 *Main article:* [Depth-first search](https://en.wikipedia.org/wiki/Depth-first_search)
@@ -52,7 +54,9 @@ Several special cases of graphs imply(蕴含) the visitation of other vertices i
 >
 > 1、参见`Breadth-first-search-BFS`章节
 
-## graph traversal and circle
+
+
+## Graph traversal and circle
 
 1、graph的结构是比tree要复杂的，所以相比于tree它能够表达更多的relation；
 
@@ -70,13 +74,27 @@ Several special cases of graphs imply(蕴含) the visitation of other vertices i
 
 2、对于graph中的一个node，可能有多条path通向它，在对它进行traverse的时候，为了避免重复，因此需要标注它是否已经被访问了。
 
+> NOTE: 
+>
+> 1、在tree中，到达一个node，仅仅只有一条path，这是唯一的。
+
 3、采用哪种标注策略呢？
 
-对于采用recursive implementation，
+对于采用recursive implementation，由于它本身就是深度优先的，因此，它的标准策略是非常简单的；
+
+对于采用iterative implementation，因此，需要由programmer进行控制:
+
+a、对于depth-first: 如果current node没有被标注，则将它的所有的descendant全部都push到explicit stack中后，才算这个node被visit了
+
+b、对于breadth-first: 对于current node的所有的descendant，只要没有被标准，就enqueue。
+
+4、将它标注为visited，就相当于在tree traversal中，调用了visit function。
 
 
 
 ## Graph traversal VS tree traversal
+
+
 
 ### Depth first traversal
 
@@ -84,7 +102,7 @@ Tree的depth first traversal是较复杂的，它分为preorder、inorder、post
 
 Graph的depth first traversal是非常简单的，它采用的是类似于preorder的策略；
 
-
+可以看到，graph的depth-first traversal和tree的preorder traversal是非常类似的。
 
 
 
@@ -93,3 +111,11 @@ Graph的depth first traversal是非常简单的，它采用的是类似于preord
 Graph traversal 是实现 topological sorting 的基础。
 
 Topological sorting 和 Breadth-first search 是非常类似的: 不同level之间存在着 hierarchy 。
+
+
+
+## Backtrace and Branch-and-Bound
+
+Backtrace 对应的是 depth-first ；
+
+Branch-and-Bound 对应的是 width-first ；
