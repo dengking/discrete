@@ -1000,6 +1000,6 @@ def kmp_search(pattern, text):
 
 http://www.voidcn.com/article/p-uuefgkai-bnw.html
 
-https://leetcode-cn.com/problems/implement-strstr/comments/
+#### [28. 实现 strStr()](https://leetcode-cn.com/problems/implement-strstr/)
 
 https://leetcode.com/problems/shortest-palindrome/discuss/60113/clean-kmp-solution-with-super-detailed-explanation
