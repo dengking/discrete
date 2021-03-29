@@ -1,6 +1,16 @@
 # 滑动窗口
 
+## 内容整理
 
+> 1、以总分的思路来进行阅读。
+
+### 概述性的、总
+
+
+
+一、[我写了首诗，把滑动窗口算法算法变成了默写题](http://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247485141&idx=1&sn=0e4583ad935e76e9a3f6793792e60734&chksm=9bd7f8ddaca071cbb7570b2433290e5e2628d20473022a5517271de6d6e50783961bebc3dd3b&scene=21#wechat_redirect)
+
+二、
 
 ## KMP  和 滑动窗口
 
