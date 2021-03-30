@@ -84,7 +84,7 @@ byte stream的unit是byte，character stream的unit是character；一个characte
 
 stackoverflow [Difference between byte stream and bit stream](https://stackoverflow.com/questions/35627938/difference-between-byte-stream-and-bit-stream)
 
-### 维基百科[Bitstream](https://en.wikipedia.org/wiki/Bitstream)
+### wikipedia [Bitstream](https://en.wikipedia.org/wiki/Bitstream)
 
 A **bitstream** (or **bit stream**), also known as **binary sequence**, is a [sequence](https://en.wikipedia.org/wiki/Sequence) of [bits](https://en.wikipedia.org/wiki/Bit).
 

@@ -113,7 +113,7 @@ void slidingWindow(string s, string t) {
 
 所以代码中多次出现的`map[key]++`相当于 Java 的`map.put(key, map.getOrDefault(key, 0) + 1)`。
 
-### 一、最小覆盖子串
+## 真题一、最小覆盖子串
 
 > NOTE: 
 >
@@ -136,7 +136,7 @@ for (int i = 0; i < s.size(); i++)
 
 思路很直接，但是显然，这个算法的复杂度肯定大于 O(N^2) 了，不好。
 
-#### 滑动窗口算法的思路是这样：
+### 滑动窗口算法的思路是这样：
 
 ***1、***我们在字符串`S`中使用双指针中的左右指针技巧，初始化`left = right = 0`，**把索引左闭右开区间`[left, right)`称为一个「窗口」**。
 
@@ -168,7 +168,7 @@ for (int i = 0; i < s.size(); i++)
 
 ![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/gibkIz0MVqdGQlBxOlAet1AXGPoibCzEow6FwvAvsZKyCTCtrmLcvKDxhYAJEqI36cAZxfoIWLFibEhmz9IfHf24Q/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
-#### 实现、source code
+### 实现、source code
 
 如果你能够理解上述过程，恭喜，你已经完全掌握了滑动窗口算法思想。**现在我们来看看这个滑动窗口代码框架怎么用**：
 
@@ -178,3 +178,76 @@ for (int i = 0; i < s.size(); i++)
 unordered_map<char, int> need, window;
 for (char c : t) need[c]++;
 ```
+
+> NOTE: 
+>
+> 1、`need`记录需要哪些字符，每个字符的个数
+>
+> 2、`window`记录窗口中的字符的情况
+
+**其中`valid`变量表示窗口中满足`need`条件的字符个数**，如果`valid`和`need.size`的大小相同，则说明窗口已满足条件，已经完全覆盖了串`T`。
+
+> NOTE: 
+>
+> 1、上面介绍了，如何实现"完全覆盖"
+
+如果一个字符进入窗口，应该增加`window`计数器；如果一个字符将移出窗口的时候，应该减少`window`计数器；当`valid`满足`need`时应该收缩窗口；应该在收缩窗口的时候更新最终结果。
+
+#### 完整代码
+
+下面是完整代码：
+
+```C++
+string minWindow(string s, string t) {
+    unordered_map<char, int> need, window;
+    for (char c : t) need[c]++;
+
+    int left = 0, right = 0;
+    int valid = 0;
+    // 记录最小覆盖子串的起始索引及长度
+    int start = 0, len = INT_MAX;
+    while (right < s.size()) {
+        // c 是将移入窗口的字符
+        char c = s[right];
+        // 右移窗口
+        right++;
+        // 进行窗口内数据的一系列更新
+        if (need.count(c)) {
+            window[c]++;
+            if (window[c] == need[c])
+                valid++;
+        }
+
+        // 判断左侧窗口是否要收缩
+        while (valid == need.size()) {
+            // 在这里更新最小覆盖子串
+            if (right - left < len) {
+                start = left;
+                len = right - left;
+            }
+            // d 是将移出窗口的字符
+            char d = s[left];
+            // 左移窗口
+            left++;
+            // 进行窗口内数据的一系列更新
+            if (need.count(d)) {
+                if (window[d] == need[d])
+                    valid--;
+                window[d]--;
+            }                    
+        }
+    }
+    // 返回最小覆盖子串
+    return len == INT_MAX ?
+        "" : s.substr(start, len);
+}
+```
+
+需要注意的是，当我们发现某个字符在`window`的数量满足了`need`的需要，就要更新`valid`，表示有一个字符已经满足要求。而且，你能发现，两次对窗口内数据的更新操作是完全对称的。
+
+当`valid == need.size()`时，说明`T`中所有字符已经被覆盖，已经得到一个可行的覆盖子串，现在应该开始收缩窗口了，以便得到「最小覆盖子串」。
+
+移动`left`收缩窗口时，窗口内的字符都是可行解，所以应该在收缩窗口的阶段进行最小覆盖子串的更新，以便从可行解中找到长度最短的最终结果。
+
+至此，应该可以完全理解这套框架了，滑动窗口算法又不难，就是细节问题让人烦得很。**以后遇到滑动窗口算法，你就按照这框架写代码，保准没有 bug，还省事儿**。
+
