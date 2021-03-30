@@ -20,7 +20,17 @@ In [computer science](https://en.wikipedia.org/wiki/Computer_science), a **strea
 
 Functions that operate on a stream, producing another stream, are known as [filters](https://en.wikipedia.org/wiki/Filter_(software)), and can be connected in [pipelines](https://en.wikipedia.org/wiki/Pipeline_(computing)), analogously to [function composition](https://en.wikipedia.org/wiki/Function_composition_(computer_science)). Filters may operate on one item of a stream at a time, or may base an item of output on multiple items of input, such as a [moving average](https://en.wikipedia.org/wiki/Moving_average).
 
-> NOTE: 上面这段话其实给出了stream的programming model，显然，它非常类似于functional programming的。
+> NOTE: 
+>
+> 1、上面这段话其实给出了stream的programming model，显然，它非常类似于functional programming的。
+>
+> 2、上述function composition，是如下形式:
+>
+> ```C++
+> z = f(g(x))
+> ```
+>
+> 即上一个函数的输出作为下一个函数的输入，这是典型的pipeline
 
 ### Examples
 
@@ -157,10 +167,3 @@ TCP就是典型的例子，参见工程Linux-OS的`Network\Theory\TCP`章节。
 
 TensorFlow就是典型的采用dataflow programming的，在TensorFlow的中，显然它的stream的单位是tensor。
 
-## Programming model
-
-在维基百科 [Stream (computing)](https://en.wikipedia.org/wiki/Stream_(computing))中，其实已经涉及了对stream的programming model的描述，从中可以看出，stream的programming model可以采用functional programming paradigm的思想。
-
-在下面章节中，描述了相关内容:
-
-1) 工程parallel-computing的`Programming-model`章节。
