@@ -58,6 +58,12 @@ while (right < s.size()) {
 
 这个算法技巧的时间复杂度是 O(N)，比一般的字符串暴力算法要高效得多。
 
+> NOTE: 
+>
+> 1、为何上述算法，复杂度更低？
+>
+> 2、不同的"window needs shrink"条件不同
+
 **其实困扰大家的，不是算法的思路，而是各种细节问题**。比如说如何向窗口中添加新元素，如何缩小窗口，在窗口滑动的哪个阶段更新结果。即便你明白了这些细节，也容易出 bug，找 bug 还不知道怎么找，真的挺让人心烦的。
 
 ## 代码框架
@@ -101,6 +107,10 @@ void slidingWindow(string s, string t) {
 
 而且，这两个`...`处的操作分别是右移和左移窗口更新操作，等会你会发现它们操作是完全对称的。
 
+> NOTE: 
+>
+> 1、使用`window`、`need`、`valid`，能够快速地判断，`window`中是否contain `need`。
+
 ## 真题
 
 言归正传，**下面就直接上四道LeetCode 原题来套这个框架**，其中第一道题会详细说明其原理，后面四道就直接闭眼睛秒杀了。
@@ -118,6 +128,8 @@ void slidingWindow(string s, string t) {
 > NOTE: 
 >
 > 1、典型的需要找到最优解，而不是一个解，因此需要罗列所有的可能性
+>
+> 2、
 
 LeetCode 76 题，Minimum Window Substring，难度 **Hard**，我带大家看看它到底有多 **Hard**：
 
@@ -167,6 +179,22 @@ for (int i = 0; i < s.size(); i++)
 初始状态：
 
 ![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/gibkIz0MVqdGQlBxOlAet1AXGPoibCzEow6FwvAvsZKyCTCtrmLcvKDxhYAJEqI36cAZxfoIWLFibEhmz9IfHf24Q/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+### 现在开始套模板，只需要思考以下四个问题：
+
+**1、**当移动`right`扩大窗口，即加入字符时，应该更新哪些数据？
+
+**2、**什么条件下，窗口应该暂停扩大，开始移动`left`缩小窗口？
+
+**3、**当移动`left`缩小窗口，即移出字符时，应该更新哪些数据？
+
+**4、**我们要的结果应该在扩大窗口时还是缩小窗口时进行更新？
+
+> NOTE: 
+>
+> 1、大多数，都是在窗口缩小的时候更新
+
+
 
 ### 实现、source code
 
@@ -251,3 +279,167 @@ string minWindow(string s, string t) {
 
 至此，应该可以完全理解这套框架了，滑动窗口算法又不难，就是细节问题让人烦得很。**以后遇到滑动窗口算法，你就按照这框架写代码，保准没有 bug，还省事儿**。
 
+## 真题二、字符串排列
+
+> NOTE: 
+>
+> 1、典型的判断是否存在，不需要罗列所有的可能性
+>
+> 2、要求窗口的长度 和 子串的长度相同、并且窗口包含了子串的时候，则找到了解
+
+LeetCode 567 题，Permutation in String，难度 Medium：
+
+![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/gibkIz0MVqdGQlBxOlAet1AXGPoibCzEowmo3G9oN6XDmHeHjGic6tUauwoZia40pxjbicJXtN1RcjMMRDkfcGaVNVg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+注意哦，输入的`s1`是可以包含重复字符的，所以这个题难度不小。
+
+这种题目，是明显的滑动窗口算法，**相当给你一个`S`和一个`T`，请问你`S`中是否存在一个子串，包含`T`中所有字符且不包含其他字符**？
+
+首先，先复制粘贴之前的算法框架代码，然后明确刚才提出的 4 个问题，即可写出这道题的答案：
+
+```
+// 判断 s 中是否存在 t 的排列
+bool checkInclusion(string t, string s) {
+    unordered_map<char, int> need, window;
+    for (char c : t) need[c]++;
+
+    int left = 0, right = 0;
+    int valid = 0;
+    while (right < s.size()) {
+        char c = s[right];
+        right++;
+        // 进行窗口内数据的一系列更新
+        if (need.count(c)) {
+            window[c]++;
+            if (window[c] == need[c])
+                valid++;
+        }
+
+        // 判断左侧窗口是否要收缩
+        while (right - left >= t.size()) {
+            // 在这里判断是否找到了合法的子串
+            if (valid == need.size())
+                return true;
+            char d = s[left];
+            left++;
+            // 进行窗口内数据的一系列更新
+            if (need.count(d)) {
+                if (window[d] == need[d])
+                    valid--;
+                window[d]--;
+            }
+        }
+    }
+    // 未找到符合条件的子串
+    return false;
+}
+```
+
+对于这道题的解法代码，基本上和最小覆盖子串一模一样，只需要改变两个地方：
+
+**1、**本题移动`left`缩小窗口的时机是窗口大小大于`t.size()`时，因为排列嘛，显然长度应该是一样的。
+
+**2、**当发现`valid == need.size()`时，就说明窗口中就是一个合法的排列，所以立即返回`true`。
+
+至于如何处理窗口的扩大和缩小，和最小覆盖子串完全相同
+
+## 真题三、找所有字母异位词
+
+> NOTE: 
+>
+> 1、和前面的字符串排列基本相同
+
+这是 LeetCode 第 438 题，Find All Anagrams in a String，难度 Medium：
+
+![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/gibkIz0MVqdGQlBxOlAet1AXGPoibCzEowe98rknTABmhPaxgzV5Vv9gHdEpNUDia6CO0gxuPpNR5My6ogK8wuibTQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+呵呵，这个所谓的字母异位词，不就是排列吗，搞个高端的说法就能糊弄人了吗？**相当于，输入一个串`S`，一个串`T`，找到`S`中所有`T`的排列，返回它们的起始索引**。
+
+直接默写一下框架，明确刚才讲的 4 个问题，即可秒杀这道题：
+
+```C++
+vector<int> findAnagrams(string s, string t) {
+    unordered_map<char, int> need, window;
+    for (char c : t) need[c]++;
+
+    int left = 0, right = 0;
+    int valid = 0;
+    vector<int> res; // 记录结果
+    while (right < s.size()) {
+        char c = s[right];
+        right++;
+        // 进行窗口内数据的一系列更新
+        if (need.count(c)) {
+            window[c]++;
+            if (window[c] == need[c]) 
+                valid++;
+        }
+        // 判断左侧窗口是否要收缩
+        while (right - left >= t.size()) {
+            // 当窗口符合条件时，把起始索引加入 res
+            if (valid == need.size())
+                res.push_back(left);
+            char d = s[left];
+            left++;
+            // 进行窗口内数据的一系列更新
+            if (need.count(d)) {
+                if (window[d] == need[d])
+                    valid--;
+                window[d]--;
+            }
+        }
+    }
+    return res;
+}
+```
+
+跟寻找字符串的排列一样，只是找到一个合法异位词（排列）之后将起始索引加入`res`即可。
+
+## 真题四、最长无重复子串
+
+> NOTE: 
+>
+> 1、当窗口中，没有重复字符的时候，进行expand，当存在重复字符的时候，进行shrink
+>
+> 2、如何判断是否有重复字符呢？使用hash table in？
+>
+> 看了下面的实现，它使用的是字符个数大于0，显然它是充分利用`window`--关于窗口内情况的统计。
+
+这是 LeetCode 第 3 题，Longest Substring Without Repeating Characters，难度 Medium：
+
+![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/gibkIz0MVqdGQlBxOlAet1AXGPoibCzEowdOEyLaTVTiabiabMHr2Z7SzZZ08fxMDZt4uzzRcfvoI7sJzfdORvH0tA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+这个题终于有了点新意，不是一套框架就出答案，不过反而更简单了，稍微改一改框架就行了：
+
+```C++
+int lengthOfLongestSubstring(string s) {
+    unordered_map<char, int> window;
+
+    int left = 0, right = 0;
+    int res = 0; // 记录结果
+    while (right < s.size()) {
+        char c = s[right];
+        right++;
+        // 进行窗口内数据的一系列更新
+        window[c]++;
+        // 判断左侧窗口是否要收缩
+        while (window[c] > 1) {
+            char d = s[left];
+            left++;
+            // 进行窗口内数据的一系列更新
+            window[d]--;
+        }
+        // 在这里更新答案
+        res = max(res, right - left);
+    }
+    return res;
+}
+```
+
+这就是变简单了，连`need`和`valid`都不需要，而且更新窗口内数据也只需要简单的更新计数器`window`即可。
+
+当`window[c]`值大于 1 时，说明窗口中存在重复字符，不符合条件，就该移动`left`缩小窗口了嘛。
+
+唯一需要注意的是，在哪里更新结果`res`呢？我们要的是最长无重复子串，哪一个阶段可以保证窗口中的字符串是没有重复的呢？
+
+这里和之前不一样，**要在收缩窗口完成后更新`res`**，因为窗口收缩的 while 条件是存在重复元素，换句话说收缩完成后一定保证窗口中没有重复嘛。
