@@ -239,7 +239,9 @@ return slow;
 
 ### *2*、两数之和
 
-
+> NOTE: 
+>
+> 1、这是典型的n-sum问题
 
 直接看一道 LeetCode 题目吧：
 
@@ -259,7 +261,7 @@ return slow;
 
 
 
-```
+```c++
 void reverse(int[] nums) {
     int left = 0;
     int right = nums.length - 1;
