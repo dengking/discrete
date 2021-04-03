@@ -71,6 +71,100 @@ int trap(vector<int>& height) {
 
 有之前的思路，这个解法应该是很直接粗暴的，时间复杂度 O(N^2)，空间复杂度 O(1)。但是很明显这种计算`r_max`和`l_max`的方式非常笨拙，一般的优化方法就是**备忘录**。
 
+> NOTE: 
+>
+> 1、下面的我第一次写的错误的程序:
+>
+> ```C++
+> #include<vector>
+> #include<iostream>
+> #include <algorithm>    // std::max
+> using namespace std;
+> 
+> int trap(vector<int> &height)
+> {
+> 	int res = 0;
+> 	int len = height.size();
+> 
+> 	int l_max = height[0];
+> 	int r_max = 0;
+> 	/**
+> 	 * i 从 1 开始，是因为第0个，肯定无法积水
+> 	 */
+> 	for (int i = 1; i < height.size(); ++i)
+> 	{
+> 
+> 		l_max = max(l_max, height[i - 1]);
+> 
+> 		for (int j = i + 1; j < len; j++)
+> 		{
+> 			r_max = max(r_max, height[j]);
+> 		}
+> 		if (l_max > height[i] && r_max > height[i])
+> 		{
+> 			res += (min(l_max, r_max) - height[i]);
+> 		}
+> 	}
+> 	return res;
+> }
+> 
+> int main()
+> {
+> 	vector<int> height = { 0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1 };
+> 	cout << trap(height);
+> }
+> // g++ --std=c++11 test.cpp
+> 
+> ```
+>
+> 它的错误之处在于在于将`int r_max = 0;`放在了`for`循环之外，这就导致了`r_max`一直是`height[0:i]`的最大值，而不是我们设计的`height[i+1:-1]`的最大值。
+>
+> 下面是正确的代码:
+>
+> ```C++
+> #include<vector>
+> #include<iostream>
+> #include <algorithm>    // std::max
+> using namespace std;
+> 
+> int trap(vector<int> &height)
+> {
+> 	int res = 0;
+> 	int len = height.size();
+> 
+> 	int l_max = height[0];
+> 
+> 	/**
+> 	 * i 从 1 开始，是因为第0个，肯定无法积水
+> 	 */
+> 	for (int i = 1; i < height.size(); ++i)
+> 	{
+> 
+> 		l_max = max(l_max, height[i - 1]);
+> 		int r_max = 0;
+> 		for (int j = i + 1; j < len; j++)
+> 		{
+> 			r_max = max(r_max, height[j]);
+> 		}
+> 		if (l_max > height[i] && r_max > height[i])
+> 		{
+> 			res += (min(l_max, r_max) - height[i]);
+> 		}
+> 	}
+> 	return res;
+> }
+> 
+> int main()
+> {
+> 	vector<int> height = { 0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1 };
+> 	cout << trap(height) << "\n";
+> }
+> // g++ --std=c++11 test.cpp
+> 
+> ```
+>
+> 
+
 ## 二、备忘录优化
 
 之前的暴力解法，不是在每个位置`i`都要计算`r_max`和`l_max`吗？我们直接把结果都提前计算出来，别傻不拉几的每次都遍历，这时间复杂度不就降下来了嘛。
@@ -106,11 +200,25 @@ int trap(vector<int>& height) {
 
 > NOTE: 
 >
-> 1、只要确保左侧、右侧有更高的，那么就可以积水，不管中间有没有更加高的，可能中间有更高的，但是它能够积水的量是取决于较小值，而不是较高值
+> 1、只要确保左侧、右侧有更高的，那么就可以积水，不管中间有没有更加高的，可能中间有更高的，但是它能够积水的量是取决于较小值，而不是较高值。因此当需要计算当前current pointer的积水深度，计算方式为: `min(l_max, r_max) - height[current]`。
 >
-> 下面的这种接法就运用了这种思路。
+> 下面程序中的`if (l_max < r_max)` 其实就是为了取得`min(l_max, r_max)`。 
+>
+> 下面的这种算法就运用了这种思路。
+>
+> 2、左右指针中，也有current pointer
+>
+> 3、原文没有介绍的是，当`height[current]`与max height相等的时候，则它们的差肯定是0，即它的积水肯定是0
+>
+> 4、这种写法的一个优势是: **`l_max`是`height[0..left]`中最高柱子的高度，`r_max`是`height[right..n-1]`的最高柱子的高度**
+>
+> 因此，求解`l_max`、`r_max`是可以增量式的，即下面所说的**边走边算**，显然这比前面的为求解最大值，而遍历整个要有很大的优势
+>
+> 5、当`max_height` 和 current pointer的height相同的时候，并不会积水。
 
 这种解法的思路是完全相同的，但在实现手法上非常巧妙，我们这次也不要用备忘录提前计算了，而是用双指针**边走边算**，节省下空间复杂度。
+
+### `l_max`和`r_max`分别表示什么意义呢？
 
 首先，看一部分代码：
 
@@ -133,6 +241,8 @@ int trap(vector<int>& height) {
 对于这部分代码，请问`l_max`和`r_max`分别表示什么意义呢？
 
 很容易理解，**`l_max`是`height[0..left]`中最高柱子的高度，`r_max`是`height[right..n-1]`的最高柱子的高度**。
+
+### 解法
 
 明白了这一点，直接看解法：
 
@@ -162,6 +272,16 @@ int trap(vector<int>& height) {
     return res;
 }
 ```
+
+> NOTE: 
+>
+> 1、循环体内，每次只有一个pointer移动
+>
+> [1,1,3,1]
+>
+> l_max = 1, r_max = 1
+>
+> 
 
 你看，其中的核心思想和之前一模一样，换汤不换药。但是细心的读者可能会发现次解法还是有点细节差异：
 
