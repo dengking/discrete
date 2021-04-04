@@ -4,13 +4,23 @@
 
 > 一、为了描述方便，使用range来表示**搜索区间**
 >
-> 二、由于是双指针(left、right)，即存在两个元素，因此，最终range的长度，缩减为2，然后缩减为1
+> 二、由于是双指针(left、right)，即存在两个元素，因此，最终range的长度，缩减为2，即此时left pointer 和 right pointer相遇，然后缩减为1
+>
+> 1、寻找左边界的二分搜索和寻找右边界的二分搜索就是利用的这个特性。
+>
+> 2、寻找左边界的二分搜索和寻找右边界的二分搜索中，当`nums[mid] == target`时，它会将`nums[mid]`从range中剔除，因此，当while退出的时候，肯定是因为range为0了。
+>
+> 3、二分搜索能够保证，不断地向target靠近。
+>
+> 4、对于寻找左侧边界的二分搜索，当while退出的时候，如果存在target，那么它就指向target。
 >
 > 三、搜索区间的界定是要统一的，在开始搜索前和搜索中，要保持相同的策略；
 >
 > 1、左闭右开
 >
 > 2、左闭右闭
+>
+> 在搜索中，需要不断地变化搜索区间，需要始终保持区间策略的一致
 >
 > 四、`while`的编写: 
 >
@@ -22,7 +32,6 @@
 >
 > 
 >
-> 区间何时为空？
 
 
 
@@ -94,27 +103,66 @@ int binarySearch(int[] nums, int target) {
 }
 ```
 
+> NOTE: 
+>
+> 完整测试程序如下:
+>
+> ```C++
+> #include <iostream>
+> #include <vector>
+> int binary_search(std::vector<int> &nums, int target)
+> {
+> 	int left = 0, right = nums.size() - 1;
+> 	while (left <= right)
+> 	{
+> 		int mid = left + (right - left) / 2;
+> 		if (nums[mid] == target)
+> 		{
+> 			return mid;
+> 		}
+> 		else if (nums[mid] < target)
+> 		{
+> 			left = mid + 1;
+> 		}
+> 		else
+> 		{
+> 			right = mid - 1;
+> 		}
+> 	}
+> 	return -1;
+> }
+> int main()
+> {
+> 	std::vector<int> a = { -1, 0, 3, 5, 9, 12 };
+> 	int target = 9;
+> 	std::cout << binary_search(a, target) << std::endl;
+> 
+> 	std::vector<int> a2 = { -1, 0, 3, 5, 9, 9, 9, 12 };
+> 	std::cout << binary_search(a2, target) << std::endl;
+> }
+> // g++ test.cpp -g
+> 
+> ```
+>
+> 
+
 ### 1、为什么 while 循环的条件中是 <=，而不是 <？
 
 答：因为初始化`right`的赋值是`nums.length - 1`，即最后一个元素的索引，而不是`nums.length`。
 
-> NOTE: 
->
-> 一、right取`nums.length`
->
-> 上面这段话的内容是需要结合一个具体的例子来进行理解的，举一个有代表性的例子，数组中只有一个元素`[2]`，查找`[0]`。
+这二者可能出现在不同功能的二分查找中，区别是：前者相当于两端都闭区间`[left, right]`，后者相当于左闭右开区间`[left, right)`，因为索引大小为`nums.length`是越界的。
+
+> 一、关于"right取`nums.length`"的内容是需要结合一个具体的例子来进行理解的，举一个有代表性的例子，数组中只有一个元素`[2]`，查找`[0]`。
 >
 > 显然，演算流程如下:
 >
 > left=0, right=1, mid=0
 >
-> left=1, right=1
+> left=mid + 1=1, right=1
 >
-> 因此，由于right是无需索引，所以`left==right`时，是不能够使用left的，否则发生了越界
+> 因此，由于right是无效索引，所以`left==right`时，是不能够使用left的，否则发生了越界
 >
 > 
-
-这二者可能出现在不同功能的二分查找中，区别是：前者相当于两端都闭区间`[left, right]`，后者相当于左闭右开区间`[left, right)`，因为索引大小为`nums.length`是越界的。
 
 我们这个算法中使用的是前者`[left, right]`两端都闭的区间。**这个区间其实就是每次进行搜索的区间**。
 
@@ -176,11 +224,11 @@ int left_bound(int[] nums, int target) {
     while (left < right) { // 注意
         int mid = (left + right) / 2;
         if (nums[mid] == target) {
-            right = mid;
+            right = mid; // 此时区间[left, mid)
         } else if (nums[mid] < target) {
-            left = mid + 1;
+            left = mid + 1; // 此时区间为 [mid+1, right)
         } else if (nums[mid] > target) {
-            right = mid; // 注意
+            right = mid; // 注意，此时区间为[left, mid)
         }
     }
     return left;
@@ -225,6 +273,50 @@ if (left == nums.length) return -1;
 return nums[left] == target ? left : -1;
 ```
 
+#### 完整测试程序
+
+```C++
+#include <iostream>
+#include <vector>
+int left_search(std::vector<int> &nums, int target)
+{
+	int left = 0, right = nums.size();
+	while (left < right)
+	{
+		int mid = left + (right - left - 1) / 2;
+		if (nums[mid] == target)
+		{
+			right = mid;
+		}
+		else if (nums[mid] < target)
+		{
+			left = mid + 1;
+		}
+		else
+		{
+			right = mid;
+		}
+	}
+	if (left == nums.size())
+		return -1;
+
+	return nums[left] == target ? left : -1;
+}
+int main()
+{
+	std::vector<int> a = { -1, 0, 3, 5, 9, 12 };
+	int target = 9;
+	std::cout << left_search(a, target) << std::endl;
+
+	std::vector<int> a2 = { -1, 0, 3, 5, 9, 9, 9, 12 };
+	std::cout << left_search(a2, target) << std::endl;
+}
+// g++ test.cpp -g
+
+```
+
+
+
 ### 3、为什么`left = mid + 1`，`right = mid`？和之前的算法不一样？
 
 答：这个很好解释，因为我们的「搜索区间」是`[left, right)`左闭右开，所以当`nums[mid]`被检测之后，下一步的搜索区间应该去掉`mid`分割成两个区间，即`[left, mid)`或`[mid + 1, right)`。
@@ -262,11 +354,15 @@ return nums[left] == target ? left : -1;
 
 这样就可以和第一种二分搜索在某种程度上统一起来了。
 
-答：当然可以，只要你明白了「搜索区间」这个概念，就能有效避免漏掉元素，随便你怎么改都行。下面我们严格根据逻辑来修改：
+答：当然可以，只要你明白了「搜索区间」这个概念，就能有效避免漏掉元素，随便你怎么改都行。
+
+#### 修改为两侧闭区间
+
+下面我们严格根据逻辑来修改：
 
 因为你非要让搜索区间两端都闭，所以`right`应该初始化为`nums.length - 1`，while 的终止条件应该是`left == right + 1`，也就是其中应该用`<=`：
 
-```
+```c++
 int left_bound(int[] nums, int target) {
     // 搜索区间为 [left, right]
     int left = 0, right = nums.length - 1;
@@ -331,9 +427,312 @@ int left_bound(int[] nums, int target) {
 
 这样就和第一种二分搜索算法统一了，都是两端都闭的「搜索区间」，而且最后返回的也是`left`变量的值。只要把住二分搜索的逻辑，两种形式大家看自己喜欢哪种记哪种吧。
 
+#### 完整测试程序
+
+```C++
+#include <iostream>
+#include <vector>
+int left_search(std::vector<int> &nums, int target)
+{
+	int left = 0, right = nums.size() - 1;
+	while (left <= right)
+	{
+		int mid = left + (right - left) / 2;
+		if (nums[mid] == target)
+		{
+			right = mid - 1;
+		}
+		else if (nums[mid] < target)
+		{
+			left = mid + 1;
+		}
+		else
+		{
+			right = mid - 1;
+		}
+	}
+	if (left >= nums.size() || nums[left] != target)
+		return -1;
+
+	return left;
+}
+int main()
+{
+	std::vector<int> a = { -1, 0, 3, 5, 9, 12 };
+	int target = 9;
+	std::cout << left_search(a, target) << std::endl;
+
+	std::vector<int> a2 = { -1, 0, 3, 5, 9, 9, 9, 12 };
+	std::cout << left_search(a2, target) << std::endl;
+}
+// g++ test.cpp -g
+
+```
+
+
+
 ## 三、寻找右侧边界的二分查找
+
+类似寻找左侧边界的算法，这里也会提供两种写法，还是先写常见的左闭右开的写法，只有两处和搜索左侧边界不同，已标注：
+
+```C++
+int right_bound(int[] nums, int target) {
+    if (nums.length == 0) return -1;
+    int left = 0, right = nums.length;
+
+    while (left < right) {
+        int mid = (left + right) / 2;
+        if (nums[mid] == target) {
+            left = mid + 1; // 注意
+        } else if (nums[mid] < target) {
+            left = mid + 1;
+        } else if (nums[mid] > target) {
+            right = mid;
+        }
+    }
+    return left - 1; // 注意
+}
+```
+
+### 2、为什么最后返回`left - 1`而不像左侧边界的函数，返回`left`？
+
+而且我觉得这里既然是搜索右侧边界，应该返回`right`才对。
+
+答：首先，while 循环的终止条件是`left == right`，所以`left`和`right`是一样的，你非要体现右侧的特点，返回`right - 1`好了。
+
+至于为什么要减一，这是搜索右侧边界的一个特殊点，关键在这个条件判断：
+
+```C++
+if (nums[mid] == target) {
+    left = mid + 1;
+    // 这样想: mid = left - 1
+```
+
+![图片](https://mmbiz.qpic.cn/sz_mmbiz_jpg/gibkIz0MVqdF2MS89jteHAY2C2mRL0DVRSIZGjOUN3sFU4MhvRd41OibpUSeickSfL8I3X8T2SzyhcSMfA3ukwCmg/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+因为我们对`left`的更新必须是`left = mid + 1`，就是说 while 循环结束时，`nums[left]`一定不等于`target`了，而`nums[left-1]`可能是`target`。
+
+至于为什么`left`的更新必须是`left = mid + 1`，同左侧边界搜索，就不再赘述。
+
+### 3、为什么没有返回 -1 的操作？如果`nums`中不存在`target`这个值，怎么办？
+
+答：类似之前的左侧边界搜索，因为 while 的终止条件是`left == right`，就是说`left`的取值范围是`[0, nums.length]`，所以可以添加两行代码，正确地返回 -1：
+
+```
+while (left < right) {
+    // ...
+}
+if (left == 0) return -1;
+return nums[left-1] == target ? (left-1) : -1;
+```
+
+### 4、是否也可以把这个算法的「搜索区间」也统一成两端都闭的形式呢？
+
+**这样这三个写法就完全统一了，以后就可以闭着眼睛写出来了**。
+
+答：当然可以，类似搜索左侧边界的统一写法，其实只要改两个地方就行了：
+
+```
+int right_bound(int[] nums, int target) {
+    int left = 0, right = nums.length - 1;
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+        if (nums[mid] < target) {
+            left = mid + 1;
+        } else if (nums[mid] > target) {
+            right = mid - 1;
+        } else if (nums[mid] == target) {
+            // 这里改成收缩左侧边界即可
+            left = mid + 1;
+        }
+    }
+    // 这里改为检查 right 越界的情况，见下图
+    if (right < 0 || nums[right] != target)
+        return -1;
+    return right;
+}
+```
+
+当`target`比所有元素都小时，`right`会被减到 -1，所以需要在最后防止越界：
+
+![图片](https://mmbiz.qpic.cn/sz_mmbiz_jpg/gibkIz0MVqdF2MS89jteHAY2C2mRL0DVR08CtFnmk0q3eLpP3QicvuM7fLpSeiboy9ckic3LN1LQ9wGPAicdj72ZNKA/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+至此，搜索右侧边界的二分查找的两种写法也完成了，其实将「搜索区间」统一成两端都闭反而更容易记忆，你说是吧？
+
+#### 完整测试程序
+
+```C++
+#include <iostream>
+/**
+ * @brief
+ *
+ * @param nums 数组
+ * @param length 数组长度
+ * @param target
+ * @return
+ */
+int right_bound(int *nums, int length, int target)
+{
+	int left = 0, right = length - 1;
+	// 搜索区间为 [left, right]
+	while (left <= right)
+	{
+		int mid = left + (right - left) / 2;
+		if (nums[mid] < target)
+		{
+			// 搜索区间变为 [mid+1, right]
+			left = mid + 1;
+		}
+		else if (nums[mid] > target)
+		{
+			// 搜索区间变为 [left, mid-1]
+			right = mid - 1;
+		}
+		else if (nums[mid] == target)
+		{
+			// 收缩左侧边界
+			left = mid + 1;
+		}
+	}
+	// 检查出界情况
+	if (right >= length || nums[right] != target)
+		return -1;
+	return right;
+}
+
+int main()
+{
+	int a[] = { -1, 0, 3, 5, 9, 12 };
+	int target = 9;
+	std::cout << right_bound(a, sizeof(a) / sizeof(a[0]), target) << std::endl;
+
+	int a2[] = { -1, 0, 3, 5, 9, 9, 9, 12 };
+	std::cout << right_bound(a2, sizeof(a2) / sizeof(a2[0]), target) << std::endl;
+}
+// g++ test.cpp -g
+```
 
 
 
 ## 四、逻辑统一
 
+来梳理一下这些细节差异的因果逻辑：
+
+**第一个，最基本的二分查找算法**：
+
+```
+因为我们初始化 right = nums.length - 1
+所以决定了我们的「搜索区间」是 [left, right]
+所以决定了 while (left <= right)
+同时也决定了 left = mid+1 和 right = mid-1
+
+因为我们只需找到一个 target 的索引即可
+所以当 nums[mid] == target 时可以立即返回
+```
+
+> NOTE: 
+>
+> 1、始终保持区间策略的一致
+
+**第二个，寻找左侧边界的二分查找**：
+
+```
+因为我们初始化 right = nums.length
+所以决定了我们的「搜索区间」是 [left, right)
+所以决定了 while (left < right)
+同时也决定了 left = mid + 1 和 right = mid
+
+因为我们需找到 target 的最左侧索引
+所以当 nums[mid] == target 时不要立即返回
+而要收紧右侧边界以锁定左侧边界
+```
+
+**第三个，寻找右侧边界的二分查找**：
+
+```
+因为我们初始化 right = nums.length
+所以决定了我们的「搜索区间」是 [left, right)
+所以决定了 while (left < right)
+同时也决定了 left = mid + 1 和 right = mid
+
+因为我们需找到 target 的最右侧索引
+所以当 nums[mid] == target 时不要立即返回
+而要收紧左侧边界以锁定右侧边界
+
+又因为收紧左侧边界时必须 left = mid + 1
+所以最后无论返回 left 还是 right，必须减一
+```
+
+对于寻找左右边界的二分搜索，常见的手法是使用左闭右开的「搜索区间」，**我们还根据逻辑将「搜索区间」全都统一成了两端都闭，便于记忆，只要修改两处即可变化出三种写法**：
+
+```C++
+int binary_search(int[] nums, int target) {
+    int left = 0, right = nums.length - 1; 
+    while(left <= right) {
+        int mid = left + (right - left) / 2;
+        if (nums[mid] < target) {
+            left = mid + 1;
+        } else if (nums[mid] > target) {
+            right = mid - 1; 
+        } else if(nums[mid] == target) {
+            // 直接返回
+            return mid;
+        }
+    }
+    // 直接返回
+    return -1;
+}
+
+int left_bound(int[] nums, int target) {
+    int left = 0, right = nums.length - 1;
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+        if (nums[mid] < target) {
+            left = mid + 1;
+        } else if (nums[mid] > target) {
+            right = mid - 1;
+        } else if (nums[mid] == target) {
+            // 别返回，锁定左侧边界
+            right = mid - 1;
+        }
+    }
+    // 最后要检查 left 越界的情况
+    if (left >= nums.length || nums[left] != target)
+        return -1;
+    return left;
+}
+
+
+int right_bound(int[] nums, int target) {
+    int left = 0, right = nums.length - 1;
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+        if (nums[mid] < target) {
+            left = mid + 1;
+        } else if (nums[mid] > target) {
+            right = mid - 1;
+        } else if (nums[mid] == target) {
+            // 别返回，锁定右侧边界
+            left = mid + 1;
+        }
+    }
+    // 最后要检查 right 越界的情况
+    if (right < 0 || nums[right] != target)
+        return -1;
+    return right;
+}
+```
+
+如果以上内容你都能理解，那么恭喜你，二分查找算法的细节不过如此。
+
+通过本文，你学会了：
+
+1、分析二分查找代码时，不要出现 else，全部展开成 else if 方便理解。
+
+2、注意「搜索区间」和 while 的终止条件，如果存在漏掉的元素，记得在最后检查。
+
+3、如需定义左闭右开的「搜索区间」搜索左右边界，只要在`nums[mid] == target`时做修改即可，搜索右侧时需要减一。
+
+4、如果将「搜索区间」全都统一成两端都闭，好记，只要稍改`nums[mid] == target`条件处的代码和返回的逻辑即可，**推荐拿小本本记下，作为二分搜索模板**。
+
+现在可以去把我做的诗多读几遍，体会体会其中的味道，加深理解，哈哈哈！
