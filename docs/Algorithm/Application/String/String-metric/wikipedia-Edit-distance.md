@@ -1,4 +1,4 @@
-[TOC]
+# Edit distance
 
 
-# [Edit distance](https://en.wikipedia.org/wiki/Edit_distance)
+## wikipedia [Edit distance](https://en.wikipedia.org/wiki/Edit_distance)

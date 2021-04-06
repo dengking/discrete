@@ -275,6 +275,10 @@ void reverse(int[] nums) {
 }
 ```
 
+> NOTE: 
+>
+> 1、leetcode [344. 反转字符串](https://leetcode-cn.com/problems/reverse-string/)
+
 ### *4*、滑动窗口算法
 
 
