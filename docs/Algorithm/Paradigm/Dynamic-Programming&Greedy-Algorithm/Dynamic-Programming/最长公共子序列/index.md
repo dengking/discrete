@@ -34,6 +34,15 @@ c[i-1][j-1] + 1 & i,j \gt 0 ; x_i = y_j \\
 \end{cases}
 $$
 
+> NOTE: 
+>
+> 一、分支、原问题和子问题思想 
+>
+> 在 labuladong [经动态规划：编辑距离](https://mp.weixin.qq.com/s/uWzSvWWI-bWAV3UANBtyOw) 中，对此进行了总结:
+>
+> > 前文 [最长公共子序列](http://mp.weixin.qq.com/s?__biz=MzU0MDg5OTYyOQ==&mid=2247484418&idx=1&sn=98b1aa8c105467efab24e677fb17ff1a&chksm=fb336440cc44ed564f10ace689aa8e88e6d4a684cda2d2c07e81fad45cb4a70d1c27f4309ec4&scene=21#wechat_redirect) 说过，**解决两个字符串的动态规划问题，一般都是用两个指针`i,j`分别指向两个字符串的最后，然后一步步往前走，缩小问题的规模**。
+
+
 
 ## step3计算最优值
 
