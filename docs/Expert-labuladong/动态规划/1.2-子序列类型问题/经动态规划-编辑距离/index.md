@@ -93,17 +93,100 @@ else:
 
 下面来详细解释一下这段递归代码，base case 应该不用解释了，主要解释一下递归部分。
 
+### Base case
+
 > NOTE: 
 >
-> 1、如何理解base case？
+> 1、如何理解base case？虽然原文说"base case 应该不用解释"，但是我初次阅读的时候，还是对base case感到疑惑。
 >
 > 
 
+`dp(i, j)`求解的是`s1[0:i]`、`s2[0:j]`的编辑距离，因此`dp(0, 0)`表示的是`s1[0]`、`s2[0]`的编辑距离。
 
+#### index为0
+
+i、j为0，并不表示空串，而是表示的是单一字符，它们的编辑距离由两者是否相等而决定，如果它们相等，则它们的编辑距离是0，否则它们的编辑距离是1.
+
+可以代入具体的例子到上述code中。
+
+#### index为-1
+
+字符串为空的情况对应的值是 -1，此时是可以直接求解的。为什么要`+1`？
+
+当`i==-1`，说明`s1`为空，因此，编辑距离就是`s2`的长度，那此时`s2`的长度是多少呢？
+
+由于`i`、`j`表示的都是index，此时要求解的是长度，而index和长度的对应关系就是`+1`，因此通过`+1`就可以求解得到长度。
+
+---
+
+### `s1[i] == s2[j]`
+
+都说递归代码的可解释性很好，这是有道理的，只要理解函数的定义，就能很清楚地理解算法的逻辑。我们这里 `dp(i, j)` 函数的定义是这样的：
+
+```
+def dp(i, j) -> int
+# 返回 s1[0..i] 和 s2[0..j] 的最小编辑距离
+```
+
+**记住这个定义**之后，先来看这段代码：
+
+```
+if s1[i] == s2[j]:
+    return dp(i - 1, j - 1)  # 啥都不做
+# 解释：
+# 本来就相等，不需要任何操作
+# s1[0..i] 和 s2[0..j] 的最小编辑距离等于
+# s1[0..i-1] 和 s2[0..j-1] 的最小编辑距离
+# 也就是说 dp(i, j) 等于 dp(i-1, j-1)
+```
+
+### `s1[i]！=s2[j]`
+
+如果`s1[i]！=s2[j]`，就要对三个操作递归了，稍微需要点思考：
+
+#### 插入
+
+```
+dp(i, j - 1) + 1,    # 插入
+# 解释：
+# 我直接在 s1[i] 插入一个和 s2[j] 一样的字符
+# 那么 s2[j] 就被匹配了，前移 j，继续跟 i 对比
+# 别忘了操作数加一
+```
+
+![图片](https://mmbiz.qpic.cn/mmbiz_gif/map09icNxZ4k5NKSib1ss6fnzSpHpahjDwDWaTd2WiarM2SKZ2n2hBAqo5ibGV6tPG6LRFU7RYvSJoBsKBovkcJFZw/640?wx_fmt=gif&tp=webp&wxfrom=5&wx_lazy=1)
+
+#### 删除
+
+
+
+```
+dp(i - 1, j) + 1,    # 删除
+# 解释：
+# 我直接把 s[i] 这个字符删掉
+# 前移 i，继续跟 j 对比
+# 操作数加一
+```
+
+![图片](https://mmbiz.qpic.cn/mmbiz_gif/map09icNxZ4k5NKSib1ss6fnzSpHpahjDwuTKibtrfGicWI5YUQVH9wicLRD2L3enLyKOsicEhYxXDdlrHc59W4reVEA/640?wx_fmt=gif&tp=webp&wxfrom=5&wx_lazy=1)
+
+
+
+#### 替换
+
+```
+dp(i - 1, j - 1) + 1 # 替换
+# 解释：
+# 我直接把 s1[i] 替换成 s2[j]，这样它俩就匹配了
+# 同时前移 i，j 继续对比
+# 操作数加一
+```
+
+![图片](https://mmbiz.qpic.cn/mmbiz_gif/map09icNxZ4k5NKSib1ss6fnzSpHpahjDwibcickW7rH7o6REHNppGh33Ric4uOR263RRc9EjPQC1WH6I8LHSCemhiaA/640?wx_fmt=gif&tp=webp&wxfrom=5&wx_lazy=1)
 
 现在，你应该完全理解这段短小精悍的代码了。
 
-### 暴力破解、重叠子问题
+### 暴力破解的重叠子问题
 
 还有点小问题就是，这个解法是暴力解法，存在重叠子问题，需要用动态规划技巧来优化。
 
@@ -164,8 +247,56 @@ dp[i-1][j-1]
 # 存储 s1[0..i] 和 s2[0..j] 的最小编辑距离
 ```
 
+#### base case
+
 有了之前递归解法的铺垫，应该很容易理解。`dp` 函数的 base case 是`i,j`等于 -1，而数组索引至少是 0，所以 `dp` 数组会偏移一位，`dp[..][0]`和`dp[0][..]`对应 base case。。
 
 既然 `dp` 数组和递归 `dp` 函数含义一样，也就可以直接套用之前的思路写代码，**唯一不同的是，DP table 是自底向上求解，递归解法是自顶向下求解**：
 
 ![图片](https://mmbiz.qpic.cn/mmbiz_png/map09icNxZ4k6I9qSKsoaKwsIQEBSv3CAzicJibicyvZEtPKm5nH0CEteRqJCBKQVkW6mMArhZsephVmMYrB3wSGoA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+> NOTE: 
+>
+> 1、上述两层嵌套for，是典型的brute-force
+
+## 三、扩展延伸
+
+一般来说，处理两个字符串的动态规划问题，都是按本文的思路处理，建立 DP table。为什么呢，因为易于找出状态转移的关系，比如编辑距离的 DP table：
+
+![图片](https://mmbiz.qpic.cn/mmbiz_jpg/map09icNxZ4k6I9qSKsoaKwsIQEBSv3CAQuJ6WodnmbqKfLuzrzebJjvTqyKkYCAfYmxWsXic3yg5k7SYD5RhbPw/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+
+
+还有一个细节，既然每个`dp[i][j]`只和它附近的三个状态有关，空间复杂度是可以压缩成 *O*(*m**i**n*(*M*,*N*)) 的（M，N 是两个字符串的长度）。不难，但是可解释性大大降低，读者可以自己尝试优化一下。
+
+你可能还会问，**这里只求出了最小的编辑距离，那具体的操作是什么**？之前举的修改公众号文章的例子，只有一个最小编辑距离肯定不够，还得知道具体怎么修改才行。
+
+这个其实很简单，代码稍加修改，给 dp 数组增加额外的信息即可：
+
+```
+// int[][] dp;
+Node[][] dp;
+
+class Node {
+    int val;
+    int choice;
+    // 0 代表啥都不做
+    // 1 代表插入
+    // 2 代表删除
+    // 3 代表替换
+}
+```
+
+`val`属性就是之前的 dp 数组的数值，`choice`属性代表操作。在做最优选择时，顺便把操作记录下来，然后就从结果反推具体操作。
+
+我们的最终结果不是`dp[m][n]`吗，这里的`val`存着最小编辑距离，`choice`存着最后一个操作，比如说是插入操作，那么就可以左移一格：
+
+![图片](https://mmbiz.qpic.cn/mmbiz_jpg/map09icNxZ4k5NKSib1ss6fnzSpHpahjDwPic6ETIOfaibRXA8h17eaMHtt5czDoYO41voq5KFgEsdeL5HIeIpCz1Q/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+
+
+重复此过程，可以一步步回到起点`dp[0][0]`，形成一条路径，按这条路径上的操作编辑对应索引的字符，就是最佳方案：
+
+![图片](https://mmbiz.qpic.cn/mmbiz_jpg/map09icNxZ4k6I9qSKsoaKwsIQEBSv3CA6o6Owk8vm9obM9bgcgibT6LuQxGfnpJRGb8ianHwIzFLnFs716Z5jhOg/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+这就是编辑距离算法的全部内容，希望本文对你有帮助。
