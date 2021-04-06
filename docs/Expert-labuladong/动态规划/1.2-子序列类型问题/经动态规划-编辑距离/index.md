@@ -2,6 +2,8 @@
 
 ## 一、思路
 
+### divide and conquer-problem and sub problem-原问题-子问题
+
 前文 [最长公共子序列](http://mp.weixin.qq.com/s?__biz=MzU0MDg5OTYyOQ==&mid=2247484418&idx=1&sn=98b1aa8c105467efab24e677fb17ff1a&chksm=fb336440cc44ed564f10ace689aa8e88e6d4a684cda2d2c07e81fad45cb4a70d1c27f4309ec4&scene=21#wechat_redirect) 说过，**解决两个字符串的动态规划问题，一般都是用两个指针`i,j`分别指向两个字符串的最后，然后一步步往前走，缩小问题的规模**。
 
 > NOTE:  
@@ -22,6 +24,8 @@
 >
 > 显然，是符合上面这段话的思想的。
 >
+> 二、上面这段话所描述的思想是写出递归公式的基础
+>
 > 
 
 ### Example
@@ -38,4 +42,130 @@
 
 > NOTE: 
 >
-> 1、当两个字符不相等的时候，可以尝试: 更新、插入，那到底选择哪一种呢？
+> 1、当两个字符不相等的时候，可以执行的操作有: 更新、插入、删除，那到底选择哪一种呢？
+
+### 第四种操作: skip(贪心选择)
+
+根据上面的 GIF，可以发现操作不只有三个，其实还有第四个操作，就是什么都不要做（skip）。比如这个情况：
+
+![图片](https://mmbiz.qpic.cn/mmbiz_jpg/map09icNxZ4k5NKSib1ss6fnzSpHpahjDws5icmBo1nJHEp16pfWf5m68iaDR4cLpUsozaicmF3biaiabRVb1ot33Nnicw/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+因为这两个字符本来就相同，为了使编辑距离最小，显然不应该对它们有任何操作，直接往前移动`i,j`即可。
+
+> NOTE: 
+>
+> 1、greedy selection-maximum and minimum-最值问题
+
+### 特殊操作: 直接删除
+
+还有一个很容易处理的情况，就是`j`走完`s2`时，如果`i`还没走完`s1`，那么只能用删除操作把`s1`缩短为`s2`。比如这个情况：
+
+![图片](https://mmbiz.qpic.cn/mmbiz_jpg/map09icNxZ4k5NKSib1ss6fnzSpHpahjDwgibumtGZ45Z2PfBB9bMt1ME3olHKsZePNXfLibnFF5nuZRhtQicPTslVA/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+### 特殊操作: 直接插入
+
+类似的，如果`i`走完`s1`时`j`还没走完了`s2`，那就只能用插入操作把`s2`剩下的字符全部插入`s1`。等会会看到，这两种情况就是算法的 **base case**。
+
+下面详解一下如何将这个思路转化成代码，坐稳，准备发车了。
+
+## 二、代码详解
+
+先梳理一下之前的思路：
+
+base case 是`i`走完`s1`或`j`走完`s2`，可以直接返回另一个字符串剩下的长度。
+
+对于每对儿字符`s1[i]`和`s2[j]`，可以有四种操作：
+
+```pseudocode
+if s1[i] == s2[j]:
+    啥都别做（skip）
+    i, j 同时向前移动
+else:
+    三选一：
+        插入（insert）
+        删除（delete）
+        替换（replace）
+```
+
+有这个框架，问题就已经解决了。读者也许会问，这个「三选一」到底该怎么选择呢？很简单，全试一遍，哪个操作最后得到的编辑距离最小，就选谁。这里需要递归技巧，理解需要点技巧，先看下代码：
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/map09icNxZ4k6I9qSKsoaKwsIQEBSv3CAtkTUphy9rfUMmnibuwQOib5OBwc0BNF4OBCrRnoYp3gNO3icM8Ywgm1Ww/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+下面来详细解释一下这段递归代码，base case 应该不用解释了，主要解释一下递归部分。
+
+> NOTE: 
+>
+> 1、如何理解base case？
+>
+> 
+
+
+
+现在，你应该完全理解这段短小精悍的代码了。
+
+### 暴力破解、重叠子问题
+
+还有点小问题就是，这个解法是暴力解法，存在重叠子问题，需要用动态规划技巧来优化。
+
+**怎么能一眼看出存在重叠子问题呢**？前文 [动态规划之正则表达式](http://mp.weixin.qq.com/s?__biz=MzU0MDg5OTYyOQ==&mid=2247483976&idx=1&sn=c268f7343732e33035cfd75da2d17052&chksm=fb33620acc44eb1ca6d80cf5af2564e7b81fc8ee5ce53cef8f1b159a881aa06796fed3e2a363&scene=21#wechat_redirect) 有提过，这里再简单提一下，需要抽象出本文算法的递归框架：
+
+```Python
+def dp(i, j):
+    dp(i - 1, j - 1) #1
+    dp(i, j - 1)     #2
+    dp(i - 1, j)     #3
+```
+
+对于子问题`dp(i-1,j-1)`，如何通过原问题`dp(i,j)`得到呢？有不止一条路径，比如`dp(i,j)->#1`和`dp(i,j)->#2->#3`。一旦发现一条重复路径，就说明存在巨量重复路径，也就是重叠子问题。
+
+## 三、动态规划优化
+
+对于重叠子问题呢，前文 [动态规划详解](http://mp.weixin.qq.com/s?__biz=MzU0MDg5OTYyOQ==&mid=2247483818&idx=1&sn=6035f861d1b2bfd0178e842f26ac4836&chksm=fb3361e8cc44e8fe331154bfd32bd7b3b4f159bfad5d38d4a6b0b9f0d7e3485b93b828ee72cc&scene=21#wechat_redirect) 介绍过，优化方法无非是备忘录或者 DP table。
+
+### 备忘录优化
+
+备忘录很好加，原来的代码稍加修改即可：
+
+```python
+def minDistance(s1, s2) -> int:
+
+    memo = dict() # 备忘录
+    def dp(i, j):
+        if (i, j) in memo: 
+            return memo[(i, j)]
+        ...
+
+        if s1[i] == s2[j]:
+            memo[(i, j)] = ...  
+        else:
+            memo[(i, j)] = ...
+        return memo[(i, j)]
+
+    return dp(len(s1) - 1, len(s2) - 1)
+```
+
+### DP table
+
+**主要说下 DP table 的解法**：
+
+首先明确 dp 数组的含义，dp 数组是一个二维数组，长这样：
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/map09icNxZ4k5NKSib1ss6fnzSpHpahjDw3B41UlTr2jOIH3SH7jvaYZTK5Qic2ZIHTEOztTRmpwd1K5v5FXrZHhw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+
+
+`dp[i][j]`的含义和之前的 dp 函数类似：
+
+```python
+def dp(i, j) -> int
+# 返回 s1[0..i] 和 s2[0..j] 的最小编辑距离
+
+dp[i-1][j-1]
+# 存储 s1[0..i] 和 s2[0..j] 的最小编辑距离
+```
+
+有了之前递归解法的铺垫，应该很容易理解。`dp` 函数的 base case 是`i,j`等于 -1，而数组索引至少是 0，所以 `dp` 数组会偏移一位，`dp[..][0]`和`dp[0][..]`对应 base case。。
+
+既然 `dp` 数组和递归 `dp` 函数含义一样，也就可以直接套用之前的思路写代码，**唯一不同的是，DP table 是自底向上求解，递归解法是自顶向下求解**：
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/map09icNxZ4k6I9qSKsoaKwsIQEBSv3CAzicJibicyvZEtPKm5nH0CEteRqJCBKQVkW6mMArhZsephVmMYrB3wSGoA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
