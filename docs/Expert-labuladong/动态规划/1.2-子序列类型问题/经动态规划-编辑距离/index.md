@@ -119,7 +119,17 @@ i、j为0，并不表示空串，而是表示的是单一字符，它们的编�
 
 当`j==-1`，说明`s2`为空，此时编辑距离就是`s1`的长度: `s1`需要将所有的元素删除。
 
+### Index and length
 
+1、上述是典型的index 和 length之间的转换
+
+2、在上述例子中，`i`、`j`其实表示的是index:
+
+index一般从0开始编号，index为-1表示的length为0
+
+length一般从0开始编号，length为1，对应的index为0
+
+3、length = index + 1
 
 ---
 
@@ -255,6 +265,18 @@ dp[i-1][j-1]
 
 有了之前递归解法的铺垫，应该很容易理解。`dp` 函数的 base case 是`i,j`等于 -1，而数组索引至少是 0，所以 `dp` 数组会偏移一位，`dp[..][0]`和`dp[0][..]`对应 base case。。
 
+#### Index and length
+
+下面code中，`i`、`j`对应的是length，因此，当需要access string element的时候，需要`-1`，对应的是如下code:
+
+```java
+if(s1.charAt(i-1) == s2.charAt(j-1))
+```
+
+这是非常容易出错的。
+
+#### code
+
 既然 `dp` 数组和递归 `dp` 函数含义一样，也就可以直接套用之前的思路写代码，**唯一不同的是，DP table 是自底向上求解，递归解法是自顶向下求解**：
 
 ![图片](https://mmbiz.qpic.cn/mmbiz_png/map09icNxZ4k6I9qSKsoaKwsIQEBSv3CAzicJibicyvZEtPKm5nH0CEteRqJCBKQVkW6mMArhZsephVmMYrB3wSGoA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
@@ -262,6 +284,8 @@ dp[i-1][j-1]
 > NOTE: 
 >
 > 1、上述两层嵌套for，是典型的brute-force
+>
+> 2、
 
 ## 三、扩展延伸
 
