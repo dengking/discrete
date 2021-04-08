@@ -1,5 +1,9 @@
 # labuladong [算法题就像搭乐高：手把手带你拆解 LRU 算法](https://mp.weixin.qq.com/s/b0YVCccJ8mFP6lI-1NiQOQ)
 
+> NOTE: 
+>
+> 1、需要对linked list的基本操作比较了解才能够理解下面实现的优势
+
 ## 一、LRU 算法描述
 
 力扣第 146 题「LRU缓存机制」就是让你设计数据结构：
@@ -69,7 +73,18 @@ LRU 缓存算法的核心数据结构就是哈希链表，双向链表和哈希�
 
 ## 三、代码实现
 
+首先，我们把双链表的节点类写出来，为了简化，`key` 和 `val` 都认为是 int 类型：
 
+```C++
+class Node {
+    public int key, val;
+    public Node next, prev;
+    public Node(int k, int v) {
+        this.key = k;
+        this.val = v;
+    }
+}
+```
 
 ### 为什么必须要用双向链表: O(1) 删除
 
