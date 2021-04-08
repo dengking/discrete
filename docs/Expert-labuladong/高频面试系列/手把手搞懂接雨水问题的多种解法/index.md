@@ -311,7 +311,7 @@ res += min(l_max[i], r_max[i]) - height[i];
 
 指针解法中，`l_max`和`r_max`代表的是`height[0..left]`和`height[right..n-1]`的最高柱子高度。比如这段代码：
 
-```
+```c++
 if (l_max < r_max) {
     res += l_max - height[left];
     left++; 

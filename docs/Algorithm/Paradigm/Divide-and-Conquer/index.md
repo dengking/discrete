@@ -31,3 +31,9 @@
 1、"wikipedia [Divide-and-conquer algorithm](https://en.wikipedia.org/wiki/Divide-and-conquer_algorithm) # Parallelism"章节
 
 2、工程"Parallel-computing"的`Fork–join-model`章节
+
+3、stackoverflow [difference of divide and conquer & fork and join](https://stackoverflow.com/questions/29686964/difference-of-divide-and-conquer-fork-and-join)
+
+## TODO
+
+programiz [Divide and Conquer Algorithm](https://www.programiz.com/dsa/divide-and-conquer)
