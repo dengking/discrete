@@ -1,0 +1,4 @@
+nav:
+    - Introduction: index.md
+    - Cache-replacement-policies: Cache-replacement-policies
+    - LRU-cache: LRU-cache
