@@ -1,7 +1,7 @@
 nav:
     - Introduction: index.md
     - Array: Array
-    - List: List
+    - Linked-list: Linked-list
     - Stack: Stack    
     - Graph: Graph
     - Set: Set
