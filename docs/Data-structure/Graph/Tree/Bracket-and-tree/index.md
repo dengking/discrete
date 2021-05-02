@@ -277,3 +277,51 @@ A **bracket** or **tournament bracket** is a [tree diagram](https://en.wikipedia
 > For instance, grouping [parentheses](https://en.wikipedia.org/wiki/Bracket#Parentheses) are implicit in the tree structure, so these do not have to be represented as separate nodes. Likewise, a syntactic construct like an if-condition-then expression may be denoted by means of a single node with three branches.
 
 [Reverse Polish Notation](https://en.wikipedia.org/wiki/Reverse_Polish_notation) and bracket
+
+
+
+
+
+
+
+## 草稿1
+
+可以使用括号来表示树，这是源于[Newick format](https://en.wikipedia.org/wiki/Newick_format) *and* [Dyck language](https://en.wikipedia.org/wiki/Dyck_language)，如下是一些简单的例子：
+
+`[[[]]]`对应的tree如下：
+
+```
+   
+       []
+      /
+     /
+   []
+  /
+ /
+[]
+```
+
+
+
+可以看到，它已经退化成了一个list，这种属于使用tree来描述具有hierarchy structure的数据。
+
+对于[Dyck language](https://en.wikipedia.org/wiki/Dyck_language)，在对其进行parsing的时候，需要使用stack，其实我们进行parsing的时候，是沿着树进行深度优先遍历，一般我们进行parsing时候，遇到开括号`[`是要继续压栈，其实看上图就可以知道，压栈对应着是沿着树路径向下，即不断地向下遍历。遇到闭括号`]`，其实是出栈，开始向上了。
+
+### parenthesis and stack
+
+|        |      |
+| ------ | ---- |
+| 正括号 | 入栈 |
+| 反括号 | 出栈 |
+
+
+
+***SUMMARY*** : stack的入栈与出栈是一对户逆的操作，所以stack非常适合于解决哪些存在着互逆操作的问题；
+
+
+
+
+
+## 思考：如何使用递归来实现括号匹配？？
+
+一般我们都是使用一个显示的stack，那么如何使用递归来使用call stack呢？

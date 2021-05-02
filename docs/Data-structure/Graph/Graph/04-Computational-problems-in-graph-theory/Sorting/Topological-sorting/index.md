@@ -16,7 +16,15 @@
 
 2、一个node，如果它的 "长度"  为0，则表示没有其它节点依赖它
 
+## 算法思想
 
+1、找到没有被依赖的
+
+2、使用dependency relation构建的structure，如果能够进行topological sorting，则会形成hierarchy structure。
+
+3、验证relation的分析不断地向下寻找，直到找到一个没有任何依赖的
+
+4、应该是depth first search
 
 ## wikipedia [Topological sorting](https://en.wikipedia.org/wiki/Topological_sorting)
 
@@ -37,4 +45,30 @@ A topological ordering is possible if and only if the graph has no [directed cyc
 ## Implementation
 
 github [Algo-Tree](https://github.com/Algo-Phantoms/Algo-Tree)/[Code](https://github.com/Algo-Phantoms/Algo-Tree/tree/main/Code)/[C++](https://github.com/Algo-Phantoms/Algo-Tree/tree/main/Code/C%2B%2B)/[Topological_sort.cpp](https://github.com/Algo-Phantoms/Algo-Tree/blob/main/Code/C%2B%2B/Topological_sort.cpp)
+
+
+
+## TODO
+
+jianshu [拓扑排序(一)——有向图成环检测](https://www.jianshu.com/p/d6042b659f70)
+
+csdn [[ZZ]如何判断有向图是否成环](https://blog.csdn.net/leonsc/article/details/5973209)
+
+csdn [数据结构 图 有向无环图](https://blog.csdn.net/nomad2/article/details/1559664)
+
+csdn [拓扑排序判断有向图是否成环](https://blog.csdn.net/qq_40642465/article/details/80670269)
+
+
+
+### leetcode
+https://leetcode-cn.com/problems/course-schedule/solution/ke-cheng-biao-by-leetcode-solution/
+
+https://leetcode-cn.com/problems/course-schedule-ii/solution/ke-cheng-biao-ii-by-leetcode-solution/
+
+
+https://leetcode-cn.com/problems/course-schedule-iv/
+
+
+
+
 
