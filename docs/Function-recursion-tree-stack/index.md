@@ -129,7 +129,7 @@ programming language是context free language。具备nesting结构。
 
 前面对"function、tree、stack"的formal analysis，其实是能够应用于"Recursive function"的，因为"Recursive function"是一种特殊的"function"。
 
-三、递归 和 树
+### Recursion and tree
 
 1、为什么递归可以使用树来进行表示？
 
@@ -137,29 +137,21 @@ programming language是context free language。具备nesting结构。
 
 关于此的最好的例子就是formal language
 
-四、构建依赖关系
+### 使用dependency relation来描述recursion
 
-不断地向下构建、递归直到base case。
+1、不断地向下构建、递归直到base case。
 
-四、stack order、后进先出
+2、stack order、后进先出
 
-1、一直不断地往下递归，直到base case，然后出栈、返回，将计算结果返回给上一层
-
-2、这让我想起了topological sorting中，找到没有任何依赖的那个节点，然后反向不断地删减
-
-其实，它和析构一个linked list是非常类似的，它们本质上都是对依赖关系的删除
-
-3、这让我想起了destructor 的 destruction order
+3、一直不断地往下递归，直到base case，然后出栈、返回，将计算结果返回给上一层
 
 
 
 
 
-## 草稿2
 
 
-
-### [call stack](https://en.wikipedia.org/wiki/Call_stack) and stack
+## [call stack](https://en.wikipedia.org/wiki/Call_stack) and stack
 
 > NOTE:
 >
@@ -176,15 +168,11 @@ programming language是context free language。具备nesting结构。
 
 
 
-## 草稿3
+## nesting relation、tree 、stack
 
-activation tree，[Parse tree](http://en.wikipedia.org/wiki/Parse_tree)，它们都是呈现的tree结构，但是函数的执行仅仅需要一个call stack，parsing的过程也仅仅只需要一个[pushdown automata](https://en.wikipedia.org/wiki/Pushdown_automaton)（本质上是一个stack），两者存在着非常类似的现象，我们需要取思考现象背后所蕴含的道理。两个过程都具有nesting特性，所以它们的过程都呈现tree structure。在[4.6 Introduction to LR Parsing: Simple LR](https://dengking.github.io/compiler-principle/Chapter-4-Syntax-Analysis/4.6-Introduction-to-LR-Parsing-Simple-LR/)中我对此有过分析。
+activation tree，[Parse tree](http://en.wikipedia.org/wiki/Parse_tree)，它们都是呈现的tree结构，但是函数的执行仅仅需要一个call stack，parsing的过程也仅仅只需要一个[pushdown automata](https://en.wikipedia.org/wiki/Pushdown_automaton)（本质上是一个stack），两者存在着非常类似的现象，我们需要去思考现象背后所蕴含的道理。两个过程都具有nesting特性，所以它们的过程都呈现tree structure。在[4.6 Introduction to LR Parsing: Simple LR](https://dengking.github.io/compiler-principle/Chapter-4-Syntax-Analysis/4.6-Introduction-to-LR-Parsing-Simple-LR/)中我对此有过分析。
 
 在[Compilers Principles, Techniques and Tools Second Edition(aka ***dragon book***)](https://en.wikipedia.org/wiki/Compilers:_Principles,_Techniques,_and_Tools) 的[7.2.1 Activation Trees](https://dengking.github.io/compiler-principle/Chapter-7-Run-Time-Environments/7.2-Stack-Allocation-of-Space/#721-activation-trees)中对此进行了详细分析。
-
-
-
-## 草稿4
 
 
 
@@ -203,26 +191,6 @@ top-down parsing和`perm`算法都是在构造tree，前者自己使用了一个
 与此类似的是，production中也有terminal，产生式的terminal就相当于树的叶子节点，是递归的终止条件。
 
 
-### recursion&induction
-参见：
-http://infolab.stanford.edu/~ullman/focs/ch02.pdf
 
 
-
-
-
-
-### summary
-#### 如何描述树与图
-
-formal grammar
-
-三地址码
-
-
-
-### 如何基于描述来构造树
-parsing，parsing也可以看做是一种搜索，由于formal grammar可能的组合形式是非常多的，每一种组合形式都对应了一棵完整的tree，parsing的过程就是在在所有的可能组合中寻找到一棵能够描述我的string的tree。
-
-隐式的树：解空间是一棵树
 

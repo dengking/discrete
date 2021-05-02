@@ -1,10 +1,14 @@
 nav:
     - Introduction: index.md
-    - Tree-structure:  Tree-structure
+    - Tree-structure: Tree-structure
     - Tree(data-structure): Tree(data-structure)
+    - Represent-describe-tree: Represent-describe-tree    
+    - Parenthese-and-tree: Parenthese-and-tree
+    - Tree-operation: Tree-operation
+    
     - Application-of-tree: Application-of-tree.md
     - Implicit-tree: Implicit-tree.md
-    - Tree-operation: Tree-operation
+    
     - Trie: Trie
     - VS-of-tree: VS-of-tree.md
     - Implementation: Implementation

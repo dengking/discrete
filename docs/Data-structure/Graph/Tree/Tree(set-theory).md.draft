@@ -1,4 +1,4 @@
-# [Tree (set theory)](https://en.wikipedia.org/wiki/Tree_(set_theory))
+# wikipedia [Tree (set theory)](https://en.wikipedia.org/wiki/Tree_(set_theory))
 
 In [set theory](https://en.wikipedia.org/wiki/Set_theory), a **tree** is a [partially ordered set](https://en.wikipedia.org/wiki/Partially_ordered_set) (*T*, <) such that for each *t* ∈ *T*, the set {*s* ∈ *T* : *s* < *t*} is [well-ordered](https://en.wikipedia.org/wiki/Well-ordered) by the relation <. Frequently trees are assumed to have only one root (i.e. [minimal element](https://en.wikipedia.org/wiki/Minimal_element)), as the typical questions investigated in this field are easily reduced to questions about single-rooted trees.
 

@@ -34,6 +34,12 @@
 
 更多关于nesting的描述，参见：[Nesting (computing)](https://en.wikipedia.org/wiki/Nesting_(computing))和[Nested sets](https://en.wikipedia.org/wiki/Nested_set)。
 
+## 树结构的递归性
+
+树的结构是具备递归性的：一个节点的左节点可能是一棵树，右节点也可能是一棵树，显然树的定义是由它自身定义的；所以对树的操作可以充分利用树结构的递归性而写出递归函数；
+
+还有一些结构也是隐式的数结构：
+
 
 
 ## 哪些关系能够形成树形状
@@ -103,38 +109,6 @@ Nesting结构具备hierarchy特性，可以这样来进行解释：
 
 
 
-## 使用括号来表示树
-
-[Nesting](https://en.wikipedia.org/wiki/Nesting_(computing))结构在computer science是非常常见，它是一种典型的hierarchy结构，nesting结构可以使用括号的方式来进行表示：
-
-```
-( () () ( ( ) ) )
-```
-
-上面使用括号来表示nesting结构，因为括号所能够表达的“包含”关系和“嵌套”关系是基本类似的。
-
-上述结构是可以表示成树的，如下：
-
-```
-					( )
-	
-    ( )				( )				 ( )
-    								
-    								 ( )
-```
-
-例子包括：
-
-- C和C++中，使用`{}`来定义block，block中可以再包含block，从而形成nesting结构
-
-- 龙书7.2.1 Activation Trees：
-
-  > Stack allocation would not be feasible if procedure calls, or activations of procedures, did not **nest** in time. 
-
-  即函数的执行过程，从时间上来看也是嵌套的。
-
-
-
 ## 推导关系分析
 
 扩展一个使用tree描述的关系的最终目标是获得所有的叶子节点，它的基本算法是：一个节点，只要是non-terminal元素，就需要对它进行expand，其实这个过程就是[Parse tree](https://en.wikipedia.org/wiki/Parse_tree)的生成过程；
@@ -154,6 +128,26 @@ while len(to_expand_words):
         self.expanded_fen_zi_dict[fen_zi_word_info].append(word) # 将该词进行输出
 
 ```
+
+
+
+
+
+## draft: Tree and relation
+
+[Tree (graph theory)](https://en.wikipedia.org/wiki/Tree_(graph_theory))中有这样的描述：
+
+> As elsewhere in graph theory, the order-zero graph (graph with no vertices) is generally not considered to be a tree: while it is vacuously connected as a graph (any two vertices can be connected by a path), it is not 0-connected (or even (−1)-connected) in algebraic topology, unlike non-empty trees, and violates the "one more vertex than edges" relation.
+
+[Tree (data structure)](https://en.wikipedia.org/wiki/Tree_(data_structure))中也有很多这方面的描述。
+
+
+
+### 使用树来描述关系
+
+其实上述都是在使用tree来表示关系，expression中的关系是`+=*/`，recursion invocation tree是函数调用关系，具备传递性的包含关系是包含关系；
+
+在使用tree来描述这些关系的时候，**叶子节点**是**terminal元素**，**内节点**都是在**表达关系**；
 
 
 

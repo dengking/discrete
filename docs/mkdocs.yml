@@ -8,8 +8,9 @@ nav:
     # 使用 Relation-structure-computation 章节中的思想来进行分析
     - Function-recursion-tree-stack: Function-recursion-tree-stack
     - Course-YSC2229-Introductory-Data-Structures-and-Algorithms: Course-YSC2229-Introductory-Data-Structures-and-Algorithms
+    - Course-cornell-cs3110: Course-cornell-cs3110
     - LeetCode: LeetCode
     - Expert-labuladong: Expert-labuladong
-
+    - Book-Foundations-of-Computer-Science: Book-Foundations-of-Computer-Science
     - TODO: TODO
     

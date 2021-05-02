@@ -1,6 +1,6 @@
-# Represent tree
+# Represent、describe  tree
 
-## [Visually  Representing Trees ](https://en.wikipedia.org/wiki/Tree_structure#Representing_trees)
+## wikipedia [Visually  Representing Trees ](https://en.wikipedia.org/wiki/Tree_structure#Representing_trees)
 
 There are many ways of visually representing tree structures. Almost always, these boil down to variations, or combinations, of a few basic styles:
 
@@ -93,7 +93,7 @@ science
 
 
 
-## [Representing Tree in Memory/Implementation](https://en.wikipedia.org/wiki/Tree_(data_structure)#Representations)
+## wikipedia [Representing Tree in Memory/Implementation](https://en.wikipedia.org/wiki/Tree_(data_structure)#Representations)
 
 The following is a partial enumeration:
 
@@ -101,3 +101,26 @@ The following is a partial enumeration:
 - represent the nodes as items in an [array](https://en.wikipedia.org/wiki/Array_data_structure), with relationships between them determined by their positions in the array (e.g., [binary heap](https://en.wikipedia.org/wiki/Binary_heap)).
 
 For a more complete enumeration, click the link above.
+
+
+
+
+
+
+
+
+## Description language and tree
+
+### 如何描述树与图
+
+1、formal grammar
+
+2、[Three-address code](https://en.wikipedia.org/wiki/Three-address_code) 三地址码
+
+
+
+### 如何基于描述来构造树
+
+parsing，parsing也可以看做是一种搜索，由于formal grammar可能的组合形式是非常多的，每一种组合形式都对应了一棵完整的tree，parsing的过程就是在在所有的可能组合中寻找到一棵能够描述我的string的tree。
+
+隐式的树：解空间是一棵树

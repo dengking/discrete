@@ -1,6 +1,6 @@
 nav:
-    - Tree-structure:  Tree-structure.md
-    - Examples-of-tree-structures: Examples-of-tree-structures.md
-    - Represent-tree: Represent-tree.md
+    - Introduction: index.md
+    - Examples-of-tree-structures: Examples-of-tree-structures
+    - Represent-describe-tree: Represent-describe-tree
     - Tree(set-theory): Tree(set-theory).md
     

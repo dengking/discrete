@@ -325,3 +325,40 @@ A **bracket** or **tournament bracket** is a [tree diagram](https://en.wikipedia
 ## 思考：如何使用递归来实现括号匹配？？
 
 一般我们都是使用一个显示的stack，那么如何使用递归来使用call stack呢？
+
+
+
+
+
+
+
+## 使用括号来表示树
+
+[Nesting](https://en.wikipedia.org/wiki/Nesting_(computing))结构在computer science是非常常见，它是一种典型的hierarchy结构，nesting结构可以使用括号的方式来进行表示：
+
+```
+( () () ( ( ) ) )
+```
+
+上面使用括号来表示nesting结构，因为括号所能够表达的“包含”关系和“嵌套”关系是基本类似的。
+
+上述结构是可以表示成树的，如下：
+
+```
+					( )
+	
+    ( )				( )				 ( )
+    								
+    								 ( )
+```
+
+例子包括：
+
+- C和C++中，使用`{}`来定义block，block中可以再包含block，从而形成nesting结构
+
+- 龙书7.2.1 Activation Trees：
+
+    > Stack allocation would not be feasible if procedure calls, or activations of procedures, did not **nest** in time. 
+
+    即函数的执行过程，从时间上来看也是嵌套的。
+

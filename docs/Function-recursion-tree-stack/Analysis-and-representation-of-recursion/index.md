@@ -1,6 +1,8 @@
 # 递归函数的表示与分析
 
-下面总结了表示递归函数执行过程的表示方法。
+1、下面总结了表示递归函数执行过程的表示方法。
+
+2、有了前面章节的理论基础，理解本章的内容是非常简单的
 
 ## 递归调用树
 
@@ -86,10 +88,6 @@ hanoi(4)     = 2*hanoi(3) + 1
 
 ## 递归函数的复杂性分析
 
-### [Analysis of Algorithm | Set 4 (Solving Recurrences)](https://www.geeksforgeeks.org/analysis-algorithm-set-4-master-method-solving-recurrences/)
+### geeksforgeeks [Analysis of Algorithm | Set 4 (Solving Recurrences)](https://www.geeksforgeeks.org/analysis-algorithm-set-4-master-method-solving-recurrences/)
 
 
-
-
-
-### [Lecture 20: Recursion Trees and the Master Method](https://www.cs.cornell.edu/courses/cs3110/2012sp/lectures/lec20-master/lec20.html)

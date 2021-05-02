@@ -4,7 +4,7 @@
 
 ## [Directory structure](https://en.wikipedia.org/wiki/Directory_structure) ([directory](https://en.wikipedia.org/wiki/Directory_(computing)))
 
-nesting关系。
+目录是典型的可用使用tree来进行描述的，它满足nesting关系。
 
 See also: 
 
@@ -20,9 +20,11 @@ parent-children关系。
 
 nesting关系。
 
-- [Document Object Model](https://en.wikipedia.org/wiki/Document_Object_Model)（[XML](https://en.wikipedia.org/wiki/XML)）
-- [json](https://en.wikipedia.org/wiki/JSON)
-- [yaml](https://en.wikipedia.org/wiki/YAML)
+1、[Document Object Model](https://en.wikipedia.org/wiki/Document_Object_Model)（[XML](https://en.wikipedia.org/wiki/XML)）
+
+2、[json](https://en.wikipedia.org/wiki/JSON)
+
+3、[yaml](https://en.wikipedia.org/wiki/YAML)
 
 ## [Namespace](https://en.wikipedia.org/wiki/Namespace)
 
@@ -44,7 +46,20 @@ nesting关系。
 
 nesting关系。
 
-函数的调用过程也是可以使用tree来进行描述的，参见[Compilers Principles, Techniques and Tools Second Edition(aka ***dragon book***)](https://en.wikipedia.org/wiki/Compilers:_Principles,_Techniques,_and_Tools) 的[7.2.1 Activation Trees](https://dengking.github.io/compiler-principle/Chapter-7-Run-Time-Environments/7.2-Stack-Allocation-of-Space/#721-activation-trees)。
+函数的调用过程也是可以使用tree来进行描述的，参见:
+
+1、[Compilers Principles, Techniques and Tools Second Edition(aka ***dragon book***)](https://en.wikipedia.org/wiki/Compilers:_Principles,_Techniques,_and_Tools) 的[7.2.1 Activation Trees](https://dengking.github.io/compiler-principle/Chapter-7-Run-Time-Environments/7.2-Stack-Allocation-of-Space/#721-activation-trees)。
+
+2、`Function-recursion-tree-stack` 章节
+
+
+### Recursion activation tree
+
+递归函数的调用过程也是可以使用tree来进行描述的
+
+#### Divide and conquer
+
+[Divide-and-conquer algorithm](https://en.wikipedia.org/wiki/Divide-and-conquer_algorithm)是典型的递归算法
 
 
 
@@ -67,6 +82,14 @@ So it's natural to use trees in the compiling.
 [Regular expression](https://en.wikipedia.org/wiki/Regular_expression), [algebraic expression](https://en.wikipedia.org/wiki/Algebraic_expression) can be described using  [formal grammar](https://en.wikipedia.org/wiki/Formal_grammar), so given an expression, it can be converted to an equivalent  [parse tree](https://en.wikipedia.org/wiki/Parse_tree).
 
 
+
+### Expression
+
+[binary expression tree](https://en.wikipedia.org/wiki/Binary_expression_tree)
+
+### Source code
+
+[Abstract syntax tree](https://en.wikipedia.org/wiki/Abstract_syntax_tree)使用一棵树表达了源代码的语法结构
 
 ## Nesting结构的一些例子
 

@@ -26,6 +26,10 @@
 
 4、应该是depth first search
 
+5、这让我想起了topological sorting中，找到没有任何依赖的那个节点，然后反向不断地删减；其实，它和析构一个linked list是非常类似的，它们本质上都是对依赖关系的删除
+
+
+
 ## wikipedia [Topological sorting](https://en.wikipedia.org/wiki/Topological_sorting)
 
 In [computer science](https://en.wikipedia.org/wiki/Computer_science), a **topological sort** or **topological ordering** of a [directed graph](https://en.wikipedia.org/wiki/Directed_graph) is a [linear ordering](https://en.wikipedia.org/wiki/Total_order) of its [vertices](https://en.wikipedia.org/wiki/Vertex_(graph_theory)) such that for every directed edge *uv* from vertex *u* to vertex *v*, *u* comes before *v* in the ordering. 
@@ -72,3 +76,4 @@ https://leetcode-cn.com/problems/course-schedule-iv/
 
 
 
+​																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
