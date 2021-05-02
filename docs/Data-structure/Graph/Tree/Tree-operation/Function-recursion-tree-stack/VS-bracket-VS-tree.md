@@ -13,17 +13,17 @@
 
 
 
-## [Binary tree to string with brackets](https://www.geeksforgeeks.org/binary-tree-string-brackets/)
+## geeksforgeeks [Binary tree to string with brackets](https://www.geeksforgeeks.org/binary-tree-string-brackets/)
 
 
 
-## [Construct Binary Tree from String with bracket representation](https://www.geeksforgeeks.org/construct-binary-tree-string-bracket-representation/)
+## geeksforgeeks [Construct Binary Tree from String with bracket representation](https://www.geeksforgeeks.org/construct-binary-tree-string-bracket-representation/)
 
 
 
 
 
-## [Parentheses Are Trees](https://www.i-programmer.info/programming/theory/3458-brackets-are-trees.html)
+## i-programmer [Parentheses Are Trees](https://www.i-programmer.info/programming/theory/3458-brackets-are-trees.html)
 
 Parentheses are at the heart of programming. Understand parentheses and you can rule the earth. No, seriously! Parentheses, trees and stacks are all interconnected in a very deep and fundamental way.
 
@@ -266,13 +266,13 @@ Only if you are a programmer...
 
 
 
-## [Bracket (tournament)](https://en.wikipedia.org/wiki/Bracket_(tournament))
+## wikipedia [Bracket (tournament)](https://en.wikipedia.org/wiki/Bracket_(tournament))
 
 A **bracket** or **tournament bracket** is a [tree diagram](https://en.wikipedia.org/wiki/Tree_structure) that represents the series of games played during a [knockout tournament](https://en.wikipedia.org/wiki/Knockout_tournament). Different knockout tournament formats have different brackets; the simplest and most common is that of the [single-elimination tournament](https://en.wikipedia.org/wiki/Single-elimination_tournament). The name "bracket" is [American English](https://en.wikipedia.org/wiki/American_English), derived from the resemblance of the links in the tree diagram to the [bracket](https://en.wikipedia.org/wiki/Bracket) punctuation symbol ] or [ (called a "square bracket" in [British English](https://en.wikipedia.org/wiki/British_English)). The closest British term is **draw**, although this implies an element of chance, whereas some brackets are determined entirely by [seeding](https://en.wikipedia.org/wiki/Seed_(sports)).
 
 
 
-## [Abstract syntax tree](https://en.wikipedia.org/wiki/Abstract_syntax_tree) and bracket
+## wikipedia [Abstract syntax tree](https://en.wikipedia.org/wiki/Abstract_syntax_tree) and bracket
 
 > For instance, grouping [parentheses](https://en.wikipedia.org/wiki/Bracket#Parentheses) are implicit in the tree structure, so these do not have to be represented as separate nodes. Likewise, a syntactic construct like an if-condition-then expression may be denoted by means of a single node with three branches.
 

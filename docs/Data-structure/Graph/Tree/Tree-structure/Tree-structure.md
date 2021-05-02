@@ -10,16 +10,17 @@
 
 **tree structure** 的最最典型的特性是：
 
-- 一个节点可以有（包含）多个子节点
+1、一个节点可以有（包含）多个子节点
 
-- 一个子节点只能够有一个父节点
+2、一个子节点只能够有一个父节点
 
-- root节点没有父节点。
+3、root节点没有父节点。
 
 **tree structure** 的 “一个子节点只能够有一个父节点” 的要求，将它和graph区分开来了（参见[Discrete Mathematics and Its Applications](https://www.amazon.com/Discrete-Mathematics-Applications-Kenneth-Rosen/dp/125967651X)的Tree章节）。在本文的后面我们使用“**nesting** ”这个词来描述**tree structure**的这个特性。“**nesting**”的中文含义是“嵌套”，显然，它能够描述元素之间的嵌套关系；这个词的含义是丰富的，它的表面意思是“嵌套”，“嵌套”蕴含着“包含”的含义，“嵌套”蕴含着“递归”的含义；显然具备nesting特性，就具备了如下特性：
 
-- [hierarchical](https://en.wikipedia.org/wiki/Hierarchy)，即树结构是层次的
-- [recursive](../Data-structure/Recursive-data-type.md)，nesting的递归性：我觉得nesting的递归性可以使用关系的transitive特性来进行解释。比如[recursive](https://en.wikipedia.org/wiki/Scope_(programming)) scope rules ，这种包含关系一种transitive relation。与nesting相关的另外一个词是：level，其实它就和树的深度相关。
+1、[hierarchical](https://en.wikipedia.org/wiki/Hierarchy)，即树结构是层次的
+
+2、[recursive](../Data-structure/Recursive-data-type.md)，nesting的递归性：我觉得nesting的递归性可以使用关系的transitive特性来进行解释。比如[recursive](https://en.wikipedia.org/wiki/Scope_(programming)) scope rules ，这种包含关系一种transitive relation。与nesting相关的另外一个词是：level，其实它就和树的深度相关。
 
 具备nesting特性的结构都可以使用tree structure来进行表示。
 

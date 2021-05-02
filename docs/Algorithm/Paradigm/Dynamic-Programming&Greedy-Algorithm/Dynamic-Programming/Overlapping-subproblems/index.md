@@ -1,6 +1,8 @@
-[TOC]
+# Overlapping subproblems
 
-# [Overlapping subproblems](https://en.wikipedia.org/wiki/Overlapping_subproblems)
+1、重叠子问题
+
+## wikipedia [Overlapping subproblems](https://en.wikipedia.org/wiki/Overlapping_subproblems)
 
 In [computer science](https://en.wikipedia.org/wiki/Computer_science), a [problem](https://en.wikipedia.org/wiki/Problem) is said to have **overlapping subproblems** if the problem can be broken down into subproblems which are reused several times or a recursive algorithm for the problem solves the same subproblem over and over rather than always generating new subproblems.[[1\]](https://en.wikipedia.org/wiki/Overlapping_subproblems#cite_note-1)[[2\]](https://en.wikipedia.org/wiki/Overlapping_subproblems#cite_note-2) [[3\]](https://en.wikipedia.org/wiki/Overlapping_subproblems#cite_note-3)
 

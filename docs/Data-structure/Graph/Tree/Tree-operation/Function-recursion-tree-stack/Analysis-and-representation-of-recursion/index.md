@@ -10,7 +10,7 @@
 
 [![NewPermutation](./NewPermutation.gif)](https://media.geeksforgeeks.org/wp-content/cdn-uploads/NewPermutation.gif)
 
-###  [斐波那契数](https://leetcode-cn.com/problems/fibonacci-number/) 
+###  leetcode [斐波那契数](https://leetcode-cn.com/problems/fibonacci-number/) 
 
  ![fibtree](./Fibonacci.jpg) 
 
@@ -26,7 +26,7 @@
 
 
 
-### [Matrix Chain Multiplication | DP-8](https://www.geeksforgeeks.org/matrix-chain-multiplication-dp-8/)
+### geeksforgeeks [Matrix Chain Multiplication | DP-8](https://www.geeksforgeeks.org/matrix-chain-multiplication-dp-8/)
 
 
 

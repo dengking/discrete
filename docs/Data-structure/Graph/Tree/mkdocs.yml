@@ -1,7 +1,7 @@
 nav:
     - Introduction: index.md
     - Tree-structure:  Tree-structure
-    - Tree(data-structure): Tree(data-structure).md
+    - Tree(data-structure): Tree(data-structure)
     - Application-of-tree: Application-of-tree.md
     - Implicit-tree: Implicit-tree.md
     - Tree-operation: Tree-operation

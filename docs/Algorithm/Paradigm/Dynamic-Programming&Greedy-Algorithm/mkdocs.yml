@@ -1,6 +1,6 @@
 nav:
     - Introduction: index.md
-    - Optimal-substructure: Optimal-substructure.md
+    - Optimal-substructure: Optimal-substructure
     - Bellman-equation: Bellman-equation.md
     - Dynamic-Programming: Dynamic-Programming
     - Greedy-algorithm: Greedy-algorithm
