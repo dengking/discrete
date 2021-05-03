@@ -4,6 +4,7 @@ nav:
     - Linked-list: Linked-list
     - Stack: Stack    
     - Graph: Graph
+    - Tree: Tree    
     - Set: Set
     - Probabilistic-data-structures: Probabilistic-data-structures
     - Hash: Hash

@@ -1,9 +1,6 @@
 nav:
     - Recursive-data-type: Recursive-data-type
     - Recursion(computer-science): Recursion(computer-science)
-    - Structural-and-generative-recursion: Structural-and-generative-recursion
-    - Analysis-and-representation-of-recursion: Analysis-and-representation-of-recursion
-    
-    - Recursion-and-iteration: Recursion-and-iteration.md
+    - Structural-and-generative-recursion: Structural-and-generative-recursion    
     - Term-with-recursion-in-computer-science: Term-with-recursion-in-computer-science.md
     - Corecursion: Corecursion.md

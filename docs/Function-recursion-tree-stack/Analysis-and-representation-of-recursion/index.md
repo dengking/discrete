@@ -4,6 +4,8 @@
 
 2、有了前面章节的理论基础，理解本章的内容是非常简单的
 
+3、这个问题，其实转换为了`Represent-describe-tree`
+
 ## 递归调用树
 
 对递归函数进行复杂度分析是非常重要的，因为所有使用递归的函数都涉及这个问题；其实复杂度分析本质上来说是统计递归函数的执行次数、执行深度等问题，所以如果对递归函数的调用过程有一个直观，准确地描述的话，那么分析其递归函数的复杂度也会非常容易，目前流行的表示方法是：递归调用树，如下是一些使用递归调用树来表示：
@@ -89,5 +91,4 @@ hanoi(4)     = 2*hanoi(3) + 1
 ## 递归函数的复杂性分析
 
 ### geeksforgeeks [Analysis of Algorithm | Set 4 (Solving Recurrences)](https://www.geeksforgeeks.org/analysis-algorithm-set-4-master-method-solving-recurrences/)
-
 
