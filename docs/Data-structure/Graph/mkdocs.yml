@@ -1,7 +1,10 @@
 nav:
     - Introduction: index.md
-    - Graph: Graph
-
+    - 01-Graph-and-Graph-theory: 01-Graph-and-Graph-theory
+    - 02-Graph-Model: 02-Graph-Model
+    - 03-Graph-operation: 03-Graph-operation
+    - 04-Computational-problems-in-graph-theory: 04-Computational-problems-in-graph-theory
+    - Implementation: Implementation
+    - Graph-traversal: Graph-traversal
     # graph和tree中都会存在的一种问题
     - Search-algorithm: Search-algorithm
-    - Expert-martinbroadhurst: Expert-martinbroadhurst.md
