@@ -104,11 +104,11 @@ programming language是context free language。具备nesting结构。
 
 
 
-### Formal analysis、整体分析
+## Formal analysis、整体分析
 
 无论是**LR(0)自动机**以及**函数调用树(activation tree)**，它们都是是我们从全局的角度（整体的角度，分析的角度）来分析这个问题，它们是理论层面的分析，而不是实际的实现，实际的执行过程中，压根就不需要显式地构造出这样的一棵树，并且压根就无需知道整个树是怎样的。比如在LR parser中，parser是从左至右对输入串进行分析，一次只会取一个符号，函数的执行是顺序执行的，一次只会执行一个函数；为什么要这样呢？我觉得这是由计算机的体系结构所决定的，正如各种automaton模型所展示的那样，计算机就是这样的规则，就是这样的顺序，所以我们的算法设计也是需要寻找规则，顺序，这是一种计算思维；
 
-#### Path
+### Path
 
 所以实际的执行过程仅仅对应的是树中的一条路径（有起点，有终点），显然这条路径是**线性的**，是**连续的**（能够从终点再返回到起点）。如果我们将执行的路径连接起来（因为这些路径是连续的，所以能够将它们连接起来），以适当的方式画出了（正如Fig. 4.31），那么它就能够展现出我们的在理论层面分析的形态。
 
@@ -121,9 +121,11 @@ programming language是context free language。具备nesting结构。
 
 再回到理论分析层面，实际执行过程和理论层面的模型之间是怎样的关联呢？实际执行流程对应的是对树执行深度优先后序遍历；
 
-#### Formal analysis的意义
+### Formal analysis的意义
 
-它是理解computation complexity的前提，尤其是对于recursive function。
+1、它是理解computation complexity的前提，尤其是对于recursive function。
+
+2、它是理解 "Optional substructure-最优子结构" 的前提。
 
 ## Recursive function、tree、stack
 

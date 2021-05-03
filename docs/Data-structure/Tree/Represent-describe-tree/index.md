@@ -47,6 +47,10 @@ A tree view:
 
 ### Nested parentheses
 
+> NOTE: 
+>
+> 1、这主要放到了`Parenthese-and-tree`章节
+
 *See also:* [Newick format](https://en.wikipedia.org/wiki/Newick_format) *and* [Dyck language](https://en.wikipedia.org/wiki/Dyck_language)
 
 A correspondence to nested parentheses was first noticed by Sir [Arthur Cayley](https://en.wikipedia.org/wiki/Arthur_Cayley):
