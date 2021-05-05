@@ -57,9 +57,7 @@ The number of noncrossing partitions of an *n*-element set is the [Catalan numbe
 
 > NOTE: 
 >
-> 对于这种，等价于"tree and 括号-Nested parentheses"
->
-> 对应的是Catalan number。
+> 对于这种，等价于"tree and 括号-Nested parentheses"，对应的是Catalan number。
 >
 > 
 
