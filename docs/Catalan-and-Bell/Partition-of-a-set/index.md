@@ -1,12 +1,10 @@
 # Partition of a set
 
-限制条件:
+对于"partition of a set"，可以添加如下限制条件:
 
 1、Noncrossing partition
 
-对于这种，等价于"tree and 括号-Nested parentheses"
-
-对应的是Catalan number
+参见 "wikipedia [Noncrossing partition](https://en.wikipedia.org/wiki/Noncrossing_partition)"
 
 ## wikipedia [Partition of a set](https://en.wikipedia.org/wiki/Partition_of_a_set)
 
@@ -37,7 +35,7 @@ $$
 >
 > 应该不是的
 >
-> 二、关于它的递归公式的推到，参见:
+> 二、关于它的递归公式的推导，参见:
 >
 > 1、cnblogs [集合划分问题](https://www.cnblogs.com/dolphin0520/archive/2011/07/12/2103917.html)
 >
@@ -49,9 +47,17 @@ $$
 
 The number of noncrossing partitions of an *n*-element set is the [Catalan number](https://en.wikipedia.org/wiki/Catalan_number) *Cn*.
 
+> NOTE: 下面会进行说明
+
 
 
 ## wikipedia [Noncrossing partition](https://en.wikipedia.org/wiki/Noncrossing_partition)
 
-
+> NOTE: 
+>
+> 对于这种，等价于"tree and 括号-Nested parentheses"
+>
+> 对应的是Catalan number。
+>
+> 
 
