@@ -1,14 +1,16 @@
 # 前言
 
-最近在catalan数的相关问题，发现这个问题经常作为一个例子出现，所以有必要对它好好地进行分析；
+1、最近在catalan数的相关问题，发现这个问题经常作为一个例子出现，所以有必要对它好好地进行分析；
 
+2、使用parenthesis来进行分析:
 
+入栈对应的是正括号，出栈对应的是反括号。
 
 
 
 ## geeksforgeeks [Check if the given push and pop sequences of Stack is valid or not](https://www.geeksforgeeks.org/check-if-the-given-push-and-pop-sequences-of-stack-is-valid-or-not/)
 
- Given `push[]` and `pop[]` sequences with distinct values. The task is to check if this could have been the result of a sequence of push and pop operations on an initially empty stack. Return “True” if it otherwise returns “False”. 
+Given `push[]` and `pop[]` sequences with distinct values. The task is to check if this could have been the result of a sequence of push and pop operations on an initially empty stack. Return “True” if it otherwise returns “False”. 
 
 ###  **Examples:** 
 
@@ -108,3 +110,9 @@ print(validateStackSequence(pushed, popped))
 
 
 ## csdn [出栈入栈顺序规律](https://blog.csdn.net/qq_1932568757/article/details/82752325)
+
+
+
+## 计数
+
+入栈为开括号、出栈为闭括号，对于stack而言，它必须要括号匹配，因此，所有可能的入栈、出栈就是Catalan number。
