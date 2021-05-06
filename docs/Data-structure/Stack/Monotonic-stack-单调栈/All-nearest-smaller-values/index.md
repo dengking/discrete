@@ -2,10 +2,18 @@
 
 > NOTE: 
 >
-> 两个限制：
+> 一、两个限制：
 >
 > - nearest 最近
-> - smaller 更小
+> - smaller 更小，需要注意的是，不是minimum(最小)
+>
+> 二、这个算法，stack的`top`对应的是current element的nearest smaller，因此，每次当取到current element后，就和`top`进行比较，如果`top`比current element要大，显然可以将它剔除，如此往复，直到找到一个比current element要小的或者直至stack为空。
+>
+> 思考: 为什么可以直接剔除？因为如果`top`比current element要大，显然，`top`不是current element的nearest smaller，并且current element是比top更优秀的值。
+>
+> 如果`top`比current element要小，显然`top`就是nearest smaller。依然要将current value `push`，是因为后续可能遇到比current value更大的。
+>
+> 由于是单调的，因此，stack中的element，自顶向下是递减的。
 
 In [computer science](https://en.wikipedia.org/wiki/Computer_science), the **all nearest smaller values** problem is the following task: 
 
@@ -42,6 +50,8 @@ for each position in a sequence of numbers, search among the previous positions 
 Similar techniques may also be applied to problems of [polygon triangulation](https://en.wikipedia.org/wiki/Polygon_triangulation), [convex hull](https://en.wikipedia.org/wiki/Convex_hull) construction (parallelizing the sequential [Graham scan](https://en.wikipedia.org/wiki/Graham_scan) convex hull algorithm), reconstruction of trees from two of the trees' traversal orderings, and quadtree construction.[[1\]](https://en.wikipedia.org/wiki/All_nearest_smaller_values#cite_note-1)
 
 ## Sequential algorithm
+
+### Using stack
 
 On a sequential computer, it is straightforward to compute all nearest smaller values using a [stack data structure](https://en.wikipedia.org/wiki/Stack_(data_structure)): one processes the values in sequence order, using the stack to maintain a subsequence of the values that have been processed so far and are smaller than any later value that has already been processed. In [pseudocode](https://en.wikipedia.org/wiki/Pseudocode), the algorithm is as follows. 
 
