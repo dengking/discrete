@@ -27,10 +27,17 @@ for each position in a sequence of numbers, search among the previous positions 
 
 [Berkman, Schieber & Vishkin (1993)](https://en.wikipedia.org/wiki/All_nearest_smaller_values#CITEREFBerkmanSchieberVishkin1993) mention many other problems that may be solved efficiently in parallel using a nearest smaller values computation. Among them, they include the following:
 
-1、[Merge algorithms](https://en.wikipedia.org/wiki/Merge_algorithm), computing the merge step of a [merge sort](https://en.wikipedia.org/wiki/Merge_sort). The input to these algorithms consists of two sorted arrays of numbers; the desired output is the same set of numbers in a single sorted array. If one concatenates the two sorted arrays, the first in ascending order and the second in descending order, then the predecessor of each value in the output is either its closest previous smaller value or its closest following smaller value (whichever of the two is larger), and the position of each value in the sorted output array may easily be calculated from the positions of these two nearest smaller values.
+1、[Merge algorithms](https://en.wikipedia.org/wiki/Merge_algorithm), computing the merge step of a [merge sort](https://en.wikipedia.org/wiki/Merge_sort). The input to these algorithms consists of two sorted arrays of numbers; the desired output is the same set of numbers in a single sorted array. If one concatenates the two sorted arrays, the first in ascending order and the second in descending order, then the predecessor(前驱) of each value in the output is either its **closest previous smaller value** or its **closest following smaller value** (whichever of the two is larger), and the position of each value in the sorted output array may easily be calculated from the positions of these two nearest smaller values.
 
-- Construction of [Cartesian trees](https://en.wikipedia.org/wiki/Cartesian_tree). A Cartesian tree is a [data structure](https://en.wikipedia.org/wiki/Data_structure) introduced by [Vuillemin (1980)](https://en.wikipedia.org/wiki/All_nearest_smaller_values#CITEREFVuillemin1980) and further studied by [Gabow, Bentley & Tarjan (1984)](https://en.wikipedia.org/wiki/All_nearest_smaller_values#CITEREFGabowBentleyTarjan1984) for [range searching](https://en.wikipedia.org/wiki/Range_searching) applications. Cartesian trees also arise in the definition of the [treap](https://en.wikipedia.org/wiki/Treap) and [randomized binary search tree](https://en.wikipedia.org/wiki/Randomized_binary_search_tree) data structures for [binary searching](https://en.wikipedia.org/wiki/Binary_search). The Cartesian tree of a sequence of values has a node for each value. The root of the tree is the minimum value of the sequence; for every other node, the parent of the node is either its closest previous smaller value or its closest following smaller value (whichever of the two exists and is larger). Thus, Cartesian trees may be constructed in linear time based on an all nearest smaller values algorithm.
-- Matching [parentheses](https://en.wikipedia.org/wiki/Parenthesis). If a sequence of open and close parenthesis characters is given as input, together with the nesting depth of each parenthesis, then the match to each open parenthesis is the next close parenthesis with no larger nesting depth, so it can be found by an all nearest smaller values computation that breaks ties in favor of close parentheses. If the nesting depths are not given, they can be calculated using a [prefix sum](https://en.wikipedia.org/wiki/Prefix_sum)computation.
+
+
+2、Construction of [Cartesian trees](https://en.wikipedia.org/wiki/Cartesian_tree). A Cartesian tree is a [data structure](https://en.wikipedia.org/wiki/Data_structure) introduced by [Vuillemin (1980)](https://en.wikipedia.org/wiki/All_nearest_smaller_values#CITEREFVuillemin1980) and further studied by [Gabow, Bentley & Tarjan (1984)](https://en.wikipedia.org/wiki/All_nearest_smaller_values#CITEREFGabowBentleyTarjan1984) for [range searching](https://en.wikipedia.org/wiki/Range_searching) applications. Cartesian trees also arise in the definition of the [treap](https://en.wikipedia.org/wiki/Treap) and [randomized binary search tree](https://en.wikipedia.org/wiki/Randomized_binary_search_tree) data structures for [binary searching](https://en.wikipedia.org/wiki/Binary_search). The Cartesian tree of a sequence of values has a node for each value. The root of the tree is the minimum value of the sequence; for every other node, the parent of the node is either its closest previous smaller value or its closest following smaller value (whichever of the two exists and is larger). Thus, Cartesian trees may be constructed in linear time based on an all nearest smaller values algorithm.
+
+3、Matching [parentheses](https://en.wikipedia.org/wiki/Parenthesis). If a sequence of open and close parenthesis characters is given as input, together with the nesting depth of each parenthesis, then the match to each open parenthesis is the next close parenthesis with no larger nesting depth, so it can be found by an all nearest smaller values computation that breaks ties in favor of close parentheses. If the nesting depths are not given, they can be calculated using a [prefix sum](https://en.wikipedia.org/wiki/Prefix_sum) computation.
+
+> NOTE: 
+>
+> 1、此处的prefix sum的含义是什么？
 
 Similar techniques may also be applied to problems of [polygon triangulation](https://en.wikipedia.org/wiki/Polygon_triangulation), [convex hull](https://en.wikipedia.org/wiki/Convex_hull) construction (parallelizing the sequential [Graham scan](https://en.wikipedia.org/wiki/Graham_scan) convex hull algorithm), reconstruction of trees from two of the trees' traversal orderings, and quadtree construction.[[1\]](https://en.wikipedia.org/wiki/All_nearest_smaller_values#cite_note-1)
 
@@ -50,13 +57,15 @@ for x in the input sequence:
     push x onto S
 ```
 
-> NOTE: 	该算法的目的是寻找最近的并且比我小的元素，显然它有两个需求：
+> NOTE: 	
+>
+> 一、该算法的目的是寻找最近的并且比我小的元素，显然它有两个需求：
 >
 > 1、最近
 >
 > 2、比我小（肯定要基于比较）
 >
-> 对这个问题的分析要搞清楚的是，它的最值是在**最近**上，而不是在**最小**上，栈的这种后进先出的特性是非常适合于本问题所需求的**最近**，借助栈，我们可以将过去的状态保留下来，所以对于每个新元素，从栈顶到栈底，距离它越来越远；我们需要考虑的是结合问题的特性来决定何时pop，从算法的实现上来看，这个算法所操作的仅仅是栈顶的元素：
+> 对这个问题的分析要搞清楚的是，它的最值是在**最近**上，而不是在**最小**上，栈的这种后进先出的特性是非常适合于本问题所需求的**最近**，借助栈，我们可以将过去的状态保留下来(这是非常重要的)，所以对于每个新元素，从栈顶到栈底，距离它越来越远；我们需要考虑的是结合问题的特性来决定何时pop，从算法的实现上来看，这个算法所操作的仅仅是栈顶的元素：
 >
 > ```
 > while S is nonempty and the top element of S is greater than or equal to x:
@@ -65,19 +74,31 @@ for x in the input sequence:
 >
 > 这是决定何时出栈，本算法的需求是求**最近比我小的元素**，当我发现此时栈顶的元素还比我大的时候，显然这个元素既没有我更近，也没我更小，所以按照这两个标准，我是能够替代它的，所以可以将**他们**全部pop，即将他们都淘汰；
 >
+> 当我发现此时栈顶的元素比我还小的时候，我不能够替代它，因为按照标准，虽然我更加近，但是我更大。
+>
 > 以下是几个典型的例子：
 >
+> ```C++
 > 1、2、3、4、5、6、7、8、1
+> ```
+>
+> 
 >
 > 这个例子是序列是递增的，显然，会一直压栈知道第二个1出现，此时会接入`while`循环，`while`循环不停地出栈，直到栈为空；
 >
+> ```C++
 > 2、3、4、5、6、7、8、9、1
+> ```
+>
+> 
 
-
+### Computation complexity
 
 Despite having a nested loop structure, the running time of this algorithm is linear, because every iteration of the inner loop removes an item that had been added in some previous iteration of the outer loop. It is closely related to an algorithm of [Knuth](https://en.wikipedia.org/wiki/Donald_Knuth) for [sorting with a stack](https://en.wikipedia.org/wiki/Stack-sortable_permutation) (for inputs that can be sorted in this way).[[2\]](https://en.wikipedia.org/wiki/All_nearest_smaller_values#cite_note-2)
 
-An even simpler linear-time sequential algorithm ([Barbay, Fischer & Navarro (2012)](https://en.wikipedia.org/wiki/All_nearest_smaller_values#CITEREFBarbayFischerNavarro2012), Lemma 1) does not even need a stack; it assumes that the input sequence is given as an array A[1,n], and stores the index `j` of the preceding smaller value of the i'th value A[i] in P[i]. We assume an artificial（假设的） overall minimum at A[0]:
+### Simpler linear-time sequential algorithm 
+
+An even simpler linear-time sequential algorithm ([Barbay, Fischer & Navarro (2012)](https://en.wikipedia.org/wiki/All_nearest_smaller_values#CITEREFBarbayFischerNavarro2012), Lemma 1) does not even need a stack; it assumes that the input sequence is given as an array `A[1,n]`, and stores the index `j` of the preceding smaller value of the i'th value `A[i]` in `P[i]`. We assume an artificial（假设的） overall minimum at `A[0]`:
 
 ```pseudocode
 for i from 1 to n:
