@@ -1,1 +1,3 @@
-## [单调栈解题模板秒杀三道算法题](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247487704&idx=1&sn=eb9ac24c644aa0950638c9b20384e982&chksm=9bd7eed0aca067c6b4424c40b7f234c815f83edfbb5efc9f51581335f110e9577114a528f3ec&scene=21#wechat_redirect)
+# labuladong [单调栈解题模板秒杀三道算法题](https://mp.weixin.qq.com/s/KYfjBejo84AmajnPZNs5nA)
+
+单调栈实际上就是栈，只是利用了一些巧妙的逻辑，使得**每次新元素入栈后，栈内的元素都保持有序**（单调递增或单调递减）。

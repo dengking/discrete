@@ -1,6 +1,6 @@
-[TOC]
+# Merge algorithm
 
-# [Merge algorithm](https://en.wikipedia.org/wiki/Merge_algorithm)
+## wikipedia [Merge algorithm](https://en.wikipedia.org/wiki/Merge_algorithm)
 
  **Merge algorithms** are a family of [algorithms](https://en.wikipedia.org/wiki/Algorithm) that take multiple [sorted](https://en.wikipedia.org/wiki/Sorting_algorithm) lists as input and produce a single list as output, containing all the elements of the inputs lists in sorted order. These algorithms are used as [subroutines](https://en.wikipedia.org/wiki/Subroutine) in various [sorting algorithms](https://en.wikipedia.org/wiki/Sorting_algorithm), most famously [merge sort](https://en.wikipedia.org/wiki/Merge_sort). 
 
@@ -8,8 +8,9 @@
 
  The merge algorithm plays a critical role in the [merge sort](https://en.wikipedia.org/wiki/Merge_sort) algorithm, a [comparison-based sorting algorithm](https://en.wikipedia.org/wiki/Comparison_sort). Conceptually, merge sort algorithm consists of two steps: 
 
-1. [Recursively](https://en.wikipedia.org/wiki/Recursion_(computer_science)) divide the list into sublists of (roughly) equal length, until each sublist contains only one element, or in the case of iterative (bottom up) merge sort, consider a list of *n* elements as *n* sub-lists of size 1. A list containing a single element is, by definition, sorted.
-2. Repeatedly **merge** sublists to create a new sorted sublist until the single list contains all elements. The single list is the sorted list.
+1、[Recursively](https://en.wikipedia.org/wiki/Recursion_(computer_science)) divide the list into sublists of (roughly) equal length, until each sublist contains only one element, or in the case of iterative (bottom up) merge sort, consider a list of *n* elements as *n* sub-lists of size 1. A list containing a single element is, by definition, sorted.
+
+2、Repeatedly **merge** sublists to create a new sorted sublist until the single list contains all elements. The single list is the sorted list.
 
 
 
