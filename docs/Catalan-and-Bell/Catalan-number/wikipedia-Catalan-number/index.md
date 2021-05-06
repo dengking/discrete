@@ -43,31 +43,19 @@ The Catalan numbers satisfy the [recurrence relations](https://en.wikipedia.org/
 >
 > 2、需要以"divide and conquer-原问题 子问题"
 >
->  在位置`i`初，断开，
+>  在位置`i`初，断开，则左侧子问题的解空间的个数为$C_{i}$，右侧子问题的解空间个数为$C_{n-i}$，原问题的解空间个数是由左右两侧子问题的解组合而成，因此应该使用乘法而不是加法。
+>
+> 
 
- $ \sum _{i_{1}+\cdots +i_{m}=n,i_{1},\ldots ,i_{m}\geq 0}C_{i_{1}}\cdots C_{i_{m}}={\begin{cases}{\dfrac {m(n+1)(n+2)\cdots (n+m/2-1)}{2(n+m/2+2)(n+m/2+3)\cdots (n+m)}}C_{n+m/2},&m{\text{ even}}\\[5pt]{\dfrac {m(n+1)(n+2)\cdots (n+(m-1)/2)}{(n+(m+3)/2)(n+(m+3)/2+1)\cdots (n+m)}}C_{n+(m-1)/2},&m{\text{ odd,}}\end{cases}} $ 
+$$
+{\displaystyle \sum _{i_{1}+\cdots +i_{m}=n,i_{1},\ldots ,i_{m}\geq 0}C_{i_{1}}\cdots C_{i_{m}}={\begin{cases}{\dfrac {m(n+1)(n+2)\cdots (n+m/2-1)}{2(n+m/2+2)(n+m/2+3)\cdots (n+m)}}C_{n+m/2},&m{\text{ even}}\\[5pt]{\dfrac {m(n+1)(n+2)\cdots (n+(m-1)/2)}{(n+(m+3)/2)(n+(m+3)/2+1)\cdots (n+m)}}C_{n+(m-1)/2},&m{\text{ odd,}}\end{cases}}}
+$$
 
- and 
+> NOTE: 
+>
+> 1、原文后面是一系列的数学公式推导
 
- $ C_{0}=1\quad {\text{and}}\quad C_{n+1}={\frac {2(2n+1)}{n+2}}C_{n}. $ 
 
-
-
- Asymptotically, the Catalan numbers grow as 
-
- $ C_{n}\sim {\frac {4^{n}}{n^{3/2}{\sqrt {\pi }}}} $ 
-
- in the sense that the quotient of the *n*th Catalan number and the expression on the right [tends towards](https://en.wikipedia.org/wiki/Limit_of_a_function) 1 as *n* approaches infinity. This can be proved by using [Stirling's approximation](https://en.wikipedia.org/wiki/Stirling's_approximation) for *n*! or via generating functions; see the [Asymptotic growth of the Catalan numbers](https://en.wikipedia.org/wiki/Generating_function#Asymptotic_growth_of_the_Catalan_numbers) section of the [Generating function](https://en.wikipedia.org/wiki/Generating_function) article. 
-
- The only Catalan numbers $C_n$ that are odd are those for which $n = 2^k − 1$; all others are even. The only prime Catalan numbers are $C_2 = 2$ and $C_3 = 5$.[[2\]](https://en.wikipedia.org/wiki/Catalan_number#cite_note-2) 
-
- The Catalan numbers have an integral representation 
-
- $ C_{n}=\int _{0}^{4}x^{n}\rho (x)\,dx, $ 
-
- where $ \rho (x)={\tfrac {1}{2\pi }}{\sqrt {\tfrac {4-x}{x}}}. $ This means that the Catalan numbers are a solution of the [Hausdorff moment problem](https://en.wikipedia.org/wiki/Hausdorff_moment_problem) on the interval [0, 4] instead of [0, 1]. The [orthogonal polynomials](https://en.wikipedia.org/wiki/Orthogonal_polynomials) having the weight function $ \rho (x) $ on $ [0,4] $ are 
-
- $ H_{n}(x)=\sum _{k=0}^{n}{n+k \choose n-k}(-x)^{k}. $ 
 
 
 
@@ -75,7 +63,9 @@ The Catalan numbers satisfy the [recurrence relations](https://en.wikipedia.org/
 
 There are many counting problems in [combinatorics](https://en.wikipedia.org/wiki/Combinatorics) whose solution is given by the **Catalan numbers**. The book *Enumerative Combinatorics: Volume 2* by combinatorialist [Richard P. Stanley](https://en.wikipedia.org/wiki/Richard_P._Stanley) contains a set of exercises which describe 66 different interpretations（解释） of the **Catalan numbers**. Following are some examples, with illustrations of the cases $C_3 = 5$ and $C_4 = 14$. 
 
-- $C_n$ is the number of [Dyck words](https://en.wikipedia.org/wiki/Dyck_word)[[3\]](https://en.wikipedia.org/wiki/Catalan_number#cite_note-3) of length $2n$. A Dyck word is a [string](https://en.wikipedia.org/wiki/String_(computer_science)) consisting of *n* X's and *n* Y's such that no initial segment of the string has more Y's than X's. For example, the following are the Dyck words of length 6:
+### Dyck word
+
+$C_n$ is the number of [Dyck words](https://en.wikipedia.org/wiki/Dyck_word)[[3\]](https://en.wikipedia.org/wiki/Catalan_number#cite_note-3) of length $2n$. A Dyck word is a [string](https://en.wikipedia.org/wiki/String_(computer_science)) consisting of *n* X's and *n* Y's such that no initial segment of the string has more Y's than X's. For example, the following are the Dyck words of length 6:
 
 `XXXYYY   XYXXYY   XYXYXY   XXYYXY   XXYXYY.`
 
