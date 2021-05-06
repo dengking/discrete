@@ -20,8 +20,5 @@ Among the many things counted by the nnth Catalan number is the number of [non-c
 
 Since every non-crossing partition is, in particular, a partition, the number of non-crossing partitions cannot exceed the number of partitions, which is the nnth Bell number.
 
-## Catalan 
 
-1、expression tree、Parenthese-and-tree
 
-2、noncrossing partition
