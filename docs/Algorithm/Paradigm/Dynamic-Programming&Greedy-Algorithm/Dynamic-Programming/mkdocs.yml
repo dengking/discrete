@@ -2,6 +2,7 @@ nav:
     - Introduction: index.md
     - wikipedia-Dynamic-programming: wikipedia-Dynamic-programming
     - Overlapping-subproblems: Overlapping-subproblems.md
+    - Catalan: Catalan
     - LCS-最长公共子序列: LCS-最长公共子序列
     - VS-最长公共子序列-VS-矩阵连乘问题-VS-最大子段和: VS-最长公共子序列-VS-矩阵连乘问题-VS-最大子段和.md
 

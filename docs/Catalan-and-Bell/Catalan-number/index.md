@@ -18,3 +18,8 @@
 
 2、noncrossing partition
 
+
+
+## 如何解Catalan问题？
+
+1、使用dynamic programming，参见`Dynamic-Programming`的`Catalan`章节。
