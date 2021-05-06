@@ -111,7 +111,17 @@ $C_n$ is the number of monotonic [lattice paths](https://en.wikipedia.org/wiki/L
 >
 > 1、最后一句话提示我们: lattice path 和 dyck word 的一一对应关系
 
+### 7、[convex polygon](https://en.wanweibaike.com/wiki-Convex_polygon) non-crossing [triangulation](https://en.wanweibaike.com/wiki-Triangle)
 
+> NOTE: 
+>
+> 1、凸多边形的非交叉三角剖分，参见 `凸多边形的最优三角剖分` 章节
+>
+> 
 
+A [convex polygon](https://en.wanweibaike.com/wiki-Convex_polygon) with *n* + 2 sides can be cut into [triangles](https://en.wanweibaike.com/wiki-Triangle) by connecting vertices with non-crossing [line segments](https://en.wanweibaike.com/wiki-Line_segment) (a form of [polygon triangulation](https://en.wanweibaike.com/wiki-Polygon_triangulation)).
 
+### 8、 [stack](https://en.wanweibaike.com/wiki-Stack_(data_structure))-sortable [permutations](https://en.wanweibaike.com/wiki-Permutation) 
+
+*Cn* is the number of [stack](https://en.wanweibaike.com/wiki-Stack_(data_structure))-sortable [permutations](https://en.wanweibaike.com/wiki-Permutation) of {1, ..., *n*}. 
 
