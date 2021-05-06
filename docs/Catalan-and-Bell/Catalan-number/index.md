@@ -12,14 +12,17 @@
 
 
 
-## Catalan 
-
-1、expression tree、Parenthese-and-tree
-
-2、noncrossing partition
-
 
 
 ## 如何解Catalan问题？
 
 1、使用dynamic programming，参见`Dynamic-Programming`的`Catalan`章节。
+
+
+
+## 如何理解、分析Catalan ？
+
+1、expression tree、Parenthese-and-tree
+
+2、noncrossing partition
+

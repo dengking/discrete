@@ -75,6 +75,10 @@ $C_n$ is the number of [Dyck words](https://en.wikipedia.org/wiki/Dyck_word)[[3\
 
 ### 2、Matched parentheses 
 
+> NOTE: 
+>
+> 1、很多问题都可以转换为Matched parentheses 
+
 Re-interpreting the symbol X as an open [parenthesis](https://en.wikipedia.org/wiki/Bracket#Parentheses) and Y as a close parenthesis, $C_n$ counts the number of expressions containing *n* pairs of parentheses which are correctly matched:
 
  `((()))   ()(())   ()()()   (())()   (()())` 
