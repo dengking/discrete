@@ -60,6 +60,12 @@ Because this algorithm is a [comparison sort](https://en.wanweibaike.com/wiki-Co
 
 
 
+### Bijections and enumeration
+
+> NOTE: 
+>
+> 1、没有读懂
+
 ## 判断算法
 
 1、下面的给出的判定算法是有局限性的: 输入需要是连续的数字，否则无法判断
