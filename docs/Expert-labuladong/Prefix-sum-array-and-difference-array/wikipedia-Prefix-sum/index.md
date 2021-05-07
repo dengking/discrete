@@ -1,0 +1,1 @@
+# wanweibaike [Prefix sum](https://en.wanweibaike.com/wiki-Prefix%20sum)

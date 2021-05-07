@@ -1,4 +1,4 @@
 nav:
-    - Greedy-algorithm: Greedy-algorithm.md
-    - Huffman-Coding: Huffman-Coding.md
+    - Introduction: index.md
+    - Huffman-Coding: Huffman-Coding
     - Reading-list: Reading-list.md
