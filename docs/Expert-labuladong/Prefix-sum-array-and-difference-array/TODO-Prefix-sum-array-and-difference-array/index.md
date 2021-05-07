@@ -1,0 +1,1 @@
+# wcipeg [Prefix sum array and difference array](https://wcipeg.com/wiki/Prefix_sum_array_and_difference_array)
