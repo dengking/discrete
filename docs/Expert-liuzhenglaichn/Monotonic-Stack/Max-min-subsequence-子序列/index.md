@@ -61,6 +61,8 @@ leetcode [402. 移掉K位数字](https://leetcode-cn.com/problems/remove-k-digit
 
 ## 解题思路、策略
 
+这些题都是monotonic stack的典型应用。
+
 对于 leetcode [316. 去除重复字母](https://leetcode-cn.com/problems/remove-duplicate-letters/) ( leetcode  [1081. 不同字符的最小子序列](https://leetcode-cn.com/problems/smallest-subsequence-of-distinct-characters/) )、leetcode [402. 移掉K位数字](https://leetcode-cn.com/problems/remove-k-digits/) : 
 
 1、Monotonic-stack+greedy
