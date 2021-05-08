@@ -33,3 +33,21 @@ geeksforgeeks [Write a program to print all permutations of a given string](http
 
 
 https://leetcode-cn.com/problems/permutations-ii/solution/hui-su-suan-fa-python-dai-ma-java-dai-ma-by-liwe-2/
+
+
+
+## TODO
+
+baike [字典序](https://baike.baidu.com/item/%E5%AD%97%E5%85%B8%E5%BA%8F/7786229?fr=aladdin#5)
+
+baike [全排列](https://baike.baidu.com/item/%E5%85%A8%E6%8E%92%E5%88%97)
+
+
+
+baike [中介数](https://baike.baidu.com/item/%E4%B8%AD%E4%BB%8B%E6%95%B0/12796689?fr=aladdin)
+
+csdn [全排列及相关扩展算法（三）——利用中介数求排列在字典序排位算法](https://blog.csdn.net/sm9sun/article/details/77258384)
+
+
+
+wanweibaike [Permutation](https://en.wanweibaike.com/wiki-Next%20permutation) # Permutations in computing
