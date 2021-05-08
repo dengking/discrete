@@ -1,4 +1,4 @@
-# divide-and conquer 算法的框架
+# divide-and-conquer 算法的框架
 
 来源：《计算机算法设计与分析》第四版王晓东编著
 

@@ -6,8 +6,7 @@
 >
 > 一、这个解题是非常好的，它详细说明了思路:
 >
-> 1、divide-and-conquer
->
-> 2、merge
+> 1、divide-and-conquer-and-merge
 >
 > 
+
