@@ -235,7 +235,7 @@ return slow;
 
 > NOTE: 
 >
-> 1、这是典型的n-sum问题
+> 1、这是典型的n-sum问题，原题: leetcode [剑指 Offer 57. 和为s的两个数字](https://leetcode-cn.com/problems/he-wei-sde-liang-ge-shu-zi-lcof/)
 
 直接看一道 LeetCode 题目吧：
 
