@@ -4,5 +4,6 @@ nav:
     - VS-double-linked-list-VS-binary-tree: VS-double-linked-list-VS-binary-tree.md
     - VS-Unrolled-linked list-VS-B-tree: VS-Unrolled-linked list-VS-B-tree.md
     - Sentinel-node: Sentinel-node
+    - TODO-Dummy-node: TODO-Dummy-node
     - Circle-detection: Circle-detection
     - LeetCode: LeetCode

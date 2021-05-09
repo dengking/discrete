@@ -5,3 +5,4 @@
 2、根据整理的内容来看，Sentinel node可以用于实现double linked list
 
 ## wikipedia [Sentinel node](https://en.wikipedia.org/wiki/Sentinel_node)
+

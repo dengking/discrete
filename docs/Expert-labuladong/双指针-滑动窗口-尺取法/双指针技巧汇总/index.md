@@ -180,12 +180,6 @@ return slow;
 
 
 
-> NOTE: 
->
-> 1、leetcode [面试题 02.03. 删除中间节点](https://leetcode-cn.com/problems/delete-middle-node-lcci/)
->
-> 2、
-
 ### *4*、寻找链表的倒数第 k 个元素
 
 
@@ -195,7 +189,7 @@ return slow;
 > NOTE: 
 > 1、两者之间始终相距 k个元素
 
-```
+```C++
 ListNode slow, fast;
 slow = fast = head;
 while (k-- > 0) 
