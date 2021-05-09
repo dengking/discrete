@@ -1,37 +1,10 @@
-# labuladong [一个函数秒杀 2Sum 3Sum 4Sum 问题](https://mp.weixin.qq.com/s/fSyJVvggxHq28a0SdmZm6Q)
 
-## 一、twoSum 问题
 
-```C++
-vector<int> twoSum(vector<int> &nums, int target)
-{
-	// 先对数组排序
-	sort(nums.begin(), nums.end());
-	// 左右指针
-	int lo = 0, hi = nums.size() - 1;
-	while (lo < hi)
-	{
-		int sum = nums[lo] + nums[hi];
-		// 根据 sum 和 target 的比较，移动左右指针
-		if (sum < target)
-		{
-			lo++;
-		}
-		else if (sum > target)
-		{
-			hi--;
-		}
-		else if (sum == target)
-		{
-			return
-			{	nums[lo], nums[hi]};
-		}
-	}
-	return {};
-}
+[LeetCode-1-两数之和](https://leetcode-cn.com/problems/two-sum/)  (无序)
 
-```
+给定一个整数数组 `nums` 和一个整数目标值 `target`，请你在该数组中找出 **和为目标值** 的那 **两个** 整数，并返回它们的数组下标。
 
-> NOTE: 
->
-> 1、binary search
+[LeetCode-剑指-Offer-57-和为s的两个数字](https://leetcode-cn.com/problems/he-wei-sde-liang-ge-shu-zi-lcof/)  (有序)
+
+输入一个递增排序的数组和一个数字s，在数组中查找两个数，使得它们的和正好是s。如果有多对数字的和等于s，则输出任意一对即可。
+
