@@ -9,3 +9,4 @@
 > 3、让`[0、slow]`包含所有的不重复元素，fast指针在前进过程中，一旦发现了`array[fast]`和`array[slow]`不相等，则说明需要扩展`[0、slow]`区间了
 >
 > 4、这个算法让我想到了C++remove erase idiom
+
