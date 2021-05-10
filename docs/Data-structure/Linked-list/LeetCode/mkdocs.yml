@@ -1,6 +1,6 @@
 nav:
     - Introduction: index.md
-    - LeetCode-141-环形链表: LeetCode-141-环形链表
+    - Fast-slow-pointer-快慢双指针: Fast-slow-pointer-快慢双指针
     - LeetCode-147-对链表进行插入排序: LeetCode-147-对链表进行插入排序
     - 去重: 去重
     - LeetCode-面试题-02.02-返回倒数第k个节点- LeetCode-面试题-02.02-返回倒数第k个节点
