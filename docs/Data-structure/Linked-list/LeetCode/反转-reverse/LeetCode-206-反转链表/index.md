@@ -100,9 +100,11 @@ int main()
 
 ```
 
-上述递归版本的实现，相较于
+1、上述递归版本的实现，相较于 [官方解题](https://leetcode-cn.com/problems/reverse-linked-list/solution/fan-zhuan-lian-biao-by-leetcode-solution-d1k2/) 中的递归版本是更加容易理解的，它和迭代版本有着较好的对应。
 
+2、recursion and iteration
 
+3、"One-by-one-move next-向后滑动一步"
 
 ## [官方解题](https://leetcode-cn.com/problems/reverse-linked-list/solution/fan-zhuan-lian-biao-by-leetcode-solution-d1k2/)
 
