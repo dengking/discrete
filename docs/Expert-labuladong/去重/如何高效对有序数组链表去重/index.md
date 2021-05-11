@@ -136,11 +136,13 @@ int main()
 
 最后，近期准备写写一些简单实用的数组/链表技巧。那些稍困难的技巧（比如动态规划）虽然秀，但毕竟在现实生活中不容易遇到。恰恰是一些简单常用的技巧，能够在不经意间，让人发现你是个高手 ^_^。
 
-#### Java source code
-
 
 
 #### C++ source code
+
+> NOTE: 
+>
+> 参见 `LeetCode-83-删除排序链表中的重复元素` 章节
 
 ## Leetcode [26. 删除有序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/)
 

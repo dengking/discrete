@@ -1,7 +1,10 @@
 nav:
-    - Introduction: index.md
+
+    - Previous-current-next-pointer: Previous-current-next-pointer    
     - Fast-slow-pointer-快慢双指针: Fast-slow-pointer-快慢双指针
-    - LeetCode-147-对链表进行插入排序: LeetCode-147-对链表进行插入排序
+    - 排序: 排序
     - 去重: 去重
-    - LeetCode-面试题-02.02-返回倒数第k个节点- LeetCode-面试题-02.02-返回倒数第k个节点
-    - 公共节点: 公共节点
+    - 反转-reverse: 反转-reverse
+    - 合并-Merge: 合并-Merge
+    - 公共节点: 公共节点    
+
