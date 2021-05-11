@@ -1,5 +1,6 @@
 nav:
-    - Automata-theory: Automata-theory.md
+    - Introduction: index.md
     - Abstract-machine: Abstract-machine.md
+    - Turinig-machine: Turinig-machine
     - Finite-state-machine: Finite-state-machine
     - Automata-software: Automata-software.md
