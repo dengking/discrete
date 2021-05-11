@@ -1,7 +1,6 @@
 nav:
     - Introduction: index.md
     - wikipedia-Dynamic-programming: wikipedia-Dynamic-programming
-    - Overlapping-subproblem: Overlapping-subproblem
     - Catalan: Catalan
     - Subsequence(子序列): Subsequence(子序列)
     - LeetCode-322-零钱兑换: LeetCode-322-零钱兑换

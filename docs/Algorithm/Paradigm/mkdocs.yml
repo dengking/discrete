@@ -4,7 +4,7 @@ nav:
     - Brute-force: Brute-force
     - Divide-and-Conquer: Divide-and-Conquer
     - DP&Greedy: DP&Greedy
-
+    - State-space-search: State-space-search
 
     - Heuristic: Heuristic
     - Statistical-algorithms: Statistical-algorithms
