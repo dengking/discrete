@@ -1,3 +1,5 @@
 nav:
     - Introduction: index.md
-    
+    - LCS-最长公共子序列: LCS-最长公共子序列
+    - LIS-最长递增子序列: LIS-最长递增子序列
+    - LeetCode-115-不同的子序列: LeetCode-115-不同的子序列
