@@ -1,4 +1,4 @@
-# 最大、最小 子序列(subsequence)
+# Monotonic stack解 "最大、最小 子序列(subsequence)"
 
 ## leetcode [402. 移掉K位数字](https://leetcode-cn.com/problems/remove-k-digits/) # [一招吃遍力扣四道题，妈妈再也不用担心我被套路啦～](https://leetcode-cn.com/problems/remove-k-digits/solution/yi-zhao-chi-bian-li-kou-si-dao-ti-ma-ma-zai-ye-b-5/)
 
@@ -26,8 +26,6 @@
 leetcode [316. 去除重复字母](https://leetcode-cn.com/problems/remove-duplicate-letters/) ( leetcode  [1081. 不同字符的最小子序列](https://leetcode-cn.com/problems/smallest-subsequence-of-distinct-characters/) )
 
 leetcode [402. 移掉K位数字](https://leetcode-cn.com/problems/remove-k-digits/)
-
-
 
 leetcode [321. 拼接最大数](https://leetcode-cn.com/problems/create-maximum-number/)
 
@@ -63,9 +61,13 @@ leetcode [402. 移掉K位数字](https://leetcode-cn.com/problems/remove-k-digit
 
 这些题都是monotonic stack的典型应用。
 
-对于 leetcode [316. 去除重复字母](https://leetcode-cn.com/problems/remove-duplicate-letters/) ( leetcode  [1081. 不同字符的最小子序列](https://leetcode-cn.com/problems/smallest-subsequence-of-distinct-characters/) )、leetcode [402. 移掉K位数字](https://leetcode-cn.com/problems/remove-k-digits/) : 
+leetcode [402. 移掉K位数字](https://leetcode-cn.com/problems/remove-k-digits/) : 
 
-1、Monotonic-stack+greedy
+1、Monotonic-stack+greedy+lexicographical-order-字典序
+
+对于 leetcode [316. 去除重复字母](https://leetcode-cn.com/problems/remove-duplicate-letters/) ( leetcode  [1081. 不同字符的最小子序列](https://leetcode-cn.com/problems/smallest-subsequence-of-distinct-characters/) )
+
+1、Monotonic-stack+greedy+lexicographical-order-字典序+visited array去重+counter array
 
 对于 leetcode [321. 拼接最大数](https://leetcode-cn.com/problems/create-maximum-number/)，它是前面类型题目的升级版，它的解题策略概括为:
 

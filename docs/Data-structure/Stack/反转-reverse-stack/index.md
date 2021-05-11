@@ -1,6 +1,6 @@
-# [Reverse a stack using recursion](https://www.geeksforgeeks.org/reverse-a-stack-using-recursion/)
+## geeksforgeeks [Reverse a stack using recursion](https://www.geeksforgeeks.org/reverse-a-stack-using-recursion/)
 
-## 问题描述
+### 问题描述
 
 Write a program to reverse a stack using recursion. You are not allowed to use loop constructs like `while`, `for`..etc, and you can only use the following ADT functions on Stack `S`: 
 
@@ -10,11 +10,11 @@ push(S)
 pop(S) 
 ```
 
-***SUMMARY*** : 上述三个操作是这个问题的限制，也就是说在我们的实现中只能够使用上述三个操作；该问题的另外一个限制是只能够使用递归，不能够使用`while`；
+> NOTE: 上述三个操作是这个问题的限制，也就是说在我们的实现中只能够使用上述三个操作；该问题的另外一个限制是只能够使用递归，不能够使用`while`；
 
-[Recommended: Please try your approach on ***{IDE}\*** first, before moving on to the solution.](https://ide.geeksforgeeks.org/)
 
-## 算法
+
+### 算法
 
 The idea of the solution is to hold all values in **Function Call Stack** until **the stack** becomes **empty**. When the stack becomes **empty**, insert all held items one by one at the **bottom** of the stack.
 
@@ -173,11 +173,11 @@ int main()
 
 ***SUMMARY*** : 上述解法其实本质上来说是借助两个stack来实现reverse，每个stack类似于 [Tower of Hanoi](https://en.wikipedia.org/wiki/Tower_of_Hanoi) 中的一根柱子；在这个例子中，我需要借鉴的一个技巧就是对function call stack的运用，这是一个非常好的demo；
 
-### `reverse`
+#### `reverse`
 
-这个函数其实是将`st`柱子清空，然后再将栈中的元素给放回来；
+> 这个函数其实是将`st`柱子清空，然后再将栈中的元素给放回来；
 
-### `insertAtBottom`
+#### `insertAtBottom`
 
 ```c++
 // Below is a recursive function 
@@ -212,10 +212,12 @@ char insert_at_bottom(char x)
 } 
 ```
 
-上述函数所实现的其实可以这样形象的来理解：我们把`st`看做是一个柱子，上面摞着一堆的碟子，上述过程就是将`st`柱子上的元素移动到另一个柱子上，这个柱子就是function call stack；当`st`柱子为空的时候，就将元素`x`放到该柱子上，然后将function call stack柱子上的元素移回来；上述代码是使用递归来实现的；这个递归，我觉得比较类似于结构化递归，即沿着栈来进行递归；
+> NOTE: 
+>
+> 上述函数所实现的其实可以这样形象的来理解：我们把`st`看做是一个柱子，上面摞着一堆的碟子，上述过程就是将`st`柱子上的元素移动到另一个柱子上，这个柱子就是function call stack；当`st`柱子为空的时候，就将元素`x`放到该柱子上，然后将function call stack柱子上的元素移回来；上述代码是使用递归来实现的；这个递归，我觉得比较类似于结构化递归，即沿着栈来进行递归；
 
 
 
 
 
-# [Reverse a stack without using extra space in O(n)](https://www.geeksforgeeks.org/reverse-stack-without-using-extra-space/)
+## geeksforgeeks [Reverse a stack without using extra space in O(n)](https://www.geeksforgeeks.org/reverse-stack-without-using-extra-space/)
