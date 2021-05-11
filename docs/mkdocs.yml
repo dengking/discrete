@@ -6,11 +6,14 @@ nav:
     - Algorithm: Algorithm
     - Data-structure: Data-structure
 
-    - Course-YSC2229-Introductory-Data-Structures-and-Algorithms: Course-YSC2229-Introductory-Data-Structures-and-Algorithms
-    - Course-cornell-cs3110: Course-cornell-cs3110
+    
     - LeetCode: LeetCode
     - Expert-labuladong: Expert-labuladong
     - Expert-martinbroadhurst: Expert-martinbroadhurst
+
+    - Course-YSC2229-Introductory-Data-Structures-and-Algorithms: Course-YSC2229-Introductory-Data-Structures-and-Algorithms
+    - Course-cornell-cs3110: Course-cornell-cs3110
     - Book-Foundations-of-Computer-Science: Book-Foundations-of-Computer-Science
+
     - TODO: TODO
     
