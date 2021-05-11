@@ -1,7 +1,7 @@
 nav:
 
     - Previous-current-next-pointer: Previous-current-next-pointer    
-    - Fast-slow-pointer-快慢双指针: Fast-slow-pointer-快慢双指针
+    - Fast-slow-double-pointer-快慢双指针: Fast-slow-double-pointer-快慢双指针
     - 排序: 排序
     - 去重: 去重
     - 反转-reverse: 反转-reverse

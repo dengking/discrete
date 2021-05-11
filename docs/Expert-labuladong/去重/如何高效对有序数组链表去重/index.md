@@ -142,7 +142,13 @@ int main()
 
 > NOTE: 
 >
-> 参见 `LeetCode-83-删除排序链表中的重复元素` 章节
+> 参见: 
+>
+> 1、`LeetCode-83-删除排序链表中的重复元素` 章节
+>
+> 2、leetcode [83. 删除排序链表中的重复元素](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/) 
+>
+> 
 
 ## Leetcode [26. 删除有序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/)
 
