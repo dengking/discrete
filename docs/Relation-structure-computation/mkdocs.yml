@@ -7,4 +7,5 @@ nav:
     # 关系
     - Computation: Computation
     - Model: Model
+    # 使用 Relation-structure-computation 章节中的思想来进行分析    
     - Function-recursion-tree-stack: Function-recursion-tree-stack
