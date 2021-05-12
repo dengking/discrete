@@ -95,3 +95,131 @@ int main()
 
 ```
 
+
+
+```C++
+#include <bits/stdc++.h>
+using namespace std;
+
+/**
+ * @brief 作者：LeetCode-Solution
+ 链接：https://leetcode-cn.com/problems/subsets/solution/zi-ji-by-leetcode-solution/
+ 来源：力扣（LeetCode）
+ 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+ *
+ */
+class Solution
+{
+public:
+	vector<int> t;
+	vector<vector<int>> ans;
+
+	vector<vector<int>> subsets(vector<int> &nums)
+	{
+		size_t len = nums.size();
+		for (size_t mask = 0; mask < (1u << len); ++mask)
+		{
+			t.clear();
+			for (size_t i = 0; i < len; ++i) // 遍历 bit
+			{
+				if (mask & (1 << i)) // 使用bitwise AND 来 Querying the status of a bit
+				{
+					t.push_back(nums[i]);
+				}
+			}
+			ans.push_back(t);
+		}
+		return ans;
+	}
+};
+
+template<typename ...Args>
+ostream& operator <<(ostream &stream, const vector<Args...> &v)
+{
+	for (auto &&i : v)
+	{
+		stream << i << endl;
+	}
+	return stream;
+}
+int main()
+{
+	vector<int> nums { 1, 2, 3 };
+
+	Solution s;
+	vector<vector<int>> subsets = s.subsets(nums);
+	cout << subsets.size() << endl;
+	cout << subsets << endl;
+}
+// g++ test.cpp -pedantic -Wall -Wextra --std=c++11
+
+```
+
+
+
+### 方法二：递归法实现子集枚举
+
+
+
+```C++
+#include <bits/stdc++.h>
+using namespace std;
+
+/**
+ * @brief 作者：LeetCode-Solution
+ 链接：https://leetcode-cn.com/problems/subsets/solution/zi-ji-by-leetcode-solution/
+ 来源：力扣（LeetCode）
+ 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+ *
+ */
+class Solution
+{
+public:
+	vector<int> t;
+	vector<vector<int>> ans;
+
+	void dfs(size_t cur, vector<int> &nums)
+	{
+		if (cur == nums.size())
+		{
+			ans.push_back(t);
+			return;
+		}
+		// 选择 nums[cur]
+		t.push_back(nums[cur]);
+		dfs(cur + 1, nums);
+		t.pop_back(); // backtracking 回溯
+
+		// 不选择
+		dfs(cur + 1, nums);
+	}
+
+	vector<vector<int>> subsets(vector<int> &nums)
+	{
+		dfs(0, nums);
+		return ans;
+	}
+};
+
+template<typename ...Args>
+ostream& operator <<(ostream &stream, const vector<Args...> &v)
+{
+	for (auto &&i : v)
+	{
+		stream << i << endl;
+	}
+	return stream;
+}
+int main()
+{
+	vector<int> nums { 1, 2, 3 };
+
+	Solution s;
+	vector<vector<int>> subsets = s.subsets(nums);
+	cout << subsets.size() << endl;
+	cout << subsets << endl;
+}
+// g++ test.cpp -pedantic -Wall -Wextra --std=c++11
+
+```
+
