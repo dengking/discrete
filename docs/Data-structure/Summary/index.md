@@ -18,11 +18,47 @@ So how to choose data structure ? It is an art and worth learning。
 
 > In data storage and retrieval applications, use of a hash function is a trade off between **search time** and **data storage space**. If search time were unbounded, a very compact unordered linear list would be the best medium; if storage space were unbounded, a randomly accessible structure indexable by the key value would be very large, very sparse, but very fast. A hash function takes a finite amount of time to map a potentially large key space to a feasible amount of storage space searchable in a bounded amount of time regardless of the number of keys. 
 
-在选择data structure的时候，我们总是在time和space上进行权衡。
+在选择data structure的时候，我们总是在如下方面进行tradeoff: 
+
+1、time和space上进行权衡
+
+2、concurrency
+
+对于concurrent programming，这是非常重要的一个角度，参见 `Concurrent-data-structure` 章节。
 
 
 
-## 数据结构的存储方式
+## Classification
+
+### Linear and non-linear
+
+本节讨论对ADT的分类:
+
+1) sequence
+
+2) non-linear，比如map-dict
+
+底层的data structure，则分为非常多的类别。
+
+### 存储方式
+
+参见下面的"存储方式"章节。
+
+
+
+
+
+
+
+## 存储方式
+
+存储方式包括: 
+
+1、Array-based （顺序存储）
+
+2、linked-list-based（链式存储）
+
+3、mixed
 
 如下是一些较好的素材。
 
@@ -62,18 +98,3 @@ So how to choose data structure ? It is an art and worth learning。
 
 
 
-## Classification
-
-### Linear and non-linear
-
-本节讨论对ADT的分类:
-
-1) sequence
-
-2) non-linear，比如mapping
-
-底层的data structure，则分为非常多的类别。
-
-### Array-based、linked-list-based、mixed
-
-参见 labuladong  [数据结构和算法学习指南](https://mp.weixin.qq.com/s/ZYaXOSVM3YBIeRWm7E_jcQ) 。
