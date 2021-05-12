@@ -4,5 +4,4 @@ nav:
 
     - Graph-and-tree-and-list: Graph-and-tree-and-list
     - Implementation-of-ADT: Implementation-of-ADT.md
-    - Associative-array-implementation: Associative-array-implementation
-    - Search-tree-and-skip-list: Search-tree-and-skip-list.md
+    - Dict-map-implementation: Dict-map-implementation
