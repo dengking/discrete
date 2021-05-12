@@ -1,5 +1,5 @@
 nav:
     - Introduction: index.md
-    - LeetCode-206-反转链表: LeetCode-206-反转链表
+    - 反转-reverse: 反转-reverse
     - LeetCode-剑指-Offer-18-删除链表的节点: LeetCode-剑指-Offer-18-删除链表的节点
     - LeetCode-面试题-02-03-删除中间节点: LeetCode-面试题-02-03-删除中间节点
