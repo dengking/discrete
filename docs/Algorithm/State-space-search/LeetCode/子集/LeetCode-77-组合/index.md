@@ -1,5 +1,147 @@
 # leetcode [77. 组合](https://leetcode-cn.com/problems/combinations/)
 
+## 理解题意
+
+这道题的"组合"其实和我们平时所说的"排列组合"中的组合有些差异的，题目中的: 
+
+```C++
+输入: n = 4, k = 2
+输出:
+[
+  [2,4],
+  [3,4],
+  [2,3],
+  [1,2],
+  [1,3],
+  [1,4],
+]
+```
+
+按道理来说从4个数中，选择2个，可能性为 $C_4^2 = 12$ ，但是上述答案只有6种。其实原题没有说明的是: 它的"组合"是有一些限制的: 
+
+```C++
+1、2、3、4
+```
+
+需要按照顺序来进行组合，不允许 `[4,1]`的这种情况。因此，在进行实现的时候，是需要添加上顺序要求的:
+
+生成的子集中的元素的顺序需要和原集合中的元素的顺序一致。
+
+## 解法
+
+解法一: 转换为"子集"问题
+
+这道题可以转换为"子集"问题，`n`个数中的每个数都可能被选出，不过，它有限制条件: 子集的长度为`k`。
+
+## [官方解题](https://leetcode-cn.com/problems/combinations/solution/zu-he-by-leetcode-solution/)
+
+
+
+### 方法一：递归实现组合型枚举
+
+> NOTE: 
+>
+> 一、下面的实现是能够维持生成的子集中的元素
+>
+> 1、`cur`是从0开始，因此先加入到`temp`中的是小元素，后进入的是大元素，维持了和原集合中元素相同的顺序。
+
+```C++
+#include <bits/stdc++.h>
+using namespace std;
+
+/**
+ * @brief 作者：LeetCode-Solution
+ 链接：https://leetcode-cn.com/problems/combinations/solution/zu-he-by-leetcode-solution/
+ 来源：力扣（LeetCode）
+ 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+ *
+ */
+class Solution
+{
+public:
+	vector<int> temp;
+	vector<vector<int>> ans;
+
+	void dfs(int cur, int n, int k)
+	{
+		// 剪枝：temp 长度加上区间 [cur, n] 的长度小于 k，不可能构造出长度为 k 的 temp
+		if (temp.size() + (n - cur + 1) < k)
+		{
+			return;
+		}
+		// 记录合法的答案
+		if (temp.size() == k)
+		{
+			ans.push_back(temp);
+			return;
+		}
+		// 考虑选择当前位置
+		temp.push_back(cur);
+		dfs(cur + 1, n, k);
+		temp.pop_back();
+		// 考虑不选择当前位置
+		dfs(cur + 1, n, k);
+	}
+
+	vector<vector<int>> combine(int n, int k)
+	{
+		dfs(1, n, k);
+		return ans;
+	}
+};
+
+template<typename ...Args>
+ostream& operator <<(ostream &stream, const vector<Args...> &v)
+{
+	stream << "[";
+	for (auto &&i : v)
+	{
+		stream << i << ",";
+	}
+	stream << "]";
+	return stream;
+}
+int main()
+{
+	Solution s;
+	vector<vector<int>> combs = s.combine(4, 2);
+	cout << combs.size() << endl;
+	cout << combs << endl;
+}
+// g++ test.cpp -pedantic -Wall -Wextra --std=c++11
+
+```
+
+```c++
+6
+[[1,2,],[1,3,],[1,4,],[2,3,],[2,4,],[3,4,],]
+```
+
+
+
+### 方法二：非递归（字典序法）实现组合型枚举
+
+> NOTE: 
+>
+> 1、暂时没有完整的学习，比较复杂
+
+假设我们把原序列中被选中的位置记为 11，不被选中的位置记为 00，对于每个方案都可以构造出一个二进制数。
+
+我们让原序列从大到小排列（即 $\{ n, n - 1, \cdots 1, 0 \}$ ）。我们先看一看 $n=4$, $k=2$ 的例子: 
+
+| 原序列中被选中的数 | 对应的二进制数 | 方案 |
+| ------------------ | -------------- | ---- |
+| `43[2][1]`         | 0011           | 2, 1 |
+| `4[3]2[1]`         | 0101           | 3, 1 |
+| `4[3][2]1`         | 0110           | 3,2  |
+| `[4]32[1]`         | 1001           | 4,1  |
+| `[4]3[2]1`         | 1010           | 4,2  |
+| `[4][3]21`         | 1100           | 4,3  |
+
+
+
+
+
 
 
 ## 我的解题
