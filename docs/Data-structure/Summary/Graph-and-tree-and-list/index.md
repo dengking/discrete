@@ -6,13 +6,15 @@
 
 树和图都可能退化成链，所以其实链也具备部分tree和graph的关系。反过来说其实就是树和图是链的泛化。
 
-其实可以看到，很多基于graph、tree的结构或设计都有对应的线性版本，比如[Merkle tree](https://en.wikipedia.org/wiki/Merkle_tree)，它的线性版本就是[Hash chain](https://en.wikipedia.org/wiki/Hash_chain)。
+其实可以看到，很多基于graph、tree的结构或设计都有对应的线性版本，比如 [Merkle tree](https://en.wikipedia.org/wiki/Merkle_tree)，它的线性版本就是[Hash chain](https://en.wikipedia.org/wiki/Hash_chain)。
+
+## 从relation的角度来进行分析
+
+参见 `Relation-structure-computation\Model` 章节。
 
 
 
-
-
-# [Difference between Trees and Graphs | Trees vs. Graphs](https://freefeast.info/difference-between/difference-between-trees-and-graphs-trees-vs-graphs/)
+## freefeast [Difference between Trees and Graphs | Trees vs. Graphs](https://freefeast.info/difference-between/difference-between-trees-and-graphs-trees-vs-graphs/)
 
 |                               | Trees                                                        | Graphs                                                       |
 | :---------------------------- | :----------------------------------------------------------- | ------------------------------------------------------------ |

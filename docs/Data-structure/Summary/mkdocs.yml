@@ -1,8 +1,8 @@
 nav:
     - Introduction: index.md
-    - List-of-data-structure: List-of-data-structure.md
+    - List-of-data-structure: List-of-data-structure
 
     - Graph-and-tree-and-list: Graph-and-tree-and-list
     - Implementation-of-ADT: Implementation-of-ADT.md
-    - Search-tree-and-hash-table: Search-tree-and-hash-table.md
+    - Associative-array-implementation: Associative-array-implementation
     - Search-tree-and-skip-list: Search-tree-and-skip-list.md

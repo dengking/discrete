@@ -4,7 +4,7 @@
 
 
 
-# [Skip List vs. Binary Search Tree](https://stackoverflow.com/questions/256511/skip-list-vs-binary-search-tree)
+## stackoverflow [Skip List vs. Binary Search Tree](https://stackoverflow.com/questions/256511/skip-list-vs-binary-search-tree)
 
 I recently came across the data structure known as a [*skip list*](http://en.wikipedia.org/wiki/Skip_list). It seems to have very similar behavior to a binary search tree.
 
@@ -12,7 +12,7 @@ Why would you ever want to use a skip list over a binary search tree?
 
 
 
-## [A](https://stackoverflow.com/a/260277)
+### [A](https://stackoverflow.com/a/260277)
 
 Skip lists are more amenable to concurrent access/modification. Herb Sutter wrote an [article](http://www.ddj.com/hpc-high-performance-computing/208801371) about data structure in concurrent environments. It has more indepth information.
 
@@ -28,12 +28,17 @@ I didn't find the transactional memory stuff particularly compelling as it requi
 
 In section 8.2 they compare the performance of several concurrent tree implementations. I'll summarize their findings. It's worth it to download the pdf as it has some very informative graphs on pages 50, 53, and 54.
 
-- **Locking skip lists** are insanely fast. They scale incredibly well with the number of concurrent accesses. This is what makes skip lists special, other lock based data structures tend to croak under pressure.
-- **Lock-free skip lists** are consistently faster than locking skip lists but only barely.
-- **transactional skip lists** are consistently 2-3 times slower than the locking and non-locking versions.
-- **locking red-black trees** croak under concurrent access. Their performance degrades linearly with each new concurrent user. Of the two known locking red-black tree implementations, one essentially has a global lock during tree rebalancing. The other uses fancy (and complicated) lock escalation but still doesn't significantly out perform the global lock version.
-- **lock-free red-black trees** don't exist (no longer true, see Update).
-- **transactional red-black trees** are comparable with transactional skip-lists. That was very surprising and very promising. Transactional memory, though slower if far easier to write. It can be as easy as quick search and replace on the non-concurrent version.
+1、**Locking skip lists** are insanely fast. They scale incredibly well with the number of concurrent accesses. This is what makes skip lists special, other lock based data structures tend to croak under pressure.
+
+2、**Lock-free skip lists** are consistently faster than locking skip lists but only barely.
+
+3、**transactional skip lists** are consistently 2-3 times slower than the locking and non-locking versions.
+
+4、**locking red-black trees** croak under concurrent access. Their performance degrades linearly with each new concurrent user. Of the two known locking red-black tree implementations, one essentially has a global lock during tree rebalancing. The other uses fancy (and complicated) lock escalation but still doesn't significantly out perform the global lock version.
+
+5、**lock-free red-black trees** don't exist (no longer true, see Update).
+
+6、**transactional red-black trees** are comparable with transactional skip-lists. That was very surprising and very promising. Transactional memory, though slower if far easier to write. It can be as easy as quick search and replace on the non-concurrent version.
 
 ------
 
@@ -99,7 +104,7 @@ I haven't looked into it deeply, but on the surface it seems solid.
 
 
 
-# [B-tree](https://en.wikipedia.org/wiki/B-tree) VS [skip list](https://en.wikipedia.org/wiki/Skip_list)
+## [B-tree](https://en.wikipedia.org/wiki/B-tree) VS [skip list](https://en.wikipedia.org/wiki/Skip_list)
 
 看了这两种DS的原理，发现两者其实有些类似：以空间换时间，即通过构建数据之间的更多关系来加速数据的access，显然这些关系是需要耗费空间来存储的，所以就是前面所述的以空间换时间，其实当我看完了两者的原理后，觉得它们其实非常类似，尤其是看到[B-tree](https://en.wikipedia.org/wiki/B-tree)的主要应用是在DB或file system中实现索引后，我发掘其实它们的原理的共同之处其实就是index；通过重建index来加速数据的access；
 
