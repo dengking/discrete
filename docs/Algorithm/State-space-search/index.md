@@ -10,11 +10,15 @@
 
 
 
-## 状态空间VS解空间
+## 状态空间 VS 解空间
 
 **解空间**是一种非常典型的state space。
 
 
+
+## `Permutation-and-combination`
+
+由于问题的解空间，往往对应的是permutation 和 combination，因此，将它们也放在了本章节。
 
 
 
@@ -26,4 +30,6 @@
 | ------------------ | --------------------------------------------- |
 | Backtracking       | - Depth-first search                          |
 | Branch-and-Bound   | - Breadth-first search<br>- Best-first search |
+
+
 

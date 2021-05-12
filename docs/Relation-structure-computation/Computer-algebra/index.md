@@ -10,9 +10,11 @@
 
 1、expression(尤其是数学公式)的结构是典型的**abstract structure**，它们的structure可能呈现:
 
-a、tree
+a、chain
 
-b、chain
+b、tree
+
+c、hierarchy、graph
 
 2、借鉴于它们的结构特性，能够设计高效的algorithm来对它们进行计算
 
@@ -27,6 +29,10 @@ Overlapping subproblem + dynamic programing、Optional substructure + greedy alg
 
 
 产生式、函数表达式（expression）都是数学**语言**，它们描述了**关系**。
+
+> NOTE: 
+>
+> 1、contain、nest关系
 
 在computer science中，我们知道，graph也可以用来描述**关系**。
 
@@ -51,7 +57,7 @@ Overlapping subproblem + dynamic programing、Optional substructure + greedy alg
 
 数学公式的结构是典型的abstract structure。
 
-#### Computational graph of math expression
+### Computational graph of math expression
 
 使用computational graph来描述math expression。
 
@@ -66,7 +72,7 @@ $$
 
 
 
-#### Recurrence relation
+### Recurrence relation
 
 [recurrence relation](./Recursion/Recurrence-relation.md)其实所描述的是两个元素的关系，这种关系可能是线性的。
 
@@ -78,7 +84,7 @@ $$
 
 
 
-#### Permutation and combination
+### Permutation and combination
 
 permutation和combination都是使用的乘法，它们都是nesting关系，都呈现出 tree 结构，在`Relation-structure-computation\Computation\Algorithm\Paradigm\Backtracking\Backtrack`章节中有**组合树**、**排列树**的描述。
 
