@@ -2,7 +2,13 @@
 
 > NOTE: 
 >
-> 1、Hash table在计算机科学中有着广泛的应用，维基百科的这篇文章总结地非常好。
+> 一、Hash table在计算机科学中有着广泛的应用，维基百科的这篇文章总结地非常好。
+>
+> 二、对于hash table的实现，如下是非常重要的问题:
+>
+> 1、hash collision--》"Collision resolution"章节
+>
+> 2、load factor --》"Dynamic resize"章节
 
 In [computing](https://en.wikipedia.org/wiki/Computing), a **hash table** (**hash map**) is a [data structure](https://en.wikipedia.org/wiki/Data_structure) that implements an [associative array](https://en.wikipedia.org/wiki/Associative_array) [abstract data type](https://en.wikipedia.org/wiki/Abstract_data_type), a structure that can map [keys](https://en.wikipedia.org/wiki/Unique_key) to [values](https://en.wikipedia.org/wiki/Value_(computer_science)). A **hash table** uses a [hash function](https://en.wikipedia.org/wiki/Hash_function) to compute an *index* into an array of *buckets* or *slots*, from which the desired value can be found.
 
@@ -24,31 +30,66 @@ In many situations, **hash tables** turn out to be on average more efficient tha
 
 *Main article:* [Hash function](https://en.wikipedia.org/wiki/Hash_function)
 
-> NOTE:  这一段关于hash的介绍是比较精简的
+The idea of hashing is to distribute the entries (key/value pairs) across an array of *buckets*. Given a key, the algorithm computes an *index* that suggests where the entry can be found:
+
+```c++
+index = f(key, array_size)
+```
+
+Often this is done in two steps:
+
+```c++
+hash = hashfunc(key)
+index = hash % array_size
+```
+
+In this method, the *hash* is independent of the array size, and it is then *reduced* to an index (a number between `0` and `array_size − 1`) using the [modulo operator](https://en.wanweibaike.com/wiki-Modulo_operation) (`%`).
+
+
+
+In the case that the array size is a [power of two](https://en.wanweibaike.com/wiki-Power_of_two), the remainder operation is reduced to [masking](https://en.wanweibaike.com/wiki-Mask_(computing)), which improves speed, but can increase problems with a poor hash function.[[5\]](https://en.wanweibaike.com/wiki-hash table#cite_note-5)
+
+> NOTE: 这指的是使用 bitmask 来替代 modulo operation，对于hash这种对速度要求较高的，使用这种optimization是有必要的，在 wikipedia [Mask (computing)](https://en.wikipedia.org/wiki/Mask_(computing)) 中，也介绍了这种technique。
+
+
 
 ### Choosing a hash function
 
 > NOTE: 
 >
-> 1、这一段其实所讨论的是"hash function"的特性，显然与 `Hash-function` 章节的内容有一些重复。
+> 1、本章探讨的是: 对于一个hash map，如何选择hash function；因此这一段会涉及"hash function"的特性，显然与 `Hash-function` 章节的内容有一些重复。
+
+#### Uniform distribution
 
 A basic requirement is that the function should provide a [uniform distribution](https://en.wikipedia.org/wiki/Uniform_distribution_(discrete)) （离散均匀分布）of hash values. 
-
-
 
 The distribution needs to be **uniform** only for **table sizes** that occur in the application. In particular, if one uses **dynamic resizing** with exact doubling and halving of the table size, then the **hash function** needs to be uniform only when the size is a [power of two](https://en.wikipedia.org/wiki/Power_of_two). Here the index can be computed as some range of bits of the hash function. On the other hand, some hashing algorithms prefer to have the size be a [prime number](https://en.wikipedia.org/wiki/Prime_number).[[8\]](https://en.wikipedia.org/wiki/Hash_table#cite_note-:0-8) The modulus operation may provide some additional mixing; this is especially useful with a poor hash function.
 
 > NOTE: 在设计hash  function的时候，其实还需要考虑的是hash值是否需要在table size范围内均匀分布；以及当table size变更的时候所需要考虑的一系列问题；
 
-For [open addressing](https://en.wikipedia.org/wiki/Open_addressing) schemes, the **hash function** should also avoid *clustering*, the mapping of two or more keys to consecutive（连续的） slots. Such clustering may cause the lookup cost to skyrocket（飞涨）, even if the **load factor** is low and collisions are infrequent. The popular multiplicative hash[[3\]](https://en.wikipedia.org/wiki/Hash_table#cite_note-knuth-3) is claimed to have particularly poor clustering behavior.[[8\]](https://en.wikipedia.org/wiki/Hash_table#cite_note-:0-8)
+#### Avoid *clustering*
 
-[Cryptographic hash functions](https://en.wikipedia.org/wiki/Cryptographic_hash_function) are believed to provide good hash functions for any **table size**, either by [modulo](https://en.wikipedia.org/wiki/Modulo_operation) reduction or by [bit masking](https://en.wikipedia.org/wiki/Mask_(computing))[*citation needed*]. They may also be appropriate if there is a risk of malicious（恶毒的） users trying to [sabotage](https://en.wikipedia.org/wiki/Denial_of_service_attack) （蓄意破坏）a network service by submitting requests designed to generate a large number of collisions in the server's hash tables. However, the risk of sabotage can also be avoided by cheaper methods (such as applying a secret [salt](https://en.wikipedia.org/wiki/Salt_(cryptography)) to the data, or using a [universal hash function](https://en.wikipedia.org/wiki/Universal_hash_function)). A drawback of cryptographic hashing functions is that they are often slower to compute, which means that in cases where the uniformity for *any* size is not necessary, a non-cryptographic hashing function might be preferable.[*citation needed*]
+For [open addressing](https://en.wikipedia.org/wiki/Open_addressing) schemes, the **hash function** should also avoid *clustering*, the mapping of two or more keys to consecutive（连续的） slots. Such clustering may cause the lookup cost to skyrocket（飞涨）, even if the **load factor** is low and collisions are infrequent. The popular multiplicative(乘法) hash[[3\]](https://en.wikipedia.org/wiki/Hash_table#cite_note-knuth-3) is claimed to have particularly poor clustering behavior.[[8\]](https://en.wikipedia.org/wiki/Hash_table#cite_note-:0-8)
 
-***SUMMARY*** : 显然，[Cryptographic hash functions](https://en.wikipedia.org/wiki/Cryptographic_hash_function) are believed to provide good hash functions for any **table size**, either by [modulo](https://en.wikipedia.org/wiki/Modulo_operation) reduction or by [bit masking](https://en.wikipedia.org/wiki/Mask_(computing))[*citation needed*]的这个特性是非常好的，它允许使用户无需考虑改变table size所带来的各种问题；
+#### [Cryptographic hash functions](https://en.wanweibaike.com/wiki-Cryptographic_hash_function)
 
+[Cryptographic hash functions](https://en.wikipedia.org/wiki/Cryptographic_hash_function) are believed to provide good hash functions for any **table size**, either by [modulo](https://en.wikipedia.org/wiki/Modulo_operation) reduction or by [bit masking](https://en.wikipedia.org/wiki/Mask_(computing))[*citation needed*]. They may also be appropriate if there is a risk of malicious（恶毒的） users trying to [sabotage](https://en.wikipedia.org/wiki/Denial_of_service_attack) （蓄意破坏）a network service by submitting requests designed to generate a large number of collisions in the server's hash tables. However, the risk of sabotage can also be avoided by cheaper methods (such as applying a secret [salt](https://en.wikipedia.org/wiki/Salt_(cryptography)) to the data, or using a [universal hash function](https://en.wikipedia.org/wiki/Universal_hash_function)). 
 
+A drawback of cryptographic hashing functions is that they are often slower to compute, which means that in cases where the uniformity for *any* size is not necessary, a non-cryptographic hashing function might be preferable.[*citation needed*]
 
-### Key statistics
+> NOTE: 显然，[Cryptographic hash functions](https://en.wikipedia.org/wiki/Cryptographic_hash_function) are believed to provide good hash functions for any **table size**, either by [modulo](https://en.wikipedia.org/wiki/Modulo_operation) reduction or by [bit masking](https://en.wikipedia.org/wiki/Mask_(computing))[*citation needed*]的这个特性是非常好的，它允许使用户无需考虑改变table size所带来的各种问题；
+
+### Perfect hash function
+
+> NOTE: 
+>
+> 1、一个经典的例子是: "perfect hash-character-as-key-index-array"，关于此，参见 `LeetCode-316-去除重复字母`
+
+If all keys are known ahead of time, a [perfect hash function](https://en.wanweibaike.com/wiki-Perfect_hash_function) can be used to create a perfect hash table that has no collisions. If [minimal perfect hashing](https://en.wanweibaike.com/wiki-Perfect_hash_function#Minimal_perfect_hash_function) is used, every location in the hash table can be used as well.
+
+Perfect hashing allows for [constant time](https://en.wanweibaike.com/wiki-Constant_time) lookups in all cases. This is in contrast to most chaining and open addressing methods, where the time for lookup is low on average, but may be very large, O(*n*), for instance when all the keys hash to a few values.
+
+## Key statistics
 
 A critical statistic for a hash table is the *load factor*, defined as
 
@@ -59,7 +100,7 @@ where
 - *n* is the number of entries occupied in the hash table.
 - *k* is the number of buckets（其实就是table size）.
 
-> NOTE: load factor是一个非常主要的概念
+> NOTE: load factor是一个非常重要的概念
 
 
 
@@ -195,19 +236,19 @@ In more realistic models, the hash function is a [random variable](https://en.wi
 
 ### Drawbacks
 
-- Although operations on a **hash table** take constant time on average, the cost of a good hash function can be significantly higher than the inner loop of the lookup algorithm for a sequential list or search tree. Thus hash tables are not effective when the number of entries is very small. (However, in some cases the high cost of computing the hash function can be mitigated by saving the hash value together with the key.)
+1、Although operations on a **hash table** take constant time on average, the cost of a good hash function can be significantly higher than the inner loop of the lookup algorithm for a sequential list or search tree. Thus hash tables are not effective when the number of entries is very small. (However, in some cases the high cost of computing the hash function can be mitigated by saving the hash value together with the key.)
 
-- For certain string processing applications, such as [spell-checking](https://en.wikipedia.org/wiki/Spell_checker), hash tables may be less efficient than [tries](https://en.wikipedia.org/wiki/Trie), [finite automata](https://en.wikipedia.org/wiki/Finite_automata), or [Judy arrays](https://en.wikipedia.org/wiki/Judy_array). Also, if there are not too many possible keys to store—that is, if each key can be represented by a small enough number of bits—then, instead of a hash table, one may use the key directly as the index into an array of values. Note that there are no collisions in this case.
+2、For certain string processing applications, such as [spell-checking](https://en.wikipedia.org/wiki/Spell_checker), hash tables may be less efficient than [tries](https://en.wikipedia.org/wiki/Trie), [finite automata](https://en.wikipedia.org/wiki/Finite_automata), or [Judy arrays](https://en.wikipedia.org/wiki/Judy_array). Also, if there are not too many possible keys to store—that is, if each key can be represented by a small enough number of bits—then, instead of a hash table, one may use the key directly as the index into an array of values. Note that there are no collisions in this case.
 
-- The entries stored in a hash table can be enumerated efficiently (at constant cost per entry), but only in some pseudo-random order. Therefore, there is no efficient way to locate an entry whose key is *nearest* to a given key. Listing all *n* entries in some specific order generally requires a separate sorting step, whose cost is proportional to log(*n*) per entry. In comparison, ordered search trees have lookup and insertion cost proportional to log(*n*), but allow finding the nearest key at about the same cost, and *ordered* enumeration of all entries at constant cost per entry.
+3、The entries stored in a hash table can be enumerated efficiently (at constant cost per entry), but only in some pseudo-random order. Therefore, there is no efficient way to locate an entry whose key is *nearest* to a given key. Listing all *n* entries in some specific order generally requires a separate sorting step, whose cost is proportional to log(*n*) per entry. In comparison, ordered search trees have lookup and insertion cost proportional to log(*n*), but allow finding the nearest key at about the same cost, and *ordered* enumeration of all entries at constant cost per entry.
 
-- If the keys are not stored (because the hash function is collision-free), there may be no easy way to enumerate the keys that are present in the table at any given moment.
+4、If the keys are not stored (because the hash function is collision-free), there may be no easy way to enumerate the keys that are present in the table at any given moment.
 
-- Although the *average* cost per operation is constant and fairly small, the cost of a single operation may be quite high. In particular, if the hash table uses [dynamic resizing](https://en.wikipedia.org/wiki/Hash_table#Dynamic_resizing), an insertion or deletion operation may occasionally take time proportional to the number of entries. This may be a serious drawback in real-time or interactive applications.
+5、Although the *average* cost per operation is constant and fairly small, the cost of a single operation may be quite high. In particular, if the hash table uses [dynamic resizing](https://en.wikipedia.org/wiki/Hash_table#Dynamic_resizing), an insertion or deletion operation may occasionally take time proportional to the number of entries. This may be a serious drawback in real-time or interactive applications.
 
-- Hash tables in general exhibit poor [locality of reference](https://en.wikipedia.org/wiki/Locality_of_reference)—that is, the data to be accessed is distributed seemingly at random in memory. Because hash tables cause access patterns that jump around, this can trigger [microprocessor cache](https://en.wikipedia.org/wiki/CPU_cache) misses that cause long delays. Compact data structures such as arrays searched with [linear search](https://en.wikipedia.org/wiki/Linear_search) may be faster, if the table is relatively small and keys are compact. The optimal performance point varies from system to system.
+6、Hash tables in general exhibit poor [locality of reference](https://en.wikipedia.org/wiki/Locality_of_reference)—that is, the data to be accessed is distributed seemingly at random in memory. Because hash tables cause access patterns that jump around, this can trigger [microprocessor cache](https://en.wikipedia.org/wiki/CPU_cache) misses that cause long delays. Compact data structures such as arrays searched with [linear search](https://en.wikipedia.org/wiki/Linear_search) may be faster, if the table is relatively small and keys are compact. The optimal performance point varies from system to system.
 
-- Hash tables become quite inefficient when there are many collisions. While extremely uneven hash distributions are extremely unlikely to arise by chance, a [malicious adversary](https://en.wikipedia.org/wiki/Black_hat_hacking) with knowledge of the hash function may be able to supply information to a hash that creates worst-case behavior by causing excessive collisions, resulting in very poor performance, e.g., a [denial of service attack](https://en.wikipedia.org/wiki/Denial_of_service_attack).[[27\]](https://en.wikipedia.org/wiki/Hash_table#cite_note-27)[[28\]](https://en.wikipedia.org/wiki/Hash_table#cite_note-28)[[29\]](https://en.wikipedia.org/wiki/Hash_table#cite_note-29) In critical applications, a data structure with better worst-case guarantees can be used; however, [universal hashing](https://en.wikipedia.org/wiki/Universal_hashing)—a [randomized algorithm](https://en.wikipedia.org/wiki/Randomized_algorithm) that prevents the attacker from predicting which inputs cause worst-case behavior—may be preferable.[[30\]](https://en.wikipedia.org/wiki/Hash_table#cite_note-30) The hash function used by the hash table in the Linux [routing table](https://en.wikipedia.org/wiki/Routing_table) cache was changed with Linux version 2.4.2 as a countermeasure against such attacks.[[31\]](https://en.wikipedia.org/wiki/Hash_table#cite_note-31)
+7、Hash tables become quite inefficient when there are many collisions. While extremely uneven hash distributions are extremely unlikely to arise by chance, a [malicious adversary](https://en.wikipedia.org/wiki/Black_hat_hacking) with knowledge of the hash function may be able to supply information to a hash that creates worst-case behavior by causing excessive collisions, resulting in very poor performance, e.g., a [denial of service attack](https://en.wikipedia.org/wiki/Denial_of_service_attack).[[27\]](https://en.wikipedia.org/wiki/Hash_table#cite_note-27)[[28\]](https://en.wikipedia.org/wiki/Hash_table#cite_note-28)[[29\]](https://en.wikipedia.org/wiki/Hash_table#cite_note-29) In critical applications, a data structure with better worst-case guarantees can be used; however, [universal hashing](https://en.wikipedia.org/wiki/Universal_hashing)—a [randomized algorithm](https://en.wikipedia.org/wiki/Randomized_algorithm) that prevents the attacker from predicting which inputs cause worst-case behavior—may be preferable.[[30\]](https://en.wikipedia.org/wiki/Hash_table#cite_note-30) The hash function used by the hash table in the Linux [routing table](https://en.wikipedia.org/wiki/Routing_table) cache was changed with Linux version 2.4.2 as a countermeasure against such attacks.[[31\]](https://en.wikipedia.org/wiki/Hash_table#cite_note-31)
 
 
 
