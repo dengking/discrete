@@ -1,0 +1,1 @@
+# [Parity bit](https://en.wikipedia.org/wiki/Parity_bit)

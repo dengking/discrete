@@ -1,8 +1,6 @@
-
-
 # Associative array、dict、map
 
-有多种方式可以实现associative array
+有多种方式可以实现associative array，本文对它们进行对比。
 
 ## binary search tree VS hash table
 

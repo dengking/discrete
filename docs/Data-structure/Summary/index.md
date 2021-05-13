@@ -20,11 +20,21 @@ So how to choose data structure ? It is an art and worth learning。
 
 在选择data structure的时候，我们总是在如下方面进行tradeoff: 
 
-1、time和space上进行权衡
+### Time complexity
 
-2、concurrency
+各种operation的time complexity，programmer需要根据
+
+### Space complexity
+
+### Concurrency
 
 对于concurrent programming，这是非常重要的一个角度，参见 `Concurrent-data-structure` 章节。
+
+
+
+### Sorted or unsorted
+
+是否有序？
 
 
 

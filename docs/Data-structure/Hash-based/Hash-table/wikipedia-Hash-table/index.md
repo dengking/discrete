@@ -1,8 +1,8 @@
-# Hash table
+# wikipedia [Hash table](https://en.wikipedia.org/wiki/Hash_table)
 
-Hash table在计算机科学中有着广泛的应用，维基百科的这篇文章总结地非常好。
-
-## 维基百科[Hash table](https://en.wikipedia.org/wiki/Hash_table)
+> NOTE: 
+>
+> 1、Hash table在计算机科学中有着广泛的应用，维基百科的这篇文章总结地非常好。
 
 In [computing](https://en.wikipedia.org/wiki/Computing), a **hash table** (**hash map**) is a [data structure](https://en.wikipedia.org/wiki/Data_structure) that implements an [associative array](https://en.wikipedia.org/wiki/Associative_array) [abstract data type](https://en.wikipedia.org/wiki/Abstract_data_type), a structure that can map [keys](https://en.wikipedia.org/wiki/Unique_key) to [values](https://en.wikipedia.org/wiki/Value_(computer_science)). A **hash table** uses a [hash function](https://en.wikipedia.org/wiki/Hash_function) to compute an *index* into an array of *buckets* or *slots*, from which the desired value can be found.
 
@@ -20,19 +20,25 @@ In many situations, **hash tables** turn out to be on average more efficient tha
 
 
 
-### Hashing
+## Hashing
 
 *Main article:* [Hash function](https://en.wikipedia.org/wiki/Hash_function)
 
 > NOTE:  这一段关于hash的介绍是比较精简的
 
-#### Choosing a hash function
+### Choosing a hash function
+
+> NOTE: 
+>
+> 1、这一段其实所讨论的是"hash function"的特性，显然与 `Hash-function` 章节的内容有一些重复。
 
 A basic requirement is that the function should provide a [uniform distribution](https://en.wikipedia.org/wiki/Uniform_distribution_(discrete)) （离散均匀分布）of hash values. 
 
+
+
 The distribution needs to be **uniform** only for **table sizes** that occur in the application. In particular, if one uses **dynamic resizing** with exact doubling and halving of the table size, then the **hash function** needs to be uniform only when the size is a [power of two](https://en.wikipedia.org/wiki/Power_of_two). Here the index can be computed as some range of bits of the hash function. On the other hand, some hashing algorithms prefer to have the size be a [prime number](https://en.wikipedia.org/wiki/Prime_number).[[8\]](https://en.wikipedia.org/wiki/Hash_table#cite_note-:0-8) The modulus operation may provide some additional mixing; this is especially useful with a poor hash function.
 
-***SUMMARY*** : 在设计hash  function的时候，其实还需要考虑的是hash值是否需要在table size范围内均匀分布；以及当table size变更的时候所需要考虑的一系列问题；
+> NOTE: 在设计hash  function的时候，其实还需要考虑的是hash值是否需要在table size范围内均匀分布；以及当table size变更的时候所需要考虑的一系列问题；
 
 For [open addressing](https://en.wikipedia.org/wiki/Open_addressing) schemes, the **hash function** should also avoid *clustering*, the mapping of two or more keys to consecutive（连续的） slots. Such clustering may cause the lookup cost to skyrocket（飞涨）, even if the **load factor** is low and collisions are infrequent. The popular multiplicative hash[[3\]](https://en.wikipedia.org/wiki/Hash_table#cite_note-knuth-3) is claimed to have particularly poor clustering behavior.[[8\]](https://en.wikipedia.org/wiki/Hash_table#cite_note-:0-8)
 
@@ -247,16 +253,3 @@ Hash tables can be used by some programs to avoid creating multiple character st
 
 *Main article:* [Transposition table](https://en.wikipedia.org/wiki/Transposition_table)
 
-
-
-# Implemtentation
-
-## [An Analysis of Hash Map Implementations in Popular Languages](https://rcoh.me/posts/hash-map-analysis/)
-
-
-
-## CPython dict
-
-https://github.com/zpoint/CPython-Internals/blob/master/BasicObject/dict/dict.md
-
-https://github.com/python/cpython/blob/master/Objects/dictnotes.txt

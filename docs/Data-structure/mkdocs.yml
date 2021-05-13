@@ -5,8 +5,9 @@ nav:
     - Stack: Stack    
     - Graph: Graph
     - Tree: Tree    
+    - Hash-based: Hash-based    
     - Set: Set
     - Probabilistic-data-structures: Probabilistic-data-structures
-    - Hash: Hash
+
     - Summary: Summary
     - TODO: TODO.md
