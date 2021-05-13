@@ -77,7 +77,13 @@ For [open addressing](https://en.wikipedia.org/wiki/Open_addressing) schemes, th
 
 A drawback of cryptographic hashing functions is that they are often slower to compute, which means that in cases where the uniformity for *any* size is not necessary, a non-cryptographic hashing function might be preferable.[*citation needed*]
 
-> NOTE: 显然，[Cryptographic hash functions](https://en.wikipedia.org/wiki/Cryptographic_hash_function) are believed to provide good hash functions for any **table size**, either by [modulo](https://en.wikipedia.org/wiki/Modulo_operation) reduction or by [bit masking](https://en.wikipedia.org/wiki/Mask_(computing))[*citation needed*]的这个特性是非常好的，它允许使用户无需考虑改变table size所带来的各种问题；
+> NOTE: 
+>
+> 一、tradeoff: 
+>
+> 1、显然，[Cryptographic hash functions](https://en.wikipedia.org/wiki/Cryptographic_hash_function) are believed to provide good hash functions for any **table size**, either by [modulo](https://en.wikipedia.org/wiki/Modulo_operation) reduction or by [bit masking](https://en.wikipedia.org/wiki/Mask_(computing))[*citation needed*]的这个特性是非常好的，它允许使用户无需考虑改变table size所带来的各种问题；
+>
+> 2、但是[Cryptographic hash functions](https://en.wikipedia.org/wiki/Cryptographic_hash_function) 的运算是相对较慢的: "A drawback of cryptographic hashing functions is that they are often slower to compute"
 
 ### Perfect hash function
 
@@ -106,6 +112,12 @@ where
 
 ## Collision resolution
 
+> NOTE: 
+>
+> 1、参见 rcoh [An Analysis of Hash Map Implementations in Popular Languages](https://rcoh.me/posts/hash-map-analysis/) ，其中对一些programming language提供的hash table的implementation所采用的collision resolution进行了说明
+>
+> 
+
 Hash [collisions](https://en.wikipedia.org/wiki/Collision_(computer_science)) are practically unavoidable when hashing a random subset of a large set of possible keys. For example, if 2,450 keys are hashed into a million buckets, even with a perfectly uniform random distribution, according to the [birthday problem](https://en.wikipedia.org/wiki/Birthday_problem) there is approximately a 95% chance of at least two of the keys being hashed to the same slot.
 
 Therefore, almost all hash table implementations have some collision resolution strategy to handle such events. Some common strategies are described below. All these methods require that the keys (or pointers to them) be stored in the table, together with the associated values.
@@ -116,11 +128,17 @@ Therefore, almost all hash table implementations have some collision resolution 
 
 In the method known as *separate chaining*, each bucket is independent, and has some sort of [list](https://en.wikipedia.org/wiki/List_(abstract_data_type)) of entries with the same index. The time for hash table operations is the time to find the bucket (which is constant) plus the time for the list operation.
 
+
+
 In a good hash table, each bucket has zero or one entries, and sometimes two or three, but rarely more than that. Therefore, structures that are efficient in time and space for these cases are preferred. Structures that are efficient for a fairly large number of entries per bucket are not needed or desirable. If these cases happen often, the hashing function needs to be fixed.[*citation needed*]
 
 
 
 #### Separate chaining with linked lists
+
+> NOTE: 
+>
+> 1、这种情况的hash table，更像是一个array of linked list，它是一个mix data structure
 
 Chained hash tables with [linked lists](https://en.wikipedia.org/wiki/Linked_list) are popular because they require only basic data structures with simple algorithms, and can use simple hash functions that are unsuitable for other methods.[*citation needed*]
 
@@ -132,15 +150,37 @@ For separate-chaining, the worst-case scenario is when all entries are inserted 
 
 The bucket chains are often searched sequentially using the order the entries were added to the bucket. If the load factor is large and some keys are more likely to come up than others, then rearranging the chain with a [move-to-front heuristic](https://en.wikipedia.org/wiki/Self-organizing_list#Move_to_Front_Method_(MTF)) may be effective. More sophisticated data structures, such as balanced search trees, are worth considering only if the load factor is large (about 10 or more), or if the hash distribution is likely to be very non-uniform, or if one must guarantee good performance even in a worst-case scenario. However, using a larger table and/or a better hash function may be even more effective in those cases.[*citation needed*]
 
+##### 劣势
+
 Chained hash tables also inherit the disadvantages of linked lists. When storing small keys and values, the space overhead of the `next` pointer in each entry record can be significant. An additional disadvantage is that traversing a linked list has poor [cache performance](https://en.wikipedia.org/wiki/Locality_of_reference), making the processor cache ineffective.
 
 
 
 #### Separate chaining with list head cells
 
+Some chaining implementations store the first record of each chain in the slot array itself.[[4\]](https://en.wanweibaike.com/wiki-hash table#cite_note-cormen-4) The number of pointer traversals is decreased by one for most cases. The purpose is to increase cache efficiency of hash table access.
 
+The disadvantage is that an empty bucket takes the same space as a bucket with one entry. To save space, such hash tables often have about as many slots as stored entries, meaning that many slots have two or more entries.[*[citation needed](https://en.wanweibaike.com/wiki/Wikipedia-Citation_needed)*]
 
 #### Separate chaining with other structures
+
+> 1、影响因素非常多，很难有完美的方案
+
+**Using a [self-balancing binary search tree](https://en.wanweibaike.com/wiki-Self-balancing_binary_search_tree) :**
+
+Instead of a list, one can use any other data structure that supports the required operations. For example, by using a [self-balancing binary search tree](https://en.wanweibaike.com/wiki-Self-balancing_binary_search_tree), the theoretical worst-case time of common hash table operations (insertion, deletion, lookup) can be brought down to [O(log *n*)](https://en.wanweibaike.com/wiki-Big_O_notation) rather than O(*n*). However, this introduces extra complexity into the implementation, and may cause even worse performance for smaller hash tables, where the time spent inserting into and balancing the tree is greater than the time needed to perform a [linear search](https://en.wanweibaike.com/wiki-Linear_search) on all of the elements of a list.[[3\]](https://en.wanweibaike.com/wiki-hash table#cite_note-knuth-3)[[12\]](https://en.wanweibaike.com/wiki-hash table#cite_note-12) A real world example of a hash table that uses a self-balancing binary search tree for buckets is the `HashMap` class in [Java](https://en.wanweibaike.com/wiki-Java_(programming_language)) [version 8](https://en.wanweibaike.com/wiki-Java_8).[[13\]](https://en.wanweibaike.com/wiki-hash table#cite_note-13)
+
+> NOTE: 
+>
+> 1、这种情况的hash table，更像是一个array of [self-balancing binary search tree](https://en.wanweibaike.com/wiki-Self-balancing_binary_search_tree)，它是一个mix data structure
+
+**Using a [dynamic array](https://en.wanweibaike.com/wiki-Dynamic_array)** 
+
+The variant called array hash table uses a [dynamic array](https://en.wanweibaike.com/wiki-Dynamic_array) to store all the entries that hash to the same slot.[[14\]](https://en.wanweibaike.com/wiki-hash table#cite_note-14)[[15\]](https://en.wanweibaike.com/wiki-hash table#cite_note-15)[[16\]](https://en.wanweibaike.com/wiki-hash table#cite_note-16) Each newly inserted entry gets appended to the end of the dynamic array that is assigned to the slot. The dynamic array is resized in an *exact-fit* manner, meaning it is grown only by as many bytes as needed. Alternative techniques such as growing the array by block sizes or *pages* were found to improve insertion performance, but at a cost in space. This variation makes more efficient use of [CPU caching](https://en.wanweibaike.com/wiki-CPU_cache) and the [translation lookaside buffer](https://en.wanweibaike.com/wiki-Translation_lookaside_buffer) (TLB), because slot entries are stored in sequential memory positions. It also dispenses with the `next` pointers that are required by linked lists, which saves space. Despite frequent array resizing, space overheads incurred by the operating system such as memory fragmentation were found to be small.[*[citation needed](https://en.wanweibaike.com/wiki/Wikipedia-Citation_needed)*]
+
+**[Dynamic perfect hashing](https://en.wanweibaike.com/wiki-Dynamic_perfect_hashing)**
+
+An elaboration on this approach is the so-called [dynamic perfect hashing](https://en.wanweibaike.com/wiki-Dynamic_perfect_hashing),[[17\]](https://en.wanweibaike.com/wiki-hash table#cite_note-17) where a bucket that contains *k* entries is organized as a perfect hash table with *k*2 slots. While it uses more memory (*n*2 slots for *n* entries, in the worst case and *n* × *k* slots in the average case), this variant has guaranteed constant worst-case lookup time, and low amortized time for insertion. It is also possible to use a [fusion tree](https://en.wanweibaike.com/wiki-Fusion_tree) for each bucket, achieving constant time for all operations with high probability.[[18\]](https://en.wanweibaike.com/wiki-hash table#cite_note-18)
 
 
 

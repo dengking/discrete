@@ -38,6 +38,12 @@ So how to choose data structure ? It is an art and worth learning。
 
 
 
+### [Cache performance](https://en.wikipedia.org/wiki/Locality_of_reference)
+
+1、在 wikipedia [Hash table](https://en.wikipedia.org/wiki/Hash_table) 中对此进行了说明
+
+
+
 ## Classification
 
 ### Linear and non-linear
