@@ -1,6 +1,6 @@
 # 前言
 
-So how to choose data structure ? It is an art and worth learning。
+"So how to choose data structure ? It is an art and worth learning"
 
 本章对各种data structure进行对比:
 
@@ -10,7 +10,17 @@ So how to choose data structure ? It is an art and worth learning。
 
 这样做的目的是为选择data structure提供参考意见。比较各种data structure，
 
+## 从最基础的array 和 linked list开始说起
 
+array 和 linked list不仅仅是两种data structure，它们所代表的是两种典型的存储方式，存储方式的不同决定了它们的典型差异，在下面的文章中，对此进行了非常好的解读:
+
+1、geeksforgeeks [Linked List vs Array](https://www.geeksforgeeks.org/linked-list-vs-array/)
+
+2、studytonight [Difference between Array and Linked List](https://www.studytonight.com/data-structures/linked-list-vs-array)
+
+linked list只能够 [sequential access](https://en.wanweibaike.com/wiki-Sequential_access)，但是array能够random access。
+
+在 wanweibaike [Linked list](https://en.wanweibaike.com/wiki-Linked%20list) 中，有着非常好的总结。
 
 ## Trade off
 
@@ -25,6 +35,8 @@ So how to choose data structure ? It is an art and worth learning。
 各种operation的time complexity，programmer需要根据
 
 ### Space complexity
+
+相比于其他的，是否需要花费更多的空间，典型的例子就是linked list的next pointer
 
 ### Concurrency
 
@@ -114,3 +126,16 @@ So how to choose data structure ? It is an art and worth learning。
 
 
 
+## Mixed data structure
+
+一、separate chaining based hash table
+
+参见 wikipedia [Hash table](https://en.wikipedia.org/wiki/Hash_table) ，根据其chaining采用的data structure，它可能是:
+
+1、array of self-balancing binary search tree
+
+2、array of linked list
+
+二、[Unrolled linked list](https://en.wikipedia.org/wiki/Unrolled_linked_list)
+
+它可以看做是linked list of dynamic array

@@ -71,6 +71,12 @@ The distribution needs to be **uniform** only for **table sizes** that occur in 
 
 For [open addressing](https://en.wikipedia.org/wiki/Open_addressing) schemes, the **hash function** should also avoid *clustering*, the mapping of two or more keys to consecutive（连续的） slots. Such clustering may cause the lookup cost to skyrocket（飞涨）, even if the **load factor** is low and collisions are infrequent. The popular multiplicative(乘法) hash[[3\]](https://en.wikipedia.org/wiki/Hash_table#cite_note-knuth-3) is claimed to have particularly poor clustering behavior.[[8\]](https://en.wikipedia.org/wiki/Hash_table#cite_note-:0-8)
 
+> NOTE: 
+>
+> 1、为什么 "Such clustering may cause the lookup cost to skyrocket（飞涨）"？
+>
+> 需要不断地去probe？
+
 #### [Cryptographic hash functions](https://en.wanweibaike.com/wiki-Cryptographic_hash_function)
 
 [Cryptographic hash functions](https://en.wikipedia.org/wiki/Cryptographic_hash_function) are believed to provide good hash functions for any **table size**, either by [modulo](https://en.wikipedia.org/wiki/Modulo_operation) reduction or by [bit masking](https://en.wikipedia.org/wiki/Mask_(computing))[*citation needed*]. They may also be appropriate if there is a risk of malicious（恶毒的） users trying to [sabotage](https://en.wikipedia.org/wiki/Denial_of_service_attack) （蓄意破坏）a network service by submitting requests designed to generate a large number of collisions in the server's hash tables. However, the risk of sabotage can also be avoided by cheaper methods (such as applying a secret [salt](https://en.wikipedia.org/wiki/Salt_(cryptography)) to the data, or using a [universal hash function](https://en.wikipedia.org/wiki/Universal_hash_function)). 
@@ -116,7 +122,7 @@ where
 >
 > 1、参见 rcoh [An Analysis of Hash Map Implementations in Popular Languages](https://rcoh.me/posts/hash-map-analysis/) ，其中对一些programming language提供的hash table的implementation所采用的collision resolution进行了说明
 >
-> 
+> 2、这两种strategy的对比，其实更多的是array 和 linked list的对比
 
 Hash [collisions](https://en.wikipedia.org/wiki/Collision_(computer_science)) are practically unavoidable when hashing a random subset of a large set of possible keys. For example, if 2,450 keys are hashed into a million buckets, even with a perfectly uniform random distribution, according to the [birthday problem](https://en.wikipedia.org/wiki/Birthday_problem) there is approximately a 95% chance of at least two of the keys being hashed to the same slot.
 
@@ -128,7 +134,9 @@ Therefore, almost all hash table implementations have some collision resolution 
 
 In the method known as *separate chaining*, each bucket is independent, and has some sort of [list](https://en.wikipedia.org/wiki/List_(abstract_data_type)) of entries with the same index. The time for hash table operations is the time to find the bucket (which is constant) plus the time for the list operation.
 
-
+> NOTE: 
+>
+> 1、初读上面这段话是可能会产生误解的，*chaining* 采用的data structure不一定是linked list，下面会对可能的方案进行总结
 
 In a good hash table, each bucket has zero or one entries, and sometimes two or three, but rarely more than that. Therefore, structures that are efficient in time and space for these cases are preferred. Structures that are efficient for a fairly large number of entries per bucket are not needed or desirable. If these cases happen often, the hashing function needs to be fixed.[*citation needed*]
 
@@ -138,9 +146,13 @@ In a good hash table, each bucket has zero or one entries, and sometimes two or 
 
 > NOTE: 
 >
-> 1、这种情况的hash table，更像是一个array of linked list，它是一个mix data structure
+> 1、这种情况的hash table，更像是一个array of linked list，它是一个mixed data structure
 
 Chained hash tables with [linked lists](https://en.wikipedia.org/wiki/Linked_list) are popular because they require only basic data structures with simple algorithms, and can use simple hash functions that are unsuitable for other methods.[*citation needed*]
+
+> NOTE: 
+>
+> 1、优势就是简单
 
 The cost of a table operation is that of scanning the entries of the selected bucket for the desired key. If the distribution of keys is [sufficiently uniform](https://en.wikipedia.org/wiki/SUHA), the *average* cost of a lookup depends only on the average number of keys per bucket—that is, it is roughly proportional to the load factor.
 
@@ -148,9 +160,17 @@ For this reason, chained hash tables remain effective even when the number of ta
 
 For separate-chaining, the worst-case scenario is when all entries are inserted into the same bucket, in which case the hash table is ineffective and the cost is that of searching the bucket data structure. If the latter is a linear list, the lookup procedure may have to scan all its entries, so the worst-case cost is proportional to the number *n* of entries in the table.
 
+> NOTE: 
+>
+> 1、最坏的情况
+
 The bucket chains are often searched sequentially using the order the entries were added to the bucket. If the load factor is large and some keys are more likely to come up than others, then rearranging the chain with a [move-to-front heuristic](https://en.wikipedia.org/wiki/Self-organizing_list#Move_to_Front_Method_(MTF)) may be effective. More sophisticated data structures, such as balanced search trees, are worth considering only if the load factor is large (about 10 or more), or if the hash distribution is likely to be very non-uniform, or if one must guarantee good performance even in a worst-case scenario. However, using a larger table and/or a better hash function may be even more effective in those cases.[*citation needed*]
 
-##### 劣势
+**劣势**
+
+> NOTE: 
+>
+> 1、它的劣势源自于linked list
 
 Chained hash tables also inherit the disadvantages of linked lists. When storing small keys and values, the space overhead of the `next` pointer in each entry record can be significant. An additional disadvantage is that traversing a linked list has poor [cache performance](https://en.wikipedia.org/wiki/Locality_of_reference), making the processor cache ineffective.
 
@@ -180,6 +200,10 @@ The variant called array hash table uses a [dynamic array](https://en.wanweibaik
 
 **[Dynamic perfect hashing](https://en.wanweibaike.com/wiki-Dynamic_perfect_hashing)**
 
+> NOTE: 
+>
+> 1、比较复杂
+
 An elaboration on this approach is the so-called [dynamic perfect hashing](https://en.wanweibaike.com/wiki-Dynamic_perfect_hashing),[[17\]](https://en.wanweibaike.com/wiki-hash table#cite_note-17) where a bucket that contains *k* entries is organized as a perfect hash table with *k*2 slots. While it uses more memory (*n*2 slots for *n* entries, in the worst case and *n* × *k* slots in the average case), this variant has guaranteed constant worst-case lookup time, and low amortized time for insertion. It is also possible to use a [fusion tree](https://en.wanweibaike.com/wiki-Fusion_tree) for each bucket, achieving constant time for all operations with high probability.[[18\]](https://en.wanweibaike.com/wiki-hash table#cite_note-18)
 
 
@@ -188,9 +212,37 @@ An elaboration on this approach is the so-called [dynamic perfect hashing](https
 
 *Main article:* [Open addressing](https://en.wikipedia.org/wiki/Open_addressing)
 
+In another strategy, called open addressing, all entry records are stored in the bucket array itself. 
+
+When a new entry has to be inserted, the buckets are examined, starting with the hashed-to slot and proceeding in some *probe sequence*, until an unoccupied slot is found. 
+
+When searching for an entry, the buckets are scanned in the same sequence, until either the target record is found, or an unused array slot is found, which indicates that there is no such key in the table.[[19\]](https://en.wanweibaike.com/wiki-hash table#cite_note-tenenbaum90-19) 
+
+The name "open addressing" refers to the fact that the location ("address") of the item is not determined by its hash value. (This method is also called **closed hashing**; it should not be confused with "open hashing" or "closed addressing" that usually mean separate chaining.)
+
+Well-known probe sequences include:
+
+1、[Linear probing](https://en.wanweibaike.com/wiki-Linear_probing), in which the interval between probes is fixed (usually 1). Because of good [CPU cache](https://en.wanweibaike.com/wiki-CPU_cache) utilization and high performance this algorithm is most widely used on modern computer architectures in hash table implementations.[[20\]](https://en.wanweibaike.com/wiki-hash table#cite_note-Cuckoo-20)
+
+2、[Quadratic probing](https://en.wanweibaike.com/wiki-Quadratic_probing), in which the interval between probes is increased by adding the successive outputs of a quadratic polynomial to the starting value given by the original hash computation
+
+3、[Double hashing](https://en.wanweibaike.com/wiki-Double_hashing), in which the interval between probes is computed by a second hash function
 
 
 
+> NOTE: 
+>
+> 下面对open addressing 和 separate chaining的对比，本质上是对它们的存储方式: linked 和 array 的对比
+
+
+
+#### Drawback 
+
+A drawback of all these open addressing schemes is that the number of stored entries cannot exceed the number of slots in the bucket array. In fact, even with good hash functions, their performance dramatically degrades when the load factor grows beyond 0.7 or so. For many applications, these restrictions mandate the use of dynamic resizing, with its attendant costs.[*[citation needed](https://en.wanweibaike.com/wiki/Wikipedia-Citation_needed)*]
+
+#### Drawback: clustering 
+
+Open addressing schemes also put more stringent requirements on the hash function: besides distributing the keys more uniformly over the buckets, the function must also minimize the clustering of hash values that are consecutive in the probe order. Using separate chaining, the only concern is that too many objects map to the *same* hash value; whether they are adjacent or nearby is completely irrelevant.[*[citation needed](https://en.wanweibaike.com/wiki/Wikipedia-Citation_needed)*]
 
 
 
@@ -198,15 +250,39 @@ An elaboration on this approach is the so-called [dynamic perfect hashing](https
 
 When an insert is made such that the number of entries in a hash table exceeds the product of the load factor and the current capacity then the hash table will need to be *rehashed*.[[9\]](https://en.wikipedia.org/wiki/Hash_table#cite_note-JavadocHashmap10-9) **Rehashing** includes **increasing** the size of the underlying data structure[[9\]](https://en.wikipedia.org/wiki/Hash_table#cite_note-JavadocHashmap10-9) and mapping existing items to new bucket locations. In some implementations, if the initial capacity is greater than the maximum number of entries divided by the load factor, no rehash operations will ever occur.[[9\]](https://en.wikipedia.org/wiki/Hash_table#cite_note-JavadocHashmap10-9)
 
+> NOTE: 
+>
+> 一、"mapping existing items to new bucket locations" 指的是 对key重新使用hash function获得它们对应的新的hash code，即rehash、hash again。
+>
+> 二、其实dynamic resizing的实现，相对而言是比较容易的，在 geeksforgeeks [Load Factor and Rehashing](https://www.geeksforgeeks.org/load-factor-and-rehashing/) 中给出了比较好的总结:
+>
+> 1、enlarge
+>
+> 2、将原table中的元素逐一添加到新的table中，直接调用`insert`的接口即可: `insert`会计算hash code，然后将元素添加到hash table中。
+
 To limit the proportion of memory wasted due to empty buckets, some implementations also **shrink** the size of the table—followed by a rehash—when items are deleted. From the point of space–time tradeoffs, this operation is similar to the deallocation in dynamic arrays.
 
 
 
 ### Resizing by copying all entries
 
-A common approach is to automatically trigger a complete resizing when the load factor exceeds some threshold *r*max. Then a new larger table is [allocated](https://en.wikipedia.org/wiki/Dynamic_memory_allocation), each entry is removed from the old table, and inserted into the new table. When all entries have been removed from the old table then the old table is returned to the free storage pool. Likewise, when the load factor falls below a second threshold *r* min, all entries are moved to a new smaller table.
+> NOTE: 
+>
+> 一、原文的这段话仅仅讨论的是resize，并没有讨论如何将原table的内容转移到新的table中？是直接copy？还是，每个都hash一遍，然后找到它们在新table中的位置？应该是要重新hash一遍的：
+>
+> 1、对于缩小，显然无法直接将原来的copy到新的table
+>
+> 2、重新hash一遍，能够充分利用新的table的空间
+>
+> 关于这个topic，参见: 
+>
+> 1、geeksforgeeks [Load Factor and Rehashing](https://www.geeksforgeeks.org/load-factor-and-rehashing/)
+>
+> 其中详细地描述了rehash的过程
 
-For hash tables that shrink and grow frequently, the resizing downward can be skipped entirely. In this case, the table size is proportional to the maximum number of entries that ever were in the hash table at one time, rather than the current number. The disadvantage is that memory usage will be higher, and thus cache behavior may be worse. For best control, a "shrink-to-fit" operation can be provided that does this only on request.
+A common approach is to automatically trigger a complete resizing when the **load factor** exceeds some threshold *r*max. Then a new larger table is [allocated](https://en.wikipedia.org/wiki/Dynamic_memory_allocation), each entry is removed from the old table, and inserted into the new table. When all entries have been removed from the old table then the old table is returned to the free storage pool. Likewise, when the load factor falls below a second threshold *r* min, all entries are moved to a new smaller table.
+
+For hash tables that shrink and grow frequently, the resizing downward(向下，缩小) can be skipped entirely. In this case, the table size is proportional to the maximum number of entries that ever were in the hash table at one time, rather than the current number. The disadvantage is that memory usage will be higher, and thus cache behavior may be worse. For best control, a "shrink-to-fit" operation can be provided that does this only on request.
 
 If the table size increases or decreases by a fixed percentage at each expansion, the total cost of these resizings, [amortized](https://en.wikipedia.org/wiki/Amortized_analysis) over all insert and delete operations, is still a constant, independent of the number of entries *n* and of the number *m* of operations performed.
 
@@ -218,19 +294,31 @@ For example, consider a table that was created with the minimum possible size an
 
 Some hash table implementations, notably in [real-time systems](https://en.wikipedia.org/wiki/Real-time_system), cannot pay the price of enlarging the hash table all at once, because it may interrupt time-critical operations. If one cannot avoid dynamic resizing, a solution is to perform the resizing **gradually**（渐进式）.
 
+> NOTE: 
+>
+> 1、"tag-incremental-amortize-not-all-at-once-渐进式均摊而不是一蹴而就"
+
 Disk-based hash tables almost always use some alternative to all-at-once rehashing, since the cost of rebuilding the entire table on disk would be too high.
 
 
 
 #### Incremental resizing
 
+> NOTE: 
+>
+> 1、Redis的hash table就是使用的incremental resizing，参见工程`decompose-redis` 的  `Data-structure\Dict\Incremental-rehash`
+
 One alternative to enlarging the table all at once is to perform the rehashing gradually:
 
-- During the resize, allocate the new hash table, but keep the old table unchanged.
-- In each lookup or delete operation, check both tables.
-- Perform insertion operations only in the new table.
-- At each insertion also move *r* elements from the old table to the new table.
-- When all elements are removed from the old table, deallocate it.
+1、During the resize, allocate the new hash table, but keep the old table unchanged.
+
+2、In each lookup or delete operation, check both tables.
+
+3、Perform insertion operations only in the new table.
+
+4、At each insertion also move *r* elements from the old table to the new table.
+
+5、When all elements are removed from the old table, deallocate it.
 
 To ensure that the old table is completely copied over before the new table itself needs to be enlarged, it is necessary to increase the size of the table by a factor of at least (*r* + 1)/*r* during resizing.
 
@@ -238,9 +326,13 @@ To ensure that the old table is completely copied over before the new table itse
 
 #### Monotonic keys
 
-If it is known that key values will always increase (or decrease) [monotonically](https://en.wikipedia.org/wiki/Monotonic_function), then a variation of [consistent hashing](https://en.wikipedia.org/wiki/Consistent_hashing) can be achieved by keeping a list of the single most recent key value at each hash table resize operation. Upon lookup, keys that fall in the ranges defined by these list entries are directed to the appropriate hash function—and indeed hash table—both of which can be different for each range. Since it is common to grow the overall number of entries by doubling, there will only be [O(log(*N*))](https://en.wikipedia.org/wiki/Big_O_notation) ranges to check, and binary search time for the redirection would be O(log(log(*N*))). As with consistent hashing, this approach guarantees that any key's hash, once issued, will never change, even when the hash table is later grown.
 
 
+If it is known that keys will be stored in [monotonically](https://en.wanweibaike.com/wiki-Monotonic_function) increasing (or decreasing) order, then a variation of [consistent hashing](https://en.wanweibaike.com/wiki-Consistent_hashing) can be achieved.
+
+> NOTE: 
+>
+> 1、关于 "consistent hashing"，参见工程`Parallel-computing` 的 `Consistent-hashing` 章节。
 
 #### Linear hashing
 
