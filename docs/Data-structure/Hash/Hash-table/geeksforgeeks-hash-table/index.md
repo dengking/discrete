@@ -12,6 +12,16 @@
 
 
 
+
+
+## geeksforgeeks [Hashing | Set 3 (Open Addressing)](https://www.geeksforgeeks.org/hashing-set-3-open-addressing/)
+
+
+
+## geeksforgeeks [Double Hashing](https://www.geeksforgeeks.org/double-hashing/)
+
+
+
 ## geeksforgeeks [Load Factor and Rehashing](https://www.geeksforgeeks.org/load-factor-and-rehashing/)
 
 ### Rehashing:

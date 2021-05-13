@@ -23,7 +23,7 @@
 
     
 
-## 维基百科[Hash table#Hashing](https://en.wikipedia.org/wiki/Hash_table#Hashing)
+## wikipedia [Hash table#Hashing](https://en.wikipedia.org/wiki/Hash_table#Hashing)
 
 > NOTE: [Hash table#Hashing](https://en.wikipedia.org/wiki/Hash_table#Hashing)中关于hash的介绍比较精简。
 

@@ -1,4 +1,7 @@
 nav:
     - Introduction: index.md
     - wikipedia-Hash-table: wikipedia-Hash-table
+    - geeksforgeeks-hash-table: geeksforgeeks-hash-table
+    
     - rcoh-Hash-Map-Implementation-in-Popular-Language: rcoh-Hash-Map-Implementation-in-Popular-Language
+    - Hash-table-Q&A: Hash-table-Q&A.md

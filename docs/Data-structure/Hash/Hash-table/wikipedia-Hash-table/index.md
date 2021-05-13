@@ -326,8 +326,6 @@ To ensure that the old table is completely copied over before the new table itse
 
 #### Monotonic keys
 
-
-
 If it is known that keys will be stored in [monotonically](https://en.wanweibaike.com/wiki-Monotonic_function) increasing (or decreasing) order, then a variation of [consistent hashing](https://en.wanweibaike.com/wiki-Consistent_hashing) can be achieved.
 
 > NOTE: 
@@ -344,7 +342,9 @@ If it is known that keys will be stored in [monotonically](https://en.wanweibaik
 
 Another way to decrease the cost of table resizing is to choose a hash function in such a way that the hashes of most values do not change when the table is resized. Such hash functions are prevalent（流行的） in disk-based and [distributed hash tables](https://en.wikipedia.org/wiki/Distributed_hash_table), where **rehashing** is prohibitively costly. The problem of designing a hash such that most values do not change when the table is resized is known as the [distributed hash table](https://en.wikipedia.org/wiki/Distributed_hash_table) problem. The four most popular approaches are [rendezvous hashing](https://en.wikipedia.org/wiki/Rendezvous_hashing), [consistent hashing](https://en.wikipedia.org/wiki/Consistent_hashing), the [content addressable network](https://en.wikipedia.org/wiki/Content_addressable_network) algorithm, and [Kademlia](https://en.wikipedia.org/wiki/Kademlia) distance.
 
-
+> NOTE: 
+>
+> 1、参见工程 `Parallel-computing` 的 `Distributed-hash-table` 章节。
 
 ## Performance analysis
 
@@ -360,19 +360,35 @@ In more realistic models, the hash function is a [random variable](https://en.wi
 
 ### Advantages
 
-- The main advantage of hash tables over other table data structures is speed. This advantage is more apparent when the number of entries is large. Hash tables are particularly efficient when the maximum number of entries can be predicted in advance, so that the bucket array can be allocated once with the optimum size and never resized.
+1、The main advantage of hash tables over other table data structures is speed. This advantage is more apparent when the number of entries is large. Hash tables are particularly efficient when the maximum number of entries can be predicted in advance, so that the bucket array can be allocated once with the optimum size and never resized.
 
-- If the set of key-value pairs is fixed and known ahead of time (so insertions and deletions are not allowed), one may reduce the average lookup cost by a careful choice of the hash function, bucket table size, and internal data structures. In particular, one may be able to devise a hash function that is collision-free, or even perfect. In this case the keys need not be stored in the table.
+> NOTE: 
+>
+> 1、提前知道数据的数量是对应hash table而言是非常重要的。
+
+2、If the set of key-value pairs is fixed and known ahead of time (so insertions and deletions are not allowed), one may reduce the average lookup cost by a careful choice of the hash function, bucket table size, and internal data structures. In particular, one may be able to devise a hash function that is collision-free, or even perfect. In this case the keys need not be stored in the table.
 
 
 
 ### Drawbacks
 
-1、Although operations on a **hash table** take constant time on average, the cost of a good hash function can be significantly higher than the inner loop of the lookup algorithm for a sequential list or search tree. Thus hash tables are not effective when the number of entries is very small. (However, in some cases the high cost of computing the hash function can be mitigated by saving the hash value together with the key.)
+1、Although operations on a **hash table** take constant time on average, the cost of a good hash function can be significantly higher than the inner loop of the lookup algorithm for a sequential list or search tree. Thus hash tables are not effective when the number of entries is very small. (However, in some cases the high cost of computing the hash function can be mitigated(缓解) by saving the hash value together with the key.)
 
-2、For certain string processing applications, such as [spell-checking](https://en.wikipedia.org/wiki/Spell_checker), hash tables may be less efficient than [tries](https://en.wikipedia.org/wiki/Trie), [finite automata](https://en.wikipedia.org/wiki/Finite_automata), or [Judy arrays](https://en.wikipedia.org/wiki/Judy_array). Also, if there are not too many possible keys to store—that is, if each key can be represented by a small enough number of bits—then, instead of a hash table, one may use the key directly as the index into an array of values. Note that there are no collisions in this case.
+> NOTE: 
+>
+> 1、需要考虑hash function的成本
 
-3、The entries stored in a hash table can be enumerated efficiently (at constant cost per entry), but only in some pseudo-random order. Therefore, there is no efficient way to locate an entry whose key is *nearest* to a given key. Listing all *n* entries in some specific order generally requires a separate sorting step, whose cost is proportional to log(*n*) per entry. In comparison, ordered search trees have lookup and insertion cost proportional to log(*n*), but allow finding the nearest key at about the same cost, and *ordered* enumeration of all entries at constant cost per entry.
+2、For certain **string processing applications**, such as [spell-checking](https://en.wikipedia.org/wiki/Spell_checker), hash tables may be less efficient than [tries](https://en.wikipedia.org/wiki/Trie), [finite automata](https://en.wikipedia.org/wiki/Finite_automata), or [Judy arrays](https://en.wikipedia.org/wiki/Judy_array). Also, if there are not too many possible keys to store—that is, if each key can be represented by a small enough number of bits—then, instead of a hash table, one may use the key directly as the index into an array of values. Note that there are no collisions in this case.
+
+> NOTE: 
+>
+> 1、使用  [tries](https://en.wikipedia.org/wiki/Trie) 也可以实现 dict-map-associative-array
+
+3、The entries stored in a hash table can be enumerated efficiently (at constant cost per entry), but only in some pseudo-random order. Therefore, there is no efficient way to locate an entry whose key is *nearest* to a given key. Listing all *n* entries in some specific order generally requires a separate sorting step, whose cost is proportional to log(*n*) per entry. In comparison, **ordered search trees** have lookup and insertion cost proportional to log(*n*), but allow finding the nearest key at about the same cost, and *ordered* enumeration of all entries at constant cost per entry.
+
+> NOTE: 
+>
+> 1、其实上面这段话是在说hash map是unsorted的
 
 4、If the keys are not stored (because the hash function is collision-free), there may be no easy way to enumerate the keys that are present in the table at any given moment.
 
