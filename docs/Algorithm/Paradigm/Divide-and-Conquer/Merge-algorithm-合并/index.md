@@ -65,22 +65,4 @@ In the merge sort algorithm, this [subroutine](https://en.wikipedia.org/wiki/Sub
 
  *Main article:* [K-way merge algorithm](https://en.wikipedia.org/wiki/K-way_merge_algorithm) 
 
-*k*-way merging generalizes binary merging to an arbitrary number *k* of sorted input lists. Applications of *k*-way merging arise in various sorting algorithms, including [patience sorting](https://en.wikipedia.org/wiki/Patience_sorting)[[5\]](https://en.wikipedia.org/wiki/Merge_algorithm#cite_note-Chandramouli-5) and an [external sorting](https://en.wikipedia.org/wiki/External_sorting) algorithm that divides its input into *k* = 1/*M* − 1 blocks that fit in memory, sorts these one by one, then merges these blocks.[[2\]](https://en.wikipedia.org/wiki/Merge_algorithm#cite_note-toolbox-2):119–120 
-
-Several solutions to this problem exist. A naive solution is to do a loop over the *k* lists to pick off the minimum element each time, and repeat this loop until all lists are empty: 
-
-> - Input: a list of *k* lists.
-> - While any of the lists is non-empty:
->   - Loop over the lists to find the one with the minimum first element.
->   - Output the minimum element and remove it from its list.
-
- [In the worst case](https://en.wikipedia.org/wiki/Best,_worst_and_average_case), this algorithm performs (*k*−1)(*n*−*k*/2) element comparisons to perform its work if there are a total of *n* elements in the lists.[[6\]](https://en.wikipedia.org/wiki/Merge_algorithm#cite_note-greene-6) It can be improved by storing the lists in a [priority queue](https://en.wikipedia.org/wiki/Priority_queue) ([min-heap](https://en.wikipedia.org/wiki/Heap_(data_structure))) keyed by their first element: 
-
-> - Build a min-heap *h* of the *k* lists, using the first element as the key.
-> - While any of the lists is non-empty:
->   - Let *i* = find-min(*h*).
->   - Output the first element of list *i* and remove it from its list.
->   - Re-heapify *h*.
-
-
-
+> NOTE: 参见 `K-way-merge-algorithm` 章节。
