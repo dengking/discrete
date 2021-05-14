@@ -1,10 +1,12 @@
 # Merge algorithm
 
+
+
 ## wikipedia [Merge algorithm](https://en.wikipedia.org/wiki/Merge_algorithm)
 
  **Merge algorithms** are a family of [algorithms](https://en.wikipedia.org/wiki/Algorithm) that take multiple [sorted](https://en.wikipedia.org/wiki/Sorting_algorithm) lists as input and produce a single list as output, containing all the elements of the inputs lists in sorted order. These algorithms are used as [subroutines](https://en.wikipedia.org/wiki/Subroutine) in various [sorting algorithms](https://en.wikipedia.org/wiki/Sorting_algorithm), most famously [merge sort](https://en.wikipedia.org/wiki/Merge_sort). 
 
-## Application
+### Application
 
  The merge algorithm plays a critical role in the [merge sort](https://en.wikipedia.org/wiki/Merge_sort) algorithm, a [comparison-based sorting algorithm](https://en.wikipedia.org/wiki/Comparison_sort). Conceptually, merge sort algorithm consists of two steps: 
 
@@ -20,9 +22,13 @@ An example merge sort is given in the illustration. It starts with an unsorted a
 
 
 
-## Merging two lists
+### Merging two lists
 
- Merging two sorted lists into one can be done in [linear time](https://en.wikipedia.org/wiki/Linear_time) and linear space. The following [pseudocode](https://en.wikipedia.org/wiki/Pseudocode) demonstrates an algorithm that merges input lists (either [linked lists](https://en.wikipedia.org/wiki/Linked_list) or [arrays](https://en.wikipedia.org/wiki/Array_data_structure)) *A* and *B* into a new list *C*.[[1\]](https://en.wikipedia.org/wiki/Merge_algorithm#cite_note-skiena-1)[[2\]](https://en.wikipedia.org/wiki/Merge_algorithm#cite_note-toolbox-2):104 The function head yields the first element of a list; "dropping" an element means removing it from its list, typically by incrementing a pointer or index. 
+> NOTE: 
+>
+> 1、合并两个是相对简单的
+
+Merging two sorted lists into one can be done in [linear time](https://en.wikipedia.org/wiki/Linear_time) and linear space. The following [pseudocode](https://en.wikipedia.org/wiki/Pseudocode) demonstrates an algorithm that merges input lists (either [linked lists](https://en.wikipedia.org/wiki/Linked_list) or [arrays](https://en.wikipedia.org/wiki/Array_data_structure)) *A* and *B* into a new list *C*.[[1\]](https://en.wikipedia.org/wiki/Merge_algorithm#cite_note-skiena-1)[[2\]](https://en.wikipedia.org/wiki/Merge_algorithm#cite_note-toolbox-2):104 The function head yields the first element of a list; "dropping" an element means removing it from its list, typically by incrementing a pointer or index. 
 
 ```pseudocode
 algorithm merge(A, B) is
@@ -55,7 +61,7 @@ In the merge sort algorithm, this [subroutine](https://en.wikipedia.org/wiki/Sub
 
 
 
-## K-way merging
+### K-way merging
 
  *Main article:* [K-way merge algorithm](https://en.wikipedia.org/wiki/K-way_merge_algorithm) 
 
