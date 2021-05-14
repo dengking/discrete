@@ -1,5 +1,6 @@
 nav:
     - Introduction: index.md
     - wikipedia-String(computer-science): wikipedia-String(computer-science)
-    - Pattern-matching: Pattern-matching
-    
+    - Pattern-match: Pattern-match
+    - String-search: String-search
+    - LeetCode: LeetCode
