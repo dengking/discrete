@@ -1,9 +1,10 @@
 nav:
     - Introduction: index.md
     - LeetCode-16.19-水域大小: LeetCode-16.19-水域大小
-    - LeetCode-115-不同的子序列: LeetCode-115-不同的子序列
-    - LeetCode-322-零钱兑换: LeetCode-322-零钱兑换    
+
+
     - 打家劫舍-House-robber: 打家劫舍-House-robber
-    - 链表-linked-list: 链表-linked-list
+
     - stack: stack
-    - Graph-图: Graph-图
+    - Subsequence(子序列)-Subarray(子数组)-Substring(子串): Subsequence(子序列)-Subarray(子数组)-Substring(子串)
+    - Tournament-比赛: Tournament-比赛
