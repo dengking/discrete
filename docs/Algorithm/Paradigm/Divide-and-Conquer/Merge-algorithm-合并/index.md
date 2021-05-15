@@ -12,9 +12,15 @@
 
 1、[Recursively](https://en.wikipedia.org/wiki/Recursion_(computer_science)) divide the list into sublists of (roughly) equal length, until each sublist contains only one element, or in the case of iterative (bottom up) merge sort, consider a list of *n* elements as *n* sub-lists of size 1. A list containing a single element is, by definition, sorted.
 
+> NOTE: 
+>
+> 1、需要考虑 "iterative (bottom up) merge sort" 如何实现
+
 2、Repeatedly **merge** sublists to create a new sorted sublist until the single list contains all elements. The single list is the sorted list.
 
-
+> NOTE: 
+>
+> 1、这其实就非常类似于 k-way merge
 
 The **merge algorithm** is used repeatedly in the **merge sort algorithm**.
 
@@ -54,6 +60,12 @@ algorithm merge(A, B) is
 
     return C
 ```
+
+> NOTE: 
+>
+> 1、leetcode [21. 合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists/)
+>
+> 
 
 When the inputs are linked lists, this algorithm can be implemented to use only a constant amount of working space; the pointers in the lists' nodes can be reused for bookkeeping and for constructing the final merged list.
 

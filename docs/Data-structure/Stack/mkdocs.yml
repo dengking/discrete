@@ -9,9 +9,10 @@ nav:
     # 栈和队列
     - Stack-and-queue: Stack-and-queue
     
-    - 反转-reverse-stack: 反转-reverse-stack
-    # 使用栈来进行反转
-    - 反转-reverse-by-stack: 反转-reverse-by-stack
+    # 使用栈来进行反转    
+    - Reverse-by-stack-反转: Reverse-by-stack-反转
+    # 反转stack
+    - Reverse-stack-反转: Reverse-stack-反转
     
     - Application-of-stack: Application-of-stack.md    
-    - All-nearest-smaller-values: All-nearest-smaller-values
+    
