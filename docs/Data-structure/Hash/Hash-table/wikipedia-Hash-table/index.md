@@ -396,6 +396,10 @@ In more realistic models, the hash function is a [random variable](https://en.wi
 
 6、Hash tables in general exhibit poor [locality of reference](https://en.wikipedia.org/wiki/Locality_of_reference)—that is, the data to be accessed is distributed seemingly at random in memory. Because hash tables cause access patterns that jump around, this can trigger [microprocessor cache](https://en.wikipedia.org/wiki/CPU_cache) misses that cause long delays. Compact data structures such as arrays searched with [linear search](https://en.wikipedia.org/wiki/Linear_search) may be faster, if the table is relatively small and keys are compact. The optimal performance point varies from system to system.
 
+> NOTE: 
+>
+> 1、cache performance是非常重要的优化内容
+
 7、Hash tables become quite inefficient when there are many collisions. While extremely uneven hash distributions are extremely unlikely to arise by chance, a [malicious adversary](https://en.wikipedia.org/wiki/Black_hat_hacking) with knowledge of the hash function may be able to supply information to a hash that creates worst-case behavior by causing excessive collisions, resulting in very poor performance, e.g., a [denial of service attack](https://en.wikipedia.org/wiki/Denial_of_service_attack).[[27\]](https://en.wikipedia.org/wiki/Hash_table#cite_note-27)[[28\]](https://en.wikipedia.org/wiki/Hash_table#cite_note-28)[[29\]](https://en.wikipedia.org/wiki/Hash_table#cite_note-29) In critical applications, a data structure with better worst-case guarantees can be used; however, [universal hashing](https://en.wikipedia.org/wiki/Universal_hashing)—a [randomized algorithm](https://en.wikipedia.org/wiki/Randomized_algorithm) that prevents the attacker from predicting which inputs cause worst-case behavior—may be preferable.[[30\]](https://en.wikipedia.org/wiki/Hash_table#cite_note-30) The hash function used by the hash table in the Linux [routing table](https://en.wikipedia.org/wiki/Routing_table) cache was changed with Linux version 2.4.2 as a countermeasure against such attacks.[[31\]](https://en.wikipedia.org/wiki/Hash_table#cite_note-31)
 
 

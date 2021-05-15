@@ -1,4 +1,4 @@
-# [Tree (data structure)](https://en.wikipedia.org/wiki/Tree_(data_structure))
+# wikipedia [Tree (data structure)](https://en.wikipedia.org/wiki/Tree_(data_structure))
 
 In [computer science](https://en.wikipedia.org/wiki/Computer_science), a **tree** is a widely used [abstract data type](https://en.wikipedia.org/wiki/Abstract_data_type) (ADT)—or [data structure](https://en.wikipedia.org/wiki/Data_structure) implementing this ADT—that simulates a hierarchical [tree structure](https://en.wikipedia.org/wiki/Tree_structure), with a root value and subtrees of children with a [parent node](https://en.wikipedia.org/wiki/Tree_(data_structure)#Terminology), represented as a set of linked [nodes](https://en.wikipedia.org/wiki/Node_(computer_science)).
 
