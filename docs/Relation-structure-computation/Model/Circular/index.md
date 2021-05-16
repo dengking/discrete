@@ -36,7 +36,7 @@
 
 
 
-S
+
 
 ### wikipedia [Acyclic dependencies principle](https://en.wikipedia.org/wiki/Acyclic_dependencies_principle)
 
