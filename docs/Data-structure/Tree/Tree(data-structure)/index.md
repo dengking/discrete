@@ -60,6 +60,10 @@ There are many different ways to represent trees; common representations represe
 
 Indeed, a binary tree can be implemented as a list of lists (a list where the values are lists): the head of a list (the value of the first term) is the left child (subtree), while the tail (the list of second and subsequent terms) is the right child (subtree). This can be modified to allow values as well, as in Lisp [S-expressions](https://en.wikipedia.org/wiki/S-expression), where the head (value of first term) is the value of the node, the head of the tail (value of second term) is the left child, and the tail of the tail (list of third and subsequent terms) is the right child.
 
+> NOTE: 
+>
+> 
+
 In general a node in a tree will not have pointers to its parents, but this information can be included (expanding the data structure to also include a pointer to the parent) or stored separately. Alternatively, upward links can be included in the child node data, as in a [threaded binary tree](https://en.wikipedia.org/wiki/Threaded_binary_tree).
 
 
@@ -76,7 +80,9 @@ In general a node in a tree will not have pointers to its parents, but this info
 - Finding the root for any node
 - Finding the [lowest common ancestor](https://en.wikipedia.org/wiki/Lowest_common_ancestor) of two nodes
 
+### Traversal and search methods
 
+Main article: [Tree traversal](https://en.wanweibaike.com/wiki-Tree_traversal)
 
 ## Common uses
 
