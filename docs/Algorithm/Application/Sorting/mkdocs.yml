@@ -3,5 +3,6 @@ nav:
     - Merge-sort: Merge-sort
     - Quick-sort: Quick-sort
     - Timsort: Timsort
-    - Summary: Summary.md
+
     - Lexicographical-order-字典序: Lexicographical-order-字典序
+    - External-sorting: External-sorting

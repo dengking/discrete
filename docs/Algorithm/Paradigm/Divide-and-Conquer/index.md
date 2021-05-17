@@ -1,10 +1,18 @@
 # Divide-and-conquer algorithm
 
-1、非常重要的思想、one-by-one的典范
+## 非常重要的计算思想
 
-2、原问题 和 子问题；原问题 和 子问题 之间的关系
+"divide-and-conquer" 简单然而强大: 
 
-3、"Divide-and-conquer"是非常重要的思想，它是解决后续各种问题的基础
+一、one-by-one的典范
+
+二、思考原问题 和 子问题(原问题 和 子问题 之间的关系)；尤其是对于大型的问题，这是非常重要的一种解决问题的思路，典型的例子: [external sorting](https://en.wanweibaike.com/wiki-External%20sorting)。
+
+三、它是很多其它algorithm的基石
+
+四、distributed computing、parallel computing 都蕴含着 divide-and-conquer思想，在"Divide-and-conquer and parallel computing"中，对此进行了讨论。
+
+
 
 ## 递归和分治
 
@@ -24,9 +32,31 @@
 
 
 
-## TODO Divide-and-conquer algorithm的并行化
+## Divide-and-conquer and parallel computing
 
-关于此，参见:
+
+
+### Parallel computing 加速 divide-and-conquer
+
+Parallel computing、distributed computing能够加速divide-and-conquer的性能
+
+一、"fork and join parallel divide-and-conquer"
+
+典型的例子就是 "APUE 11.6.8 Barriers" 中的merge sort的例子。
+
+二、"distributed computing parallel divide-and-conquer"
+
+### 使用divide-and-conquer来分解
+
+> NOTE: 
+>
+> 1、这是在阅读 "drdobbs [How Much Scalability Do You Have or Need?](https://www.drdobbs.com/parallel/how-much-scalability-do-you-have-or-need/201202924) # O(N): Scalable Throughput And the Free Lunch" 时，想到的，其中将此称为 "**natural parallelism**"。我们将此称为"fork-join-parallel-divide-and-conquer-and-merge-quicksort-natural parallelism"
+
+1、当今"parallel computing是主流"，我们更应该使用"divide-and-conquer"来对structure进行分解，让各个sub structure被并行地计算
+
+2、distributed computing、parallel computing 都 蕴含着 divide-and-conquer思想
+
+### 参见
 
 1、"wikipedia [Divide-and-conquer algorithm](https://en.wikipedia.org/wiki/Divide-and-conquer_algorithm) # Parallelism"章节
 
@@ -34,6 +64,16 @@
 
 3、stackoverflow [difference of divide and conquer & fork and join](https://stackoverflow.com/questions/29686964/difference-of-divide-and-conquer-fork-and-join)
 
+
+
+
+
 ## TODO
 
 programiz [Divide and Conquer Algorithm](https://www.programiz.com/dsa/divide-and-conquer)
+
+https://softwareengineering.stackexchange.com/questions/197107/divide-and-conquer-algorithms-why-not-split-in-more-parts-than-two
+
+
+https://www.khanacademy.org/computing/computer-science/algorithms/merge-sort/a/divide-and-conquer-algorithms
+
