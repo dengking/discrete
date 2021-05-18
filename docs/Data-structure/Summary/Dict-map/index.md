@@ -151,3 +151,25 @@ I think [Fizz' answer](https://stackoverflow.com/a/28270537/1847419) is more up-
 
 
 其实发现，在文件系统中多使用B-tree，而在内存中则多使用skip list
+
+
+
+
+
+## stackoverflow [Hash tables v self-balancing search trees](https://stackoverflow.com/questions/3265266/hash-tables-v-self-balancing-search-trees)
+
+### A
+
+Here is what I can think of:
+
+1、There are kinds of data which cannot be hashed (or is too expensive to hash), therefore cannot be stored in hash tables.
+
+2、Trees keep data in the order you need (sorted), not insertion order. You can't (effectively) do that with hash table, even if you run a linked list through it.
+
+3、Trees have better worst-case performace
+
+
+
+### A
+
+Storage allocation is another consideration. Every time you fill all of the buckets in a hash-table, you need to allocate new storage and re-hash everything. This can be avoided if you know the size of the data ahead of time. On the other hand, balanced trees don't suffer from this issue at all.
