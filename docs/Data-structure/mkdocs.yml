@@ -8,6 +8,6 @@ nav:
     - Hash: Hash
     - Set: Set
     - Probabilistic-data-structures: Probabilistic-data-structures
-
+    - Judy-array: Judy-array
     - Summary: Summary
     - TODO: TODO.md

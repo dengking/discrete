@@ -112,7 +112,19 @@ where
 - *n* is the number of entries occupied in the hash table.
 - *k* is the number of buckets（其实就是table size）.
 
-> NOTE: load factor是一个非常重要的概念
+> NOTE: 
+>
+> 一、"load factor"的意思是"装载因子"，顾名思义: 
+>
+> "load"表示的是hash table中实际有多少个元素，对应的是`n`
+>
+> `k`表示的是"number of buckets"
+>
+> 需要注意的是: load factor的计算 和 collision resolution的方式无关。
+>
+> 参见: 
+>
+> 1、csdn [hash表装载因子（load factor)的计算](https://blog.csdn.net/CHINA_CNN/article/details/103881989)
 
 
 
