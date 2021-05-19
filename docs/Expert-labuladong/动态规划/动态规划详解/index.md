@@ -1,4 +1,4 @@
-# labuladong [动态规划详解](https://mp.weixin.qq.com/s/Cw39C9MY9Wr2JlcvBQZMcA)
+# labuladong [动态规划详解](https://mp.weixin.qq.com/s/Cw39C9MY9Wr2JlcvBQZMcA) 
 
 ## 求解最值
 
@@ -41,6 +41,8 @@
 > NOTE: 
 >
 > 1、"Recurrence relation 递归 状态转移 方程 公式"
+>
+> 2、所谓状态转移方程，它所描述的其实就是 原问题 和 子问题 之间的关系
 
 以上提到的重叠子问题、最优子结构、状态转移方程就是动态规划三要素。
 
@@ -53,5 +55,50 @@
 下面通过斐波那契数列问题和凑零钱问题来详解动态规划的基本原理。前者主要是让你明白什么是重叠子问题（斐波那契数列严格来说不是动态规划问题），后者主要集中于如何列出状态转移方程。
 
 请读者不要嫌弃这个例子简单，**只有简单的例子才能让你把精力充分集中在算法背后的通用思想和技巧上，而不会被那些隐晦的细节问题搞的莫名其妙**。想要困难的例子，历史文章里有的是。
+
+## 一、斐波那契数列
+
+### 1、暴力递归
+
+斐波那契数列的数学形式就是递归的，写成代码就是这样：
+
+```C++
+int fib(int N) {
+    if (N == 1 || N == 2) return 1;
+    return fib(N - 1) + fib(N - 2);
+}
+```
+
+PS：但凡遇到需要递归的问题，最好都画出递归树，这对你分析算法的复杂度，寻找算法低效的原因都有巨大帮助。
+
+![图片](https://mmbiz.qpic.cn/sz_mmbiz_jpg/gibkIz0MVqdHQbgLwcCQ3KTwWiaU7h29jiaLtdrAjTRb4GnR1eof972kGzX4kEzgLbRqbpUAXl84k36C74FC525OA/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+这个递归树怎么理解？就是说想要计算原问题`f(20)`，我就得先计算出子问题`f(19)`和`f(18)`，然后要计算`f(19)`，我就要先算出子问题`f(18)`和`f(17)`，以此类推。最后遇到`f(1)`或者`f(2)`的时候，结果已知，就能直接返回结果，递归树不再向下生长了。
+
+### 2、带备忘录的递归解法
+
+```C++
+int fib(int N) {
+    if (N < 1) return 0;
+    // 备忘录全初始化为 0
+    vector<int> memo(N + 1, 0);
+    // 初始化最简情况
+    return helper(memo, N);
+}
+
+int helper(vector<int>& memo, int n) {
+    // base case 
+    if (n == 1 || n == 2) return 1;
+    // 已经计算过
+    if (memo[n] != 0) return memo[n];
+    memo[n] = helper(memo, n - 1) + 
+                helper(memo, n - 2);
+    return memo[n];
+}
+```
+
+现在，画出递归树，你就知道「备忘录」到底做了什么：
+
+![图片](https://mmbiz.qpic.cn/sz_mmbiz_jpg/gibkIz0MVqdHQbgLwcCQ3KTwWiaU7h29jiaVaic23mBUrDpNLUYXr5FvBxuI81zltq81P323FwQPzkKZSibML7icNXUQ/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
 ## 二、凑零钱问题

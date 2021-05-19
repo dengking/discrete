@@ -33,15 +33,15 @@ In the above procedure, the algorithm checks whether the middle element ($ m $) 
 
 [Hermann Bottenbruch](https://en.wikipedia.org/wiki/Hermann_Bottenbruch) published the first implementation to leave out this check in 1962.[[8\]](https://en.wikipedia.org/wiki/Binary_search_algorithm#cite_note-Bottenbruch1962-8)[[9\]](https://en.wikipedia.org/wiki/Binary_search_algorithm#cite_note-FOOTNOTEKnuth1998§6.2.1_("Searching_an_ordered_table"),_subsection_"History_and_bibliography"-9)
 
-1. Set $ L $ to $ 0 $ and $ R $ to $ n-1 $.
+1、 Set $ L $ to $ 0 $ and $ R $ to $ n-1 $.
 
-2. While $ L\neq R $ ,
+2、 While $ L\neq R $ ,
 
    1. Set $ m $ (the position of the middle element) to the [ceiling](https://en.wikipedia.org/wiki/Floor_and_ceiling_functions)（天花板） of $ {\frac {L+R}{2}} $, which is the least integer greater than or equal to $ {\frac {L+R}{2}} $.（此处为什么是 [ceiling](https://en.wikipedia.org/wiki/Floor_and_ceiling_functions) of $ {\frac {L+R}{2}} $？如果不是会怎样？）
    2. If $ A_{m}>T $, set $ R $ to $ m-1 $.
    3. Else, $ A_{m}\leq T $; set $ L $ to $ m $.
 
-3. Now $ L=R $, the search is done. If $ A_{L}=T $, return $ L $. Otherwise, the search terminates as unsuccessful.
+3、 Now $ L=R $, the search is done. If $ A_{L}=T $, return $ L $. Otherwise, the search terminates as unsuccessful.
 
 Where `ceil` is the ceiling function, the pseudocode for this version is:
 
@@ -60,16 +60,18 @@ function binary_search_alternative(A, n, T):
     return unsuccessful
 ```
 
-***SUMMARY*** : 这种实现方式和上面那种的实现方式的差异在于上面的那种方式在每次循环中对target和中间元素（后续为了描述遍历，将它称为pivot）进行了两次比较：
-
-- **大于**的比较
-- **小于**的比较
-
-由于进行了两次的比较所以它能够将整个序列分为三份：pivot、左边一份（不包括pivot）和右边一份（不包括pivot），所以程序可以非常准确地判断要进入到哪个分支中；
-
-但是这种算法，由于只进行了一次比较，所以它只能够将这个序列分成两部分，并且由于没有进行等于的判断，所以不能够确定pivot是否是target，所以只能够将它归入左边分支后者右边分支。上述算法中将pivot归入了右边分支，所以左边分支就可以不需要考虑pivot了，所以`R := m - 1`；
-
-***THINKING*** : Set $ m $ (the position of the middle element) to the [ceiling](https://en.wikipedia.org/wiki/Floor_and_ceiling_functions)（天花板） of $ {\frac {L+R}{2}} $是否可以使用floor呢？是有差别的：当最终数组只剩下两个元素的时候，如果使用floor，则此时m会一直等于left，如果`A[m] <= T`，则程序会一直进入到上述伪代码中的else分支中，一下就是也例子：
+> NOTE: 
+>
+> 这种实现方式和上面那种的实现方式的差异在于上面的那种方式在每次循环中对target和中间元素（后续为了描述遍历，将它称为pivot）进行了两次比较：
+>
+> - **大于**的比较
+> - **小于**的比较
+>
+> 由于进行了两次的比较所以它能够将整个序列分为三份：pivot、左边一份（不包括pivot）和右边一份（不包括pivot），所以程序可以非常准确地判断要进入到哪个分支中；
+>
+> 但是这种算法，由于只进行了一次比较，所以它只能够将这个序列分成两部分，并且由于没有进行等于的判断，所以不能够确定pivot是否是target，所以只能够将它归入左边分支后者右边分支。上述算法中将pivot归入了右边分支，所以左边分支就可以不需要考虑pivot了，所以`R := m - 1`；
+>
+> Set $ m $ (the position of the middle element) to the [ceiling](https://en.wikipedia.org/wiki/Floor_and_ceiling_functions)（天花板） of $ {\frac {L+R}{2}} $是否可以使用floor呢？是有差别的：当最终数组只剩下两个元素的时候，如果使用floor，则此时m会一直等于left，如果`A[m] <= T`，则程序会一直进入到上述伪代码中的else分支中，一下就是也例子：
 
 ```c
 #include<iostream>

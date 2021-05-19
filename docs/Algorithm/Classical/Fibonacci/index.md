@@ -4,8 +4,6 @@
 
 
 
-
-
 ## **labuladong** [动态规划详解（修订版）](https://mp.weixin.qq.com/s/Cw39C9MY9Wr2JlcvBQZMcA)
 
 > NOTE: 

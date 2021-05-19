@@ -1,7 +1,8 @@
 nav:
     - Introduction: index.md
     - Paradigm: Paradigm
-    - Classical-algorithm: Classical-algorithm    
-    - State-space-search: State-space-search    
+    - State-space-search: State-space-search       
+    - Classical-algorithm: Classical
+ 
     - Application: Application
 

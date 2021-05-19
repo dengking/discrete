@@ -215,6 +215,10 @@ def dp(i, j):
 
 对于子问题`dp(i-1,j-1)`，如何通过原问题`dp(i,j)`得到呢？有不止一条路径，比如`dp(i,j)->#1`和`dp(i,j)->#2->#3`。一旦发现一条重复路径，就说明存在巨量重复路径，也就是重叠子问题。
 
+> NOTE: 
+>
+> 1、上述是快速的推演方法
+
 ## 三、动态规划优化
 
 对于重叠子问题呢，前文 [动态规划详解](http://mp.weixin.qq.com/s?__biz=MzU0MDg5OTYyOQ==&mid=2247483818&idx=1&sn=6035f861d1b2bfd0178e842f26ac4836&chksm=fb3361e8cc44e8fe331154bfd32bd7b3b4f159bfad5d38d4a6b0b9f0d7e3485b93b828ee72cc&scene=21#wechat_redirect) 介绍过，优化方法无非是备忘录或者 DP table。

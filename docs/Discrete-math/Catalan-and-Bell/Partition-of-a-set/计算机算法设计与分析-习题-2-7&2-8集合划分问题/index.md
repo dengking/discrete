@@ -10,7 +10,7 @@
 
 ## 2-7 解题
 
-1、divide-and-conquer，
+1、divide-and-conquer
 
 ### cnblogs [集合划分问题](https://www.cnblogs.com/dolphin0520/archive/2011/07/12/2103917.html)
 
@@ -264,3 +264,4 @@ int S4(int k, int n)
 
 
 
+"tag-one-by-one-iteration-move next向后滑动一步-previous current迭代"

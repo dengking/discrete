@@ -12,6 +12,8 @@
 
 a、chain
 
+fibonacci，它的自底向上计算就相当于linked list的滑动，这是one-by-one
+
 b、tree
 
 c、hierarchy、graph
@@ -42,6 +44,18 @@ Overlapping subproblem + dynamic programing、Optional substructure + greedy alg
 
 - 产生式可以使用tree structure来表示，tree 是一种 graph
 - 函数表达式可以使用computation graph来表示
+
+
+
+### 使用结构化思维来看待递归公式
+
+挖掘递归公式的结构特性:
+
+1、重叠子问题
+
+2、它所依赖的是上层 还是 对角线 元素(这是状态压缩的依据)
+
+最最典型的例子就是使用递归求解Catalan数
 
 
 
@@ -99,3 +113,4 @@ permutation和combination都是使用的乘法，它们都是nesting关系，都
 ## [Mathematical structure](https://en.wikipedia.org/wiki/Mathematical_structure)
 
 In [mathematics](https://en.wikipedia.org/wiki/Mathematics), a **structure** is a [set](https://en.wikipedia.org/wiki/Set_(mathematics)) endowed with some additional features on the set (e.g., [operation](https://en.wikipedia.org/wiki/Operation_(mathematics)), [relation](https://en.wikipedia.org/wiki/Relation_(math)), [metric](https://en.wikipedia.org/wiki/Metric_(mathematics)), [topology](https://en.wikipedia.org/wiki/Topology#Topologies_on_sets)).[[1\]](https://en.wikipedia.org/wiki/Mathematical_structure#cite_note-1) Often, the additional features are attached or related to the set, so as to provide it with some additional meaning or significance.
+
