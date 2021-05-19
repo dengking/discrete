@@ -96,3 +96,124 @@ result = max(所有可能)
 
 这道题允许多次交易，看起来比刚才的问题复杂了很多，怎么办？
 
+来尝试一下吧，如果用 for 循环来穷举，会出现什么情况？
+
+
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/map09icNxZ4kbOQM3dXVKdgSXOCibeUUK2suTv67c9EejrmvxucyHSjYy9xrG7iaVBP7NYI9FwaQT0QJGuQmr4Wvw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+
+
+### Divide and conquer + recursion + 备忘录
+
+**遇到这种无穷 for 循环的情况，就是使用递归的强烈暗示。**我们上一题的框架只能解决一次买卖的最大收益，现在的问题是，进行一次股票卖出后，下一次应该在什么时候交易呢？这个问题和原问题具有相同结构，规模减小，典型的递归场景。只要给原框架稍加改动即可。
+
+> NOTE: 
+>
+> "tag-divide conquer-problem原问题 and subproblem子问题-结构相同 规模不同recursion"
+
+
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/map09icNxZ4kbOQM3dXVKdgSXOCibeUUK2bg4lDb7OV2nUibibCfvPA1tFEthpicMQbAXUs7FY1ia1nO8yvic7EbDibf3Q/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+```python
+dows, actions, and settings.
+def maxProfit(prices):
+    res = 0
+    for buy in range(len(prices)):
+        for sell in range(buy + 1, len(prices)):
+            this_profit = prices[sell] - prices[buy] # 本次交易的利润
+            res = max(res, maxProfit(prices[sell + 1:]) + this_profit)
+    return res
+
+```
+
+
+
+#### 第一次优化: 备忘录 + O(n)
+
+这道题已经做出来了，优化两步：先根据上一题消除一层循环，然后加个备忘录。优化就属于走流程，没啥可说的。**之后问题的解法，都是在此代码上的简单改造。**
+
+
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/map09icNxZ4kbOQM3dXVKdgSXOCibeUUK2vVUY5NWIXfeSGedkWic31QtqzE6bNt1nicFxtwcCUOM3TCvl0jkRfovg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+```python
+def maxProfit(prices):
+    memo = [-1] * len(prices)
+    def dp(start):
+        if start >= len(prices):
+            return 0
+        if memo[start] != -1:
+            return memo[start]
+        res = 0
+        curMin = prices[start]
+        for sell in range(start + 1, len(prices)):
+            curMin = min(curMin, prices[sell])
+            this_profit = prices[sell] - curMin  # 本次交易的利润
+            res = max(res, dp(sell + 1) + this_profit)
+        return res
+    return dp(0)
+
+```
+
+
+
+怎么看出重叠子问题，前文 [动态规划之正则表达式](http://mp.weixin.qq.com/s?__biz=MzU0MDg5OTYyOQ==&mid=2247483976&idx=1&sn=c268f7343732e33035cfd75da2d17052&chksm=fb33620acc44eb1ca6d80cf5af2564e7b81fc8ee5ce53cef8f1b159a881aa06796fed3e2a363&scene=21#wechat_redirect) 有介绍，显然一个子数组切片可以通过多条递归路径得到，所以子问题一定有重叠。
+
+> NOTE: 
+>
+> 1、"tag-overlapping subproblem重叠子问题-重复路径-结构化思维"
+>
+> 
+
+但是，这样提交会得到一个内存超过限制的错误。原来有一个测试用例特别长，我们的 `memo` 备忘录太大了。怎么办呢，是否可以想办法减小备忘录占用的空间？答案是不可以。
+
+#### 第二次优化: 压缩状态空间
+
+[动态规划详解](http://mp.weixin.qq.com/s?__biz=MzU0MDg5OTYyOQ==&mid=2247483818&idx=1&sn=6035f861d1b2bfd0178e842f26ac4836&chksm=fb3361e8cc44e8fe331154bfd32bd7b3b4f159bfad5d38d4a6b0b9f0d7e3485b93b828ee72cc&scene=21#wechat_redirect) 中对斐波那契数列的优化，就用到一个技巧直接省略了备忘录和 DP table，用 O(1) 的空间完成了计算。但是这里不适用，首先我们把斐波那契的框架抽出来：
+
+
+
+```c++
+int fib(int n) {
+    fib(n - 1);
+    fib(n - 2);
+}
+```
+
+
+
+可以看到原问题 fib(n) 只依赖子问题 fib(n - 1) 和 fib(n - 2)，所以我们的备忘录也好，DP table 也好，一次只用记录两个子问题的答案即可。但是抽象出当前算法的框架：
+
+
+
+```python
+def dp(start):
+    for sell in range(start + 1, len(prices)):
+        dp(sell)
+```
+
+
+
+显然，如果求解原问题 dp(0)，要依赖子问题 dp(1), dp(2) ... dp(len(prices) - 1)，反正数量不是个定值，所以备忘录必须开那么大，否则装不下这些依赖子问题呀！说明这就是动态规划的极限了，真的不能再优化了。
+
+
+
+### 贪心算法
+
+这个问题的最优解法是「贪心算法」。贪心算法是基于动态规划之上的一种特殊方法，对于某些特定问题可以比动态规划更高效。这道题用贪心很简单，就贴一下代码吧，读者应该可以很容易理解。
+
+
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/map09icNxZ4kbOQM3dXVKdgSXOCibeUUK2icn8z9vgp5LyoILuwSFH64dcCqhTLmxkKTmCue1qwUhZJsTIGzTpyzg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+
+
+核心思想就是：既然可以预知未来，那么能赚一点就赚一点。
+
+
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/map09icNxZ4kbOQM3dXVKdgSXOCibeUUK2q3ehSLqRFL7oWFf0Blkv9TibfHNUIPpxUOfpJ3iapiaCPsHyG0NNrpVpQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+图片来自 www.leetcode.com
