@@ -141,3 +141,158 @@ int fib(int n) {
 ```
 
 ## 二、凑零钱问题
+
+> NOTE: 
+>
+> 一、这段关于"状态、选择、base case"的描述是非常好的，能够帮助我们快速地写出状态转移方程
+>
+> 二、原题 leetcode [322. 零钱兑换](https://leetcode-cn.com/problems/coin-change/) 中等
+>
+> 三、这个问题让我想到了01背包问题
+
+先看下题目：给你`k`种面值的硬币，面值分别为`c1, c2 ... ck`，每种硬币的数量无限，再给一个总金额`amount`，问你**最少**需要几枚硬币凑出这个金额，如果不可能凑出，算法返回 -1 。算法的函数签名如下：
+
+```C++
+// coins 中是可选硬币面值，amount 是目标金额
+int coinChange(int[] coins, int amount);
+```
+
+比如说`k = 3`，面值分别为 1，2，5，总金额`amount = 11`。那么最少需要 3 枚硬币凑出，即 11 = 5 + 5 + 1。
+
+你认为计算机应该如何解决这个问题？显然，就是把所有肯能的凑硬币方法都穷举出来，然后找找看最少需要多少枚硬币。
+
+### 1、暴力递归
+
+#### 「最优子结构」子问题相互独立
+
+首先，这个问题是动态规划问题，因为它具有「最优子结构」。**要符合「最优子结构」，子问题间必须互相独立**。啥叫相互独立？你肯定不想看数学证明，我用一个直观的例子来讲解。
+
+比如说，你的原问题是考出最高的总成绩，那么你的子问题就是要把语文考到最高，数学考到最高…… 为了每门课考到最高，你要把每门课相应的选择题分数拿到最高，填空题分数拿到最高…… 当然，最终就是你每门课都是满分，这就是最高的总成绩。
+
+得到了正确的结果：最高的总成绩就是总分。因为这个过程符合最优子结构，“每门科目考到最高”这些子问题是互相独立，互不干扰的。
+
+但是，如果加一个条件：你的语文成绩和数学成绩会互相制约，此消彼长。这样的话，显然你能考到的最高总成绩就达不到总分了，按刚才那个思路就会得到错误的结果。因为子问题并不独立，语文数学成绩无法同时最优，所以最优子结构被破坏。
+
+回到凑零钱问题，为什么说它符合最优子结构呢？比如你想求`amount = 11`时的最少硬币数（原问题），如果你知道凑出`amount = 10`的最少硬币数（子问题），你只需要把子问题的答案加一（再选一枚面值为 1 的硬币）就是原问题的答案，因为硬币的数量是没有限制的，子问题之间没有相互制，是互相独立的。
+
+#### 写出状态转移方程
+
+那么，既然知道了这是个动态规划问题，就要思考**如何列出正确的状态转移方程**。
+
+**先确定「状态」**，也就是原问题和子问题中变化的变量。由于硬币数量无限，所以唯一的状态就是目标金额`amount`。
+
+**然后确定`dp`函数的定义**：函数 dp(n)表示，当前的目标金额是`n`，至少需要`dp(n)`个硬币凑出该金额。
+
+**然后确定「选择」并择优**，也就是对于每个状态，可以做出什么选择改变当前状态。具体到这个问题，无论当的目标金额是多少，选择就是从面额列表`coins`中选择一个硬币，然后目标金额就会减少：
+
+```C++
+# 伪码框架
+def coinChange(coins: List[int], amount: int):
+    # 定义：要凑出金额 n，至少要 dp(n) 个硬币
+    def dp(n):
+        # 做选择，需要硬币最少的那个结果就是答案
+        for coin in coins:
+            res = min(res, 1 + dp(n - coin))
+        return res
+    # 我们要求目标金额是 amount
+    return dp(amount)
+```
+
+**最后明确 base case**，显然目标金额为 0 时，所需硬币数量为 0；当目标金额小于 0 时，无解，返回 -1：
+
+```python
+def coinChange(coins: List[int], amount: int):
+
+    def dp(n):
+        # base case
+        if n == 0: return 0
+        if n < 0: return -1
+        # 求最小值，所以初始化为正无穷
+        res = float('INF')
+        for coin in coins:
+            subproblem = dp(n - coin)
+            # 子问题无解，跳过
+            if subproblem == -1: continue
+            res = min(res, 1 + subproblem)
+
+        return res if res != float('INF') else -1
+
+    return dp(amount)
+```
+
+至此，状态转移方程其实已经完成了，以上算法已经是暴力解法了，以上代码的数学形式就是状态转移方程：
+
+![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/gibkIz0MVqdHQbgLwcCQ3KTwWiaU7h29jiaps8WiaDp8viaojL9iciacVgjyfgz6jL5ZFC2kNIn23N5IlzCJ1IicoeggXw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+至此，这个问题其实就解决了，只不过需要消除一下重叠子问题，比如`amount = 11, coins = {1,2,5}`时画出递归树看看：
+
+![图片](https://mmbiz.qpic.cn/sz_mmbiz_jpg/gibkIz0MVqdHCKOB569u3mXar1m8EOjzjlFK8ZK8CwCE16ydjxjZsuvmcibr6FHEhbA5ydcyGLNWniaxjq8pEU6EQ/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+#### 时间复杂度分析：子问题总数 x 解决每个子问题的时间
+
+子问题总数为递归树节点个数，这个比较难看出来，是 O(n^k)，总之是指数级别的。每个子问题中含有一个 for 循环，复杂度为 O(k)。所以总时间复杂度为 O(k * n^k)，指数级别。
+
+### 2、带备忘录的递归
+
+只需要稍加修改，就可以通过备忘录消除子问题：
+
+```python
+def coinChange(coins: List[int], amount: int):
+    # 备忘录
+    memo = dict()
+    def dp(n):
+        # 查备忘录，避免重复计算
+        if n in memo: return memo[n]
+
+        if n == 0: return 0
+        if n < 0: return -1
+        res = float('INF')
+        for coin in coins:
+            subproblem = dp(n - coin)
+            if subproblem == -1: continue
+            res = min(res, 1 + subproblem)
+
+        # 记入备忘录
+        memo[n] = res if res != float('INF') else -1
+        return memo[n]
+
+    return dp(amount)
+```
+
+不画图了，很显然「备忘录」大大减小了子问题数目，完全消除了子问题的冗余，所以子问题总数不会超过金额数 n，即子问题数目为 O(n)。处理一个子问题的时间不变，仍是 O(k)，所以总的时间复杂度是 O(kn)。
+
+### 3、dp 数组的迭代解法
+
+当然，我们也可以自底向上使用 dp table 来消除重叠子问题，`dp`数组的定义和刚才`dp`函数类似，定义也是一样的：
+
+**`dp[i] = x`表示，当目标金额为`i`时，至少需要`x`枚硬币**。
+
+```c++
+int coinChange(vector<int>& coins, int amount) {
+    // 数组大小为 amount + 1，初始值也为 amount + 1
+    vector<int> dp(amount + 1, amount + 1);
+    // base case
+    dp[0] = 0;
+    for (int i = 0; i < dp.size(); i++) {
+        // 内层 for 在求所有子问题 + 1 的最小值
+        for (int coin : coins) {
+            // 子问题无解，跳过
+            if (i - coin < 0) continue;
+            dp[i] = min(dp[i], 1 + dp[i - coin]);
+        }
+    }
+    return (dp[amount] == amount + 1) ? -1 : dp[amount];
+}
+```
+
+![图片](https://mmbiz.qpic.cn/sz_mmbiz_jpg/gibkIz0MVqdHQbgLwcCQ3KTwWiaU7h29jiaKTgMynOUL4MU9S1VF4Rnc9AmFPrzhTPvqt1gclzGEE8fMSblGMczqw/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+PS：为啥`dp`数组初始化为`amount + 1`呢，因为凑成`amount`金额的硬币数最多只可能等于`amount`（全用 1 元面值的硬币），所以初始化为`amount + 1`就相当于初始化为正无穷，便于后续取最小值。
+
+## 三、最后总结
+
+**计算机解决问题其实没有任何奇技淫巧，它唯一的解决办法就是穷举**，穷举所有可能性。算法设计无非就是先思考“如何穷举”，然后再追求“如何聪明地穷举”。
+
+列出动态转移方程，就是在解决“如何穷举”的问题。之所以说它难，一是因为很多穷举需要递归实现，二是因为有的问题本身的解空间复杂，不那么容易穷举完整。
+
+备忘录、DP table 就是在追求“如何聪明地穷举”。用空间换时间的思路，是降低时间复杂度的不二法门，除此之外，试问，还能玩出啥花活？
