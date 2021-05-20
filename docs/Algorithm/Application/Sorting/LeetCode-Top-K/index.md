@@ -1,6 +1,8 @@
 
 
+https://leetcode-cn.com/problemset/all/?search=%E7%AC%ACk%E4%B8%AA
 
+搜索 "第k个"
 
 ## [一道头条算法题，一种不为人知的解法！](https://mp.weixin.qq.com/s/248i87BSGUA89SzcAXig0g)
 
