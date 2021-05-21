@@ -2,8 +2,6 @@
 
 上篇文章 [LeetCode 股票问题的一种通用解法](http://mp.weixin.qq.com/s?__biz=MzU0MDg5OTYyOQ==&mid=2247484032&idx=1&sn=cafed934bd5d8a733de3b3bc675e6a19&chksm=fb3362c2cc44ebd4c5eb7bc41baf540f55ee6f4d855bfcca7ebc4a5d2fea9a3b827bef5c18eb&scene=21#wechat_redirect) 用递归的方法实现了一套简单易懂的可行解，但是时间复杂度略高，不能通过全部测试用例。
 
-
-
 这篇文章用「状态机」的技巧给出最优解，可以全部提交通过。不要觉得这个名词高大上，文学词汇而已，实际上就是 **DP table**，等会儿一讲就明白了。
 
 本文就来告诉你处理这类问题的框架，拒绝奇技淫巧，稳扎稳打，以不变应万变。
@@ -46,7 +44,7 @@
 
 > NOTE: 
 >
-> 一、必须要先buy然后sell然后再buy
+> 一、必须要先buy然后sell然后再buy，它的规则有些不相交区间的意味
 
 很复杂对吧，不要怕，我们现在的目的只是穷举，你有再多的状态，老夫要做的就是一把梭全部列举出来。**这个问题的「状态」有三个**，第一个是天数，第二个是当天允许交易的最大次数，第三个是当前的持有状态（即之前说的 rest 的状态，我们不妨用 1 表示持有，0 表示没有持有）。
 
@@ -57,6 +55,10 @@
 
 
 ![图片](https://mmbiz.qpic.cn/mmbiz_png/map09icNxZ4nPicwNq5syrSwnBc02yxG3aSvQTuRMLrsMKSB8BQteEbiakEP2fJyNjyVUiaZQLjJ8mlQ7dM4hLYfeQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+> NOTE: 
+>
+> 一、`max(buy, sell, rest)` 的含义是 今天执行buy 或者 今天执行sell 或者 今天执行rest
 
 
 
@@ -122,7 +124,11 @@
 
 ### 第一题，k = 1
 
-
+> NOTE: 
+>
+> LeetCode [121. 买卖股票的最佳时机](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/) 简单
+>
+> 
 
 直接套状态转移方程，根据 base case，可以做一些化简：
 
@@ -140,7 +146,7 @@
 
 
 
-显然 `i = 0` 时 `dp[i-1]` 是不合法的。这是因为我们没有对 i 的 base case 进行处理。那就简单粗暴地处理一下：
+显然 `i = 0` 时 `dp[i-1]` 是不合法的。这是因为我们没有对 `i` 的 base case 进行处理。那就简单粗暴地处理一下：
 
 
 
