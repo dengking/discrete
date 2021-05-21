@@ -24,6 +24,8 @@ Function 和 subfunction 之间具有:
 
 1、contain/nest 关系 --> **函数调用树(activation tree)**
 
+函数的每次被调用，称为 "activation"，它相当于activation tree中的一个节点。
+
 2、dependent 关系 --> 对 **函数调用树(activation tree)** 执行depth first search
 
 3、**深度优先遍历** --> 需要stack
