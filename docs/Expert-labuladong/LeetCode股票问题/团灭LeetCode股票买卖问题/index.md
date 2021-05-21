@@ -172,6 +172,12 @@
 
 如果 k 为正无穷，那么就可以认为 k 和 k - 1 是一样的。可以这样改写框架：
 
+> NOTE: 
+>
+> 一、上面这段话是容易产生误解的，比较容易理解的方式是: 当k = +infinity时，对应的情况是状态转移是和k无关的，是可以直接从状态转移方程中，将k维度去除。
+>
+> 其实从这个角度来看，作者在状态转移方程中添加上k这个维度其实是为了使用同一个状态转移方程来对所有的可能情况进行统一的描述，但是，这会造成理解的困难。
+
 
 
 ![图片](https://mmbiz.qpic.cn/mmbiz_png/map09icNxZ4nPicwNq5syrSwnBc02yxG3aEREdMkvxJMoHQHxP0YicFODNzPaetJMFPMVkYRgXfoIe4XQZFwuYu4Q/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
@@ -185,6 +191,10 @@
 ![图片](https://mmbiz.qpic.cn/mmbiz_png/map09icNxZ4nPicwNq5syrSwnBc02yxG3aSaibjrDSib8aY6ib3LYZqKI1DtHmTQdUrSlA1oYU8YuxwWnmrDdg80RpA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
 
+
+> NOTE: 
+>
+> 一、由于没有使用dp table，所有无法使用dp table来查询`dp[i-1][0]`，上述程序的做法是使用一个临时变量temp来记录。
 
 ### 第三题，k = +infinity with cooldown
 
