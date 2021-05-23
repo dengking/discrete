@@ -5,7 +5,9 @@ nav:
     - 动态规划: 动态规划
 
     - 回溯法: 回溯法
-    - LeetCode股票问题: LeetCode股票问题    
+    - LeetCode股票问题: LeetCode股票问题 
+    - LeetCode-House-robber-打家劫舍: LeetCode-House-robber-打家劫舍
+    
     - 去重: 去重
     - 二叉树的序列化-就那几个框架: 二叉树的序列化-就那几个框架
     - 高频面试系列: 高频面试系列

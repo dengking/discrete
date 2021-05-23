@@ -91,14 +91,8 @@ N 叉树的遍历又可以扩展为图的遍历，因为图就是好几 N 叉棵
 
 公众号文章的阅读数据显示，大部分人对数据结构相关的算法文章不感兴趣，而是更关心动规回溯分治等等技巧。为什么要先刷二叉树呢，**因为二叉树是最容易培养框架思维的，而且大部分算法技巧，本质上都是树的遍历问题**。
 
-LeetCode 124 题
+LeetCode [124. 二叉树中的最大路径和](https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/) 困难
 
-> NOTE: 
->
-> 
+LeetCode [105. 从前序与中序遍历序列构造二叉树](https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)
 
-
-
-> NOTE: 
->
-> leetcode [105. 从前序与中序遍历序列构造二叉树](https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)
+LeetCode [99. 恢复二叉搜索树](https://leetcode-cn.com/problems/recover-binary-search-tree/) 困难
