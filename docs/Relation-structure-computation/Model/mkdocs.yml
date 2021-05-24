@@ -5,5 +5,5 @@ nav:
     - Dependency-relation: Dependency-relation-model    
     - Chain: Chain
     - Chain-VS-hierarchy: Chain-VS-hierarchy
-    - Stream: Stream
+    - Stream-model: Stream-model
     - Circular: Circular
