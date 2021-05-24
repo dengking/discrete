@@ -1,4 +1,4 @@
 nav:
     - Introduction: index.md
-    - Trie: Trie.md
+    - wikipedia-Trie: wikipedia-Trie
     - geeksforgeeks-trie: geeksforgeeks-trie.md

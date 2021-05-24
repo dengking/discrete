@@ -10,6 +10,7 @@ nav:
     - Implicit-tree: Implicit-tree.md
     
     - Trie: Trie
+    - Disjoint-set: Disjoint-set
     - VS-of-tree: VS-of-tree.md
     - Implementation: Implementation
     - TODO: TODO.md
