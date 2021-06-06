@@ -6,7 +6,7 @@
 >
 > 一、知识回顾
 >
-> 1、Nesting relation能够形成 tree structure。
+> 1、Nesting relation能够形成 tree structure
 >
 > 2、树、path、stack
 >
@@ -27,6 +27,8 @@ Function 和 subfunction 之间具有:
 函数的每次被调用，称为 "activation"，它相当于activation tree中的一个节点。
 
 2、dependent 关系 --> 对 **函数调用树(activation tree)** 执行depth first search
+
+bottom up自底向上，将return value返回到parent node；
 
 3、**深度优先遍历** --> 需要stack
 

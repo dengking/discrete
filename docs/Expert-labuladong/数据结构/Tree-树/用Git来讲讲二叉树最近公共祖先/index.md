@@ -1,4 +1,6 @@
-# [用 Git 来讲讲二叉树最近公共祖先](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247485561&idx=1&sn=a394ba978283819da1eb34a256f6915b&chksm=9bd7f671aca07f6722f0bc1e946ca771a0a40fd8173cc1227a7e0eabfe4e2fcc57b9ba464547&scene=21#wechat_redirect)
+# labuladong [用 Git 来讲讲二叉树最近公共祖先](https://mp.weixin.qq.com/s/9RKzBcr3I592spAsuMH45g)
+
+
 
 上篇文章 [我用四个命令，总结了 Git 的所有套路](http://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247485544&idx=1&sn=afc9d9f72d811ec847fa64108d5c7412&chksm=9bd7f660aca07f7643f31bf16ab56ba695d964cdadde2aebc72e6817074504890fb09d2a80ca&scene=21#wechat_redirect) 写了 Git 最常用的命令，没有提分支合并，其实分支合并没什么困难的，主要就是`merge`和`rebase`两种方式。本文就用 Git 的`rebase`工作方式引出一个经典的算法问题：**最近公共祖先**（Lowest Common Ancestor，简称 LCA）。
 
@@ -37,6 +39,29 @@ TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q);
 `root`节点确定了一棵二叉树，`p`和`q`是这这棵二叉树上的两个节点，让你返回`p`节点和`q`节点的最近公共祖先节点。
 
 我们前文 [学习数据结构和算法的框架思维](http://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247484852&idx=1&sn=85b50b8b0470bb4897e517955f4e5002&chksm=9bd7fbbcaca072aa75e2a241064a403fde1e579d57ab846cd8537a54253ceb2c8b93cc3bf38e&scene=21#wechat_redirect) 就说过了，所有二叉树的套路都是一样的：
+
+```java
+void traverse(TreeNode root) {
+    // 前序遍历
+    traverse(root.left)
+    // 中序遍历
+    traverse(root.right)
+    // 后序遍历
+}
+```
+
+所以，只要看到二叉树的问题，先把这个框架写出来准没问题：
+
+```Java
+TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+    TreeNode left = lowestCommonAncestor(root.left, p, q);
+    TreeNode right = lowestCommonAncestor(root.right, p, q);
+}
+```
+
+现在我们思考如何添加一些细节，把框架改造成解法。
+
+
 
 
 
@@ -125,3 +150,4 @@ TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
 这就是一个巧妙的地方了，**因为这里是二叉树的后序遍历啊**！前序遍历可以理解为是从上往下，而后序遍历是从下往上，就好比从`p`和`q`出发往上走，第一次相交的节点就是这个`root`，你说这是不是最近公共祖先呢？
 
 综上，二叉树的最近公共祖先就计算出来了。
+
