@@ -63,8 +63,6 @@ TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
 
 
 
-
-
 ## 解法思路
 
 ### 第一个问题: 这个函数是干嘛的？
@@ -73,7 +71,7 @@ TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
 
 描述：给该函数输入三个参数`root`，`p`，`q`，它会返回一个节点。
 
-情况 1，如果`p`和`q`都在以`root`为根的树中，函数返回的即使`p`和`q`的最近公共祖先节点。
+情况 1，如果`p`和`q`都在以`root`为根的树中，函数返回的即是`p`和`q`的最近公共祖先节点。
 
 情况 2，那如果`p`和`q`都不在以`root`为根的树中怎么办呢？函数理所当然地返回`null`呗。
 
@@ -81,7 +79,9 @@ TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
 
 > NOTE: 
 >
-> 那个节点指的是什么？
+> 一、"那个节点"指的是什么？节点`p`、`q`。
+>
+> 二、为什么要这样做: 
 
 题目说了输入的`p`和`q`一定存在于以`root`为根的树中，但是递归过程中，以上三种情况都有可能发生，所以说这里要定义清楚，后续这些定义都会在代码中体现。
 
@@ -146,6 +146,8 @@ TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
 ```
 
 对于情况 1，你肯定有疑问，`left`和`right`非空，分别是`p`和`q`，可以说明`root`是它们的公共祖先，但能确定`root`就是「最近」公共祖先吗？
+
+l
 
 这就是一个巧妙的地方了，**因为这里是二叉树的后序遍历啊**！前序遍历可以理解为是从上往下，而后序遍历是从下往上，就好比从`p`和`q`出发往上走，第一次相交的节点就是这个`root`，你说这是不是最近公共祖先呢？
 
