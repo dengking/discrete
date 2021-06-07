@@ -114,7 +114,13 @@ int count(TreeNode root) {
 
 ## 三、算法实践
 
-**第一题、翻转二叉树**
+### 第一题、翻转二叉树
+
+> NOTE: 
+>
+> leetcode [226. 翻转二叉树](https://leetcode-cn.com/problems/invert-binary-tree/)
+>
+> 
 
 我们先从简单的题开始，看看力扣第 226 题「翻转二叉树」，输入一个二叉树根节点`root`，让你把整棵树镜像翻转，比如输入的二叉树如下：
 
@@ -140,7 +146,7 @@ int count(TreeNode root) {
 
 可以直接写出解法代码：
 
-```
+```C++
 // 将整棵树的节点翻转
 TreeNode invertTree(TreeNode root) {
     // base case
@@ -170,7 +176,13 @@ TreeNode invertTree(TreeNode root) {
 
 这种洞察力需要多刷题训练，我们看下一道题。
 
-**第二题、填充二叉树节点的右侧指针**
+### 第二题、填充二叉树节点的右侧指针
+
+> NOTE: 
+>
+> LeetCode [116. 填充每个节点的下一个右侧节点指针](https://leetcode-cn.com/problems/populating-next-right-pointers-in-each-node/) 中等
+>
+> 
 
 这是力扣第 116 题，看下题目：
 
@@ -182,7 +194,7 @@ TreeNode invertTree(TreeNode root) {
 
 
 
-```
+```C++
 Node connect(Node root);
 ```
 
@@ -196,7 +208,7 @@ Node connect(Node root);
 
 我们可以模仿上一道题，写出如下代码：
 
-```
+```C++
 Node connect(Node root) {
     if (root == null || root.left == null) {
         return root;
@@ -221,7 +233,7 @@ Node connect(Node root) {
 
 那么，我们的做法就是增加函数参数，一个节点做不到，我们就给他安排两个节点，「将每一层二叉树节点连接起来」可以细化成「将每两个相邻节点都连接起来」：
 
-```
+```Java
 // 主函数
 Node connect(Node root) {
     if (root == null) return null;
@@ -248,7 +260,7 @@ void connectTwoNode(Node node1, Node node2) {
 
 这样，`connectTwoNode`函数不断递归，可以无死角覆盖整棵二叉树，将所有相邻节点都连接起来，也就避免了我们之前出现的问题，这道题就解决了。
 
-**第三题、将二叉树展开为链表**
+### 第三题、将二叉树展开为链表
 
 这是力扣第 114 题，看下题目：
 
@@ -274,7 +286,7 @@ void flatten(TreeNode root);
 
 上面三步看起来最难的应该是第一步对吧，如何把`root`的左右子树拉平？其实很简单，按照`flatten`函数的定义，对`root`的左右子树递归调用`flatten`函数即可：
 
-```
+```java
 // 定义：将以 root 为根的树拉平为链表
 void flatten(TreeNode root) {
     // base case

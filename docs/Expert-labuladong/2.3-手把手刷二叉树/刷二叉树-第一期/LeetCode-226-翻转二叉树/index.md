@@ -47,3 +47,8 @@ public:
 
 ```
 
+
+
+### labuladong [东哥手把手带你套框架刷通二叉树|第一期](https://mp.weixin.qq.com/s/izZ5uiWzTagagJec6Y7RvQ) 
+
+在其中，使用了pre-order的方式来解决的。
