@@ -1,4 +1,4 @@
-# labuladong [东哥手把手带你套框架刷通二叉树|第一期](https://mp.weixin.qq.com/s/izZ5uiWzTagagJec6Y7RvQ)
+# labuladong [东哥手把手带你套框架刷通二叉树|第一期](https://mp.weixin.qq.com/s/izZ5uiWzTagagJec6Y7RvQ) 
 
 > NOTE: 
 >
@@ -84,9 +84,17 @@ void sort(int[] nums, int lo, int hi) {
 
 我们前文 [用 Git 来讲讲二叉树最近公共祖先](http://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247485561&idx=1&sn=a394ba978283819da1eb34a256f6915b&chksm=9bd7f671aca07f6722f0bc1e946ca771a0a40fd8173cc1227a7e0eabfe4e2fcc57b9ba464547&scene=21#wechat_redirect) 写过，**写递归算法的关键是要明确函数的「定义」是什么，然后相信这个定义，利用这个定义推导最终结果，绝不要试图跳入递归**。
 
+
+
+### 计算一棵二叉树共有几个节点
+
+> NOTE: 
+>
+> LeetCode [222. 完全二叉树的节点个数](https://leetcode-cn.com/problems/count-complete-tree-nodes/) 中等
+
 怎么理解呢，我们用一个具体的例子来说，比如说让你计算一棵二叉树共有几个节点：
 
-```
+```C++
 // 定义：count(root) 返回以 root 为根的树有多少节点
 int count(TreeNode root) {
     // base case

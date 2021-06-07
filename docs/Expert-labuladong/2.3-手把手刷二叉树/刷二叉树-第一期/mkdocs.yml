@@ -1,3 +1,4 @@
 nav:
     - Introduction: index.md
     - LeetCode-116-填充每个节点的下一个右侧节点指针: LeetCode-116-填充每个节点的下一个右侧节点指针
+    - LeetCode-222-完全二叉树的节点个数: LeetCode-222-完全二叉树的节点个数
