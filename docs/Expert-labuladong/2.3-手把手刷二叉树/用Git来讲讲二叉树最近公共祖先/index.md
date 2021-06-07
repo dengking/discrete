@@ -67,21 +67,60 @@ TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
 
 ### 第一个问题: 这个函数是干嘛的？
 
+> NOTE: 
+>
+> 其实这一段，主要是在描述 `lowestCommonAncestor`这个函数的**返回值**；理解了这个函数的**返回值**，就基本上理解了这个算法，理解这函数的返回值本节的前提是需要完整地掌握解题思路的，在 **"最近公共祖先"的含义""** 节中，简述了解题思路: 
+>
+> "后序遍历是从下往上，就好比从`p`和`q`出发往上走，第一次相交的节点就是这个`root`，你说这是不是最近公共祖先"
+>
+> 因此:
+>
+> 一、需要根据左右子树中是否包含目标节点来确定当前节点`root` 是否是 "公共祖先"、"相交的节点"(需要"返回那个节点"，来表示`p`或`q`是否在这棵子树中，然后在上层节点，也就是它们的parent node、"相交的节点"，就可以判断):
+>
+> 1、如果 **左子树** 中包含一个目标节点 且 **右子树** 中包含一个目标节点，显然，当前节点`root`就是"公共祖先"、"相交的节点"
+>
+> 2、如果当前节点`root` 不是 "公共祖先"、"相交的节点"，那么就需要返回到向上一层去，看上一层是否是"公共祖先"、"相交的节点"
+>
+> 二、后续遍历
+>
+> 仔细看后面完整的实现代码，它是典型的post-order遍历的形式: 
+>
+> ```Java
+> TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+>     // base case
+>     if (root == null) return null;
+>     if (root == p || root == q) return root;
+> 
+>     TreeNode left = lowestCommonAncestor(root.left, p, q);
+>     TreeNode right = lowestCommonAncestor(root.right, p, q);
+>     // 情况 1
+>     if (left != null && right != null) {
+>         return root;
+>     }
+>     // 情况 2
+>     if (left == null && right == null) {
+>         return null;
+>     }
+>     // 情况 3
+>     return left == null ? right : left;
+> }
+> ```
+>
+> 三、特殊条件的说明: 
+>
+> ![](./special-case.jpg)
+>
+> 如果要找 2 和 8的公共祖先，看图可知，答案是 2，结合上述算法来看，它能够正确的处理这种情况。
+
 **首先看第一个问题，这个函数是干嘛的**？或者说，你给我描述一下`lowestCommonAncestor`这个函数的「定义」吧。
 
 描述：给该函数输入三个参数`root`，`p`，`q`，它会返回一个节点。
 
 情况 1，如果`p`和`q`都在以`root`为根的树中，函数返回的即是`p`和`q`的最近公共祖先节点。
 
-情况 2，那如果`p`和`q`都不在以`root`为根的树中怎么办呢？函数理所当然地返回`null`呗。
+情况 2，如果`p`和`q`都不在以`root`为根的树中怎么办呢？函数理所当然地返回`null`呗。
 
-情况 3，那如果`p`和`q`只有一个存在于`root`为根的树中呢？函数就会返回那个节点。
-
-> NOTE: 
->
-> 一、"那个节点"指的是什么？节点`p`、`q`。
->
-> 二、为什么要这样做: 
+情况 3，如果`p`和`q`只有一个存在于`root`为根的树中呢？函数就会返回那个节点。
 
 题目说了输入的`p`和`q`一定存在于以`root`为根的树中，但是递归过程中，以上三种情况都有可能发生，所以说这里要定义清楚，后续这些定义都会在代码中体现。
 
@@ -147,7 +186,7 @@ TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
 
 对于情况 1，你肯定有疑问，`left`和`right`非空，分别是`p`和`q`，可以说明`root`是它们的公共祖先，但能确定`root`就是「最近」公共祖先吗？
 
-l
+### "最近公共祖先"的含义
 
 这就是一个巧妙的地方了，**因为这里是二叉树的后序遍历啊**！前序遍历可以理解为是从上往下，而后序遍历是从下往上，就好比从`p`和`q`出发往上走，第一次相交的节点就是这个`root`，你说这是不是最近公共祖先呢？
 
