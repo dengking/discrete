@@ -2,7 +2,7 @@
 
 废话不多说，直接上回溯算法框架。**解决一个回溯问题，实际上就是一个决策树的遍历过程**。你只需要思考 3 个问题：
 
-**1、****路径**：也就是已经做出的选择。
+**1、路径**：也就是已经做出的选择。
 
 **2、选择列表**：也就是你当前可以做的选择。
 
@@ -31,8 +31,18 @@ def backtrack(路径, 选择列表):
 
 ## 一、全排列问题
 
-
+> NOTE: 
+>
+> LeetCode [46. 全排列](https://leetcode-cn.com/problems/permutations/) 中等
+>
+> 
 
 
 
 ## 二、N 皇后问题
+
+> NOTE: 
+>
+> leetcode [51. N 皇后](https://leetcode-cn.com/problems/n-queens/) 困难
+>
+> 
