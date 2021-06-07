@@ -1,6 +1,7 @@
 nav:
     - Introduction: index.md
     - LeetCode-105-从前序与中序遍历序列构造二叉树: LeetCode-105-从前序与中序遍历序列构造二叉树
+    - LeetCode-106-从中序与后序遍历序列构造二叉树: LeetCode-106-从中序与后序遍历序列构造二叉树
     - LeetCode-297-二叉树的序列化与反序列化-困难: LeetCode-297-二叉树的序列化与反序列化-困难    
     - LeetCode-331-验证二叉树的前序序列化: LeetCode-331-验证二叉树的前序序列化
 

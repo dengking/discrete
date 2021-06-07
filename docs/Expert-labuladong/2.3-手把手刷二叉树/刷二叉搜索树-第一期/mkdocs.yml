@@ -1,0 +1,4 @@
+nav:
+    - Introduction: index.md
+    - LeetCode-230-二叉搜索树中第K小的元素: LeetCode-230-二叉搜索树中第K小的元素
+    - LeetCode-538-把二叉搜索树转换为累加树: LeetCode-538-把二叉搜索树转换为累加树

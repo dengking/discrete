@@ -1,4 +1,5 @@
 nav:
-    - Tree-树: Tree-树
+
     - LRU-算法: LRU-算法
+    - LFU-算法: LFU-算法
     
