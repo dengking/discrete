@@ -1,0 +1,2 @@
+# LeetCode [22. 括号生成](https://leetcode-cn.com/problems/generate-parentheses/) 中等
+
