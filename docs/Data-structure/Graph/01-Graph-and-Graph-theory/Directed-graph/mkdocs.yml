@@ -1,3 +1,3 @@
 nav:
-    - Directed-graph: Directed-graph.md
+    - Introduction: index.md
     - Directed-acyclic-graph: Directed-acyclic-graph

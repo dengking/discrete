@@ -1,4 +1,4 @@
 nav:
-    - Dependency-graph: Dependency-graph.md
-    - Precedence-graph: Precedence-graph.md
-    - Dependency-resolving-algorithm: Dependency-resolving-algorithm.md
+    - Introduction: index.md
+    - Precedence-graph: Precedence-graph
+    - Dependency-resolving-algorithm: Dependency-resolving-algorithm

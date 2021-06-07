@@ -1,5 +1,5 @@
 nav:
     # 各种各样的graph model其实都是graph的application
-    - Graph-Model: Graph-Model.md
+    - Introduction: index.md
     # dependency graph是一种非常重要的graph model
     - Dependency-graph: Dependency-graph
