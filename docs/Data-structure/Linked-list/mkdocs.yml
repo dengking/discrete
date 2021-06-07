@@ -4,6 +4,6 @@ nav:
     - Double-linked-list: Double-linked-list    
     
     - Sentinel-node: Sentinel-node
-    - TODO-Dummy-node: TODO-Dummy-node
+    - Dummy-node: Dummy-node
     - Circle-detection: Circle-detection
     - LeetCode: LeetCode
