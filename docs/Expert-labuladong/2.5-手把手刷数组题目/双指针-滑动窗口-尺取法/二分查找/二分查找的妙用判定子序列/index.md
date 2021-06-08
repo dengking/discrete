@@ -104,6 +104,12 @@ boolean[] isSubsequence(String[] sn, String t);
 > NOTE: 
 >
 > 在`arr`中，找到大于等于`tar`的最小值。
+>
+> 如果`arr`中不存在`tar`，则上述函数的返回值，即`left`为:
+>
+> 1、`hi`，即`tar`比`arr`中的所有的元素都大
+>
+> 2、
 
 
 
