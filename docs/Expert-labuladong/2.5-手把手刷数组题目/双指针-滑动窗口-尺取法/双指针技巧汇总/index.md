@@ -1,4 +1,4 @@
-# [labuladong](javascript:void(0);) [双指针技巧汇总](https://mp.weixin.qq.com/s/yLc7-CZdti8gEMGWhd0JTg)
+# labuladong [双指针技巧汇总](https://mp.weixin.qq.com/s/yLc7-CZdti8gEMGWhd0JTg) 
 
 我认为双指针技巧还可以分为两类，一类是「快慢指针」，一类是「左右指针」。前者解决主要解决链表中的问题，比如典型的判定链表中是否包含环；后者主要解决数组（或者字符串）中的问题，比如二分查找。
 
@@ -150,6 +150,10 @@ public:
 
 
 ### *3*、寻找链表的中点
+
+> NOTE: 
+>
+> LeetCode [876. 链表的中间结点](https://leetcode-cn.com/problems/middle-of-the-linked-list/) 简单
 
 类似上面的思路，我们还可以让快指针一次前进两步，慢指针一次前进一步，当快指针到达链表尽头时，慢指针就处于链表的中间位置。
 
