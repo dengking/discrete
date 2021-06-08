@@ -1,49 +1,55 @@
-# Search algorithm
+# wikipedia [Search algorithm](https://en.wikipedia.org/wiki/Search_algorithm)
 
-关于search algorithm，维基百科 [Search algorithm](https://en.wikipedia.org/wiki/Search_algorithm)总结地不错，本文以它作为入门，然后对search algorithm进行总结，作为software engineer，我们需要关注的有：
-
-- 原理
-- 实现技巧
-
-## 维基百科 [Search algorithm](https://en.wikipedia.org/wiki/Search_algorithm)
-
-> NOTE: 这篇文章对search algorithm的描述是非常好的，尤其是对问题的分类
+> NOTE: 
+>
+> 一、关于search algorithm，维基百科 [Search algorithm](https://en.wikipedia.org/wiki/Search_algorithm)总结地不错，本文以它作为入门，然后对search algorithm进行总结，作为software engineer，我们需要关注的有：
+>
+> - 原理
+> - 实现技巧
+>
+> 二、这篇文章对search algorithm的描述是非常好的，尤其是对问题的分类
+>
+> 三、其实本文描述的"search algorithm"是一个非常宽泛的概念，它囊括了非常多的algorithm，因为很多问题都可以看做是search
+>
+> 四、search space、state space、feasible region
 
 In [computer science](https://en.wikipedia.org/wiki/Computer_science), a **search algorithm** is any [algorithm](https://en.wikipedia.org/wiki/Algorithm) which solves the [search problem](https://en.wikipedia.org/wiki/Search_problem), namely, to retrieve information stored within some data structure, or calculated in the [search space](https://en.wikipedia.org/wiki/Feasible_region)（可行域、解空间） of a [problem domain](https://en.wikipedia.org/wiki/Problem_domain), either with [discrete or continuous values](https://en.wikipedia.org/wiki/Continuous_or_discrete_variable). Specific applications of search algorithms include:
 
-- Problems in  [combinatorial optimization](https://en.wikipedia.org/wiki/Combinatorial_optimization) , such as:
+1、Problems in  [combinatorial optimization](https://en.wikipedia.org/wiki/Combinatorial_optimization) , such as:
 
-  - The [vehicle routing problem](https://en.wikipedia.org/wiki/Vehicle_routing_problem), a form of [shortest path problem](https://en.wikipedia.org/wiki/Shortest_path_problem) 
+1.1 The [vehicle routing problem](https://en.wikipedia.org/wiki/Vehicle_routing_problem), a form of [shortest path problem](https://en.wikipedia.org/wiki/Shortest_path_problem) 
 
-    > NOTE: 汽车路径安排问题，这是一种“最短路径问题”
+> NOTE: 汽车路径安排问题，这是一种“最短路径问题”
 
-  - The [knapsack problem](https://en.wikipedia.org/wiki/Knapsack_problem): Given a set of items, each with a weight and a value, determine the number of each item to include in a collection so that the total weight is less than or equal to a given limit and the total value is as large as possible.
+1.2 The [knapsack problem](https://en.wikipedia.org/wiki/Knapsack_problem): Given a set of items, each with a weight and a value, determine the number of each item to include in a collection so that the total weight is less than or equal to a given limit and the total value is as large as possible.
 
-  - The [nurse scheduling problem](https://en.wikipedia.org/wiki/Nurse_scheduling_problem)
+1.3 The [nurse scheduling problem](https://en.wikipedia.org/wiki/Nurse_scheduling_problem)
 
-- Problems in [constraint satisfaction](https://en.wikipedia.org/wiki/Constraint_satisfaction_problem), such as:
+2、Problems in [constraint satisfaction](https://en.wikipedia.org/wiki/Constraint_satisfaction_problem), such as:
 
-  - The [map coloring problem](https://en.wikipedia.org/wiki/Map_coloring_problem)
-  
-- Filling in a [sudoku](https://en.wikipedia.org/wiki/Sudoku) or [crossword puzzle](https://en.wikipedia.org/wiki/Crossword_puzzle)
-  
-- In [game theory](https://en.wikipedia.org/wiki/Game_theory) and especially [combinatorial game theory](https://en.wikipedia.org/wiki/Combinatorial_game_theory), choosing the best move to make next (such as with the [minmax](https://en.wikipedia.org/wiki/Minmax) algorithm)
+2.1 The [map coloring problem](https://en.wikipedia.org/wiki/Map_coloring_problem)
 
-- Finding a combination or password from the whole set of possibilities
+3、Filling in a [sudoku](https://en.wikipedia.org/wiki/Sudoku) or [crossword puzzle](https://en.wikipedia.org/wiki/Crossword_puzzle)
 
-- [Factoring](https://en.wikipedia.org/wiki/Factorization) an integer (an important problem in [cryptography](https://en.wikipedia.org/wiki/Cryptography))
+4、In [game theory](https://en.wikipedia.org/wiki/Game_theory) and especially [combinatorial game theory](https://en.wikipedia.org/wiki/Combinatorial_game_theory), choosing the best move to make next (such as with the [minmax](https://en.wikipedia.org/wiki/Minmax) algorithm)
 
-  > NOTE: 分解一个integer
+5、Finding a combination or password from the whole set of possibilities
 
-- Optimizing an industrial process, such as a [chemical reaction](https://en.wikipedia.org/wiki/Chemical_reaction), by changing the parameters of the process (like temperature, pressure, and pH)
+6、[Factoring](https://en.wikipedia.org/wiki/Factorization) an integer (an important problem in [cryptography](https://en.wikipedia.org/wiki/Cryptography))
 
-- Retrieving a record from a [database](https://en.wikipedia.org/wiki/Database)
+> NOTE: 分解一个integer
 
-- Finding the maximum or minimum value in a [list](https://en.wikipedia.org/wiki/List_(abstract_data_type)) or [array](https://en.wikipedia.org/wiki/Array_data_structure)
+7、Optimizing an industrial process, such as a [chemical reaction](https://en.wikipedia.org/wiki/Chemical_reaction), by changing the parameters of the process (like temperature, pressure, and pH)
 
-- Checking to see if a given value is present in a set of values
+8、Retrieving a record from a [database](https://en.wikipedia.org/wiki/Database)
 
+9、Finding the maximum or minimum value in a [list](https://en.wikipedia.org/wiki/List_(abstract_data_type)) or [array](https://en.wikipedia.org/wiki/Array_data_structure)
 
+10、Checking to see if a given value is present in a set of values
+
+> NOTE: 
+>
+> 通过上面的描述可知，"search"是一个宽泛的概念，很多内容都可以归入其中。
 
 The classic search problems described above and [web search](https://en.wikipedia.org/wiki/Web_search) are both problems in [information retrieval](https://en.wikipedia.org/wiki/Information_retrieval), but are generally studied as separate subfields and are solved and evaluated differently. are generally focused on filtering and that find documents most relevant to human queries. Classic search algorithms are typically evaluated on how fast they can find a solution, and whether or not that solution is guaranteed to be optimal. Though **information retrieval algorithms** must be fast, the quality of ranking is more important, as is whether or not good results have been left out and bad results included.
 
@@ -63,7 +69,7 @@ Algorithms are often evaluated by their [computational complexity](https://en.wi
 
 > NOTE: 最后一句提及的search space的概念非常重要。
 
-### Classes
+## Classes
 
 
 
@@ -75,41 +81,55 @@ Algorithms are often evaluated by their [computational complexity](https://en.wi
 
 
 
-#### For virtual search spaces
+## For virtual search spaces
 
 Algorithms for searching **virtual spaces** are used in the [constraint satisfaction problem](https://en.wikipedia.org/wiki/Constraint_satisfaction_problem), where the goal is to find a set of **value assignments** to certain variables that will satisfy specific mathematical [equations](https://en.wikipedia.org/wiki/Equation) and [inequations](https://en.wikipedia.org/wiki/Inequation) / equalities. They are also used when the goal is to find a **variable assignment** that will [maximize or minimize](https://en.wikipedia.org/wiki/Discrete_optimization) a certain function of those variables. Algorithms for these problems include the basic [brute-force search](https://en.wikipedia.org/wiki/Brute-force_search)(also called "naïve" or "uninformed" search), and a variety of [heuristics](https://en.wikipedia.org/wiki/Heuristic_function) that try to exploit partial knowledge about the structure of this space, such as linear relaxation, constraint generation, and [constraint propagation](https://en.wikipedia.org/wiki/Local_consistency).
 
 > NOTE: blind search VS heuristic search
 
-An important subclass are the [local search](https://en.wikipedia.org/wiki/Local_search_(optimization)) methods, that view the **elements** of the **search space** as the [vertices](https://en.wikipedia.org/wiki/Vertex_(graph_theory))（点） of a graph, with edges defined by a set of heuristics applicable to the case; and scan the space by moving from item to item along the edges, for example according to the [steepest descent](https://en.wikipedia.org/wiki/Gradient_descent) or [best-first](https://en.wikipedia.org/wiki/Best-first_search) criterion, or in a [stochastic search](https://en.wikipedia.org/wiki/Stochastic_optimization). This category includes a great variety of general [metaheuristic](https://en.wikipedia.org/wiki/Metaheuristic) methods, such as [simulated annealing](https://en.wikipedia.org/wiki/Simulated_annealing), [tabu search](https://en.wikipedia.org/wiki/Tabu_search), A-teams, and [genetic programming](https://en.wikipedia.org/wiki/Genetic_programming), that combine arbitrary heuristics in specific ways.
+### Local search
+
+> NOTE: 
+>
+> 这是一种非常重要的思想，是后续很多algorithm的核心思想
+
+An important subclass are the [local search](https://en.wikipedia.org/wiki/Local_search_(optimization)) methods, that view the **elements** of the **search space** as the [vertices](https://en.wikipedia.org/wiki/Vertex_(graph_theory))（点） of a graph, with edges defined by a set of heuristics(启发) applicable to the case; and scan the space by moving from item to item along the edges, for example according to the [steepest descent](https://en.wikipedia.org/wiki/Gradient_descent) or [best-first](https://en.wikipedia.org/wiki/Best-first_search) criterion, or in a [stochastic search](https://en.wikipedia.org/wiki/Stochastic_optimization). This category includes a great variety of general [metaheuristic](https://en.wikipedia.org/wiki/Metaheuristic) methods, such as [simulated annealing](https://en.wikipedia.org/wiki/Simulated_annealing), [tabu search](https://en.wikipedia.org/wiki/Tabu_search), A-teams, and [genetic programming](https://en.wikipedia.org/wiki/Genetic_programming), that combine arbitrary heuristics in specific ways.
+
+#### Tree search algorithms
 
 This class also includes various [tree search algorithms](https://en.wikipedia.org/wiki/Tree_traversal), that view the **elements** as vertices of a [tree](https://en.wikipedia.org/wiki/Tree_(graph_theory)), and traverse that tree in some special order. Examples of the latter include the exhaustive methods such as [depth-first search](https://en.wikipedia.org/wiki/Depth-first_search) and [breadth-first search](https://en.wikipedia.org/wiki/Breadth-first_search), as well as various heuristic-based [search tree pruning](https://en.wikipedia.org/wiki/Pruning_(decision_trees)) methods such as [backtracking](https://en.wikipedia.org/wiki/Backtracking) and [branch and bound](https://en.wikipedia.org/wiki/Branch_and_bound). Unlike general metaheuristics, which at best work only in a probabilistic sense, many of these tree-search methods are guaranteed to find the exact or optimal solution, if given enough time. This is called "[completeness](https://en.wikipedia.org/wiki/Completeness_(logic))".
 
 > NOTE: graph search（tree search也包括在其中，因为tree是一种特殊的graph），后面会进行专门的介绍。graph search是非常重要，因为virtual search space也可以转换为graph search。
 
+#### Game tree
+
 Another important sub-class consists of algorithms for exploring the [game tree](https://en.wikipedia.org/wiki/Game_tree) of multiple-player games, such as [chess](https://en.wikipedia.org/wiki/Chess) or [backgammon](https://en.wikipedia.org/wiki/Backgammon)（双陆棋）, whose nodes consist of all possible game situations that could result from the current situation. The goal in these problems is to find the move that provides the best chance of a win, taking into account all possible moves of the opponent(s). Similar problems occur when humans or machines have to make successive decisions whose outcomes are not entirely under one's control, such as in [robot](https://en.wikipedia.org/wiki/Robot) guidance or in [marketing](https://en.wikipedia.org/wiki/Marketing), [financial](https://en.wikipedia.org/wiki/Finance), or [military](https://en.wikipedia.org/wiki/Military)strategy planning. This kind of problem — [combinatorial search](https://en.wikipedia.org/wiki/Combinatorial_search)（组合搜索） — has been extensively studied in the context of [artificial intelligence](https://en.wikipedia.org/wiki/Artificial_intelligence). Examples of algorithms for this class are the [minimax algorithm](https://en.wikipedia.org/wiki/Minimax), [alpha–beta pruning](https://en.wikipedia.org/wiki/Alpha–beta_pruning), * Informational search [[7\]](https://en.wikipedia.org/wiki/Search_algorithm#cite_note-7) and the [A* algorithm](https://en.wikipedia.org/wiki/A*_search_algorithm).
 
 
 
-#### For sub-structures of a given structure
+## For sub-structures of a given structure
 
 The name "combinatorial search"（组合搜索） is generally used for algorithms that look for a specific sub-structure of a given [discrete structure](https://en.wikipedia.org/wiki/Discrete_mathematics), such as a graph, a [string](https://en.wikipedia.org/wiki/String_(computer_science)), a finite [group](https://en.wikipedia.org/wiki/Group_(mathematics)), and so on. The term [combinatorial optimization](https://en.wikipedia.org/wiki/Combinatorial_optimization) is typically used when the goal is to find a **sub-structure** with a maximum (or minimum) value of some parameter. (Since the sub-structure is usually represented in the computer by a set of integer variables with constraints, these problems can be viewed as special cases of constraint satisfaction or discrete optimization; but they are usually formulated and solved in a more abstract setting where the internal representation is not explicitly mentioned.)
 
 > NOTE: 这让我想起来[Optimal substructure](https://en.wikipedia.org/wiki/Optimal_substructure)
 
+### Graph algorithm
+
 An important and extensively studied subclass are the [graph algorithms](https://en.wikipedia.org/wiki/List_of_algorithms#Graph_algorithms), in particular [graph traversal](https://en.wikipedia.org/wiki/Graph_traversal) algorithms, for finding specific sub-structures in a given graph — such as [subgraphs](https://en.wikipedia.org/wiki/Glossary_of_graph_theory#Subgraphs), [paths](https://en.wikipedia.org/wiki/Path_(graph_theory)), circuits, and so on. Examples include [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra's_algorithm), [Kruskal's algorithm](https://en.wikipedia.org/wiki/Kruskal's_algorithm), the [nearest neighbour algorithm](https://en.wikipedia.org/wiki/Nearest_neighbour_algorithm), and [Prim's algorithm](https://en.wikipedia.org/wiki/Prim's_algorithm).
+
+### String search algorithm
 
 Another important subclass of this category are the [string searching algorithms](https://en.wikipedia.org/wiki/String_searching_algorithm), that search for patterns within strings. Two famous examples are the [Boyer–Moore](https://en.wikipedia.org/wiki/Boyer–Moore_string_search_algorithm) and [Knuth–Morris–Pratt algorithms](https://en.wikipedia.org/wiki/Knuth–Morris–Pratt_algorithm), and several algorithms based on the [suffix tree](https://en.wikipedia.org/wiki/Suffix_tree) data structure.
 
 
 
-#### Search for the maximum of a function
+## Search for the maximum of a function
 
 In 1953, American [statistician](https://en.wikipedia.org/wiki/Statistics) [Jack Kiefer](https://en.wikipedia.org/wiki/Jack_Kiefer_(statistician)) devised [Fibonacci search](https://en.wikipedia.org/wiki/Fibonacci_search_technique) which can be used to find the maximum of a unimodal（单峰） function and has many other applications in computer science.
 
 
 
-#### For quantum computers
+## For quantum computers
 
 There are also search methods designed for [quantum computers](https://en.wikipedia.org/wiki/Quantum_computing), like [Grover's algorithm](https://en.wikipedia.org/wiki/Grover's_algorithm), that are theoretically faster than linear or brute-force search even without the help of data structures or heuristics.
 
@@ -117,7 +137,7 @@ There are also search methods designed for [quantum computers](https://en.wikipe
 
 
 
-### See also
+## See also
 
 - [Backward induction](https://en.wikipedia.org/wiki/Backward_induction)
 - [Content-addressable memory](https://en.wikipedia.org/wiki/Content-addressable_memory) hardware
@@ -135,83 +155,6 @@ There are also search methods designed for [quantum computers](https://en.wikipe
 Categories:
 
 - [Category:Search algorithms](https://en.wikipedia.org/wiki/Category:Search_algorithms)
-
-
-
-## Guide
-
-通过维基百科 [Search algorithm](https://en.wikipedia.org/wiki/Search_algorithm)，我们可以看到：“search”是一个非常宏大的主题，有时候有这样的感觉：computer science解决很多问题的解法最终都可以归入search的范轴。
-
-正因为search algorithm的无处不在，所以对它的研究是非常有必要的。
-
-### Search space
-
-为了更好地描述、总结search algorithm，我们首先站在一个更高的层次，因此我们需要使用抽象而不是具体。我们首先明确search问题的object：search space。
-
-#### Search space的分类
-
-有着多种分类标准：
-
-| Classification criteria | Examples                                                     |
-| ----------------------- | ------------------------------------------------------------ |
-| virtual                 | 参见 维基百科 [Search algorithm](https://en.wikipedia.org/wiki/Search_algorithm) `#` For virtual search spaces 章节 |
-| physical/concrete       | - tree<br>- graph                                            |
-
-
-
-按照“结构化思维”，可知：本质上都可以使用relation来进行描述，本质上都是discrete structure，因此可以使用相同的algorithm来解决它们的问题。
-
-virtual search space和concrete search space遵循相同的relation，因此：
-
-- 它们呈现相同的structure
-- 可以使用相同的algorithm来实现它们的computation
-
-由于人们的思维往往是易于接受具体，所以对于virtual space这种比较抽象的，我们往往使用具体事物来进行刻画，比如使用search tree来描述问题的解空间，因此，后面在描述各种search strategy的时候，我们是基于concrete structure来进行描述的，这样便于理解，所以讲这部分内容都放到了`Relation-structure-computation\Structure`章节中。
-
-
-
-#### Search in virtual space 
-
-virtual space的搜索和concrete structure的搜索的过程、实现方式非常类似。
-
-virtual space包括：
-
-- 解空间
-- 状态空间
-
-以**结构化思维**来看，virtual space也有着**结构**，最最典型的例子是eight-queen puzzle，它可以使用**nesting关系**来解释：第一次包含n个选择，第二次包含n-1个选择，所以它最终呈现树形，所以可以使用**Relation-based algorithm model**。
-
-参见：
-
-- 结构化思维：`Relation-structure-computation\index.md`
-- Relation-based algorithm model：`Relation-structure-computation\Computation\Relation-based-algorithm-model.md`
-- nesting关系：`Relation-structure-computation\Model\Nesting-relation-model`
-
-#### [Graph](https://en.wikipedia.org/wiki/Graph_traversal) **and** [tree search algorithms](https://en.wikipedia.org/wiki/Tree_traversal)
-
-这部分内容`Relation-structure-computation\Structure\Data-structure\Graph\Search-algorithm`章节进行了描述。
-
-
-
-### Search purpose
-
-搜索目标，是在search space中搜索所有的solution，还是搜索best solution。
-
-### Search strategy
-
-在`Relation-structure-computation\Structure\Data-structure\Graph\Search-algorithm\Methods`中进行了描述。
-
-
-
-### Optimization algorithm and search algorithm
-
-使用各种各样的[Optimization algorithm](https://en.wikipedia.org/wiki/Optimization_algorithm)来实现[Optimization](https://en.wikipedia.org/wiki/Mathematical_optimization)问题，其实其过程也可以看做是[Search algorithm](https://en.wikipedia.org/wiki/Search_algorithm)：search for best solution，即寻找最优解，这些算法往往采用的策略是：不断地向最优解逼近，关于这个观点，在`Relation-structure-computation\Computation\index.md#Iterative method`章节中也进行了描述。
-
-比如[Gradient descent](https://en.wikipedia.org/wiki/Gradient_descent)就是一个典型的例子：该算法的过程可以看做是不断地向目标逼近的过程，下面是说明此观点的素材：
-
-[如何直观地解释 backpropagation 算法？ - Anonymous的回答 - 知乎]( https://www.zhihu.com/question/27239198/answer/89853077)中有这样的说明：
-
-> 梯度下降法需要给定一个初始点，并求出该点的梯度向量，然后以负梯度方向为搜索方向，以一定的步长进行搜索，从而确定下一个迭代点，再计算该新的梯度方向，如此重复直到cost收敛。
 
 
 
