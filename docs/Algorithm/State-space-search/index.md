@@ -14,7 +14,23 @@
 
 **解空间**是一种非常典型的state space。
 
+### combination tree
 
+
+
+### permutation tree
+
+### subset tree
+
+最最典型的就是0-1背包问题
+
+### complete n-ary tree
+
+这种是最最常见的，比如:
+
+1、图的m着色
+
+2、n-皇后
 
 ## `Permutation-and-combination`
 
