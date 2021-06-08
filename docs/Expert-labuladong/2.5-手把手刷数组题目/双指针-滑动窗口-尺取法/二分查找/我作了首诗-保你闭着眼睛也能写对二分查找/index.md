@@ -8,9 +8,9 @@
 >
 > 1、寻找左边界的二分搜索和寻找右边界的二分搜索就是利用的这个特性。
 >
-> 2、寻找左边界的二分搜索和寻找右边界的二分搜索中，当`nums[mid] == target`时，它会将`nums[mid]`从range中剔除，因此，当while退出的时候，肯定是因为range为0了。
+> 2、寻找左边界的二分搜索和寻找右边界的二分搜索中，当`nums[mid] == target`时，它会将`nums[mid]`从range中剔除，因此，当while退出的时候，肯定是因为range为0了，即`left == right`
 >
-> 3、二分搜索能够保证，不断地向target靠近。
+> 3、二分搜索能够保证，`left`、`right`不断地向target靠近。
 >
 > 4、对于寻找左侧边界的二分搜索，当while退出的时候，如果存在target，那么它就指向target。
 >
@@ -30,8 +30,37 @@
 >
 > 五、原文中始终强调range、while条件
 >
-> 
+> 六、最终统一为左闭右闭的形式
 >
+> 对于区间，非常容易理解；
+>
+> 对于基本的二分搜索，非常容易理解；
+>
+> 难点是left bound 和 right bound的return value的处理；
+>
+> 1、要么存在
+>
+> 最终left、right肯定会逼近目标元素，最终的终止条件是left > right，即left ==  right + 1 ，即left在right的右侧；
+>
+> 对于**left bound**: 当命中target的时候，不断地缩小right，最终，right错过target，指向target的左侧，left指向target，因此最终返回left
+>
+> 对于**right bound**: 当命中target的时候，不断地增大left，最终，left错过target，指向target的右侧，right指向target，因此最终返回right
+>
+> 2、要么不存在: 
+>
+> target比所有的都小，因此最终left、right都位于左侧
+>
+> 对于**left bound**: 最终返回的是left，此时left是安全的，不会越界；
+>
+> 对于**right bound**: 最终返回的是right，此时right是不安全的，可能越界(比如left为0，那么right就是-1)，显然这是越界；
+>
+> target比所有的都大，因此最终left、right都位于右侧
+>
+> 对于**left bound**: 最终返回的是left，此时left是不安全的，可能越界；
+>
+> 对于**right bound**: 最终返回的是right，此时right是安全的，不会越界
+>
+> 
 
 
 
@@ -39,7 +68,7 @@
 
 > NOTE: 
 >
-> 1、上述"零"是什么含义？
+> 1、上述"零"是什么含义？章节号
 >
 > 2、可以看到，下面的code中，`...`主要是对边界的划分，或者使用作者的概念: **搜索区间**
 >
@@ -247,7 +276,7 @@ PS：这里先要说一个搜索左右边界和上面这个算法的一个区别
 
 ### 2、为什么没有返回 -1 的操作？如果`nums`中不存在`target`这个值，怎么办？
 
-答：因为要一步一步来，先理解一下这个「左侧边界」有什么特殊含义：
+答：因为要一步一步来，先理解一下这个「左侧边界」(即 `left`)有什么特殊含义：
 
 #### 「左侧边界」的特殊含义
 
@@ -508,6 +537,10 @@ if (nums[mid] == target) {
     // 这样想: mid = left - 1
 ```
 
+> NOTE: 
+>
+> 这是非常容易出错的
+
 ![图片](https://mmbiz.qpic.cn/sz_mmbiz_jpg/gibkIz0MVqdF2MS89jteHAY2C2mRL0DVRSIZGjOUN3sFU4MhvRd41OibpUSeickSfL8I3X8T2SzyhcSMfA3ukwCmg/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
 因为我们对`left`的更新必须是`left = mid + 1`，就是说 while 循环结束时，`nums[left]`一定不等于`target`了，而`nums[left-1]`可能是`target`。
@@ -518,7 +551,7 @@ if (nums[mid] == target) {
 
 答：类似之前的左侧边界搜索，因为 while 的终止条件是`left == right`，就是说`left`的取值范围是`[0, nums.length]`，所以可以添加两行代码，正确地返回 -1：
 
-```
+```c++
 while (left < right) {
     // ...
 }
@@ -532,7 +565,7 @@ return nums[left-1] == target ? (left-1) : -1;
 
 答：当然可以，类似搜索左侧边界的统一写法，其实只要改两个地方就行了：
 
-```
+```c++
 int right_bound(int[] nums, int target) {
     int left = 0, right = nums.length - 1;
     while (left <= right) {
@@ -662,6 +695,10 @@ int main()
 又因为收紧左侧边界时必须 left = mid + 1
 所以最后无论返回 left 还是 right，必须减一
 ```
+
+
+
+### 完整程序
 
 对于寻找左右边界的二分搜索，常见的手法是使用左闭右开的「搜索区间」，**我们还根据逻辑将「搜索区间」全都统一成了两端都闭，便于记忆，只要修改两处即可变化出三种写法**：
 
