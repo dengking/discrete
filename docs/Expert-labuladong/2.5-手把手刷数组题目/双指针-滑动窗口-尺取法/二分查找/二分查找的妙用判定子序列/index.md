@@ -99,7 +99,13 @@ boolean[] isSubsequence(String[] sn, String t);
 
 ![图片](https://mmbiz.qpic.cn/mmbiz_png/map09icNxZ4kgs1l9MrcAfJI2cWHicmeQ2RC2TvWKdHDXNA2DLdTC3Isibt1XkSJmN5fviaIywQ3IFdbWTzdlbic6Iw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
-以上就是搜索左侧边界的二分查找，等会儿会用到，其中的细节可以参见 [二分查找算法详解](http://mp.weixin.qq.com/s?__biz=MzU0MDg5OTYyOQ==&mid=2247484090&idx=1&sn=5635cf1c4fd8a8570b63c7ae9b4304c2&chksm=fb3362f8cc44ebee0a19a4cfba7f2e13923e05f47e15f2e99a1f42b01aeee83b946aceac3d4c&scene=21#wechat_redirect)，这里不再赘述。
+以上就是搜索**左侧边界**的**二分查找**，等会儿会用到，其中的细节可以参见 [二分查找算法详解](http://mp.weixin.qq.com/s?__biz=MzU0MDg5OTYyOQ==&mid=2247484090&idx=1&sn=5635cf1c4fd8a8570b63c7ae9b4304c2&chksm=fb3362f8cc44ebee0a19a4cfba7f2e13923e05f47e15f2e99a1f42b01aeee83b946aceac3d4c&scene=21#wechat_redirect)，这里不再赘述。
+
+> NOTE: 
+>
+> 在`arr`中，找到大于等于`tar`的最小值。
+
+
 
 ## 四、代码实现
 
