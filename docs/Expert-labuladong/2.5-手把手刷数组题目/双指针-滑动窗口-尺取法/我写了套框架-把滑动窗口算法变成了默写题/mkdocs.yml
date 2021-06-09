@@ -1,3 +1,4 @@
 nav:
     - Introduction: index.md
-    
+    - LeetCode--76.最小覆盖子串: LeetCode--76.最小覆盖子串
+    - LeetCode-567-字符串的排列: LeetCode-567-字符串的排列
