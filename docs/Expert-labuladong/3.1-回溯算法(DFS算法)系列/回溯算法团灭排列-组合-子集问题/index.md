@@ -11,6 +11,8 @@
 > leetcode [78. 子集](https://leetcode-cn.com/problems/subsets/) 中等
 >
 > leetcode [90. 子集 II](https://leetcode-cn.com/problems/subsets-ii/) 中等
+>
+> 
 
 
 
@@ -108,10 +110,6 @@ for (int i = 0; i < size; i++) {
 
 ### 回溯法
 
-> NOTE: 
->
-> 原文是有误的，正确的解法是: 每个元素都有两个选择: 0-不选、1-选
-
 **第二种通用方法就是回溯算法**。旧文「回溯算法详解」写过回溯算法的模板：
 
 ```c++
@@ -151,6 +149,12 @@ void backtrack(vector<int>& nums, int start, vector<int>& track) {
     }
 }
 ```
+
+> NOTE: 
+>
+> 没有理解上述code；
+>
+> 我觉得比较简单的写法是: 每个元素都有两个选择: 0-不选、1-选，在"leetcode [78. 子集](https://leetcode-cn.com/problems/subsets/) 中等"中，就是使用的这种写法。
 
 可以看见，对 `res` 的更新是一个**前序遍历**，也就是说，`res` 就是树上的所有节点：
 
@@ -213,6 +217,10 @@ void backtrack(int n, int k, int start, vector<int>& track) {
     }
 }
 ```
+
+> NOTE: 
+>
+> 对于输出结果中的第`i`个数，有 `[start, n]` 种选择
 
 `backtrack` 函数和计算子集的差不多，**区别在于，更新 `res` 的地方是树的底端**。
 

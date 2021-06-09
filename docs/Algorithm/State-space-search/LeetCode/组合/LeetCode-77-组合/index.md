@@ -44,6 +44,10 @@
 > 一、下面的实现是能够维持生成的子集中的元素
 >
 > 1、`cur`是从0开始，因此先加入到`temp`中的是小元素，后进入的是大元素，维持了和原集合中元素相同的顺序。
+>
+> 二、相比之下，labuladong [回溯算法团灭排列/组合/子集问题](https://mp.weixin.qq.com/s/qT6WgR6Qwn7ayZkI3AineA) 中给出的code是更加直观易懂的
+>
+> 
 
 ```C++
 #include <bits/stdc++.h>
@@ -214,5 +218,59 @@ int main()
 ```C++
 16
 [[1,1,],[1,2,],[1,3,],[1,4,],[2,1,],[2,2,],[2,3,],[2,4,],[3,1,],[3,2,],[3,3,],[3,4,],[4,1,],[4,2,],[4,3,],[4,4,],]
+```
+
+### labuladong [回溯算法团灭排列/组合/子集问题](https://mp.weixin.qq.com/s/qT6WgR6Qwn7ayZkI3AineA)
+
+```C++
+#include <bits/stdc++.h>
+using namespace std;
+class Solution
+{
+	vector<vector<int>> res;
+public:
+	vector<vector<int>> combine(int n, int k)
+	{
+		vector<int> track;
+		dfs(n, k, 1, track);
+		return res;
+	}
+	void dfs(int n, int k, int start, vector<int> &track)
+	{
+		if (track.size() == k)
+		{
+			res.push_back(track);
+			return;
+		}
+		for (int i = start; i <= n; ++i)
+		{
+			track.push_back(i);
+			dfs(n, k, i + 1, track); // 需要注意的是: 必须是 `i + 1`，即后一个数必须要从它开始，这是非常容易出错的地方，如果传入`start + 1`，就会出现错误
+			track.pop_back();
+		}
+	}
+};
+
+template<typename ...Args>
+ostream& operator <<(ostream &stream, const vector<Args...> &v)
+{
+	stream << "[";
+	for (auto &&i : v)
+	{
+		stream << i << ",";
+	}
+	stream << "]";
+	return stream;
+}
+
+int main()
+{
+	Solution s;
+	vector<vector<int>> combs = s.combine(4, 2);
+	cout << combs.size() << endl;
+	cout << combs << endl;
+}
+// g++ test.cpp -pedantic -Wall -Wextra --std=c++11
+
 ```
 
