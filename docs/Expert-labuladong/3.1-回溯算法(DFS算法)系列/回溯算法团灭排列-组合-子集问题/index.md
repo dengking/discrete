@@ -1,18 +1,20 @@
-# labuladong [回溯算法团灭排列/组合/子集问题](https://mp.weixin.qq.com/s/qT6WgR6Qwn7ayZkI3AineA)
+# labuladong [回溯算法团灭排列/组合/子集问题](https://mp.weixin.qq.com/s/qT6WgR6Qwn7ayZkI3AineA) 
 
 > NOTE: 
 >
 > 组合: 
 >
-> leetcode [77. 组合](https://leetcode-cn.com/problems/combinations/) 中等
+> LeetCode [77. 组合](https://leetcode-cn.com/problems/combinations/) 中等
 >
 > 子集:
 >
-> leetcode [78. 子集](https://leetcode-cn.com/problems/subsets/) 中等
+> LeetCode [78. 子集](https://leetcode-cn.com/problems/subsets/) 中等
 >
-> leetcode [90. 子集 II](https://leetcode-cn.com/problems/subsets-ii/) 中等
+> LeetCode [90. 子集 II](https://leetcode-cn.com/problems/subsets-ii/) 中等
 >
-> 
+> 排列:
+>
+> LeetCode [46. 全排列](https://leetcode-cn.com/problems/permutations/) 中等
 
 
 
@@ -234,6 +236,7 @@ vector<vector<int>> permute(vector<int>& nums);
 
 比如说输入数组 `[1,2,3]`，输出结果应该如下，顺序无所谓，不能有重复：
 
+```c++
 [
  [1,2,3],
  [1,3,2],
@@ -242,6 +245,9 @@ vector<vector<int>> permute(vector<int>& nums);
  [3,1,2],
  [3,2,1]
 ]
+```
+
+
 
 [回溯算法详解](http://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247484709&idx=1&sn=1c24a5c41a5a255000532e83f38f2ce4&chksm=9bd7fb2daca0723be888b30345e2c5e64649fc31a00b05c27a0843f349e2dd9363338d0dac61&scene=21#wechat_redirect) 中就是拿这个问题来解释回溯模板的。这里又列出这个问题，是将「排列」和「组合」这两个回溯算法的代码拿出来对比。
 
@@ -279,13 +285,23 @@ void backtrack(int[] nums, LinkedList<Integer> track) {
         backtrack(nums, track);
         // 取消选择
         track.removeLast();
-    }
+    }【
 }
 ```
+
+> NOTE: 
+>
+> 上面的这种写法可以概括为:
+>
+> "backtrack回溯-permutation排列-complete n-ary tree+prune剪枝剔除-生成permutation tree"
+>
+> 它的这种实现方式是不好的。
 
 回溯模板依然没有变，但是根据排列问题和组合问题画出的树来看，排列问题的树比较对称，而组合问题的树越靠右节点越少。
 
 在代码中的体现就是，排列问题每次通过 `contains` 方法来排除在 `track` 中已经选择过的数字；而组合问题通过传入一个 `start` 参数，来排除 `start` 索引之前的数字。
+
+## 总结
 
 **以上，就是排列组合和子集三个问题的解法，总结一下**：
 
