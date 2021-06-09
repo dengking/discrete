@@ -10,11 +10,13 @@
 
 
 
-Backtracking can be applied only for problems which admit the concept of a "partial candidate solution" and a relatively quick test of whether it can possibly be completed to a valid solution. It is useless, for example, for locating a given value in an unordered table. When it is applicable, however, backtracking is often much faster than [brute force enumeration](https://en.wikipedia.org/wiki/Brute_force_search) of all complete candidates, since it can eliminate（消除） many candidates with a single test.
+Backtracking can be applied only for problems which admit the concept of a "partial candidate solution" and a relatively quick test of whether it can possibly be completed to a valid solution(剪枝). It is useless, for example, for locating a given value in an unordered table. When it is applicable, however, backtracking is often much faster than [brute force enumeration](https://en.wikipedia.org/wiki/Brute_force_search) of all complete candidates, since it can eliminate（消除） many candidates with a single test.
 
 > NOTE : 上面这段话说明了可以使用backtrack解决的问题
 >
 > [Backtracking](https://en.wikipedia.org/wiki/Backtracking) VS  [brute force enumeration](https://en.wikipedia.org/wiki/Brute_force_search) 
+>
+> 剪枝
 
 Backtracking is an important tool for solving [constraint satisfaction problems](https://en.wikipedia.org/wiki/Constraint_satisfaction_problem),[[3\]](https://en.wikipedia.org/wiki/Backtracking#cite_note-BiereHeule2009-3) such as [crosswords](https://en.wikipedia.org/wiki/Crosswords), [verbal arithmetic](https://en.wikipedia.org/wiki/Verbal_arithmetic), [Sudoku](https://en.wikipedia.org/wiki/Algorithmics_of_sudoku), and many other puzzles. It is often the most convenient (if not the most efficient[*citation needed*]) technique for [parsing](https://en.wikipedia.org/wiki/Parsing),[[4\]](https://en.wikipedia.org/wiki/Backtracking#cite_note-Watson2017-4) for the [knapsack problem](https://en.wikipedia.org/wiki/Knapsack_problem) and other [combinatorial optimization](https://en.wikipedia.org/wiki/Combinatorial_optimization) problems. It is also the basis of the so-called [logic programming](https://en.wikipedia.org/wiki/Logic_programming) languages such as [Icon](https://en.wikipedia.org/wiki/Icon_programming_language), [Planner](https://en.wikipedia.org/wiki/Planner_programming_language) and [Prolog](https://en.wikipedia.org/wiki/Prolog).
 
@@ -109,16 +111,3 @@ function next(P, s)
 
 Here *length*(*c*) is the number of elements in the list *c*.
 
-The call *reject*(*P*, *c*) should return *true* if the constraint *F* cannot be satisfied by any list of *n* integers that begins with the *k* elements of *c*. For backtracking to be effective, there must be a way to detect this situation, at least for some candidates *c*, without enumerating all those *m**n* − *k* *n*-tuples.
-
-For example, if *F* is the [conjunction](https://en.wikipedia.org/wiki/Logical_conjunction) of several boolean predicates, *F* = *F*[1] ∧ *F*[2] ∧ … ∧ *F*[*p*], and each *F*[*i*] depends only on a small subset of the variables *x*[1], …, *x*[*n*], then the *reject* procedure could simply check the terms *F*[*i*] that depend only on variables *x*[1], …, *x*[*k*], and return *true* if any of those terms returns *false*. In fact, *reject* needs only check those terms that do depend on *x*[*k*], since the terms that depend only on *x*[1], …, *x*[*k* − 1] will have been tested further up in the search tree.
-
-Assuming that *reject* is implemented as above, then *accept*(*P*, *c*) needs only check whether *c* is complete, that is, whether it has *n* elements.
-
-It is generally better to order the list of variables so that it begins with the most critical ones (i.e. the ones with fewest value options, or which have a greater impact on subsequent choices).
-
-One could also allow the *next* function to choose which variable should be assigned when extending a partial candidate, based on the values of the variables already assigned by it. Further improvements can be obtained by the technique of [constraint propagation](https://en.wikipedia.org/wiki/Constraint_propagation).
-
-In addition to retaining minimal recovery values used in backing up, backtracking implementations commonly keep a variable trail, to record value change history. An efficient implementation will avoid creating a variable trail entry between two successive changes when there is no choice point, as the backtracking will erase all of the changes as a single operation.
-
-An alternative to the variable trail is to keep a [timestamp](https://en.wikipedia.org/wiki/Timestamp) of when the last change was made to the variable. The timestamp is compared to the timestamp of a choice point. If the choice point has an associated time later than that of the variable, it is unnecessary to revert the variable when the choice point is backtracked, as it was changed before the choice point occurred.

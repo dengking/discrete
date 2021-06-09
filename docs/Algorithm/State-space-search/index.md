@@ -14,23 +14,15 @@
 
 **解空间**是一种非常典型的state space。
 
-### combination tree
+## State space的分类: 树形
 
+complete n-ary tree、subset tree子集树、permutation tree排列树、combination tree组合树,
 
+在下面的章节中，对它们进行了详细描述:
 
-### permutation tree
+1、`计算机算法设计与分析-5-回溯法`
 
-### subset tree
-
-最最典型的就是0-1背包问题
-
-### complete n-ary tree
-
-这种是最最常见的，比如:
-
-1、图的m着色
-
-2、n-皇后
+2、`Expert-labuladong\3.1-回溯算法(DFS算法)系列\回溯算法团灭排列-组合-子集问题`
 
 ## `Permutation-and-combination`
 
