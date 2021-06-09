@@ -463,7 +463,7 @@ bool checkInclusion(string t, string s) {
         // 判断左侧窗口是否要收缩
         while (right - left >= t.size()) {
             // 在这里判断是否找到了合法的子串
-            if (valid == need.size())
+            if (valid == need.size()) // 
                 return true;
             char d = s[left];
             left++;
@@ -480,6 +480,25 @@ bool checkInclusion(string t, string s) {
 }
 ```
 
+> NOTE: 
+>
+> 一、上述code 和 LeetCode [76. 最小覆盖子串](https://leetcode-cn.com/problems/minimum-window-substring/) 中的code其实差异还是比较大的:
+>
+> 1、在 LeetCode [76. 最小覆盖子串](https://leetcode-cn.com/problems/minimum-window-substring/) 中，shrink的条件是: `valid == need.size()`，上述code中，shrink的条件是 `right - left >= t.size()`，这样，运行的时候，一旦`right - left == t.size()`，即window的长度和目标字符串的长度相同，它就会执行匹配；它的匹配是非常简单的: 
+>
+> `valid == need.size()`
+>
+> 因为此时window的长度 和 目标字符串的长度相同，所以不会有多余的字符串，所以可以直接进行上述比较；
+>
+> 二、上述程序在下面的测试用例中
+>
+> ```C++
+> "abcdxabcde"
+> "abcdeabcdx"
+> ```
+>
+> 
+
 对于这道题的解法代码，基本上和最小覆盖子串一模一样，只需要改变两个地方：
 
 **1、**本题移动`left`缩小窗口的时机是窗口大小大于`t.size()`时，因为排列嘛，显然长度应该是一样的。
@@ -493,6 +512,8 @@ bool checkInclusion(string t, string s) {
 > NOTE: 
 >
 > 1、和前面的字符串排列基本相同
+>
+> 2、LeetCode [438. 找到字符串中所有字母异位词](https://leetcode-cn.com/problems/find-all-anagrams-in-a-string/) 中等
 
 这是 LeetCode 第 438 题，Find All Anagrams in a String，难度 Medium：
 
@@ -549,6 +570,8 @@ vector<int> findAnagrams(string s, string t) {
 > 2、如何判断是否有重复字符呢？使用hash table in？
 >
 > 看了下面的实现，它使用的是字符个数大于0，显然它是充分利用`window`--关于窗口内情况的统计。
+>
+> 3、leetcode [3. 无重复字符的最长子串](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/) 中等
 
 这是 LeetCode 第 3 题，Longest Substring Without Repeating Characters，难度 Medium：
 
