@@ -1,5 +1,19 @@
 # labuladong [回溯算法团灭排列/组合/子集问题](https://mp.weixin.qq.com/s/qT6WgR6Qwn7ayZkI3AineA)
 
+> NOTE: 
+>
+> 组合: 
+>
+> leetcode [77. 组合](https://leetcode-cn.com/problems/combinations/) 中等
+>
+> 子集:
+>
+> leetcode [78. 子集](https://leetcode-cn.com/problems/subsets/) 中等
+>
+> leetcode [90. 子集 II](https://leetcode-cn.com/problems/subsets-ii/) 中等
+
+
+
 今天就来聊三道考察频率高，而且容易让人搞混的算法问题，分别是:
 
 1、求子集（subset），
