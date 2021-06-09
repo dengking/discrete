@@ -1,5 +1,6 @@
 nav:
     - Introduction: index.md
+    - 经典动态规划-0-1 背包问题: 经典动态规划-0-1 背包问题
     - LeetCode-一篇文章吃透背包问题: LeetCode-一篇文章吃透背包问题
     - LeetCode-322-零钱兑换: LeetCode-322-零钱兑换
     - TODO-518-零钱兑换-II: TODO-518-零钱兑换-II
