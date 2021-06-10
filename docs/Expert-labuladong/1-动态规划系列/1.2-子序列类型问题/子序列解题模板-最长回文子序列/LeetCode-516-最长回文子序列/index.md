@@ -20,6 +20,8 @@ public:
 		}
 		// 反着遍历保证正确的状态转移
 		for (int i = n - 1; i >= 0; --i) // 行 是自底向上
+			// 需要注意的是: i的初始值是 n-1，因此j的初始值是 n - 1 + 1 = n
+			// 但是由于for循环有限制条件: j < n ，因此当i取n-1时，并不会进入下面的for循环
 			for (int j = i + 1; j < n; ++j) // 列 是自左至右
 			{
 				if (s[i] == s[j])
@@ -38,7 +40,9 @@ public:
 int main()
 {
 
-	Solution s;
+	Solution solu;
+	auto s = "bbbab";
+	solu.longestPalindromeSubseq(s);
 	return 0;
 }
 // g++ test.cpp --std=c++11 -pedantic -Wall -Wextra
