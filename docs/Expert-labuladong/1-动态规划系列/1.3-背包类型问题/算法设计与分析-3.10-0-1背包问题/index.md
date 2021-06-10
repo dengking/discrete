@@ -2,7 +2,31 @@
 
 ![](./1.jpg)
 
+## 1、最优子结构
+
+
+
+## 2、递归关系
+
+
+
 ![](./2.jpg)
+
+### Base case
+
+需要注意，上述
+$$
+m(n, j)={\begin{cases} v_n ,\qquad j \geq w_n \\ 0 \qquad 0 \leq j \lt w_n \end{cases}}
+$$
+是base case，即是可以直接求出值的；
+
+$j$表示的是背包容量；
+
+需要注意的是，背包容量是有上限的，它是由题目给出的，是$c$，这在上面公式中没有体现；
+
+上述这些分析内容是理解下面代码中对DP table进行初始化的流程的关键，后面会进行专门的说明。
+
+## 3、算法描述
 
 ![](./3.jpg)
 
@@ -27,8 +51,9 @@ void Knapsack(Type v, int *w, int c, int n, Type **m)
 {
 	/**
 	 * base case: 只有第n个物品，它的重量为w[n]
+	 * 下面这段代码对应的是上面m(n, j)
 	 */
-	int jMax = min(w[n] - 1, c); // 表示一个分界值，用它可以判定使用哪一个式子来求m(i, j]
+	int jMax = min(w[n] - 1, c); // jMax表示一个分界值；
 	for (int j = 0; j <= jMax; ++j) // j表示的是背包的容量，显然，此时它无法装下第n个物品，所以全部都初始化为0
 	{
 		m[n][j] = 0;
@@ -90,7 +115,50 @@ int main()
 
 ```
 
+### Base case
 
+```C++
+/**
+ * @brief
+ *
+ * @tparam Type
+ * @param v
+ * @param w 数组，表示物品重量
+ * @param c 背包容量
+ * @param n 物品个数
+ * @param m
+ */
+template<typename Type>
+void Knapsack(Type v, int *w, int c, int n, Type **m)
+{
+	/**
+	 * base case: 只有第n个物品，它的重量为w[n]
+	 * 下面这段代码对应的是上面m(n, j)
+	 */
+	int jMax = min(w[n] - 1, c); // jMax表示一个分界值；
+	for (int j = 0; j <= jMax; ++j) // j表示的是背包的容量，显然，此时它无法装下第n个物品，所以全部都初始化为0
+	{
+		m[n][j] = 0;
+	}
+	for (int j = w[n]; j <= c; j++) // j表示的是背包的容量，显然，此时可以装下第n个物品
+	{
+		m[n][j] = v[n];
+	}
+
+}
+```
+
+`w[n] - 1` 和 `c`
+
+1、`c` $\gt$ `w[n] - 1`
+
+`jMax` 取值为 `w[n] - 1`
+
+2、`c` $\lt$ `w[n] - 1`
+
+`jMax` 取值为 `c`
+
+## 4、计算复杂性分析
 
 ![](./4.jpg)
 
