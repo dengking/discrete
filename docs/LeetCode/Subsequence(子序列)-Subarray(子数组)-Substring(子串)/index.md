@@ -2,9 +2,13 @@
 
 
 
-## 子序列(subsequence)的常用解法
+## 子序列(subsequence)
 
-重用解法:
+非连续，但是相对位置是保持不变的。
+
+### 常用解法
+
+常用解法:
 
 1、如果"子序列、单调、最优化问题"，则可以使用滑动窗口
 
@@ -32,6 +36,16 @@
 
 ## 子串
 
+子串: 连续的
+
+### 章节
+
+在下面章节中，对子串相关问题进行了总结: 
+
 `滑动窗口算法解决子串问题`
 
 `最长回文子串`
+
+### 问题
+
+#### leetcode [3. 无重复字符的最长子串](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/) 中等

@@ -1,3 +1,4 @@
 nav:
     - Introduction: index.md
-    
+    - LeetCode-516-最长回文子序列: LeetCode-516-最长回文子序列
+    - LeetCode-1682-最长回文子序列-II: LeetCode-1682-最长回文子序列-II
