@@ -175,6 +175,12 @@ int coinChange(int[] coins, int amount);
 
 回到凑零钱问题，为什么说它符合最优子结构呢？比如你想求`amount = 11`时的最少硬币数（原问题），如果你知道凑出`amount = 10`的最少硬币数（子问题），你只需要把子问题的答案加一（再选一枚面值为 1 的硬币）就是原问题的答案，因为硬币的数量是没有限制的，子问题之间没有相互制，是互相独立的。
 
+> NOTE: 
+>
+> 需要注意的是: "子问题相互独立"是使用"divide conquer-problem原问题subproblem子问题"的一个前提；
+>
+> 对于 LeetCode [322. 零钱兑换](https://leetcode-cn.com/problems/coin-change/) 、LeetCode [518. 零钱兑换 II](https://leetcode-cn.com/problems/coin-change-2/) ，它们的题目要求中，都给出了硬币个数是无限的，这就保证了"子问题相互独立"。是采用DP进行解决的前提条件。
+
 #### 写出状态转移方程
 
 那么，既然知道了这是个动态规划问题，就要思考**如何列出正确的状态转移方程**。
