@@ -180,3 +180,65 @@ int rob(int[] nums) {
 > leetcode [337. 打家劫舍 III](https://leetcode-cn.com/problems/house-robber-iii/) 中等
 >
 > 
+
+第三题又想法设法地变花样了，此强盗发现现在面对的房子不是一排，不是一圈，而是一棵二叉树！房子在二叉树的节点上，相连的两个房子不能同时被抢劫：
+
+![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/gibkIz0MVqdG9kDIzE6qfsOcugRP3xn8nwOicnMmWbOImE7wn5g3PYnn5RrMWtiaSicSjIxuoLqRIliaMsdZwd4gAPg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+整体的思路完全没变，还是做抢或者不抢的选择，取收益较大的选择。甚至我们可以直接按这个套路写出代码：
+
+```c++
+Map<TreeNode, Integer> memo = new HashMap<>();
+public int rob(TreeNode root) {
+    if (root == null) return 0;
+    // 利用备忘录消除重叠子问题
+    if (memo.containsKey(root)) 
+        return memo.get(root);
+    // 抢，然后去下下家
+    int do_it = root.val
+        + (root.left == null ? 
+            0 : rob(root.left.left) + rob(root.left.right))
+        + (root.right == null ? 
+            0 : rob(root.right.left) + rob(root.right.right));
+    // 不抢，然后去下家
+    int not_do = rob(root.left) + rob(root.right);
+
+    int res = Math.max(do_it, not_do);
+    memo.put(root, res);
+    return res;
+}
+```
+
+这道题就解决了，时间复杂度 O(N)，`N`为数的节点数。
+
+但是这道题让我觉得巧妙的点在于，还有更漂亮的解法。比如下面是我在评论区看到的一个解法：
+
+```Java
+int rob(TreeNode root) {
+    int[] res = dp(root);
+    return Math.max(res[0], res[1]);
+}
+
+/* 返回一个大小为 2 的数组 arr
+arr[0] 表示不抢 root 的话，得到的最大钱数
+arr[1] 表示抢 root 的话，得到的最大钱数 */
+int[] dp(TreeNode root) {
+    if (root == null)
+        return new int[]{0, 0};
+    int[] left = dp(root.left);
+    int[] right = dp(root.right);
+    // 抢，下家就不能抢了
+    int rob = root.val + left[0] + right[0];
+    // 不抢，下家可抢可不抢，取决于收益大小
+    int not_rob = Math.max(left[0], left[1])
+                + Math.max(right[0], right[1]);
+
+    return new int[]{not_rob, rob};
+}
+```
+
+时间复杂度 O(N)，空间复杂度只有递归函数堆栈所需的空间，不需要备忘录的额外空间。
+
+你看他和我们的思路不一样，修改了递归函数的定义，略微修改了思路，使得逻辑自洽，依然得到了正确的答案，而且代码更漂亮。这就是我们前文 [动态规划：不同的定义产生不同的解法](http://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247484469&idx=1&sn=e8d321c8ad62483874a997e9dd72da8f&chksm=9bd7fa3daca0732b316aa0afa58e70357e1cb7ab1fe0855d06bc4a852abb1b434c01c7dd19d6&scene=21#wechat_redirect) 所说过的动态规划问题的一个特性。
+
+实际上，这个解法比我们的解法运行时间要快得多，虽然算法分析层面时间复杂度是相同的。原因在于此解法没有使用额外的备忘录，减少了数据操作的复杂性，所以实际运行效率会快。
