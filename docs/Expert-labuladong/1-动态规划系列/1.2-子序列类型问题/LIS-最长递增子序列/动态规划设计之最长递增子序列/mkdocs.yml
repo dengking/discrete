@@ -1,0 +1,6 @@
+nav:
+    - Introduction: index.md
+    - LeetCode-491-递增子序列: LeetCode-491-递增子序列
+    - LeetCode-1143-最长公共子序列: LeetCode-1143-最长公共子序列
+    - LeetCode-583-两个字符串的删除操作: LeetCode-583-两个字符串的删除操作
+    - LeetCode-712-两个字符串的最小ASCII删除和: LeetCode-712-两个字符串的最小ASCII删除和

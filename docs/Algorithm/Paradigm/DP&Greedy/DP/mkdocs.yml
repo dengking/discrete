@@ -1,9 +1,7 @@
 nav:
     - Introduction: index.md
     - wikipedia-Dynamic-programming: wikipedia-Dynamic-programming
-    - Catalan: Catalan
-    - Subsequence(子序列): Subsequence(子序列)
-    - LeetCode-322-零钱兑换: LeetCode-322-零钱兑换
+    - Catalan: Catalan  
 
     - VS-最长公共子序列-VS-矩阵连乘问题-VS-最大子段和: VS-最长公共子序列-VS-矩阵连乘问题-VS-最大子段和.md
 
