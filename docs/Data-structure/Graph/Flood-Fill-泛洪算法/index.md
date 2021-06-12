@@ -64,7 +64,9 @@ void fill(int x, int y) {
 
 > NOTE: 
 >
-> LeetCode [733. 图像渲染](https://leetcode-cn.com/problems/flood-fill/) 简单
+> 一、LeetCode [733. 图像渲染](https://leetcode-cn.com/problems/flood-fill/) 简单
+>
+> 二、这道题，其实也是可以使用BFS来解决的，但是BFS需要queue，空间复杂的更高
 
 ![图片](https://mmbiz.qpic.cn/mmbiz_png/map09icNxZ4nLjUb2ib1Ys4MdicUpkJTvM68tGR4jicnkNruXpxPvQngZfo69mxTIUYYwEE4TPSAN5lSzhx7tpRMpg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
@@ -107,7 +109,7 @@ void fill(int x, int y) {
 >
 > 一、如果newColor 和 origColor相同，不执行算法就可以了，可以在调用fill前做一下判断，leetcode [图像渲染](https://leetcode-cn.com/problems/flood-fill/solution/tu-xiang-xuan-ran-by-leetcode-solution/) 官方解题中给出的就是这种方法。
 >
-> 作者提出的是一些其他的避免"死循环、无限递归"的方式、技巧
+> 二、作者提出的是一些其他的避免"死循环、无限递归"的方式、技巧
 
 但是，如果说 origColor 和 newColor 一样，这个 if 语句就无法让 `fill(1, 1)*` 正确退出，而是开启了下面的重复递归，形成了死循环。
 
