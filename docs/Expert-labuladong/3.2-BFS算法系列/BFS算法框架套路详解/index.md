@@ -171,7 +171,7 @@ BFS 可以找到最短距离，但是空间复杂度高，而 DFS 的空间复�
 
 **不过，双向 BFS 也有局限，因为你必须知道终点在哪里**。比如我们刚才讨论的二叉树最小高度的问题，你一开始根本就不知道终点在哪里，也就无法使用双向 BFS；但是第二个密码锁的问题，是可以使用双向 BFS 算法来提高效率的，代码稍加修改即可：
 
-```
+```Java
 int openLock(String[] deadends, String target) {
     Set<String> deads = new HashSet<>();
     for (String s : deadends) deads.add(s);
