@@ -30,7 +30,8 @@ markdown_extensions:
 - pymdownx.tilde
 nav:
 - Home: index.md
-- Computer-science-is-discrete: Computer-science-is-discrete.md
+- Computer-science-is-discrete:
+  - Introduction: Computer-science-is-discrete/index.md
 - Discrete-math:
   - Introduction: Discrete-math/index.md
   - Why-we-need-discrete-math: Discrete-math/Why-we-need-discrete-math.md
@@ -50,199 +51,43 @@ nav:
   - Number-theory:
     - Ordinal-number: Discrete-math/Number-theory/Ordinal-number.md
     - Prime-number: Discrete-math/Number-theory/Prime-number.md
+  - Catalan-and-Bell:
+    - Introduction: Discrete-math/Catalan-and-Bell/index.md
+    - Partition-of-a-set:
+      - Introduction: Discrete-math/Catalan-and-Bell/Partition-of-a-set/index.md
+      - "\u8BA1\u7B97\u673A\u7B97\u6CD5\u8BBE\u8BA1\u4E0E\u5206\u6790-\u4E60\u9898-2-7&2-8\u96C6\u5408\u5212\u5206\u95EE\u9898":
+        - Introduction: "Discrete-math/Catalan-and-Bell/Partition-of-a-set/\u8BA1\u7B97\
+            \u673A\u7B97\u6CD5\u8BBE\u8BA1\u4E0E\u5206\u6790-\u4E60\u9898-2-7&2-8\u96C6\
+            \u5408\u5212\u5206\u95EE\u9898/index.md"
+    - Catalan-number:
+      - Introduction: Discrete-math/Catalan-and-Bell/Catalan-number/index.md
+      - wikipedia-Catalan-number:
+        - Introduction: Discrete-math/Catalan-and-Bell/Catalan-number/wikipedia-Catalan-number/index.md
 - Relation-structure-computation:
   - Introduction: Relation-structure-computation/index.md
   - Relation:
     - Introduction: Relation-structure-computation/Relation/index.md
     - Relation:
       - Introduction: Relation-structure-computation/Relation/Relation/index.md
-      - Representation-of-relation: Relation-structure-computation/Relation/Relation/Representation-of-relation.md
-      - Closures-of-relation: Relation-structure-computation/Relation/Relation/Closures-of-relation.md
+      - Representation-of-relation:
+        - Introduction: Relation-structure-computation/Relation/Relation/Representation-of-relation/index.md
+      - Closures-of-relation:
+        - Introduction: Relation-structure-computation/Relation/Relation/Closures-of-relation/index.md
     - "Entity\u2013relationship-model":
-      - "Entity\u2013relationship-model": "Relation-structure-computation/Relation/Entity\u2013\
-          relationship-model/Entity\u2013relationship-model.md"
+      - Introduction: "Relation-structure-computation/Relation/Entity\u2013relationship-model/index.md"
     - Order-theory:
-      - Introduction: Relation-structure-computation/Relation/Order-theory/Order-theory.md
+      - Introduction: Relation-structure-computation/Relation/Order-theory/index.md
+      - Partially-order:
+        - Introduction: Relation-structure-computation/Relation/Order-theory/Partially-order/index.md
+      - Total-order:
+        - Introduction: Relation-structure-computation/Relation/Order-theory/Total-order/index.md
+      - Well-order:
+        - Introduction: Relation-structure-computation/Relation/Order-theory/Well-order/index.md
       - Preorder: Relation-structure-computation/Relation/Order-theory/Preorder.md
-      - Partially-order: Relation-structure-computation/Relation/Order-theory/Partially-order.md
-      - Total-order: Relation-structure-computation/Relation/Order-theory/Total-order.md
-      - Well-order: Relation-structure-computation/Relation/Order-theory/Well-order.md
-      - Greatest-and-least-elements: Relation-structure-computation/Relation/Order-theory/Greatest-and-least-elements.md
+      - Greatest-and-least-elements:
+        - Introduction: Relation-structure-computation/Relation/Order-theory/Greatest-and-least-elements/index.md
   - Structure:
     - Introduction: Relation-structure-computation/Structure/index.md
-    - Structure:
-      - Introduction: Relation-structure-computation/Structure/Structure/index.md
-    - Data-structure:
-      - Introduction: Relation-structure-computation/Structure/Data-structure/index.md
-      - Array:
-        - Introduction: Relation-structure-computation/Structure/Data-structure/Array/index.md
-        - Array-data-structure: Relation-structure-computation/Structure/Data-structure/Array/Array-data-structure.md
-        - Bit-array:
-          - Introduction: Relation-structure-computation/Structure/Data-structure/Array/Bit-array/index.md
-        - Circular-array:
-          - Introduction: Relation-structure-computation/Structure/Data-structure/Array/Circular-array/index.md
-          - spdlog-circular_q:
-            - Introduction: Relation-structure-computation/Structure/Data-structure/Array/Circular-array/spdlog-circular_q/index.md
-          - martinbroadhurst-cirque:
-            - Introduction: Relation-structure-computation/Structure/Data-structure/Array/Circular-array/martinbroadhurst-cirque/index.md
-      - List:
-        - List: Relation-structure-computation/Structure/Data-structure/List/List.md
-        - VS-double-linked-list-VS-binary-tree: Relation-structure-computation/Structure/Data-structure/List/VS-double-linked-list-VS-binary-tree.md
-        - VS-Unrolled-linked list-VS-B-tree: Relation-structure-computation/Structure/Data-structure/List/VS-Unrolled-linked
-            list-VS-B-tree.md
-      - Stack:
-        - Stack: Relation-structure-computation/Structure/Data-structure/Stack/Stack(abstract-data-type).md
-        - Application-of-stack: Relation-structure-computation/Structure/Data-structure/Stack/Application-of-stack.md
-      - Graph:
-        - Introduction: Relation-structure-computation/Structure/Data-structure/Graph/index.md
-        - Graph:
-          - Introduction: Relation-structure-computation/Structure/Data-structure/Graph/Graph/index.md
-          - 01-Graph-and-Graph-theory:
-            - Graph-and-Graph-theory.md: Relation-structure-computation/Structure/Data-structure/Graph/Graph/01-Graph-and-Graph-theory/Graph-and-Graph-theory.md
-            - Directed-graph:
-              - Directed-graph: Relation-structure-computation/Structure/Data-structure/Graph/Graph/01-Graph-and-Graph-theory/Directed-graph/Directed-graph.md
-              - Directed-acyclic-graph:
-                - Directed-acyclic-graph: Relation-structure-computation/Structure/Data-structure/Graph/Graph/01-Graph-and-Graph-theory/Directed-graph/Directed-acyclic-graph/Directed-acyclic-graph.md
-            - Graph-representations:
-              - Graph-representations: Relation-structure-computation/Structure/Data-structure/Graph/Graph/01-Graph-and-Graph-theory/Graph-representations/Graph-representations.md
-              - Adjacency-list:
-                - Adjacency-list: Relation-structure-computation/Structure/Data-structure/Graph/Graph/01-Graph-and-Graph-theory/Graph-representations/Adjacency-list/Adjacency-list.md
-                - Python-Patterns-Implementing-Graphs: Relation-structure-computation/Structure/Data-structure/Graph/Graph/01-Graph-and-Graph-theory/Graph-representations/Adjacency-list/Python-Patterns-Implementing-Graphs.md
-              - Incidence-matrix:
-                - Incidence-matrix: Relation-structure-computation/Structure/Data-structure/Graph/Graph/01-Graph-and-Graph-theory/Graph-representations/Incidence-matrix/Incidence-matrix.md
-          - 02-Graph-Model:
-            - Graph-Model: Relation-structure-computation/Structure/Data-structure/Graph/Graph/02-Graph-Model/Graph-Model.md
-            - Dependency-graph:
-              - Dependency-graph: Relation-structure-computation/Structure/Data-structure/Graph/Graph/02-Graph-Model/Dependency-graph/Dependency-graph.md
-              - Precedence-graph: Relation-structure-computation/Structure/Data-structure/Graph/Graph/02-Graph-Model/Dependency-graph/Precedence-graph.md
-              - Dependency-resolving-algorithm: Relation-structure-computation/Structure/Data-structure/Graph/Graph/02-Graph-Model/Dependency-graph/Dependency-resolving-algorithm.md
-          - 03-Graph-operation:
-            - Graph-operation: Relation-structure-computation/Structure/Data-structure/Graph/Graph/03-Graph-operation/Graph-operation.md
-          - 04-Computational-problems-in-graph-theory:
-            - Introduction: Relation-structure-computation/Structure/Data-structure/Graph/Graph/04-Computational-problems-in-graph-theory/index.md
-            - Path:
-              - Dijkstra's-algorithm:
-                - Introduction: Relation-structure-computation/Structure/Data-structure/Graph/Graph/04-Computational-problems-in-graph-theory/Path/Dijkstra's-algorithm/index.md
-              - TODO-Max-path: Relation-structure-computation/Structure/Data-structure/Graph/Graph/04-Computational-problems-in-graph-theory/Path/TODO-Max-path.md
-            - Circular:
-              - Cycle-detection: Relation-structure-computation/Structure/Data-structure/Graph/Graph/04-Computational-problems-in-graph-theory/Circular/Cycle-detection.md
-              - Circular-dependency: Relation-structure-computation/Structure/Data-structure/Graph/Graph/04-Computational-problems-in-graph-theory/Circular/Circular-dependency.md
-              - TODO-Max-circle: Relation-structure-computation/Structure/Data-structure/Graph/Graph/04-Computational-problems-in-graph-theory/Circular/TODO-Max-circle.md
-            - Dominator:
-              - Dominator: Relation-structure-computation/Structure/Data-structure/Graph/Graph/04-Computational-problems-in-graph-theory/Dominator/Dominator(graph-theory).md
-            - Sorting:
-              - Topological-sorting: Relation-structure-computation/Structure/Data-structure/Graph/Graph/04-Computational-problems-in-graph-theory/Sorting/Topological-sorting.md
-            - Spanning-tree:
-              - Spanning-tree: Relation-structure-computation/Structure/Data-structure/Graph/Graph/04-Computational-problems-in-graph-theory/Spanning-tree/Spanning-tree.md
-              - Minimum-spanning-tree: Relation-structure-computation/Structure/Data-structure/Graph/Graph/04-Computational-problems-in-graph-theory/Spanning-tree/Minimum-spanning-tree.md
-              - "Bor\u016Fvka's-algorithm": "Relation-structure-computation/Structure/Data-structure/Graph/Graph/04-Computational-problems-in-graph-theory/Spanning-tree/Bor\u016F\
-                  vka's-algorithm.md"
-            - Closure:
-              - Introduction: Relation-structure-computation/Structure/Data-structure/Graph/Graph/04-Computational-problems-in-graph-theory/Closure/index.md
-          - Implementation:
-            - Introduction: Relation-structure-computation/Structure/Data-structure/Graph/Graph/Implementation/index.md
-            - Cpp-library: Relation-structure-computation/Structure/Data-structure/Graph/Graph/Implementation/Cpp-library.md
-            - Python-library: Relation-structure-computation/Structure/Data-structure/Graph/Graph/Implementation/Python-library.md
-            - Boost-Graph-Library:
-              - Boost-Graph-Library: Relation-structure-computation/Structure/Data-structure/Graph/Graph/Implementation/Boost-Graph-Library/Boost-Graph-Library.md
-              - A-Quick-Tour-of-the-Boost-Graph-Library: Relation-structure-computation/Structure/Data-structure/Graph/Graph/Implementation/Boost-Graph-Library/A-Quick-Tour-of-the-Boost-Graph-Library.md
-              - Boost-Graph-Library-Tutorial:
-                - Using-adjacency_list: Relation-structure-computation/Structure/Data-structure/Graph/Graph/Implementation/Boost-Graph-Library/Boost-Graph-Library-Tutorial/Using-adjacency_list.md
-              - The-Boost-Graph-Interface:
-                - The-Boost-Graph-Interface: Relation-structure-computation/Structure/Data-structure/Graph/Graph/Implementation/Boost-Graph-Library/The-Boost-Graph-Interface/The-Boost-Graph-Interface.md
-              - Visitor-Concepts:
-                - Visitor-Concepts: Relation-structure-computation/Structure/Data-structure/Graph/Graph/Implementation/Boost-Graph-Library/Visitor-Concepts/Visitor-Concepts.md
-              - Algorithms:
-                - Named-parameters: Relation-structure-computation/Structure/Data-structure/Graph/Graph/Implementation/Boost-Graph-Library/Algorithms/Named-parameters.md
-                - Core-Searches:
-                  - breadth_first_search: Relation-structure-computation/Structure/Data-structure/Graph/Graph/Implementation/Boost-Graph-Library/Algorithms/Core-Searches/breadth_first_search.md
-                  - depth_first_search: Relation-structure-computation/Structure/Data-structure/Graph/Graph/Implementation/Boost-Graph-Library/Algorithms/Core-Searches/depth_first_search.md
-              - Example:
-                - bfs-example: Relation-structure-computation/Structure/Data-structure/Graph/Graph/Implementation/Boost-Graph-Library/Example/bfs-example.md
-              - Implementation:
-                - Graph-representation: Relation-structure-computation/Structure/Data-structure/Graph/Graph/Implementation/Boost-Graph-Library/Implementation/Graph-representation.md
-        - Tree:
-          - Introduction: Relation-structure-computation/Structure/Data-structure/Graph/Tree/index.md
-          - Tree-structure:
-            - Tree-structure: Relation-structure-computation/Structure/Data-structure/Graph/Tree/Tree-structure/Tree-structure.md
-            - Examples-of-tree-structures: Relation-structure-computation/Structure/Data-structure/Graph/Tree/Tree-structure/Examples-of-tree-structures.md
-            - Represent-tree: Relation-structure-computation/Structure/Data-structure/Graph/Tree/Tree-structure/Represent-tree.md
-            - Tree(set-theory): Relation-structure-computation/Structure/Data-structure/Graph/Tree/Tree-structure/Tree(set-theory).md
-          - Tree(data-structure): Relation-structure-computation/Structure/Data-structure/Graph/Tree/Tree(data-structure).md
-          - Application-of-tree: Relation-structure-computation/Structure/Data-structure/Graph/Tree/Application-of-tree.md
-          - Implicit-tree: Relation-structure-computation/Structure/Data-structure/Graph/Tree/Implicit-tree.md
-          - Tree-operation:
-            - Introduction: Relation-structure-computation/Structure/Data-structure/Graph/Tree/Tree-operation/index.md
-            - Build-tree:
-              - Introduction: Relation-structure-computation/Structure/Data-structure/Graph/Tree/Tree-operation/Build-tree/index.md
-            - TODO-Tree-traversal:
-              - Introduction: Relation-structure-computation/Structure/Data-structure/Graph/Tree/Tree-operation/TODO-Tree-traversal/index.md
-          - Trie:
-            - Introduction: Relation-structure-computation/Structure/Data-structure/Graph/Tree/Trie/index.md
-            - Trie: Relation-structure-computation/Structure/Data-structure/Graph/Tree/Trie/Trie.md
-            - geeksforgeeks-trie: Relation-structure-computation/Structure/Data-structure/Graph/Tree/Trie/geeksforgeeks-trie.md
-          - VS-of-tree: Relation-structure-computation/Structure/Data-structure/Graph/Tree/VS-of-tree.md
-          - Implementation:
-            - Introduction: Relation-structure-computation/Structure/Data-structure/Graph/Tree/Implementation/index.md
-            - nltk-tree: Relation-structure-computation/Structure/Data-structure/Graph/Tree/Implementation/nltk-tree.md
-            - Python-library: Relation-structure-computation/Structure/Data-structure/Graph/Tree/Implementation/Python-library.md
-          - TODO: Relation-structure-computation/Structure/Data-structure/Graph/Tree/TODO.md
-        - Search-algorithm:
-          - Methods:
-            - Summary:
-              - Introduction: Relation-structure-computation/Structure/Data-structure/Graph/Search-algorithm/Methods/Summary/index.md
-              - Search-Algorithm: Relation-structure-computation/Structure/Data-structure/Graph/Search-algorithm/Methods/Summary/Search-Algorithm.md
-              - Search-Cost-&-Heuristics: Relation-structure-computation/Structure/Data-structure/Graph/Search-algorithm/Methods/Summary/Search-Cost-&-Heuristics.md
-            - DFS-and-BFS: Relation-structure-computation/Structure/Data-structure/Graph/Search-algorithm/Methods/DFS-and-BFS.md
-            - Iterative-deepening-depth-first-search: Relation-structure-computation/Structure/Data-structure/Graph/Search-algorithm/Methods/Iterative-deepening-depth-first-search.md
-            - Best-first-search: Relation-structure-computation/Structure/Data-structure/Graph/Search-algorithm/Methods/Best-first-search.md
-            - A-star-search-algorithm: Relation-structure-computation/Structure/Data-structure/Graph/Search-algorithm/Methods/A-star-search-algorithm.md
-            - B-star-search-algorithm: Relation-structure-computation/Structure/Data-structure/Graph/Search-algorithm/Methods/B-star-search-algorithm.md
-            - Beam-search: Relation-structure-computation/Structure/Data-structure/Graph/Search-algorithm/Methods/Beam-search.md
-            - Uniform-cost-search:
-              - Uniform-cost-search: Relation-structure-computation/Structure/Data-structure/Graph/Search-algorithm/Methods/Uniform-cost-search/Uniform-cost-search.md
-          - Graph-traversal:
-            - Graph-traversal: Relation-structure-computation/Structure/Data-structure/Graph/Search-algorithm/Graph-traversal/Graph-traversal.md
-            - BFS-src:
-              - Introduction: Relation-structure-computation/Structure/Data-structure/Graph/Search-algorithm/Graph-traversal/BFS-src/index.md
-          - Tree-traversal:
-            - Tree-traversal: Relation-structure-computation/Structure/Data-structure/Graph/Search-algorithm/Tree-traversal/Tree-traversal.md
-            - Iterative-deepening-depth-first-search: Relation-structure-computation/Structure/Data-structure/Graph/Search-algorithm/Tree-traversal/Iterative-deepening-depth-first-search.md
-        - Expert-martinbroadhurst: Relation-structure-computation/Structure/Data-structure/Graph/Expert-martinbroadhurst.md
-      - Set:
-        - Set: Relation-structure-computation/Structure/Data-structure/Set/Set(abstract-data-type).md
-      - Probabilistic-data-structures:
-        - Bloom-filter:
-          - Bloom-filter: Relation-structure-computation/Structure/Data-structure/Probabilistic-data-structures/Bloom-filter/index.md
-        - Random-tree: Relation-structure-computation/Structure/Data-structure/Probabilistic-data-structures/Random-tree.md
-        - Skip-list: Relation-structure-computation/Structure/Data-structure/Probabilistic-data-structures/Skip-list.md
-      - Hash:
-        - Introduction: Relation-structure-computation/Structure/Data-structure/Hash/index.md
-        - Hash-function:
-          - Hash-function: Relation-structure-computation/Structure/Data-structure/Hash/Hash-function/Hash-function.md
-          - Perfect-hash-function: Relation-structure-computation/Structure/Data-structure/Hash/Hash-function/Perfect-hash-function.md
-          - Implementation-of-hash-function: Relation-structure-computation/Structure/Data-structure/Hash/Hash-function/Implementation-of-hash-function.md
-          - Rolling-hash: Relation-structure-computation/Structure/Data-structure/Hash/Hash-function/Rolling-hash.md
-          - SipHash: Relation-structure-computation/Structure/Data-structure/Hash/Hash-function/SipHash.md
-          - Cryptographic-hash-functions:
-            - Cryptographic-hash-function: Relation-structure-computation/Structure/Data-structure/Hash/Hash-function/Cryptographic-hash-functions/Cryptographic-hash-function.md
-            - Cipher: Relation-structure-computation/Structure/Data-structure/Hash/Hash-function/Cryptographic-hash-functions/Cipher.md
-            - Salt(cryptography): Relation-structure-computation/Structure/Data-structure/Hash/Hash-function/Cryptographic-hash-functions/Salt(cryptography).md
-        - Hash-based-data-structures:
-          - Hash-table:
-            - Hash-table: Relation-structure-computation/Structure/Data-structure/Hash/Hash-based-data-structures/Hash-table/Hash-table.md
-          - Merkle-tree:
-            - Introduction: Relation-structure-computation/Structure/Data-structure/Hash/Hash-based-data-structures/Merkle-tree/index.md
-          - Summary-of-Hash-based-data-structures: Relation-structure-computation/Structure/Data-structure/Hash/Hash-based-data-structures/Summary-of-Hash-based-data-structures.md
-        - Application-of-hash: Relation-structure-computation/Structure/Data-structure/Hash/Application-of-hash.md
-      - Summary:
-        - Introduction: Relation-structure-computation/Structure/Data-structure/Summary/index.md
-        - List-of-data-structure: Relation-structure-computation/Structure/Data-structure/Summary/List-of-data-structure.md
-        - Graph-and-tree-and-list: Relation-structure-computation/Structure/Data-structure/Summary/Graph-and-tree-and-list.md
-        - Implementation-of-ADT: Relation-structure-computation/Structure/Data-structure/Summary/Implementation-of-ADT.md
-        - Search-tree-and-hash-table: Relation-structure-computation/Structure/Data-structure/Summary/Search-tree-and-hash-table.md
-        - Search-tree-and-skip-list: Relation-structure-computation/Structure/Data-structure/Summary/Search-tree-and-skip-list.md
-      - TODO: Relation-structure-computation/Structure/Data-structure/TODO.md
   - Computation:
     - Introduction: Relation-structure-computation/Computation/index.md
     - Make-it-computational:
@@ -264,7 +109,8 @@ nav:
       - Iteration:
         - Introduction: Relation-structure-computation/Computation/Repetition/Iteration/index.md
         - Iteration: Relation-structure-computation/Computation/Repetition/Iteration/Iteration.md
-        - Iterator: Relation-structure-computation/Computation/Repetition/Iteration/Iterator.md
+        - Iterator:
+          - Introduction: Relation-structure-computation/Computation/Repetition/Iteration/Iterator/index.md
       - Induction-and-Recursion:
         - Introduction: Relation-structure-computation/Computation/Repetition/Induction-and-Recursion/index.md
         - Induction-and-deduction:
@@ -274,125 +120,28 @@ nav:
           - Coinduction: Relation-structure-computation/Computation/Repetition/Induction-and-Recursion/Induction-and-deduction/Coinduction.md
         - Recursion:
           - Introduction: Relation-structure-computation/Computation/Repetition/Induction-and-Recursion/Recursion/index.md
-          - Recursive-Definition: Relation-structure-computation/Computation/Repetition/Induction-and-Recursion/Recursion/Recursive-definition.md
-          - Recursion: Relation-structure-computation/Computation/Repetition/Induction-and-Recursion/Recursion/Recursion.md
-          - Recurrence-relation: Relation-structure-computation/Computation/Repetition/Induction-and-Recursion/Recursion/Recurrence-relation.md
+          - Recursive-Definition:
+            - Introduction: Relation-structure-computation/Computation/Repetition/Induction-and-Recursion/Recursion/Recursive-definition/index.md
+          - Recursion:
+            - Introduction: Relation-structure-computation/Computation/Repetition/Induction-and-Recursion/Recursion/Recursion/index.md
+            - Double-recursion:
+              - Introduction: Relation-structure-computation/Computation/Repetition/Induction-and-Recursion/Recursion/Recursion/Double-recursion/index.md
+          - Recurrence-relation:
+            - Introduction: Relation-structure-computation/Computation/Repetition/Induction-and-Recursion/Recursion/Recurrence-relation/index.md
           - Recursion-in-computer-science:
-            - Recursive-data-type: Relation-structure-computation/Computation/Repetition/Induction-and-Recursion/Recursion/Recursion-in-computer-science/Recursive-data-type.md
-            - Recursion(computer-science): Relation-structure-computation/Computation/Repetition/Induction-and-Recursion/Recursion/Recursion-in-computer-science/Recursion(computer-science).md
-            - Analysis-and-representation-of-recursion: Relation-structure-computation/Computation/Repetition/Induction-and-Recursion/Recursion/Recursion-in-computer-science/Analysis-and-representation-of-recursion.md
-            - Recursion-and-iteration: Relation-structure-computation/Computation/Repetition/Induction-and-Recursion/Recursion/Recursion-in-computer-science/Recursion-and-iteration.md
+            - Recursive-data-type:
+              - Introduction: Relation-structure-computation/Computation/Repetition/Induction-and-Recursion/Recursion/Recursion-in-computer-science/Recursive-data-type/index.md
+            - Recursion(computer-science):
+              - Introduction: Relation-structure-computation/Computation/Repetition/Induction-and-Recursion/Recursion/Recursion-in-computer-science/Recursion(computer-science)/index.md
+              - Recursive-programs:
+                - Introduction: Relation-structure-computation/Computation/Repetition/Induction-and-Recursion/Recursion/Recursion-in-computer-science/Recursion(computer-science)/Recursive-programs/index.md
+            - Structural-and-generative-recursion:
+              - Introduction: Relation-structure-computation/Computation/Repetition/Induction-and-Recursion/Recursion/Recursion-in-computer-science/Structural-and-generative-recursion/index.md
             - Term-with-recursion-in-computer-science: Relation-structure-computation/Computation/Repetition/Induction-and-Recursion/Recursion/Recursion-in-computer-science/Term-with-recursion-in-computer-science.md
             - Corecursion: Relation-structure-computation/Computation/Repetition/Induction-and-Recursion/Recursion/Recursion-in-computer-science/Corecursion.md
         - Summary: Relation-structure-computation/Computation/Repetition/Induction-and-Recursion/Summary.md
     - Computation-on-structure:
       - Introduction: Relation-structure-computation/Computation/Computation-on-structure/index.md
-    - Algorithm:
-      - Introduction: Relation-structure-computation/Computation/Algorithm/index.md
-      - Paradigm:
-        - Introduction: Relation-structure-computation/Computation/Algorithm/Paradigm/index.md
-        - Brute-force:
-          - Brute-force-search: Relation-structure-computation/Computation/Algorithm/Paradigm/00-Brute-force/Brute-force-search.md
-        - Divide-and-Conquer:
-          - Divide-and-conquer-algorithm: Relation-structure-computation/Computation/Algorithm/Paradigm/01-Divide-and-Conquer/Divide-and-conquer-algorithm.md
-        - Dynamic-Programming&Greedy-Algorithm:
-          - Introduction: Relation-structure-computation/Computation/Algorithm/Paradigm/02-Dynamic-Programming&Greedy-Algorithm/index.md
-          - Optimal-substructure: Relation-structure-computation/Computation/Algorithm/Paradigm/02-Dynamic-Programming&Greedy-Algorithm/Optimal-substructure.md
-          - Bellman-equation: Relation-structure-computation/Computation/Algorithm/Paradigm/02-Dynamic-Programming&Greedy-Algorithm/Bellman-equation.md
-          - Dynamic-Programming:
-            - Dynamic-programming: Relation-structure-computation/Computation/Algorithm/Paradigm/02-Dynamic-Programming&Greedy-Algorithm/Dynamic-Programming/Dynamic-programming.md
-            - Overlapping-subproblems: Relation-structure-computation/Computation/Algorithm/Paradigm/02-Dynamic-Programming&Greedy-Algorithm/Dynamic-Programming/Overlapping-subproblems.md
-            - "VS-\u6700\u957F\u516C\u5171\u5B50\u5E8F\u5217-VS-\u77E9\u9635\u8FDE\u4E58\u95EE\u9898-VS-\u6700\u5927\u5B50\u6BB5\u548C": "Relation-structure-computation/Computation/Algorithm/Paradigm/02-Dynamic-Programming&Greedy-Algorithm/Dynamic-Programming/VS-\u6700\
-                \u957F\u516C\u5171\u5B50\u5E8F\u5217-VS-\u77E9\u9635\u8FDE\u4E58\u95EE\
-                \u9898-VS-\u6700\u5927\u5B50\u6BB5\u548C.md"
-            - Catalan: Relation-structure-computation/Computation/Algorithm/Paradigm/02-Dynamic-Programming&Greedy-Algorithm/Dynamic-Programming/Catalan.md
-            - Reading-list: Relation-structure-computation/Computation/Algorithm/Paradigm/02-Dynamic-Programming&Greedy-Algorithm/Dynamic-Programming/Reading-list.md
-          - Greedy-algorithm:
-            - Greedy-algorithm: Relation-structure-computation/Computation/Algorithm/Paradigm/02-Dynamic-Programming&Greedy-Algorithm/Greedy-algorithm/Greedy-algorithm.md
-            - Huffman-Coding: Relation-structure-computation/Computation/Algorithm/Paradigm/02-Dynamic-Programming&Greedy-Algorithm/Greedy-algorithm/Huffman-Coding.md
-            - Reading-list: Relation-structure-computation/Computation/Algorithm/Paradigm/02-Dynamic-Programming&Greedy-Algorithm/Greedy-algorithm/Reading-list.md
-          - Dynamic-programming-VS-search-algorithm-VS-greedy-algorithm: Relation-structure-computation/Computation/Algorithm/Paradigm/02-Dynamic-Programming&Greedy-Algorithm/Dynamic-programming-VS-search-algorithm-VS-greedy-algorithm.md
-        - Heuristic:
-          - Heuristic(computer-science): Relation-structure-computation/Computation/Algorithm/Paradigm/Heuristic/Heuristic(computer-science).md
-          - Heuristic-algorithms: Relation-structure-computation/Computation/Algorithm/Paradigm/Heuristic/Heuristic-algorithms.md
-          - Heuristic-algorithm-reading-list: Relation-structure-computation/Computation/Algorithm/Paradigm/Heuristic/Heuristic-algorithm-reading-list.md
-        - Statistical-algorithms:
-          - HyperLogLog: Relation-structure-computation/Computation/Algorithm/Paradigm/Statistical-algorithms/HyperLogLog.md
-      - Application:
-        - Computational-problem: Relation-structure-computation/Computation/Algorithm/Application/Computational-problem.md
-        - Search:
-          - Search-algorithm: Relation-structure-computation/Computation/Algorithm/Application/Search/Search-algorithm.md
-          - Property-of-search-algorithm:
-            - Completeness: Relation-structure-computation/Computation/Algorithm/Application/Search/Property-of-search-algorithm/Completeness.md
-            - Optimality: Relation-structure-computation/Computation/Algorithm/Application/Search/Property-of-search-algorithm/Optimality.md
-          - State-space:
-            - State-space-search: Relation-structure-computation/Computation/Algorithm/Application/Search/State-space/State-space-search.md
-          - Implementation:
-            - Introduction: Relation-structure-computation/Computation/Algorithm/Application/Search/Implementation/index.md
-            - Backtracking:
-              - Backtrack:
-                - Introduction: Relation-structure-computation/Computation/Algorithm/Application/Search/Implementation/Backtracking/Backtrack/Backtrack.md
-                - wikipedia-Backtracking: Relation-structure-computation/Computation/Algorithm/Application/Search/Implementation/Backtracking/Backtrack/wikipedia-Backtracking.md
-              - Examples:
-                - Introduction: Relation-structure-computation/Computation/Algorithm/Application/Search/Implementation/Backtracking/Examples/index.md
-                - Sudoku-solving:
-                  - Introduction: Relation-structure-computation/Computation/Algorithm/Application/Search/Implementation/Backtracking/Examples/Sudoku-solving/index.md
-                - N-queen:
-                  - Introduction: Relation-structure-computation/Computation/Algorithm/Application/Search/Implementation/Backtracking/Examples/N-queen/N-queen.md
-                - Symbol-triangle:
-                  - Symbol-triangle: Relation-structure-computation/Computation/Algorithm/Application/Search/Implementation/Backtracking/Examples/Symbol-triangle/Symbol-triangle.md
-                - M-coloring-of-graph:
-                  - Introduction: Relation-structure-computation/Computation/Algorithm/Application/Search/Implementation/Backtracking/Examples/M-coloring-of-graph/index.md
-                - Permutation-of-circle:
-                  - Introduction: Relation-structure-computation/Computation/Algorithm/Application/Search/Implementation/Backtracking/Examples/Permutation-of-circle/index.md
-              - Permutation-and-combination:
-                - Permutation: Relation-structure-computation/Computation/Algorithm/Application/Search/Implementation/Backtracking/Permutation-and-combination/Permutation.md
-                - Enum-permutation:
-                  - Backtrack-enum-all-permutations-of-string: Relation-structure-computation/Computation/Algorithm/Application/Search/Implementation/Backtracking/Permutation-and-combination/Enum-permutation/Backtrack-enum-all-permutations-of-string.md
-                  - Enum-distinct-permutation-of-with-duplicate: Relation-structure-computation/Computation/Algorithm/Application/Search/Implementation/Backtracking/Permutation-and-combination/Enum-permutation/Enum-distinct-permutation-of-with-duplicate.md
-                  - Enum-permutation-reading-list: Relation-structure-computation/Computation/Algorithm/Application/Search/Implementation/Backtracking/Permutation-and-combination/Enum-permutation/Enum-permutation-reading-list.md
-                - Reading-list: Relation-structure-computation/Computation/Algorithm/Application/Search/Implementation/Backtracking/Permutation-and-combination/Reading-list.md
-              - Reading-list: Relation-structure-computation/Computation/Algorithm/Application/Search/Implementation/Backtracking/Reading-list.md
-            - Branch-and-Bound:
-              - Branch-and-bound: Relation-structure-computation/Computation/Algorithm/Application/Search/Implementation/Branch-and-Bound/Branch-and-bound.md
-              - Branch-and-cut: Relation-structure-computation/Computation/Algorithm/Application/Search/Implementation/Branch-and-Bound/Branch-and-cut.md
-            - Branch-and-bound-Algorithm:
-              - Branch-and-bound: Relation-structure-computation/Computation/Algorithm/Application/Search/Implementation/Branch-and-bound/Branch-and-bound.md
-              - Branch-and-cut: Relation-structure-computation/Computation/Algorithm/Application/Search/Implementation/Branch-and-bound/Branch-and-cut.md
-            - Compared-with-brute-force: Relation-structure-computation/Computation/Algorithm/Application/Search/Implementation/Compared-with-brute-force.md
-        - Sorting:
-          - Introduction: Relation-structure-computation/Computation/Algorithm/Application/Sorting/index.md
-          - Merge-sort:
-            - Merge-sort: Relation-structure-computation/Computation/Algorithm/Application/Sorting/merge-sorts/Merge-sort.md
-            - Merge-algorithm: Relation-structure-computation/Computation/Algorithm/Application/Sorting/merge-sorts/Merge-algorithm.md
-            - K-way-merge-algorithm: Relation-structure-computation/Computation/Algorithm/Application/Sorting/merge-sorts/k-way-merge-algorithm.md
-          - Quick-sort:
-            - Quick-sort: Relation-structure-computation/Computation/Algorithm/Application/Sorting/Quick-sort/index.md
-          - Timsort:
-            - Introduction: Relation-structure-computation/Computation/Algorithm/Application/Sorting/Timsort/index.md
-          - Summary: Relation-structure-computation/Computation/Algorithm/Application/Sorting/Summary.md
-        - Optimization:
-          - Optimization: Relation-structure-computation/Computation/Algorithm/Application/Optimization/Optimization.md
-          - Mathematical-optimization:
-            - Loss-function-or-Objective-function: Relation-structure-computation/Computation/Algorithm/Application/Optimization/Mathematical-optimization/Loss-function-or-Objective-function.md
-            - Iterative-optimization-algorithm: Relation-structure-computation/Computation/Algorithm/Application/Optimization/Mathematical-optimization/iterative-optimization-algorithm.md
-            - Iterative-method: Relation-structure-computation/Computation/Algorithm/Application/Optimization/Mathematical-optimization/Iterative-method.md
-            - Hill-climbing: Relation-structure-computation/Computation/Algorithm/Application/Optimization/Mathematical-optimization/Hill-climbing.md
-          - Combinatorial-optimization:
-            - Combinatorial-optimization: Relation-structure-computation/Computation/Algorithm/Application/Optimization/Combinatorial-optimization/Combinatorial-optimization.md
-            - Combinatorics:
-              - Introduction: Relation-structure-computation/Computation/Algorithm/Application/Optimization/Combinatorial-optimization/Combinatorics/index.md
-              - Combinatorics: Relation-structure-computation/Computation/Algorithm/Application/Optimization/Combinatorial-optimization/Combinatorics/Combinatorics.md
-              - Enumerative-combinatorics:
-                - Enumerative-combinatorics: Relation-structure-computation/Computation/Algorithm/Application/Optimization/Combinatorial-optimization/Combinatorics/Enumerative-combinatorics/Enumerative-combinatorics.md
-                - TODO-Catalan-number:
-                  - Catalan-number: Relation-structure-computation/Computation/Algorithm/Application/Optimization/Combinatorial-optimization/Combinatorics/Enumerative-combinatorics/TODO-Catalan-number/Catalan-number.md
-          - TODO-Linear-programming:
-            - wikipedia-Linear-programming: Relation-structure-computation/Computation/Algorithm/Application/Optimization/TODO-Linear-programming/wikipedia-Linear-programming.md
-            - wikipedia-Integer-programming: Relation-structure-computation/Computation/Algorithm/Application/Optimization/TODO-Linear-programming/wikipedia-Integer-programming.md
-        - String:
-          - Introduction: Relation-structure-computation/Computation/Algorithm/Application/String/index.md
-          - String(computer-science): Relation-structure-computation/Computation/Algorithm/Application/String/String(computer-science).md
     - Computer-algebra:
       - Introduction: Relation-structure-computation/Computation/Computer-algebra/index.md
     - Theory-of-computation:
@@ -407,8 +156,12 @@ nav:
       - Computability-theory:
         - Computability-theory: Relation-structure-computation/Computation/Theory-of-computation/Computability-theory/Computability-theory.md
       - Automata-theory:
-        - Automata-theory: Relation-structure-computation/Computation/Theory-of-computation/Automata-theory/Automata-theory.md
+        - Introduction: Relation-structure-computation/Computation/Theory-of-computation/Automata-theory/index.md
         - Abstract-machine: Relation-structure-computation/Computation/Theory-of-computation/Automata-theory/Abstract-machine.md
+        - Turinig-machine:
+          - Introduction: Relation-structure-computation/Computation/Theory-of-computation/Automata-theory/Turinig-machine/index.md
+          - cl.cam.uk-What-is-a-Turing-machine: Relation-structure-computation/Computation/Theory-of-computation/Automata-theory/Turinig-machine/cl.cam.uk-What-is-a-Turing-machine.md
+          - wikipedia-Turing-machine: Relation-structure-computation/Computation/Theory-of-computation/Automata-theory/Turinig-machine/wikipedia-Turing-machine.md
         - Finite-state-machine:
           - Introduction: Relation-structure-computation/Computation/Theory-of-computation/Automata-theory/Finite-state-machine/index.md
           - Event-driven-finite-state-machine: Relation-structure-computation/Computation/Theory-of-computation/Automata-theory/Finite-state-machine/Event-driven-finite-state-machine.md
@@ -420,18 +173,1271 @@ nav:
   - Model:
     - Introduction: Relation-structure-computation/Model/index.md
     - Hierarchy-relation-model:
-      - Hierarchy-relation-model: Relation-structure-computation/Model/Hierarchy-relation-model/Hierarchy-relation-model.md
+      - Introduction: Relation-structure-computation/Model/Hierarchy-relation-model/index.md
     - Nesting-relation-model:
-      - Nesting-relation-model: Relation-structure-computation/Model/Nesting-relation-model/Nesting-relation-model.md
+      - Introduction: Relation-structure-computation/Model/Nesting-relation-model/index.md
     - Dependency-relation:
-      - Dependency-relation-model: Relation-structure-computation/Model/Dependency-relation-model/Dependency-relation-model.md
+      - Introduction: Relation-structure-computation/Model/Dependency-relation-model/index.md
     - Chain:
-      - Chain: Relation-structure-computation/Model/Chain/Chain.md
-      - VS-chain-VS-hierarchy: Relation-structure-computation/Model/Chain/VS-chain-VS-hierarchy.md
-    - Stream:
-      - Introduction: Relation-structure-computation/Model/Stream/index.md
+      - Introduction: Relation-structure-computation/Model/Chain/index.md
+    - Chain-VS-hierarchy:
+      - Introduction: Relation-structure-computation/Model/Chain-VS-hierarchy/index.md
+    - Stream-model:
+      - Introduction: Relation-structure-computation/Model/Stream-model/index.md
+      - Programming-model:
+        - Introduction: Relation-structure-computation/Model/Stream-model/Programming-model/index.md
     - Circular:
       - Introduction: Relation-structure-computation/Model/Circular/index.md
+  - Function-recursion-tree-stack:
+    - Introduction: Relation-structure-computation/Function-recursion-tree-stack/index.md
+    - Analysis-and-representation-of-recursion:
+      - Introduction: Relation-structure-computation/Function-recursion-tree-stack/Analysis-and-representation-of-recursion/index.md
+- Algorithm:
+  - Introduction: Algorithm/index.md
+  - Paradigm:
+    - Introduction: Algorithm/Paradigm/index.md
+    - wikipedia-Algorithmic-paradigm:
+      - Introduction: Algorithm/Paradigm/wikipedia-Algorithmic-paradigm/index.md
+    - Brute-force:
+      - Introduction: Algorithm/Paradigm/Brute-force/index.md
+    - Divide-and-Conquer:
+      - Introduction: Algorithm/Paradigm/Divide-and-Conquer/index.md
+      - wikipedia-Divide-and-conquer-algorithm:
+        - Introduction: Algorithm/Paradigm/Divide-and-Conquer/wikipedia-Divide-and-conquer-algorithm/index.md
+      - Divide-and-conquer-and-merge-framework:
+        - Introduction: Algorithm/Paradigm/Divide-and-Conquer/Divide-and-conquer-and-merge-framework/index.md
+      - "Merge-algorithm-\u5408\u5E76":
+        - Introduction: "Algorithm/Paradigm/Divide-and-Conquer/Merge-algorithm-\u5408\
+            \u5E76/index.md"
+        - K-way-merge-algorithm:
+          - Introduction: "Algorithm/Paradigm/Divide-and-Conquer/Merge-algorithm-\u5408\
+              \u5E76/K-way-merge-algorithm/index.md"
+      - Complexity-analysis:
+        - Introduction: Algorithm/Paradigm/Divide-and-Conquer/Complexity-analysis/index.md
+        - wikipedia-Master-theorem(analysis-of-algorithms):
+          - Introduction: Algorithm/Paradigm/Divide-and-Conquer/Complexity-analysis/wikipedia-Master-theorem(analysis-of-algorithms)/index.md
+    - DP&Greedy:
+      - Introduction: Algorithm/Paradigm/DP&Greedy/index.md
+      - Optimal-substructure:
+        - Introduction: Algorithm/Paradigm/DP&Greedy/Optimal-substructure/index.md
+      - Bellman-equation:
+        - Introduction: Algorithm/Paradigm/DP&Greedy/Bellman-equation/index.md
+      - DP:
+        - Introduction: Algorithm/Paradigm/DP&Greedy/DP/index.md
+        - wikipedia-Dynamic-programming:
+          - Introduction: Algorithm/Paradigm/DP&Greedy/DP/wikipedia-Dynamic-programming/index.md
+        - Catalan:
+          - Introduction: Algorithm/Paradigm/DP&Greedy/DP/Catalan/index.md
+          - "julyedu-\u4ECE\u66B4\u529B\u9012\u5F52\u8D70\u5411\u52A8\u6001\u89C4\u5212-\u7814\u7A76\u8FC7\u5361\u7279\u5170\u6570":
+            - Introduction: "Algorithm/Paradigm/DP&Greedy/DP/Catalan/julyedu-\u4ECE\
+                \u66B4\u529B\u9012\u5F52\u8D70\u5411\u52A8\u6001\u89C4\u5212-\u7814\
+                \u7A76\u8FC7\u5361\u7279\u5170\u6570/index.md"
+          - "\u77E9\u9635\u8FDE\u4E58\u95EE\u9898":
+            - Introduction: "Algorithm/Paradigm/DP&Greedy/DP/Catalan/\u77E9\u9635\u8FDE\
+                \u4E58\u95EE\u9898/index.md"
+            - wikipedia-Matrix-chain-multiplication:
+              - Introduction: "Algorithm/Paradigm/DP&Greedy/DP/Catalan/\u77E9\u9635\
+                  \u8FDE\u4E58\u95EE\u9898/wikipedia-Matrix-chain-multiplication/index.md"
+          - "\u6700\u4F18\u4E8C\u53C9\u641C\u7D22\u6811":
+            - Introduction: "Algorithm/Paradigm/DP&Greedy/DP/Catalan/\u6700\u4F18\u4E8C\
+                \u53C9\u641C\u7D22\u6811/index.md"
+          - "\u51F8\u591A\u8FB9\u5F62\u7684\u6700\u4F18\u4E09\u89D2\u5256\u5206":
+            - Introduction: "Algorithm/Paradigm/DP&Greedy/DP/Catalan/\u51F8\u591A\u8FB9\
+                \u5F62\u7684\u6700\u4F18\u4E09\u89D2\u5256\u5206/index.md"
+            - wikipedia-Polygon-triangulation:
+              - Introduction: "Algorithm/Paradigm/DP&Greedy/DP/Catalan/\u51F8\u591A\
+                  \u8FB9\u5F62\u7684\u6700\u4F18\u4E09\u89D2\u5256\u5206/wikipedia-Polygon-triangulation/index.md"
+            - "LeetCode-1039-\u591A\u8FB9\u5F62\u4E09\u89D2\u5256\u5206\u7684\u6700\u4F4E\u5F97\u5206":
+              - Introduction: "Algorithm/Paradigm/DP&Greedy/DP/Catalan/\u51F8\u591A\
+                  \u8FB9\u5F62\u7684\u6700\u4F18\u4E09\u89D2\u5256\u5206/LeetCode-1039-\u591A\
+                  \u8FB9\u5F62\u4E09\u89D2\u5256\u5206\u7684\u6700\u4F4E\u5F97\u5206\
+                  /index.md"
+        - "VS-\u6700\u957F\u516C\u5171\u5B50\u5E8F\u5217-VS-\u77E9\u9635\u8FDE\u4E58\u95EE\u9898-VS-\u6700\u5927\u5B50\u6BB5\u548C": "Algorithm/Paradigm/DP&Greedy/DP/VS-\u6700\
+            \u957F\u516C\u5171\u5B50\u5E8F\u5217-VS-\u77E9\u9635\u8FDE\u4E58\u95EE\
+            \u9898-VS-\u6700\u5927\u5B50\u6BB5\u548C.md"
+        - Reading-list: Algorithm/Paradigm/DP&Greedy/DP/Reading-list.md
+      - Greedy:
+        - Introduction: Algorithm/Paradigm/DP&Greedy/Greedy/index.md
+        - Huffman-Coding:
+          - Introduction: Algorithm/Paradigm/DP&Greedy/Greedy/Huffman-Coding/index.md
+        - Reading-list: Algorithm/Paradigm/DP&Greedy/Greedy/Reading-list.md
+    - Heuristic:
+      - Introduction: Algorithm/Paradigm/Heuristic/index.md
+    - Statistical-algorithms:
+      - HyperLogLog: Algorithm/Paradigm/Statistical-algorithms/HyperLogLog.md
+  - Analysis-of-algorithms:
+    - Introduction: Algorithm/Analysis-of-algorithms/index.md
+    - wikipedia-Analysis-of-algorithms:
+      - Introduction: Algorithm/Analysis-of-algorithms/wikipedia-Analysis-of-algorithms/index.md
+    - Combinatorial-explosion:
+      - Introduction: Algorithm/Analysis-of-algorithms/Combinatorial-explosion/index.md
+  - Search:
+    - wikipedia-Search-algorithm:
+      - Introduction: Algorithm/Search/wikipedia-Search-algorithm/index.md
+    - Guide: Algorithm/Search/Guide.md
+    - Property-of-search-algorithm:
+      - Completeness:
+        - Introduction: Algorithm/Search/Property-of-search-algorithm/Completeness/index.md
+      - Optimality:
+        - Introduction: Algorithm/Search/Property-of-search-algorithm/Optimality/index.md
+  - Binary-search:
+    - Introduction: Algorithm/Binary-search/index.md
+    - wikipedia-Binary-search-algorithm:
+      - Introduction: Algorithm/Binary-search/wikipedia-Binary-search-algorithm/index.md
+    - Binary-search-complexity-analysis:
+      - Introduction: Algorithm/Binary-search/Binary-search-complexity-analysis/index.md
+  - State-space-search:
+    - Introduction: Algorithm/State-space-search/index.md
+    - Backtracking:
+      - Introduction: Algorithm/State-space-search/Backtracking/index.md
+      - "\u8BA1\u7B97\u673A\u7B97\u6CD5\u8BBE\u8BA1\u4E0E\u5206\u6790-5-\u56DE\u6EAF\u6CD5":
+        - Introduction: "Algorithm/State-space-search/Backtracking/\u8BA1\u7B97\u673A\
+            \u7B97\u6CD5\u8BBE\u8BA1\u4E0E\u5206\u6790-5-\u56DE\u6EAF\u6CD5/index.md"
+      - wikipedia-Backtracking:
+        - Introduction: Algorithm/State-space-search/Backtracking/wikipedia-Backtracking/index.md
+      - Examples:
+        - Introduction: Algorithm/State-space-search/Backtracking/Examples/index.md
+        - Sudoku-solving:
+          - Introduction: Algorithm/State-space-search/Backtracking/Examples/Sudoku-solving/index.md
+        - N-queen:
+          - Introduction: Algorithm/State-space-search/Backtracking/Examples/N-queen/index.md
+          - "LeetCode-51-N-\u7687\u540E-Hard":
+            - Introduction: "Algorithm/State-space-search/Backtracking/Examples/N-queen/LeetCode-51-N-\u7687\
+                \u540E-Hard/index.md"
+          - "LeetCode-52-N-\u7687\u540E-II-Hard":
+            - Introduction: "Algorithm/State-space-search/Backtracking/Examples/N-queen/LeetCode-52-N-\u7687\
+                \u540E-II-Hard/index.md"
+          - "LeetCode-\u9762\u8BD5\u9898-08.12-\u516B\u7687\u540E":
+            - Introduction: "Algorithm/State-space-search/Backtracking/Examples/N-queen/LeetCode-\u9762\
+                \u8BD5\u9898-08.12-\u516B\u7687\u540E/index.md"
+        - Symbol-triangle:
+          - Introduction: Algorithm/State-space-search/Backtracking/Examples/Symbol-triangle/index.md
+        - M-coloring-of-graph:
+          - Introduction: Algorithm/State-space-search/Backtracking/Examples/M-coloring-of-graph/index.md
+        - Permutation-of-circle:
+          - Introduction: Algorithm/State-space-search/Backtracking/Examples/Permutation-of-circle/index.md
+    - Branch-and-Bound:
+      - Introduction: Algorithm/State-space-search/Branch-and-Bound/index.md
+      - Branch-and-cut: Algorithm/State-space-search/Branch-and-Bound/Branch-and-cut.md
+    - Permutation-and-combination:
+      - Permutation:
+        - Introduction: Algorithm/State-space-search/Permutation-and-combination/Permutation/index.md
+      - Enum-permutation:
+        - Backtrack-enum-all-permutations-of-string: Algorithm/State-space-search/Permutation-and-combination/Enum-permutation/Backtrack-enum-all-permutations-of-string.md
+        - Enum-distinct-permutation-of-with-duplicate: Algorithm/State-space-search/Permutation-and-combination/Enum-permutation/Enum-distinct-permutation-of-with-duplicate.md
+        - Enum-permutation-reading-list: Algorithm/State-space-search/Permutation-and-combination/Enum-permutation/Enum-permutation-reading-list.md
+      - Reading-list: Algorithm/State-space-search/Permutation-and-combination/Reading-list.md
+    - VS-brute-force-search:
+      - Introduction: Algorithm/State-space-search/VS-brute-force-search/index.md
+  - Sorting:
+    - Introduction: Algorithm/Sorting/index.md
+    - Merge-sort:
+      - Introduction: Algorithm/Sorting/Merge-sort/index.md
+    - Quick-sort:
+      - Introduction: Algorithm/Sorting/Quick-sort/index.md
+    - Quick-select:
+      - Introduction: Algorithm/Sorting/Quick-select/index.md
+    - Timsort:
+      - Introduction: Algorithm/Sorting/Timsort/index.md
+    - External-sorting:
+      - Introduction: Algorithm/Sorting/External-sorting/index.md
+    - LeetCode-Top-K:
+      - Introduction: Algorithm/Sorting/LeetCode-Top-K/index.md
+      - "LeetCode-973-\u6700\u63A5\u8FD1\u539F\u70B9\u7684K\u4E2A\u70B9":
+        - Introduction: "Algorithm/Sorting/LeetCode-Top-K/LeetCode-973-\u6700\u63A5\
+            \u8FD1\u539F\u70B9\u7684K\u4E2A\u70B9/index.md"
+      - "LeetCode-\u5251\u6307-Offer-40-\u6700\u5C0F\u7684k\u4E2A\u6570":
+        - Introduction: "Algorithm/Sorting/LeetCode-Top-K/LeetCode-\u5251\u6307-Offer-40-\u6700\
+            \u5C0F\u7684k\u4E2A\u6570/index.md"
+    - "Lexicographical-order-\u5B57\u5178\u5E8F":
+      - Introduction: "Algorithm/Sorting/Lexicographical-order-\u5B57\u5178\u5E8F\
+          /index.md"
+  - Classical-algorithm:
+    - Tower-of-Hanoi:
+      - Introduction: Algorithm/Classical/Tower-of-Hanoi/index.md
+    - Fibonacci:
+      - Introduction: Algorithm/Classical/Fibonacci/index.md
+  - Application:
+    - Computational-problem: Algorithm/Application/Computational-problem.md
+    - Optimization:
+      - Introduction: Algorithm/Application/Optimization/index.md
+      - Mathematical-optimization:
+        - Loss-function-or-Objective-function: Algorithm/Application/Optimization/Mathematical-optimization/Loss-function-or-Objective-function.md
+        - Iterative-optimization-algorithm: Algorithm/Application/Optimization/Mathematical-optimization/iterative-optimization-algorithm.md
+        - Iterative-method: Algorithm/Application/Optimization/Mathematical-optimization/Iterative-method.md
+        - Hill-climbing: Algorithm/Application/Optimization/Mathematical-optimization/Hill-climbing.md
+      - Combinatorial-optimization:
+        - Introduction: Algorithm/Application/Optimization/Combinatorial-optimization/index.md
+        - Combinatorics:
+          - Introduction: Algorithm/Application/Optimization/Combinatorial-optimization/Combinatorics/index.md
+          - Combinatorics: Algorithm/Application/Optimization/Combinatorial-optimization/Combinatorics/Combinatorics.md
+          - Enumerative-combinatorics:
+            - Introduction: Algorithm/Application/Optimization/Combinatorial-optimization/Combinatorics/Enumerative-combinatorics/index.md
+      - TODO-Linear-programming:
+        - wikipedia-Linear-programming: Algorithm/Application/Optimization/TODO-Linear-programming/wikipedia-Linear-programming.md
+        - wikipedia-Integer-programming: Algorithm/Application/Optimization/TODO-Linear-programming/wikipedia-Integer-programming.md
+- Data-structure:
+  - Introduction: Data-structure/index.md
+  - Array:
+    - Introduction: Data-structure/Array/index.md
+    - Array-data-structure: Data-structure/Array/Array-data-structure.md
+    - Bit-array:
+      - Introduction: Data-structure/Array/Bit-array/index.md
+    - Circular-array:
+      - Introduction: Data-structure/Array/Circular-array/index.md
+      - spdlog-circular_q:
+        - Introduction: Data-structure/Array/Circular-array/spdlog-circular_q/index.md
+      - martinbroadhurst-cirque:
+        - Introduction: Data-structure/Array/Circular-array/martinbroadhurst-cirque/index.md
+    - Prefix-sum-array-and-difference-array:
+      - "labuladong-\u8BBA\u90A3\u4E9B\u5C0F\u800C\u7F8E\u7684\u7B97\u6CD5\u6280\u5DE7-\u5DEE\u5206\u6570\u7EC4\u524D\u7F00\u548C":
+        - Introduction: "Data-structure/Array/Prefix-sum-array-and-difference-array/labuladong-\u8BBA\
+            \u90A3\u4E9B\u5C0F\u800C\u7F8E\u7684\u7B97\u6CD5\u6280\u5DE7-\u5DEE\u5206\
+            \u6570\u7EC4\u524D\u7F00\u548C/index.md"
+      - "labuladong-\u524D\u7F00\u548C\u6280\u5DE7-\u89E3\u51B3\u5B50\u6570\u7EC4\u95EE\u9898":
+        - Introduction: "Data-structure/Array/Prefix-sum-array-and-difference-array/labuladong-\u524D\
+            \u7F00\u548C\u6280\u5DE7-\u89E3\u51B3\u5B50\u6570\u7EC4\u95EE\u9898/index.md"
+      - TODO-Prefix-sum-array-and-difference-array:
+        - Introduction: Data-structure/Array/Prefix-sum-array-and-difference-array/TODO-Prefix-sum-array-and-difference-array/index.md
+      - Difference-array:
+        - Introduction: Data-structure/Array/Prefix-sum-array-and-difference-array/Difference-array/index.md
+      - wikipedia-Prefix-sum:
+        - Introduction: Data-structure/Array/Prefix-sum-array-and-difference-array/wikipedia-Prefix-sum/index.md
+    - LeetCode:
+      - "Fast-slow-double-pointer-\u5FEB\u6162\u53CC\u6307\u9488":
+        - "LeetCode-27-\u79FB\u9664\u5143\u7D20":
+          - Introduction: "Data-structure/Array/LeetCode/Fast-slow-double-pointer-\u5FEB\
+              \u6162\u53CC\u6307\u9488/LeetCode-27-\u79FB\u9664\u5143\u7D20/index.md"
+        - "LeetCode-283-\u79FB\u52A8\u96F6":
+          - Introduction: "Data-structure/Array/LeetCode/Fast-slow-double-pointer-\u5FEB\
+              \u6162\u53CC\u6307\u9488/LeetCode-283-\u79FB\u52A8\u96F6/index.md"
+      - "Merge-\u5408\u5E76":
+        - geeksforgeeks-Merge-k-sorted-arrays:
+          - Introduction: "Data-structure/Array/LeetCode/Merge-\u5408\u5E76/geeksforgeeks-Merge-k-sorted-arrays/index.md"
+        - "TODO-LeetCode-4-\u5BFB\u627E\u4E24\u4E2A\u6B63\u5E8F\u6570\u7EC4\u7684\u4E2D\u4F4D\u6570-Hard":
+          - Introduction: "Data-structure/Array/LeetCode/Merge-\u5408\u5E76/TODO-LeetCode-4-\u5BFB\
+              \u627E\u4E24\u4E2A\u6B63\u5E8F\u6570\u7EC4\u7684\u4E2D\u4F4D\u6570-Hard/index.md"
+        - "TODO-LeetCode-88-\u5408\u5E76\u4E24\u4E2A\u6709\u5E8F\u6570\u7EC4":
+          - Introduction: "Data-structure/Array/LeetCode/Merge-\u5408\u5E76/TODO-LeetCode-88-\u5408\
+              \u5E76\u4E24\u4E2A\u6709\u5E8F\u6570\u7EC4/index.md"
+        - "TODO-LeetCode-\u9762\u8BD5\u9898-10.01-\u5408\u5E76\u6392\u5E8F\u7684\u6570\u7EC4":
+          - Introduction: "Data-structure/Array/LeetCode/Merge-\u5408\u5E76/TODO-LeetCode-\u9762\
+              \u8BD5\u9898-10.01-\u5408\u5E76\u6392\u5E8F\u7684\u6570\u7EC4/index.md"
+  - Linked-list:
+    - Introduction: Data-structure/Linked-list/index.md
+    - Unrolled-linked-list:
+      - Introduction: Data-structure/Linked-list/Unrolled-linked-list/index.md
+    - Double-linked-list:
+      - Introduction: Data-structure/Linked-list/Double-linked-list/index.md
+    - Sentinel-node:
+      - Introduction: Data-structure/Linked-list/Sentinel-node/index.md
+    - Dummy-node:
+      - Introduction: Data-structure/Linked-list/Dummy-node/index.md
+    - Circle-detection:
+      - Introduction: Data-structure/Linked-list/Circle-detection/index.md
+      - "TODO-Floyd\u5224\u73AF\u7B97\u6CD5":
+        - Introduction: "Data-structure/Linked-list/Circle-detection/TODO-Floyd\u5224\
+            \u73AF\u7B97\u6CD5/index.md"
+    - LeetCode:
+      - Previous-current-next-pointer:
+        - Introduction: Data-structure/Linked-list/LeetCode/Previous-current-next-pointer/index.md
+        - "LeetCode-\u5251\u6307-Offer-18-\u5220\u9664\u94FE\u8868\u7684\u8282\u70B9":
+          - Introduction: "Data-structure/Linked-list/LeetCode/Previous-current-next-pointer/LeetCode-\u5251\
+              \u6307-Offer-18-\u5220\u9664\u94FE\u8868\u7684\u8282\u70B9/index.md"
+        - "LeetCode-\u9762\u8BD5\u9898-02-03-\u5220\u9664\u4E2D\u95F4\u8282\u70B9":
+          - Introduction: "Data-structure/Linked-list/LeetCode/Previous-current-next-pointer/LeetCode-\u9762\
+              \u8BD5\u9898-02-03-\u5220\u9664\u4E2D\u95F4\u8282\u70B9/index.md"
+      - "Fast-slow-double-pointer-\u5FEB\u6162\u53CC\u6307\u9488":
+        - "LeetCode-141-\u73AF\u5F62\u94FE\u8868":
+          - Introduction: "Data-structure/Linked-list/LeetCode/Fast-slow-double-pointer-\u5FEB\
+              \u6162\u53CC\u6307\u9488/LeetCode-141-\u73AF\u5F62\u94FE\u8868/index.md"
+        - "LeetCode-142-\u73AF\u5F62\u94FE\u8868-II":
+          - Introduction: "Data-structure/Linked-list/LeetCode/Fast-slow-double-pointer-\u5FEB\
+              \u6162\u53CC\u6307\u9488/LeetCode-142-\u73AF\u5F62\u94FE\u8868-II/index.md"
+        - "LeetCode-\u9762\u8BD5\u9898-02.02-\u8FD4\u56DE\u5012\u6570\u7B2Ck\u4E2A\u8282\u70B9":
+          - Introduction: "Data-structure/Linked-list/LeetCode/Fast-slow-double-pointer-\u5FEB\
+              \u6162\u53CC\u6307\u9488/LeetCode-\u9762\u8BD5\u9898-02.02-\u8FD4\u56DE\
+              \u5012\u6570\u7B2Ck\u4E2A\u8282\u70B9/index.md"
+        - "LeetCode-\u5251\u6307-Offer-22-\u94FE\u8868\u4E2D\u5012\u6570\u7B2Ck\u4E2A\u8282\u70B9":
+          - Introduction: "Data-structure/Linked-list/LeetCode/Fast-slow-double-pointer-\u5FEB\
+              \u6162\u53CC\u6307\u9488/LeetCode-\u5251\u6307-Offer-22-\u94FE\u8868\
+              \u4E2D\u5012\u6570\u7B2Ck\u4E2A\u8282\u70B9/index.md"
+        - "LeetCode-19-\u5220\u9664\u94FE\u8868\u7684\u5012\u6570\u7B2CN\u4E2A\u7ED3\u70B9":
+          - Introduction: "Data-structure/Linked-list/LeetCode/Fast-slow-double-pointer-\u5FEB\
+              \u6162\u53CC\u6307\u9488/LeetCode-19-\u5220\u9664\u94FE\u8868\u7684\u5012\
+              \u6570\u7B2CN\u4E2A\u7ED3\u70B9/index.md"
+        - "LeetCode-876-\u94FE\u8868\u7684\u4E2D\u95F4\u7ED3\u70B9":
+          - Introduction: "Data-structure/Linked-list/LeetCode/Fast-slow-double-pointer-\u5FEB\
+              \u6162\u53CC\u6307\u9488/LeetCode-876-\u94FE\u8868\u7684\u4E2D\u95F4\
+              \u7ED3\u70B9/index.md"
+      - "\u6392\u5E8F-sort":
+        - "LeetCode-147-\u5BF9\u94FE\u8868\u8FDB\u884C\u63D2\u5165\u6392\u5E8F":
+          - Introduction: "Data-structure/Linked-list/LeetCode/\u6392\u5E8F-sort/LeetCode-147-\u5BF9\
+              \u94FE\u8868\u8FDB\u884C\u63D2\u5165\u6392\u5E8F/index.md"
+        - "LeetCode-148-\u6392\u5E8F\u94FE\u8868":
+          - Introduction: "Data-structure/Linked-list/LeetCode/\u6392\u5E8F-sort/LeetCode-148-\u6392\
+              \u5E8F\u94FE\u8868/index.md"
+      - "\u53BB\u91CD":
+        - "LeetCode-83-\u5220\u9664\u6392\u5E8F\u94FE\u8868\u4E2D\u7684\u91CD\u590D\u5143\u7D20":
+          - Introduction: "Data-structure/Linked-list/LeetCode/\u53BB\u91CD/LeetCode-83-\u5220\
+              \u9664\u6392\u5E8F\u94FE\u8868\u4E2D\u7684\u91CD\u590D\u5143\u7D20/index.md"
+        - "LeetCode-82-\u5220\u9664\u6392\u5E8F\u94FE\u8868\u4E2D\u7684\u91CD\u590D\u5143\u7D20-II":
+          - Introduction: "Data-structure/Linked-list/LeetCode/\u53BB\u91CD/LeetCode-82-\u5220\
+              \u9664\u6392\u5E8F\u94FE\u8868\u4E2D\u7684\u91CD\u590D\u5143\u7D20-II/index.md"
+      - "Merge-\u5408\u5E76":
+        - "\u4F7F\u7528\u94FE\u8868\u5B9E\u73B0\u5927\u6570\u52A0\u6CD5-\u6C42\u548C":
+          - "LeetCode-2-\u4E24\u6570\u76F8\u52A0":
+            - Introduction: "Data-structure/Linked-list/LeetCode/Merge-\u5408\u5E76\
+                /\u4F7F\u7528\u94FE\u8868\u5B9E\u73B0\u5927\u6570\u52A0\u6CD5-\u6C42\
+                \u548C/LeetCode-2-\u4E24\u6570\u76F8\u52A0/index.md"
+          - "LeetCode-445-\u4E24\u6570\u76F8\u52A0-II":
+            - Introduction: "Data-structure/Linked-list/LeetCode/Merge-\u5408\u5E76\
+                /\u4F7F\u7528\u94FE\u8868\u5B9E\u73B0\u5927\u6570\u52A0\u6CD5-\u6C42\
+                \u548C/LeetCode-445-\u4E24\u6570\u76F8\u52A0-II/index.md"
+        - "LeetCode-1669-\u5408\u5E76\u4E24\u4E2A\u94FE\u8868":
+          - Introduction: "Data-structure/Linked-list/LeetCode/Merge-\u5408\u5E76\
+              /LeetCode-1669-\u5408\u5E76\u4E24\u4E2A\u94FE\u8868/index.md"
+        - "\u5408\u5E76\u6709\u5E8F\u94FE\u8868":
+          - "LeetCode-21-\u5408\u5E76\u4E24\u4E2A\u6709\u5E8F\u94FE\u8868":
+            - Introduction: "Data-structure/Linked-list/LeetCode/Merge-\u5408\u5E76\
+                /\u5408\u5E76\u6709\u5E8F\u94FE\u8868/LeetCode-21-\u5408\u5E76\u4E24\
+                \u4E2A\u6709\u5E8F\u94FE\u8868/index.md"
+            - "LeetCode-\u5251\u6307-Offer-25-\u5408\u5E76\u4E24\u4E2A\u6392\u5E8F\u7684\u94FE\u8868":
+              - Introduction: "Data-structure/Linked-list/LeetCode/Merge-\u5408\u5E76\
+                  /\u5408\u5E76\u6709\u5E8F\u94FE\u8868/LeetCode-21-\u5408\u5E76\u4E24\
+                  \u4E2A\u6709\u5E8F\u94FE\u8868/LeetCode-\u5251\u6307-Offer-25-\u5408\
+                  \u5E76\u4E24\u4E2A\u6392\u5E8F\u7684\u94FE\u8868/index.md"
+          - "LeetCode-23-\u5408\u5E76K\u4E2A\u5347\u5E8F\u94FE\u8868-Hard":
+            - Introduction: "Data-structure/Linked-list/LeetCode/Merge-\u5408\u5E76\
+                /\u5408\u5E76\u6709\u5E8F\u94FE\u8868/LeetCode-23-\u5408\u5E76K\u4E2A\
+                \u5347\u5E8F\u94FE\u8868-Hard/index.md"
+      - "\u516C\u5171\u8282\u70B9":
+        - "LeetCode-160-\u76F8\u4EA4\u94FE\u8868":
+          - Introduction: "Data-structure/Linked-list/LeetCode/\u516C\u5171\u8282\u70B9\
+              /LeetCode-160-\u76F8\u4EA4\u94FE\u8868/index.md"
+        - "LeetCode-\u5251\u6307-Offer-52-\u4E24\u4E2A\u94FE\u8868\u7684\u7B2C\u4E00\u4E2A\u516C\u5171\u8282\u70B9":
+          - Introduction: "Data-structure/Linked-list/LeetCode/\u516C\u5171\u8282\u70B9\
+              /LeetCode-\u5251\u6307-Offer-52-\u4E24\u4E2A\u94FE\u8868\u7684\u7B2C\
+              \u4E00\u4E2A\u516C\u5171\u8282\u70B9/index.md"
+      - "Reverse-\u53CD\u8F6C":
+        - "LeetCode-206-\u53CD\u8F6C\u94FE\u8868":
+          - Introduction: "Data-structure/Linked-list/LeetCode/Reverse-\u53CD\u8F6C\
+              /LeetCode-206-\u53CD\u8F6C\u94FE\u8868/index.md"
+        - "LeetCode-92-\u53CD\u8F6C\u94FE\u8868-II":
+          - Introduction: "Data-structure/Linked-list/LeetCode/Reverse-\u53CD\u8F6C\
+              /LeetCode-92-\u53CD\u8F6C\u94FE\u8868-II/index.md"
+        - "LeetCode-\u5251\u6307-Offer-06-\u4ECE\u5C3E\u5230\u5934\u6253\u5370\u94FE\u8868":
+          - Introduction: "Data-structure/Linked-list/LeetCode/Reverse-\u53CD\u8F6C\
+              /LeetCode-\u5251\u6307-Offer-06-\u4ECE\u5C3E\u5230\u5934\u6253\u5370\
+              \u94FE\u8868/index.md"
+  - Stack:
+    - Introduction: Data-structure/Stack/index.md
+    - wikipedia-Stack(abstract-data-type):
+      - Introduction: Data-structure/Stack/wikipedia-Stack(abstract-data-type)/index.md
+    - geeksforgeeks-Stack-Data-Structure: Data-structure/Stack/geeksforgeeks-Stack-Data-Structure.md
+    - Monotonic-stack:
+      - Introduction: Data-structure/Stack/Monotonic-stack/index.md
+      - "labuladong-\u5355\u8C03\u6808Monotonic-Stack\u7684\u4F7F\u7528":
+        - Introduction: "Data-structure/Stack/Monotonic-stack/labuladong-\u5355\u8C03\
+            \u6808Monotonic-Stack\u7684\u4F7F\u7528/index.md"
+      - "labuladong-\u5355\u8C03\u6808\u89E3\u9898\u6A21\u677F\u79D2\u6740\u4E09\u9053\u7B97\u6CD5\u9898":
+        - Introduction: "Data-structure/Stack/Monotonic-stack/labuladong-\u5355\u8C03\
+            \u6808\u89E3\u9898\u6A21\u677F\u79D2\u6740\u4E09\u9053\u7B97\u6CD5\u9898\
+            /index.md"
+      - All-nearest-smaller-values:
+        - Introduction: Data-structure/Stack/Monotonic-stack/All-nearest-smaller-values/index.md
+      - Stack-sortable-permutation:
+        - Introduction: Data-structure/Stack/Monotonic-stack/Stack-sortable-permutation/index.md
+      - "Monotonic-stack\u89E3Max-min-subsequence(\u5B50\u5E8F\u5217)":
+        - Introduction: "Data-structure/Stack/Monotonic-stack/Monotonic-stack\u89E3\
+            Max-min-subsequence(\u5B50\u5E8F\u5217)/index.md"
+        - "LeetCode-402-\u79FB\u6389K\u4F4D\u6570\u5B57":
+          - Introduction: "Data-structure/Stack/Monotonic-stack/Monotonic-stack\u89E3\
+              Max-min-subsequence(\u5B50\u5E8F\u5217)/LeetCode-402-\u79FB\u6389K\u4F4D\
+              \u6570\u5B57/index.md"
+        - "LeetCode-316-\u53BB\u9664\u91CD\u590D\u5B57\u6BCD":
+          - Introduction: "Data-structure/Stack/Monotonic-stack/Monotonic-stack\u89E3\
+              Max-min-subsequence(\u5B50\u5E8F\u5217)/LeetCode-316-\u53BB\u9664\u91CD\
+              \u590D\u5B57\u6BCD/index.md"
+        - "LeetCode-402-\u79FB\u6389K\u4F4D\u6570\u5B57": "LeetCode-402-\u79FB\u6389\
+            K\u4F4D\u6570\u5B57"
+    - Sort-stack:
+      - Introduction: Data-structure/Stack/Sort-stack/index.md
+      - "LeetCode-\u9762\u8BD5\u9898-03-05-\u6808\u6392\u5E8F":
+        - Introduction: "Data-structure/Stack/Sort-stack/LeetCode-\u9762\u8BD5\u9898\
+            -03-05-\u6808\u6392\u5E8F/index.md"
+    - Stack-and-queue:
+      - Introduction: Data-structure/Stack/Stack-and-queue/index.md
+      - "LeetCode-\u5251\u6307-Offer-09-\u7528\u4E24\u4E2A\u6808\u5B9E\u73B0\u961F\u5217":
+        - Introduction: "Data-structure/Stack/Stack-and-queue/LeetCode-\u5251\u6307\
+            -Offer-09-\u7528\u4E24\u4E2A\u6808\u5B9E\u73B0\u961F\u5217/index.md"
+    - "Reverse-by-stack-\u53CD\u8F6C":
+      - Reverse-a-string-using-stack:
+        - Introduction: "Data-structure/Stack/Reverse-by-stack-\u53CD\u8F6C/Reverse-a-string-using-stack/index.md"
+      - Reverse-individual-words: "Data-structure/Stack/Reverse-by-stack-\u53CD\u8F6C\
+          /Reverse-individual-words.md"
+    - "Reverse-stack-\u53CD\u8F6C":
+      - Introduction: "Data-structure/Stack/Reverse-stack-\u53CD\u8F6C/index.md"
+    - Application-of-stack: Data-structure/Stack/Application-of-stack.md
+  - Graph:
+    - Introduction: Data-structure/Graph/index.md
+    - 01-Graph-and-Graph-theory:
+      - Introduction: Data-structure/Graph/01-Graph-and-Graph-theory/index.md
+      - Directed-graph:
+        - Introduction: Data-structure/Graph/01-Graph-and-Graph-theory/Directed-graph/index.md
+        - Directed-acyclic-graph:
+          - Introduction: Data-structure/Graph/01-Graph-and-Graph-theory/Directed-graph/Directed-acyclic-graph/index.md
+      - Graph-representations:
+        - Introduction: Data-structure/Graph/01-Graph-and-Graph-theory/Graph-representations/index.md
+        - Adjacency-list:
+          - Introduction: Data-structure/Graph/01-Graph-and-Graph-theory/Graph-representations/Adjacency-list/index.md
+          - Python-Patterns-Implementing-Graphs: Data-structure/Graph/01-Graph-and-Graph-theory/Graph-representations/Adjacency-list/Python-Patterns-Implementing-Graphs.md
+        - Incidence-matrix:
+          - Introduction: Data-structure/Graph/01-Graph-and-Graph-theory/Graph-representations/Incidence-matrix/index.md
+    - 02-Graph-Model:
+      - Introduction: Data-structure/Graph/02-Graph-Model/index.md
+      - Dependency-graph:
+        - Introduction: Data-structure/Graph/02-Graph-Model/Dependency-graph/index.md
+        - Precedence-graph:
+          - Introduction: Data-structure/Graph/02-Graph-Model/Dependency-graph/Precedence-graph/index.md
+        - Dependency-resolving-algorithm:
+          - Introduction: Data-structure/Graph/02-Graph-Model/Dependency-graph/Dependency-resolving-algorithm/index.md
+    - 03-Graph-operation:
+      - Introduction: Data-structure/Graph/03-Graph-operation/index.md
+    - 04-Computational-problems-in-graph-theory:
+      - Introduction: Data-structure/Graph/04-Computational-problems-in-graph-theory/index.md
+      - Path:
+        - Dijkstra's-algorithm:
+          - Introduction: Data-structure/Graph/04-Computational-problems-in-graph-theory/Path/Dijkstra's-algorithm/index.md
+        - TODO-Max-path: Data-structure/Graph/04-Computational-problems-in-graph-theory/Path/TODO-Max-path.md
+      - Circular:
+        - Cycle-detection: Data-structure/Graph/04-Computational-problems-in-graph-theory/Circular/Cycle-detection.md
+        - Circular-dependency: Data-structure/Graph/04-Computational-problems-in-graph-theory/Circular/Circular-dependency.md
+        - TODO-Max-circle: Data-structure/Graph/04-Computational-problems-in-graph-theory/Circular/TODO-Max-circle.md
+      - Dominator:
+        - Introduction: Data-structure/Graph/04-Computational-problems-in-graph-theory/Dominator/index.md
+      - Sorting:
+        - Topological-sorting:
+          - Introduction: Data-structure/Graph/04-Computational-problems-in-graph-theory/Sorting/Topological-sorting/index.md
+      - Spanning-tree:
+        - Introduction: Data-structure/Graph/04-Computational-problems-in-graph-theory/Spanning-tree/index.md
+        - Minimum-spanning-tree: Data-structure/Graph/04-Computational-problems-in-graph-theory/Spanning-tree/Minimum-spanning-tree.md
+        - "Bor\u016Fvka's-algorithm": "Data-structure/Graph/04-Computational-problems-in-graph-theory/Spanning-tree/Bor\u016F\
+            vka's-algorithm.md"
+      - Closure:
+        - Introduction: Data-structure/Graph/04-Computational-problems-in-graph-theory/Closure/index.md
+    - Implementation:
+      - Introduction: Data-structure/Graph/Implementation/index.md
+    - Graph-traversal:
+      - Introduction: Data-structure/Graph/Graph-traversal/index.md
+      - Depth-first search-DFS:
+        - Introduction: Data-structure/Graph/Graph-traversal/Depth-first search-DFS/index.md
+      - Breadth-first-search-BFS:
+        - Introduction: Data-structure/Graph/Graph-traversal/Breadth-first-search-BFS/index.md
+    - Search-algorithm:
+      - Summary:
+        - Introduction: Data-structure/Graph/Search-algorithm/Summary/index.md
+        - Search-Algorithm: Data-structure/Graph/Search-algorithm/Summary/Search-Algorithm.md
+        - Search-Cost-&-Heuristics: Data-structure/Graph/Search-algorithm/Summary/Search-Cost-&-Heuristics.md
+      - DFS-and-BFS: Data-structure/Graph/Search-algorithm/DFS-and-BFS.md
+      - Iterative-deepening-depth-first-search: Data-structure/Graph/Search-algorithm/Iterative-deepening-depth-first-search.md
+      - Best-first-search: Data-structure/Graph/Search-algorithm/Best-first-search.md
+      - A-star-search-algorithm: Data-structure/Graph/Search-algorithm/A-star-search-algorithm.md
+      - B-star-search-algorithm: Data-structure/Graph/Search-algorithm/B-star-search-algorithm.md
+      - Beam-search: Data-structure/Graph/Search-algorithm/Beam-search.md
+      - Uniform-cost-search:
+        - Uniform-cost-search: Data-structure/Graph/Search-algorithm/Uniform-cost-search/Uniform-cost-search.md
+    - LeetCode:
+      - "\u8BFE\u7A0B\u8868":
+        - "LeetCode-207-\u8BFE\u7A0B\u8868":
+          - Introduction: "Data-structure/Graph/LeetCode/\u8BFE\u7A0B\u8868/LeetCode-207-\u8BFE\
+              \u7A0B\u8868/index.md"
+        - "LeetCode-210-\u8BFE\u7A0B\u8868-II":
+          - Introduction: "Data-structure/Graph/LeetCode/\u8BFE\u7A0B\u8868/LeetCode-210-\u8BFE\
+              \u7A0B\u8868-II/index.md"
+        - "LeetCode-1462-\u8BFE\u7A0B\u8868-IV":
+          - Introduction: "Data-structure/Graph/LeetCode/\u8BFE\u7A0B\u8868/LeetCode-1462-\u8BFE\
+              \u7A0B\u8868-IV/index.md"
+      - "LeetCode-547-\u7701\u4EFD\u6570\u91CF":
+        - Introduction: "Data-structure/Graph/LeetCode/LeetCode-547-\u7701\u4EFD\u6570\
+            \u91CF/index.md"
+    - "Flood-Fill-\u6CDB\u6D2A\u7B97\u6CD5":
+      - Introduction: "Data-structure/Graph/Flood-Fill-\u6CDB\u6D2A\u7B97\u6CD5/index.md"
+      - "LeetCode-733-\u56FE\u50CF\u6E32\u67D3":
+        - Introduction: "Data-structure/Graph/Flood-Fill-\u6CDB\u6D2A\u7B97\u6CD5\
+            /LeetCode-733-\u56FE\u50CF\u6E32\u67D3/index.md"
+        - "LeetCode-\u9762\u8BD5\u9898-08.10-\u989C\u8272\u586B\u5145":
+          - Introduction: "Data-structure/Graph/Flood-Fill-\u6CDB\u6D2A\u7B97\u6CD5\
+              /LeetCode-733-\u56FE\u50CF\u6E32\u67D3/LeetCode-\u9762\u8BD5\u9898-08.10-\u989C\
+              \u8272\u586B\u5145/index.md"
+      - "LeetCode-1034-\u8FB9\u6846\u7740\u8272":
+        - Introduction: "Data-structure/Graph/Flood-Fill-\u6CDB\u6D2A\u7B97\u6CD5\
+            /LeetCode-1034-\u8FB9\u6846\u7740\u8272/index.md"
+      - "LeetCode-\u9762\u8BD5\u9898-08.10-\u989C\u8272\u586B\u5145":
+        - Introduction: "Data-structure/Graph/Flood-Fill-\u6CDB\u6D2A\u7B97\u6CD5\
+            /LeetCode-\u9762\u8BD5\u9898-08.10-\u989C\u8272\u586B\u5145/index.md"
+  - Tree:
+    - Introduction: Data-structure/Tree/index.md
+    - Tree-structure:
+      - Introduction: Data-structure/Tree/Tree-structure/index.md
+      - Examples-of-tree-structures:
+        - Introduction: Data-structure/Tree/Tree-structure/Examples-of-tree-structures/index.md
+    - Tree(data-structure):
+      - Introduction: Data-structure/Tree/Tree(data-structure)/index.md
+    - Represent-describe-tree:
+      - Introduction: Data-structure/Tree/Represent-describe-tree/index.md
+    - Parenthese-and-tree:
+      - Introduction: Data-structure/Tree/Parenthese-and-tree/index.md
+      - i-programmer-Parentheses-Are-Trees:
+        - Introduction: Data-structure/Tree/Parenthese-and-tree/i-programmer-Parentheses-Are-Trees/index.md
+      - Bracket(tournament):
+        - Introduction: Data-structure/Tree/Parenthese-and-tree/Bracket(tournament)/index.md
+    - Tree-operation:
+      - Introduction: Data-structure/Tree/Tree-operation/index.md
+      - Build-tree:
+        - Introduction: Data-structure/Tree/Tree-operation/Build-tree/index.md
+      - Tree-traversal:
+        - Introduction: Data-structure/Tree/Tree-operation/Tree-traversal/index.md
+        - Implementation: Data-structure/Tree/Tree-operation/Tree-traversal/Implementation.md
+        - Tree-algorithm:
+          - Introduction: Data-structure/Tree/Tree-operation/Tree-traversal/Tree-algorithm/index.md
+    - TODO-Rank-of-node:
+      - Introduction: Data-structure/Tree/TODO-Rank-of-node/index.md
+    - Application-of-tree: Data-structure/Tree/Application-of-tree.md
+    - Implicit-tree:
+      - Introduction: Data-structure/Tree/Implicit-tree/index.md
+    - Trie:
+      - Introduction: Data-structure/Tree/Trie/index.md
+      - wikipedia-Trie:
+        - Introduction: Data-structure/Tree/Trie/wikipedia-Trie/index.md
+      - geeksforgeeks-trie: Data-structure/Tree/Trie/geeksforgeeks-trie.md
+    - Disjoint-set:
+      - Introduction: Data-structure/Tree/Disjoint-set/index.md
+    - VS-of-tree: Data-structure/Tree/VS-of-tree.md
+    - Implementation:
+      - Introduction: Data-structure/Tree/Implementation/index.md
+      - nltk-tree: Data-structure/Tree/Implementation/nltk-tree.md
+      - Python-library: Data-structure/Tree/Implementation/Python-library.md
+    - TODO: Data-structure/Tree/TODO.md
+    - LeetCode:
+      - "Merge-\u5408\u5E76":
+        - "LeetCode-617-\u5408\u5E76\u4E8C\u53C9\u6811":
+          - Introduction: "Data-structure/Tree/LeetCode/Merge-\u5408\u5E76/LeetCode-617-\u5408\
+              \u5E76\u4E8C\u53C9\u6811/index.md"
+      - "Traverse-\u904D\u5386":
+        - "LeetCode-145-\u4E8C\u53C9\u6811\u7684\u540E\u5E8F\u904D\u5386":
+          - Introduction: "Data-structure/Tree/LeetCode/Traverse-\u904D\u5386/LeetCode-145-\u4E8C\
+              \u53C9\u6811\u7684\u540E\u5E8F\u904D\u5386/index.md"
+        - "LeetCode-173-\u4E8C\u53C9\u641C\u7D22\u6811\u8FED\u4EE3\u5668":
+          - Introduction: "Data-structure/Tree/LeetCode/Traverse-\u904D\u5386/LeetCode-173-\u4E8C\
+              \u53C9\u641C\u7D22\u6811\u8FED\u4EE3\u5668/index.md"
+        - Breadth-first-traverse:
+          - "LeetCode-\u5251\u6307-Offer-32-I-\u4ECE\u4E0A\u5230\u4E0B\u6253\u5370\u4E8C\u53C9\u6811":
+            - Introduction: "Data-structure/Tree/LeetCode/Traverse-\u904D\u5386/Breadth-first-traverse/LeetCode-\u5251\
+                \u6307-Offer-32-I-\u4ECE\u4E0A\u5230\u4E0B\u6253\u5370\u4E8C\u53C9\
+                \u6811/index.md"
+          - "LeetCode-\u5251\u6307-Offer-32-II-\u4ECE\u4E0A\u5230\u4E0B\u6253\u5370\u4E8C\u53C9\u6811":
+            - Introduction: "Data-structure/Tree/LeetCode/Traverse-\u904D\u5386/Breadth-first-traverse/LeetCode-\u5251\
+                \u6307-Offer-32-II-\u4ECE\u4E0A\u5230\u4E0B\u6253\u5370\u4E8C\u53C9\
+                \u6811/index.md"
+          - "LeetCode-\u5251\u6307-Offer-32-III-\u4ECE\u4E0A\u5230\u4E0B\u6253\u5370\u4E8C\u53C9\u6811":
+            - Introduction: "Data-structure/Tree/LeetCode/Traverse-\u904D\u5386/Breadth-first-traverse/LeetCode-\u5251\
+                \u6307-Offer-32-III-\u4ECE\u4E0A\u5230\u4E0B\u6253\u5370\u4E8C\u53C9\
+                \u6811/index.md"
+      - "LeetCode-124-\u4E8C\u53C9\u6811\u4E2D\u7684\u6700\u5927\u8DEF\u5F84\u548C":
+        - Introduction: "Data-structure/Tree/LeetCode/LeetCode-124-\u4E8C\u53C9\u6811\
+            \u4E2D\u7684\u6700\u5927\u8DEF\u5F84\u548C/index.md"
+      - Serialization-deserialization:
+        - Introduction: Data-structure/Tree/LeetCode/Serialization-deserialization/index.md
+  - Hash:
+    - Introduction: Data-structure/Hash/index.md
+    - Hash-function:
+      - Hash-function: Data-structure/Hash/Hash-function/Hash-function.md
+      - Perfect-hash-function:
+        - Introduction: Data-structure/Hash/Hash-function/Perfect-hash-function/index.md
+      - Implementation-of-hash-function: Data-structure/Hash/Hash-function/Implementation-of-hash-function.md
+      - Rolling-hash: Data-structure/Hash/Hash-function/Rolling-hash.md
+      - SipHash: Data-structure/Hash/Hash-function/SipHash.md
+      - Cryptographic-hash-functions:
+        - Cryptographic-hash-function: Data-structure/Hash/Hash-function/Cryptographic-hash-functions/Cryptographic-hash-function.md
+        - Cipher: Data-structure/Hash/Hash-function/Cryptographic-hash-functions/Cipher.md
+        - Salt(cryptography): Data-structure/Hash/Hash-function/Cryptographic-hash-functions/Salt(cryptography).md
+    - Hash-table:
+      - Introduction: Data-structure/Hash/Hash-table/index.md
+      - wikipedia-Hash-table:
+        - Introduction: Data-structure/Hash/Hash-table/wikipedia-Hash-table/index.md
+      - geeksforgeeks-hash-table:
+        - Introduction: Data-structure/Hash/Hash-table/geeksforgeeks-hash-table/index.md
+      - rcoh-Hash-Map-Implementation-in-Popular-Language:
+        - Introduction: Data-structure/Hash/Hash-table/rcoh-Hash-Map-Implementation-in-Popular-Language/index.md
+    - Merkle-tree:
+      - Introduction: Data-structure/Hash/Merkle-tree/index.md
+    - Checksum:
+      - Introduction: Data-structure/Hash/Checksum/index.md
+      - peterjockisch-Practical-Application-of-Cryptographic-Checksums:
+        - Introduction: Data-structure/Hash/Checksum/peterjockisch-Practical-Application-of-Cryptographic-Checksums/index.md
+    - Hash-application:
+      - Introduction: Data-structure/Hash/Hash-application/index.md
+      - "\u53BB\u91CD":
+        - Introduction: "Data-structure/Hash/Hash-application/\u53BB\u91CD/index.md"
+        - Use-checksum-to-find-duplicate-file:
+          - Introduction: "Data-structure/Hash/Hash-application/\u53BB\u91CD/Use-checksum-to-find-duplicate-file/index.md"
+    - Error-detection-and-correction:
+      - Introduction: Data-structure/Hash/Error-detection-and-correction/index.md
+      - Error-correction-code:
+        - Introduction: Data-structure/Hash/Error-detection-and-correction/Error-correction-code/index.md
+        - Parity-bit:
+          - Introduction: Data-structure/Hash/Error-detection-and-correction/Error-correction-code/Parity-bit/index.md
+  - Set:
+    - Set: Data-structure/Set/Set(abstract-data-type).md
+  - Probabilistic-data-structures:
+    - Bloom-filter:
+      - Bloom-filter: Data-structure/Probabilistic-data-structures/Bloom-filter/index.md
+    - Skip-list:
+      - Introduction: Data-structure/Probabilistic-data-structures/Skip-list/index.md
+    - Random-tree: Data-structure/Probabilistic-data-structures/Random-tree.md
+  - Judy-array:
+    - Introduction: Data-structure/Judy-array/index.md
+    - sourceforge-library-Judy:
+      - Introduction: Data-structure/Judy-array/sourceforge-library-Judy/index.md
+  - String:
+    - Introduction: Data-structure/String/index.md
+    - wikipedia-String(computer-science):
+      - Introduction: Data-structure/String/wikipedia-String(computer-science)/index.md
+    - Pattern-match:
+      - Introduction: Data-structure/String/Pattern-match/index.md
+    - String-search:
+      - Introduction: Data-structure/String/String-search/index.md
+      - Knuth-Morris-Pratt-algorithm:
+        - Introduction: Data-structure/String/String-search/Knuth-Morris-Pratt-algorithm/index.md
+      - Rabin-Karp-algorithm:
+        - Introduction: Data-structure/String/String-search/Rabin-Karp-algorithm/index.md
+    - LeetCode:
+      - "Reverse-\u53CD\u8F6C":
+        - "LeetCode-344-\u53CD\u8F6C\u5B57\u7B26\u4E32":
+          - Introduction: "Data-structure/String/LeetCode/Reverse-\u53CD\u8F6C/LeetCode-344-\u53CD\
+              \u8F6C\u5B57\u7B26\u4E32/index.md"
+        - "LeetCode-541-\u53CD\u8F6C\u5B57\u7B26\u4E32-II":
+          - Introduction: "Data-structure/String/LeetCode/Reverse-\u53CD\u8F6C/LeetCode-541-\u53CD\
+              \u8F6C\u5B57\u7B26\u4E32-II/index.md"
+      - "LeetCode-14-\u6700\u957F\u516C\u5171\u524D\u7F00":
+        - Introduction: "Data-structure/String/LeetCode/LeetCode-14-\u6700\u957F\u516C\
+            \u5171\u524D\u7F00/index.md"
+  - Summary:
+    - Introduction: Data-structure/Summary/index.md
+    - List-of-data-structure:
+      - Introduction: Data-structure/Summary/List-of-data-structure/index.md
+    - Graph-and-tree-and-list:
+      - Introduction: Data-structure/Summary/Graph-and-tree-and-list/index.md
+    - Implementation-of-ADT: Data-structure/Summary/Implementation-of-ADT.md
+    - Dict-map:
+      - Introduction: Data-structure/Summary/Dict-map/index.md
+      - TODO-nothing-A-Performance-Comparison-of-Judy-to-Hash-Tables:
+        - Introduction: Data-structure/Summary/Dict-map/TODO-nothing-A-Performance-Comparison-of-Judy-to-Hash-Tables/index.md
+  - TODO: Data-structure/TODO.md
+- LeetCode:
+  - Introduction: LeetCode/index.md
+  - "LeetCode-16.19-\u6C34\u57DF\u5927\u5C0F":
+    - Introduction: "LeetCode/LeetCode-16.19-\u6C34\u57DF\u5927\u5C0F/index.md"
+  - "Subsequence(\u5B50\u5E8F\u5217)-Subarray(\u5B50\u6570\u7EC4)-Substring(\u5B50\u4E32)":
+    - Introduction: "LeetCode/Subsequence(\u5B50\u5E8F\u5217)-Subarray(\u5B50\u6570\
+        \u7EC4)-Substring(\u5B50\u4E32)/index.md"
+  - "Tournament-\u6BD4\u8D5B":
+    - Introduction: "LeetCode/Tournament-\u6BD4\u8D5B/index.md"
+    - "\u8BA1\u7B97\u673A\u7B97\u6CD5\u8BBE\u8BA1\u4E0E\u5206\u6790-2.11-\u5FAA\u73AF\u8D5B\u65E5\u7A0B\u8868":
+      - Introduction: "LeetCode/Tournament-\u6BD4\u8D5B/\u8BA1\u7B97\u673A\u7B97\u6CD5\
+          \u8BBE\u8BA1\u4E0E\u5206\u6790-2.11-\u5FAA\u73AF\u8D5B\u65E5\u7A0B\u8868\
+          /index.md"
+- Expert-labuladong:
+  - "0-\u5FC5\u8BFB\u7CFB\u5217":
+    - "\u4E00\u6587\u79D2\u6740\u6240\u6709\u533A\u95F4\u76F8\u5173\u95EE\u9898":
+      - Introduction: "Expert-labuladong/0-\u5FC5\u8BFB\u7CFB\u5217/\u4E00\u6587\u79D2\
+          \u6740\u6240\u6709\u533A\u95F4\u76F8\u5173\u95EE\u9898/index.md"
+  - "1-\u52A8\u6001\u89C4\u5212\u7CFB\u5217":
+    - "1.1-\u52A8\u6001\u89C4\u5212\u57FA\u672C\u6280\u5DE7":
+      - "\u52A8\u6001\u89C4\u5212\u8BE6\u89E3":
+        - Introduction: "Expert-labuladong/1-\u52A8\u6001\u89C4\u5212\u7CFB\u5217\
+            /1.1-\u52A8\u6001\u89C4\u5212\u57FA\u672C\u6280\u5DE7/\u52A8\u6001\u89C4\
+            \u5212\u8BE6\u89E3/index.md"
+    - "1.2-\u5B50\u5E8F\u5217\u7C7B\u578B\u95EE\u9898":
+      - "\u5B50\u5E8F\u5217\u89E3\u9898\u6A21\u677F-\u6700\u957F\u56DE\u6587\u5B50\u5E8F\u5217":
+        - Introduction: "Expert-labuladong/1-\u52A8\u6001\u89C4\u5212\u7CFB\u5217\
+            /1.2-\u5B50\u5E8F\u5217\u7C7B\u578B\u95EE\u9898/\u5B50\u5E8F\u5217\u89E3\
+            \u9898\u6A21\u677F-\u6700\u957F\u56DE\u6587\u5B50\u5E8F\u5217/index.md"
+        - "LeetCode-516-\u6700\u957F\u56DE\u6587\u5B50\u5E8F\u5217":
+          - Introduction: "Expert-labuladong/1-\u52A8\u6001\u89C4\u5212\u7CFB\u5217\
+              /1.2-\u5B50\u5E8F\u5217\u7C7B\u578B\u95EE\u9898/\u5B50\u5E8F\u5217\u89E3\
+              \u9898\u6A21\u677F-\u6700\u957F\u56DE\u6587\u5B50\u5E8F\u5217/LeetCode-516-\u6700\
+              \u957F\u56DE\u6587\u5B50\u5E8F\u5217/index.md"
+        - "TODO-LeetCode-1682-\u6700\u957F\u56DE\u6587\u5B50\u5E8F\u5217-II":
+          - Introduction: "Expert-labuladong/1-\u52A8\u6001\u89C4\u5212\u7CFB\u5217\
+              /1.2-\u5B50\u5E8F\u5217\u7C7B\u578B\u95EE\u9898/\u5B50\u5E8F\u5217\u89E3\
+              \u9898\u6A21\u677F-\u6700\u957F\u56DE\u6587\u5B50\u5E8F\u5217/TODO-LeetCode-1682-\u6700\
+              \u957F\u56DE\u6587\u5B50\u5E8F\u5217-II/index.md"
+      - "LCS-\u6700\u957F\u516C\u5171\u5B50\u5E8F\u5217":
+        - Introduction: "Expert-labuladong/1-\u52A8\u6001\u89C4\u5212\u7CFB\u5217\
+            /1.2-\u5B50\u5E8F\u5217\u7C7B\u578B\u95EE\u9898/LCS-\u6700\u957F\u516C\
+            \u5171\u5B50\u5E8F\u5217/index.md"
+        - "\u8BE6\u89E3\u6700\u957F\u516C\u5171\u5B50\u5E8F\u5217\u95EE\u9898":
+          - Introduction: "Expert-labuladong/1-\u52A8\u6001\u89C4\u5212\u7CFB\u5217\
+              /1.2-\u5B50\u5E8F\u5217\u7C7B\u578B\u95EE\u9898/LCS-\u6700\u957F\u516C\
+              \u5171\u5B50\u5E8F\u5217/\u8BE6\u89E3\u6700\u957F\u516C\u5171\u5B50\u5E8F\
+              \u5217\u95EE\u9898/index.md"
+          - "LeetCode-1143-\u6700\u957F\u516C\u5171\u5B50\u5E8F\u5217":
+            - Introduction: "Expert-labuladong/1-\u52A8\u6001\u89C4\u5212\u7CFB\u5217\
+                /1.2-\u5B50\u5E8F\u5217\u7C7B\u578B\u95EE\u9898/LCS-\u6700\u957F\u516C\
+                \u5171\u5B50\u5E8F\u5217/\u8BE6\u89E3\u6700\u957F\u516C\u5171\u5B50\
+                \u5E8F\u5217\u95EE\u9898/LeetCode-1143-\u6700\u957F\u516C\u5171\u5B50\
+                \u5E8F\u5217/index.md"
+          - "LeetCode-583-\u4E24\u4E2A\u5B57\u7B26\u4E32\u7684\u5220\u9664\u64CD\u4F5C":
+            - Introduction: "Expert-labuladong/1-\u52A8\u6001\u89C4\u5212\u7CFB\u5217\
+                /1.2-\u5B50\u5E8F\u5217\u7C7B\u578B\u95EE\u9898/LCS-\u6700\u957F\u516C\
+                \u5171\u5B50\u5E8F\u5217/\u8BE6\u89E3\u6700\u957F\u516C\u5171\u5B50\
+                \u5E8F\u5217\u95EE\u9898/LeetCode-583-\u4E24\u4E2A\u5B57\u7B26\u4E32\
+                \u7684\u5220\u9664\u64CD\u4F5C/index.md"
+          - "LeetCode-712-\u4E24\u4E2A\u5B57\u7B26\u4E32\u7684\u6700\u5C0FASCII\u5220\u9664\u548C":
+            - Introduction: "Expert-labuladong/1-\u52A8\u6001\u89C4\u5212\u7CFB\u5217\
+                /1.2-\u5B50\u5E8F\u5217\u7C7B\u578B\u95EE\u9898/LCS-\u6700\u957F\u516C\
+                \u5171\u5B50\u5E8F\u5217/\u8BE6\u89E3\u6700\u957F\u516C\u5171\u5B50\
+                \u5E8F\u5217\u95EE\u9898/LeetCode-712-\u4E24\u4E2A\u5B57\u7B26\u4E32\
+                \u7684\u6700\u5C0FASCII\u5220\u9664\u548C/index.md"
+        - "LeetCode-115-\u4E0D\u540C\u7684\u5B50\u5E8F\u5217-\u56F0\u96BE":
+          - Introduction: "Expert-labuladong/1-\u52A8\u6001\u89C4\u5212\u7CFB\u5217\
+              /1.2-\u5B50\u5E8F\u5217\u7C7B\u578B\u95EE\u9898/LCS-\u6700\u957F\u516C\
+              \u5171\u5B50\u5E8F\u5217/LeetCode-115-\u4E0D\u540C\u7684\u5B50\u5E8F\
+              \u5217-\u56F0\u96BE/index.md"
+      - "LCS-\u6700\u957F\u516C\u5171\u5B50\u5E8F\u5217": "LCS-\u6700\u957F\u516C\u5171\
+          \u5B50\u5E8F\u5217"
+      - "\u6700\u5927\u5B50\u6570\u7EC4":
+        - Introduction: "Expert-labuladong/1-\u52A8\u6001\u89C4\u5212\u7CFB\u5217\
+            /1.2-\u5B50\u5E8F\u5217\u7C7B\u578B\u95EE\u9898/\u6700\u5927\u5B50\u6570\
+            \u7EC4/index.md"
+        - "\u52A8\u6001\u89C4\u5212-\u6700\u5927\u5B50\u6570\u7EC4":
+          - Introduction: "Expert-labuladong/1-\u52A8\u6001\u89C4\u5212\u7CFB\u5217\
+              /1.2-\u5B50\u5E8F\u5217\u7C7B\u578B\u95EE\u9898/\u6700\u5927\u5B50\u6570\
+              \u7EC4/\u52A8\u6001\u89C4\u5212-\u6700\u5927\u5B50\u6570\u7EC4/index.md"
+        - "zhihu-\u7ECF\u5178\u52A8\u6001\u89C4\u5212-\u6700\u5927\u5B50\u6570\u7EC4\u95EE\u9898":
+          - Introduction: "Expert-labuladong/1-\u52A8\u6001\u89C4\u5212\u7CFB\u5217\
+              /1.2-\u5B50\u5E8F\u5217\u7C7B\u578B\u95EE\u9898/\u6700\u5927\u5B50\u6570\
+              \u7EC4/zhihu-\u7ECF\u5178\u52A8\u6001\u89C4\u5212-\u6700\u5927\u5B50\
+              \u6570\u7EC4\u95EE\u9898/index.md"
+        - "LeetCode-53-\u6700\u5927\u5B50\u5E8F\u548C":
+          - Introduction: "Expert-labuladong/1-\u52A8\u6001\u89C4\u5212\u7CFB\u5217\
+              /1.2-\u5B50\u5E8F\u5217\u7C7B\u578B\u95EE\u9898/\u6700\u5927\u5B50\u6570\
+              \u7EC4/LeetCode-53-\u6700\u5927\u5B50\u5E8F\u548C/index.md"
+        - "LeetCode-\u5251\u6307-Offer-42-\u8FDE\u7EED\u5B50\u6570\u7EC4\u7684\u6700\u5927\u548C":
+          - Introduction: "Expert-labuladong/1-\u52A8\u6001\u89C4\u5212\u7CFB\u5217\
+              /1.2-\u5B50\u5E8F\u5217\u7C7B\u578B\u95EE\u9898/\u6700\u5927\u5B50\u6570\
+              \u7EC4/LeetCode-\u5251\u6307-Offer-42-\u8FDE\u7EED\u5B50\u6570\u7EC4\
+              \u7684\u6700\u5927\u548C/index.md"
+      - "\u7ECF\u52A8\u6001\u89C4\u5212-\u7F16\u8F91\u8DDD\u79BB":
+        - Introduction: "Expert-labuladong/1-\u52A8\u6001\u89C4\u5212\u7CFB\u5217\
+            /1.2-\u5B50\u5E8F\u5217\u7C7B\u578B\u95EE\u9898/\u7ECF\u52A8\u6001\u89C4\
+            \u5212-\u7F16\u8F91\u8DDD\u79BB/index.md"
+        - C++source-code: "Expert-labuladong/1-\u52A8\u6001\u89C4\u5212\u7CFB\u5217\
+            /1.2-\u5B50\u5E8F\u5217\u7C7B\u578B\u95EE\u9898/\u7ECF\u52A8\u6001\u89C4\
+            \u5212-\u7F16\u8F91\u8DDD\u79BB/C++source-code.md"
+      - "\u6700\u957F\u9012\u589E\u5B50\u5E8F\u5217\u4E4B\u4FE1\u5C01\u5D4C\u5957\u95EE\u9898":
+        - Introduction: "Expert-labuladong/1-\u52A8\u6001\u89C4\u5212\u7CFB\u5217\
+            /1.2-\u5B50\u5E8F\u5217\u7C7B\u578B\u95EE\u9898/\u6700\u957F\u9012\u589E\
+            \u5B50\u5E8F\u5217\u4E4B\u4FE1\u5C01\u5D4C\u5957\u95EE\u9898/index.md"
+    - "1.3-\u80CC\u5305\u7C7B\u578B\u95EE\u9898":
+      - Introduction: "Expert-labuladong/1-\u52A8\u6001\u89C4\u5212\u7CFB\u5217/1.3-\u80CC\
+          \u5305\u7C7B\u578B\u95EE\u9898/index.md"
+      - "\u7ECF\u5178\u52A8\u6001\u89C4\u5212-01\u80CC\u5305\u95EE\u9898":
+        - Introduction: "Expert-labuladong/1-\u52A8\u6001\u89C4\u5212\u7CFB\u5217\
+            /1.3-\u80CC\u5305\u7C7B\u578B\u95EE\u9898/\u7ECF\u5178\u52A8\u6001\u89C4\
+            \u5212-01\u80CC\u5305\u95EE\u9898/index.md"
+      - "\u7ECF\u5178\u52A8\u6001\u89C4\u5212-01\u80CC\u5305\u95EE\u9898\u7684\u53D8\u4F53":
+        - Introduction: "Expert-labuladong/1-\u52A8\u6001\u89C4\u5212\u7CFB\u5217\
+            /1.3-\u80CC\u5305\u7C7B\u578B\u95EE\u9898/\u7ECF\u5178\u52A8\u6001\u89C4\
+            \u5212-01\u80CC\u5305\u95EE\u9898\u7684\u53D8\u4F53/index.md"
+      - "\u7ECF\u5178\u52A8\u6001\u89C4\u5212-\u5B8C\u5168\u80CC\u5305\u95EE\u9898":
+        - Introduction: "Expert-labuladong/1-\u52A8\u6001\u89C4\u5212\u7CFB\u5217\
+            /1.3-\u80CC\u5305\u7C7B\u578B\u95EE\u9898/\u7ECF\u5178\u52A8\u6001\u89C4\
+            \u5212-\u5B8C\u5168\u80CC\u5305\u95EE\u9898/index.md"
+      - "LeetCode-\u4E00\u7BC7\u6587\u7AE0\u5403\u900F\u80CC\u5305\u95EE\u9898":
+        - Introduction: "Expert-labuladong/1-\u52A8\u6001\u89C4\u5212\u7CFB\u5217\
+            /1.3-\u80CC\u5305\u7C7B\u578B\u95EE\u9898/LeetCode-\u4E00\u7BC7\u6587\u7AE0\
+            \u5403\u900F\u80CC\u5305\u95EE\u9898/index.md"
+      - "\u7B97\u6CD5\u8BBE\u8BA1\u4E0E\u5206\u6790-3.10-01\u80CC\u5305\u95EE\u9898":
+        - Introduction: "Expert-labuladong/1-\u52A8\u6001\u89C4\u5212\u7CFB\u5217\
+            /1.3-\u80CC\u5305\u7C7B\u578B\u95EE\u9898/\u7B97\u6CD5\u8BBE\u8BA1\u4E0E\
+            \u5206\u6790-3.10-01\u80CC\u5305\u95EE\u9898/index.md"
+      - "LeetCode-322-\u96F6\u94B1\u5151\u6362":
+        - Introduction: "Expert-labuladong/1-\u52A8\u6001\u89C4\u5212\u7CFB\u5217\
+            /1.3-\u80CC\u5305\u7C7B\u578B\u95EE\u9898/LeetCode-322-\u96F6\u94B1\u5151\
+            \u6362/index.md"
+      - "LeetCode-518-\u96F6\u94B1\u5151\u6362-II":
+        - Introduction: "Expert-labuladong/1-\u52A8\u6001\u89C4\u5212\u7CFB\u5217\
+            /1.3-\u80CC\u5305\u7C7B\u578B\u95EE\u9898/LeetCode-518-\u96F6\u94B1\u5151\
+            \u6362-II/index.md"
+      - "TODO-LeetCode-279-\u5B8C\u5168\u5E73\u65B9\u6570":
+        - Introduction: "Expert-labuladong/1-\u52A8\u6001\u89C4\u5212\u7CFB\u5217\
+            /1.3-\u80CC\u5305\u7C7B\u578B\u95EE\u9898/TODO-LeetCode-279-\u5B8C\u5168\
+            \u5E73\u65B9\u6570/index.md"
+      - "LeetCode-416-\u5206\u5272\u7B49\u548C\u5B50\u96C6":
+        - Introduction: "Expert-labuladong/1-\u52A8\u6001\u89C4\u5212\u7CFB\u5217\
+            /1.3-\u80CC\u5305\u7C7B\u578B\u95EE\u9898/LeetCode-416-\u5206\u5272\u7B49\
+            \u548C\u5B50\u96C6/index.md"
+      - "TODO-LeetCode-494-\u76EE\u6807\u548C":
+        - Introduction: "Expert-labuladong/1-\u52A8\u6001\u89C4\u5212\u7CFB\u5217\
+            /1.3-\u80CC\u5305\u7C7B\u578B\u95EE\u9898/TODO-LeetCode-494-\u76EE\u6807\
+            \u548C/index.md"
+      - "TODO-LeetCode-1046-\u6700\u540E\u4E00\u5757\u77F3\u5934\u7684\u91CD\u91CF":
+        - Introduction: "Expert-labuladong/1-\u52A8\u6001\u89C4\u5212\u7CFB\u5217\
+            /1.3-\u80CC\u5305\u7C7B\u578B\u95EE\u9898/TODO-LeetCode-1046-\u6700\u540E\
+            \u4E00\u5757\u77F3\u5934\u7684\u91CD\u91CF/index.md"
+      - "TODO-LeetCode-1049-\u6700\u540E\u4E00\u5757\u77F3\u5934\u7684\u91CD\u91CF-II":
+        - Introduction: "Expert-labuladong/1-\u52A8\u6001\u89C4\u5212\u7CFB\u5217\
+            /1.3-\u80CC\u5305\u7C7B\u578B\u95EE\u9898/TODO-LeetCode-1049-\u6700\u540E\
+            \u4E00\u5757\u77F3\u5934\u7684\u91CD\u91CF-II/index.md"
+      - "TODO-LeetCode-1155-\u63B7\u9AB0\u5B50\u7684N\u79CD\u65B9\u6CD5":
+        - Introduction: "Expert-labuladong/1-\u52A8\u6001\u89C4\u5212\u7CFB\u5217\
+            /1.3-\u80CC\u5305\u7C7B\u578B\u95EE\u9898/TODO-LeetCode-1155-\u63B7\u9AB0\
+            \u5B50\u7684N\u79CD\u65B9\u6CD5/index.md"
+    - "1.4-\u8D2A\u5FC3\u7C7B\u578B\u95EE\u9898":
+      - "\u8D2A\u5FC3\u7B97\u6CD5\u4E4B\u533A\u95F4\u8C03\u5EA6\u95EE\u9898":
+        - Introduction: "Expert-labuladong/1-\u52A8\u6001\u89C4\u5212\u7CFB\u5217\
+            /1.4-\u8D2A\u5FC3\u7C7B\u578B\u95EE\u9898/\u8D2A\u5FC3\u7B97\u6CD5\u4E4B\
+            \u533A\u95F4\u8C03\u5EA6\u95EE\u9898/index.md"
+    - "1.5-\u5176\u4ED6\u7ECF\u5178\u95EE\u9898":
+      - "LeetCode-\u80A1\u7968\u95EE\u9898":
+        - Introduction: "Expert-labuladong/1-\u52A8\u6001\u89C4\u5212\u7CFB\u5217\
+            /1.5-\u5176\u4ED6\u7ECF\u5178\u95EE\u9898/LeetCode-\u80A1\u7968\u95EE\u9898\
+            /index.md"
+        - "LeetCode\u80A1\u7968\u95EE\u9898\u7684\u4E00\u79CD\u901A\u7528\u89E3\u6CD5":
+          - Introduction: "Expert-labuladong/1-\u52A8\u6001\u89C4\u5212\u7CFB\u5217\
+              /1.5-\u5176\u4ED6\u7ECF\u5178\u95EE\u9898/LeetCode-\u80A1\u7968\u95EE\
+              \u9898/LeetCode\u80A1\u7968\u95EE\u9898\u7684\u4E00\u79CD\u901A\u7528\
+              \u89E3\u6CD5/index.md"
+        - "\u56E2\u706DLeetCode\u80A1\u7968\u4E70\u5356\u95EE\u9898":
+          - Introduction: "Expert-labuladong/1-\u52A8\u6001\u89C4\u5212\u7CFB\u5217\
+              /1.5-\u5176\u4ED6\u7ECF\u5178\u95EE\u9898/LeetCode-\u80A1\u7968\u95EE\
+              \u9898/\u56E2\u706DLeetCode\u80A1\u7968\u4E70\u5356\u95EE\u9898/index.md"
+        - "LeetCode-121-\u4E70\u5356\u80A1\u7968\u7684\u6700\u4F73\u65F6\u673A":
+          - Introduction: "Expert-labuladong/1-\u52A8\u6001\u89C4\u5212\u7CFB\u5217\
+              /1.5-\u5176\u4ED6\u7ECF\u5178\u95EE\u9898/LeetCode-\u80A1\u7968\u95EE\
+              \u9898/LeetCode-121-\u4E70\u5356\u80A1\u7968\u7684\u6700\u4F73\u65F6\
+              \u673A/index.md"
+        - "LeetCode-122-\u4E70\u5356\u80A1\u7968\u7684\u6700\u4F73\u65F6\u673A-II":
+          - Introduction: "Expert-labuladong/1-\u52A8\u6001\u89C4\u5212\u7CFB\u5217\
+              /1.5-\u5176\u4ED6\u7ECF\u5178\u95EE\u9898/LeetCode-\u80A1\u7968\u95EE\
+              \u9898/LeetCode-122-\u4E70\u5356\u80A1\u7968\u7684\u6700\u4F73\u65F6\
+              \u673A-II/index.md"
+        - "TODO-LeetCode-123-\u4E70\u5356\u80A1\u7968\u7684\u6700\u4F73\u65F6\u673A-III":
+          - Introduction: "Expert-labuladong/1-\u52A8\u6001\u89C4\u5212\u7CFB\u5217\
+              /1.5-\u5176\u4ED6\u7ECF\u5178\u95EE\u9898/LeetCode-\u80A1\u7968\u95EE\
+              \u9898/TODO-LeetCode-123-\u4E70\u5356\u80A1\u7968\u7684\u6700\u4F73\u65F6\
+              \u673A-III/index.md"
+        - "TODO-LeetCode-188-\u4E70\u5356\u80A1\u7968\u7684\u6700\u4F73\u65F6\u673A-IV":
+          - Introduction: "Expert-labuladong/1-\u52A8\u6001\u89C4\u5212\u7CFB\u5217\
+              /1.5-\u5176\u4ED6\u7ECF\u5178\u95EE\u9898/LeetCode-\u80A1\u7968\u95EE\
+              \u9898/TODO-LeetCode-188-\u4E70\u5356\u80A1\u7968\u7684\u6700\u4F73\u65F6\
+              \u673A-IV/index.md"
+        - "LeetCode-309-\u6700\u4F73\u4E70\u5356\u80A1\u7968\u65F6\u673A\u542B\u51B7\u51BB\u671F":
+          - Introduction: "Expert-labuladong/1-\u52A8\u6001\u89C4\u5212\u7CFB\u5217\
+              /1.5-\u5176\u4ED6\u7ECF\u5178\u95EE\u9898/LeetCode-\u80A1\u7968\u95EE\
+              \u9898/LeetCode-309-\u6700\u4F73\u4E70\u5356\u80A1\u7968\u65F6\u673A\
+              \u542B\u51B7\u51BB\u671F/index.md"
+        - "LeetCode-714-\u4E70\u5356\u80A1\u7968\u7684\u6700\u4F73\u65F6\u673A\u542B\u624B\u7EED\u8D39":
+          - Introduction: "Expert-labuladong/1-\u52A8\u6001\u89C4\u5212\u7CFB\u5217\
+              /1.5-\u5176\u4ED6\u7ECF\u5178\u95EE\u9898/LeetCode-\u80A1\u7968\u95EE\
+              \u9898/LeetCode-714-\u4E70\u5356\u80A1\u7968\u7684\u6700\u4F73\u65F6\
+              \u673A\u542B\u624B\u7EED\u8D39/index.md"
+      - "LeetCode-House-robber-\u6253\u5BB6\u52AB\u820D":
+        - Introduction: "Expert-labuladong/1-\u52A8\u6001\u89C4\u5212\u7CFB\u5217\
+            /1.5-\u5176\u4ED6\u7ECF\u5178\u95EE\u9898/LeetCode-House-robber-\u6253\
+            \u5BB6\u52AB\u820D/index.md"
+        - "LeetCode-198-\u6253\u5BB6\u52AB\u820D":
+          - Introduction: "Expert-labuladong/1-\u52A8\u6001\u89C4\u5212\u7CFB\u5217\
+              /1.5-\u5176\u4ED6\u7ECF\u5178\u95EE\u9898/LeetCode-House-robber-\u6253\
+              \u5BB6\u52AB\u820D/LeetCode-198-\u6253\u5BB6\u52AB\u820D/index.md"
+        - "LeetCode-213-\u6253\u5BB6\u52AB\u820D-II":
+          - Introduction: "Expert-labuladong/1-\u52A8\u6001\u89C4\u5212\u7CFB\u5217\
+              /1.5-\u5176\u4ED6\u7ECF\u5178\u95EE\u9898/LeetCode-House-robber-\u6253\
+              \u5BB6\u52AB\u820D/LeetCode-213-\u6253\u5BB6\u52AB\u820D-II/index.md"
+        - "LeetCode-337-\u6253\u5BB6\u52AB\u820D-III":
+          - Introduction: "Expert-labuladong/1-\u52A8\u6001\u89C4\u5212\u7CFB\u5217\
+              /1.5-\u5176\u4ED6\u7ECF\u5178\u95EE\u9898/LeetCode-House-robber-\u6253\
+              \u5BB6\u52AB\u820D/LeetCode-337-\u6253\u5BB6\u52AB\u820D-III/index.md"
+  - "2.1-\u6574\u4F53\u5B66\u4E60\u601D\u8DEF":
+    - "\u6570\u636E\u7ED3\u6784\u548C\u7B97\u6CD5\u5B66\u4E60\u6307\u5357":
+      - Introduction: "Expert-labuladong/2.1-\u6574\u4F53\u5B66\u4E60\u601D\u8DEF\
+          /\u6570\u636E\u7ED3\u6784\u548C\u7B97\u6CD5\u5B66\u4E60\u6307\u5357/index.md"
+  - "2.2-\u624B\u628A\u624B\u5237\u94FE\u8868\u9898\u76EE":
+    - "\u9012\u5F52\u53CD\u8F6C\u94FE\u8868":
+      - Introduction: "Expert-labuladong/2.2-\u624B\u628A\u624B\u5237\u94FE\u8868\u9898\
+          \u76EE/\u9012\u5F52\u53CD\u8F6C\u94FE\u8868/index.md"
+    - "\u5982\u4F55k\u4E2A\u4E00\u7EC4\u53CD\u8F6C\u94FE\u8868":
+      - Introduction: "Expert-labuladong/2.2-\u624B\u628A\u624B\u5237\u94FE\u8868\u9898\
+          \u76EE/\u5982\u4F55k\u4E2A\u4E00\u7EC4\u53CD\u8F6C\u94FE\u8868/index.md"
+    - "\u5982\u4F55\u9AD8\u6548\u5224\u65AD\u56DE\u6587\u5355\u94FE\u8868":
+      - Introduction: "Expert-labuladong/2.2-\u624B\u628A\u624B\u5237\u94FE\u8868\u9898\
+          \u76EE/\u5982\u4F55\u9AD8\u6548\u5224\u65AD\u56DE\u6587\u5355\u94FE\u8868\
+          /index.md"
+  - "2.3-\u624B\u628A\u624B\u5237\u4E8C\u53C9\u6811":
+    - "\u5237\u4E8C\u53C9\u6811-\u7B2C\u4E00\u671F":
+      - Introduction: "Expert-labuladong/2.3-\u624B\u628A\u624B\u5237\u4E8C\u53C9\u6811\
+          /\u5237\u4E8C\u53C9\u6811-\u7B2C\u4E00\u671F/index.md"
+      - "LeetCode-116-\u586B\u5145\u6BCF\u4E2A\u8282\u70B9\u7684\u4E0B\u4E00\u4E2A\u53F3\u4FA7\u8282\u70B9\u6307\u9488":
+        - Introduction: "Expert-labuladong/2.3-\u624B\u628A\u624B\u5237\u4E8C\u53C9\
+            \u6811/\u5237\u4E8C\u53C9\u6811-\u7B2C\u4E00\u671F/LeetCode-116-\u586B\
+            \u5145\u6BCF\u4E2A\u8282\u70B9\u7684\u4E0B\u4E00\u4E2A\u53F3\u4FA7\u8282\
+            \u70B9\u6307\u9488/index.md"
+      - "LeetCode-222-\u5B8C\u5168\u4E8C\u53C9\u6811\u7684\u8282\u70B9\u4E2A\u6570":
+        - Introduction: "Expert-labuladong/2.3-\u624B\u628A\u624B\u5237\u4E8C\u53C9\
+            \u6811/\u5237\u4E8C\u53C9\u6811-\u7B2C\u4E00\u671F/LeetCode-222-\u5B8C\
+            \u5168\u4E8C\u53C9\u6811\u7684\u8282\u70B9\u4E2A\u6570/index.md"
+      - "LeetCode-226-\u7FFB\u8F6C\u4E8C\u53C9\u6811":
+        - Introduction: "Expert-labuladong/2.3-\u624B\u628A\u624B\u5237\u4E8C\u53C9\
+            \u6811/\u5237\u4E8C\u53C9\u6811-\u7B2C\u4E00\u671F/LeetCode-226-\u7FFB\
+            \u8F6C\u4E8C\u53C9\u6811/index.md"
+        - "LeetCode-\u5251\u6307-Offer-27-\u4E8C\u53C9\u6811\u7684\u955C\u50CF":
+          - Introduction: "Expert-labuladong/2.3-\u624B\u628A\u624B\u5237\u4E8C\u53C9\
+              \u6811/\u5237\u4E8C\u53C9\u6811-\u7B2C\u4E00\u671F/LeetCode-226-\u7FFB\
+              \u8F6C\u4E8C\u53C9\u6811/LeetCode-\u5251\u6307-Offer-27-\u4E8C\u53C9\
+              \u6811\u7684\u955C\u50CF/index.md"
+    - "\u5237\u4E8C\u53C9\u6811-\u7B2C\u4E8C\u671F":
+      - Introduction: "Expert-labuladong/2.3-\u624B\u628A\u624B\u5237\u4E8C\u53C9\u6811\
+          /\u5237\u4E8C\u53C9\u6811-\u7B2C\u4E8C\u671F/index.md"
+      - "LeetCode-654-\u6700\u5927\u4E8C\u53C9\u6811":
+        - Introduction: "Expert-labuladong/2.3-\u624B\u628A\u624B\u5237\u4E8C\u53C9\
+            \u6811/\u5237\u4E8C\u53C9\u6811-\u7B2C\u4E8C\u671F/LeetCode-654-\u6700\
+            \u5927\u4E8C\u53C9\u6811/index.md"
+    - "\u5237\u4E8C\u53C9\u6811-\u7B2C\u4E09\u671F":
+      - Introduction: "Expert-labuladong/2.3-\u624B\u628A\u624B\u5237\u4E8C\u53C9\u6811\
+          /\u5237\u4E8C\u53C9\u6811-\u7B2C\u4E09\u671F/index.md"
+    - "\u5237\u4E8C\u53C9\u641C\u7D22\u6811-\u7B2C\u4E00\u671F":
+      - Introduction: "Expert-labuladong/2.3-\u624B\u628A\u624B\u5237\u4E8C\u53C9\u6811\
+          /\u5237\u4E8C\u53C9\u641C\u7D22\u6811-\u7B2C\u4E00\u671F/index.md"
+      - "LeetCode-230-\u4E8C\u53C9\u641C\u7D22\u6811\u4E2D\u7B2CK\u5C0F\u7684\u5143\u7D20":
+        - Introduction: "Expert-labuladong/2.3-\u624B\u628A\u624B\u5237\u4E8C\u53C9\
+            \u6811/\u5237\u4E8C\u53C9\u641C\u7D22\u6811-\u7B2C\u4E00\u671F/LeetCode-230-\u4E8C\
+            \u53C9\u641C\u7D22\u6811\u4E2D\u7B2CK\u5C0F\u7684\u5143\u7D20/index.md"
+      - "LeetCode-538-\u628A\u4E8C\u53C9\u641C\u7D22\u6811\u8F6C\u6362\u4E3A\u7D2F\u52A0\u6811":
+        - Introduction: "Expert-labuladong/2.3-\u624B\u628A\u624B\u5237\u4E8C\u53C9\
+            \u6811/\u5237\u4E8C\u53C9\u641C\u7D22\u6811-\u7B2C\u4E00\u671F/LeetCode-538-\u628A\
+            \u4E8C\u53C9\u641C\u7D22\u6811\u8F6C\u6362\u4E3A\u7D2F\u52A0\u6811/index.md"
+    - "\u5237\u4E8C\u53C9\u641C\u7D22\u6811-\u7B2C\u4E8C\u671F":
+      - Introduction: "Expert-labuladong/2.3-\u624B\u628A\u624B\u5237\u4E8C\u53C9\u6811\
+          /\u5237\u4E8C\u53C9\u641C\u7D22\u6811-\u7B2C\u4E8C\u671F/index.md"
+    - "\u4E8C\u53C9\u6811\u7684\u5E8F\u5217\u5316-\u5C31\u90A3\u51E0\u4E2A\u6846\u67B6":
+      - Introduction: "Expert-labuladong/2.3-\u624B\u628A\u624B\u5237\u4E8C\u53C9\u6811\
+          /\u4E8C\u53C9\u6811\u7684\u5E8F\u5217\u5316-\u5C31\u90A3\u51E0\u4E2A\u6846\
+          \u67B6/index.md"
+      - "LeetCode-105-\u4ECE\u524D\u5E8F\u4E0E\u4E2D\u5E8F\u904D\u5386\u5E8F\u5217\u6784\u9020\u4E8C\u53C9\u6811":
+        - Introduction: "Expert-labuladong/2.3-\u624B\u628A\u624B\u5237\u4E8C\u53C9\
+            \u6811/\u4E8C\u53C9\u6811\u7684\u5E8F\u5217\u5316-\u5C31\u90A3\u51E0\u4E2A\
+            \u6846\u67B6/LeetCode-105-\u4ECE\u524D\u5E8F\u4E0E\u4E2D\u5E8F\u904D\u5386\
+            \u5E8F\u5217\u6784\u9020\u4E8C\u53C9\u6811/index.md"
+      - "LeetCode-106-\u4ECE\u4E2D\u5E8F\u4E0E\u540E\u5E8F\u904D\u5386\u5E8F\u5217\u6784\u9020\u4E8C\u53C9\u6811":
+        - Introduction: "Expert-labuladong/2.3-\u624B\u628A\u624B\u5237\u4E8C\u53C9\
+            \u6811/\u4E8C\u53C9\u6811\u7684\u5E8F\u5217\u5316-\u5C31\u90A3\u51E0\u4E2A\
+            \u6846\u67B6/LeetCode-106-\u4ECE\u4E2D\u5E8F\u4E0E\u540E\u5E8F\u904D\u5386\
+            \u5E8F\u5217\u6784\u9020\u4E8C\u53C9\u6811/index.md"
+      - "LeetCode-297-\u4E8C\u53C9\u6811\u7684\u5E8F\u5217\u5316\u4E0E\u53CD\u5E8F\u5217\u5316-\u56F0\u96BE":
+        - Introduction: "Expert-labuladong/2.3-\u624B\u628A\u624B\u5237\u4E8C\u53C9\
+            \u6811/\u4E8C\u53C9\u6811\u7684\u5E8F\u5217\u5316-\u5C31\u90A3\u51E0\u4E2A\
+            \u6846\u67B6/LeetCode-297-\u4E8C\u53C9\u6811\u7684\u5E8F\u5217\u5316\u4E0E\
+            \u53CD\u5E8F\u5217\u5316-\u56F0\u96BE/index.md"
+      - "LeetCode-331-\u9A8C\u8BC1\u4E8C\u53C9\u6811\u7684\u524D\u5E8F\u5E8F\u5217\u5316":
+        - Introduction: "Expert-labuladong/2.3-\u624B\u628A\u624B\u5237\u4E8C\u53C9\
+            \u6811/\u4E8C\u53C9\u6811\u7684\u5E8F\u5217\u5316-\u5C31\u90A3\u51E0\u4E2A\
+            \u6846\u67B6/LeetCode-331-\u9A8C\u8BC1\u4E8C\u53C9\u6811\u7684\u524D\u5E8F\
+            \u5E8F\u5217\u5316/index.md"
+      - "LeetCode-99-\u6062\u590D\u4E8C\u53C9\u641C\u7D22\u6811-\u56F0\u96BE":
+        - Introduction: "Expert-labuladong/2.3-\u624B\u628A\u624B\u5237\u4E8C\u53C9\
+            \u6811/\u4E8C\u53C9\u6811\u7684\u5E8F\u5217\u5316-\u5C31\u90A3\u51E0\u4E2A\
+            \u6846\u67B6/LeetCode-99-\u6062\u590D\u4E8C\u53C9\u641C\u7D22\u6811-\u56F0\
+            \u96BE/index.md"
+    - "\u9898\u76EE\u4E0D\u8BA9\u6211\u505A\u4EC0\u4E48-\u6211\u5C31\u504F\u8981\u53BB\u505A\u4EC0\u4E48":
+      - Introduction: "Expert-labuladong/2.3-\u624B\u628A\u624B\u5237\u4E8C\u53C9\u6811\
+          /\u9898\u76EE\u4E0D\u8BA9\u6211\u505A\u4EC0\u4E48-\u6211\u5C31\u504F\u8981\
+          \u53BB\u505A\u4EC0\u4E48/index.md"
+      - "LeetCode-341-\u6241\u5E73\u5316\u5D4C\u5957\u5217\u8868\u8FED\u4EE3\u5668":
+        - Introduction: "Expert-labuladong/2.3-\u624B\u628A\u624B\u5237\u4E8C\u53C9\
+            \u6811/\u9898\u76EE\u4E0D\u8BA9\u6211\u505A\u4EC0\u4E48-\u6211\u5C31\u504F\
+            \u8981\u53BB\u505A\u4EC0\u4E48/LeetCode-341-\u6241\u5E73\u5316\u5D4C\u5957\
+            \u5217\u8868\u8FED\u4EE3\u5668/index.md"
+    - "\u7528Git\u6765\u8BB2\u8BB2\u4E8C\u53C9\u6811\u6700\u8FD1\u516C\u5171\u7956\u5148":
+      - Introduction: "Expert-labuladong/2.3-\u624B\u628A\u624B\u5237\u4E8C\u53C9\u6811\
+          /\u7528Git\u6765\u8BB2\u8BB2\u4E8C\u53C9\u6811\u6700\u8FD1\u516C\u5171\u7956\
+          \u5148/index.md"
+      - "LeetCode-\u8BD5\u9898\u5206\u6790": "Expert-labuladong/2.3-\u624B\u628A\u624B\
+          \u5237\u4E8C\u53C9\u6811/\u7528Git\u6765\u8BB2\u8BB2\u4E8C\u53C9\u6811\u6700\
+          \u8FD1\u516C\u5171\u7956\u5148/LeetCode-\u8BD5\u9898\u5206\u6790.md"
+      - "LeetCode-235-\u4E8C\u53C9\u641C\u7D22\u6811\u7684\u6700\u8FD1\u516C\u5171\u7956\u5148":
+        - Introduction: "Expert-labuladong/2.3-\u624B\u628A\u624B\u5237\u4E8C\u53C9\
+            \u6811/\u7528Git\u6765\u8BB2\u8BB2\u4E8C\u53C9\u6811\u6700\u8FD1\u516C\
+            \u5171\u7956\u5148/LeetCode-235-\u4E8C\u53C9\u641C\u7D22\u6811\u7684\u6700\
+            \u8FD1\u516C\u5171\u7956\u5148/index.md"
+      - "LeetCode-236-\u4E8C\u53C9\u6811\u7684\u6700\u8FD1\u516C\u5171\u7956\u5148":
+        - Introduction: "Expert-labuladong/2.3-\u624B\u628A\u624B\u5237\u4E8C\u53C9\
+            \u6811/\u7528Git\u6765\u8BB2\u8BB2\u4E8C\u53C9\u6811\u6700\u8FD1\u516C\
+            \u5171\u7956\u5148/LeetCode-236-\u4E8C\u53C9\u6811\u7684\u6700\u8FD1\u516C\
+            \u5171\u7956\u5148/index.md"
+      - "LeetCode-\u5251\u6307-Offer-68-I-\u4E8C\u53C9\u641C\u7D22\u6811\u7684\u6700\u8FD1\u516C\u5171\u7956\u5148":
+        - Introduction: "Expert-labuladong/2.3-\u624B\u628A\u624B\u5237\u4E8C\u53C9\
+            \u6811/\u7528Git\u6765\u8BB2\u8BB2\u4E8C\u53C9\u6811\u6700\u8FD1\u516C\
+            \u5171\u7956\u5148/LeetCode-\u5251\u6307-Offer-68-I-\u4E8C\u53C9\u641C\
+            \u7D22\u6811\u7684\u6700\u8FD1\u516C\u5171\u7956\u5148/index.md"
+      - "LeetCode-\u5251\u6307-Offer-68-II-\u4E8C\u53C9\u6811\u7684\u6700\u8FD1\u516C\u5171\u7956\u5148":
+        - Introduction: "Expert-labuladong/2.3-\u624B\u628A\u624B\u5237\u4E8C\u53C9\
+            \u6811/\u7528Git\u6765\u8BB2\u8BB2\u4E8C\u53C9\u6811\u6700\u8FD1\u516C\
+            \u5171\u7956\u5148/LeetCode-\u5251\u6307-Offer-68-II-\u4E8C\u53C9\u6811\
+            \u7684\u6700\u8FD1\u516C\u5171\u7956\u5148/index.md"
+      - "LeetCode-1123-\u6700\u6DF1\u53F6\u8282\u70B9\u7684\u6700\u8FD1\u516C\u5171\u7956\u5148":
+        - Introduction: "Expert-labuladong/2.3-\u624B\u628A\u624B\u5237\u4E8C\u53C9\
+            \u6811/\u7528Git\u6765\u8BB2\u8BB2\u4E8C\u53C9\u6811\u6700\u8FD1\u516C\
+            \u5171\u7956\u5148/LeetCode-1123-\u6700\u6DF1\u53F6\u8282\u70B9\u7684\u6700\
+            \u8FD1\u516C\u5171\u7956\u5148/index.md"
+    - "\u5B8C\u5168\u4E8C\u53C9\u6811\u7684\u8282\u70B9\u6570":
+      - Introduction: "Expert-labuladong/2.3-\u624B\u628A\u624B\u5237\u4E8C\u53C9\u6811\
+          /\u5B8C\u5168\u4E8C\u53C9\u6811\u7684\u8282\u70B9\u6570/index.md"
+  - "2.4-\u624B\u628A\u624B\u8BBE\u8BA1\u6570\u636E\u7ED3\u6784":
+    - "LRU-\u7B97\u6CD5":
+      - Introduction: "Expert-labuladong/2.4-\u624B\u628A\u624B\u8BBE\u8BA1\u6570\u636E\
+          \u7ED3\u6784/LRU-\u7B97\u6CD5/index.md"
+    - "LFU-\u7B97\u6CD5":
+      - Introduction: "Expert-labuladong/2.4-\u624B\u628A\u624B\u8BBE\u8BA1\u6570\u636E\
+          \u7ED3\u6784/LFU-\u7B97\u6CD5/index.md"
+  - "2.5-\u624B\u628A\u624B\u5237\u6570\u7EC4\u9898\u76EE":
+    - "\u53CC\u6307\u9488-\u6ED1\u52A8\u7A97\u53E3-\u5C3A\u53D6\u6CD5":
+      - Introduction: "Expert-labuladong/2.5-\u624B\u628A\u624B\u5237\u6570\u7EC4\u9898\
+          \u76EE/\u53CC\u6307\u9488-\u6ED1\u52A8\u7A97\u53E3-\u5C3A\u53D6\u6CD5/index.md"
+      - "\u53CC\u6307\u9488\u6280\u5DE7\u6C47\u603B":
+        - Introduction: "Expert-labuladong/2.5-\u624B\u628A\u624B\u5237\u6570\u7EC4\
+            \u9898\u76EE/\u53CC\u6307\u9488-\u6ED1\u52A8\u7A97\u53E3-\u5C3A\u53D6\u6CD5\
+            /\u53CC\u6307\u9488\u6280\u5DE7\u6C47\u603B/index.md"
+      - "\u4E8C\u5206\u67E5\u627E":
+        - "\u6211\u4F5C\u4E86\u9996\u8BD7-\u4FDD\u4F60\u95ED\u7740\u773C\u775B\u4E5F\u80FD\u5199\u5BF9\u4E8C\u5206\u67E5\u627E":
+          - Introduction: "Expert-labuladong/2.5-\u624B\u628A\u624B\u5237\u6570\u7EC4\
+              \u9898\u76EE/\u53CC\u6307\u9488-\u6ED1\u52A8\u7A97\u53E3-\u5C3A\u53D6\
+              \u6CD5/\u4E8C\u5206\u67E5\u627E/\u6211\u4F5C\u4E86\u9996\u8BD7-\u4FDD\
+              \u4F60\u95ED\u7740\u773C\u775B\u4E5F\u80FD\u5199\u5BF9\u4E8C\u5206\u67E5\
+              \u627E/index.md"
+        - "\u5982\u4F55\u8FD0\u7528\u4E8C\u5206\u67E5\u627E\u7B97\u6CD5":
+          - Introduction: "Expert-labuladong/2.5-\u624B\u628A\u624B\u5237\u6570\u7EC4\
+              \u9898\u76EE/\u53CC\u6307\u9488-\u6ED1\u52A8\u7A97\u53E3-\u5C3A\u53D6\
+              \u6CD5/\u4E8C\u5206\u67E5\u627E/\u5982\u4F55\u8FD0\u7528\u4E8C\u5206\
+              \u67E5\u627E\u7B97\u6CD5/index.md"
+          - "LeetCode-875-\u7231\u5403\u9999\u8549\u7684\u73C2\u73C2":
+            - Introduction: "Expert-labuladong/2.5-\u624B\u628A\u624B\u5237\u6570\u7EC4\
+                \u9898\u76EE/\u53CC\u6307\u9488-\u6ED1\u52A8\u7A97\u53E3-\u5C3A\u53D6\
+                \u6CD5/\u4E8C\u5206\u67E5\u627E/\u5982\u4F55\u8FD0\u7528\u4E8C\u5206\
+                \u67E5\u627E\u7B97\u6CD5/LeetCode-875-\u7231\u5403\u9999\u8549\u7684\
+                \u73C2\u73C2/index.md"
+          - "LeetCode-1011-\u5728D\u5929\u5185\u9001\u8FBE\u5305\u88F9\u7684\u80FD\u529B":
+            - Introduction: "Expert-labuladong/2.5-\u624B\u628A\u624B\u5237\u6570\u7EC4\
+                \u9898\u76EE/\u53CC\u6307\u9488-\u6ED1\u52A8\u7A97\u53E3-\u5C3A\u53D6\
+                \u6CD5/\u4E8C\u5206\u67E5\u627E/\u5982\u4F55\u8FD0\u7528\u4E8C\u5206\
+                \u67E5\u627E\u7B97\u6CD5/LeetCode-1011-\u5728D\u5929\u5185\u9001\u8FBE\
+                \u5305\u88F9\u7684\u80FD\u529B/index.md"
+        - "\u4E8C\u5206\u67E5\u627E\u7684\u5999\u7528\u5224\u5B9A\u5B50\u5E8F\u5217":
+          - Introduction: "Expert-labuladong/2.5-\u624B\u628A\u624B\u5237\u6570\u7EC4\
+              \u9898\u76EE/\u53CC\u6307\u9488-\u6ED1\u52A8\u7A97\u53E3-\u5C3A\u53D6\
+              \u6CD5/\u4E8C\u5206\u67E5\u627E/\u4E8C\u5206\u67E5\u627E\u7684\u5999\
+              \u7528\u5224\u5B9A\u5B50\u5E8F\u5217/index.md"
+          - "LeetCode-392-\u5224\u65AD\u5B50\u5E8F\u5217":
+            - Introduction: "Expert-labuladong/2.5-\u624B\u628A\u624B\u5237\u6570\u7EC4\
+                \u9898\u76EE/\u53CC\u6307\u9488-\u6ED1\u52A8\u7A97\u53E3-\u5C3A\u53D6\
+                \u6CD5/\u4E8C\u5206\u67E5\u627E/\u4E8C\u5206\u67E5\u627E\u7684\u5999\
+                \u7528\u5224\u5B9A\u5B50\u5E8F\u5217/LeetCode-392-\u5224\u65AD\u5B50\
+                \u5E8F\u5217/index.md"
+      - "\u6211\u5199\u4E86\u5957\u6846\u67B6-\u628A\u6ED1\u52A8\u7A97\u53E3\u7B97\u6CD5\u53D8\u6210\u4E86\u9ED8\u5199\u9898":
+        - Introduction: "Expert-labuladong/2.5-\u624B\u628A\u624B\u5237\u6570\u7EC4\
+            \u9898\u76EE/\u53CC\u6307\u9488-\u6ED1\u52A8\u7A97\u53E3-\u5C3A\u53D6\u6CD5\
+            /\u6211\u5199\u4E86\u5957\u6846\u67B6-\u628A\u6ED1\u52A8\u7A97\u53E3\u7B97\
+            \u6CD5\u53D8\u6210\u4E86\u9ED8\u5199\u9898/index.md"
+        - "LeetCode-3-\u65E0\u91CD\u590D\u5B57\u7B26\u7684\u6700\u957F\u5B50\u4E32":
+          - Introduction: "Expert-labuladong/2.5-\u624B\u628A\u624B\u5237\u6570\u7EC4\
+              \u9898\u76EE/\u53CC\u6307\u9488-\u6ED1\u52A8\u7A97\u53E3-\u5C3A\u53D6\
+              \u6CD5/\u6211\u5199\u4E86\u5957\u6846\u67B6-\u628A\u6ED1\u52A8\u7A97\
+              \u53E3\u7B97\u6CD5\u53D8\u6210\u4E86\u9ED8\u5199\u9898/LeetCode-3-\u65E0\
+              \u91CD\u590D\u5B57\u7B26\u7684\u6700\u957F\u5B50\u4E32/index.md"
+          - "LeetCode-\u5251\u6307-Offer-48-\u6700\u957F\u4E0D\u542B\u91CD\u590D\u5B57\u7B26\u7684\u5B50\u5B57\u7B26\u4E32":
+            - Introduction: "Expert-labuladong/2.5-\u624B\u628A\u624B\u5237\u6570\u7EC4\
+                \u9898\u76EE/\u53CC\u6307\u9488-\u6ED1\u52A8\u7A97\u53E3-\u5C3A\u53D6\
+                \u6CD5/\u6211\u5199\u4E86\u5957\u6846\u67B6-\u628A\u6ED1\u52A8\u7A97\
+                \u53E3\u7B97\u6CD5\u53D8\u6210\u4E86\u9ED8\u5199\u9898/LeetCode-3-\u65E0\
+                \u91CD\u590D\u5B57\u7B26\u7684\u6700\u957F\u5B50\u4E32/LeetCode-\u5251\
+                \u6307-Offer-48-\u6700\u957F\u4E0D\u542B\u91CD\u590D\u5B57\u7B26\u7684\
+                \u5B50\u5B57\u7B26\u4E32/index.md"
+        - "LeetCode-76-\u6700\u5C0F\u8986\u76D6\u5B50\u4E32":
+          - Introduction: "Expert-labuladong/2.5-\u624B\u628A\u624B\u5237\u6570\u7EC4\
+              \u9898\u76EE/\u53CC\u6307\u9488-\u6ED1\u52A8\u7A97\u53E3-\u5C3A\u53D6\
+              \u6CD5/\u6211\u5199\u4E86\u5957\u6846\u67B6-\u628A\u6ED1\u52A8\u7A97\
+              \u53E3\u7B97\u6CD5\u53D8\u6210\u4E86\u9ED8\u5199\u9898/LeetCode-76-\u6700\
+              \u5C0F\u8986\u76D6\u5B50\u4E32/index.md"
+        - "LeetCode-438-\u627E\u5230\u5B57\u7B26\u4E32\u4E2D\u6240\u6709\u5B57\u6BCD\u5F02\u4F4D\u8BCD":
+          - Introduction: "Expert-labuladong/2.5-\u624B\u628A\u624B\u5237\u6570\u7EC4\
+              \u9898\u76EE/\u53CC\u6307\u9488-\u6ED1\u52A8\u7A97\u53E3-\u5C3A\u53D6\
+              \u6CD5/\u6211\u5199\u4E86\u5957\u6846\u67B6-\u628A\u6ED1\u52A8\u7A97\
+              \u53E3\u7B97\u6CD5\u53D8\u6210\u4E86\u9ED8\u5199\u9898/LeetCode-438-\u627E\
+              \u5230\u5B57\u7B26\u4E32\u4E2D\u6240\u6709\u5B57\u6BCD\u5F02\u4F4D\u8BCD\
+              /index.md"
+        - "LeetCode-567-\u5B57\u7B26\u4E32\u7684\u6392\u5217":
+          - Introduction: "Expert-labuladong/2.5-\u624B\u628A\u624B\u5237\u6570\u7EC4\
+              \u9898\u76EE/\u53CC\u6307\u9488-\u6ED1\u52A8\u7A97\u53E3-\u5C3A\u53D6\
+              \u6CD5/\u6211\u5199\u4E86\u5957\u6846\u67B6-\u628A\u6ED1\u52A8\u7A97\
+              \u53E3\u7B97\u6CD5\u53D8\u6210\u4E86\u9ED8\u5199\u9898/LeetCode-567-\u5B57\
+              \u7B26\u4E32\u7684\u6392\u5217/index.md"
+    - "n-sum\u95EE\u9898":
+      - Introduction: "Expert-labuladong/2.5-\u624B\u628A\u624B\u5237\u6570\u7EC4\u9898\
+          \u76EE/n-sum\u95EE\u9898/index.md"
+      - "Two-Sum-\u95EE\u9898\u7684\u6838\u5FC3\u601D\u60F3":
+        - Introduction: "Expert-labuladong/2.5-\u624B\u628A\u624B\u5237\u6570\u7EC4\
+            \u9898\u76EE/n-sum\u95EE\u9898/Two-Sum-\u95EE\u9898\u7684\u6838\u5FC3\u601D\
+            \u60F3/index.md"
+      - "\u4E00\u4E2A\u51FD\u6570\u79D2\u6740-2Sum-3Sum-4Sum-\u95EE\u9898":
+        - Introduction: "Expert-labuladong/2.5-\u624B\u628A\u624B\u5237\u6570\u7EC4\
+            \u9898\u76EE/n-sum\u95EE\u9898/\u4E00\u4E2A\u51FD\u6570\u79D2\u6740-2Sum-3Sum-4Sum-\u95EE\
+            \u9898/index.md"
+      - "LeetCode-15-\u4E09\u6570\u4E4B\u548C":
+        - Introduction: "Expert-labuladong/2.5-\u624B\u628A\u624B\u5237\u6570\u7EC4\
+            \u9898\u76EE/n-sum\u95EE\u9898/LeetCode-15-\u4E09\u6570\u4E4B\u548C/index.md"
+      - "LeetCode-18-\u56DB\u6570\u4E4B\u548C":
+        - Introduction: "Expert-labuladong/2.5-\u624B\u628A\u624B\u5237\u6570\u7EC4\
+            \u9898\u76EE/n-sum\u95EE\u9898/LeetCode-18-\u56DB\u6570\u4E4B\u548C/index.md"
+    - "\u53CC\u6307\u9488\u6280\u5DE7\u79D2\u6740\u56DB\u9053\u6570\u7EC4\u94FE\u8868\u9898\u76EE":
+      - Introduction: "Expert-labuladong/2.5-\u624B\u628A\u624B\u5237\u6570\u7EC4\u9898\
+          \u76EE/\u53CC\u6307\u9488\u6280\u5DE7\u79D2\u6740\u56DB\u9053\u6570\u7EC4\
+          \u94FE\u8868\u9898\u76EE/index.md"
+  - "3.1-\u56DE\u6EAF\u7B97\u6CD5(DFS\u7B97\u6CD5)\u7CFB\u5217":
+    - "\u56DE\u6EAF\u7B97\u6CD5\u8BE6\u89E3":
+      - Introduction: "Expert-labuladong/3.1-\u56DE\u6EAF\u7B97\u6CD5(DFS\u7B97\u6CD5\
+          )\u7CFB\u5217/\u56DE\u6EAF\u7B97\u6CD5\u8BE6\u89E3/index.md"
+    - "\u56DE\u6EAF\u7B97\u6CD5\u56E2\u706D\u6392\u5217-\u7EC4\u5408-\u5B50\u96C6\u95EE\u9898":
+      - Introduction: "Expert-labuladong/3.1-\u56DE\u6EAF\u7B97\u6CD5(DFS\u7B97\u6CD5\
+          )\u7CFB\u5217/\u56DE\u6EAF\u7B97\u6CD5\u56E2\u706D\u6392\u5217-\u7EC4\u5408\
+          -\u5B50\u96C6\u95EE\u9898/index.md"
+    - "\u56DE\u6EAF\u7B97\u6CD5\u6700\u4F73\u5B9E\u8DF5-\u89E3\u6570\u72EC":
+      - Introduction: "Expert-labuladong/3.1-\u56DE\u6EAF\u7B97\u6CD5(DFS\u7B97\u6CD5\
+          )\u7CFB\u5217/\u56DE\u6EAF\u7B97\u6CD5\u6700\u4F73\u5B9E\u8DF5-\u89E3\u6570\
+          \u72EC/index.md"
+      - "TODO-LeetCode-37-\u89E3\u6570\u72EC-\u56F0\u96BE":
+        - Introduction: "Expert-labuladong/3.1-\u56DE\u6EAF\u7B97\u6CD5(DFS\u7B97\u6CD5\
+            )\u7CFB\u5217/\u56DE\u6EAF\u7B97\u6CD5\u6700\u4F73\u5B9E\u8DF5-\u89E3\u6570\
+            \u72EC/TODO-LeetCode-37-\u89E3\u6570\u72EC-\u56F0\u96BE/index.md"
+    - "\u56DE\u6EAF\u7B97\u6CD5\u6700\u4F73\u5B9E\u8DF5-\u62EC\u53F7\u751F\u6210":
+      - Introduction: "Expert-labuladong/3.1-\u56DE\u6EAF\u7B97\u6CD5(DFS\u7B97\u6CD5\
+          )\u7CFB\u5217/\u56DE\u6EAF\u7B97\u6CD5\u6700\u4F73\u5B9E\u8DF5-\u62EC\u53F7\
+          \u751F\u6210/index.md"
+      - "LeetCode-22-\u62EC\u53F7\u751F\u6210":
+        - Introduction: "Expert-labuladong/3.1-\u56DE\u6EAF\u7B97\u6CD5(DFS\u7B97\u6CD5\
+            )\u7CFB\u5217/\u56DE\u6EAF\u7B97\u6CD5\u6700\u4F73\u5B9E\u8DF5-\u62EC\u53F7\
+            \u751F\u6210/LeetCode-22-\u62EC\u53F7\u751F\u6210/index.md"
+    - "\u56DE\u6EAF\u7B97\u6CD5\u725B\u903C":
+      - Introduction: "Expert-labuladong/3.1-\u56DE\u6EAF\u7B97\u6CD5(DFS\u7B97\u6CD5\
+          )\u7CFB\u5217/\u56DE\u6EAF\u7B97\u6CD5\u725B\u903C/index.md"
+  - "3.2-BFS\u7B97\u6CD5\u7CFB\u5217":
+    - "BFS\u7B97\u6CD5\u6846\u67B6\u5957\u8DEF\u8BE6\u89E3":
+      - Introduction: "Expert-labuladong/3.2-BFS\u7B97\u6CD5\u7CFB\u5217/BFS\u7B97\
+          \u6CD5\u6846\u67B6\u5957\u8DEF\u8BE6\u89E3/index.md"
+      - "LeetCode-111-\u4E8C\u53C9\u6811\u7684\u6700\u5C0F\u6DF1\u5EA6":
+        - Introduction: "Expert-labuladong/3.2-BFS\u7B97\u6CD5\u7CFB\u5217/BFS\u7B97\
+            \u6CD5\u6846\u67B6\u5957\u8DEF\u8BE6\u89E3/LeetCode-111-\u4E8C\u53C9\u6811\
+            \u7684\u6700\u5C0F\u6DF1\u5EA6/index.md"
+      - "LeetCode-752-\u6253\u5F00\u8F6C\u76D8\u9501-\u4E2D\u7B49":
+        - Introduction: "Expert-labuladong/3.2-BFS\u7B97\u6CD5\u7CFB\u5217/BFS\u7B97\
+            \u6CD5\u6846\u67B6\u5957\u8DEF\u8BE6\u89E3/LeetCode-752-\u6253\u5F00\u8F6C\
+            \u76D8\u9501-\u4E2D\u7B49/index.md"
+    - "\u5982\u4F55\u7528BFS\u7B97\u6CD5\u79D2\u6740\u5404\u79CD\u667A\u529B\u9898":
+      - Introduction: "Expert-labuladong/3.2-BFS\u7B97\u6CD5\u7CFB\u5217/\u5982\u4F55\
+          \u7528BFS\u7B97\u6CD5\u79D2\u6740\u5404\u79CD\u667A\u529B\u9898/index.md"
+      - "LeetCode-773-\u6ED1\u52A8\u8C1C\u9898-\u56F0\u96BE":
+        - Introduction: "Expert-labuladong/3.2-BFS\u7B97\u6CD5\u7CFB\u5217/\u5982\u4F55\
+            \u7528BFS\u7B97\u6CD5\u79D2\u6740\u5404\u79CD\u667A\u529B\u9898/LeetCode-773-\u6ED1\
+            \u52A8\u8C1C\u9898-\u56F0\u96BE/index.md"
+  - "3.3-\u5176\u4ED6\u7B97\u6CD5\u7BC7":
+    - "\u5FEB\u901F\u6392\u5E8F\u4EB2\u5144\u5F1F-\u5FEB\u901F\u9009\u62E9\u7B97\u6CD5":
+      - Introduction: "Expert-labuladong/3.3-\u5176\u4ED6\u7B97\u6CD5\u7BC7/\u5FEB\
+          \u901F\u6392\u5E8F\u4EB2\u5144\u5F1F-\u5FEB\u901F\u9009\u62E9\u7B97\u6CD5\
+          /index.md"
+      - "LeetCode-215-\u6570\u7EC4\u4E2D\u7684\u7B2CK\u4E2A\u6700\u5927\u5143\u7D20":
+        - Introduction: "Expert-labuladong/3.3-\u5176\u4ED6\u7B97\u6CD5\u7BC7/\u5FEB\
+            \u901F\u6392\u5E8F\u4EB2\u5144\u5F1F-\u5FEB\u901F\u9009\u62E9\u7B97\u6CD5\
+            /LeetCode-215-\u6570\u7EC4\u4E2D\u7684\u7B2CK\u4E2A\u6700\u5927\u5143\u7D20\
+            /index.md"
+    - "\u5206\u6CBB\u7B97\u6CD5\u8BE6\u89E3-\u8FD0\u7B97\u4F18\u5148\u7EA7":
+      - Introduction: "Expert-labuladong/3.3-\u5176\u4ED6\u7B97\u6CD5\u7BC7/\u5206\
+          \u6CBB\u7B97\u6CD5\u8BE6\u89E3-\u8FD0\u7B97\u4F18\u5148\u7EA7/index.md"
+  - "3.4-\u6570\u5B66\u8FD0\u7B97\u6280\u5DE7":
+    - "\u5982\u4F55\u540C\u65F6\u5BFB\u627E\u7F3A\u5931\u548C\u91CD\u590D\u7684\u5143\u7D20":
+      - Introduction: "Expert-labuladong/3.4-\u6570\u5B66\u8FD0\u7B97\u6280\u5DE7\
+          /\u5982\u4F55\u540C\u65F6\u5BFB\u627E\u7F3A\u5931\u548C\u91CD\u590D\u7684\
+          \u5143\u7D20/index.md"
+      - "TODO-LeetCode-645-\u9519\u8BEF\u7684\u96C6\u5408":
+        - Introduction: "Expert-labuladong/3.4-\u6570\u5B66\u8FD0\u7B97\u6280\u5DE7\
+            /\u5982\u4F55\u540C\u65F6\u5BFB\u627E\u7F3A\u5931\u548C\u91CD\u590D\u7684\
+            \u5143\u7D20/TODO-LeetCode-645-\u9519\u8BEF\u7684\u96C6\u5408/index.md"
+  - "4-\u9AD8\u9891\u9762\u8BD5\u7CFB\u5217":
+    - "\u6700\u957F\u56DE\u6587\u5B50\u4E32":
+      - Introduction: "Expert-labuladong/4-\u9AD8\u9891\u9762\u8BD5\u7CFB\u5217/\u6700\
+          \u957F\u56DE\u6587\u5B50\u4E32/index.md"
+      - "LeetCode-5-\u6700\u957F\u56DE\u6587\u5B50\u4E32":
+        - Introduction: "Expert-labuladong/4-\u9AD8\u9891\u9762\u8BD5\u7CFB\u5217\
+            /\u6700\u957F\u56DE\u6587\u5B50\u4E32/LeetCode-5-\u6700\u957F\u56DE\u6587\
+            \u5B50\u4E32/index.md"
+      - "LeetCode-647-\u56DE\u6587\u5B50\u4E32":
+        - Introduction: "Expert-labuladong/4-\u9AD8\u9891\u9762\u8BD5\u7CFB\u5217\
+            /\u6700\u957F\u56DE\u6587\u5B50\u4E32/LeetCode-647-\u56DE\u6587\u5B50\u4E32\
+            /index.md"
+    - "\u624B\u628A\u624B\u641E\u61C2\u63A5\u96E8\u6C34\u95EE\u9898\u7684\u591A\u79CD\u89E3\u6CD5":
+      - Introduction: "Expert-labuladong/4-\u9AD8\u9891\u9762\u8BD5\u7CFB\u5217/\u624B\
+          \u628A\u624B\u641E\u61C2\u63A5\u96E8\u6C34\u95EE\u9898\u7684\u591A\u79CD\
+          \u89E3\u6CD5/index.md"
+    - "\u5982\u4F55\u5224\u5B9A\u62EC\u53F7\u5408\u6CD5\u6027":
+      - Introduction: "Expert-labuladong/4-\u9AD8\u9891\u9762\u8BD5\u7CFB\u5217/\u5982\
+          \u4F55\u5224\u5B9A\u62EC\u53F7\u5408\u6CD5\u6027/index.md"
+    - "\u5982\u4F55\u62C6\u89E3\u590D\u6742\u95EE\u9898-\u5B9E\u73B0\u4E00\u4E2A\u8BA1\u7B97\u5668":
+      - Introduction: "Expert-labuladong/4-\u9AD8\u9891\u9762\u8BD5\u7CFB\u5217/\u5982\
+          \u4F55\u62C6\u89E3\u590D\u6742\u95EE\u9898-\u5B9E\u73B0\u4E00\u4E2A\u8BA1\
+          \u7B97\u5668/index.md"
+  - "\u624B\u6495\u529B\u6263\u9AD8\u9891\u9762\u8BD5\u9898-56\u4E2A":
+    - Introduction: "Expert-labuladong/\u624B\u6495\u529B\u6263\u9AD8\u9891\u9762\u8BD5\
+        \u9898-56\u4E2A/index.md"
+  - "\u53BB\u91CD":
+    - "\u5982\u4F55\u9AD8\u6548\u5BF9\u6709\u5E8F\u6570\u7EC4\u94FE\u8868\u53BB\u91CD":
+      - Introduction: "Expert-labuladong/\u53BB\u91CD/\u5982\u4F55\u9AD8\u6548\u5BF9\
+          \u6709\u5E8F\u6570\u7EC4\u94FE\u8868\u53BB\u91CD/index.md"
+    - "\u4E00\u9053\u6570\u7EC4\u53BB\u91CD\u7684\u7B97\u6CD5\u9898\u628A\u4E1C\u54E5\u6574\u4E0D\u4F1A\u4E86":
+      - Introduction: "Expert-labuladong/\u53BB\u91CD/\u4E00\u9053\u6570\u7EC4\u53BB\
+          \u91CD\u7684\u7B97\u6CD5\u9898\u628A\u4E1C\u54E5\u6574\u4E0D\u4F1A\u4E86\
+          /index.md"
+    - "LeetCode-26-\u5220\u9664\u6709\u5E8F\u6570\u7EC4\u4E2D\u7684\u91CD\u590D\u9879":
+      - Introduction: "Expert-labuladong/\u53BB\u91CD/LeetCode-26-\u5220\u9664\u6709\
+          \u5E8F\u6570\u7EC4\u4E2D\u7684\u91CD\u590D\u9879/index.md"
+    - "LeetCode-80-\u5220\u9664\u6392\u5E8F\u6570\u7EC4\u4E2D\u7684\u91CD\u590D\u9879-II":
+      - Introduction: "Expert-labuladong/\u53BB\u91CD/LeetCode-80-\u5220\u9664\u6392\
+          \u5E8F\u6570\u7EC4\u4E2D\u7684\u91CD\u590D\u9879-II/index.md"
+  - "\u4E2D\u4F4D\u6570-\u4E2D\u70B9":
+    - "\u4E00\u9053\u627E\u4E2D\u4F4D\u6570\u7684\u7B97\u6CD5\u9898":
+      - Introduction: "Expert-labuladong/\u4E2D\u4F4D\u6570-\u4E2D\u70B9/\u4E00\u9053\
+          \u627E\u4E2D\u4F4D\u6570\u7684\u7B97\u6CD5\u9898/index.md"
+      - "LeetCode-\u5251\u6307-Offer-41-\u6570\u636E\u6D41\u4E2D\u7684\u4E2D\u4F4D\u6570":
+        - Introduction: "Expert-labuladong/\u4E2D\u4F4D\u6570-\u4E2D\u70B9/\u4E00\u9053\
+            \u627E\u4E2D\u4F4D\u6570\u7684\u7B97\u6CD5\u9898/LeetCode-\u5251\u6307\
+            -Offer-41-\u6570\u636E\u6D41\u4E2D\u7684\u4E2D\u4F4D\u6570/index.md"
+- Expert-martinbroadhurst:
+  - Introduction: Expert-martinbroadhurst/index.md
+- Expert-Emre-Bolat:
+  - Introduction: Expert-Emre-Bolat/index.md
+  - "Coding-Patterns-Staircase\u697C\u68AF(DP)":
+    - Introduction: "Expert-Emre-Bolat/Coding-Patterns-Staircase\u697C\u68AF(DP)/index.md"
+  - Coding-Patterns-K-way-Merge:
+    - Introduction: Expert-Emre-Bolat/Coding-Patterns-K-way-Merge/index.md
+  - Coding-Patterns-Merge-Intervals:
+    - Introduction: Expert-Emre-Bolat/Coding-Patterns-Merge-Intervals/index.md
+- Course-YSC2229-Introductory-Data-Structures-and-Algorithms:
+  - Introduction: Course-YSC2229-Introductory-Data-Structures-and-Algorithms/index.md
+  - 4.4-Complexity-of-Divide-and-Conquer-Algorithms:
+    - Introduction: Course-YSC2229-Introductory-Data-Structures-and-Algorithms/4.4-Complexity-of-Divide-and-Conquer-Algorithms/index.md
+- Course-cornell-cs3110:
+  - Introduction: Course-cornell-cs3110/index.md
+- Book-Foundations-of-Computer-Science:
+  - Introduction: Book-Foundations-of-Computer-Science/index.md
 - TODO:
   - stack-order: TODO/stack-order.md
   - 20201028-thoughts: TODO/20201028-thoughts.md

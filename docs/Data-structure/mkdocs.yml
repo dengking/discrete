@@ -9,5 +9,6 @@ nav:
     - Set: Set
     - Probabilistic-data-structures: Probabilistic-data-structures
     - Judy-array: Judy-array
+    - String: String
     - Summary: Summary
     - TODO: TODO.md

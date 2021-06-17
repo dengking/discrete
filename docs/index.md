@@ -2,7 +2,7 @@
 
 1、本工程讨论discrete math、relation、structure、computation等抽象、触及computation本质的内容。
 
-2、另外本工程还讨论algorithm、data structure等内容。
+2、本工程还讨论algorithm、data structure等内容。
 
 ## 书写思路
 
