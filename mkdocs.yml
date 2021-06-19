@@ -582,50 +582,60 @@ nav:
   - Graph:
     - Introduction: Data-structure/Graph/index.md
     - 01-Graph-and-Graph-theory:
-      - Introduction: Data-structure/Graph/01-Graph-and-Graph-theory/index.md
+      - Introduction: Data-structure/Graph/01Graph-and-Graph-theory/index.md
       - Directed-graph:
-        - Introduction: Data-structure/Graph/01-Graph-and-Graph-theory/Directed-graph/index.md
+        - Introduction: Data-structure/Graph/01Graph-and-Graph-theory/Directed-graph/index.md
         - Directed-acyclic-graph:
-          - Introduction: Data-structure/Graph/01-Graph-and-Graph-theory/Directed-graph/Directed-acyclic-graph/index.md
+          - Introduction: Data-structure/Graph/01Graph-and-Graph-theory/Directed-graph/Directed-acyclic-graph/index.md
       - Graph-representations:
-        - Introduction: Data-structure/Graph/01-Graph-and-Graph-theory/Graph-representations/index.md
+        - Introduction: Data-structure/Graph/01Graph-and-Graph-theory/Graph-representations/index.md
         - Adjacency-list:
-          - Introduction: Data-structure/Graph/01-Graph-and-Graph-theory/Graph-representations/Adjacency-list/index.md
-          - Python-Patterns-Implementing-Graphs: Data-structure/Graph/01-Graph-and-Graph-theory/Graph-representations/Adjacency-list/Python-Patterns-Implementing-Graphs.md
+          - Introduction: Data-structure/Graph/01Graph-and-Graph-theory/Graph-representations/Adjacency-list/index.md
+          - Python-Patterns-Implementing-Graphs: Data-structure/Graph/01Graph-and-Graph-theory/Graph-representations/Adjacency-list/Python-Patterns-Implementing-Graphs.md
         - Incidence-matrix:
-          - Introduction: Data-structure/Graph/01-Graph-and-Graph-theory/Graph-representations/Incidence-matrix/index.md
+          - Introduction: Data-structure/Graph/01Graph-and-Graph-theory/Graph-representations/Incidence-matrix/index.md
     - 02-Graph-Model:
-      - Introduction: Data-structure/Graph/02-Graph-Model/index.md
+      - Introduction: Data-structure/Graph/02Graph-Model/index.md
       - Dependency-graph:
-        - Introduction: Data-structure/Graph/02-Graph-Model/Dependency-graph/index.md
+        - Introduction: Data-structure/Graph/02Graph-Model/Dependency-graph/index.md
         - Precedence-graph:
-          - Introduction: Data-structure/Graph/02-Graph-Model/Dependency-graph/Precedence-graph/index.md
+          - Introduction: Data-structure/Graph/02Graph-Model/Dependency-graph/Precedence-graph/index.md
         - Dependency-resolving-algorithm:
-          - Introduction: Data-structure/Graph/02-Graph-Model/Dependency-graph/Dependency-resolving-algorithm/index.md
+          - Introduction: Data-structure/Graph/02Graph-Model/Dependency-graph/Dependency-resolving-algorithm/index.md
     - 03-Graph-operation:
-      - Introduction: Data-structure/Graph/03-Graph-operation/index.md
-    - 04-Computational-problems-in-graph-theory:
-      - Introduction: Data-structure/Graph/04-Computational-problems-in-graph-theory/index.md
+      - Introduction: Data-structure/Graph/03Graph-operation/index.md
+    - 04-Computational-problems:
+      - Introduction: Data-structure/Graph/04Computational-problems/index.md
       - Path:
         - Dijkstra's-algorithm:
-          - Introduction: Data-structure/Graph/04-Computational-problems-in-graph-theory/Path/Dijkstra's-algorithm/index.md
-        - TODO-Max-path: Data-structure/Graph/04-Computational-problems-in-graph-theory/Path/TODO-Max-path.md
+          - Introduction: Data-structure/Graph/04Computational-problems/Path/Dijkstra's-algorithm/index.md
+          - "\u8BA1\u7B97\u673A\u7B97\u6CD5\u8BBE\u8BA1\u4E0E\u5206\u6790-4-5-\u5355\u6E90\u6700\u77ED\u8DEF\u5F84":
+            - Introduction: "Data-structure/Graph/04Computational-problems/Path/Dijkstra's-algorithm/\u8BA1\
+                \u7B97\u673A\u7B97\u6CD5\u8BBE\u8BA1\u4E0E\u5206\u6790-4-5-\u5355\u6E90\
+                \u6700\u77ED\u8DEF\u5F84/index.md"
+          - "LeetCode-787-K\u7AD9\u4E2D\u8F6C\u5185\u6700\u4FBF\u5B9C\u7684\u822A\u73ED":
+            - Introduction: "Data-structure/Graph/04Computational-problems/Path/Dijkstra's-algorithm/LeetCode-787-K\u7AD9\
+                \u4E2D\u8F6C\u5185\u6700\u4FBF\u5B9C\u7684\u822A\u73ED/index.md"
+        - "Bellman\u2013Ford-algorithm":
+          - Introduction: "Data-structure/Graph/04Computational-problems/Path/Bellman\u2013\
+              Ford-algorithm/index.md"
+        - TODO-Max-path: Data-structure/Graph/04Computational-problems/Path/TODO-Max-path.md
       - Circular:
-        - Cycle-detection: Data-structure/Graph/04-Computational-problems-in-graph-theory/Circular/Cycle-detection.md
-        - Circular-dependency: Data-structure/Graph/04-Computational-problems-in-graph-theory/Circular/Circular-dependency.md
-        - TODO-Max-circle: Data-structure/Graph/04-Computational-problems-in-graph-theory/Circular/TODO-Max-circle.md
+        - Cycle-detection: Data-structure/Graph/04Computational-problems/Circular/Cycle-detection.md
+        - Circular-dependency: Data-structure/Graph/04Computational-problems/Circular/Circular-dependency.md
+        - TODO-Max-circle: Data-structure/Graph/04Computational-problems/Circular/TODO-Max-circle.md
       - Dominator:
-        - Introduction: Data-structure/Graph/04-Computational-problems-in-graph-theory/Dominator/index.md
+        - Introduction: Data-structure/Graph/04Computational-problems/Dominator/index.md
       - Sorting:
         - Topological-sorting:
-          - Introduction: Data-structure/Graph/04-Computational-problems-in-graph-theory/Sorting/Topological-sorting/index.md
+          - Introduction: Data-structure/Graph/04Computational-problems/Sorting/Topological-sorting/index.md
       - Spanning-tree:
-        - Introduction: Data-structure/Graph/04-Computational-problems-in-graph-theory/Spanning-tree/index.md
-        - Minimum-spanning-tree: Data-structure/Graph/04-Computational-problems-in-graph-theory/Spanning-tree/Minimum-spanning-tree.md
-        - "Bor\u016Fvka's-algorithm": "Data-structure/Graph/04-Computational-problems-in-graph-theory/Spanning-tree/Bor\u016F\
+        - Introduction: Data-structure/Graph/04Computational-problems/Spanning-tree/index.md
+        - Minimum-spanning-tree: Data-structure/Graph/04Computational-problems/Spanning-tree/Minimum-spanning-tree.md
+        - "Bor\u016Fvka's-algorithm": "Data-structure/Graph/04Computational-problems/Spanning-tree/Bor\u016F\
             vka's-algorithm.md"
       - Closure:
-        - Introduction: Data-structure/Graph/04-Computational-problems-in-graph-theory/Closure/index.md
+        - Introduction: Data-structure/Graph/04Computational-problems/Closure/index.md
     - Implementation:
       - Introduction: Data-structure/Graph/Implementation/index.md
     - Graph-traversal:

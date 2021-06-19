@@ -1,9 +1,9 @@
 nav:
     - Introduction: index.md
-    - 01-Graph-and-Graph-theory: 01-Graph-and-Graph-theory
-    - 02-Graph-Model: 02-Graph-Model
-    - 03-Graph-operation: 03-Graph-operation
-    - 04-Computational-problems-in-graph-theory: 04-Computational-problems-in-graph-theory
+    - 01-Graph-and-Graph-theory: 01Graph-and-Graph-theory
+    - 02-Graph-Model: 02Graph-Model
+    - 03-Graph-operation: 03Graph-operation
+    - 04-Computational-problems: 04Computational-problems
     - Implementation: Implementation
     - Graph-traversal: Graph-traversal
     # graph和tree中都会存在的一种问题
