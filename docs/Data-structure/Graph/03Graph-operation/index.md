@@ -1,4 +1,4 @@
-# [Graph operations](https://en.wikipedia.org/wiki/Graph_operations)
+# wikipedia [Graph operations](https://en.wikipedia.org/wiki/Graph_operations)
 
 **Graph operations** produce new [graphs](https://en.wikipedia.org/wiki/Graph_(discrete_mathematics)) from initial ones. They may be separated into the following major categories.
 

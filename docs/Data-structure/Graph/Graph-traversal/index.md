@@ -1,6 +1,6 @@
 # Graph traversal
 
-
+这是解决各种graph问题的基础。
 
 ## wikipedia [Graph traversal](https://en.wikipedia.org/wiki/Graph_traversal)
 
@@ -66,8 +66,6 @@ Several special cases of graphs imply(蕴含) the visitation of other vertices i
 
 
 
-
-
 ## Visited array
 
 1、在graph traversal中，为了避免由于circle而导致的dead loop，graph traversal algorithm普遍采用的是“标记已经visit过的vertex，对于已经visit过的vertex，再次遇到的时候，直接pass掉”。
@@ -119,3 +117,17 @@ Topological sorting 和 Breadth-first search 是非常类似的: 不同level之�
 Backtrace 对应的是 depth-first ；
 
 Branch-and-Bound 对应的是 width-first ；
+
+
+
+## BFS VS DFS
+
+### What are the advantages of breadth-first search (BFS) over depth-first search (DFS)? 
+
+Answer: BFS is complete and optimal, while DFS is not guaranteed to halt when there are loops. 
+
+> NOTE: DFS的loop问题是可以避免的
+
+### What is the advantage of DFS over BFS?
+
+ Answer: If `m` is the maximum path length and `b` is the branching factor, the space complexity for DFS is `mb` while for BFS it is $b^m$.

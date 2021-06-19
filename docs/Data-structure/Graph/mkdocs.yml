@@ -1,12 +1,14 @@
 nav:
     - Introduction: index.md
-    - 01-Graph-and-Graph-theory: 01Graph-and-Graph-theory
+    - 01Graph-theory: 01Graph-theory
     - 02-Graph-Model: 02Graph-Model
     - 03-Graph-operation: 03Graph-operation
-    - 04-Computational-problems: 04Computational-problems
+    - Computational-problems: Computational-problems
     - Implementation: Implementation
     - Graph-traversal: Graph-traversal
-    # graph和tree中都会存在的一种问题
-    - Search-algorithm: Search-algorithm
-    - LeetCode: LeetCode
+    - Shortest-longest-path: Shortest-longest-path
+    - Topological-sorting: Topological-sorting
+    - Spanning-tree: Spanning-tree    
+    - Search-algorithm: Search-algorithm # graph和tree中都会存在的一种问题
     - Flood-Fill-泛洪算法: Flood-Fill-泛洪算法    
+    - LeetCode: LeetCode

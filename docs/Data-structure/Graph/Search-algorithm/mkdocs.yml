@@ -1,6 +1,5 @@
 nav:
-    - Summary: Summary
-    - DFS-and-BFS: DFS-and-BFS.md
+    - Guide: Guide
     - Iterative-deepening-depth-first-search: Iterative-deepening-depth-first-search.md
     - Best-first-search: Best-first-search.md
     - A-star-search-algorithm: A-star-search-algorithm.md

@@ -1,5 +1,7 @@
 # washington [Search: Cost & Heuristics](https://courses.cs.washington.edu/courses/cse473/14au/slides/03-hsearch.pdf)
 
+
+
 ## Search thru a Problem Space / State Space 
 
 ### Input
