@@ -275,11 +275,6 @@ nav:
     - wikipedia-Search-algorithm:
       - Introduction: Algorithm/Search/wikipedia-Search-algorithm/index.md
     - Guide: Algorithm/Search/Guide.md
-    - Property-of-search-algorithm:
-      - Completeness:
-        - Introduction: Algorithm/Search/Property-of-search-algorithm/Completeness/index.md
-      - Optimality:
-        - Introduction: Algorithm/Search/Property-of-search-algorithm/Optimality/index.md
   - Binary-search:
     - Introduction: Algorithm/Binary-search/index.md
     - wikipedia-Binary-search-algorithm:
@@ -581,61 +576,43 @@ nav:
     - Application-of-stack: Data-structure/Stack/Application-of-stack.md
   - Graph:
     - Introduction: Data-structure/Graph/index.md
-    - 01-Graph-and-Graph-theory:
-      - Introduction: Data-structure/Graph/01Graph-and-Graph-theory/index.md
+    - 01Graph-theory:
+      - Introduction: Data-structure/Graph/01Graph-theory/index.md
       - Directed-graph:
-        - Introduction: Data-structure/Graph/01Graph-and-Graph-theory/Directed-graph/index.md
+        - Introduction: Data-structure/Graph/01Graph-theory/Directed-graph/index.md
         - Directed-acyclic-graph:
-          - Introduction: Data-structure/Graph/01Graph-and-Graph-theory/Directed-graph/Directed-acyclic-graph/index.md
+          - Introduction: Data-structure/Graph/01Graph-theory/Directed-graph/Directed-acyclic-graph/index.md
       - Graph-representations:
-        - Introduction: Data-structure/Graph/01Graph-and-Graph-theory/Graph-representations/index.md
+        - Introduction: Data-structure/Graph/01Graph-theory/Graph-representations/index.md
         - Adjacency-list:
-          - Introduction: Data-structure/Graph/01Graph-and-Graph-theory/Graph-representations/Adjacency-list/index.md
-          - Python-Patterns-Implementing-Graphs: Data-structure/Graph/01Graph-and-Graph-theory/Graph-representations/Adjacency-list/Python-Patterns-Implementing-Graphs.md
+          - Introduction: Data-structure/Graph/01Graph-theory/Graph-representations/Adjacency-list/index.md
+          - Python-Patterns-Implementing-Graphs: Data-structure/Graph/01Graph-theory/Graph-representations/Adjacency-list/Python-Patterns-Implementing-Graphs.md
         - Incidence-matrix:
-          - Introduction: Data-structure/Graph/01Graph-and-Graph-theory/Graph-representations/Incidence-matrix/index.md
+          - Introduction: Data-structure/Graph/01Graph-theory/Graph-representations/Incidence-matrix/index.md
+      - Connectivity(graph theory):
+        - Introduction: Data-structure/Graph/01Graph-theory/Connectivity(graph theory)/index.md
     - 02-Graph-Model:
       - Introduction: Data-structure/Graph/02Graph-Model/index.md
       - Dependency-graph:
         - Introduction: Data-structure/Graph/02Graph-Model/Dependency-graph/index.md
         - Precedence-graph:
           - Introduction: Data-structure/Graph/02Graph-Model/Dependency-graph/Precedence-graph/index.md
+        - Circular-dependency: Data-structure/Graph/02Graph-Model/Dependency-graph/Circular-dependency.md
         - Dependency-resolving-algorithm:
           - Introduction: Data-structure/Graph/02Graph-Model/Dependency-graph/Dependency-resolving-algorithm/index.md
     - 03-Graph-operation:
       - Introduction: Data-structure/Graph/03Graph-operation/index.md
-    - 04-Computational-problems:
-      - Introduction: Data-structure/Graph/04Computational-problems/index.md
-      - Path:
-        - Dijkstra's-algorithm:
-          - Introduction: Data-structure/Graph/04Computational-problems/Path/Dijkstra's-algorithm/index.md
-          - "\u8BA1\u7B97\u673A\u7B97\u6CD5\u8BBE\u8BA1\u4E0E\u5206\u6790-4-5-\u5355\u6E90\u6700\u77ED\u8DEF\u5F84":
-            - Introduction: "Data-structure/Graph/04Computational-problems/Path/Dijkstra's-algorithm/\u8BA1\
-                \u7B97\u673A\u7B97\u6CD5\u8BBE\u8BA1\u4E0E\u5206\u6790-4-5-\u5355\u6E90\
-                \u6700\u77ED\u8DEF\u5F84/index.md"
-          - "LeetCode-787-K\u7AD9\u4E2D\u8F6C\u5185\u6700\u4FBF\u5B9C\u7684\u822A\u73ED":
-            - Introduction: "Data-structure/Graph/04Computational-problems/Path/Dijkstra's-algorithm/LeetCode-787-K\u7AD9\
-                \u4E2D\u8F6C\u5185\u6700\u4FBF\u5B9C\u7684\u822A\u73ED/index.md"
-        - "Bellman\u2013Ford-algorithm":
-          - Introduction: "Data-structure/Graph/04Computational-problems/Path/Bellman\u2013\
-              Ford-algorithm/index.md"
-        - TODO-Max-path: Data-structure/Graph/04Computational-problems/Path/TODO-Max-path.md
+    - Computational-problems:
+      - Introduction: Data-structure/Graph/Computational-problems/index.md
       - Circular:
-        - Cycle-detection: Data-structure/Graph/04Computational-problems/Circular/Cycle-detection.md
-        - Circular-dependency: Data-structure/Graph/04Computational-problems/Circular/Circular-dependency.md
-        - TODO-Max-circle: Data-structure/Graph/04Computational-problems/Circular/TODO-Max-circle.md
+        - Cycle-detection:
+          - Introduction: Data-structure/Graph/Computational-problems/Circular/Cycle-detection/index.md
+        - Max-circle:
+          - Introduction: Data-structure/Graph/Computational-problems/Circular/Max-circle/index.md
       - Dominator:
-        - Introduction: Data-structure/Graph/04Computational-problems/Dominator/index.md
-      - Sorting:
-        - Topological-sorting:
-          - Introduction: Data-structure/Graph/04Computational-problems/Sorting/Topological-sorting/index.md
-      - Spanning-tree:
-        - Introduction: Data-structure/Graph/04Computational-problems/Spanning-tree/index.md
-        - Minimum-spanning-tree: Data-structure/Graph/04Computational-problems/Spanning-tree/Minimum-spanning-tree.md
-        - "Bor\u016Fvka's-algorithm": "Data-structure/Graph/04Computational-problems/Spanning-tree/Bor\u016F\
-            vka's-algorithm.md"
+        - Introduction: Data-structure/Graph/Computational-problems/Dominator/index.md
       - Closure:
-        - Introduction: Data-structure/Graph/04Computational-problems/Closure/index.md
+        - Introduction: Data-structure/Graph/Computational-problems/Closure/index.md
     - Implementation:
       - Introduction: Data-structure/Graph/Implementation/index.md
     - Graph-traversal:
@@ -644,33 +621,46 @@ nav:
         - Introduction: Data-structure/Graph/Graph-traversal/Depth-first search-DFS/index.md
       - Breadth-first-search-BFS:
         - Introduction: Data-structure/Graph/Graph-traversal/Breadth-first-search-BFS/index.md
+    - Shortest-longest-path:
+      - Introduction: Data-structure/Graph/Shortest-longest-path/index.md
+      - Dijkstra's-algorithm:
+        - Introduction: Data-structure/Graph/Shortest-longest-path/Dijkstra's-algorithm/index.md
+        - "\u8BA1\u7B97\u673A\u7B97\u6CD5\u8BBE\u8BA1\u4E0E\u5206\u6790-4-5-\u5355\u6E90\u6700\u77ED\u8DEF\u5F84":
+          - Introduction: "Data-structure/Graph/Shortest-longest-path/Dijkstra's-algorithm/\u8BA1\
+              \u7B97\u673A\u7B97\u6CD5\u8BBE\u8BA1\u4E0E\u5206\u6790-4-5-\u5355\u6E90\
+              \u6700\u77ED\u8DEF\u5F84/index.md"
+        - "LeetCode-787-K\u7AD9\u4E2D\u8F6C\u5185\u6700\u4FBF\u5B9C\u7684\u822A\u73ED":
+          - Introduction: "Data-structure/Graph/Shortest-longest-path/Dijkstra's-algorithm/LeetCode-787-K\u7AD9\
+              \u4E2D\u8F6C\u5185\u6700\u4FBF\u5B9C\u7684\u822A\u73ED/index.md"
+      - "Bellman\u2013Ford-algorithm":
+        - Introduction: "Data-structure/Graph/Shortest-longest-path/Bellman\u2013\
+            Ford-algorithm/index.md"
+    - Topological-sorting:
+      - Introduction: Data-structure/Graph/Topological-sorting/index.md
+    - Spanning-tree:
+      - Introduction: Data-structure/Graph/Spanning-tree/index.md
+      - Minimum-spanning-tree: Data-structure/Graph/Spanning-tree/Minimum-spanning-tree.md
+      - "Bor\u016Fvka's-algorithm": "Data-structure/Graph/Spanning-tree/Bor\u016F\
+          vka's-algorithm.md"
     - Search-algorithm:
-      - Summary:
-        - Introduction: Data-structure/Graph/Search-algorithm/Summary/index.md
-        - Search-Algorithm: Data-structure/Graph/Search-algorithm/Summary/Search-Algorithm.md
-        - Search-Cost-&-Heuristics: Data-structure/Graph/Search-algorithm/Summary/Search-Cost-&-Heuristics.md
-      - DFS-and-BFS: Data-structure/Graph/Search-algorithm/DFS-and-BFS.md
+      - Guide:
+        - Introduction: Data-structure/Graph/Search-algorithm/Guide/index.md
+        - Course-umn-CSci4511w-Class-Notes-on-Search:
+          - Introduction: Data-structure/Graph/Search-algorithm/Guide/Course-umn-CSci4511w-Class-Notes-on-Search/index.md
+        - Course-washington-Search-Cost&Heuristics:
+          - Introduction: Data-structure/Graph/Search-algorithm/Guide/Course-washington-Search-Cost&Heuristics/index.md
+        - Property-of-search-algorithm:
+          - Completeness:
+            - Introduction: Data-structure/Graph/Search-algorithm/Guide/Property-of-search-algorithm/Completeness/index.md
+          - Optimality:
+            - Introduction: Data-structure/Graph/Search-algorithm/Guide/Property-of-search-algorithm/Optimality/index.md
       - Iterative-deepening-depth-first-search: Data-structure/Graph/Search-algorithm/Iterative-deepening-depth-first-search.md
       - Best-first-search: Data-structure/Graph/Search-algorithm/Best-first-search.md
       - A-star-search-algorithm: Data-structure/Graph/Search-algorithm/A-star-search-algorithm.md
       - B-star-search-algorithm: Data-structure/Graph/Search-algorithm/B-star-search-algorithm.md
       - Beam-search: Data-structure/Graph/Search-algorithm/Beam-search.md
       - Uniform-cost-search:
-        - Uniform-cost-search: Data-structure/Graph/Search-algorithm/Uniform-cost-search/Uniform-cost-search.md
-    - LeetCode:
-      - "\u8BFE\u7A0B\u8868":
-        - "LeetCode-207-\u8BFE\u7A0B\u8868":
-          - Introduction: "Data-structure/Graph/LeetCode/\u8BFE\u7A0B\u8868/LeetCode-207-\u8BFE\
-              \u7A0B\u8868/index.md"
-        - "LeetCode-210-\u8BFE\u7A0B\u8868-II":
-          - Introduction: "Data-structure/Graph/LeetCode/\u8BFE\u7A0B\u8868/LeetCode-210-\u8BFE\
-              \u7A0B\u8868-II/index.md"
-        - "LeetCode-1462-\u8BFE\u7A0B\u8868-IV":
-          - Introduction: "Data-structure/Graph/LeetCode/\u8BFE\u7A0B\u8868/LeetCode-1462-\u8BFE\
-              \u7A0B\u8868-IV/index.md"
-      - "LeetCode-547-\u7701\u4EFD\u6570\u91CF":
-        - Introduction: "Data-structure/Graph/LeetCode/LeetCode-547-\u7701\u4EFD\u6570\
-            \u91CF/index.md"
+        - Introduction: Data-structure/Graph/Search-algorithm/Uniform-cost-search/index.md
     - "Flood-Fill-\u6CDB\u6D2A\u7B97\u6CD5":
       - Introduction: "Data-structure/Graph/Flood-Fill-\u6CDB\u6D2A\u7B97\u6CD5/index.md"
       - "LeetCode-733-\u56FE\u50CF\u6E32\u67D3":
@@ -686,6 +676,20 @@ nav:
       - "LeetCode-\u9762\u8BD5\u9898-08.10-\u989C\u8272\u586B\u5145":
         - Introduction: "Data-structure/Graph/Flood-Fill-\u6CDB\u6D2A\u7B97\u6CD5\
             /LeetCode-\u9762\u8BD5\u9898-08.10-\u989C\u8272\u586B\u5145/index.md"
+    - LeetCode:
+      - "\u8BFE\u7A0B\u8868":
+        - "LeetCode-207-\u8BFE\u7A0B\u8868":
+          - Introduction: "Data-structure/Graph/LeetCode/\u8BFE\u7A0B\u8868/LeetCode-207-\u8BFE\
+              \u7A0B\u8868/index.md"
+        - "LeetCode-210-\u8BFE\u7A0B\u8868-II":
+          - Introduction: "Data-structure/Graph/LeetCode/\u8BFE\u7A0B\u8868/LeetCode-210-\u8BFE\
+              \u7A0B\u8868-II/index.md"
+        - "LeetCode-1462-\u8BFE\u7A0B\u8868-IV":
+          - Introduction: "Data-structure/Graph/LeetCode/\u8BFE\u7A0B\u8868/LeetCode-1462-\u8BFE\
+              \u7A0B\u8868-IV/index.md"
+      - "LeetCode-547-\u7701\u4EFD\u6570\u91CF":
+        - Introduction: "Data-structure/Graph/LeetCode/LeetCode-547-\u7701\u4EFD\u6570\
+            \u91CF/index.md"
   - Tree:
     - Introduction: Data-structure/Tree/index.md
     - Tree-structure:
