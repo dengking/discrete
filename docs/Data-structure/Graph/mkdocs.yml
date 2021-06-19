@@ -1,8 +1,8 @@
 nav:
     - Introduction: index.md
-    - 01Graph-theory: 01Graph-theory
-    - 02-Graph-Model: 02Graph-Model
-    - 03-Graph-operation: 03Graph-operation
+    - Graph-theory: Graph-theory
+    - Graph-Model: Graph-Model
+    - Graph-operation: Graph-operation
     - Computational-problems: Computational-problems
     - Implementation: Implementation
     - Graph-traversal: Graph-traversal

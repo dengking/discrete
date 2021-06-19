@@ -576,32 +576,32 @@ nav:
     - Application-of-stack: Data-structure/Stack/Application-of-stack.md
   - Graph:
     - Introduction: Data-structure/Graph/index.md
-    - 01Graph-theory:
-      - Introduction: Data-structure/Graph/01Graph-theory/index.md
+    - Graph-theory:
+      - Introduction: Data-structure/Graph/Graph-theory/index.md
       - Directed-graph:
-        - Introduction: Data-structure/Graph/01Graph-theory/Directed-graph/index.md
+        - Introduction: Data-structure/Graph/Graph-theory/Directed-graph/index.md
         - Directed-acyclic-graph:
-          - Introduction: Data-structure/Graph/01Graph-theory/Directed-graph/Directed-acyclic-graph/index.md
+          - Introduction: Data-structure/Graph/Graph-theory/Directed-graph/Directed-acyclic-graph/index.md
       - Graph-representations:
-        - Introduction: Data-structure/Graph/01Graph-theory/Graph-representations/index.md
+        - Introduction: Data-structure/Graph/Graph-theory/Graph-representations/index.md
         - Adjacency-list:
-          - Introduction: Data-structure/Graph/01Graph-theory/Graph-representations/Adjacency-list/index.md
-          - Python-Patterns-Implementing-Graphs: Data-structure/Graph/01Graph-theory/Graph-representations/Adjacency-list/Python-Patterns-Implementing-Graphs.md
+          - Introduction: Data-structure/Graph/Graph-theory/Graph-representations/Adjacency-list/index.md
+          - Python-Patterns-Implementing-Graphs: Data-structure/Graph/Graph-theory/Graph-representations/Adjacency-list/Python-Patterns-Implementing-Graphs.md
         - Incidence-matrix:
-          - Introduction: Data-structure/Graph/01Graph-theory/Graph-representations/Incidence-matrix/index.md
+          - Introduction: Data-structure/Graph/Graph-theory/Graph-representations/Incidence-matrix/index.md
       - Connectivity(graph theory):
-        - Introduction: Data-structure/Graph/01Graph-theory/Connectivity(graph theory)/index.md
-    - 02-Graph-Model:
-      - Introduction: Data-structure/Graph/02Graph-Model/index.md
+        - Introduction: Data-structure/Graph/Graph-theory/Connectivity(graph theory)/index.md
+    - Graph-Model:
+      - Introduction: Data-structure/Graph/Graph-Model/index.md
       - Dependency-graph:
-        - Introduction: Data-structure/Graph/02Graph-Model/Dependency-graph/index.md
+        - Introduction: Data-structure/Graph/Graph-Model/Dependency-graph/index.md
         - Precedence-graph:
-          - Introduction: Data-structure/Graph/02Graph-Model/Dependency-graph/Precedence-graph/index.md
-        - Circular-dependency: Data-structure/Graph/02Graph-Model/Dependency-graph/Circular-dependency.md
+          - Introduction: Data-structure/Graph/Graph-Model/Dependency-graph/Precedence-graph/index.md
+        - Circular-dependency: Data-structure/Graph/Graph-Model/Dependency-graph/Circular-dependency.md
         - Dependency-resolving-algorithm:
-          - Introduction: Data-structure/Graph/02Graph-Model/Dependency-graph/Dependency-resolving-algorithm/index.md
-    - 03-Graph-operation:
-      - Introduction: Data-structure/Graph/03Graph-operation/index.md
+          - Introduction: Data-structure/Graph/Graph-Model/Dependency-graph/Dependency-resolving-algorithm/index.md
+    - Graph-operation:
+      - Introduction: Data-structure/Graph/Graph-operation/index.md
     - Computational-problems:
       - Introduction: Data-structure/Graph/Computational-problems/index.md
       - Circular:
