@@ -59,6 +59,7 @@ public:
 			for (int i = 0; i < sz; ++i) //
 			{
 				TreeNode *n = q.front();
+				q.pop();                
 				if (n->left == nullptr && n->right == nullptr)
 				{
 					return depth;
@@ -72,7 +73,7 @@ public:
 					q.push(n->right);
 
 				}
-				q.pop();
+
 			}
 			++depth;
 		}
