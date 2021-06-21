@@ -1,8 +1,8 @@
 # Permutation 
 
+## wanweibaike [Permutation](https://en.wanweibaike.com/wiki-permutation) 
 
-
-## Permutation [Permutation](https://en.wikipedia.org/wiki/Permutation#Algorithms_to_generate_permutations)
+## wikipedia [Permutation](https://en.wikipedia.org/wiki/Permutation#Algorithms_to_generate_permutations)
 
 
 

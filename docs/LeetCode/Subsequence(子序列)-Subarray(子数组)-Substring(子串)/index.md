@@ -26,6 +26,8 @@
 
 二分法也可以用于子序列。
 
+
+
 ### labuladong [子序列解题模板：最长回文子序列](https://mp.weixin.qq.com/s/zNai1pzXHeB2tQE6AdOXTA)
 
 子序列问题是常见的算法问题，而且并不好解决。
@@ -33,6 +35,10 @@
 首先，子序列问题本身就相对子串、子数组更困难一些，因为前者是不连续的序列，而后两者是连续的，就算穷举都不容易，更别说求解相关的算法问题了。
 
 
+
+### LeetCode 子序列类问题
+
+https://leetcode-cn.com/problemset/all/?search=%E5%AD%90%E5%BA%8F%E5%88%97
 
 ## 子串
 
