@@ -28,3 +28,7 @@ Another generalization is to solve the problem when parallel processors are avai
 
 divide and conquer: partition
 
+
+
+## csdn [找工作知识储备(1)---从头说catalan数及笔试面试里那些相关的问题](https://blog.csdn.net/han_xiaoyang/article/details/11938973)
+

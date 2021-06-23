@@ -308,7 +308,7 @@ public:
 			if (capacity == cache.size()) // 缓存空间满了
 			{
 				n = cache.back(); // 复用最后一个节点的空间
-				index.erase(n->key); // 更新缩影: 将原来的key删除
+				index.erase(n->key); // 更新索引: 将原来的key删除
 				cache.move_to_head(n); // 移到头
 				n->key = key;
 				n->val = value;
