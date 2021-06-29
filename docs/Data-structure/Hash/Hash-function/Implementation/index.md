@@ -8,7 +8,7 @@
 
 所以了解一下实现hash function的一些细节是比较重要的。
 
-## [Why is it best to use a prime number as a mod in a hashing function?](https://cs.stackexchange.com/questions/11029/why-is-it-best-to-use-a-prime-number-as-a-mod-in-a-hashing-function)
+## stackexchange [Why is it best to use a prime number as a mod in a hashing function?](https://cs.stackexchange.com/questions/11029/why-is-it-best-to-use-a-prime-number-as-a-mod-in-a-hashing-function)
 
 [A](https://cs.stackexchange.com/a/64191)
 

@@ -1,7 +1,9 @@
 nav:
-    - Hash-function: Hash-function.md
+    - Introduction: index.md
     - Perfect-hash-function: Perfect-hash-function
-    - Implementation-of-hash-function: Implementation-of-hash-function.md
-    - Rolling-hash: Rolling-hash.md
+    - Rolling-hash: Rolling-hash
+    - Geometric-hashing: Geometric-hashing
     - SipHash: SipHash.md
     - Cryptographic-hash-functions: Cryptographic-hash-functions
+    - Linear-hash: Linear-hash
+    - Implementation: Implementation    

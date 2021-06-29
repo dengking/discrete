@@ -4,20 +4,20 @@
 
 正如在[List of hash functions](https://en.wikipedia.org/wiki/List_of_hash_functions)中所罗列的，有着形形色色的hash function。那我们应该如何来把我hash function呢？我觉得从数学上对[function](https://en.wikipedia.org/wiki/Function_(mathematics))的定义入手较好。
 
-- hash function和普通的function一样，有[domain](https://en.wikipedia.org/wiki/Domain_of_a_function) 和[codomain](https://en.wikipedia.org/wiki/Codomain)。在hash function中，domain的同义词有：key space
+一、 hash function和普通的function一样，有[domain](https://en.wikipedia.org/wiki/Domain_of_a_function) 和[codomain](https://en.wikipedia.org/wiki/Codomain)。在hash function中，domain的同义词有：key space
 
-- 在设计一个hash function的时候，需要考虑它的[domain](https://en.wikipedia.org/wiki/Domain_of_a_function)要容纳哪些数据。比如：
+二、 在设计一个hash function的时候，需要考虑它的[domain](https://en.wikipedia.org/wiki/Domain_of_a_function)要容纳哪些数据。比如：
 
   - 对于使用[cryptographic hash function](https://en.wikipedia.org/wiki/Cryptographic_hash_function)来加密密码的function，它的[domain](https://en.wikipedia.org/wiki/Domain_of_a_function)要容纳就是所有可以用于密码的字符的组合而成的字符串
   - 可能hash数字
 
-- 在设计一个hash function的时候，需要考虑它的[domain](https://en.wikipedia.org/wiki/Domain_of_a_function)中数据的特征，比如：
+三、 在设计一个hash function的时候，需要考虑它的[domain](https://en.wikipedia.org/wiki/Domain_of_a_function)中数据的特征，比如：
 
   - [identity hash function](https://en.wikipedia.org/wiki/Hash_function#Identity_hash_function)就是使用的[domain](https://en.wikipedia.org/wiki/Domain_of_a_function)中数据是identity的特征
   - [trivial hash function](https://en.wikipedia.org/wiki/Hash_function#Trivial_hash_function)就是使用domain中的数据是uniformly or sufficiently uniformly distributed 的特征
   - [modulo division hash function](https://en.wikipedia.org/wiki/Hash_function#Hashing_integer_data_types)一般选择一个big prime来作为[**modulo**](https://en.wikipedia.org/wiki/Modulo_operation) ，具体原因，参见[Why is it best to use a prime number as a mod in a hashing function?](https://cs.stackexchange.com/questions/11029/why-is-it-best-to-use-a-prime-number-as-a-mod-in-a-hashing-function)。
 
-- [domain](https://en.wikipedia.org/wiki/Domain_of_a_function) 和[codomain](https://en.wikipedia.org/wiki/Codomain)之间的映射关系：
+四、 [domain](https://en.wikipedia.org/wiki/Domain_of_a_function) 和[codomain](https://en.wikipedia.org/wiki/Codomain)之间的映射关系：
 
   - [Injective function](https://en.wikipedia.org/wiki/Injective_function)，显然[perfect hash function](https://en.wikipedia.org/wiki/Perfect_hash_function)具备这种性质。
 
@@ -27,7 +27,7 @@
 
 > NOTE: [Hash table#Hashing](https://en.wikipedia.org/wiki/Hash_table#Hashing)中关于hash的介绍比较精简。
 
-## 维基百科[Hash function](https://en.wikipedia.org/wiki/Hash_function)
+## wikipedia [Hash function](https://en.wikipedia.org/wiki/Hash_function)
 
 A **hash function** is any [function](https://en.wikipedia.org/wiki/Function_(mathematics)) that can be used to map [data](https://en.wikipedia.org/wiki/Data_(computing)) of arbitrary size to fixed-size values. The values returned by a hash function are called *hash values*, *hash codes*, *digests*, or simply *hashes*. 
 
