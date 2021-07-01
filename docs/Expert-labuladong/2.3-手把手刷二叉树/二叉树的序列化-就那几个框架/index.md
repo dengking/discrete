@@ -134,3 +134,9 @@ TreeNode deserialize(LinkedList<String> nodes) {
 >
 > 一、序列化的结构是: root、left、right
 
+## 三、后序遍历解法
+
+## 四、中序遍历解法
+
+## 五、层级遍历解法
+
