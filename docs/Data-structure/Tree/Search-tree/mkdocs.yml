@@ -1,6 +1,6 @@
 nav:
     - Introduction: index.md
-    - Binary-search-tre: Binary-search-tre
+    - Binary-search-tree: Binary-search-tree
     - Trie: Trie
     - B-tree: B-tree
     
