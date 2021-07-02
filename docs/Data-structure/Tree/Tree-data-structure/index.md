@@ -1,4 +1,8 @@
-# wikipedia [Tree (data structure)](https://en.wikipedia.org/wiki/Tree_(data_structure))
+# Tree (data structure)
+
+计算机可行中，使用非常广泛的一种数据结构。
+
+## wikipedia [Tree (data structure)](https://en.wikipedia.org/wiki/Tree_(data_structure))
 
 In [computer science](https://en.wikipedia.org/wiki/Computer_science), a **tree** is a widely used [abstract data type](https://en.wikipedia.org/wiki/Abstract_data_type) (ADT)—or [data structure](https://en.wikipedia.org/wiki/Data_structure) implementing this ADT—that simulates a hierarchical [tree structure](https://en.wikipedia.org/wiki/Tree_structure), with a root value and subtrees of children with a [parent node](https://en.wikipedia.org/wiki/Tree_(data_structure)#Terminology), represented as a set of linked [nodes](https://en.wikipedia.org/wiki/Node_(computer_science)).
 
@@ -10,19 +14,19 @@ Alternatively, a tree can be defined abstractly as a whole (globally) as an [ord
 
 
 
-## Preliminary definition
+### Preliminary definition
 
 A tree is a **nonlinear** data structure, compared to arrays, linked lists, stacks and queues which are linear data structures. A tree can be empty with no nodes or a tree is a structure consisting of one node called the root and zero or one or more subtrees.
 
 > NOTE: 上述定义方法采用的是[Recursive definition](https://en.wikipedia.org/wiki/Recursive_definition)。
 
-## [Mathematical definition](https://en.wikipedia.org/wiki/Tree_(data_structure)#Mathematical_definition)
+### [Mathematical definition](https://en.wikipedia.org/wiki/Tree_(data_structure)#Mathematical_definition)
 
 > NOTE: 这一节是原文中最最晦涩难懂的章节了，它需要set theory的知识作为基础。那这就
 >
 > 其实可以简单理解，使用tree来表示集合的包含关系，这就好比是括号了。
 
-### [Unordered tree](https://en.wikipedia.org/wiki/Tree_(data_structure)#Unordered_tree)
+#### [Unordered tree](https://en.wikipedia.org/wiki/Tree_(data_structure)#Unordered_tree)
 
 Mathematically, an *unordered tree*[[1\]](https://en.wikipedia.org/wiki/Tree_(data_structure)#cite_note-Kuboyama2007-1) (or "algebraic tree"[[2\]](https://en.wikipedia.org/wiki/Tree_(data_structure)#cite_note-2)) can be defined as an [algebraic structure](https://en.wikipedia.org/wiki/Algebraic_structure) $ (X,parent) $ where *X* is the non-empty carrier set of *nodes* and *parent* is a function on *X* which assigns each node *x* its "parent" node, *parent*(*x*). The structure is subject to the condition that every non-empty [subalgebra](https://en.wikipedia.org/wiki/Subalgebra) must have the same [fixed point](https://en.wikipedia.org/wiki/Fixed_point_(mathematics)). That is, there must be a unique "root" node *r*, such that *parent*(*r*) = *r* and for every node *x*, some iterative application *parent*(*parent*(…*parent*(*x*)…)) equals *r*.
 
@@ -30,31 +34,17 @@ Mathematically, an *unordered tree*[[1\]](https://en.wikipedia.org/wiki/Tree_(da
 
 
 
-There are several equivalent definitions. As the closest alternative, one can define unordered trees as [*partial* algebras](https://en.wikipedia.org/wiki/Partial_algebra) (*X*, *parent*) which are obtained from the total algebras described above by letting *parent*(*r*) be undefined. That is, the root *r* is the only node on which the *parent* function is not defined and for every node *x*, the root is [reachable](https://en.wikipedia.org/wiki/Reachability) from *x* in the [directed graph](https://en.wikipedia.org/wiki/Directed_graph) (*X*, *parent*). This definition is in fact coincident with that of an [anti-arborescence](https://en.wikipedia.org/wiki/Arborescence_(graph_theory)). The [TAoCP](https://en.wikipedia.org/wiki/TAoCP) book uses the term *oriented tree*.[[3\]](https://en.wikipedia.org/wiki/Tree_(data_structure)#cite_note-TAoCP_oriented_trees-3)
-
-
-
-Another equivalent definition is that of a [set-theoretic tree](https://en.wikipedia.org/wiki/Tree_(set_theory)) that is singly-rooted and whose height is at most [ω](https://en.wikipedia.org/wiki/Ordinal_number#Ordinals_extend_the_natural_numbers) (a finite-ish tree[[4\]](https://en.wikipedia.org/wiki/Tree_(data_structure)#cite_note-Unger2012-4)). That is, the algebraic structures (*X*, *parent*) are equivalent to [partial orders](https://en.wikipedia.org/wiki/Partially_ordered_set) $ (X,\leq ) $ that have a [top element](https://en.wikipedia.org/wiki/Greatest_and_least_elements) *r* and whose every principal [upset](https://en.wikipedia.org/wiki/Upper_set) (aka [principal filter](https://en.wikipedia.org/wiki/Principal_filter)) is a finite [chain](https://en.wikipedia.org/wiki/Total_order#Chains). To be precise, we should speak about an [inverse](https://en.wikipedia.org/wiki/Inverse_order) set-theoretic tree since the set-theoretic definition usually employs opposite ordering. The correspondence between (*X*, *parent*) and (*X*, ≤) is established via reflexive [transitive closure](https://en.wikipedia.org/wiki/Transitive_closure) / [reduction](https://en.wikipedia.org/wiki/Transitive_reduction), with the reduction resulting in the "partial" version without the root cycle.
-
-
-
-We can refer to the four equivalent characterizations as to *tree as an algebra*, *tree as a partial algebra*, *tree as a partial order*, and *tree as a prefix order*. There is also a fifth equivalent definition – that of a [graph-theoretic rooted tree](https://en.wikipedia.org/wiki/Tree_(graph_theory)#Rooted_tree) which is just a connected acyclic [rooted](https://en.wikipedia.org/wiki/Rooted_graph) [graph](https://en.wikipedia.org/wiki/Graph_theory).
-
-
-
-### [Ordered tree](https://en.wikipedia.org/wiki/Tree_(data_structure)#Ordered_tree)
+#### [Ordered tree](https://en.wikipedia.org/wiki/Tree_(data_structure)#Ordered_tree)
 
 The structures introduced in the previous subsection form just the core "hierarchical" part of tree data structures that appear in computing. In most cases, there is also an additional "horizontal" ordering between siblings. In [search trees](https://en.wikipedia.org/wiki/Search_tree) the order is commonly established by the "key" or value associated with each sibling, but in many trees that is not the case. For example, XML documents, lists within JSON files, and many other structures have order that does not depend on the values in the nodes, but is itself data — sorting the paragraphs of a novel alphabetically would lose information.
 
-The correspondent [expansion](https://en.wikipedia.org/wiki/Expansion_(model_theory)) of the previously described tree structures (*X*, ≤) can be defined by endowing each sibling set with a linear order as follows. An alternative definition according to Kuboyama is presented in the next subsection.
 
 
-
-## [Terminology used in trees](https://en.wikipedia.org/wiki/Tree_(data_structure)#Terminology_used_in_trees)
+### [Terminology used in trees](https://en.wikipedia.org/wiki/Tree_(data_structure)#Terminology_used_in_trees)
 
 > NOTE: 原文本节描述tree中的各种术语。
 
-## Representations
+### Representations
 
 There are many different ways to represent trees; common representations represent the nodes as [dynamically allocated](https://en.wikipedia.org/wiki/Dynamic_memory_allocation) records with pointers to their children, their parents, or both, or as items in an [array](https://en.wikipedia.org/wiki/Array_data_structure), with relationships between them determined by their positions in the array (e.g., [binary heap](https://en.wikipedia.org/wiki/Binary_heap)).
 
@@ -68,7 +58,7 @@ In general a node in a tree will not have pointers to its parents, but this info
 
 
 
-## Common operations
+### Common operations
 
 - Enumerating all the items
 - Enumerating a section of a tree
@@ -80,11 +70,11 @@ In general a node in a tree will not have pointers to its parents, but this info
 - Finding the root for any node
 - Finding the [lowest common ancestor](https://en.wikipedia.org/wiki/Lowest_common_ancestor) of two nodes
 
-### Traversal and search methods
+#### Traversal and search methods
 
 Main article: [Tree traversal](https://en.wanweibaike.com/wiki-Tree_traversal)
 
-## Common uses
+### Common uses
 
 - Representing [hierarchical](https://en.wikipedia.org/wiki/Hierarchical) data such as [syntax trees](https://en.wikipedia.org/wiki/Abstract_syntax_tree)
 - Storing data in a way that makes it efficiently [searchable](https://en.wikipedia.org/wiki/Search_algorithm) (see [binary search tree](https://en.wikipedia.org/wiki/Binary_search_tree) and [tree traversal](https://en.wikipedia.org/wiki/Tree_traversal))
@@ -96,7 +86,7 @@ Main article: [Tree traversal](https://en.wanweibaike.com/wiki-Tree_traversal)
 
 
 
-## Recursive definition of tree
+### Recursive definition of tree
 
 本文中，关于树的Recursive definition都有标注出来了。
 
