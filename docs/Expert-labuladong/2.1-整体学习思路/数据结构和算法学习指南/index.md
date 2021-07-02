@@ -91,8 +91,99 @@ N 叉树的遍历又可以扩展为图的遍历，因为图就是好几 N 叉棵
 
 公众号文章的阅读数据显示，大部分人对数据结构相关的算法文章不感兴趣，而是更关心动规回溯分治等等技巧。为什么要先刷二叉树呢，**因为二叉树是最容易培养框架思维的，而且大部分算法技巧，本质上都是树的遍历问题**。
 
-LeetCode [124. 二叉树中的最大路径和](https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/) 困难
+> NOTE: 
+>
+> LeetCode [124. 二叉树中的最大路径和](https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/) 困难
+>
+> LeetCode [105. 从前序与中序遍历序列构造二叉树](https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)
+>
+> LeetCode [99. 恢复二叉搜索树](https://leetcode-cn.com/problems/recover-binary-search-tree/) 困难
 
-LeetCode [105. 从前序与中序遍历序列构造二叉树](https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)
 
-LeetCode [99. 恢复二叉搜索树](https://leetcode-cn.com/problems/recover-binary-search-tree/) 困难
+
+### LeetCode 99 题
+
+LeetCode 99 题，难度 Hard，恢复一棵 BST，主要代码如下：
+
+![Image](https://mmbiz.qpic.cn/sz_mmbiz_jpg/gibkIz0MVqdHFLNbFyicB9ENe5Gbt9CrrMm8NQJaFMebRAr0mxmnUkBxEZDcxFOicNTbEgiaiaIGE5dEpoKh7uDwlsg/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+这不就是个中序遍历嘛，对于一棵 BST 中序遍历意味着什么，应该不需要解释了吧。
+
+> NOTE: 
+>
+> 下面是完整代码:
+>
+> ```C++
+> #include <bits/stdc++.h>
+> using namespace std;
+> /**
+>  * Definition for a binary tree node.
+>  * struct TreeNode {
+>  *     int val;
+>  *     TreeNode *left;
+>  *     TreeNode *right;
+>  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+>  * };
+>  */
+> 
+> //  Definition for a binary tree node.
+> struct TreeNode
+> {
+> 	int val;
+> 	TreeNode *left;
+> 	TreeNode *right;
+> 	TreeNode(int x) :
+> 					val(x), left(NULL), right(NULL)
+> 	{
+> 	}
+> };
+> class Solution
+> {
+> 	TreeNode *prev { nullptr }; // 前一个被访问的节点
+> 	TreeNode *x { nullptr };
+> 	TreeNode *y { nullptr };
+> public:
+> 	void recoverTree(TreeNode *root)
+> 	{
+> 		inOrder(root);
+> 		swap(x->val, y->val);
+> 	}
+> 	void inOrder(TreeNode *root)
+> 	{
+> 		if (root)
+> 		{
+> 			inOrder(root->left);
+> 			if (prev && (prev->val > root->val))
+> 			{
+> 				y = root;
+> 				if (!x)
+> 				{
+> 					x = prev;
+> 				}
+> 				else
+> 				{
+> 					return;
+> 				}
+> 			}
+> 			prev = root;
+> 			inOrder(root->right);
+> 		}
+> 		else
+> 		{
+> 			return;
+> 		}
+> 	}
+> };
+> 
+> // Driver code
+> int main()
+> {
+> 
+> //	Solution solu;
+> //	vector<int> nums = { 1, 3, 5, 4, 7 };
+> //	return 0;
+> }
+> // g++ test.cpp --std=c++11 -pedantic -Wall -Wextra
+> ```
+>
+> 

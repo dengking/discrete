@@ -164,3 +164,80 @@ int main()
 
 ```
 
+### 方法二：隐式中序遍历
+
+```C++
+#include <bits/stdc++.h>
+using namespace std;
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+
+//  Definition for a binary tree node.
+struct TreeNode
+{
+	int val;
+	TreeNode *left;
+	TreeNode *right;
+	TreeNode(int x) :
+					val(x), left(NULL), right(NULL)
+	{
+	}
+};
+class Solution
+{
+	TreeNode *prev { nullptr }; // 前一个被访问的节点
+	TreeNode *x { nullptr };
+	TreeNode *y { nullptr };
+public:
+	void recoverTree(TreeNode *root)
+	{
+		inOrder(root);
+		swap(x->val, y->val);
+	}
+	void inOrder(TreeNode *root)
+	{
+		if (root)
+		{
+			inOrder(root->left);
+			if (prev && (prev->val > root->val))
+			{
+				y = root;
+				if (!x)
+				{
+					x = prev;
+				}
+				else
+				{
+					return;
+				}
+			}
+			prev = root;
+			inOrder(root->right);
+		}
+		else
+		{
+			return;
+		}
+	}
+};
+
+// Driver code
+int main()
+{
+
+//	Solution solu;
+//	vector<int> nums = { 1, 3, 5, 4, 7 };
+//	return 0;
+}
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra
+
+
+```
+
