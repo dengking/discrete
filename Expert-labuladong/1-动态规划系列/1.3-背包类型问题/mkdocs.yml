@@ -1,0 +1,15 @@
+nav:
+    - Introduction: index.md
+    - 经典动态规划-01背包问题: 经典动态规划-01背包问题
+    - 经典动态规划-01背包问题的变体: 经典动态规划-01背包问题的变体
+    - 经典动态规划-完全背包问题: 经典动态规划-完全背包问题
+    - LeetCode-一篇文章吃透背包问题: LeetCode-一篇文章吃透背包问题
+    - 算法设计与分析-3.10-01背包问题: 算法设计与分析-3.10-01背包问题
+    - LeetCode-322-零钱兑换: LeetCode-322-零钱兑换
+    - LeetCode-518-零钱兑换-II: LeetCode-518-零钱兑换-II
+    - TODO-LeetCode-279-完全平方数: TODO-LeetCode-279-完全平方数
+    - LeetCode-416-分割等和子集: LeetCode-416-分割等和子集
+    - TODO-LeetCode-494-目标和: TODO-LeetCode-494-目标和
+    - TODO-LeetCode-1046-最后一块石头的重量: TODO-LeetCode-1046-最后一块石头的重量
+    - TODO-LeetCode-1049-最后一块石头的重量-II: TODO-LeetCode-1049-最后一块石头的重量-II
+    - TODO-LeetCode-1155-掷骰子的N种方法: TODO-LeetCode-1155-掷骰子的N种方法

@@ -1,0 +1,6 @@
+nav:
+    - Introduction: index.md
+    - Backtracking: Backtracking
+    - Branch-and-Bound: Branch-and-Bound
+    - Permutation-and-combination: Permutation-and-combination
+    - VS-brute-force-search: VS-brute-force-search

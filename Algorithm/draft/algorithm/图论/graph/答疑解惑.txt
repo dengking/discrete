@@ -1,0 +1,23 @@
+比较const graph_size=10;和# define graph_size=0;
+
+2.对于模板类的书写我还没有完全掌握：
+template <int graph_size,class Weight>
+void Digraph<graph_size,Weight>::read()//注意在类后面应该这样写Digraph<graph_size,Weight>
+
+3.fatal error C1075: end of file found before the left brace '{' at 'G:\算法程序\图论\graph\graph.cpp(14)' was matched
+ 出现这种错误的原因使的{没有匹配好
+
+
+ 备忘：
+//cout<<"Type the weight of edge "<<v<<w<<;
+//cin>>weight_adjacency[v][w];
+
+ /*	for (Vertex w = 0; w < count; w++)
+{
+	 if (adjacency[v][w])
+	{
+	cout<<"Type the weight of edge "<<v<<w<<endl;
+	cin>>weight_adjacency[v][w];
+	}
+}
+*/

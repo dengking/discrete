@@ -1,0 +1,18 @@
+nav:
+    - Introduction: index.md
+    - wikipedia-Stack(abstract-data-type): wikipedia-Stack(abstract-data-type)
+    - geeksforgeeks-Stack-Data-Structure: geeksforgeeks-Stack-Data-Structure.md
+    # 单调栈
+    - Monotonic-stack: Monotonic-stack 
+    # 对栈进行排序
+    - Sort-stack: Sort-stack
+    # 栈和队列
+    - Stack-and-queue: Stack-and-queue
+    
+    # 使用栈来进行反转    
+    - Reverse-by-stack-反转: Reverse-by-stack-反转
+    # 反转stack
+    - Reverse-stack-反转: Reverse-stack-反转
+    
+    - Application-of-stack: Application-of-stack.md    
+    

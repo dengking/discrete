@@ -1,5 +1,0 @@
-1 int i=row,j=col;
-  for(i=0;i<row;i++)
-  for(j=0;j<col;j++)
-     sum.tab[i*col+j]=a.tab[i*col+j]+b.tab[i*col+j];
-  /*i代表行号，col代表每一行的长度，则上述存储是按照行来存储的*/

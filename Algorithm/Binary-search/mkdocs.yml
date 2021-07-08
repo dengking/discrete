@@ -1,0 +1,4 @@
+nav:
+    - Introduction: index.md
+    - wikipedia-Binary-search-algorithm: wikipedia-Binary-search-algorithm
+    - Binary-search-complexity-analysis: Binary-search-complexity-analysis

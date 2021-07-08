@@ -1,0 +1,11 @@
+nav:
+    - Introduction: index.md
+    - Paradigm: Paradigm
+    - Analysis-of-algorithms: Analysis-of-algorithms
+    - Search: Search
+    - Binary-search: Binary-search # 可以看做是search       
+    - State-space-search: State-space-search # 可以看做是search       
+    - Sorting: Sorting    
+    - Classical-algorithm: Classical
+    - Application: Application
+

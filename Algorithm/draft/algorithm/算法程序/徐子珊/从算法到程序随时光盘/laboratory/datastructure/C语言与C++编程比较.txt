@@ -1,0 +1,17 @@
+老实常常说C语言是面向过程的，c++是面向对象的。面向对象的c++我已经有了非常深的体会了，但是面向过程的C语言我接触地非常少。
+因此借助此次机会，我正好可以弥补我C语言的欠缺，同时在这两种语言的对比中，发现新的东西。
+
+如果来c++的类来做类比的话，则我们定义的结构体（如下）用来存放类的私有数据成员。
+typedef struct ListNode{/*节点类型结构体*/
+    void* key; /*关键值指针*/
+    struct ListNode* prev; /*前驱节点指针*/
+    struct ListNode* next; /*后继节点指针*/
+} ListNode;
+
+typedef struct {/*链表类型结构体*/
+	size_t eleSize;/*元素数据存储宽度*/
+	int (*comp)(void*, void*);/*元素数据比较规则*/
+    ListNode* nil; /*头指针，nil是哨兵结点，next[nil]为链表的表首结点，pre[nil]为链表的表尾结点，这样链表实际成为了一个环形链表*/
+    int n; /*元素个数*/
+}LinkedList;
+与它们相关的方法则通过定义一些该类型的指针或者结构体变量来产生类型。

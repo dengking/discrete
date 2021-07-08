@@ -4,5 +4,6 @@ nav:
     - Nesting-relation-model: Nesting-relation-model
     - Dependency-relation: Dependency-relation-model    
     - Chain: Chain
-    - Stream: Stream
+    - Chain-VS-hierarchy: Chain-VS-hierarchy
+    - Stream-model: Stream-model
     - Circular: Circular

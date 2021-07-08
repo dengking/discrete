@@ -1,0 +1,3 @@
+nav:
+    - Introduction: index.md
+    - K-way-merge-algorithm: K-way-merge-algorithm

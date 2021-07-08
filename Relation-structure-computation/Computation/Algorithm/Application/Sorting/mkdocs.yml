@@ -1,6 +1,0 @@
-nav:
-    - Introduction: index.md
-    - Merge-sort: merge-sorts
-    - Quick-sort: Quick-sort
-    - Timsort: Timsort
-    - Summary: Summary.md

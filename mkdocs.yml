@@ -1,10 +1,31 @@
 nav:
     - Home: index.md
-    - Computer-science-is-discrete: Computer-science-is-discrete.md
+    
+    - Computer-science-is-discrete: Computer-science-is-discrete
+    
     - Discrete-math: Discrete-math
+    
     - Relation-structure-computation: Relation-structure-computation
+    
+    - Algorithm: Algorithm
+    
+    - Data-structure: Data-structure
+    
+    - LeetCode: LeetCode
+    
+    - Expert-labuladong: Expert-labuladong
+    
+    - Expert-画解算法: Expert-画解算法
+    
+    - Expert-martinbroadhurst: Expert-martinbroadhurst
+    
+    - Expert-Emre-Bolat: Expert-Emre-Bolat
+    
+    - Course-YSC2229-Introductory-Data-Structures-and-Algorithms: Course-YSC2229-Introductory-Data-Structures-and-Algorithms
+    
+    - Course-cornell-cs3110: Course-cornell-cs3110
+    
+    - Book-Foundations-of-Computer-Science: Book-Foundations-of-Computer-Science
+
     - TODO: TODO
-    
-    
-    
     

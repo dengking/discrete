@@ -1,0 +1,6 @@
+nav:
+    - Introduction: index.md
+    - Optimal-substructure: Optimal-substructure
+    - Bellman-equation: Bellman-equation
+    - DP: DP
+    - Greedy: Greedy

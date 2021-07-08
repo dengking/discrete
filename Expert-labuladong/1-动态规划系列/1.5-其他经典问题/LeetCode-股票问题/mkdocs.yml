@@ -1,0 +1,10 @@
+nav:
+    - Introduction: index.md
+    - LeetCode股票问题的一种通用解法: LeetCode股票问题的一种通用解法    
+    - 团灭LeetCode股票买卖问题: 团灭LeetCode股票买卖问题
+    - LeetCode-121-买卖股票的最佳时机: LeetCode-121-买卖股票的最佳时机
+    - LeetCode-122-买卖股票的最佳时机-II: LeetCode-122-买卖股票的最佳时机-II
+    - TODO-LeetCode-123-买卖股票的最佳时机-III: TODO-LeetCode-123-买卖股票的最佳时机-III
+    - TODO-LeetCode-188-买卖股票的最佳时机-IV: TODO-LeetCode-188-买卖股票的最佳时机-IV
+    - LeetCode-309-最佳买卖股票时机含冷冻期: LeetCode-309-最佳买卖股票时机含冷冻期
+    - LeetCode-714-买卖股票的最佳时机含手续费: LeetCode-714-买卖股票的最佳时机含手续费

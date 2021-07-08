@@ -1,0 +1,7 @@
+nav:
+    - Introduction: index.md
+    - wikipedia-Divide-and-conquer-algorithm: wikipedia-Divide-and-conquer-algorithm
+    - Divide-and-conquer-and-merge-framework: Divide-and-conquer-and-merge-framework
+    - Merge-algorithm-合并: Merge-algorithm-合并    
+    - Complexity-analysis: Complexity-analysis
+    

@@ -1,0 +1,9 @@
+nav:
+    - Introduction: index.md
+    - Sudoku-solving: Sudoku-solving
+    - N-queen: N-queen
+    - Symbol-triangle: Symbol-triangle
+    # - Max-circle-in-graph: Max-circle-in-graph
+    # - Max-loading: Max-loading
+    - M-coloring-of-graph: M-coloring-of-graph
+    - Permutation-of-circle: Permutation-of-circle
