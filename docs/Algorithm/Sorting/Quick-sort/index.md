@@ -6,7 +6,7 @@
 ![](./Quick-sort-1.jpg)
 ![](./Quick-sort-2.jpg)
 
-
+### 完整程序
 
 
 
@@ -119,6 +119,63 @@ void display(T arr[], int n)
 使用上述算法对`[5, 4, 3, 2, 1]`进行排序：`while(a[++i]<x and i<end);`退出时，`i`的值为`end`即4；`while(a[--j]>x);`退出时，`j`的值为`4`。
 
 测试用例：`[10, 11, 9, 8, 4, 7, 3, 8]`
+
+
+
+### `randomized_partition` 避免退化
+
+当原数组本身是有序的时候，如果每次都选择第一个元素作为pivot，那么将导致quick sort退化，下面是源自: https://leetcode-cn.com/submissions/detail/194476777/testcase/ 
+
+```C++
+[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52, ......50000]
+```
+
+这种情况下是会超时的。
+
+
+
+源自: LeetCode [912. 排序数组](https://leetcode-cn.com/problems/sort-an-array/) # [官方解题](https://leetcode-cn.com/problems/sort-an-array/solution/pai-xu-shu-zu-by-leetcode-solution/)
+
+```C++
+class Solution {
+    int partition(vector<int>& nums, int l, int r) {
+        int pivot = nums[r];
+        int i = l - 1;
+        for (int j = l; j <= r - 1; ++j) {
+            if (nums[j] <= pivot) {
+                i = i + 1;
+                swap(nums[i], nums[j]);
+            }
+        }
+        swap(nums[i + 1], nums[r]);
+        return i + 1;
+    }
+    int randomized_partition(vector<int>& nums, int l, int r) {
+        int i = rand() % (r - l + 1) + l; // 随机选一个作为我们的主元
+        swap(nums[r], nums[i]);
+        return partition(nums, l, r);
+    }
+    void randomized_quicksort(vector<int>& nums, int l, int r) {
+        if (l < r) {
+            int pos = randomized_partition(nums, l, r);
+            randomized_quicksort(nums, l, pos - 1);
+            randomized_quicksort(nums, pos + 1, r);
+        }
+    }
+public:
+    vector<int> sortArray(vector<int>& nums) {
+        srand((unsigned)time(NULL));
+        randomized_quicksort(nums, 0, (int)nums.size() - 1);
+        return nums;
+    }
+};
+
+
+```
+
+
+
+
 
 ## hackerearth [Quick Sort](https://www.hackerearth.com/zh/practice/algorithms/sorting/quick-sort/tutorial/)
 
