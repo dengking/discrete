@@ -4,7 +4,9 @@
 
 
 
-[37. 解数独](https://leetcode-cn.com/problems/sudoku-solver/)
+### [37. 解数独](https://leetcode-cn.com/problems/sudoku-solver/)
+
+还未完成
 
 LeetCode-51-N-皇后-Hard
 
@@ -16,9 +18,31 @@ LeetCode-面试题-08.12-八皇后
 
 ## 数组类型问题
 
-leetcode [1711. 大餐计数](https://leetcode-cn.com/problems/count-good-meals/)
+### LeetCode [1711. 大餐计数](https://leetcode-cn.com/problems/count-good-meals/)
 
-LeetCode [392. 判断子序列](https://leetcode-cn.com/problems/is-subsequence/)
+### LeetCode [392. 判断子序列](https://leetcode-cn.com/problems/is-subsequence/)
 
 参见 labuladong [二分查找的妙用：判定子序列](https://mp.weixin.qq.com/s/hWi2hTrQewL_YKioGkXQJg)
+
+
+
+## 去重
+
+### leetcode [83. 删除排序链表中的重复元素](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/) 
+
+参见: 
+
+labuladong [如何高效对有序数组/链表去重？](https://mp.weixin.qq.com/s/6Eb7gKqNqXH9B0hSZvMs5A)
+
+
+
+### Leetcode [26. 删除有序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/)
+
+参见: 
+
+labuladong [如何高效对有序数组/链表去重？](https://mp.weixin.qq.com/s/6Eb7gKqNqXH9B0hSZvMs5A)
+
+
+
+
 
