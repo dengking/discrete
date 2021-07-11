@@ -279,8 +279,8 @@ nav:
     - Introduction: Algorithm/Binary-search/index.md
     - wikipedia-Binary-search-algorithm:
       - Introduction: Algorithm/Binary-search/wikipedia-Binary-search-algorithm/index.md
-    - Binary-search-complexity-analysis:
-      - Introduction: Algorithm/Binary-search/Binary-search-complexity-analysis/index.md
+    - Complexity-analysis:
+      - Introduction: Algorithm/Binary-search/Complexity-analysis/index.md
   - State-space-search:
     - Introduction: Algorithm/State-space-search/index.md
     - Backtracking:
@@ -330,6 +330,8 @@ nav:
       - Introduction: Algorithm/Sorting/Merge-sort/index.md
     - Quick-sort:
       - Introduction: Algorithm/Sorting/Quick-sort/index.md
+      - Quicksort&&BST:
+        - Introduction: Algorithm/Sorting/Quick-sort/Quicksort&&BST/index.md
     - Quick-select:
       - Introduction: Algorithm/Sorting/Quick-select/index.md
     - Timsort:
