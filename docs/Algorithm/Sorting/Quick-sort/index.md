@@ -1,12 +1,136 @@
 # Quick sort
 
-## 计算机算法设计与分析
+
+
+## wikipedia [Quicksort](https://en.wikipedia.org/wiki/Quicksort)
+
+**Quicksort** (sometimes called **partition-exchange sort**) is an [efficient](https://en.wikipedia.org/wiki/Algorithm_efficiency) [sorting algorithm](https://en.wikipedia.org/wiki/Sorting_algorithm), serving as a systematic method for placing the elements of a [random access](https://en.wikipedia.org/wiki/Random_access) [file](https://en.wikipedia.org/wiki/Computer_file) or an [array](https://en.wikipedia.org/wiki/Array_data_structure) in order. 
+
+Developed by British computer scientist [Tony Hoare](https://en.wikipedia.org/wiki/Tony_Hoare) in 1959[[1\]](https://en.wikipedia.org/wiki/Quicksort#cite_note-1) and published in 1961,[[2\]](https://en.wikipedia.org/wiki/Quicksort#cite_note-alg64-2) it is still a commonly used algorithm for sorting. 
+
+When implemented well, it can be about two or three times faster than its main competitors, [merge sort](https://en.wikipedia.org/wiki/Merge_sort) and [heapsort](https://en.wikipedia.org/wiki/Heapsort). 
+
+Quicksort is a [comparison sort](https://en.wikipedia.org/wiki/Comparison_sort), meaning that it can sort items of any type for which a "less-than" relation (formally, a [total order](https://en.wikipedia.org/wiki/Total_order)) is defined. 
+
+Efficient implementations of Quicksort are not a [stable sort](https://en.wikipedia.org/wiki/Stable_sort), meaning that the relative order of equal sort items is not preserved. 
+
+Quicksort can operate [in-place](https://en.wikipedia.org/wiki/In-place_algorithm) on an array, requiring small additional amounts of [memory](https://en.wikipedia.org/wiki/Main_memory) to perform the sorting. It is very similar to [selection sort](https://en.wikipedia.org/wiki/Selection_sort), except that it does not always choose worst-case partition.
+
+[Mathematical analysis](https://en.wikipedia.org/wiki/Analysis_of_algorithms) of quicksort shows that, [on average](https://en.wikipedia.org/wiki/Best,_worst_and_average_case), the algorithm takes [O](https://en.wikipedia.org/wiki/Big_O_notation)(*n* log *n*) comparisons to sort *n* items. In the [worst case](https://en.wikipedia.org/wiki/Best,_worst_and_average_case), it makes $O(n^2)$ comparisons, though this behavior is rare.
+
+### Algorithm
+
+Quicksort is a [divide and conquer algorithm](https://en.wikipedia.org/wiki/Divide_and_conquer_algorithm). Quicksort first divides a large array into two smaller sub-arrays: the low elements and the high elements. Quicksort can then recursively sort the sub-arrays. The steps are:
+
+1、Pick an element, called a *pivot*（基准）, from the array.
+
+2、*Partitioning*: reorder the array so that all elements with values less than the pivot come before the pivot, while all elements with values greater than the pivot come after it (equal values can go either way). After this partitioning, the pivot is in its final position. This is called the *partition* operation.
+
+3、[Recursively](https://en.wikipedia.org/wiki/Recursion_(computer_science)) apply the above steps to the sub-array of elements with smaller values and separately to the sub-array of elements with greater values.
+
+The base case of the recursion is arrays of size zero or one, which are in order by definition, so they never need to be sorted.
+
+The **pivot selection** and partitioning steps can be done in several different ways; the choice of specific implementation schemes greatly affects the algorithm's performance.
+
+### Implementation issues
+
+#### Parallelization
+
+Quicksort's divide-and-conquer formulation makes it amenable to [parallelization](https://en.wikipedia.org/wiki/Parallel_algorithm) using [task parallelism](https://en.wikipedia.org/wiki/Task_parallelism). The partitioning step is accomplished through the use of a [parallel prefix sum](https://en.wikipedia.org/wiki/Prefix_sum) algorithm to compute an index for each array element in its section of the partitioned array.[[23\]](https://en.wikipedia.org/wiki/Quicksort#cite_note-23)[[24\]](https://en.wikipedia.org/wiki/Quicksort#cite_note-24) Given an array of size *n*, the partitioning step performs O(*n*) work in *O*(log *n*) time and requires O(*n*) additional scratch space. After the array has been partitioned, the two partitions can be sorted recursively in parallel. Assuming an ideal choice of pivots, parallel quicksort sorts an array of size *n* in O(*n* log *n*) work in O(log² *n*) time using O(*n*) additional space.
+
+### Formal analysis
+
+> NOTE: 
+>
+> 以下分析是使用quicksort中所执行的比较的次数来作为性能基准；其实quicksort的比较都是发生在`partition`函数中；
+
+#### Worst-case analysis
+
+The most unbalanced partition occurs when one of the **sublists** returned by the partitioning routine is of size *n* − 1.[[27\]](https://en.wikipedia.org/wiki/Quicksort#cite_note-unbalanced-27) This may occur if the **pivot** happens to be the smallest or largest element in the list, or in some implementations (e.g., the Lomuto partition scheme as described above) when all the elements are equal.
+
+If this happens repeatedly in every partition, then each recursive call processes a list of size one less than the previous list. Consequently, we can make *n* − 1 nested calls before we reach a list of size 1. This means that the [call tree](https://en.wikipedia.org/wiki/Call_stack) is a linear chain of *n* − 1 nested calls. The *i*th call does *O*(*n* − *i*) work to do the partition, and $ \textstyle \sum _{i=0}{n}(n-i)=O(n{2}) $, so in that case Quicksort takes *O*(*n*²) time.
+
+***SUMMARY\*** : 第0次调用quicksort需要进行n此比较，第1次调用quicksort需要进行n-1次比较，依次类推，所以总的耗费为n此调用之和；所以就是$ \textstyle \sum _{i=0}{n}(n-i)=O(n{2}) $；其实这非常类似于二叉搜索树退化为了linked list，这种情况其实就是[Bubble sort](https://en.wikipedia.org/wiki/Bubble_sort)，算法复杂度就是$O(n^{2})$
+
+#### Best-case analysis
+
+In the most **balanced** case, each time we perform a partition we divide the list into two nearly equal pieces. This means each recursive call processes a list of half the size. Consequently, we can make only $log_2{n}$ nested calls before we reach a list of size 1. This means that the depth of the [call tree](https://en.wikipedia.org/wiki/Call_stack) is $log_2{n}$. But no two calls at the same level of the call tree process the same part of the original list; thus, each level of calls needs only *O*(*n*) time all together (each call has some constant overhead, but since there are only *O*(*n*) calls at each level, this is subsumed in the *O*(*n*) factor). The result is that the algorithm uses only *O*(*n* log *n*) time.
+
+***SUMMARY\*** : best-case其实是非常类似于balanced binary search tree的；
+
+#### Average-case analysis
+
+To sort an array of *n* distinct elements, quicksort takes *O*(*n* log *n*) time in expectation, averaged over all *n*! permutations of *n* elements with [equal probability](https://en.wikipedia.org/wiki/Uniform_distribution_(discrete)). We list here three common proofs to this claim providing different insights into quicksort's workings.
+
+##### Using percentiles百分位数值
+
+##### Using recurrences
+
+An alternative approach is to set up a [recurrence relation](https://en.wikipedia.org/wiki/Recurrence_relation) for the *T*(*n*) factor, the time needed to sort a list of size *n*. In the most unbalanced case, a single quicksort call involves *O*(*n*) work plus two recursive calls on lists of size 0 and *n*−1, so the recurrence relation is
+
+$ T(n)=O(n)+T(0)+T(n-1)=O(n)+T(n-1). $
+
+This is the same relation as for [insertion sort](https://en.wikipedia.org/wiki/Insertion_sort) and [selection sort](https://en.wikipedia.org/wiki/Selection_sort), and it solves to worst case *T*(*n*) = *O*(*n*²).
+
+In the most balanced case, a single quicksort call involves *O*(*n*) work plus two recursive calls on lists of size *n*/2, so the recurrence relation is
+
+$ T(n)=O(n)+2T\left({\frac {n}{2}}\right). $
+
+The [master theorem for divide-and-conquer recurrences](https://en.wikipedia.org/wiki/Master_theorem_(analysis_of_algorithms)) tells us that *T*(*n*) = *O*(*n* log *n*).
+
+The outline of a formal proof of the *O*(*n* log *n*) expected time complexity follows. Assume that there are no duplicates as duplicates could be handled with linear time pre- and post-processing, or considered cases easier than the analyzed. When the input is a random permutation, the rank of the pivot is uniform random from 0 to *n* − 1. Then the resulting parts of the partition have sizes *i* and *n* − *i* − 1, and i is uniform random from 0 to *n* − 1. So, averaging over all possible splits and noting that the number of comparisons for the partition is *n* − 1, the average number of comparisons over all permutations of the input sequence can be estimated accurately by solving the recurrence relation:
+
+$ C(n)=n-1+{\frac {1}{n}}\sum _{i=0}^{n-1}(C(i)+C(n-i-1))=n-1+{\frac {2}{n}}\sum _{i=0}^{n-1}C(i) $
+
+$ nC(n)=n(n-1)+2\sum _{i=0}^{n-1}C(i) $
+
+$ nC(n)-(n-1)C(n-1)=n(n-1)-(n-1)(n-2)+2C(n-1) $
+
+$ nC(n)=(n+1)C(n-1)+2n-2 $
+
+$ {\begin{aligned}{\frac {C(n)}{n+1}}&={\frac {C(n-1)}{n}}+{\frac {2}{n+1}}-{\frac {2}{n(n+1)}}\leq {\frac {C(n-1)}{n}}+{\frac {2}{n+1}}\&={\frac {C(n-2)}{n-1}}+{\frac {2}{n}}-{\frac {2}{(n-1)n}}+{\frac {2}{n+1}}\leq {\frac {C(n-2)}{n-1}}+{\frac {2}{n}}+{\frac {2}{n+1}}\&\ \ \vdots \&={\frac {C(1)}{2}}+\sum _{i=2}^{n}{\frac {2}{i+1}}\leq 2\sum _{i=1}^{n-1}{\frac {1}{i}}\approx 2\int _{1}^{n}{\frac {1}{x}}\mathrm {d} x=2\ln n\end{aligned}} $
+
+Solving the recurrence gives *C*(*n*) = 2*n* ln *n* ≈ 1.39*n* log₂ *n*.
+
+This means that, on average, quicksort performs only about 39% worse than in its best case. In this sense, it is closer to the best case than the worst case. A [comparison sort](https://en.wikipedia.org/wiki/Comparison_sort) cannot use less than log₂(*n*!) comparisons on average to sort *n* items (as [explained in the article Comparison sort](https://en.wikipedia.org/wiki/Comparison_sort#Lower_bound_for_the_average_number_of_comparisons)) and in case of large *n*, [Stirling's approximation](https://en.wikipedia.org/wiki/Stirling's_approximation) yields log₂(*n*!) ≈ *n*(log₂ *n* − log₂ *e*), so quicksort is not much worse than an ideal comparison sort. This fast average runtime is another reason for quicksort's practical dominance over other sorting algorithms.
+
+##### Using a binary search tree
+
+To each execution of **quicksort** corresponds the following [binary search tree](https://en.wikipedia.org/wiki/Binary_search_tree) (BST): the **initial pivot** is the **root node**; the **pivot of the left half** is the **root of the left subtree**, the **pivot of the right half** is the **root of the right subtree**, and so on. The number of comparisons of the execution of quicksort equals the number of comparisons during the construction of the BST by a sequence of insertions. So, the average number of comparisons for randomized quicksort equals the average cost of constructing a BST when the values inserted $ (x_{1},x_{2},\ldots ,x_{n}) $ form a random permutation.
+
+Consider a BST created by insertion of a sequence $ (x_{1},x_{2},\ldots ,x_{n}) $ of values forming a random permutation. Let *C* denote the cost of creation of the BST. We have $ C=\sum *{i}\sum \*{j<i}c\*{i,j} $, where $ c*{i,j} $ is an binary random variable expressing whether during the insertion of $ x_{i} $ there was a comparison to $ x_{j} $.
+
+By [linearity of expectation](https://en.wikipedia.org/wiki/Expected_value#Linearity), the expected value $ \operatorname {E} [C] $ of *C* is $ \operatorname {E} [C]=\sum _{i}\sum *{j<i}\Pr(c*{i,j}) $.
+
+Fix *i* and *j*<*i*. The values $ {x_{1},x_{2},\ldots ,x_{j}} $, once sorted, define *j*+1 intervals. The core structural observation is that $ x_{i} $ is compared to $ x_{j} $ in the algorithm if and only if $ x_{i} $ falls inside one of the two intervals adjacent to $ x_{j} $.
+
+Observe that since $ (x_{1},x_{2},\ldots ,x_{n}) $ is a random permutation, $ (x_{1},x_{2},\ldots ,x_{j},x_{i}) $ is also a random permutation, so the probability that $ x_{i} $ is adjacent to $ x_{j} $ is exactly $ {\frac {2}{j+1}} $.
+
+We end with a short calculation:
+
+$ \operatorname {E} [C]=\sum _{i}\sum _{j<i}{\frac {2}{j+1}}=O\left(\sum _{i}\log i\right)=O(n\log n). $
+
+### Relation to other algorithms
+
+**Quicksort** is a space-optimized version of the [binary tree sort](https://en.wikipedia.org/wiki/Binary_tree_sort). Instead of inserting items sequentially into an explicit tree, quicksort organizes them concurrently into a tree that is implied by the recursive calls. The algorithms make exactly the same comparisons, but in a different order. An often desirable property of a [sorting algorithm](https://en.wikipedia.org/wiki/Sorting_algorithm) is **stability** – that is the order of elements that compare equal is not changed, allowing controlling order of multikey tables (e.g. directory or folder listings) in a natural way. This property is hard to maintain for in situ（原位） (or in place) quicksort (that uses only constant additional space for pointers and buffers, and *O*(log *n*) additional space for the management of explicit or implicit recursion). For variant quicksorts involving extra memory due to representations using pointers (e.g. lists or trees) or files (effectively lists), it is trivial to maintain stability. The more complex, or disk-bound, data structures tend to increase time cost, in general making increasing use of virtual memory or disk.
+
+The most direct competitor of quicksort is [heapsort](https://en.wikipedia.org/wiki/Heapsort). Heapsort's running time is *O*(*n* log *n*), but heapsort's average running time is usually considered slower than in-place quicksort. This result is debatable; some publications indicate the opposite.[[28\]](https://en.wikipedia.org/wiki/Quicksort#cite_note-28)[[29\]](https://en.wikipedia.org/wiki/Quicksort#cite_note-29) [Introsort](https://en.wikipedia.org/wiki/Introsort) is a variant of quicksort that switches to heapsort when a bad case is detected to avoid quicksort's worst-case running time.
+
+Quicksort also competes with [merge sort](https://en.wikipedia.org/wiki/Merge_sort), another *O*(*n* log *n*) sorting algorithm. Mergesort is a [stable sort](https://en.wikipedia.org/wiki/Stable_sort), unlike standard in-place quicksort and heapsort, and can be easily adapted to operate on [linked lists](https://en.wikipedia.org/wiki/Linked_list) and very large lists stored on slow-to-access media such as [disk storage](https://en.wikipedia.org/wiki/Disk_storage) or [network-attached storage](https://en.wikipedia.org/wiki/Network-attached_storage). Although quicksort can be implemented as a stable sort using linked lists, it will often suffer from poor pivot choices without random access. The main disadvantage of mergesort is that, when operating on arrays, efficient implementations require *O*(*n*) auxiliary space, whereas the variant of quicksort with in-place partitioning and tail recursion uses only *O*(log *n*) space. (When operating on linked lists, mergesort only requires a small, constant amount of auxiliary storage.)
+
+[Bucket sort](https://en.wikipedia.org/wiki/Bucket_sort) with two buckets is very similar to quicksort; the pivot in this case is effectively the value in the middle of the value range, which does well on average for uniformly distributed inputs.
+
+
+
+## Implementation
+
+### 计算机算法设计与分析
 
 ![](./Quick-sort-0.jpg)
 ![](./Quick-sort-1.jpg)
 ![](./Quick-sort-2.jpg)
 
-### 完整程序
+#### 完整程序
 
 
 
@@ -122,7 +246,7 @@ void display(T arr[], int n)
 
 
 
-### `randomized_partition` 避免退化
+#### `randomized_partition` 避免退化
 
 当原数组本身是有序的时候，如果每次都选择第一个元素作为pivot，那么将导致quick sort退化，下面是源自: https://leetcode-cn.com/submissions/detail/194476777/testcase/ 
 
@@ -177,11 +301,11 @@ public:
 
 
 
-## hackerearth [Quick Sort](https://www.hackerearth.com/zh/practice/algorithms/sorting/quick-sort/tutorial/)
+### hackerearth [Quick Sort](https://www.hackerearth.com/zh/practice/algorithms/sorting/quick-sort/tutorial/)
 
 讲解地非常不错。
 
-### `partition`
+#### `partition`
 
 ```c++
 int partition ( int A[],int start ,int end) {
@@ -205,7 +329,7 @@ int partition ( int A[],int start ,int end) {
 
 函数的返回值是分割位置。
 
-#### 使用fast、slow pointer来解释partition
+##### 使用fast、slow pointer来解释partition
 
 ```C++
 /**
@@ -245,7 +369,7 @@ int partition(int A[], int start, int end)
 
 ```
 
-### 完整程序
+#### 完整程序
 
 Now, let us see the recursive function Quick_sort :
 
@@ -360,7 +484,7 @@ int main()
 
 
 
-## 对比两种实现方式
+### 对比两种实现方式
 
 上述两种实现方式，其实都使用了double pointer: 
 

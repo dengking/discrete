@@ -1,8 +1,10 @@
-# stackoverflow [how to calculate binary search complexity](https://stackoverflow.com/questions/8185079/how-to-calculate-binary-search-complexity)
+# binary search complexity
+
+## stackoverflow [how to calculate binary search complexity](https://stackoverflow.com/questions/8185079/how-to-calculate-binary-search-complexity)
 
 I heard somebody say that since binary search halves the input required to search hence it is log(n) algorithm. Since I am not from a mathematics background I am not able to relate to it. Can somebody explain it in a little more detail? does it have to do something with the logarithmic series? 
 
-## [A](https://stackoverflow.com/questions/8185079/how-to-calculate-binary-search-complexity/8185382#8185382)
+### [A](https://stackoverflow.com/questions/8185079/how-to-calculate-binary-search-complexity/8185382#8185382)
 
 Here a more mathematical way of seeing it, though not really complicated. IMO much clearer as informal ones:
 
