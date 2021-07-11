@@ -4,7 +4,7 @@
 
 ## 面试题
 
-csdn [腾讯社招面试经历](https://blog.csdn.net/hong2511/article/details/81284498)
+### csdn [腾讯社招面试经历](https://blog.csdn.net/hong2511/article/details/81284498)
 
 之后就问我一道算法题：10亿个整数，随机生成，可重复，求最大的前1万个。
 
@@ -15,6 +15,26 @@ csdn [腾讯社招面试经历](https://blog.csdn.net/hong2511/article/details/8
 > 1、"divide and conquer and merge"思想
 >
 > 2、"K way merge algorithm-多路合并"
+
+### LeetCode [文件中存在亿级数据，按某个字段进行排序，输出前100万数据](https://leetcode-cn.com/circle/discuss/fW1wqB/) 
+
+文件中存在亿级数据，并且每条数据是多个字段，如何按某个字段进行排序后，输出前100万数据(需要写出代码)
+
+文件中存在大量数据，亿级别的数据，需要按照某一列进行排序。
+样例：
+buyer1,item1,13812348765,123,2020-01-01 01:00:00,1…
+buyer2,item2,13812348765,123,2020-01-01 01:00:00,2…
+buyer2,item2,13812348765,123,2020-01-01 01:00:00,3…
+要求：
+1：可以按照其中某几列进行排序，按照手机号码或者用户ID进行排序
+2：内存使用限制不超过64M，高效快速完成排序，并输出前100万数据
+
+主要考察点：
+
+1：文件处理
+2：排序处理
+3：线程处理
+4：NIO
 
 
 
@@ -31,3 +51,10 @@ External sorting algorithms generally fall into two types:
 1、distribution sorting, which resembles [quicksort](https://en.wanweibaike.com/wiki-Quicksort), and 
 
 2、external merge sort, which resembles [merge sort](https://en.wanweibaike.com/wiki-Merge_sort). The latter typically uses a [hybrid](https://en.wanweibaike.com/wiki-Hybrid_algorithm) sort-merge strategy. In the sorting phase, chunks of data small enough to fit in main memory are read, sorted, and written out to a temporary file. In the merge phase, the sorted subfiles are combined into a single larger file.
+
+### External merge sort
+
+> NOTE: 
+>
+> 这种是常用的
+

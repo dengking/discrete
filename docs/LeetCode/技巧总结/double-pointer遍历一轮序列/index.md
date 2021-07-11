@@ -1,10 +1,20 @@
-# 一轮遍历将数组可以做的事情
+# double pointer遍历一轮序列可以做的事情
 
-使用区间的概念来进行理解
+一、使用双double pointer指针技巧，我们能够只遍历一轮数组，就完成很多看似不可能完成的事情，这在下面的章节、文章中，已经进行非常深刻的讨论: 
 
-使用双指针，这是非常有效的一种方式
 
-## quick sort partition
+
+二、使用区间的概念来进行理解
+
+三、此处的序列，包括: 
+
+1、array
+
+2、linked list
+
+四、本文补充一些内容，它们的实现也是可以使用double pointer来进行解释的
+
+## quick sort partition: fast slow double pointer
 
 quick sort的partition遍历数组一轮就可以将数组分为两部分
 
@@ -170,3 +180,8 @@ int main()
 > 看下算法执行的过程：
 >
 > ![Image](https://mmbiz.qpic.cn/sz_mmbiz_gif/gibkIz0MVqdFXdiaWmw4sp8GT0YI41Rk5muqNGreX2FbysTeUnlAWECO1eYWc5ZZDPMYCs7ViaHkEaOfK4lI9HD7A/640?wx_fmt=gif&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+
+
+结合quick sort的partition来看，它其实就是运用了fast slow double pointer，下面是使用这个technique对它的修改:
+
