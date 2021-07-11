@@ -1,11 +1,17 @@
-[TOC]
-
-# [Bubble Sort](https://www.hackerearth.com/zh/practice/algorithms/sorting/bubble-sort/tutorial/)
-
+# Bubble Sort
 
 bubble sort每次找出剩余元素中最大或最小的，它的实现方式是让剩余的所有未排序的元素进行打擂台（相邻两个元素两两进行比较，较大者），从而找出这些元素中，最大的或最小的。显然对于`n`个元素，只需要找出前`n-1`个最大或最小的元素，剩下的那个就是最小的或最大的；
 
-```
+## wanweibaike [Bubble sort](https://en.wanweibaike.com/wiki-Bubble%20Sort) 
+
+This simple algorithm performs poorly in real world use and is used primarily as an educational tool. More efficient algorithms such as [quicksort](https://en.wanweibaike.com/wiki-Quicksort), [timsort](https://en.wanweibaike.com/wiki-Timsort), or [merge sort](https://en.wanweibaike.com/wiki-Merge_sort) are used by the sorting libraries built into popular programming languages such as Python and Java.
+
+## hackerearth [Bubble Sort](https://www.hackerearth.com/zh/practice/algorithms/sorting/bubble-sort/tutorial/)
+
+
+
+
+```Java
 void bubble_sort( int A[ ], int n ) {
     int temp;
     for(int k = 0; k< n-1; k++) {
@@ -25,7 +31,7 @@ void bubble_sort( int A[ ], int n ) {
 在实现上，它使用的是嵌套循环，外层的循环表示寻找第`k`大或第`k`小的元素，内层循环则是使用打擂台的方式寻找出第`k`的或第`k`小的元素（这就是冒泡的过程）；显然外层循环决定了内存循环的数据范围；
 
 该算法是最最简单的基于遍历的算法；
-```
+```Java
 void bubble_sort(int arr[], int n){
     int temp = 0;
     int count = 0;

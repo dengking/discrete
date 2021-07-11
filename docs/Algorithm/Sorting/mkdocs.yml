@@ -1,12 +1,13 @@
 nav:
     - Introduction: index.md
+    - Bubble-Sort: Bubble-Sort    
+    - Insertion-sort: Insertion-sort    
+    - Quick-sort: Quick-sort    
+    - Quick-select: Quick-select    
     - Merge-sort: Merge-sort
-    - Quick-sort: Quick-sort
-    - Quick-select: Quick-select
     - Timsort: Timsort
-    - Bubble-Sort: Bubble-Sort
-    - Insertion-sort: Insertion-sort
-    - External-sorting: External-sorting    
+    - External-sorting: External-sorting  
+    - Sort-linked-list: Sort-linked-list
     - Lexicographical-order-字典序: Lexicographical-order-字典序
     - LeetCode-912-排序数组: LeetCode-912-排序数组
     - LeetCode-Top-K: LeetCode-Top-K    

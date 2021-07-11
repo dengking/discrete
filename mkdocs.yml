@@ -326,22 +326,29 @@ nav:
       - Introduction: Algorithm/State-space-search/VS-brute-force-search/index.md
   - Sorting:
     - Introduction: Algorithm/Sorting/index.md
-    - Merge-sort:
-      - Introduction: Algorithm/Sorting/Merge-sort/index.md
+    - Bubble-Sort:
+      - Introduction: Algorithm/Sorting/Bubble-Sort/index.md
+    - Insertion-sort:
+      - Introduction: Algorithm/Sorting/Insertion-sort/index.md
     - Quick-sort:
       - Introduction: Algorithm/Sorting/Quick-sort/index.md
       - Quicksort&&BST:
         - Introduction: Algorithm/Sorting/Quick-sort/Quicksort&&BST/index.md
     - Quick-select:
       - Introduction: Algorithm/Sorting/Quick-select/index.md
+    - Merge-sort:
+      - Introduction: Algorithm/Sorting/Merge-sort/index.md
     - Timsort:
       - Introduction: Algorithm/Sorting/Timsort/index.md
-    - Bubble-Sort:
-      - Introduction: Algorithm/Sorting/Bubble-Sort/index.md
-    - Insertion-sort:
-      - Introduction: Algorithm/Sorting/Insertion-sort/index.md
     - External-sorting:
       - Introduction: Algorithm/Sorting/External-sorting/index.md
+    - Sort-linked-list:
+      - "LeetCode-147-\u5BF9\u94FE\u8868\u8FDB\u884C\u63D2\u5165\u6392\u5E8F":
+        - Introduction: "Algorithm/Sorting/Sort-linked-list/LeetCode-147-\u5BF9\u94FE\
+            \u8868\u8FDB\u884C\u63D2\u5165\u6392\u5E8F/index.md"
+      - "LeetCode-148-\u6392\u5E8F\u94FE\u8868":
+        - Introduction: "Algorithm/Sorting/Sort-linked-list/LeetCode-148-\u6392\u5E8F\
+            \u94FE\u8868/index.md"
     - "Lexicographical-order-\u5B57\u5178\u5E8F":
       - Introduction: "Algorithm/Sorting/Lexicographical-order-\u5B57\u5178\u5E8F\
           /index.md"
@@ -466,13 +473,6 @@ nav:
           - Introduction: "Data-structure/Linked-list/LeetCode/Fast-slow-double-pointer-\u5FEB\
               \u6162\u53CC\u6307\u9488/LeetCode-876-\u94FE\u8868\u7684\u4E2D\u95F4\
               \u7ED3\u70B9/index.md"
-      - "\u6392\u5E8F-sort":
-        - "LeetCode-147-\u5BF9\u94FE\u8868\u8FDB\u884C\u63D2\u5165\u6392\u5E8F":
-          - Introduction: "Data-structure/Linked-list/LeetCode/\u6392\u5E8F-sort/LeetCode-147-\u5BF9\
-              \u94FE\u8868\u8FDB\u884C\u63D2\u5165\u6392\u5E8F/index.md"
-        - "LeetCode-148-\u6392\u5E8F\u94FE\u8868":
-          - Introduction: "Data-structure/Linked-list/LeetCode/\u6392\u5E8F-sort/LeetCode-148-\u6392\
-              \u5E8F\u94FE\u8868/index.md"
       - "\u53BB\u91CD":
         - "LeetCode-83-\u5220\u9664\u6392\u5E8F\u94FE\u8868\u4E2D\u7684\u91CD\u590D\u5143\u7D20":
           - Introduction: "Data-structure/Linked-list/LeetCode/\u53BB\u91CD/LeetCode-83-\u5220\
