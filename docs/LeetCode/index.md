@@ -18,7 +18,7 @@ LeetCode-面试题-08.12-八皇后
 
 leetcode [1711. 大餐计数](https://leetcode-cn.com/problems/count-good-meals/)
 
+LeetCode [392. 判断子序列](https://leetcode-cn.com/problems/is-subsequence/)
 
-
-
+参见 labuladong [二分查找的妙用：判定子序列](https://mp.weixin.qq.com/s/hWi2hTrQewL_YKioGkXQJg)
 

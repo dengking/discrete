@@ -2,7 +2,7 @@
 
 一、使用双double pointer指针技巧，我们能够只遍历一轮数组，就完成很多看似不可能完成的事情，这在下面的章节、文章中，已经进行非常深刻的讨论: 
 
-
+`Expert-labuladong\2.5-手把手刷数组题目`
 
 二、使用区间的概念来进行理解
 
@@ -13,6 +13,8 @@
 2、linked list
 
 四、本文补充一些内容，它们的实现也是可以使用double pointer来进行解释的
+
+
 
 ## quick sort partition: fast slow double pointer
 
@@ -184,4 +186,39 @@ int main()
 
 
 结合quick sort的partition来看，它其实就是运用了fast slow double pointer，下面是使用这个technique对它的修改:
+
+```c
+/**
+ * @brief
+ * 我们让慢指针`slow`走在后面，快指针`fast`走在前面探路，找到一个不重复的元素就告诉`slow`并让`slow`前进一步。
+ * 这样当`fast`指针遍历完整个数组`nums`后，**`nums[0..slow]`就是不重复元素**。
+ * slow指向的是右侧大于pivot的第一个元素，显然，它记录的是右半段的左侧边界；
+ * pivot的过程其实是不断地将右侧区间中的不属于它的元素、即属于左侧区间的元素拿到左侧区间，
+ * 那么它如何实现呢？其实方法非常简答: 让出一个位置的元素给左侧区间来存放刚刚找到的这个元素
+ *
+ * @param A
+ * @param start
+ * @param end
+ * @return
+ */
+int partition(int A[], int start, int end)
+{
+	int slow = start + 1;
+	int piv = A[start];            //make the first element as pivot element.
+	for (int fast = start + 1; fast <= end; fast++)
+	{
+		/*rearrange the array by putting elements which are less than pivot
+		 on one side and which are greater that on other. */
+
+		if (A[fast] < piv)
+		{
+			swap(A[slow], A[fast]);
+			slow += 1;
+		}
+	}
+	swap(A[start], A[slow - 1]);  //put the pivot element in its proper place.
+	return slow - 1;                      //return the position of the pivot
+}
+
+```
 
