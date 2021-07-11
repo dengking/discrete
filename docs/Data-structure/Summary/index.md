@@ -124,8 +124,6 @@ linked list只能够 [sequential access](https://en.wanweibaike.com/wiki-Sequent
 
 
 
-
-
 ## Mixed data structure
 
 一、separate chaining based hash table
@@ -139,3 +137,5 @@ linked list只能够 [sequential access](https://en.wanweibaike.com/wiki-Sequent
 二、[Unrolled linked list](https://en.wikipedia.org/wiki/Unrolled_linked_list)
 
 它可以看做是linked list of dynamic array
+
+三、linked hash map

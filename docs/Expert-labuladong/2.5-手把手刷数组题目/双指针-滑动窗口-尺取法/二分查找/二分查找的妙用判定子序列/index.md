@@ -51,6 +51,10 @@ bool isSubsequence(string s, string t) {
 }
 ```
 
+> NOTE: 
+>
+> `i` 指向 `s` ，`j` 指向 `t` 
+
 其思路也非常简单，利用双指针`i, j`分别指向`s, t`，一边前进一边匹配子序列：
 
 ![图片](https://mmbiz.qpic.cn/mmbiz_gif/map09icNxZ4mnbVC00EzwNpKWVLic67v8fp4AviccRT7S8XlynThhhyUxhB2X63YwDSCyq2ZWcGo6cQS0HhxKiaziaQ/640?wx_fmt=gif&tp=webp&wxfrom=5&wx_lazy=1)
