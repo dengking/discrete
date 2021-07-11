@@ -124,6 +124,8 @@ void display(T arr[], int n)
 
 讲解地非常不错。
 
+### `partition`
+
 ```c++
 int partition ( int A[],int start ,int end) {
     int i = start + 1;
@@ -144,7 +146,49 @@ int partition ( int A[],int start ,int end) {
 
 `i`是用于定界的。
 
+函数的返回值是分割位置。
 
+#### 使用fast、slow pointer来解释partition
+
+```C++
+/**
+ * @brief
+ * 我们让慢指针`slow`走在后面，快指针`fast`走在前面探路，找到一个不重复的元素就告诉`slow`并让`slow`前进一步。
+ * 这样当`fast`指针遍历完整个数组`nums`后，**`nums[0..slow]`就是不重复元素**。
+ * slow指向的是右侧大于pivot的第一个元素，显然，它记录的是右半段的左侧边界；
+ * pivot的过程其实是不断地将右侧区间中的不属于它的元素、即属于左侧区间的元素拿到左侧区间，
+ * 那么它如何实现呢？其实方法非常简答: 让出一个位置的元素给左侧区间来存放刚刚找到的这个元素
+ * 这个函数，被调用的前提是 start > end，因此最少的情况: end = start + 1
+ * 刚开始的时候，fast 和 slow的值是相等的，这是必须的，因为可能只有start、end两个元素，如果让end指向start后的一个元素，则存在如下可能性:
+ * 1、数组越界
+ * 2、无法进入到后面的交换环节，即使只有两个元素，这也是需要进行交换的
+ * @param A
+ * @param start
+ * @param end
+ * @return
+ */
+int partition(int A[], int start, int end)
+{
+	int slow = start + 1;
+	int piv = A[start];            //make the first element as pivot element.
+	for (int fast = start + 1; fast <= end; fast++)
+	{
+		/*rearrange the array by putting elements which are less than pivot
+		 on one side and which are greater that on other. */
+		if (A[fast] < piv)
+		{
+			swap(A[slow], A[fast]);
+			slow += 1;
+		}
+	}
+	swap(A[start], A[slow - 1]);  //put the pivot element in its proper place.
+	return slow - 1;                      //return the position of the pivot
+}
+
+
+```
+
+### 完整程序
 
 Now, let us see the recursive function Quick_sort :
 
@@ -261,13 +305,13 @@ int main()
 
 ## 对比两种实现方式
 
-“计算机算法设计与分析”中的实现的思路是：由两端向中间扩展
+上述两种实现方式，其实都使用了double pointer: 
 
-“hackerearth [Quick Sort](https://www.hackerearth.com/zh/practice/algorithms/sorting/quick-sort/tutorial/)”中的实现方式的思路是：自左向右进行扩展。
+1、“计算机算法设计与分析”中的实现的思路是：由两端向中间扩展
+
+2、“hackerearth [Quick Sort](https://www.hackerearth.com/zh/practice/algorithms/sorting/quick-sort/tutorial/)”中的实现方式的思路是：自左向右进行扩展、fast-slow double pointer。
 
 分三段，只需要两个boundary，分别对应`i`和`j`。
-
-
 
 
 

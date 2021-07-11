@@ -5,5 +5,6 @@ nav:
     - Quick-select: Quick-select
     - Timsort: Timsort
     - External-sorting: External-sorting    
-    - LeetCode-Top-K: LeetCode-Top-K
     - Lexicographical-order-字典序: Lexicographical-order-字典序
+    - LeetCode-912-排序数组: LeetCode-912-排序数组
+    - LeetCode-Top-K: LeetCode-Top-K    

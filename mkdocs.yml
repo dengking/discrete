@@ -336,6 +336,11 @@ nav:
       - Introduction: Algorithm/Sorting/Timsort/index.md
     - External-sorting:
       - Introduction: Algorithm/Sorting/External-sorting/index.md
+    - "Lexicographical-order-\u5B57\u5178\u5E8F":
+      - Introduction: "Algorithm/Sorting/Lexicographical-order-\u5B57\u5178\u5E8F\
+          /index.md"
+    - "LeetCode-912-\u6392\u5E8F\u6570\u7EC4":
+      - Introduction: "Algorithm/Sorting/LeetCode-912-\u6392\u5E8F\u6570\u7EC4/index.md"
     - LeetCode-Top-K:
       - Introduction: Algorithm/Sorting/LeetCode-Top-K/index.md
       - "LeetCode-973-\u6700\u63A5\u8FD1\u539F\u70B9\u7684K\u4E2A\u70B9":
@@ -344,9 +349,6 @@ nav:
       - "LeetCode-\u5251\u6307-Offer-40-\u6700\u5C0F\u7684k\u4E2A\u6570":
         - Introduction: "Algorithm/Sorting/LeetCode-Top-K/LeetCode-\u5251\u6307-Offer-40-\u6700\
             \u5C0F\u7684k\u4E2A\u6570/index.md"
-    - "Lexicographical-order-\u5B57\u5178\u5E8F":
-      - Introduction: "Algorithm/Sorting/Lexicographical-order-\u5B57\u5178\u5E8F\
-          /index.md"
   - Classical-algorithm:
     - Tower-of-Hanoi:
       - Introduction: Algorithm/Classical/Tower-of-Hanoi/index.md
@@ -399,13 +401,6 @@ nav:
       - wikipedia-Prefix-sum:
         - Introduction: Data-structure/Array/Prefix-sum-array-and-difference-array/wikipedia-Prefix-sum/index.md
     - LeetCode:
-      - "Fast-slow-double-pointer-\u5FEB\u6162\u53CC\u6307\u9488":
-        - "LeetCode-27-\u79FB\u9664\u5143\u7D20":
-          - Introduction: "Data-structure/Array/LeetCode/Fast-slow-double-pointer-\u5FEB\
-              \u6162\u53CC\u6307\u9488/LeetCode-27-\u79FB\u9664\u5143\u7D20/index.md"
-        - "LeetCode-283-\u79FB\u52A8\u96F6":
-          - Introduction: "Data-structure/Array/LeetCode/Fast-slow-double-pointer-\u5FEB\
-              \u6162\u53CC\u6307\u9488/LeetCode-283-\u79FB\u52A8\u96F6/index.md"
       - "Merge-\u5408\u5E76":
         - geeksforgeeks-Merge-k-sorted-arrays:
           - Introduction: "Data-structure/Array/LeetCode/Merge-\u5408\u5E76/geeksforgeeks-Merge-k-sorted-arrays/index.md"
@@ -1328,6 +1323,14 @@ nav:
       - Introduction: "Expert-labuladong/2.5-\u624B\u628A\u624B\u5237\u6570\u7EC4\u9898\
           \u76EE/\u53CC\u6307\u9488\u6280\u5DE7\u79D2\u6740\u56DB\u9053\u6570\u7EC4\
           \u94FE\u8868\u9898\u76EE/index.md"
+      - "LeetCode-27-\u79FB\u9664\u5143\u7D20":
+        - Introduction: "Expert-labuladong/2.5-\u624B\u628A\u624B\u5237\u6570\u7EC4\
+            \u9898\u76EE/\u53CC\u6307\u9488\u6280\u5DE7\u79D2\u6740\u56DB\u9053\u6570\
+            \u7EC4\u94FE\u8868\u9898\u76EE/LeetCode-27-\u79FB\u9664\u5143\u7D20/index.md"
+      - "LeetCode-283-\u79FB\u52A8\u96F6":
+        - Introduction: "Expert-labuladong/2.5-\u624B\u628A\u624B\u5237\u6570\u7EC4\
+            \u9898\u76EE/\u53CC\u6307\u9488\u6280\u5DE7\u79D2\u6740\u56DB\u9053\u6570\
+            \u7EC4\u94FE\u8868\u9898\u76EE/LeetCode-283-\u79FB\u52A8\u96F6/index.md"
   - "3.1-\u56DE\u6EAF\u7B97\u6CD5(DFS\u7B97\u6CD5)\u7CFB\u5217":
     - "\u56DE\u6EAF\u7B97\u6CD5\u8BE6\u89E3":
       - Introduction: "Expert-labuladong/3.1-\u56DE\u6EAF\u7B97\u6CD5(DFS\u7B97\u6CD5\
