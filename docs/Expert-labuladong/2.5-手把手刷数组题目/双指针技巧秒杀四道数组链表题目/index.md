@@ -95,6 +95,26 @@ int removeElement(int[] nums, int val);
 >
 > 相比于 labuladong  [双指针技巧秒杀四道数组/链表题目](https://mp.weixin.qq.com/s/55UPwGL0-Vgdh8wUEPXpMQ) 中给出的答案，官方的显然更优，在 `LeetCode-283-移动零` 章节中，对 [官方解题](https://leetcode-cn.com/problems/move-zeroes/solution/yi-dong-ling-by-leetcode-solution/) 进行了说明。
 >
+> ```C++
+> class Solution {
+> public:
+>     void moveZeroes(vector<int>& nums) {
+>         int n = nums.size(), left = 0, right = 0;
+>         while (right < n) {
+>             if (nums[right]) {
+>                 swap(nums[left], nums[right]);
+>                 left++;
+>             }
+>             right++;
+>         }
+>     }
+> };
+> 
+> 
+> ```
+>
+> 
+>
 > 
 
 
