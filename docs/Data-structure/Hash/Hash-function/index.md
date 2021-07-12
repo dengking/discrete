@@ -41,21 +41,21 @@ A **hash function** takes as input a key, which is associated with a datum or re
 
 A hash function **may be** considered to perform three functions:
 
-- Convert variable length keys into **fixed length** (usually machine word length or less) values, by folding them by words or other units using a **parity-preserving operator** like ADD or XOR.
+一、Convert variable length keys into **fixed length** (usually machine word length or less) values, by folding them by words or other units using a **parity-preserving operator** like ADD or XOR.
 
-  > NOTE: Folding means bitwise operation.
+> NOTE: Folding means bitwise operation.
 
-  > NOTE: What is parity-preserving operator?
-  >
-  > [Parity bit](https://en.wikipedia.org/wiki/Parity_bit)
+> NOTE: What is parity-preserving operator?
+>
+> [Parity bit](https://en.wikipedia.org/wiki/Parity_bit)
 
-- Scramble the bits of the key so that the resulting values are uniformly distributed over the **key space**.
+二、Scramble the bits of the key so that the resulting values are uniformly distributed over the **key space**.
 
-  > NOTE: What is the key space? ASCII code?
+> NOTE: What is the key space? ASCII code?
 
-- Map the key values into ones less than or equal to the size of the table
+三、Map the key values into ones less than or equal to the size of the table
 
-  > NOTE: This function will be used only when it is used as index of the table in [hash table](https://en.wikipedia.org/wiki/Hash_table). In other applications, this function may be omitted.
+> NOTE: This function will be used only when it is used as index of the table in [hash table](https://en.wikipedia.org/wiki/Hash_table). In other applications, this function may be omitted.
 
 A good hash function satisfies two basic properties: 
 
@@ -175,3 +175,60 @@ A hash function with minimal movement is especially useful in [distributed hash 
 
 
 
+
+
+## wikipedia [Category:Hash functions](https://en.wikipedia.org/wiki/Category:Hash_functions)
+
+
+
+
+
+## wikipedia [List of hash functions](https://en.wikipedia.org/wiki/List_of_hash_functions)
+
+
+
+| Application                                                  | Property of hash function | length |
+| ------------------------------------------------------------ | ------------------------- | ------ |
+| [Hash table](https://en.wikipedia.org/wiki/Hash_table)       |                           |        |
+| [Cryptographic hash function](https://en.wikipedia.org/wiki/Cryptographic_hash_function) |                           | 固定   |
+| [Distributed hash tables](https://en.wikipedia.org/wiki/Distributed_hash_table) |                           |        |
+
+
+
+## VS-check-sum-VS-cryptographic-hash
+
+https://security.stackexchange.com/a/194602
+
+A **checksum** (such as CRC32) is to prevent *accidental* changes. If one byte changes, the checksum changes. The checksum is not safe to protect against malicious changes: it is pretty easy to create a file with a particular checksum.
+
+A **hash function** maps some data to other data. It is often used to speed up comparisons or create a hash table. Not all hash functions are secure and the hash does not necessarily changes when the data changes.
+
+A **cryptographic hash function** (such as SHA1) is a checksum that is secure against malicious changes. It is pretty hard to create a file with a specific cryptographic hash.
+
+To make things more complicated, cryptographic hash functions are sometimes simply referred to as hash functions.
+
+
+
+## VS-cryptographic-hash-function-VS-perfect hash function?
+
+[Are cryptographic hash functions perfect hash functions?](https://crypto.stackexchange.com/questions/8092/are-cryptographic-hash-functions-perfect-hash-functions)
+
+
+
+
+
+## TODO
+
+https://security.stackexchange.com/questions/11839/what-is-the-difference-between-a-hash-function-and-a-cryptographic-hash-function
+
+
+
+https://crypto.stackexchange.com/questions/879/what-is-the-random-oracle-model-and-why-is-it-controversial/880#880
+
+
+
+https://computer.howstuffworks.com/encryption7.htm
+
+
+
+https://en.wikipedia.org/wiki/Hash

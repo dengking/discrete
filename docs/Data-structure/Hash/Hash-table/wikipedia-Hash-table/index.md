@@ -224,6 +224,10 @@ An elaboration on this approach is the so-called [dynamic perfect hashing](https
 
 *Main article:* [Open addressing](https://en.wikipedia.org/wiki/Open_addressing)
 
+> NOTE: 
+>
+> 一、open addressing在具体实现的时候，需要使用专门的标识来记录当前的slot是否被占用了。
+
 In another strategy, called open addressing, all entry records are stored in the bucket array itself. 
 
 When a new entry has to be inserted, the buckets are examined, starting with the hashed-to slot and proceeding in some *probe sequence*, until an unoccupied slot is found. 
