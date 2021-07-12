@@ -19,3 +19,25 @@
 1、隐式地构建BST
 
 2、自顶向下地构建BST
+
+## Quicksort pre-order traversal
+
+按照 labuladong [东哥手把手带你套框架刷通二叉树|第一期](https://mp.weixin.qq.com/s/izZ5uiWzTagagJec6Y7RvQ)  中的说法: 
+
+> 快速排序的逻辑是，若要对`nums[lo..hi]`进行排序，我们先找一个分界点`p`，通过交换元素使得`nums[lo..p-1]`都小于等于`nums[p]`，且`nums[p+1..hi]`都大于`nums[p]`，然后递归地去`nums[lo..p-1]`和`nums[p+1..hi]`中寻找新的分界点，最后整个数组就被排序了。
+>
+> 快速排序的代码框架如下：
+>
+> ```java
+> void sort(int[] nums, int lo, int hi) {
+>     /****** 前序遍历位置 ******/
+>     // 通过交换元素构建分界点 p
+>     int p = partition(nums, lo, hi);
+>     /************************/
+> 
+>     sort(nums, lo, p - 1);
+>     sort(nums, p + 1, hi);
+> }
+> ```
+>
+> 先构造分界点，然后去左右子数组构造分界点，你看这不就是一个二叉树的前序遍历吗？

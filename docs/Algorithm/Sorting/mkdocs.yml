@@ -6,6 +6,7 @@ nav:
     - Quick-select: Quick-select    
     - Merge-sort: Merge-sort
     - Timsort: Timsort
+    - Introsort: Introsort
     - External-sorting: External-sorting  
     - Sort-linked-list: Sort-linked-list
     - Lexicographical-order-字典序: Lexicographical-order-字典序

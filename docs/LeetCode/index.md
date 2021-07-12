@@ -44,5 +44,30 @@ labuladong [如何高效对有序数组/链表去重？](https://mp.weixin.qq.co
 
 
 
+## Merge
+
+### Merge sequence
+
+一、 merge two sequence
 
 
+
+leetcode [912. 排序数组](https://leetcode-cn.com/problems/sort-an-array/) (merge sort) 和 leetcode [21. 合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists/) 
+
+merge sortmerge的部分，和 leetcode [21. 合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists/) 的逻辑是非常类似的。
+
+下面的是合并两个序列的题目:
+
+1、leetcode [88. 合并两个有序数组](https://leetcode-cn.com/problems/merge-sorted-array/)
+
+2、
+
+二、merge multiple sequence
+
+leetcode [23. 合并K个升序链表](https://leetcode-cn.com/problems/merge-k-sorted-lists/)
+
+
+
+### Merge interval 合并区间
+
+leetcode [56. 合并区间](https://leetcode-cn.com/problems/merge-intervals/)
