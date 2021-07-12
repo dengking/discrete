@@ -20,11 +20,13 @@ LeetCode-面试题-08.12-八皇后
 
 ### LeetCode [1711. 大餐计数](https://leetcode-cn.com/problems/count-good-meals/)
 
+以空间换时间
+
 ### LeetCode [392. 判断子序列](https://leetcode-cn.com/problems/is-subsequence/)
 
 参见 labuladong [二分查找的妙用：判定子序列](https://mp.weixin.qq.com/s/hWi2hTrQewL_YKioGkXQJg)
 
-
+双指针
 
 ## 去重
 
@@ -42,7 +44,7 @@ labuladong [如何高效对有序数组/链表去重？](https://mp.weixin.qq.co
 
 labuladong [如何高效对有序数组/链表去重？](https://mp.weixin.qq.com/s/6Eb7gKqNqXH9B0hSZvMs5A)
 
-
+双指针
 
 ## Merge
 
@@ -71,3 +73,13 @@ leetcode [23. 合并K个升序链表](https://leetcode-cn.com/problems/merge-k-s
 ### Merge interval 合并区间
 
 leetcode [56. 合并区间](https://leetcode-cn.com/problems/merge-intervals/)
+
+
+
+## 使用到了heap/优先队列的算法
+
+
+
+
+
+## TOP K
