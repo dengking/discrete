@@ -205,6 +205,14 @@ Instead of a list, one can use any other data structure that supports the requir
 > NOTE: 
 >
 > 1、这种情况的hash table，更像是一个array of [self-balancing binary search tree](https://en.wanweibaike.com/wiki-Self-balancing_binary_search_tree)，它是一个mix data structure
+>
+> 2、在 CSDN [索引数据结构之哈希、红黑树(Red Black Tree)、B树(B-Tree)、B+树详解](https://blog.csdn.net/qq_36565596/article/details/107895579) 中，对Java HashMap 进行了更加详细的介绍:
+>
+> > HashMap的底层数据结构：分JDK1.7和JDK1.8两个版本。
+> > （1）JDK1.7：底层数据结构是数组+单链表；
+> > （2）JDK1.8：对 HashMap 做了进一步优化，底层数据结构是数组+单链表（红黑树），当链表过长（默认当长度超过8）时，链表就转换成了红黑树，利用红黑树快速增删改查的特点，进一步提高HashMap的性能。当红黑树的结点个数少于6时，又会将红黑树转化成链表。因此在数据量较小的情况下，红黑树因为要维护平衡，性能上的优势并不明显。
+>
+> 
 
 **Using a [dynamic array](https://en.wanweibaike.com/wiki-Dynamic_array)** 
 
@@ -429,6 +437,8 @@ In more realistic models, the hash function is a [random variable](https://en.wi
 ### Database indexing
 
 Hash tables may also be used as [disk](https://en.wikipedia.org/wiki/Disk_drive)-based data structures and [database indices](https://en.wikipedia.org/wiki/Index_(database)) (such as in [dbm](https://en.wikipedia.org/wiki/DBM_(computing))) although [B-trees](https://en.wikipedia.org/wiki/B-tree) are more popular in these applications. In multi-node database systems, hash tables are commonly used to distribute rows amongst nodes, reducing network traffic for hash joins.
+
+
 
 ### Caches
 

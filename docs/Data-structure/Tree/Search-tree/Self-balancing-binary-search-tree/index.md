@@ -12,19 +12,7 @@ In [computer science](https://en.wikipedia.org/wiki/Computer_science), a **self-
 
 These structures provide efficient implementations for mutable ordered [lists](https://en.wikipedia.org/wiki/List_(computing)), and can be used for other [abstract data structures](https://en.wikipedia.org/wiki/Abstract_data_structure) such as [associative arrays](https://en.wikipedia.org/wiki/Associative_arrays), [priority queues](https://en.wikipedia.org/wiki/Priority_queue) and [sets](https://en.wikipedia.org/wiki/Set_(computer_science)).
 
-The [red–black tree](https://en.wikipedia.org/wiki/Red–black_tree), which is a type of **self-balancing binary search tree**, was called **symmetric** **binary** B-tree[[2\]](https://en.wikipedia.org/wiki/Self-balancing_binary_search_tree#cite_note-Pieterse-Black-2) and was renamed but can still be confused with the generic concept of **self-balancing binary search tree** because of the initials.
-
-
-
-[![img](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Unbalanced_binary_tree.svg/251px-Unbalanced_binary_tree.svg.png)](https://en.wikipedia.org/wiki/File:Unbalanced_binary_tree.svg)An example of an unbalanced tree; following the path from the root to a node takes an average of 3.27 node accesses
-
-
-
-[![img](https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/AVLtreef.svg/251px-AVLtreef.svg.png)](https://en.wikipedia.org/wiki/File:AVLtreef.svg)The same tree after being height-balanced; the average path effort decreased to 3.00 node accesses
-
-
-
-[![img](https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/BinaryTreeRotations.svg/300px-BinaryTreeRotations.svg.png)](https://en.wikipedia.org/wiki/File:BinaryTreeRotations.svg)Tree rotations are very common internal operations on self-balancing binary trees to keep perfect or near-to-perfect balance.
+The [red–black tree](https://en.wikipedia.org/wiki/Red–black_tree), which is a type of **self-balancing binary search tree**, was called symmetric binary B-tree and was renamed but can still be confused with the generic concept of **self-balancing binary search tree** because of the initials.
 
 
 

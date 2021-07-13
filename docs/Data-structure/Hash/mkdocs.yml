@@ -1,9 +1,8 @@
 nav:
     - Introduction: index.md
-    - Hash-function: Hash-function
-    
+    - Hash-function: Hash-function    
     - Hash-table: Hash-table
     - Merkle-tree: Merkle-tree
     - Checksum: Checksum
-    - Hash-application: Hash-application
+    - Application: Application
     - Error-detection-and-correction: Error-detection-and-correction
