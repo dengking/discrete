@@ -1,8 +1,8 @@
-[TOC]
+# Set (abstract data type)
 
 
 
-# [Set (abstract data type)](https://en.wikipedia.org/wiki/Set_(abstract_data_type))
+## wikipedia [Set (abstract data type)](https://en.wikipedia.org/wiki/Set_(abstract_data_type))
 
 In [computer science](https://en.wikipedia.org/wiki/Computer_science), a **set** is an [abstract data type](https://en.wikipedia.org/wiki/Abstract_data_type) that can store unique values, without any particular [order](https://en.wikipedia.org/wiki/Sequence). It is a computer implementation of the [mathematical](https://en.wikipedia.org/wiki/Mathematics) concept of a [finite set](https://en.wikipedia.org/wiki/Finite_set). Unlike most other [collection](https://en.wikipedia.org/wiki/Collection_(abstract_data_type)) types, rather than retrieving a specific element from a set, one typically tests a value for membership in a set.
 
@@ -12,7 +12,7 @@ A **[multiset](https://en.wikipedia.org/wiki/Multiset)** is a special kind of se
 
 
 
-## Implementations
+### Implementations
 
 Sets can be implemented using various [data structures](https://en.wikipedia.org/wiki/Data_structure), which provide different time and space trade-offs for various operations. Some implementations are designed to improve the efficiency of very specialized operations, such as `nearest` or `union`. Implementations described as "general use" typically strive to optimize the `element_of`, `add`, and `delete` operations. A simple implementation is to use a [list](https://en.wikipedia.org/wiki/List_(abstract_data_type)), ignoring the order of the elements and taking care to avoid repeated values. This is simple but inefficient, as operations like set membership or element deletion are *O*(*n*), as they require scanning the entire list.[[b\]](https://en.wikipedia.org/wiki/Set_(abstract_data_type)#cite_note-9) Sets are often instead implemented using more efficient data structures, particularly various flavors of [trees](https://en.wikipedia.org/wiki/Tree_(data_structure)), [tries](https://en.wikipedia.org/wiki/Trie), or [hash tables](https://en.wikipedia.org/wiki/Hash_tables).
 
@@ -20,7 +20,7 @@ As sets can be interpreted as a kind of map (by the indicator function), sets ar
 
 Further, in languages that support maps but not sets, sets can be implemented in terms of maps. For example, a common [programming idiom](https://en.wikipedia.org/wiki/Programming_idiom) in [Perl](https://en.wikipedia.org/wiki/Perl) that converts an array to a hash whose values are the sentinel value 1, for use as a set, is:
 
-```
+```Perl
 my %elements = map { $_ => 1 } @elements;
 ```
 
@@ -30,7 +30,33 @@ The Boolean set operations can be implemented in terms of more elementary operat
 
 
 
-- [How is set() implemented in python ?](https://stackoverflow.com/questions/3949310/how-is-set-implemented)
-- [What are the underlying data structures used for Redis?](https://stackoverflow.com/questions/9625246/what-are-the-underlying-data-structures-used-for-redis)
-- [How is the Redis sorted set implemented?](https://jameshfisher.com/2018/04/22/redis-sorted-set/)
+1、stackoverflow [How is set() implemented in python ?](https://stackoverflow.com/questions/3949310/how-is-set-implemented)
 
+> > Indeed, CPython's sets are implemented as something like dictionaries with dummy values (the keys being the members of the set), with some optimization(s) that exploit this lack of values
+>
+> So basically a `set` uses a hashtable as its underlying data structure. This explains the O(1) membership checking, since looking up an item in a hashtable is an O(1) operation, on average.
+>
+> If you are so inclined you can even browse the [CPython source code for set](https://hg.python.org/releasing/3.6/file/tip/Objects/setobject.c) which, according to [Achim Domma](http://markmail.org/message/ktzomp4uwrmnzao6), is mostly a cut-and-paste from the `dict` implementation.
+
+2、stackoverflow [What are the underlying data structures used for Redis?](https://stackoverflow.com/questions/9625246/what-are-the-underlying-data-structures-used-for-redis)
+
+> - **Sets** and **Hashes** are implemented with hash tables.
+> - **Sorted sets** are implemented with [skip lists](http://www.catonmat.net/blog/mit-introduction-to-algorithms-part-eight/) (a peculiar type of balanced trees).
+
+3、jameshfisher [How is the Redis sorted set implemented?](https://jameshfisher.com/2018/04/22/redis-sorted-set/)
+
+
+
+
+
+## Implementation
+
+ [self-balancing binary search tree](https://en.wikipedia.org/wiki/Self-balancing_binary_search_tree) 
+
+ [hash table](https://en.wikipedia.org/wiki/Hash_table) 
+
+ [Bloom map](https://en.wikipedia.org/wiki/Bloom_map) 
+
+ [union-find data structure](https://en.wikipedia.org/wiki/Union-find_algorithm)
+
+ [tries](https://en.wikipedia.org/wiki/Trie)

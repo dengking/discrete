@@ -1,18 +1,38 @@
-# Associative array(dict、map) and set
+# Associative array
 
 
 
-一、set 和 associative array 本质上是非常类似的: 
+## wikipedia [Associative array](https://en.wikipedia.org/wiki/Associative_array)
 
-1、set只有key没有value
+In [computer science](https://en.wikipedia.org/wiki/Computer_science), an **associative array**, **map**, **symbol table**, or **dictionary** is an [abstract data type](https://en.wikipedia.org/wiki/Abstract_data_type) composed of a [collection](https://en.wikipedia.org/wiki/Collection_(computing)) of [(key, value) pairs](https://en.wikipedia.org/wiki/Attribute–value_pair), such that each possible key appears at most once in the collection.
 
-2、map既有key又有value
+Operations associated with this data type allow:[[1\]](https://en.wikipedia.org/wiki/Associative_array#cite_note-gt-1)[[2\]](https://en.wikipedia.org/wiki/Associative_array#cite_note-ms-2)
 
-两种在实现上是非常类似的，一般采用相同的data structure来进行实现
+1、the addition of a pair to the collection
 
-二、有多种方式可以实现map，本文对它们进行对比。
+2、the removal of a pair from the collection
 
-## binary search tree VS hash table
+3、the modification of an existing pair
+
+4、the lookup of a value associated with a particular key
+
+> NOTE: 
+>
+> 增删改查
+
+The **dictionary problem** is a classic computer science problem: the task of designing a [data structure](https://en.wikipedia.org/wiki/Data_structure) that maintains a set of data during 'search', 'delete', and 'insert' operations.[[3\]](https://en.wikipedia.org/wiki/Associative_array#cite_note-3) The two major solutions to the dictionary problem are a [hash table](https://en.wikipedia.org/wiki/Hash_table) or a [search tree](https://en.wikipedia.org/wiki/Search_tree).[[1\]](https://en.wikipedia.org/wiki/Associative_array#cite_note-gt-1)[[2\]](https://en.wikipedia.org/wiki/Associative_array#cite_note-ms-2)[[4\]](https://en.wikipedia.org/wiki/Associative_array#cite_note-clrs-4)[[5\]](https://en.wikipedia.org/wiki/Associative_array#cite_note-dietzfelbinger-5) In some cases it is also possible to solve the problem using directly addressed [arrays](https://en.wikipedia.org/wiki/Array_data_structure), [binary search trees](https://en.wikipedia.org/wiki/Binary_search_tree), or other more specialized structures.
+
+Many programming languages include associative arrays as [primitive data types](https://en.wikipedia.org/wiki/Primitive_data_type), and they are available in [software libraries](https://en.wikipedia.org/wiki/Software_library) for many others. [Content-addressable memory](https://en.wikipedia.org/wiki/Content-addressable_memory) is a form of direct hardware-level support for associative arrays.
+
+Associative arrays have many applications including such fundamental [programming patterns](https://en.wikipedia.org/wiki/Software_design_pattern) as [memoization](https://en.wikipedia.org/wiki/Memoization) and the [decorator pattern](https://en.wikipedia.org/wiki/Decorator_pattern).[[6\]](https://en.wikipedia.org/wiki/Associative_array#cite_note-decorator-6)
+
+The name does not come from the [associative property](https://en.wikipedia.org/wiki/Associative_property) known in mathematics. Rather, it arises from the fact that we associate values with keys.
+
+
+
+## Implementation
+
+### [Self-balancing] binary search tree VS hash table
 
 在[Binary search tree](https://en.wikipedia.org/wiki/Binary_search_tree)中，有如下对比：
 
@@ -20,27 +40,49 @@
 
 
 
-## B tree VS hash table
-
-### cstack.github [Introduction to the B-Tree](https://cstack.github.io/db_tutorial/parts/part7.html)
-
-Why is a tree a good data structure for a database?
-
-- Searching for a particular value is fast (logarithmic time)
-- Inserting / deleting a value you’ve already found is fast (constant-ish time to rebalance)
-- Traversing a range of values is fast (unlike a hash map)
-
-
-
-## Self-balancing binary search tree VS hash table
-
-### wikipedia [Self-balancing binary search tree](https://en.wikipedia.org/wiki/Self-balancing_binary_search_tree)
+#### wikipedia [Self-balancing binary search tree](https://en.wikipedia.org/wiki/Self-balancing_binary_search_tree)
 
 Self-balancing binary search trees can be used in a natural way to construct and maintain ordered lists, such as [priority queues](https://en.wikipedia.org/wiki/Priority_queue). They can also be used for [associative arrays](https://en.wikipedia.org/wiki/Associative_array); key-value pairs are simply inserted with an ordering based on the key alone. In this capacity, self-balancing BSTs have [a number of advantages and disadvantages](https://en.wikipedia.org/wiki/Associative_array#Efficient_representations) over their main competitor, [hash tables](https://en.wikipedia.org/wiki/Hash_table). One advantage of self-balancing BSTs is that they allow fast (indeed, asymptotically optimal) enumeration of the items *in key order*, which hash tables do not provide. One disadvantage is that their lookup algorithms get more complicated when there may be multiple items with the same key. Self-balancing BSTs have better worst-case lookup performance than hash tables (O(log n) compared to O(n)), but have worse average-case performance (O(log n) compared to O(1)).
 
 
 
-## stackoverflow [Skip List vs. Binary Search Tree](https://stackoverflow.com/questions/256511/skip-list-vs-binary-search-tree)
+#### stackoverflow [Hash tables v self-balancing search trees](https://stackoverflow.com/questions/3265266/hash-tables-v-self-balancing-search-trees)
+
+**A**
+
+Here is what I can think of:
+
+1、There are kinds of data which cannot be hashed (or is too expensive to hash), therefore cannot be stored in hash tables.
+
+2、Trees keep data in the order you need (sorted), not insertion order. You can't (effectively) do that with hash table, even if you run a linked list through it.
+
+3、Trees have better worst-case performace
+
+
+
+**A**
+
+Storage allocation is another consideration. Every time you fill all of the buckets in a hash-table, you need to allocate new storage and re-hash everything. This can be avoided if you know the size of the data ahead of time. On the other hand, balanced trees don't suffer from this issue at all.
+
+
+
+### B tree VS hash table
+
+#### cstack.github [Introduction to the B-Tree](https://cstack.github.io/db_tutorial/parts/part7.html)
+
+Why is a tree a good data structure for a database?
+
+1、Searching for a particular value is fast (logarithmic time)
+
+2、Inserting / deleting a value you’ve already found is fast (constant-ish time to rebalance)
+
+3、Traversing a range of values is fast (unlike a hash map)
+
+### [Self-balancing]  binary search tree VS skip list
+
+
+
+#### stackoverflow [Skip List vs. Binary Search Tree](https://stackoverflow.com/questions/256511/skip-list-vs-binary-search-tree)
 
 I recently came across the data structure known as a [*skip list*](http://en.wikipedia.org/wiki/Skip_list). It seems to have very similar behavior to a binary search tree.
 
@@ -48,9 +90,9 @@ Why would you ever want to use a skip list over a binary search tree?
 
 
 
-### [A](https://stackoverflow.com/a/260277)
+[A](https://stackoverflow.com/a/260277)
 
-Skip lists are more amenable to concurrent access/modification. Herb Sutter wrote an [article](http://www.ddj.com/hpc-high-performance-computing/208801371) about data structure in concurrent environments. It has more indepth information.
+Skip lists are more amenable(顺从的、服从的) to concurrent access/modification. Herb Sutter wrote an [article](http://www.ddj.com/hpc-high-performance-computing/208801371) about data structure in concurrent environments. It has more indepth information.
 
 The most frequently used implementation of a binary search tree is a [red-black tree](http://en.wikipedia.org/wiki/Red-black_tree). The concurrent problems come in when the tree is modified it often needs to rebalance. The rebalance operation can affect large portions of the tree, which would require a mutex lock on many of the tree nodes. Inserting a node into a skip list is far more localized, only nodes directly linked to the affected node need to be locked.
 
@@ -136,9 +178,7 @@ I think [Fizz' answer](https://stackoverflow.com/a/28270537/1847419) is more up-
 
 
 
-
-
-## [B-tree](https://en.wikipedia.org/wiki/B-tree) VS [skip list](https://en.wikipedia.org/wiki/Skip_list)
+#### [B-tree](https://en.wikipedia.org/wiki/B-tree) VS [skip list](https://en.wikipedia.org/wiki/Skip_list)
 
 看了这两种DS的原理，发现两者其实有些类似：以空间换时间，即通过构建数据之间的更多关系来加速数据的access，显然这些关系是需要耗费空间来存储的，所以就是前面所述的以空间换时间，其实当我看完了两者的原理后，觉得它们其实非常类似，尤其是看到[B-tree](https://en.wikipedia.org/wiki/B-tree)的主要应用是在DB或file system中实现索引后，我发掘其实它们的原理的共同之处其实就是index；通过重建index来加速数据的access；
 
@@ -156,22 +196,3 @@ I think [Fizz' answer](https://stackoverflow.com/a/28270537/1847419) is more up-
 
 
 
-
-
-## stackoverflow [Hash tables v self-balancing search trees](https://stackoverflow.com/questions/3265266/hash-tables-v-self-balancing-search-trees)
-
-### A
-
-Here is what I can think of:
-
-1、There are kinds of data which cannot be hashed (or is too expensive to hash), therefore cannot be stored in hash tables.
-
-2、Trees keep data in the order you need (sorted), not insertion order. You can't (effectively) do that with hash table, even if you run a linked list through it.
-
-3、Trees have better worst-case performace
-
-
-
-### A
-
-Storage allocation is another consideration. Every time you fill all of the buckets in a hash-table, you need to allocate new storage and re-hash everything. This can be avoided if you know the size of the data ahead of time. On the other hand, balanced trees don't suffer from this issue at all.

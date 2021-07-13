@@ -39,3 +39,15 @@ LeetCode [392. 判断子序列](https://leetcode-cn.com/problems/is-subsequence/
 ## LeetCode [解数独](https://leetcode-cn.com/problems/sudoku-solver/solution/jie-shu-du-by-leetcode-solution/)
 
 其中就用"以空间换时间"来进行优化。
+
+
+
+
+
+## algorithms use memory to gain performance improvement
+
+使用空间换取时间
+
+https://www.sciencedirect.com/topics/computer-science/performance-gain
+
+https://stackoverflow.com/questions/1898161/memory-vs-performance

@@ -2,14 +2,6 @@
 
 
 
-# algorithms use memory to gain performance improvement
-
-使用空间换取时间
-
-https://www.sciencedirect.com/topics/computer-science/performance-gain
-
-https://stackoverflow.com/questions/1898161/memory-vs-performance
-
 # lintcode
 
 https://www.zhihu.com/question/31218682

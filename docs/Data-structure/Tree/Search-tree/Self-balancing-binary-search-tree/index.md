@@ -4,7 +4,11 @@
 
 ## wikipedia [Self-balancing binary search tree](https://en.wikipedia.org/wiki/Self-balancing_binary_search_tree)
 
-In [computer science](https://en.wikipedia.org/wiki/Computer_science), a **self-balancing** (or **height-balanced**) **binary search tree** is any [node](https://en.wikipedia.org/wiki/Node_(computer_science))-based [binary search tree](https://en.wikipedia.org/wiki/Binary_search_tree) that automatically keeps its height (maximal number of levels below the root) small in the face of arbitrary item insertions and deletions.[[1\]](https://en.wikipedia.org/wiki/Self-balancing_binary_search_tree#cite_note-knuth-1)
+In [computer science](https://en.wikipedia.org/wiki/Computer_science), a **self-balancing** (or **height-balanced**) **binary search tree** is any [node](https://en.wikipedia.org/wiki/Node_(computer_science))-based [binary search tree](https://en.wikipedia.org/wiki/Binary_search_tree) that automatically keeps its height (maximal number of levels below the root) small in the face of arbitrary item insertions and deletions.
+
+> NOTE: 
+>
+> 只有再修改tree的时候，才需要进行rebalance
 
 These structures provide efficient implementations for mutable ordered [lists](https://en.wikipedia.org/wiki/List_(computing)), and can be used for other [abstract data structures](https://en.wikipedia.org/wiki/Abstract_data_structure) such as [associative arrays](https://en.wikipedia.org/wiki/Associative_arrays), [priority queues](https://en.wikipedia.org/wiki/Priority_queue) and [sets](https://en.wikipedia.org/wiki/Set_(computer_science)).
 
