@@ -78,6 +78,8 @@ Why is a tree a good data structure for a database?
 
 3、Traversing a range of values is fast (unlike a hash map)
 
+
+
 ### [Self-balancing]  binary search tree VS skip list
 
 
@@ -106,9 +108,13 @@ I didn't find the transactional memory stuff particularly compelling as it requi
 
 In section 8.2 they compare the performance of several concurrent tree implementations. I'll summarize their findings. It's worth it to download the pdf as it has some very informative graphs on pages 50, 53, and 54.
 
-1、**Locking skip lists** are insanely fast. They scale incredibly well with the number of concurrent accesses. This is what makes skip lists special, other lock based data structures tend to croak under pressure.
+1、**Locking skip lists** are insanely(非常地) fast. They scale incredibly well with the number of concurrent accesses. This is what makes skip lists special, other lock based data structures tend to croak under pressure.
 
 2、**Lock-free skip lists** are consistently faster than locking skip lists but only barely.
+
+> NOTE: 
+>
+> 无锁跳过列表总是比锁定跳过列表快，但只是快一点点
 
 3、**transactional skip lists** are consistently 2-3 times slower than the locking and non-locking versions.
 
@@ -141,40 +147,6 @@ Rebalancing does not require a mutex lock. See [cl.cam.ac.uk/research/srg/netos/
 
 
 I wanted to update this answer. There are currently two lock based efficient binary search trees. One is based on AVL trees ([dl.acm.org/citation.cfm?id=1693488](http://dl.acm.org/citation.cfm?id=1693488)) and the other (Warning! shameless plug) is based on red black trees. See [actapress.com/Abstract.aspx?paperId=453069](http://www.actapress.com/Abstract.aspx?paperId=453069) – [Juan Besa](https://stackoverflow.com/users/72369/juan-besa) [Mar 2 '12 at 20:01](https://stackoverflow.com/questions/256511/skip-list-vs-binary-search-tree#comment12087389_260277)
-
-
-
-@JuanBesa, *"14% better than the best known concurrent dictionary solutions"*. Are you comparing against skip-lists? The other paper inadvertently points out that lock based trees are `O(n)` for n < 90, whereas skiplists (also a dictionary) are `O(1)`! 14% doesn't seem to be enough when the `O` is that disparate. – [deft_code](https://stackoverflow.com/users/28817/deft-code) [Mar 2 '12 at 22:08](https://stackoverflow.com/questions/256511/skip-list-vs-binary-search-tree#comment12089713_260277) 
-
-
-
-That RB tree paper looks bloody good! – user82238 [Jun 19 '12 at 10:22](https://stackoverflow.com/questions/256511/skip-list-vs-binary-search-tree#comment14534999_260277)
-
-
-
-Think I'm going to try to apply that basic mechanism to AVL. As I see it from a quick read, the basic solution to rotation (which is the fundamental problem) is to have a retry-block which is the raising of flags in the elements you need to control - if you can raise them all, then you're safe to proceed as other threads will fail and be retrying to get those flags. Simple genius! – user82238 [Jun 19 '12 at 10:29](https://stackoverflow.com/questions/256511/skip-list-vs-binary-search-tree#comment14535161_260277)
-
-
-
-@BlankXavier, Hmmm, that sounds suspiciously like using a spinlock instead of a mutex for a regular lock based tree. It may be more performant, but I want to see some benchmarks. In particular against the a lock-free skiplist and a locking skiplist. – [deft_code](https://stackoverflow.com/users/28817/deft-code) [Jun 20 '12 at 23:01](https://stackoverflow.com/questions/256511/skip-list-vs-binary-search-tree#comment14585404_260277)
-
-
-
-All helper mechanisms are essentially spinning mechanisms - it's just that rather than dumbly spinning, which performs no work, by spinning on a helper mechanism *which if it completes permits you to continue your own work*, then you're doing something useful - you're lock-free, in fact... – user82238 [Jun 21 '12 at 6:53](https://stackoverflow.com/questions/256511/skip-list-vs-binary-search-tree#comment14590975_260277) 
-
-
-
-@deft_code: Intel recently announced an implementation of Transactional Memory via [TSX](http://software.intel.com/en-us/blogs/2012/02/07/transactional-synchronization-in-haswell) on Haswell. This may prove interesting w.r.t those lock free data structures you mentioned. – [Mike Bailey](https://stackoverflow.com/users/312124/mike-bailey) [Oct 3 '12 at 5:07](https://stackoverflow.com/questions/256511/skip-list-vs-binary-search-tree#comment17149192_260277) 
-
-
-
-Any comment on [Respawned Fluff's recent answer](http://stackoverflow.com/a/28270537/15055)? – [Claudiu](https://stackoverflow.com/users/15055/claudiu) [Feb 2 '15 at 3:06](https://stackoverflow.com/questions/256511/skip-list-vs-binary-search-tree#comment44896772_260277)
-
-
-
-I think [Fizz' answer](https://stackoverflow.com/a/28270537/1847419) is more up-to-date (from 2015) rather than this answer (2012) and therefore should probably be the preferred answer by now. – [fnl](https://stackoverflow.com/users/1847419/fnl) [Jul 11 '17 at 10:45](https://stackoverflow.com/questions/256511/skip-list-vs-binary-search-tree#comment77038160_260277)
-
-
 
 
 
