@@ -26,7 +26,7 @@ LeetCode-面试题-08.12-八皇后
 
 参见 labuladong [二分查找的妙用：判定子序列](https://mp.weixin.qq.com/s/hWi2hTrQewL_YKioGkXQJg)
 
-双指针
+双指针: 一个指向源、一个指向子序列
 
 ## 去重
 
@@ -83,3 +83,9 @@ leetcode [56. 合并区间](https://leetcode-cn.com/problems/merge-intervals/)
 
 
 ## TOP K
+
+
+
+## Expression
+
+括号

@@ -1,4 +1,6 @@
-# [Huffman Coding | Greedy Algo-3](https://www.geeksforgeeks.org/huffman-coding-greedy-algo-3/)
+# Huffman Coding
+
+## geeksforgeeks [Huffman Coding | Greedy Algo-3](https://www.geeksforgeeks.org/huffman-coding-greedy-algo-3/)
 
 **Prefix Codes**, means the codes (bit sequences) are assigned in such a way that the code assigned to one character is not the prefix of code assigned to any other character. This is how **Huffman Coding** makes sure that there is no ambiguity when decoding the generated bitstream.
 
@@ -8,7 +10,7 @@ There are mainly two major parts in Huffman Coding
 **1)** Build a Huffman Tree from input characters.
 **2)** Traverse the Huffman Tree and assign codes to characters.
 
-## **Steps to build Huffman Tree**
+### **Steps to build Huffman Tree**
 
 Input is an array of unique characters along with their frequency of occurrences and output is Huffman Tree.  
 
@@ -647,4 +649,4 @@ int main()
 
 ```
 
-## Huffman-tree-vs-trie
+### Huffman-tree-vs-trie

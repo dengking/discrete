@@ -1,6 +1,4 @@
-# 前言
-
-"So how to choose data structure ? It is an art and worth learning"
+# Guide
 
 本章对各种data structure进行对比:
 
@@ -8,7 +6,13 @@
 
 2) 找出它们的个性
 
-这样做的目的是为选择data structure提供参考意见。比较各种data structure，
+这样做的目的是为选择data structure提供参考意见。
+
+
+
+> "So how to choose data structure ? It is an art and worth learning"
+
+
 
 ## 从最基础的array 和 linked list开始说起
 
@@ -74,10 +78,6 @@ linked list只能够 [sequential access](https://en.wanweibaike.com/wiki-Sequent
 
 
 
-
-
-
-
 ## 存储方式
 
 存储方式包括: 
@@ -124,18 +124,3 @@ linked list只能够 [sequential access](https://en.wanweibaike.com/wiki-Sequent
 
 
 
-## Mixed data structure
-
-一、separate chaining based hash table
-
-参见 wikipedia [Hash table](https://en.wikipedia.org/wiki/Hash_table) ，根据其chaining采用的data structure，它可能是:
-
-1、array of self-balancing binary search tree
-
-2、array of linked list
-
-二、[Unrolled linked list](https://en.wikipedia.org/wiki/Unrolled_linked_list)
-
-它可以看做是linked list of dynamic array
-
-三、linked hash map

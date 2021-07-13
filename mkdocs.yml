@@ -340,6 +340,8 @@ nav:
       - Introduction: Algorithm/Sorting/Merge-sort/index.md
     - Timsort:
       - Introduction: Algorithm/Sorting/Timsort/index.md
+    - Introsort:
+      - Introduction: Algorithm/Sorting/Introsort/index.md
     - External-sorting:
       - Introduction: Algorithm/Sorting/External-sorting/index.md
     - Sort-linked-list:
@@ -388,6 +390,18 @@ nav:
         - wikipedia-Integer-programming: Algorithm/Application/Optimization/TODO-Linear-programming/wikipedia-Integer-programming.md
 - Data-structure:
   - Introduction: Data-structure/index.md
+  - Guide:
+    - Introduction: Data-structure/Guide/index.md
+    - List-of-data-structure:
+      - Introduction: Data-structure/Guide/List-of-data-structure/index.md
+    - Graph&&tree&&list:
+      - Introduction: Data-structure/Guide/Graph&&tree&&list/index.md
+    - ADT&&Impl:
+      - Introduction: Data-structure/Guide/ADT&&Impl/index.md
+    - Associative-array&&set:
+      - Introduction: Data-structure/Guide/Associative-array&&set/index.md
+      - TODO-nothing-A-Performance-Comparison-of-Judy-to-Hash-Tables:
+        - Introduction: Data-structure/Guide/Associative-array&&set/TODO-nothing-A-Performance-Comparison-of-Judy-to-Hash-Tables/index.md
   - Array:
     - Introduction: Data-structure/Array/index.md
     - Array-data-structure: Data-structure/Array/Array-data-structure.md
@@ -707,25 +721,27 @@ nav:
       - Bracket(tournament):
         - Introduction: Data-structure/Tree/Parenthese-and-tree/Bracket(tournament)/index.md
     - Tree-operation:
-      - Introduction: Data-structure/Tree/Tree-operation/index.md
+      - Introduction: Data-structure/Tree/Operation/index.md
       - Build-tree:
-        - Introduction: Data-structure/Tree/Tree-operation/Build-tree/index.md
+        - Introduction: Data-structure/Tree/Operation/Build-tree/index.md
       - Traversal:
-        - Introduction: Data-structure/Tree/Tree-operation/Traversal/index.md
-        - Implementation: Data-structure/Tree/Tree-operation/Traversal/Implementation.md
+        - Introduction: Data-structure/Tree/Operation/Traversal/index.md
+        - Implementation: Data-structure/Tree/Operation/Traversal/Implementation.md
         - Morris-traversal:
-          - Introduction: Data-structure/Tree/Tree-operation/Traversal/Morris-traversal/index.md
+          - Introduction: Data-structure/Tree/Operation/Traversal/Morris-traversal/index.md
         - "LeetCode-94-\u4E8C\u53C9\u6811\u7684\u4E2D\u5E8F\u904D\u5386":
-          - Introduction: "Data-structure/Tree/Tree-operation/Traversal/LeetCode-94-\u4E8C\
+          - Introduction: "Data-structure/Tree/Operation/Traversal/LeetCode-94-\u4E8C\
               \u53C9\u6811\u7684\u4E2D\u5E8F\u904D\u5386/index.md"
       - Rank-of-node:
-        - Introduction: Data-structure/Tree/Tree-operation/Rank-of-node/index.md
+        - Introduction: Data-structure/Tree/Operation/Rank-of-node/index.md
       - Tree-algorithm:
-        - Introduction: Data-structure/Tree/Tree-operation/Tree-algorithm/index.md
+        - Introduction: Data-structure/Tree/Operation/Tree-algorithm/index.md
     - Search-tree:
       - Introduction: Data-structure/Tree/Search-tree/index.md
       - Binary-search-tree:
         - Introduction: Data-structure/Tree/Search-tree/Binary-search-tree/index.md
+      - Self-balancing-binary-search-tree:
+        - Introduction: Data-structure/Tree/Search-tree/Self-balancing-binary-search-tree/index.md
       - Trie:
         - Introduction: Data-structure/Tree/Search-tree/Trie/index.md
         - wikipedia-Trie:
@@ -738,9 +754,9 @@ nav:
     - Disjoint-set:
       - Introduction: Data-structure/Tree/Disjoint-set/index.md
     - Implementation:
-      - Introduction: Data-structure/Tree/Implementation/index.md
+      - Introduction: Data-structure/Tree/Impl/index.md
       - Implicit-tree:
-        - Introduction: Data-structure/Tree/Implementation/Implicit-tree/index.md
+        - Introduction: Data-structure/Tree/Impl/Implicit-tree/index.md
     - Application:
       - Introduction: Data-structure/Tree/Application/index.md
     - LeetCode:
@@ -855,17 +871,6 @@ nav:
       - "LeetCode-14-\u6700\u957F\u516C\u5171\u524D\u7F00":
         - Introduction: "Data-structure/String/LeetCode/LeetCode-14-\u6700\u957F\u516C\
             \u5171\u524D\u7F00/index.md"
-  - Summary:
-    - Introduction: Data-structure/Summary/index.md
-    - List-of-data-structure:
-      - Introduction: Data-structure/Summary/List-of-data-structure/index.md
-    - Graph-and-tree-and-list:
-      - Introduction: Data-structure/Summary/Graph-and-tree-and-list/index.md
-    - Implementation-of-ADT: Data-structure/Summary/Implementation-of-ADT.md
-    - Dict-map:
-      - Introduction: Data-structure/Summary/Dict-map/index.md
-      - TODO-nothing-A-Performance-Comparison-of-Judy-to-Hash-Tables:
-        - Introduction: Data-structure/Summary/Dict-map/TODO-nothing-A-Performance-Comparison-of-Judy-to-Hash-Tables/index.md
   - TODO: Data-structure/TODO.md
 - LeetCode:
   - Introduction: LeetCode/index.md

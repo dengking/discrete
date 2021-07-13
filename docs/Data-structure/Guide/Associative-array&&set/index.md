@@ -1,6 +1,16 @@
-# Associative array、dict、map
+# Associative array(dict、map) and set
 
-有多种方式可以实现associative array，本文对它们进行对比。
+
+
+一、set 和 associative array 本质上是非常类似的: 
+
+1、set只有key没有value
+
+2、map既有key又有value
+
+两种在实现上是非常类似的，一般采用相同的data structure来进行实现
+
+二、有多种方式可以实现map，本文对它们进行对比。
 
 ## binary search tree VS hash table
 
@@ -27,14 +37,6 @@ Why is a tree a good data structure for a database?
 ### wikipedia [Self-balancing binary search tree](https://en.wikipedia.org/wiki/Self-balancing_binary_search_tree)
 
 Self-balancing binary search trees can be used in a natural way to construct and maintain ordered lists, such as [priority queues](https://en.wikipedia.org/wiki/Priority_queue). They can also be used for [associative arrays](https://en.wikipedia.org/wiki/Associative_array); key-value pairs are simply inserted with an ordering based on the key alone. In this capacity, self-balancing BSTs have [a number of advantages and disadvantages](https://en.wikipedia.org/wiki/Associative_array#Efficient_representations) over their main competitor, [hash tables](https://en.wikipedia.org/wiki/Hash_table). One advantage of self-balancing BSTs is that they allow fast (indeed, asymptotically optimal) enumeration of the items *in key order*, which hash tables do not provide. One disadvantage is that their lookup algorithms get more complicated when there may be multiple items with the same key. Self-balancing BSTs have better worst-case lookup performance than hash tables (O(log n) compared to O(n)), but have worse average-case performance (O(log n) compared to O(1)).
-
-
-
-
-
-
-
-
 
 
 
