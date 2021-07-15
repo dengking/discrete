@@ -199,6 +199,14 @@ public class MaxPQ < Key extends Comparable < Key >> {
 
 当然，错位的节点 A 可能要上浮（或下沉）很多次，才能到达正确的位置，恢复堆的性质。所以代码中肯定有一个`while`循环。
 
+### 上浮
+
+> NOTE: 
+>
+> 一、思考: 交换了`k` 和 `parent(k)` 后，它和另外一个子节点是否满足大小关系？
+>
+> 肯定是满足的，因为`heap`的所有操作都会经过严格地检查，使它们能够满足大小关系，所有heap中，原来的数据一定是能够满足: parent比它的children大的。所以，新加入的元素，只需要和它的parent进行大小比较即可。
+
 **上浮的代码实现：**
 
 ![图片](https://mmbiz.qpic.cn/mmbiz_png/map09icNxZ4mUHfudscMxeMy4rhspM1RBy40xibib0WT27FkLGsjibURhCrEmFibABnXXQxSLg6WMmIQUSUGM6y1U9A/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
@@ -210,3 +218,73 @@ public class MaxPQ < Key extends Comparable < Key >> {
 > NOTE: 
 >
 > 上述是按照字母顺序来排列的
+
+### 下沉
+
+**下沉的代码实现：**
+
+下沉比上浮略微复杂一点，因为上浮某个节点 A，只需要 A 和其父节点比较大小即可；但是下沉某个节点 A，需要 A 和其**两个子节点**比较大小，如果 A 不是最大的就需要调整位置，要把较大的那个子节点和 A 交换。
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/map09icNxZ4mUHfudscMxeMy4rhspM1RBj3ia3srGH0611JNU3ZVGS1CoXuN4qMfE307DPgSQJTWrVYsxlw3PkLg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+画个图看下就明白了：
+
+![图片](https://mmbiz.qpic.cn/mmbiz_gif/map09icNxZ4mUHfudscMxeMy4rhspM1RBTpH5NMV7dDIvZe5icEH04hGgPxhyKOsUB1iaTS3jbEAE4WtN8da8tlBw/640?wx_fmt=gif&tp=webp&wxfrom=5&wx_lazy=1)
+
+至此，二叉堆的主要操作就讲完了，一点都不难吧，代码加起来也就十行。明白了`sink`和`swim`的行为，下面就可以实现优先级队列了。
+
+## 四、实现 delMax 和 insert
+
+这两个方法就是建立在`swim`和`sink`上的。
+
+### `insert`
+
+**`insert`方法先把要插入的元素添加到堆底的最后，然后让其上浮到正确位置。**
+
+```Java
+public void insert(Key e) {
+    N++;
+    // 先把新元素加到最后
+    pq[N] = e;
+    // 然后让它上浮到正确的位置
+    swim(N);
+}
+```
+
+![图片](https://mmbiz.qpic.cn/mmbiz_gif/map09icNxZ4mUHfudscMxeMy4rhspM1RBdqAicb3HOYd2gsgplibSyBOaEzOrfib4WwDp0SZ6nW6jxkxpnT6yZO7sQ/640?wx_fmt=gif&tp=webp&wxfrom=5&wx_lazy=1)
+
+### `delMax`
+
+**`delMax`方法先把堆顶元素 A 和堆底最后的元素 B 对调，然后删除 A，最后让 B 下沉到正确位置。**
+
+```Java
+public Key delMax() {
+    // 最大堆的堆顶就是最大元素
+    Key max = pq[1];
+    // 把这个最大元素换到最后，删除之
+    exch(1, N);
+    pq[N] = null;
+    N--;
+    // 让 pq[1] 下沉到正确位置
+    sink(1);
+    return max;
+}
+```
+
+
+
+
+
+![图片](https://mmbiz.qpic.cn/mmbiz_gif/map09icNxZ4mUHfudscMxeMy4rhspM1RBQ8Fq9pHLnBr3KbG6ZDY6H7icb7Va700JiaYicNFmYQaIkZkQv6Aib3ao0A/640?wx_fmt=gif&tp=webp&wxfrom=5&wx_lazy=1)
+
+至此，一个优先级队列就实现了，插入和删除元素的时间复杂度为 *O*(logK)，*K*为当前二叉堆（优先级队列）中的元素总数。因为我们时间复杂度主要花费在`sink`或者`swim`上，而不管上浮还是下沉，最多也就树（堆）的高度，也就是 log 级别。
+
+## 五、最后总结
+
+二叉堆就是一种完全二叉树，所以适合存储在数组中，而且二叉堆拥有一些特殊性质。
+
+二叉堆的操作很简单，主要就是上浮和下沉，来维护堆的性质（堆有序），核心代码也就十行。
+
+优先级队列是基于二叉堆实现的，主要操作是插入和删除。插入是先插到最后，然后上浮到正确位置；删除是把第一个元素 pq[1]（最值）调换到最后再删除，然后把新的 pq[1] 下沉到正确位置。核心代码也就十行。
+
+也许这就是数据结构的威力，简单的操作就能实现巧妙的功能，真心佩服发明二叉堆算法的人！
