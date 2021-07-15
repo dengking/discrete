@@ -18,32 +18,21 @@ The [red–black tree](https://en.wikipedia.org/wiki/Red–black_tree), which is
 
 ### Overview
 
-Most operations on a binary search tree (BST) take time directly proportional to the height of the tree, so it is desirable to keep the height small. A binary tree with height *h* can contain at most [$2^0+2^1+···+2^h = 2^{h+1}−1$]( https://en.wikipedia.org/wiki/Geometric_series#Formula ) nodes. It follows that for any tree with *n* nodes and height *h*:
-${\displaystyle n\leq 2^{h+1}-1}$
+Most operations on a binary search tree (BST) take time directly proportional to the height of the tree, so it is desirable to keep the height small. A binary tree with height *h* can contain at most [$2^0+2^1+···+2^h = 2^{h+1}−1$]( https://en.wikipedia.org/wiki/Geometric_series#Formula ) nodes. It follows that for any tree with *n* nodes and height *h*: ${\displaystyle n\leq 2^{h+1}-1}$ 
 
-![n\leq 2^{h+1}-1](https://wikimedia.org/api/rest_v1/media/math/render/svg/34bfb3725cd0fd6e834537810c74080e0e2180d3)
-
-And that implies:
-
-${\displaystyle h\geq \lceil \log _{2}(n+1)-1\rceil \geq \lfloor \log _{2}n\rfloor }$
-
-![h\geq \lceil \log _{2}(n+1)-1\rceil \geq \lfloor \log _{2}n\rfloor ](https://wikimedia.org/api/rest_v1/media/math/render/svg/4264fcbd5d567771faa2bd486de80e2593a07575).
+And that implies: ${\displaystyle h\geq \lceil \log _{2}(n+1)-1\rceil \geq \lfloor \log _{2}n\rfloor }$
 
 In other words, the minimum height of a binary tree with *n* nodes is [log](https://en.wikipedia.org/wiki/Logarithm)2(*n*), [rounded down](https://en.wikipedia.org/wiki/Floor_and_ceiling_functions); that is, ${\displaystyle \lfloor \log _{2}n\rfloor }$
-
-![\lfloor \log _{2}n\rfloor ](https://wikimedia.org/api/rest_v1/media/math/render/svg/992c9e2c99d88241b484aad58ab2f6875708d2fd).[[1\]](https://en.wikipedia.org/wiki/Self-balancing_binary_search_tree#cite_note-knuth-1)
 
 
 
 However, the simplest algorithms for BST item insertion may yield a tree with nodes *n* in rather common situations. For example, when the items are inserted in sorted [key](https://en.wikipedia.org/wiki/Key_(database)) order, the tree degenerates（退化） into a [linked list](https://en.wikipedia.org/wiki/Linked_list) with *n* nodes. The difference in performance between the two situations may be enormous: for *n* = 1,000,000, for example, the minimum height is ${\displaystyle \lfloor \log _{2}(1,000,000)\rfloor =19}$
 
-![\lfloor \log _{2}(1,000,000)\rfloor =19](https://wikimedia.org/api/rest_v1/media/math/render/svg/73c74b7a3617eaae266b0e5af80ac0bedbf44afc).
-
 If the data items are known ahead of time, the height can be kept small, in the average sense, by adding values in a random order, resulting in a [random binary search tree](https://en.wikipedia.org/wiki/Random_binary_search_tree). However, there are many situations (such as [online algorithms](https://en.wikipedia.org/wiki/Online_algorithm)) where this [randomization](https://en.wikipedia.org/wiki/Randomized_algorithm) is not viable.
 
 Self-balancing binary trees solve this problem by performing transformations on the tree (such as [tree rotations](https://en.wikipedia.org/wiki/Tree_rotation)) at key insertion times, in order to keep the height proportional to $log_{2}(n)$. Although a certain [overhead](https://en.wikipedia.org/wiki/Computational_overhead) is involved, it may be justified in the long run by ensuring fast execution of later operations.
 
-While it is possible to maintain a BST with minimum height with expected ${\displaystyle O(\log n)}$![O(\log n)](https://wikimedia.org/api/rest_v1/media/math/render/svg/aae0f22048ba6b7c05dbae17b056bfa16e21807d) time operations (lookup/insertion/removal), the additional space requirements required to maintain such a structure tend to outweigh the decrease in search time. For comparison, an AVL tree is guaranteed to be within a factor of 1.44 of the **optimal height** while requiring only two additional bits of storage in a naive implementation.[[1\]](https://en.wikipedia.org/wiki/Self-balancing_binary_search_tree#cite_note-knuth-1) Therefore, most self-balanced BST algorithms keep the height within a constant factor of this lower bound.
+While it is possible to maintain a BST with minimum height with expected ${\displaystyle O(\log n)}$ time operations (lookup/insertion/removal), the additional space requirements required to maintain such a structure tend to outweigh the decrease in search time. For comparison, an AVL tree is guaranteed to be within a factor of 1.44 of the **optimal height** while requiring only two additional bits of storage in a naive implementation.[[1\]](https://en.wikipedia.org/wiki/Self-balancing_binary_search_tree#cite_note-knuth-1) Therefore, most self-balanced BST algorithms keep the height within a constant factor of this lower bound.
 
 > NOTE: 
 >
