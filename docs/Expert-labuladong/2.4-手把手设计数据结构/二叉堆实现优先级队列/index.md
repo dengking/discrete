@@ -1,5 +1,11 @@
 # labuladong [图文详解二叉堆，实现优先级队列](https://mp.weixin.qq.com/s/o7tdyLiYm668dpUWd-x7Lg)
 
+> NOTE: 
+>
+> 一、在 infogalactic [Heap (data structure)](https://infogalactic.com/info/Heap_(data_structure)) 中，对heap有着非常好的描述
+>
+> 
+
 二叉堆（Binary Heap）没什么神秘，性质比二叉搜索树 BST 还简单。其主要操作就两个，`sink`（下沉）和`swim`（上浮），用以维护二叉堆的性质。其主要应用有两个，首先是一种排序方法「堆排序」，第二是一种很有用的数据结构「优先级队列」。
 
 本文就以实现**优先级队列**（Priority Queue）为例，通过图片和人类的语言来描述一下二叉堆怎么运作的。
@@ -25,7 +31,15 @@ int right(int root) {
 }
 ```
 
-画个图你立即就能理解了，注意数组的第一个索引 0 空着不用：
+> NOTE: 
+>
+> infogalactic [Heap (data structure)](https://infogalactic.com/info/Heap_(data_structure)) :
+>
+> > Thus the children of the node at position *n* would be at positions **2n** and **2n + 1** in a one-based array, or **2n + 1** and **2n + 2** in a zero-based array. This allows moving up or down the tree by doing simple index computations. 
+>
+> 
+
+画个图你立即就能理解了，注意数组的第一个索引 `0` 空着不用：
 
 ![图片](https://mmbiz.qpic.cn/mmbiz_png/map09icNxZ4mUHfudscMxeMy4rhspM1RByASfhbw8hO6fTicKwwicReawGVHhbX7Kmnhw1FAykVdXVt4nibDtSwIdA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
@@ -47,10 +61,152 @@ PS：因为数组索引是数字，为了方便区分，将字符作为数组元
 
 ## 二、优先级队列概览
 
-优先级队列这种数据结构有一个很有用的功能，你插入或者删除元素的时候，元素会自动排序，这底层的原理就是二叉堆的操作。
+优先级队列这种数据结构有一个很有用的功能，你插入或者删除元素的时候，元素会**自动排序**，这底层的原理就是二叉堆的操作。
 
 数据结构的功能无非增删查该，优先级队列有两个主要 API，分别是`insert`插入一个元素和`delMax`删除最大元素（如果底层用最小堆，那么就是`delMin`）。
 
 下面我们实现一个简化的优先级队列，先看下代码框架：
 
-PS：为了清晰起见，这里用到 Java 的泛型，`Key`可以是任何一种可比较大小的数据类型，你可以认为它是 int、char 等。
+PS：为了清晰起见，这里用到 Java 的泛型，`Key`可以是任何一种可比较大小的数据类型，你可以认为它是 `int`、`char` 等。
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/map09icNxZ4mUHfudscMxeMy4rhspM1RBxnqSia0XAY7CLIs2nrfERvjk7OHheQFjMtfoQB7WcbZsCiaDEKdW3q6A/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+> NOTE: 
+>
+> 下面是完整的代码
+
+```Java
+public class MaxPQ < Key extends Comparable < Key >> {
+    // 存储元素的数组
+    private Key[] pq;
+    // 当前priority queue中的元素个数
+    private int N = 0;
+    public MaxPQ(int cap) {
+        pq = (Key[]) new Comparable[cap + 1];
+    }
+    /**
+     * 返回当前队列中的最大元素
+     */
+    public Key max() {
+        return pq[1];
+    }
+    /**
+     * 插入元素e
+     */
+    public void insert(Key e) {
+        N++;
+        // 先把新元素加到最后
+        pq[N] = e;
+        // 然后让它上浮到正确的位置
+        swim(N);
+    }
+    /**
+     * 删除并返回当前队列中的最大元素
+     */
+    public Key delMax() {
+        // 最大堆的堆顶就是最大元素
+        Key max = pq[1];
+        // 把这个最大元素换到最后，删除之
+        exch(1, N);
+        pq[N] = null;
+        N--;
+        // 让 pq[1] 下沉到正确位置
+        sink(1);
+        return max;
+    }
+    /**
+     * 上浮第k个元素，以维护最大堆性质
+     */
+    private void swim(int k) {
+        // 如果浮到栈顶，就不能再上浮了
+        while (k > 1 && less(parent(k), k)) {
+            // 如果第k个元素比上层大
+            // 将k换上去
+            exch(parent(k), k);
+            k = parent(k);
+        }
+    }
+    /**
+     * 下沉第k个元素，以维护最大堆性质
+     */
+    private void sink(int k) {
+        // 如果沉到堆底，就沉不下去了
+        while (left(k) <= N) {
+            // 先假设左边的节点较大
+            int older = left(k);
+            // 如果右边的节点存在，比一下大小
+            if (right(k) <= N && less(older, right(k)))
+                older = right(k);
+            // 节点 k 比俩孩子都大，就不必下沉了
+            if (less(older, k)) break;
+            // 否则，不符合最大堆的结构，下沉 k 节点
+            exch(k, older);
+            k = older;
+        }
+    }
+    /**
+     * 交换数组中的两个元素
+     */
+    private void exch(int i, int j) {
+        Key temp = pq[i];
+        pq[i] = pq[j];
+        pq[j] = temp;
+    }
+    /**
+     * pq[i] 是否比 pq[j] 小
+     */
+    private boolean less(int i, int j) {
+        return pq[i].compareTo(pq[j]) < 0;
+    }
+    // 父节点的索引
+    private int parent(int root) {
+        return root / 2;
+    }
+    // 左孩子的索引
+    private int left(int root) {
+        return root * 2;
+    }
+    // 右孩子的索引
+    private int right(int root) {
+        return root * 2 + 1;
+    }
+};
+```
+
+
+
+
+
+## 三、实现 `swim` 和 `sink`
+
+为什么要有上浮 `swim` 和下沉 `sink` 的操作呢？为了维护**堆结构**。
+
+我们要讲的是最大堆，每个节点都比它的两个子节点大，但是在**插入元素**和**删除元素**时，难免破坏堆的性质，这就需要通过这两个操作来恢复堆的性质了。
+
+对于最大堆，会破坏堆性质的有有两种情况：
+
+1、如果某个节点 A 比它的子节点（中的一个）小，那么 A 就不配做父节点，应该下去，下面那个更大的节点上来做父节点，这就是对 A 进行**下沉**。
+
+> NOTE: 
+>
+> 在`delMax`后，需要执行**下沉**
+
+2、如果某个节点 A 比它的父节点大，那么 A 不应该做子节点，应该把父节点换下来，自己去做父节点，这就是对 A 的**上浮**。
+
+> NOTE: 
+>
+> 在 `insert` 后，需要执行**上浮**
+
+当然，错位的节点 A 可能要上浮（或下沉）很多次，才能到达正确的位置，恢复堆的性质。所以代码中肯定有一个`while`循环。
+
+**上浮的代码实现：**
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/map09icNxZ4mUHfudscMxeMy4rhspM1RBy40xibib0WT27FkLGsjibURhCrEmFibABnXXQxSLg6WMmIQUSUGM6y1U9A/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+画个图看一眼就明白了：
+
+![图片](https://mmbiz.qpic.cn/mmbiz_gif/map09icNxZ4mUHfudscMxeMy4rhspM1RBvQTerYcqImVGicUIMeFicu1ias77WqSDDIAsrzl40q1nMh1KDPgiblsdIA/640?wx_fmt=gif&tp=webp&wxfrom=5&wx_lazy=1)
+
+> NOTE: 
+>
+> 上述是按照字母顺序来排列的
