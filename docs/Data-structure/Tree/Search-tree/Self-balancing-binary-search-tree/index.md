@@ -58,16 +58,19 @@ In the [asymptotic](https://en.wikipedia.org/wiki/Asymptotic) ("[Big-O](https://
 
 ### Applications
 
-Self-balancing binary search trees can be used in a natural way to construct and maintain ordered lists, such as [priority queues](https://en.wikipedia.org/wiki/Priority_queue). They can also be used for [associative arrays](https://en.wikipedia.org/wiki/Associative_array); key-value pairs are simply inserted with an ordering based on the key alone. In this capacity, self-balancing BSTs have [a number of advantages and disadvantages](https://en.wikipedia.org/wiki/Associative_array#Efficient_representations) over their main competitor, [hash tables](https://en.wikipedia.org/wiki/Hash_table). One advantage of self-balancing BSTs is that they allow fast (indeed, asymptotically optimal) enumeration of the items *in key order*, which hash tables do not provide. One disadvantage is that their lookup algorithms get more complicated when there may be multiple items with the same key. Self-balancing BSTs have better **worst-case lookup performance** than hash tables (${\displaystyle O(\log n)}$ compared to O(n)), but have **worse average-case performance** (${\displaystyle O(\log n)}$ compared to O(1)).
+Self-balancing binary search trees can be used in a natural way to construct and maintain ordered lists, such as [priority queues](https://en.wikipedia.org/wiki/Priority_queue). They can also be used for [associative arrays](https://en.wikipedia.org/wiki/Associative_array); key-value pairs are simply inserted with an ordering based on the key alone. In this capacity, self-balancing BSTs have [a number of advantages and disadvantages](https://en.wikipedia.org/wiki/Associative_array#Efficient_representations) over their main competitor, [hash tables](https://en.wikipedia.org/wiki/Hash_table) : 
+
+One advantage of self-balancing BSTs is that they allow fast (indeed, asymptotically optimal) enumeration of the items *in key order*, which hash tables do not provide. 
+
+One disadvantage is that their lookup algorithms get more complicated when there may be multiple items with the same key. 
+
+Self-balancing BSTs have better **worst-case lookup performance** than hash tables (${\displaystyle O(\log n)}$ compared to O(n)), but have **worse average-case performance** (${\displaystyle O(\log n)}$ compared to O(1)).
 
 Self-balancing BSTs can be used to implement any algorithm that requires mutable ordered lists, to achieve optimal worst-case asymptotic performance. For example, if [binary tree sort](https://en.wikipedia.org/wiki/Binary_tree_sort) is implemented with a self-balanced BST, we have a very simple-to-describe yet [asymptotically optimal](https://en.wikipedia.org/wiki/Asymptotically_optimal) O(*n* log *n*) sorting algorithm. Similarly, many algorithms in [computational geometry](https://en.wikipedia.org/wiki/Computational_geometry) exploit variations on self-balancing BSTs to solve problems such as the [line segment intersection](https://en.wikipedia.org/wiki/Line_segment_intersection) problem and the [point location](https://en.wikipedia.org/wiki/Point_location) problem efficiently. (For average-case performance, however, self-balanced BSTs may be less efficient than other solutions. Binary tree sort, in particular, is likely to be slower than [merge sort](https://en.wikipedia.org/wiki/Merge_sort), [quicksort](https://en.wikipedia.org/wiki/Quicksort), or [heapsort](https://en.wikipedia.org/wiki/Heapsort), because of the tree-balancing overhead as well as [cache](https://en.wikipedia.org/wiki/Cache_(computing)) access patterns.)
 
+> NOTE: 
+>
+> "line segment intersection"的意思是"线段相交"
+
 Self-balancing BSTs are flexible data structures, in that it's easy to extend them to efficiently record additional information or perform new operations. For example, one can record the number of nodes in each subtree having a certain property, allowing one to count the number of nodes in a certain key range with that property in O(log *n*) time. These extensions can be used, for example, to optimize database queries or other list-processing algorithms.
 
-### See also
-
-- [Search data structure](https://en.wikipedia.org/wiki/Search_data_structure)
-- [Day–Stout–Warren algorithm](https://en.wikipedia.org/wiki/Day–Stout–Warren_algorithm)
-- [Fusion tree](https://en.wikipedia.org/wiki/Fusion_tree)
-- [Skip list](https://en.wikipedia.org/wiki/Skip_list)
-- [Sorting](https://en.wikipedia.org/wiki/Sorting)
