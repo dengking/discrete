@@ -2,6 +2,47 @@
 
 本章描述排序算法。
 
+常见的排序算法非常多，因此我们需要对各种排序算法进行非常好的分类、梳理它们的关联，参考了下面的文章:
+
+1、wikipedia [Sorting algorithm](https://en.wikipedia.org/wiki/Sorting_algorithm)
+
+2、wanweibaike [Priority queue](https://en.wanweibaike.com/wiki-Priority%20Queue)
+
+
+
+## 排序算法概述
+
+一、wikipedia [Sorting algorithm](https://en.wikipedia.org/wiki/Sorting_algorithm)
+
+|                                                              | **Sorting algorithms**                                       | 简介                                   |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | -------------------------------------- |
+| Exchange sorts                                               | [Bubble sort](https://infogalactic.com/info/Bubble_sort) 、[Quicksort](https://infogalactic.com/info/Quicksort) | 选择pivot为基准，进行交换              |
+| [Selection sorts](https://infogalactic.com/info/Selection_algorithm) | [Selection sort](https://infogalactic.com/info/Selection_sort) 、[Heapsort](https://infogalactic.com/info/Heapsort) 、[Smoothsort](https://infogalactic.com/info/Smoothsort) | 每次选择最大、最小                     |
+| **Insertion sorts**                                          | [Insertion sort](https://infogalactic.com/info/Insertion_sort) 、[Shellsort](https://infogalactic.com/info/Shellsort) | 将未排序元素插入到已排序的部分中       |
+| **Merge sorts**                                              | [Merge sort](https://infogalactic.com/info/Merge_sort)       | 将已排序的序列合并为一个更大的排序序列 |
+| **Distribution sorts**                                       | [Bucket sort](https://infogalactic.com/info/Bucket_sort) 、[Counting sort](https://infogalactic.com/info/Counting_sort) 、 [Radix sort](https://infogalactic.com/info/Radix_sort) | 非比较排序                             |
+| **Concurrent sorts**                                         |                                                              |                                        |
+| [Hybrid sorts](https://infogalactic.com/info/Hybrid_algorithm) | [Timsort](https://infogalactic.com/info/Timsort)、[Introsort](https://infogalactic.com/info/Introsort) | 综合各种排序，选择最优的               |
+| **Other**                                                    | [Topological sorting](https://infogalactic.com/info/Topological_sorting) |                                        |
+
+> NOTE: 
+>
+> 原文收录了很多，上面仅仅包含一些经常被提及的。
+
+
+
+二、wanweibaike [Priority queue](https://en.wanweibaike.com/wiki-Priority%20Queue)
+
+|                             Name                             |                Priority Queue Implementation                 |                             Best                             |                           Average                            |                            Worst                             |
+| :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
+|      [Heapsort](https://infogalactic.com/info/Heapsort)      | [Heap](https://infogalactic.com/info/Heap_(data_structure))  | ![n \log(n)](https://infogalactic.com/w/images/math/5/9/0/59032eb6da2b67ed1aba8d4a4c55ebf6.png) | ![n \log(n)](https://infogalactic.com/w/images/math/5/9/0/59032eb6da2b67ed1aba8d4a4c55ebf6.png) | ![n \log(n)](https://infogalactic.com/w/images/math/5/9/0/59032eb6da2b67ed1aba8d4a4c55ebf6.png) |
+|    [Smoothsort](https://infogalactic.com/info/Smoothsort)    |                        Leonardo Heap                         | ![n](https://infogalactic.com/w/images/math/7/b/8/7b8b965ad4bca0e41ab51de7b31363a1.png) | ![n \log(n)](https://infogalactic.com/w/images/math/5/9/0/59032eb6da2b67ed1aba8d4a4c55ebf6.png) | ![n \log (n)](https://infogalactic.com/w/images/math/5/9/0/59032eb6da2b67ed1aba8d4a4c55ebf6.png) |
+| [Selection sort](https://infogalactic.com/info/Selection_sort) | Unordered [Array](https://infogalactic.com/info/Array_(disambiguation)#In_computer_science) | ![n^2](https://infogalactic.com/w/images/math/b/0/8/b08b1c6ec09f20907eb1d6f1392c01c6.png) | ![n^2](https://infogalactic.com/w/images/math/b/0/8/b08b1c6ec09f20907eb1d6f1392c01c6.png) | ![n^2](https://infogalactic.com/w/images/math/b/0/8/b08b1c6ec09f20907eb1d6f1392c01c6.png) |
+| [Insertion Sort](https://infogalactic.com/info/Insertion_Sort) | Ordered [Array](https://infogalactic.com/info/Array_(disambiguation)#In_computer_science) | ![n ](https://infogalactic.com/w/images/math/7/b/8/7b8b965ad4bca0e41ab51de7b31363a1.png) | ![n^2 ](https://infogalactic.com/w/images/math/b/0/8/b08b1c6ec09f20907eb1d6f1392c01c6.png) | ![n^2 ](https://infogalactic.com/w/images/math/b/0/8/b08b1c6ec09f20907eb1d6f1392c01c6.png) |
+|     [Tree sort](https://infogalactic.com/info/Tree_sort)     | [self-balancing binary search tree](https://infogalactic.com/info/Self-balancing_binary_search_tree) | ![n \log(n)](https://infogalactic.com/w/images/math/5/9/0/59032eb6da2b67ed1aba8d4a4c55ebf6.png) | ![n \log(n)](https://infogalactic.com/w/images/math/5/9/0/59032eb6da2b67ed1aba8d4a4c55ebf6.png) | ![n \log(n)](https://infogalactic.com/w/images/math/5/9/0/59032eb6da2b67ed1aba8d4a4c55ebf6.png) |
+
+
+
 ## wikipedia [Sorting algorithm](https://en.wikipedia.org/wiki/Sorting_algorithm)
 
 In [computer science](https://en.wikipedia.org/wiki/Computer_science), a **sorting algorithm** is an [algorithm](https://en.wikipedia.org/wiki/Algorithm) that puts elements of a [list](https://en.wikipedia.org/wiki/List_(computing)) in a certain [order](https://en.wikipedia.org/wiki/Total_order). The most frequently used orders are [numerical order](https://en.wikipedia.org/wiki/Numerical_order) and [lexicographical order](https://en.wikipedia.org/wiki/Lexicographical_order). 
@@ -74,6 +115,8 @@ Selection sorts include cycle sort and heapsort.
 
 7、Adaptability: Whether or not the presortedness of the input affects the running time. Algorithms that take this into account are known to be [adaptive](https://en.wikipedia.org/wiki/Adaptive_sort).
 
+
+
 #### Stability
 
 > NOTE: 
@@ -139,7 +182,9 @@ Below is a table of [comparison sorts](https://en.wanweibaike.com/wiki-Compariso
 
 > NOTE: 
 >
-> 下面对各种排序算法的梳理是非常好的
+> 一、下面对各种排序算法的梳理是非常好的
+>
+> 1、各种算法之间的关联
 
 Highly tuned implementations use more sophisticated variants, such as [Timsort](https://en.wanweibaike.com/wiki-Timsort) (merge sort, insertion sort, and additional logic), used in Android, Java, and Python, and [introsort](https://en.wanweibaike.com/wiki-Introsort) (quicksort and heap sort), used (in variant forms) in some [C++ sort](https://en.wanweibaike.com/wiki-Sort_(C%2B%2B)) implementations and in .NET.
 
@@ -171,13 +216,27 @@ It improves upon bubble sort and insertion sort by moving out of order elements 
 
 **[Shell sort](https://infogalactic.com/info/Shellsort)**
 
+It improves upon bubble sort and insertion sort by moving out of order elements more than one position at a time.
+
 #### Distribution sort
 
 See also: [External sorting](https://infogalactic.com/info/External_sorting)
 
 *Distribution sort* refers to any sorting algorithm where data are distributed from their input to multiple intermediate structures which are then gathered and placed on the output. For example, both [bucket sort](https://infogalactic.com/info/Bucket_sort) and [flashsort](https://infogalactic.com/info/Flashsort) are distribution based sorting algorithms. Distribution sorting algorithms can be used on a single processor, or they can be a [distributed algorithm](https://infogalactic.com/info/Distributed_algorithm), where individual subsets are separately sorted on different processors, then combined. This allows [external sorting](https://infogalactic.com/info/External_sorting) of data too large to fit into a single computer's memory.
 
+> NOTE: 
+>
+> divide and conquer
+
+**[Counting sort](https://infogalactic.com/info/Counting_sort)**
+
+**[Bucket sort](https://infogalactic.com/info/Bucket_sort)**
+
+**[Radix sort](https://infogalactic.com/info/Radix_sort)**
+
+
+
 ## Timsort vs quicksort
 
-[Comparison between timsort and quicksort](https://stackoverflow.com/questions/7770230/comparison-between-timsort-and-quicksort)
+stackoverflow [Comparison between timsort and quicksort](https://stackoverflow.com/questions/7770230/comparison-between-timsort-and-quicksort)
 

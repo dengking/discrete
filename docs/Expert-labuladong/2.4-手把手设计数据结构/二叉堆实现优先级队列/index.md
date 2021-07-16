@@ -71,6 +71,7 @@ PS：为了清晰起见，这里用到 Java 的泛型，`Key`可以是任何一�
 
 ![图片](https://mmbiz.qpic.cn/mmbiz_png/map09icNxZ4mUHfudscMxeMy4rhspM1RBxnqSia0XAY7CLIs2nrfERvjk7OHheQFjMtfoQB7WcbZsCiaDEKdW3q6A/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
+### 完整代码
 > NOTE: 
 >
 > 下面是完整的代码
@@ -199,6 +200,8 @@ public class MaxPQ < Key extends Comparable < Key >> {
 
 当然，错位的节点 A 可能要上浮（或下沉）很多次，才能到达正确的位置，恢复堆的性质。所以代码中肯定有一个`while`循环。
 
+
+
 ### 上浮
 
 > NOTE: 
@@ -219,6 +222,8 @@ public class MaxPQ < Key extends Comparable < Key >> {
 >
 > 上述是按照字母顺序来排列的
 
+
+
 ### 下沉
 
 **下沉的代码实现：**
@@ -233,9 +238,13 @@ public class MaxPQ < Key extends Comparable < Key >> {
 
 至此，二叉堆的主要操作就讲完了，一点都不难吧，代码加起来也就十行。明白了`sink`和`swim`的行为，下面就可以实现优先级队列了。
 
+
+
 ## 四、实现 delMax 和 insert
 
 这两个方法就是建立在`swim`和`sink`上的。
+
+
 
 ### `insert`
 
@@ -278,6 +287,8 @@ public Key delMax() {
 ![图片](https://mmbiz.qpic.cn/mmbiz_gif/map09icNxZ4mUHfudscMxeMy4rhspM1RBQ8Fq9pHLnBr3KbG6ZDY6H7icb7Va700JiaYicNFmYQaIkZkQv6Aib3ao0A/640?wx_fmt=gif&tp=webp&wxfrom=5&wx_lazy=1)
 
 至此，一个优先级队列就实现了，插入和删除元素的时间复杂度为 *O*(logK)，*K*为当前二叉堆（优先级队列）中的元素总数。因为我们时间复杂度主要花费在`sink`或者`swim`上，而不管上浮还是下沉，最多也就树（堆）的高度，也就是 log 级别。
+
+
 
 ## 五、最后总结
 

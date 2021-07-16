@@ -48,3 +48,18 @@ One can imagine a priority queue as a modified [queue](https://en.wanweibaike.co
 
 #### Usual implementation
 
+1、[heap](https://infogalactic.com/info/Heap_(data_structure)) 
+
+2、[self-balancing binary search tree](https://infogalactic.com/info/Self-balancing_binary_search_tree)
+
+### Equivalence of priority queues and sorting algorithms
+
+#### Using a priority queue to sort
+
+|                             Name                             |                Priority Queue Implementation                 |                             Best                             |                           Average                            |                            Worst                             |
+| :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
+|      [Heapsort](https://infogalactic.com/info/Heapsort)      | [Heap](https://infogalactic.com/info/Heap_(data_structure))  | ![n \log(n)](https://infogalactic.com/w/images/math/5/9/0/59032eb6da2b67ed1aba8d4a4c55ebf6.png) | ![n \log(n)](https://infogalactic.com/w/images/math/5/9/0/59032eb6da2b67ed1aba8d4a4c55ebf6.png) | ![n \log(n)](https://infogalactic.com/w/images/math/5/9/0/59032eb6da2b67ed1aba8d4a4c55ebf6.png) |
+|    [Smoothsort](https://infogalactic.com/info/Smoothsort)    |                        Leonardo Heap                         | ![n](https://infogalactic.com/w/images/math/7/b/8/7b8b965ad4bca0e41ab51de7b31363a1.png) | ![n \log(n)](https://infogalactic.com/w/images/math/5/9/0/59032eb6da2b67ed1aba8d4a4c55ebf6.png) | ![n \log (n)](https://infogalactic.com/w/images/math/5/9/0/59032eb6da2b67ed1aba8d4a4c55ebf6.png) |
+| [Selection sort](https://infogalactic.com/info/Selection_sort) | Unordered [Array](https://infogalactic.com/info/Array_(disambiguation)#In_computer_science) | ![n^2](https://infogalactic.com/w/images/math/b/0/8/b08b1c6ec09f20907eb1d6f1392c01c6.png) | ![n^2](https://infogalactic.com/w/images/math/b/0/8/b08b1c6ec09f20907eb1d6f1392c01c6.png) | ![n^2](https://infogalactic.com/w/images/math/b/0/8/b08b1c6ec09f20907eb1d6f1392c01c6.png) |
+| [Insertion Sort](https://infogalactic.com/info/Insertion_Sort) | Ordered [Array](https://infogalactic.com/info/Array_(disambiguation)#In_computer_science) | ![n ](https://infogalactic.com/w/images/math/7/b/8/7b8b965ad4bca0e41ab51de7b31363a1.png) | ![n^2 ](https://infogalactic.com/w/images/math/b/0/8/b08b1c6ec09f20907eb1d6f1392c01c6.png) | ![n^2 ](https://infogalactic.com/w/images/math/b/0/8/b08b1c6ec09f20907eb1d6f1392c01c6.png) |
+|     [Tree sort](https://infogalactic.com/info/Tree_sort)     | [self-balancing binary search tree](https://infogalactic.com/info/Self-balancing_binary_search_tree) | ![n \log(n)](https://infogalactic.com/w/images/math/5/9/0/59032eb6da2b67ed1aba8d4a4c55ebf6.png) | ![n \log(n)](https://infogalactic.com/w/images/math/5/9/0/59032eb6da2b67ed1aba8d4a4c55ebf6.png) | ![n \log(n)](https://infogalactic.com/w/images/math/5/9/0/59032eb6da2b67ed1aba8d4a4c55ebf6.png) |

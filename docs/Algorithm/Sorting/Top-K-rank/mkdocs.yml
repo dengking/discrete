@@ -1,5 +1,7 @@
 nav:
     - Introduction: index.md
-    - Quick-select: Quick-select        
+    - Selection-algorithm: Selection-algorithm
+    - Quick-select: Quick-select
+    - Median-of-medians: Median-of-medians    
     - LeetCode-973-最接近原点的K个点: LeetCode-973-最接近原点的K个点
     - LeetCode-剑指-Offer-40-最小的k个数: LeetCode-剑指-Offer-40-最小的k个数

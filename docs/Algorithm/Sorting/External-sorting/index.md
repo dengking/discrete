@@ -38,6 +38,12 @@ buyer2,item2,13812348765,123,2020-01-01 01:00:00,3…
 
 ### LeetCode [这可能不只是一篇面经](https://leetcode-cn.com/circle/discuss/alVTol/)
 
+
+
+### LeetCode [海量数据处理方法](https://leetcode-cn.com/circle/article/qlkHuN/)
+
+
+
 ## wanweibaike [External sorting](https://en.wanweibaike.com/wiki-External%20sorting)
 
 **External sorting** is a class of [sorting](https://en.wanweibaike.com/wiki-Sorting) [algorithms](https://en.wanweibaike.com/wiki-Algorithm) that can handle massive amounts of [data](https://en.wanweibaike.com/wiki-Data). External sorting is required when the data being sorted do not fit into the [main memory](https://en.wanweibaike.com/wiki-Main_memory) of a computing device (usually [RAM](https://en.wanweibaike.com/wiki-RAM)) and instead they must reside in the slower [external memory](https://en.wanweibaike.com/wiki-Auxiliary_memory), usually a [hard disk drive](https://en.wanweibaike.com/wiki-Hard_disk_drive). Thus, external sorting algorithms are [external memory algorithms](https://en.wanweibaike.com/wiki-External_memory_algorithm) and thus applicable in the [external memory](https://en.wanweibaike.com/wiki-External_memory_model) [model of computation](https://en.wanweibaike.com/wiki-Model_of_computation).

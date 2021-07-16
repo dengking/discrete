@@ -1,5 +1,7 @@
 # 我的刷题
 
+
+
 ## 回溯法
 
 
@@ -82,9 +84,9 @@ leetcode [56. 合并区间](https://leetcode-cn.com/problems/merge-intervals/)
 
 
 
-## TOP K
+## TOP K/selection algorithm
 
-
+参见 `Top-K-rank` 章节。
 
 ## Expression
 
@@ -107,3 +109,9 @@ LeetCode-875-爱吃香蕉的珂珂
 LeetCode-1011-在D天内送达包裹的能力
 
 LeetCode-34-在排序数组中查找元素的第一个和最后一个位置
+
+
+
+## 回文
+
+记得将在newcode上看到的一种写法记下来。
