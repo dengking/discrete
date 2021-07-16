@@ -28,6 +28,10 @@ A B-tree of **order** *m* is a search tree in which each **nonleaf node** has up
 
 1、Every path from the root to a leaf has the same length
 
+> NOTE: 
+>
+> B-tree是 "**self-balancing** [tree data structure](https://en.wikipedia.org/wiki/Tree_data_structure) "的
+
 2、If a node has *n* children, it contains *n*−1 keys.
 
 3、Every node (except the root) is at least **half full**
@@ -50,7 +54,7 @@ For example, the following is an order-5 B-tree (*m*=5) where the leaves have en
 
 ![img](https://www.cs.cornell.edu/courses/cs3110/2012sp/recitations/rec25-B-trees/images/B-trees.gif)
 
-Because the height of the tree is uniformly the same and every node is at least **half full**, we are guaranteed that the asymptotic performance is O(lg *n*) where *n* is the size of the collection. The real win is in the **constant factors**, of course. We can choose *m* so that the pointers to the *m* children plus the *m*−1 **elements** fill out a cache line at the highest level of the memory hierarchy where we can expect to get cache hits. For example, if we are accessing a large disk database then our "cache lines" are memory blocks of the size that is read from disk.
+Because the height of the tree is uniformly the same and every node is at least **half full**, we are guaranteed that the asymptotic performance is O(lg *n*) where *n* is the size of the collection. The real win is in the **constant factors**, of course. We can choose *m* so that the pointers to the *m* children plus the *m*−1 **elements** fill out a **cache line** at the highest level of the memory hierarchy where we can expect to get cache hits. For example, if we are accessing a large disk database then our "cache lines" are memory blocks of the size that is read from disk.
 
 > NOTE: 
 >

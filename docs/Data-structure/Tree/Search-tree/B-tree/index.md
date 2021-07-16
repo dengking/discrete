@@ -4,9 +4,15 @@
 
 > NOTE: 
 >
-> 一、冗杂，建议阅读 cornell [B-Trees](https://www.cs.cornell.edu/courses/cs3110/2012sp/recitations/rec25-B-trees/rec25.html) 
+> 一、wikipedia [B-tree](https://en.wikipedia.org/wiki/B-tree)的内容比较冗杂，建议先阅读 cornell [B-Trees](https://www.cs.cornell.edu/courses/cs3110/2012sp/recitations/rec25-B-trees/rec25.html) 
+>
+> 
 
 In [computer science](https://en.wikipedia.org/wiki/Computer_science), a **B-tree** is a **self-balancing** [tree data structure](https://en.wikipedia.org/wiki/Tree_data_structure) that maintains sorted data and allows searches, sequential access, insertions, and deletions in [logarithmic time](https://en.wikipedia.org/wiki/Logarithmic_time). The B-tree is a **generalization** of a [binary search tree](https://en.wikipedia.org/wiki/Binary_search_tree) in that a node can have more than two children.[[1\]](https://en.wikipedia.org/wiki/B-tree#cite_note-Comer-1) Unlike other [self-balancing binary search trees](https://en.wikipedia.org/wiki/Self-balancing_binary_search_tree), the B-tree is well suited for storage systems that read and write relatively large blocks of data, such as discs（磁盘）. It is commonly used in [databases](https://en.wikipedia.org/wiki/Database) and [file systems](https://en.wikipedia.org/wiki/File_system).
+
+> NOTE: 
+>
+> B-tree能够帮助快速地找到文件的位置
 
 What, if anything, the *B* stands for has never been established.
 
@@ -14,7 +20,13 @@ What, if anything, the *B* stands for has never been established.
 
 In B-trees, internal ([non-leaf](https://en.wikipedia.org/wiki/Leaf_node)) nodes can have a variable number of child nodes within some pre-defined range. When data is inserted or removed from a node, its number of child nodes changes. In order to maintain the pre-defined range, internal nodes may be ***joined*** or ***split***. Because a range of child nodes is permitted, B-trees do not need **re-balancing** as frequently as other **self-balancing search trees**, but may waste some space, since nodes are not entirely full. The lower and upper bounds on the number of child nodes are typically fixed for a particular implementation. For example, in a [2-3 B-tree](https://en.wikipedia.org/wiki/2-3_tree) (often simply referred to as a **2-3 tree**), each **internal node** may have only 2 or 3 child nodes.
 
-> NOTE: : 按照下面的命名法来分析， [2-3 B-tree](https://en.wikipedia.org/wiki/2-3_tree) 的参数是`1 + 1， 2 * 1 + 1`，即 [2-3 B-tree](https://en.wikipedia.org/wiki/2-3_tree) 的`d`=1；
+> NOTE: 
+>
+> 一、join、split是在insert、delete 时经常发生的事情
+>
+> 二、B-tree的内部实现是以空间换时间
+>
+> 按照下面的命名法来分析， [2-3 B-tree](https://en.wikipedia.org/wiki/2-3_tree) 的参数是`1 + 1， 2 * 1 + 1`，即 [2-3 B-tree](https://en.wikipedia.org/wiki/2-3_tree) 的`d`=1；
 
 Each internal node of a B-tree contains a number of [keys](https://en.wikipedia.org/wiki/Unique_key). The keys act as **separation values** which divide its [subtrees](https://en.wikipedia.org/wiki/Subtree). For example, if an internal node has 3 child nodes (or subtrees) then it must have 2 keys: *a*1 and *a*2. All values in the leftmost subtree will be less than *a*1, all values in the middle subtree will be between *a*1 and *a*2, and all values in the rightmost subtree will be greater than *a*2.
 
