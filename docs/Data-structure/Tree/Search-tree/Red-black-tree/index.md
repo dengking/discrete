@@ -1,20 +1,32 @@
-[TOC]
 
 
 
-# [Red–black tree](https://en.wikipedia.org/wiki/Red%E2%80%93black_tree)
 
-A **red–black tree** is a kind of [self-balancing binary search tree](https://en.wikipedia.org/wiki/Self-balancing_binary_search_tree) in [computer science](https://en.wikipedia.org/wiki/Computer_science). Each node of the binary tree has an extra **bit**, and that bit is often interpreted as the **color** (red or black) of the node. These **color bits** are used to ensure the tree remains approximately balanced during insertions and deletions.[[2\]](https://en.wikipedia.org/wiki/Red–black_tree#cite_note-:0-2)
+# Red–black tree
+
+## wikipedia [Red–black tree](https://en.wikipedia.org/wiki/Red%E2%80%93black_tree)
+
+A **red–black tree** is a kind of [self-balancing binary search tree](https://en.wikipedia.org/wiki/Self-balancing_binary_search_tree) in [computer science](https://en.wikipedia.org/wiki/Computer_science). Each node of the binary tree has an extra **bit**, and that bit is often interpreted as the **color** (red or black) of the node. These **color bits** are used to ensure the tree remains approximately balanced during insertions and deletions.
 
 
 
 Balance is preserved by painting each node of the tree with one of two colors in a way that satisfies certain properties, which collectively constrain how unbalanced the tree can become in the worst case. When the tree is modified, the new tree is subsequently rearranged and repainted to restore the coloring properties. The properties are designed in such a way that this rearranging and recoloring can be performed efficiently.
 
-**The balancing of the tree is not perfect**, but it is good enough to allow it to guarantee searching in [O(log *n*)](https://en.wikipedia.org/wiki/Big-O_notation) time, where *n* is the total number of elements in the tree. The insertion and deletion operations, along with the **tree rearrangement and recoloring**, are also performed in O(log *n*) time.[[3\]](https://en.wikipedia.org/wiki/Red–black_tree#cite_note-3)
+> NOTE: 
+>
+> 一、red-black tree能够得以流行在于它的高效性
+>
+> 1、从空间角度来看: 空间需求是非常低的，只需要1 bit即可
+>
+> 2、从时间角度来看: "The insertion and deletion operations, along with the **tree rearrangement and recoloring**, are also performed in O(log *n*) time. "
+>
+> 也就是说，并不会带来额外的时间负荷
+
+**The balancing of the tree is not perfect**, but it is good enough to allow it to guarantee searching in [O(log *n*)](https://en.wikipedia.org/wiki/Big-O_notation) time, where *n* is the total number of elements in the tree. The insertion and deletion operations, along with the **tree rearrangement and recoloring**, are also performed in O(log *n*) time. 
 
 Tracking the color of each node requires only 1 bit of information per node because there are only two colors. The tree does not contain any other data specific to its being a red–black tree so its memory footprint is almost identical to a classic (uncolored) [binary search tree](https://en.wikipedia.org/wiki/Binary_search_tree). In many cases, the additional bit of information can be stored at no additional memory cost.
 
-## History
+### History
 
 In 1972, [Rudolf Bayer](https://en.wikipedia.org/wiki/Rudolf_Bayer)[[4\]](https://en.wikipedia.org/wiki/Red–black_tree#cite_note-Bayer72-4) invented a data structure that was a special order-4 case of a [B-tree](https://en.wikipedia.org/wiki/B-tree). These trees maintained all paths from root to leaf with the same number of nodes, creating perfectly balanced trees. However, they were not binary search trees. Bayer called them a "symmetric binary B-tree" in his paper and later they became popular as [2-3-4 trees](https://en.wikipedia.org/wiki/2–3–4_tree) or just 2-4 trees.[[5\]](https://en.wikipedia.org/wiki/Red–black_tree#cite_note-5)
 
@@ -30,7 +42,7 @@ The original algorithm used 8 unbalanced cases, but [Cormen et al. (2001)](https
 
 
 
-## Terminology
+### Terminology
 
 A **red–black tree** is a special type of [binary tree](https://en.wikipedia.org/wiki/Binary_tree), used in [computer science](https://en.wikipedia.org/wiki/Computer_science) to organize pieces of comparable [data](https://en.wikipedia.org/wiki/Data), such as text fragments or numbers.
 
@@ -40,21 +52,23 @@ Red–black trees, like all [binary search trees](https://en.wikipedia.org/wiki/
 
 
 
-## Properties
+### Properties
 
 In addition to the requirements imposed on a [binary search tree](https://en.wikipedia.org/wiki/Binary_search_tree) the following must be satisfied by a **red–black tree**:[[16\]](https://en.wikipedia.org/wiki/Red–black_tree#cite_note-16)
 
-1. Each node is either red or black.
+1、Each node is either red or black.
 
-2. The root is black. This rule is sometimes omitted（省略）. Since the root can always be changed from red to black, but not necessarily vice versa, this rule has little effect on analysis.
+2、The root is black. This rule is sometimes omitted（省略）. Since the root can always be changed from red to black, but not necessarily vice versa, this rule has little effect on analysis.
 
-3. All leaves (NIL) are **black**.
+3、All leaves (NIL) are **black**.
 
-4. If a node is red, then both its children are black.
+4、If a node is red, then both its children are black.
 
-5. Every [path](https://en.wikipedia.org/wiki/Path_(graph_theory)) from a given node to any of its descendant NIL nodes contains the same number of black nodes.
+5、Every [path](https://en.wikipedia.org/wiki/Path_(graph_theory)) from a given node to any of its descendant NIL nodes contains the same number of black nodes.
 
-   ***SUMMARY*** : 需要注意的是不包含它自己
+> NOTE: 
+>
+> 需要注意的是不包含它自己
 
 
 
@@ -70,11 +84,11 @@ To see why this is guaranteed, it suffices to consider the effect of properties 
 
 *The shortest possible path has all black nodes, and the longest possible path alternates（交替） between red and black nodes*. Since all maximal paths have the same number of black nodes, by property 5, this shows that *no path is more than twice as long as any other path*.
 
-[![Diagram of binary tree. The black root node has two red children and four black grandchildren. The child nodes of the grandchildren are black nil pointers or red nodes with black nil pointers.](https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Red-black_tree_example.svg/500px-Red-black_tree_example.svg.png)](https://en.wikipedia.org/wiki/File:Red-black_tree_example.svg)An example of a red–black tree
 
 
 
-## Analogy to B-trees of order 4
+
+### Analogy to B-trees of order 4
 
 A red–black tree is similar in structure to a [B-tree](https://en.wikipedia.org/wiki/B-tree) of order[[note 1\]](https://en.wikipedia.org/wiki/Red–black_tree#cite_note-18) 4, where each node can contain between 1 and 3 values and (accordingly) between 2 and 4 child pointers. In such a B-tree, each node will contain only one value matching the value in a black node of the red–black tree, with an optional value before and/or after it in the same node, both matching an equivalent red node of the red–black tree.
 
@@ -100,7 +114,7 @@ All optimizations possible in B-trees to increase the average fill factors of cl
 
 
 
-## Applications and related data structures
+### Applications and related data structures
 
 Red–black trees offer worst-case guarantees for insertion time, deletion time, and search time. Not only does this make them valuable in time-sensitive applications such as [real-time applications](https://en.wikipedia.org/wiki/Real-time_computing), but it makes them valuable building blocks in other data structures which provide worst-case guarantees; for example, many data structures used in [computational geometry](https://en.wikipedia.org/wiki/Computational_geometry) can be based on red–black trees, and the [Completely Fair Scheduler](https://en.wikipedia.org/wiki/Completely_Fair_Scheduler) used in current [Linux](https://en.wikipedia.org/wiki/Linux) kernels and [epoll](https://en.wikipedia.org/wiki/Epoll) system call implementation[[19\]](https://en.wikipedia.org/wiki/Red–black_tree#cite_note-20) uses red–black trees.
 
@@ -118,7 +132,7 @@ In the version 8 of Java, the Collection [HashMap](https://en.wikipedia.org/wiki
 
 
 
-## Operations
+### Operations
 
 Read-only operations on a red–black tree require no modification from those used for [binary search trees](https://en.wikipedia.org/wiki/Binary_search_tree), because every red–black tree is a special case of a simple binary search tree. However, the immediate result of an insertion or removal may violate the properties of a red–black tree. Restoring the red–black properties requires a small number ([O(log *n*)](https://en.wikipedia.org/wiki/Big-O_notation) or [amortized O(1)](https://en.wikipedia.org/wiki/Amortized_analysis)) of color changes (which are very quick in practice) and no more than three [tree rotations](https://en.wikipedia.org/wiki/Tree_rotation) (two for insertion). Although insert and delete operations are complicated, their times remain O(log *n*).
 
@@ -235,3 +249,15 @@ void RotateRight(Node* n) {
   nnew->parent = p;
 }
 ```
+
+
+
+## TODO
+
+在各种各样的DS中都需要维持一些invariant
+
+
+在red black tree中，它为什么需要为每个node赋予red、black这两种颜色呢？
+
+显然，它这样做的目的在于便于维持整棵树的高度在于$O(ln(n))$，即保持balanced
+
