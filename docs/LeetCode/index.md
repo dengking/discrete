@@ -89,3 +89,21 @@ leetcode [56. 合并区间](https://leetcode-cn.com/problems/merge-intervals/)
 ## Expression
 
 括号
+
+
+
+## 找数/凑数/搜索树
+
+LeetCode [1711. 大餐计数](https://leetcode-cn.com/problems/count-good-meals/)
+
+以空间换时间
+
+
+
+### 二分法
+
+LeetCode-875-爱吃香蕉的珂珂
+
+LeetCode-1011-在D天内送达包裹的能力
+
+LeetCode-34-在排序数组中查找元素的第一个和最后一个位置
