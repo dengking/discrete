@@ -11,3 +11,9 @@
 ## csdn [Number of Airplanes in the Sky](https://blog.csdn.net/u013325815/article/details/103388203)
 
 ## [[翻译]扫描线算法(Line Sweep Algorithm)（1）](https://blog.csdn.net/LiRewriter/article/details/77512370)
+
+
+
+
+
+## infogalactic [Line segment intersection](https://infogalactic.com/info/Line_segment_intersection)
