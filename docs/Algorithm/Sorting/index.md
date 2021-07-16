@@ -137,6 +137,10 @@ Below is a table of [comparison sorts](https://en.wanweibaike.com/wiki-Compariso
 
 ### Popular sorting algorithms
 
+> NOTE: 
+>
+> 下面对各种排序算法的梳理是非常好的
+
 Highly tuned implementations use more sophisticated variants, such as [Timsort](https://en.wanweibaike.com/wiki-Timsort) (merge sort, insertion sort, and additional logic), used in Android, Java, and Python, and [introsort](https://en.wanweibaike.com/wiki-Introsort) (quicksort and heap sort), used (in variant forms) in some [C++ sort](https://en.wanweibaike.com/wiki-Sort_(C%2B%2B)) implementations and in .NET.
 
 #### Simple sorts
@@ -159,11 +163,19 @@ Highly tuned implementations use more sophisticated variants, such as [Timsort](
 
 **[Shell sort](https://en.wanweibaike.com/wiki-Shellsort)**
 
+It improves upon bubble sort and insertion sort by moving out of order elements more than one position at a time. 
+
 #### Bubble sort and variants
 
 **[Bubble sort](https://en.wanweibaike.com/wiki-Bubble_sort)**
 
+**[Shell sort](https://infogalactic.com/info/Shellsort)**
 
+#### Distribution sort
+
+See also: [External sorting](https://infogalactic.com/info/External_sorting)
+
+*Distribution sort* refers to any sorting algorithm where data are distributed from their input to multiple intermediate structures which are then gathered and placed on the output. For example, both [bucket sort](https://infogalactic.com/info/Bucket_sort) and [flashsort](https://infogalactic.com/info/Flashsort) are distribution based sorting algorithms. Distribution sorting algorithms can be used on a single processor, or they can be a [distributed algorithm](https://infogalactic.com/info/Distributed_algorithm), where individual subsets are separately sorted on different processors, then combined. This allows [external sorting](https://infogalactic.com/info/External_sorting) of data too large to fit into a single computer's memory.
 
 ## Timsort vs quicksort
 
