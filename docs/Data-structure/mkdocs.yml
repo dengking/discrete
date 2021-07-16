@@ -5,9 +5,9 @@ nav:
     - Linked-list: Linked-list
     - Stack: Stack    
     - Graph: Graph
-    - Tree: Tree    
+    - Tree: Tree
+    - Heap: Heap
     - Hash: Hash
-    - Set: Set
     - Probabilistic-data-structures: Probabilistic-data-structures
     - Judy-array: Judy-array
     - String: String

@@ -123,7 +123,7 @@ public class MaxPQ < Key extends Comparable < Key >> {
             // 如果第k个元素比上层大
             // 将k换上去
             exch(parent(k), k);
-            k = parent(k);
+            k = parent(k); // 迭代
         }
     }
     /**
@@ -141,7 +141,7 @@ public class MaxPQ < Key extends Comparable < Key >> {
             if (less(older, k)) break;
             // 否则，不符合最大堆的结构，下沉 k 节点
             exch(k, older);
-            k = older;
+            k = older; // 迭代
         }
     }
     /**
