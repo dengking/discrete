@@ -1,8 +1,42 @@
-
-
-
-
 # Red–black tree
+
+参考文章:
+
+1、wisc [Red-Black Trees](http://pages.cs.wisc.edu/~skrentny/cs367-common/readings/Red-Black-Trees/)
+
+这篇文章对red-black tree的property进行了非常好的总结
+
+2、brilliant [Red-Black Tree](https://brilliant.org/wiki/red-black-tree/)
+
+其中给出了Python实现
+
+3、cnblogs [红黑树(一)之 原理和算法详细介绍](https://www.cnblogs.com/skywang12345/p/3245399.html)
+
+4、jianshu [30张图带你彻底理解红黑树](https://www.jianshu.com/p/e136ec79235c)
+
+
+
+## Example
+
+### jianshu [30张图带你彻底理解红黑树](https://www.jianshu.com/p/e136ec79235c)
+
+红黑树并不是一个*完美*平衡二叉查找树，从图1可以看到，根结点P的左子树显然比右子树高，但左子树和右子树的黑结点的层数是相等的，也即任意一个结点到到每个叶子结点的路径都包含数量相同的黑结点(性质5)。所以我们叫红黑树这种平衡为**黑色完美平衡**。
+
+
+
+
+
+![](./non-perfect-red-black-tree.webp)
+
+
+
+### wisc [Red-Black Trees](http://pages.cs.wisc.edu/~skrentny/cs367-common/readings/Red-Black-Trees/)
+
+
+
+![Example of a red-black tree](http://pages.cs.wisc.edu/~skrentny/cs367-common/readings/Red-Black-Trees/example.gif)
+
+
 
 ## wikipedia [Red–black tree](https://en.wikipedia.org/wiki/Red%E2%80%93black_tree)
 
@@ -28,17 +62,19 @@ Tracking the color of each node requires only 1 bit of information per node beca
 
 ### History
 
-In 1972, [Rudolf Bayer](https://en.wikipedia.org/wiki/Rudolf_Bayer)[[4\]](https://en.wikipedia.org/wiki/Red–black_tree#cite_note-Bayer72-4) invented a data structure that was a special order-4 case of a [B-tree](https://en.wikipedia.org/wiki/B-tree). These trees maintained all paths from root to leaf with the same number of nodes, creating perfectly balanced trees. However, they were not binary search trees. Bayer called them a "symmetric binary B-tree" in his paper and later they became popular as [2-3-4 trees](https://en.wikipedia.org/wiki/2–3–4_tree) or just 2-4 trees.[[5\]](https://en.wikipedia.org/wiki/Red–black_tree#cite_note-5)
+> NOTE: 
+>
+> B-tree-> [2-3-4 trees](https://en.wikipedia.org/wiki/2–3–4_tree) 、symmetric binary B-tree -> red-black tree->left-leaning red–black tree
 
-In a 1978 paper, "A Dichromatic Framework for Balanced Trees",[[6\]](https://en.wikipedia.org/wiki/Red–black_tree#cite_note-GS78-6) [Leonidas J. Guibas](https://en.wikipedia.org/wiki/Leonidas_J._Guibas) and [Robert Sedgewick](https://en.wikipedia.org/wiki/Robert_Sedgewick_(computer_scientist)) derived the red-black tree from the symmetric binary B-tree.[[7\]](https://en.wikipedia.org/wiki/Red–black_tree#cite_note-7) The color "red" was chosen because it was the best-looking color produced by the color laser printer available to the authors while working at [Xerox PARC](https://en.wikipedia.org/wiki/Xerox_PARC).[[8\]](https://en.wikipedia.org/wiki/Red–black_tree#cite_note-Sedgewick12-8) Another response from Guibas states that it was because of the red and black pens available to them to draw the trees.[[9\]](https://en.wikipedia.org/wiki/Red–black_tree#cite_note-9)
+In 1972, [Rudolf Bayer](https://en.wikipedia.org/wiki/Rudolf_Bayer)[[4\]](https://en.wikipedia.org/wiki/Red–black_tree#cite_note-Bayer72-4) invented a data structure that was a special order-4 case of a [B-tree](https://en.wikipedia.org/wiki/B-tree). These trees maintained all paths from root to leaf with the same number of nodes, creating perfectly balanced trees. However, they were not binary search trees. Bayer called them a "symmetric binary B-tree" in his paper and later they became popular as [2-3-4 trees](https://en.wikipedia.org/wiki/2–3–4_tree) or just 2-4 trees. 
 
-In 1993, Arne Andersson introduced the idea of right leaning tree to simplify insert and delete operations.[[10\]](https://en.wikipedia.org/wiki/Red–black_tree#cite_note-10)
+In a 1978 paper, "A Dichromatic Framework for Balanced Trees",[[6\]](https://en.wikipedia.org/wiki/Red–black_tree#cite_note-GS78-6) [Leonidas J. Guibas](https://en.wikipedia.org/wiki/Leonidas_J._Guibas) and [Robert Sedgewick](https://en.wikipedia.org/wiki/Robert_Sedgewick_(computer_scientist)) derived the red-black tree from the symmetric binary B-tree.[[7\]](https://en.wikipedia.org/wiki/Red–black_tree#cite_note-7) The color "red" was chosen because it was the best-looking color produced by the color laser printer available to the authors while working at [Xerox PARC](https://en.wikipedia.org/wiki/Xerox_PARC).[[8\]](https://en.wikipedia.org/wiki/Red–black_tree#cite_note-Sedgewick12-8) Another response from Guibas states that it was because of the red and black pens available to them to draw the trees. 
 
-In 1999, Chris Okasaki showed how to make the insert operation purely functional. Its balance function needed to take care of only 4 unbalanced cases and one default balanced case.[[11\]](https://en.wikipedia.org/wiki/Red–black_tree#cite_note-11)
+In 1993, Arne Andersson introduced the idea of right leaning tree to simplify insert and delete operations.
 
-The original algorithm used 8 unbalanced cases, but [Cormen et al. (2001)](https://en.wikipedia.org/wiki/Red–black_tree#CITEREFCormenLeisersonRivestStein2001) reduced that to 6 unbalanced cases.[[2\]](https://en.wikipedia.org/wiki/Red–black_tree#cite_note-:0-2) Sedgewick showed that the insert operation can be implemented in just 46 lines of Java code.[[12\]](https://en.wikipedia.org/wiki/Red–black_tree#cite_note-Algs1-12)[[13\]](https://en.wikipedia.org/wiki/Red–black_tree#cite_note-13) In 2008, Sedgewick proposed the [left-leaning red–black tree](https://en.wikipedia.org/wiki/Left-leaning_red–black_tree), leveraging Andersson's idea that simplified algorithms. Sedgewick originally allowed nodes whose two children are red, making his trees more like 2-3-4 trees, but later this restriction was added, making new trees more like 2-3 trees. Sedgewick implemented the insert algorithm in just 33 lines, significantly shortening his original 46 lines of code.[[14\]](https://en.wikipedia.org/wiki/Red–black_tree#cite_note-14)[[15\]](https://en.wikipedia.org/wiki/Red–black_tree#cite_note-Algs4-15)
+In 1999, Chris Okasaki showed how to make the insert operation purely functional. Its balance function needed to take care of only 4 unbalanced cases and one default balanced case.  
 
-
+The original algorithm used 8 unbalanced cases, but [Cormen et al. (2001)](https://en.wikipedia.org/wiki/Red–black_tree#CITEREFCormenLeisersonRivestStein2001) reduced that to 6 unbalanced cases.[[2\]](https://en.wikipedia.org/wiki/Red–black_tree#cite_note-:0-2) Sedgewick showed that the insert operation can be implemented in just 46 lines of Java code. In 2008, Sedgewick proposed the [left-leaning red–black tree](https://en.wikipedia.org/wiki/Left-leaning_red–black_tree), leveraging Andersson's idea that simplified algorithms. Sedgewick originally allowed nodes whose two children are red, making his trees more like 2-3-4 trees, but later this restriction was added, making new trees more like 2-3 trees. Sedgewick implemented the insert algorithm in just 33 lines, significantly shortening his original 46 lines of code. 
 
 
 
@@ -68,7 +104,9 @@ In addition to the requirements imposed on a [binary search tree](https://en.wik
 
 > NOTE: 
 >
-> 需要注意的是不包含它自己
+> 一、在 jianshu [30张图带你彻底理解红黑树](https://www.jianshu.com/p/e136ec79235c) 中，称之为: **黑色完美平衡**
+>
+> 二、在 brilliant [Red-Black Tree](https://brilliant.org/wiki/red-black-tree/) 中，提出了 "**black-depth**"概念
 
 
 
@@ -106,11 +144,15 @@ For moderate volumes of values, insertions and deletions in a colored binary tre
 
 All optimizations possible in B-trees to increase the average fill factors of clusters are possible in the equivalent multicolored binary tree. Notably, maximizing the average fill factor in a structurally equivalent B-tree is the same as reducing the total height of the multicolored tree, by increasing the number of non-black nodes. The worst case occurs when all nodes in a colored binary tree are black, the best case occurs when only a third of them are black (and the other two thirds are red nodes).
 
-[![img](https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Red-black_tree_example_%28B-tree_analogy%29.svg/500px-Red-black_tree_example_%28B-tree_analogy%29.svg.png)](https://en.wikipedia.org/wiki/File:Red-black_tree_example_(B-tree_analogy).svg)The same red–black tree as in the example above, seen as a B-tree.
+[![img](https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Red-black_tree_example_%28B-tree_analogy%29.svg/500px-Red-black_tree_example_%28B-tree_analogy%29.svg.png)](https://en.wikipedia.org/wiki/File:Red-black_tree_example_(B-tree_analogy).svg)
+
+The same red–black tree as in the example above, seen as a B-tree.
 
 
 
-***SUMMARY*** : 上面这一段并没有搞懂，需要Google：red black tree to 2-3-4 tree
+> NOTE: 
+>
+> 上面这一段并没有搞懂，需要Google：red black tree to 2-3-4 tree
 
 
 
@@ -260,4 +302,6 @@ void RotateRight(Node* n) {
 在red black tree中，它为什么需要为每个node赋予red、black这两种颜色呢？
 
 显然，它这样做的目的在于便于维持整棵树的高度在于$O(ln(n))$，即保持balanced
+
+
 

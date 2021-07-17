@@ -1,8 +1,4 @@
-[TOC]
-
-
-
-# [Red-Black Trees](http://pages.cs.wisc.edu/~skrentny/cs367-common/readings/Red-Black-Trees/)
+# wisc [Red-Black Trees](http://pages.cs.wisc.edu/~skrentny/cs367-common/readings/Red-Black-Trees/)
 
 
 
@@ -16,11 +12,15 @@ The important idea behind all of these trees is that the insert and delete opera
 
 A **red-black tree** is a binary search tree in which
 
-- each node has a color (red or black) associated with it (in addition to its key and left and right children)
-- the following 3 properties hold:
-  1. (**root property**) The root of the red-black tree is **black**
-  2. (**red property**) The children of a red node are **black**.
-  3. (**black property**) For each node with at least one **null child**, the number of black nodes on the path from the root to the **null child** is the same.
+一、each node has a color (red or black) associated with it (in addition to its key and left and right children)
+
+二、the following 3 properties hold:
+
+1、(**root property**) The root of the red-black tree is **black**
+
+2、(**red property**) The children of a red node are **black**.
+
+3、(**black property**) For each node with at least one **null child**, the number of black nodes on the path from the root to the **null child** is the same.
 
 An example of a red-black tree is shown below:
 

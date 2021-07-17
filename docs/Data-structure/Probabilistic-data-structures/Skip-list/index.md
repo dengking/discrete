@@ -1,8 +1,12 @@
 # Skip list
 
-1、Redis中，使用了skip list来实现 "ordered set"
+一、以空间换时间
 
-2、skip list可以用于实现associate array(即dict)
+二、优势:
+
+1、简单
+
+TODO 需要引用Redis doc中的说法
 
 ## wikipedia [Skip list](https://en.wikipedia.org/wiki/Skip_list)
 
@@ -29,15 +33,11 @@ A **skip list** is built in **layers**. The **bottom layer** is an ordinary orde
 
 
 
-[![img](https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Skip_list.svg/400px-Skip_list.svg.png)](https://en.wikipedia.org/wiki/File:Skip_list.svg)
-
 > A schematic picture of the skip list data structure. Each box with an arrow represents a pointer and a row is a **linked list** giving a sparse subsequence; the numbered boxes (in yellow) at the bottom represent the ordered data sequence. Searching proceeds downwards from the **sparsest subsequence** at the top until consecutive elements bracketing the search element are found.
 
 
 
 
-
-[![img](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Skip_list_add_element-en.gif/400px-Skip_list_add_element-en.gif)](https://en.wikipedia.org/wiki/File:Skip_list_add_element-en.gif)
 
 > Inserting elements to skip list
 
@@ -57,6 +57,22 @@ ${\displaystyle {\mathcal {O}}(n)} $operations, which force us to visit every no
 
 Alternatively, we could make the level structure quasi-random in the following way:
 
+#### Indexable skiplist
+
+```
+   1                               10
+ o---> o---------------------------------------------------------> o    Top level
+   1           3              2                    5
+ o---> o---------------> o---------> o---------------------------> o    Level 3
+   1        2        1        2              3              2
+ o---> o---------> o---> o---------> o---------------> o---------> o    Level 2
+   1     1     1     1     1     1     1     1     1     1     1 
+ o---> o---> o---> o---> o---> o---> o---> o---> o---> o---> o---> o    Bottom level
+                                         
+Head  1st   2nd   3rd   4th   5th   6th   7th   8th   9th   10th  NIL
+      Node  Node  Node  Node  Node  Node  Node  Node  Node  Node
+```
+
 
 
 ### Usages
@@ -71,4 +87,12 @@ The "QMap" key/value dictionary (up to Qt 4) template class of [Qt](https://en.w
 
 #### Concurrent data structure
 
-Skip lists are also used in distributed applications (where the nodes represent physical computers, and pointers represent network connections) and for implementing highly scalable concurrent [priority queues](https://en.wanweibaike.com/wiki-Priority_queue) with less lock contention,[[21\]](https://en.wanweibaike.com/wiki-Skip list#cite_note-21) or even [without locking](https://en.wanweibaike.com/wiki-Non-blocking_algorithm),[[22\]](https://en.wanweibaike.com/wiki-Skip list#cite_note-22)[[23\]](https://en.wanweibaike.com/wiki-Skip list#cite_note-23)[[24\]](https://en.wanweibaike.com/wiki-Skip list#cite_note-24) as well as [lock-free](https://en.wanweibaike.com/wiki-Lock-free) concurrent dictionaries.[[25\]](https://en.wanweibaike.com/wiki-Skip list#cite_note-25) There are also several US patents for using skip lists to implement (lockless) priority queues and concurrent dictionaries.[[26\]](https://en.wanweibaike.com/wiki-Skip list#cite_note-26)
+Skip lists are also used in distributed applications (where the nodes represent physical computers, and pointers represent network connections) and for implementing highly scalable concurrent [priority queues](https://en.wanweibaike.com/wiki-Priority_queue) with less lock contention,[[21\]](https://en.wanweibaike.com/wiki-Skip list#cite_note-21) or even [without locking](https://en.wanweibaike.com/wiki-Non-blocking_algorithm),[[22\]](https://en.wanweibaike.com/wiki-Skip list#cite_note-22)[[23\]](https://en.wanweibaike.com/wiki-Skip list#cite_note-23)[[24\]](https://en.wanweibaike.com/wiki-Skip list#cite_note-24) as well as [lock-free](https://en.wanweibaike.com/wiki-Lock-free) concurrent dictionaries.[[25\]](https://en.wanweibaike.com/wiki-Skip list#cite_note-25) There are also several US patents for using skip lists to implement (lockless) priority queues and concurrent dictionaries. 
+
+
+
+## Application
+
+1、Redis中，使用了skip list来实现 "ordered set"
+
+2、skip list可以用于实现associate array(即dict)
