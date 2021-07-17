@@ -2,6 +2,6 @@ nav:
     - Introduction: index.md
     - Binary-search-tree: Binary-search-tree
     - Self-balancing-binary-search-tree: Self-balancing-binary-search-tree
-    - Trie: Trie
     - Red-black-tree: Red-black-tree
     - B-tree&&B+tree: B-tree&&B+tree
+    - Trie: Trie

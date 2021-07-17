@@ -28,6 +28,10 @@
 
 ![](./non-perfect-red-black-tree.webp)
 
+> NOTE: 
+>
+> 上述例子非常重要，它揭示了red-black tree不是完美的平衡二叉树，而只是**黑色完美平衡**。
+
 
 
 ### wisc [Red-Black Trees](http://pages.cs.wisc.edu/~skrentny/cs367-common/readings/Red-Black-Trees/)
