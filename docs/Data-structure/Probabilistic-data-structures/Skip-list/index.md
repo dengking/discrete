@@ -8,6 +8,12 @@
 
 TODO 需要引用Redis doc中的说法
 
+## 参考文章
+
+labuladong [漫画：什么是 “跳表” ？](https://mp.weixin.qq.com/s/HTRO1_wao7MzutPkCw9dSg)
+
+其中使用"目录"来进行类比。
+
 ## wikipedia [Skip list](https://en.wikipedia.org/wiki/Skip_list)
 
 In [computer science](https://en.wikipedia.org/wiki/Computer_science), a **skip list** is a [data structure](https://en.wikipedia.org/wiki/Data_structure) that allows ${{O}}(\log n)$ search complexity as well as $ {{O}}(\log n)$ insertion complexity within an [ordered sequence](https://en.wikipedia.org/wiki/Ordered_sequence) of ${n}$ elements. Thus it can get the best of [array](https://en.wikipedia.org/wiki/Array_data_structure) (for searching) while maintaining a [linked list](https://en.wikipedia.org/wiki/Linked_list)-like structure that allows insertion- which is not possible in an array. Fast search is made possible by maintaining a [linked](https://en.wikipedia.org/wiki/Linked_list) hierarchy of **subsequences**, with each successive subsequence **skipping** over fewer elements than the previous one (see the picture below on the right). Searching starts in the sparsest(稀疏的) subsequence until two consecutive elements have been found, one smaller and one larger than or equal to the element searched for. Via the linked hierarchy, these two elements link to elements of the next sparsest subsequence, where searching is continued until finally we are searching in the full sequence. The elements that are skipped over may be chosen probabilistically [[2\]](https://en.wikipedia.org/wiki/Skip_list#cite_note-pugh-2) or deterministically,[[3\]](https://en.wikipedia.org/wiki/Skip_list#cite_note-3) with the former being more common.
@@ -29,11 +35,31 @@ In [computer science](https://en.wikipedia.org/wiki/Computer_science), a **skip 
 
 A **skip list** is built in **layers**. The **bottom layer** is an ordinary ordered [linked list](https://en.wikipedia.org/wiki/Linked_list). Each **higher layer** acts as an "express lane"（快车道） for the lists below, where an element in layer ${i}$ appears in layer ${i+1}$ with some fixed probability ${p}$  (two commonly used values for ${p}$  are ${1/2}$  or ${1/4}$ ). On average, each element appears in ${ 1/(1-p)}$ lists, and the **tallest element** (usually a special head element at the front of the skip list) in all the lists. The skip list contains ${\log _{1/p}n\,}$ (i.e. logarithm base ${ 1/p}$ of ${ n}$) lists.
 
-> NOTE: layers 对应的是下面的Inserting elements to skip list图中的levels
-
-
-
-> A schematic picture of the skip list data structure. Each box with an arrow represents a pointer and a row is a **linked list** giving a sparse subsequence; the numbered boxes (in yellow) at the bottom represent the ordered data sequence. Searching proceeds downwards from the **sparsest subsequence** at the top until consecutive elements bracketing the search element are found.
+> NOTE: 
+>
+> 一、layers 对应的是下面的Inserting elements to skip list图中的levels
+>
+> 二、
+>
+> 自底向上为每一层进行编号(原linked list是第0层)，假设第0层的链表中有 $n$ 个元素，则:
+>
+> 第1层有 $p * n$ 个元素
+>
+> 第2层有 $(p^2) * n$ 个元素
+>
+> ...
+>
+> 第`i`层有$p^i * n$ 个元素
+>
+> 三、"On average, each element appears in ${ 1/(1-p)}$ lists"
+>
+> ${ 1/(1-p)}$ 是如何计算得到的？
+>
+> 四、"The skip list contains ${\log _{1/p}n\,}$ (i.e. logarithm base ${ 1/p}$ of ${ n}$) lists"
+>
+> ${\log _{1/p}n\,}$ 是如何计算得到的？
+>
+> 
 
 
 

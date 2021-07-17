@@ -1,6 +1,10 @@
 # B+ Tree
 
+## Example
 
+### segmentfault [由 B-/B+树看 MySQL索引结构](https://segmentfault.com/a/1190000004690721)
+
+![图片描述](https://segmentfault.com/img/bVtQp6)
 
 ## geeksforgeeks [Introduction of B+ Tree](https://www.geeksforgeeks.org/introduction-of-b-tree/)
 
@@ -16,3 +20,10 @@ In order, to implement dynamic multilevel indexing, [B-tree](https://www.geeksfo
 >
 > 
 
+
+
+## usfca [B+ Trees visualization](https://www.cs.usfca.edu/~galles/visualization/BPlusTree.html)
+
+
+
+## infogalactic [B+ tree](https://infogalactic.com/info/B%2B_tree)

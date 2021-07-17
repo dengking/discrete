@@ -1,5 +1,17 @@
 # B-tree
 
+## Example
+
+### segmentfault [由 B-/B+树看 MySQL索引结构](https://segmentfault.com/a/1190000004690721)
+
+![图片描述](https://segmentfault.com/img/bVtQp5)
+
+### cornell [B-Trees](https://www.cs.cornell.edu/courses/cs3110/2012sp/recitations/rec25-B-trees/rec25.html)
+
+![img](https://www.cs.cornell.edu/courses/cs3110/2012sp/recitations/rec25-B-trees/images/B-trees.gif)
+
+
+
 ## wikipedia [B-tree](https://en.wikipedia.org/wiki/B-tree)
 
 > NOTE: 
@@ -120,11 +132,15 @@ In addition, a B-tree minimizes waste by making sure the interior nodes are at l
 
 According to Knuth's definition, a B-tree of order *m* is a tree which satisfies the following properties:
 
-1. Every node has at most *m* children.
-2. Every non-leaf node (except root) has at least ⌈*m*/2⌉ child nodes.
-3. The root has at least two children if it is not a leaf node.
-4. A non-leaf node with *k* children contains *k* − 1 keys.
-5. All leaves appear in the same level and carry no information.
+1、Every node has at most *m* children.
+
+2、Every non-leaf node (except root) has at least ⌈*m*/2⌉ child nodes.
+
+3、The root has at least two children if it is not a leaf node.
+
+4、A non-leaf node with *k* children contains *k* − 1 keys.
+
+5、All leaves appear in the same level and carry no information.
 
 Each internal node’s keys act as separation values which divide its subtrees. For example, if an internal node has 3 child nodes (or subtrees) then it must have 2 keys: *a*1 and *a*2. All values in the leftmost subtree will be less than *a*1, all values in the middle subtree will be between *a*1 and *a*2, and all values in the rightmost subtree will be greater than *a*2.
 
@@ -141,8 +157,6 @@ Each internal node’s keys act as separation values which divide its subtrees. 
 
 
 #### Insertion
-
-
 
 
 
