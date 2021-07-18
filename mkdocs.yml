@@ -265,12 +265,16 @@ nav:
       - Introduction: Algorithm/Paradigm/Heuristic/index.md
     - Statistical-algorithms:
       - HyperLogLog: Algorithm/Paradigm/Statistical-algorithms/HyperLogLog.md
-  - Analysis-of-algorithms:
-    - Introduction: Algorithm/Analysis-of-algorithms/index.md
+  - Randomized-algorithm:
+    - Introduction: Algorithm/Randomized-algorithm/index.md
+    - Monte-Carlo-algorithm:
+      - Introduction: Algorithm/Randomized-algorithm/Monte-Carlo-algorithm/index.md
+  - Analysis:
+    - Introduction: Algorithm/Analysis/index.md
     - wikipedia-Analysis-of-algorithms:
-      - Introduction: Algorithm/Analysis-of-algorithms/wikipedia-Analysis-of-algorithms/index.md
+      - Introduction: Algorithm/Analysis/wikipedia-Analysis-of-algorithms/index.md
     - Combinatorial-explosion:
-      - Introduction: Algorithm/Analysis-of-algorithms/Combinatorial-explosion/index.md
+      - Introduction: Algorithm/Analysis/Combinatorial-explosion/index.md
   - Search:
     - wikipedia-Search-algorithm:
       - Introduction: Algorithm/Search/wikipedia-Search-algorithm/index.md
@@ -334,16 +338,12 @@ nav:
       - Introduction: Algorithm/Sorting/Quick-sort/index.md
       - Quicksort&&BST:
         - Introduction: Algorithm/Sorting/Quick-sort/Quicksort&&BST/index.md
-    - Quick-select:
-      - Introduction: Algorithm/Sorting/Quick-select/index.md
     - Merge-sort:
       - Introduction: Algorithm/Sorting/Merge-sort/index.md
-    - Timsort:
-      - Introduction: Algorithm/Sorting/Timsort/index.md
-    - Introsort:
-      - Introduction: Algorithm/Sorting/Introsort/index.md
-    - External-sorting:
-      - Introduction: Algorithm/Sorting/External-sorting/index.md
+    - Heapsort:
+      - Introduction: Algorithm/Sorting/Heapsort/index.md
+    - Shellsort:
+      - Introduction: Algorithm/Sorting/Shellsort/index.md
     - Sort-linked-list:
       - "LeetCode-147-\u5BF9\u94FE\u8868\u8FDB\u884C\u63D2\u5165\u6392\u5E8F":
         - Introduction: "Algorithm/Sorting/Sort-linked-list/LeetCode-147-\u5BF9\u94FE\
@@ -356,13 +356,24 @@ nav:
           /index.md"
     - "LeetCode-912-\u6392\u5E8F\u6570\u7EC4":
       - Introduction: "Algorithm/Sorting/LeetCode-912-\u6392\u5E8F\u6570\u7EC4/index.md"
-    - LeetCode-Top-K:
-      - Introduction: Algorithm/Sorting/LeetCode-Top-K/index.md
-      - "LeetCode-973-\u6700\u63A5\u8FD1\u539F\u70B9\u7684K\u4E2A\u70B9":
-        - Introduction: "Algorithm/Sorting/LeetCode-Top-K/LeetCode-973-\u6700\u63A5\
-            \u8FD1\u539F\u70B9\u7684K\u4E2A\u70B9/index.md"
+    - Top-K-rank:
+      - Introduction: Algorithm/Sorting/Top-K-rank/index.md
+      - Selection-algorithm:
+        - Introduction: Algorithm/Sorting/Top-K-rank/Selection-algorithm/index.md
+      - Quick-select:
+        - Introduction: Algorithm/Sorting/Top-K-rank/Quick-select/index.md
+      - Median-of-medians:
+        - Introduction: Algorithm/Sorting/Top-K-rank/Median-of-medians/index.md
+      - "\u6700\u63A5\u8FD1":
+        - Introduction: "Algorithm/Sorting/Top-K-rank/\u6700\u63A5\u8FD1/index.md"
+        - "LeetCode-973-\u6700\u63A5\u8FD1\u539F\u70B9\u7684K\u4E2A\u70B9":
+          - Introduction: "Algorithm/Sorting/Top-K-rank/\u6700\u63A5\u8FD1/LeetCode-973-\u6700\
+              \u63A5\u8FD1\u539F\u70B9\u7684K\u4E2A\u70B9/index.md"
+        - "LeetCode-658-\u627E\u5230K\u4E2A\u6700\u63A5\u8FD1\u7684\u5143\u7D20":
+          - Introduction: "Algorithm/Sorting/Top-K-rank/\u6700\u63A5\u8FD1/LeetCode-658-\u627E\
+              \u5230K\u4E2A\u6700\u63A5\u8FD1\u7684\u5143\u7D20/index.md"
       - "LeetCode-\u5251\u6307-Offer-40-\u6700\u5C0F\u7684k\u4E2A\u6570":
-        - Introduction: "Algorithm/Sorting/LeetCode-Top-K/LeetCode-\u5251\u6307-Offer-40-\u6700\
+        - Introduction: "Algorithm/Sorting/Top-K-rank/LeetCode-\u5251\u6307-Offer-40-\u6700\
             \u5C0F\u7684k\u4E2A\u6570/index.md"
   - Classical-algorithm:
     - Tower-of-Hanoi:
@@ -388,6 +399,24 @@ nav:
       - TODO-Linear-programming:
         - wikipedia-Linear-programming: Algorithm/Application/Optimization/TODO-Linear-programming/wikipedia-Linear-programming.md
         - wikipedia-Integer-programming: Algorithm/Application/Optimization/TODO-Linear-programming/wikipedia-Integer-programming.md
+  - "\u6D77\u91CF\u6570\u636E\u5904\u7406":
+    - Introduction: "Algorithm/\u6D77\u91CF\u6570\u636E\u5904\u7406/index.md"
+    - External-sorting:
+      - Introduction: "Algorithm/\u6D77\u91CF\u6570\u636E\u5904\u7406/External-sorting/index.md"
+      - "CSDN-\u5916\u90E8\u6392\u5E8F\u7B97\u6CD5\u603B\u7ED3":
+        - Introduction: "Algorithm/\u6D77\u91CF\u6570\u636E\u5904\u7406/External-sorting/CSDN-\u5916\
+            \u90E8\u6392\u5E8F\u7B97\u6CD5\u603B\u7ED3/index.md"
+    - "\u4ECE\u5927\u91CFURL\u4E2D\u627E\u51FA\u76F8\u540CURL":
+      - Introduction: "Algorithm/\u6D77\u91CF\u6570\u636E\u5904\u7406/\u4ECE\u5927\
+          \u91CFURL\u4E2D\u627E\u51FA\u76F8\u540CURL/index.md"
+    - "\u4E0D\u91CD\u590D\u7684\u6570\u5B57":
+      - Introduction: "Algorithm/\u6D77\u91CF\u6570\u636E\u5904\u7406/\u4E0D\u91CD\
+          \u590D\u7684\u6570\u5B57/index.md"
+    - "\u4ECE5\u4EBF\u4E2A\u6570\u4E2D\u627E\u51FA\u4E2D\u4F4D\u6570":
+      - Introduction: "Algorithm/\u6D77\u91CF\u6570\u636E\u5904\u7406/\u4ECE5\u4EBF\
+          \u4E2A\u6570\u4E2D\u627E\u51FA\u4E2D\u4F4D\u6570/index.md"
+    - Top-K:
+      - Introduction: "Algorithm/\u6D77\u91CF\u6570\u636E\u5904\u7406/Top-K/index.md"
 - Data-structure:
   - Introduction: Data-structure/index.md
   - Guide:
@@ -396,15 +425,18 @@ nav:
       - Introduction: Data-structure/Guide/List-of-data-structure/index.md
     - Graph&&tree&&list:
       - Introduction: Data-structure/Guide/Graph&&tree&&list/index.md
-    - ADT&&Impl:
-      - Introduction: Data-structure/Guide/ADT&&Impl/index.md
+  - ADT&&Impl:
+    - Introduction: Data-structure/ADT&&Impl/index.md
     - Associative-array&&set:
-      - Introduction: Data-structure/Guide/Associative-array&&set/index.md
-      - TODO-nothing-A-Performance-Comparison-of-Judy-to-Hash-Tables:
-        - Introduction: Data-structure/Guide/Associative-array&&set/TODO-nothing-A-Performance-Comparison-of-Judy-to-Hash-Tables/index.md
+      - Introduction: Data-structure/ADT&&Impl/Associative-array&&set/index.md
+      - Associative-array:
+        - Introduction: Data-structure/ADT&&Impl/Associative-array&&set/Associative-array/index.md
+      - Set:
+        - Introduction: Data-structure/ADT&&Impl/Associative-array&&set/Set/index.md
+    - Priority-queue:
+      - Introduction: Data-structure/ADT&&Impl/Priority-queue/index.md
   - Array:
     - Introduction: Data-structure/Array/index.md
-    - Array-data-structure: Data-structure/Array/Array-data-structure.md
     - Bit-array:
       - Introduction: Data-structure/Array/Bit-array/index.md
     - Circular-array:
@@ -742,15 +774,33 @@ nav:
         - Introduction: Data-structure/Tree/Search-tree/Binary-search-tree/index.md
       - Self-balancing-binary-search-tree:
         - Introduction: Data-structure/Tree/Search-tree/Self-balancing-binary-search-tree/index.md
+      - Red-black-tree:
+        - Introduction: Data-structure/Tree/Search-tree/Red-black-tree/index.md
+        - wisc.edu-Red-Black-Trees:
+          - Introduction: Data-structure/Tree/Search-tree/Red-black-tree/wisc.edu-Red-Black-Trees/index.md
+        - "Left-leaning-red\u2013black-tree":
+          - Introduction: "Data-structure/Tree/Search-tree/Red-black-tree/Left-leaning-red\u2013\
+              black-tree/index.md"
+      - B-tree&&B+tree:
+        - Introduction: Data-structure/Tree/Search-tree/B-tree&&B+tree/index.md
+        - "codinglabs-MySQL\u7D22\u5F15\u80CC\u540E\u7684\u6570\u636E\u7ED3\u6784\u53CA\u7B97\u6CD5\u539F\u7406":
+          - Introduction: "Data-structure/Tree/Search-tree/B-tree&&B+tree/codinglabs-MySQL\u7D22\
+              \u5F15\u80CC\u540E\u7684\u6570\u636E\u7ED3\u6784\u53CA\u7B97\u6CD5\u539F\
+              \u7406/index.md"
+        - "segmentfault-\u7531B-B+\u6811\u770BMySQL\u7D22\u5F15\u7ED3\u6784":
+          - Introduction: "Data-structure/Tree/Search-tree/B-tree&&B+tree/segmentfault-\u7531\
+              B-B+\u6811\u770BMySQL\u7D22\u5F15\u7ED3\u6784/index.md"
+        - B-tree:
+          - Introduction: Data-structure/Tree/Search-tree/B-tree&&B+tree/B-tree/index.md
+          - cornell-course-B-Trees:
+            - Introduction: Data-structure/Tree/Search-tree/B-tree&&B+tree/B-tree/cornell-course-B-Trees/index.md
+        - B+tree:
+          - Introduction: Data-structure/Tree/Search-tree/B-tree&&B+tree/B+tree/index.md
       - Trie:
         - Introduction: Data-structure/Tree/Search-tree/Trie/index.md
         - wikipedia-Trie:
           - Introduction: Data-structure/Tree/Search-tree/Trie/wikipedia-Trie/index.md
         - geeksforgeeks-trie: Data-structure/Tree/Search-tree/Trie/geeksforgeeks-trie.md
-      - B-tree:
-        - Introduction: Data-structure/Tree/Search-tree/B-tree/index.md
-        - cornell-course-B-Trees:
-          - Introduction: Data-structure/Tree/Search-tree/B-tree/cornell-course-B-Trees/index.md
     - Disjoint-set:
       - Introduction: Data-structure/Tree/Disjoint-set/index.md
     - Implementation:
@@ -789,6 +839,8 @@ nav:
             \u4E2D\u7684\u6700\u5927\u8DEF\u5F84\u548C/index.md"
       - Serialization-deserialization:
         - Introduction: Data-structure/Tree/LeetCode/Serialization-deserialization/index.md
+  - Heap:
+    - Introduction: Data-structure/Heap/index.md
   - Hash:
     - Introduction: Data-structure/Hash/index.md
     - Hash-function:
@@ -822,20 +874,18 @@ nav:
       - Introduction: Data-structure/Hash/Checksum/index.md
       - peterjockisch-Practical-Application-of-Cryptographic-Checksums:
         - Introduction: Data-structure/Hash/Checksum/peterjockisch-Practical-Application-of-Cryptographic-Checksums/index.md
-    - Hash-application:
-      - Introduction: Data-structure/Hash/Hash-application/index.md
+    - Application:
+      - Introduction: Data-structure/Hash/Application/index.md
       - "\u53BB\u91CD":
-        - Introduction: "Data-structure/Hash/Hash-application/\u53BB\u91CD/index.md"
+        - Introduction: "Data-structure/Hash/Application/\u53BB\u91CD/index.md"
         - Use-checksum-to-find-duplicate-file:
-          - Introduction: "Data-structure/Hash/Hash-application/\u53BB\u91CD/Use-checksum-to-find-duplicate-file/index.md"
+          - Introduction: "Data-structure/Hash/Application/\u53BB\u91CD/Use-checksum-to-find-duplicate-file/index.md"
     - Error-detection-and-correction:
       - Introduction: Data-structure/Hash/Error-detection-and-correction/index.md
       - Error-correction-code:
         - Introduction: Data-structure/Hash/Error-detection-and-correction/Error-correction-code/index.md
         - Parity-bit:
           - Introduction: Data-structure/Hash/Error-detection-and-correction/Error-correction-code/Parity-bit/index.md
-  - Set:
-    - Set: Data-structure/Set/Set(abstract-data-type).md
   - Probabilistic-data-structures:
     - Bloom-filter:
       - Bloom-filter: Data-structure/Probabilistic-data-structures/Bloom-filter/index.md
@@ -848,6 +898,10 @@ nav:
     - Introduction: Data-structure/Judy-array/index.md
     - sourceforge-library-Judy:
       - Introduction: Data-structure/Judy-array/sourceforge-library-Judy/index.md
+    - TODO-nothing-A-Performance-Comparison-of-Judy-to-Hash-Tables:
+      - Introduction: Data-structure/Judy-array/TODO-nothing-A-Performance-Comparison-of-Judy-to-Hash-Tables/index.md
+    - TODO-rusty.ozlabs-Hashtables-vs-Judy-Arrays:
+      - Introduction: Data-structure/Judy-array/TODO-rusty.ozlabs-Hashtables-vs-Judy-Arrays/index.md
   - String:
     - Introduction: Data-structure/String/index.md
     - wikipedia-String(computer-science):
@@ -1232,6 +1286,10 @@ nav:
       - "LeetCode-460-LFU\u7F13\u5B58":
         - Introduction: "Expert-labuladong/2.4-\u624B\u628A\u624B\u8BBE\u8BA1\u6570\
             \u636E\u7ED3\u6784/LFU-\u7B97\u6CD5/LeetCode-460-LFU\u7F13\u5B58/index.md"
+    - "\u4E8C\u53C9\u5806\u5B9E\u73B0\u4F18\u5148\u7EA7\u961F\u5217":
+      - Introduction: "Expert-labuladong/2.4-\u624B\u628A\u624B\u8BBE\u8BA1\u6570\u636E\
+          \u7ED3\u6784/\u4E8C\u53C9\u5806\u5B9E\u73B0\u4F18\u5148\u7EA7\u961F\u5217\
+          /index.md"
   - "2.5-\u624B\u628A\u624B\u5237\u6570\u7EC4\u9898\u76EE":
     - "\u53CC\u6307\u9488-\u6ED1\u52A8\u7A97\u53E3-\u5C3A\u53D6\u6CD5":
       - Introduction: "Expert-labuladong/2.5-\u624B\u628A\u624B\u5237\u6570\u7EC4\u9898\
