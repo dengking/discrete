@@ -1,4 +1,4 @@
-# labuladong [快排亲兄弟：快速选择算法详解](https://mp.weixin.qq.com/s/TRO3FOKT90Mpvn3hQWVBAQ)	
+# labuladong [快排亲兄弟：快速选择算法详解](https://mp.weixin.qq.com/s/TRO3FOKT90Mpvn3hQWVBAQ) 	
 
 **快速选择算法**是一个非常经典的算法，和**快速排序算法**是亲兄弟。
 
@@ -218,3 +218,4 @@ void shuffle(int[] nums) {
 前文 [洗牌算法详解](http://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247484503&idx=1&sn=e30ef74eb16ad385c16681cd6dfe15cf&chksm=9bd7fa5faca07349c6877bc69f9a27e13585f2c5ed2237ad37ac5b272611039391acc1dcd33d&scene=21#wechat_redirect) 写过随机乱置算法，这里就不展开了。当你加上这段代码之后，平均时间复杂度就是`O(N)`了，提交代码后运行速度大幅提升。
 
 总结一下，快速选择算法就是快速排序的简化版，复用了partition函数，快速定位第 k 大的元素。相当于对数组部分排序而不需要完全排序，从而提高算法效率，将平均时间复杂度降到O(N)。
+

@@ -75,3 +75,12 @@ One can imagine a priority queue as a modified [queue](https://en.wanweibaike.co
 2、leetcode [215. 数组中的第K个最大元素](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/)
 
 使用min heap，不断地弹出小元素，留下大元素
+
+3、labuladong [啊这，一道找中位数的算法题把东哥整不会了…](https://mp.weixin.qq.com/s/oklQN_xjYy--_fbFkd9wMg) 
+
+leetcode [剑指 Offer 41. 数据流中的中位数](https://leetcode-cn.com/problems/shu-ju-liu-zhong-de-zhong-wei-shu-lcof/)
+
+leetcode [295. 数据流的中位数](https://leetcode-cn.com/problems/find-median-from-data-stream/)
+
+使用两个heap
+

@@ -92,13 +92,13 @@ leetcode [56. 合并区间](https://leetcode-cn.com/problems/merge-intervals/)
 
 ## Expression
 
-括号
+一、参见 `compiler-principle\docs\Guide\Expression`
 
-
+二、括号
 
 ## 找数/凑数/搜索树
 
-LeetCode [1711. 大餐计数](https://leetcode-cn.com/problems/count-good-meals/)
+### LeetCode [1711. 大餐计数](https://leetcode-cn.com/problems/count-good-meals/)
 
 以空间换时间
 
@@ -127,3 +127,4 @@ LeetCode-34-在排序数组中查找元素的第一个和最后一个位置
 2、quick select
 
 参见  labuladong [快排亲兄弟：快速选择算法详解](https://mp.weixin.qq.com/s/TRO3FOKT90Mpvn3hQWVBAQ) 。
+
