@@ -1,6 +1,10 @@
 # 我的刷题
 
+## 递归经典例子
 
+1、leetcode [23. 合并K个升序链表](https://leetcode-cn.com/problems/merge-k-sorted-lists/)  # 方法三：分治合并
+
+非常类似于二分；
 
 ## 回溯法
 
@@ -52,7 +56,7 @@ labuladong [如何高效对有序数组/链表去重？](https://mp.weixin.qq.co
 
 ### Merge sequence
 
-一、 merge two sequence
+#### 一、 merge two sequence
 
 
 
@@ -66,19 +70,17 @@ merge sortmerge的部分，和 leetcode [21. 合并两个有序链表](https://l
 
 2、
 
-二、merge multiple sequence
+#### 二、merge multiple sequence
 
 leetcode [23. 合并K个升序链表](https://leetcode-cn.com/problems/merge-k-sorted-lists/)
 
+**两两合并**
 
+leetcode [23. 合并K个升序链表](https://leetcode-cn.com/problems/merge-k-sorted-lists/) 中，给出了递归写法和迭代写法；
 
 ### Merge interval 合并区间
 
 leetcode [56. 合并区间](https://leetcode-cn.com/problems/merge-intervals/)
-
-
-
-## 使用到了heap/优先队列的算法
 
 
 
@@ -115,3 +117,13 @@ LeetCode-34-在排序数组中查找元素的第一个和最后一个位置
 ## 回文
 
 记得将在newcode上看到的一种写法记下来。
+
+
+
+## 使用了二分思想的算法
+
+1、leetcode [23. 合并K个升序链表](https://leetcode-cn.com/problems/merge-k-sorted-lists/)  # 方法三：分治合并
+
+2、quick select
+
+参见  labuladong [快排亲兄弟：快速选择算法详解](https://mp.weixin.qq.com/s/TRO3FOKT90Mpvn3hQWVBAQ) 。
