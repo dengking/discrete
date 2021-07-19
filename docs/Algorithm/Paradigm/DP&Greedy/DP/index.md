@@ -2,17 +2,25 @@
 
 
 
-## DP状态机
+## DP状态机、状态转移方程
 
-> NOTE: 
->
-> 一、从下面几个角度来进行讨论:
->
-> 1、原问题和子问题
->
-> 2、状态
->
-> 3、选择
+
+
+一、从下面几个角度来进行讨论:
+
+1、"DP状态机"、"状态转移方程"描述的是"**原问题**"和"**子问题**"之间的函数关系
+
+2、所谓"状态"，它描述的是问题的规模
+
+3、DP table的定义
+
+它一般记录问题的解
+
+显然它的维度是由"状态"的维度决定的
+
+4、选择
+
+二、
 
 一提到“动态规划”算法我首先想到的是二维数组，在我的印象中动态规划算法就是一个对二维数组进行填值的过程，这个数组作为它按照一定的计算方法能够计算出矩阵中每个位置的值，并且在计算后面值时会用到前面的值。
 
@@ -31,4 +39,12 @@ berkeley [Chapter 6 Dynamic programming](https://people.eecs.berkeley.edu/~vazir
 ## 素材
 
 1、"wikipedia [Recursion (computer science)](https://en.wikipedia.org/wiki/Recursion_(computer_science)) # Recursive functions and algorithms"
+
+
+
+## LeetCode
+
+LeetCode [322. 零钱兑换](https://leetcode-cn.com/problems/coin-change/)
+
+LeetCode [518. 零钱兑换 II](https://leetcode-cn.com/problems/coin-change-2/)
 
