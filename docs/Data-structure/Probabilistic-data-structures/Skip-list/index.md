@@ -77,13 +77,27 @@ A search for a target element begins at the **head element** in the **top list**
 
 The elements used for a skip list can contain more than one pointer since they can participate in more than one list.
 
+> NOTE: 
+>
+> 一般是四个pointer
+
 Insertions and deletions are implemented much like the corresponding linked-list operations, except that "tall" elements must be inserted into or deleted from more than one linked list.
 
 ${\displaystyle {\mathcal {O}}(n)} $operations, which force us to visit every node in ascending order (such as printing the entire list), provide the opportunity to perform a behind-the-scenes derandomization of the level structure of the skip-list in an optimal way, bringing the skip list to ${\displaystyle {\mathcal {O}}(\log n)}$search time. (Choose the level of the i'th finite node to be 1 plus the number of times we can repeatedly divide i by 2 before it becomes odd. Also, i=0 for the negative infinity header as we have the usual special case of choosing the highest possible level for negative and/or positive infinite nodes.) However this also allows someone to know where all of the higher-than-level 1 nodes are and delete them.
 
 Alternatively, we could make the level structure quasi-random in the following way:
 
-#### Indexable skiplist
+### Indexable skiplist
+
+> NOTE: 
+>
+> 这是典型的Top K问题，在 labuladong [手把手刷二叉搜索树（第一期）](https://mp.weixin.qq.com/s/ioyqagZLYrvdlZyOMDjrPw) 中，BST也使用类似的方式进行优化，这是典型的以空间换时间
+
+As described above, a skiplist is capable of fast ![\mathcal{O}(\log n)](https://infogalactic.com/w/images/math/6/a/2/6a2e1009f7e6194825cc7c80ed2528e4.png) insertion and removal of values from a sorted sequence, but it has only slow ![\mathcal{O}(n)](https://infogalactic.com/w/images/math/c/f/3/cf373ba944d0faa2f0ee7d828d18f610.png) lookups of values at a given position in the sequence (i.e. return the 500th value); however, with a minor modification the speed of [random access](https://infogalactic.com/info/Random_access) indexed lookups can be improved to ![\mathcal{O}(\log n)](https://infogalactic.com/w/images/math/6/a/2/6a2e1009f7e6194825cc7c80ed2528e4.png).
+
+For every link, also store the width of the link. The width is defined as the number of bottom layer links being traversed by each of the higher layer "express lane" links.
+
+For example, here are the widths of the links in the example at the top of the page:
 
 ```
    1                               10
