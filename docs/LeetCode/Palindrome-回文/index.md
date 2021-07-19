@@ -66,7 +66,7 @@ leetcode [175. 回文串分割 IV](https://leetcode-cn.com/problems/palindrome-p
 
 leetcode [647. 回文子串](https://leetcode-cn.com/problems/palindromic-substrings/) 中等
 
-leetcode [5. 最长回文子串](https://leetcode-cn.com/problems/longest-palindromic-substring/) 只能
+leetcode [5. 最长回文子串](https://leetcode-cn.com/problems/longest-palindromic-substring/) 中等
 
 leetcode [1542. 找出最长的超赞子字符串](https://leetcode-cn.com/problems/find-longest-awesome-substring/) 困难
 
