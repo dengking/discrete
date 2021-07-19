@@ -4,9 +4,8 @@ nav:
     - Represent-tree: Represent-tree    
     - Tree-data-structure: Tree-data-structure
     - Parenthese-and-tree: Parenthese-and-tree
-    - Tree-operation: Operation
+    - Tree-algorithm: Tree-algorithm
     - Search-tree: Search-tree
     - Disjoint-set: Disjoint-set
     - Implementation: Impl
     - Application: Application    
-    - LeetCode: LeetCode

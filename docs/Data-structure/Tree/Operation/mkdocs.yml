@@ -1,7 +1,0 @@
-nav:
-    - Introduction: index.md
-    - Build-tree: Build-tree
-    - Traversal: Traversal
-    - Rank-of-node: Rank-of-node
-    - Tree-algorithm: Tree-algorithm
-    

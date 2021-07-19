@@ -268,7 +268,7 @@ void connectTwoNode(Node node1, Node node2) {
 
 函数签名如下：
 
-```
+```c++
 void flatten(TreeNode root);
 ```
 
