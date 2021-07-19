@@ -20,6 +20,10 @@ tree algorithm很多都是基于traversal的，下面是我的一些总结:
 
 ### 典型例子
 
+1、leetcode [337. 打家劫舍 III](https://leetcode-cn.com/problems/house-robber-iii/) 中等
+
+参见 labuladong [团灭 LeetCode 打家劫舍问题](https://mp.weixin.qq.com/s/z44hk0MW14_mAQd7988mfw)
+
 
 
 ## LeetCode tree
