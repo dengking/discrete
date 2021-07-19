@@ -2,11 +2,13 @@ nav:
     - Introduction: index.md
     - Build-tree: Build-tree
     - Traversal: Traversal
-    - Rank-of-node: Rank-of-node
+    - Top-K-rank-of-node: Top-K-rank-of-node
     - Merge-合并: Merge-合并
+    - Depth: Depth
     - Traverse-遍历: Traverse-遍历
-    - LeetCode-124-二叉树中的最大路径和: LeetCode-124-二叉树中的最大路径和
+    - Sum: Sum
     - Serialization-deserialization: Serialization-deserialization
-    - LeetCode-431-将N叉树编码为二叉树: LeetCode-431-将N叉树编码为二叉树
     - BST: BST    
     - geeksforgeeks-tree-algorithm: geeksforgeeks-tree-algorithm
+    - LeetCode-431-将N叉树编码为二叉树: LeetCode-431-将N叉树编码为二叉树    
+    

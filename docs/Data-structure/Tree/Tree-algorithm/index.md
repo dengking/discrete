@@ -10,6 +10,18 @@ tree algorithm很多都是基于traversal的，下面是我的一些总结:
 
 1、这是我在做 leetcode [124. 二叉树中的最大路径和](https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/) 时，悟出的。
 
+### 典型例子
+
+1、LeetCode [337. 打家劫舍 III](https://leetcode-cn.com/problems/house-robber-iii/) 中等
+
+参见 labuladong [团灭 LeetCode 打家劫舍问题](https://mp.weixin.qq.com/s/z44hk0MW14_mAQd7988mfw)
+
+2、LeetCode [333. 最大 BST 子树](https://leetcode-cn.com/problems/largest-bst-subtree/)
+
+参见 geeksforgeeks [Maximum sub-tree sum in a Binary Tree such that the sub-tree is also a BST](https://www.geeksforgeeks.org/maximum-sub-tree-sum-in-a-binary-tree-such-that-the-sub-tree-is-also-a-bst/?ref=rp)
+
+
+
 ### Application
 
 它有着非常多的application，比如:
@@ -18,11 +30,7 @@ tree algorithm很多都是基于traversal的，下面是我的一些总结:
 
 2、post order traverse一棵expression tree，能够完成expression evaluation。
 
-### 典型例子
-
-1、leetcode [337. 打家劫舍 III](https://leetcode-cn.com/problems/house-robber-iii/) 中等
-
-参见 labuladong [团灭 LeetCode 打家劫舍问题](https://mp.weixin.qq.com/s/z44hk0MW14_mAQd7988mfw)
+3、sum，参见`Sum`章节
 
 
 
@@ -61,4 +69,6 @@ LeetCode [105. 从前序与中序遍历序列构造二叉树](https://leetcode-c
 LeetCode [105. 从前序与中序遍历序列构造二叉树](https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) 中等
 
 LeetCode [106. 从中序与后序遍历序列构造二叉树](https://leetcode-cn.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/) 中等
+
+### BST
 

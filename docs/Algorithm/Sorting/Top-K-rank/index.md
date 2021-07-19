@@ -16,9 +16,7 @@ LeetCode [面试题 10.10. 数字流的秩](https://leetcode-cn.com/problems/ran
 
 ### 二叉搜索树
 
-LeetCode [剑指 Offer 54. 二叉搜索树的第k大节点](https://leetcode-cn.com/problems/er-cha-sou-suo-shu-de-di-kda-jie-dian-lcof/) 简单
-
-LeetCode [230. 二叉搜索树中第K小的元素](https://leetcode-cn.com/problems/kth-smallest-element-in-a-bst/) 中等
+参见 `Data-structure\Tree\Tree-algorithm\Top-K-rank-of-node` 章节。
 
 
 
