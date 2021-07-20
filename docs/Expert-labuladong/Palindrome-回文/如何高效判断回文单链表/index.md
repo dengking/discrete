@@ -115,7 +115,7 @@ while (fast != null && fast.next != null) {
 
 **2、如果`fast`指针没有指向`null`，说明链表长度为奇数，`slow`还要再前进一步**：
 
-```
+```Java
 if (fast != null)
     slow = slow.next;
 ```
