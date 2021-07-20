@@ -96,7 +96,7 @@ leetcode [56. 合并区间](https://leetcode-cn.com/problems/merge-intervals/)
 
 二、括号
 
-## 找数/凑数/搜索树
+## 找数/凑数/搜索数
 
 ### LeetCode [1711. 大餐计数](https://leetcode-cn.com/problems/count-good-meals/)
 
@@ -112,7 +112,11 @@ LeetCode-1011-在D天内送达包裹的能力
 
 LeetCode-34-在排序数组中查找元素的第一个和最后一个位置
 
+#### 两数之和、三数之和
 
+参见 labuladong [双指针技巧汇总](https://mp.weixin.qq.com/s/yLc7-CZdti8gEMGWhd0JTg) 
+
+参见 `Expert-labuladong\2.5-手把手刷数组题目\n-sum问题` 章节
 
 ## 回文
 
@@ -146,4 +150,8 @@ void sort(int[] nums, int lo, int hi) {
     /************************/
 }
 ```
+
+4、两数之和、三数之和
+
+参见 labuladong [双指针技巧汇总](https://mp.weixin.qq.com/s/yLc7-CZdti8gEMGWhd0JTg) 
 
