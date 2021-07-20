@@ -30,7 +30,7 @@ string longestPalindrome(string s) {}
 
 **寻找回文串的问题核心思想是：从中间开始向两边扩散来判断回文串**。对于最长回文子串，就是这个意思：
 
-```
+```pseudocode
 for 0 <= i < len(s):
     找到以 s[i] 为中心的回文串
     更新答案
@@ -38,7 +38,7 @@ for 0 <= i < len(s):
 
 但是呢，我们刚才也说了，回文串的长度可能是奇数也可能是偶数，如果是`abba`这种情况，没有一个中心字符，上面的算法就没辙了。所以我们可以修改一下：
 
-```
+```pseudocode
 for 0 <= i < len(s):
     找到以 s[i] 为中心的回文串
     找到以 s[i] 和 s[i+1] 为中心的回文串
@@ -53,7 +53,7 @@ PS：读者可能发现这里的索引会越界，等会会处理。
 
 ## 二、代码实现
 
-按照上面的思路，先要实现一个函数来寻找最长回文串，这个函数是有点技巧的：
+按照上面的思路，先要实现一个函数来寻找**最长回文串**，这个函数是有点技巧的：
 
 ![图片](https://mmbiz.qpic.cn/mmbiz_png/map09icNxZ4lLwdm05DtOeOPia4eSQF3HJ35jOicswr8BxewicbXvjKK3tpERQqORIqmJwddx7AXwxhjDm4QBicUoQw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
@@ -63,7 +63,7 @@ PS：读者可能发现这里的索引会越界，等会会处理。
 
 为什么要传入两个指针`l`和`r`呢？**因为这样实现可以同时处理回文串长度为奇数和偶数的情况**：
 
-```
+```pseudocode
 for 0 <= i < len(s):
     # 找到以 s[i] 为中心的回文串
     palindrome(s, i, i)
@@ -128,13 +128,45 @@ for 0 <= i < len(s):
 >
 > 上述程序的两个容易出错的地方:
 >
-> 1、`s.substr(l + 1, r - 1 - l);`
+> 一、`s.substr(l + 1, r - 1 - l);`
 >
 > `l` 和 `r`是对称的，两者必须是同步的，因此，前面的`while (l >= 0 && r < s.size() && s[l] == s[r])`条件不满足(要么是因为因为越界了、要么因为值不相等)而退出时，两者都必须要同步地后退一格
 >
-> 2、`substr`的原型如下:
+> 二、`substr`的原型如下:
 >
 > [`string substr (size_t pos = 0, size_t len = npos) const;`](https://www.cplusplus.com/reference/string/string/substr/) 
+>
+> 三、需要注意的是，单独一个字符也是回文
+>
+> 四、
+>
+> ```c++
+> string palindrome(string &s, int l, int r)
+> {
+> 	while (l >= 0 && r < s.size() && s[l] == s[r])
+> 	{
+> 		--l;
+> 		++r;
+> 	}
+> 	return s.substr(l + 1, r - 1 - l);
+> }
+> ```
+>
+> 
+>
+> 这个函数虽然简短，但是能够处理很多的情况:
+>
+> 1、`l` 和 `r` 相等，它们指向同一个字符
+>
+> `ab`，`l` 和 `r` 都为0，这种情况下，会进入到`while`，上述函数返回`a`
+>
+> 2、`l` 和 `r` 不相等，它们指向不同的字符
+>
+> `ab`，`l`为0，`r`为1，这种情况下，不会进入到`while`，上述函数返回为空串
+>
+> 
+>
+> `r - 1 - l` 统一了各种可能性，显然如果它的值大于0，则存在回文串，否则不存在；
 >
 > 
 

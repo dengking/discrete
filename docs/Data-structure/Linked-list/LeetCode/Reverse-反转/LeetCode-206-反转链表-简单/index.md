@@ -40,7 +40,7 @@ public:
 	}
 	ListNode* reverseListIteration(ListNode *head)
 	{
-		ListNode *prev = nullptr, *cur = head, *next = nullptr;
+		ListNode *prev = nullptr, *cur = head, *next = nullptr; // 三指针
 		while (cur)
 		{
 			next = cur->next; // 先取next

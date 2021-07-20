@@ -1,12 +1,24 @@
 # 回文
 
+labuladong [经典面试题：最长回文子串](http://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247484471&idx=1&sn=7c26d04a1f035770920d31377a1ebd42&chksm=9bd7fa3faca07329189e9e8b51e1a665166946b66b8e8978299ba96d5f2c0d3eafa7db08b681&scene=21#wechat_redirect)
 
+labuladong [子序列解题模板：最长回文子序列](http://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247484666&idx=1&sn=e3305be9513eaa16f7f1568c0892a468&chksm=9bd7faf2aca073e4f08332a706b7c10af877fee3993aac4dae86d05783d3d0df31844287104e&scene=21#wechat_redirect)
+
+labuladong [如何高效判断回文单链表？](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247484822&idx=1&sn=44742c9a3557038c8da7150100d94db9&scene=21)
+
+首先，寻找回文串是从中间向两端扩展，判断回文串是从两端向中间收缩。
+
+> NOTE: 
+>
+> 总结的非常
+
+## LeetCode
 
 https://leetcode-cn.com/problemset/all/?search=%E5%9B%9E%E6%96%87
 
 
 
-## 回文串
+### 回文串
 
 #### leetcode [面试题 01.04. 回文排列](https://leetcode-cn.com/problems/palindrome-permutation-lcci/) 简单
 
@@ -50,7 +62,7 @@ leetcode [面试题 01.04. 回文排列##简单代码，简单思路##（100%，
 
 #### leetcode [1616. 分割两个字符串得到回文串](https://leetcode-cn.com/problems/split-two-strings-to-make-palindrome/) 中等
 
-### 分割回文串
+#### 分割回文串
 
 leetcode [131. 分割回文串](https://leetcode-cn.com/problems/palindrome-partitioning/) 中等
 
@@ -62,7 +74,7 @@ leetcode [175. 回文串分割 IV](https://leetcode-cn.com/problems/palindrome-p
 
 
 
-### 子串
+#### 子串
 
 leetcode [647. 回文子串](https://leetcode-cn.com/problems/palindromic-substrings/) 中等
 
@@ -72,7 +84,7 @@ leetcode [1542. 找出最长的超赞子字符串](https://leetcode-cn.com/probl
 
 
 
-### 子序列
+#### 子序列
 
 leetcode [516. 最长回文子序列](https://leetcode-cn.com/problems/longest-palindromic-subsequence/) 中等
 
@@ -80,7 +92,7 @@ leetcode [730. 统计不同回文子序列](https://leetcode-cn.com/problems/cou
 
 leetcode [1771. 由子序列构造的最长回文串的长度](https://leetcode-cn.com/problems/maximize-palindrome-length-from-subsequences/) 困难
 
-## 回文数
+### 回文数
 
 
 
@@ -106,7 +118,7 @@ leetcode [1771. 由子序列构造的最长回文串的长度](https://leetcode-
 
 
 
-## 回文链表
+### 回文链表
 
 #### leetcode [234. 回文链表](https://leetcode-cn.com/problems/palindrome-linked-list/) 简单
 
