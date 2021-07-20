@@ -1,8 +1,8 @@
 nav:
     - Introduction: index.md
     - wikipedia-Dynamic-programming: wikipedia-Dynamic-programming
+    - geeksforgeeks-Dynamic-Programming: geeksforgeeks-Dynamic-Programming
+    - CSDN-DP算法分类总结: CSDN-DP算法分类总结
+    - 最大子段和: 最大子段和
     - Catalan: Catalan  
-
-    - VS-最长公共子序列-VS-矩阵连乘问题-VS-最大子段和: VS-最长公共子序列-VS-矩阵连乘问题-VS-最大子段和.md
-
-    - Reading-list: Reading-list.md
+  

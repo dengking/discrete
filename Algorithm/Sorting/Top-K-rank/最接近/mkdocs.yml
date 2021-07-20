@@ -1,0 +1,5 @@
+nav:
+    - Introduction: index.md
+    - LeetCode-973-最接近原点的K个点: LeetCode-973-最接近原点的K个点
+    - LeetCode-658-找到K个最接近的元素: LeetCode-658-找到K个最接近的元素
+    

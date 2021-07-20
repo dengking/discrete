@@ -1,14 +1,15 @@
 nav:
     - Introduction: index.md
+    - Guide: Guide    
+    - ADT&&Impl: ADT&&Impl
     - Array: Array
     - Linked-list: Linked-list
     - Stack: Stack    
     - Graph: Graph
-    - Tree: Tree    
+    - Tree: Tree
+    - Heap: Heap
     - Hash: Hash
-    - Set: Set
     - Probabilistic-data-structures: Probabilistic-data-structures
     - Judy-array: Judy-array
     - String: String
-    - Summary: Summary
     - TODO: TODO.md

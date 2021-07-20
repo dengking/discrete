@@ -1,0 +1,7 @@
+nav:
+    - Introduction: index.md
+    - Selection-algorithm: Selection-algorithm
+    - Quick-select: Quick-select
+    - Median-of-medians: Median-of-medians    
+    - 最接近: 最接近
+    - LeetCode-剑指-Offer-40-最小的k个数: LeetCode-剑指-Offer-40-最小的k个数

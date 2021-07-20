@@ -1,0 +1,6 @@
+nav:
+    - Introduction: index.md
+    - codinglabs-MySQL索引背后的数据结构及算法原理: codinglabs-MySQL索引背后的数据结构及算法原理
+    - segmentfault-由B-B+树看MySQL索引结构: segmentfault-由B-B+树看MySQL索引结构
+    - B-tree: B-tree
+    - B+tree: B+tree    
