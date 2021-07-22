@@ -248,9 +248,16 @@ nav:
             - wikipedia-Matrix-chain-multiplication:
               - Introduction: "Algorithm/Paradigm/DP&Greedy/DP/Catalan/\u77E9\u9635\
                   \u8FDE\u4E58\u95EE\u9898/wikipedia-Matrix-chain-multiplication/index.md"
+            - geeksforgeeks-Matrix-Chain-Multiplication:
+              - Introduction: "Algorithm/Paradigm/DP&Greedy/DP/Catalan/\u77E9\u9635\
+                  \u8FDE\u4E58\u95EE\u9898/geeksforgeeks-Matrix-Chain-Multiplication/index.md"
           - "\u6700\u4F18\u4E8C\u53C9\u641C\u7D22\u6811":
             - Introduction: "Algorithm/Paradigm/DP&Greedy/DP/Catalan/\u6700\u4F18\u4E8C\
                 \u53C9\u641C\u7D22\u6811/index.md"
+            - "LeetCode-96-\u4E0D\u540C\u7684\u4E8C\u53C9\u641C\u7D22\u6811":
+              - Introduction: "Algorithm/Paradigm/DP&Greedy/DP/Catalan/\u6700\u4F18\
+                  \u4E8C\u53C9\u641C\u7D22\u6811/LeetCode-96-\u4E0D\u540C\u7684\u4E8C\
+                  \u53C9\u641C\u7D22\u6811/index.md"
           - "\u51F8\u591A\u8FB9\u5F62\u7684\u6700\u4F18\u4E09\u89D2\u5256\u5206":
             - Introduction: "Algorithm/Paradigm/DP&Greedy/DP/Catalan/\u51F8\u591A\u8FB9\
                 \u5F62\u7684\u6700\u4F18\u4E09\u89D2\u5256\u5206/index.md"
@@ -262,6 +269,9 @@ nav:
                   \u8FB9\u5F62\u7684\u6700\u4F18\u4E09\u89D2\u5256\u5206/LeetCode-1039-\u591A\
                   \u8FB9\u5F62\u4E09\u89D2\u5256\u5206\u7684\u6700\u4F4E\u5F97\u5206\
                   /index.md"
+          - "TODO-\u6392\u961F\u627E\u96F6\u95EE\u9898":
+            - Introduction: "Algorithm/Paradigm/DP&Greedy/DP/Catalan/TODO-\u6392\u961F\
+                \u627E\u96F6\u95EE\u9898/index.md"
       - Greedy:
         - Introduction: Algorithm/Paradigm/DP&Greedy/Greedy/index.md
         - Huffman-Coding:
@@ -271,10 +281,23 @@ nav:
       - Introduction: Algorithm/Paradigm/Heuristic/index.md
     - Statistical-algorithms:
       - HyperLogLog: Algorithm/Paradigm/Statistical-algorithms/HyperLogLog.md
+    - Summary:
+      - Introduction: Algorithm/Paradigm/Summary/index.md
+      - How-to-analysis:
+        - Introduction: Algorithm/Paradigm/Summary/How-to-analysis/index.md
+      - Dynamic-programming-VS-search-VS-greedy:
+        - Introduction: Algorithm/Paradigm/Summary/Dynamic-programming-VS-search-VS-greedy/index.md
   - Randomized-algorithm:
     - Introduction: Algorithm/Randomized-algorithm/index.md
     - Monte-Carlo-algorithm:
       - Introduction: Algorithm/Randomized-algorithm/Monte-Carlo-algorithm/index.md
+    - Random-sample:
+      - Introduction: Algorithm/Randomized-algorithm/Random-sample/index.md
+      - "Reservoir-Sample-\u84C4\u6C34\u6C60\u62BD\u6837":
+        - Introduction: "Algorithm/Randomized-algorithm/Random-sample/Reservoir-Sample-\u84C4\
+            \u6C34\u6C60\u62BD\u6837/index.md"
+    - "Fisher\u2013Yates-shuffle":
+      - Introduction: "Algorithm/Randomized-algorithm/Fisher\u2013Yates-shuffle/index.md"
   - Analysis:
     - Introduction: Algorithm/Analysis/index.md
     - wikipedia-Analysis-of-algorithms:
@@ -350,13 +373,14 @@ nav:
       - Introduction: Algorithm/Sorting/Heapsort/index.md
     - Shellsort:
       - Introduction: Algorithm/Sorting/Shellsort/index.md
-    - Sort-linked-list:
-      - "LeetCode-147-\u5BF9\u94FE\u8868\u8FDB\u884C\u63D2\u5165\u6392\u5E8F":
-        - Introduction: "Algorithm/Sorting/Sort-linked-list/LeetCode-147-\u5BF9\u94FE\
-            \u8868\u8FDB\u884C\u63D2\u5165\u6392\u5E8F/index.md"
-      - "LeetCode-148-\u6392\u5E8F\u94FE\u8868":
-        - Introduction: "Algorithm/Sorting/Sort-linked-list/LeetCode-148-\u6392\u5E8F\
-            \u94FE\u8868/index.md"
+    - Bucket-sort:
+      - Introduction: Algorithm/Sorting/Bucket-sort/index.md
+    - Hybrid:
+      - Introduction: Algorithm/Sorting/Hybrid/index.md
+      - Timsort:
+        - Introduction: Algorithm/Sorting/Hybrid/Timsort/index.md
+      - Introsort:
+        - Introduction: Algorithm/Sorting/Hybrid/Introsort/index.md
     - "Lexicographical-order-\u5B57\u5178\u5E8F":
       - Introduction: "Algorithm/Sorting/Lexicographical-order-\u5B57\u5178\u5E8F\
           /index.md"
@@ -386,6 +410,7 @@ nav:
       - Introduction: Algorithm/Classical/Tower-of-Hanoi/index.md
     - Fibonacci:
       - Introduction: Algorithm/Classical/Fibonacci/index.md
+  - Randomized-algorithm: Randomized-algorithm
   - Application:
     - Computational-problem: Algorithm/Application/Computational-problem.md
     - Optimization:
@@ -506,99 +531,106 @@ nav:
       - Introduction: Data-structure/Linked-list/Sentinel-node/index.md
     - Dummy-node:
       - Introduction: Data-structure/Linked-list/Dummy-node/index.md
-    - Circle-detection:
-      - Introduction: Data-structure/Linked-list/Circle-detection/index.md
-      - "TODO-Floyd\u5224\u73AF\u7B97\u6CD5":
-        - Introduction: "Data-structure/Linked-list/Circle-detection/TODO-Floyd\u5224\
-            \u73AF\u7B97\u6CD5/index.md"
-    - LeetCode:
+    - Algorithm:
       - "Previous-current-next-pointer-\u4E09\u6307\u9488":
-        - Introduction: "Data-structure/Linked-list/LeetCode/Previous-current-next-pointer-\u4E09\
+        - Introduction: "Data-structure/Linked-list/Algorithm/Previous-current-next-pointer-\u4E09\
             \u6307\u9488/index.md"
         - "LeetCode-\u5251\u6307-Offer-18-\u5220\u9664\u94FE\u8868\u7684\u8282\u70B9":
-          - Introduction: "Data-structure/Linked-list/LeetCode/Previous-current-next-pointer-\u4E09\
+          - Introduction: "Data-structure/Linked-list/Algorithm/Previous-current-next-pointer-\u4E09\
               \u6307\u9488/LeetCode-\u5251\u6307-Offer-18-\u5220\u9664\u94FE\u8868\
               \u7684\u8282\u70B9/index.md"
         - "LeetCode-\u9762\u8BD5\u9898-02-03-\u5220\u9664\u4E2D\u95F4\u8282\u70B9":
-          - Introduction: "Data-structure/Linked-list/LeetCode/Previous-current-next-pointer-\u4E09\
+          - Introduction: "Data-structure/Linked-list/Algorithm/Previous-current-next-pointer-\u4E09\
               \u6307\u9488/LeetCode-\u9762\u8BD5\u9898-02-03-\u5220\u9664\u4E2D\u95F4\
               \u8282\u70B9/index.md"
       - "Fast-slow-double-pointer-\u5FEB\u6162\u53CC\u6307\u9488":
         - "LeetCode-141-\u73AF\u5F62\u94FE\u8868":
-          - Introduction: "Data-structure/Linked-list/LeetCode/Fast-slow-double-pointer-\u5FEB\
+          - Introduction: "Data-structure/Linked-list/Algorithm/Fast-slow-double-pointer-\u5FEB\
               \u6162\u53CC\u6307\u9488/LeetCode-141-\u73AF\u5F62\u94FE\u8868/index.md"
         - "LeetCode-142-\u73AF\u5F62\u94FE\u8868-II":
-          - Introduction: "Data-structure/Linked-list/LeetCode/Fast-slow-double-pointer-\u5FEB\
+          - Introduction: "Data-structure/Linked-list/Algorithm/Fast-slow-double-pointer-\u5FEB\
               \u6162\u53CC\u6307\u9488/LeetCode-142-\u73AF\u5F62\u94FE\u8868-II/index.md"
         - "LeetCode-\u9762\u8BD5\u9898-02.02-\u8FD4\u56DE\u5012\u6570\u7B2Ck\u4E2A\u8282\u70B9":
-          - Introduction: "Data-structure/Linked-list/LeetCode/Fast-slow-double-pointer-\u5FEB\
+          - Introduction: "Data-structure/Linked-list/Algorithm/Fast-slow-double-pointer-\u5FEB\
               \u6162\u53CC\u6307\u9488/LeetCode-\u9762\u8BD5\u9898-02.02-\u8FD4\u56DE\
               \u5012\u6570\u7B2Ck\u4E2A\u8282\u70B9/index.md"
         - "LeetCode-\u5251\u6307-Offer-22-\u94FE\u8868\u4E2D\u5012\u6570\u7B2Ck\u4E2A\u8282\u70B9":
-          - Introduction: "Data-structure/Linked-list/LeetCode/Fast-slow-double-pointer-\u5FEB\
+          - Introduction: "Data-structure/Linked-list/Algorithm/Fast-slow-double-pointer-\u5FEB\
               \u6162\u53CC\u6307\u9488/LeetCode-\u5251\u6307-Offer-22-\u94FE\u8868\
               \u4E2D\u5012\u6570\u7B2Ck\u4E2A\u8282\u70B9/index.md"
         - "LeetCode-19-\u5220\u9664\u94FE\u8868\u7684\u5012\u6570\u7B2CN\u4E2A\u7ED3\u70B9":
-          - Introduction: "Data-structure/Linked-list/LeetCode/Fast-slow-double-pointer-\u5FEB\
+          - Introduction: "Data-structure/Linked-list/Algorithm/Fast-slow-double-pointer-\u5FEB\
               \u6162\u53CC\u6307\u9488/LeetCode-19-\u5220\u9664\u94FE\u8868\u7684\u5012\
               \u6570\u7B2CN\u4E2A\u7ED3\u70B9/index.md"
         - "LeetCode-876-\u94FE\u8868\u7684\u4E2D\u95F4\u7ED3\u70B9":
-          - Introduction: "Data-structure/Linked-list/LeetCode/Fast-slow-double-pointer-\u5FEB\
+          - Introduction: "Data-structure/Linked-list/Algorithm/Fast-slow-double-pointer-\u5FEB\
               \u6162\u53CC\u6307\u9488/LeetCode-876-\u94FE\u8868\u7684\u4E2D\u95F4\
               \u7ED3\u70B9/index.md"
       - "\u53BB\u91CD":
         - "LeetCode-83-\u5220\u9664\u6392\u5E8F\u94FE\u8868\u4E2D\u7684\u91CD\u590D\u5143\u7D20":
-          - Introduction: "Data-structure/Linked-list/LeetCode/\u53BB\u91CD/LeetCode-83-\u5220\
+          - Introduction: "Data-structure/Linked-list/Algorithm/\u53BB\u91CD/LeetCode-83-\u5220\
               \u9664\u6392\u5E8F\u94FE\u8868\u4E2D\u7684\u91CD\u590D\u5143\u7D20/index.md"
         - "LeetCode-82-\u5220\u9664\u6392\u5E8F\u94FE\u8868\u4E2D\u7684\u91CD\u590D\u5143\u7D20-II":
-          - Introduction: "Data-structure/Linked-list/LeetCode/\u53BB\u91CD/LeetCode-82-\u5220\
+          - Introduction: "Data-structure/Linked-list/Algorithm/\u53BB\u91CD/LeetCode-82-\u5220\
               \u9664\u6392\u5E8F\u94FE\u8868\u4E2D\u7684\u91CD\u590D\u5143\u7D20-II/index.md"
       - "Merge-\u5408\u5E76":
         - "\u4F7F\u7528\u94FE\u8868\u5B9E\u73B0\u5927\u6570\u52A0\u6CD5-\u6C42\u548C":
           - "LeetCode-2-\u4E24\u6570\u76F8\u52A0":
-            - Introduction: "Data-structure/Linked-list/LeetCode/Merge-\u5408\u5E76\
+            - Introduction: "Data-structure/Linked-list/Algorithm/Merge-\u5408\u5E76\
                 /\u4F7F\u7528\u94FE\u8868\u5B9E\u73B0\u5927\u6570\u52A0\u6CD5-\u6C42\
                 \u548C/LeetCode-2-\u4E24\u6570\u76F8\u52A0/index.md"
           - "LeetCode-445-\u4E24\u6570\u76F8\u52A0-II":
-            - Introduction: "Data-structure/Linked-list/LeetCode/Merge-\u5408\u5E76\
+            - Introduction: "Data-structure/Linked-list/Algorithm/Merge-\u5408\u5E76\
                 /\u4F7F\u7528\u94FE\u8868\u5B9E\u73B0\u5927\u6570\u52A0\u6CD5-\u6C42\
                 \u548C/LeetCode-445-\u4E24\u6570\u76F8\u52A0-II/index.md"
         - "LeetCode-1669-\u5408\u5E76\u4E24\u4E2A\u94FE\u8868":
-          - Introduction: "Data-structure/Linked-list/LeetCode/Merge-\u5408\u5E76\
+          - Introduction: "Data-structure/Linked-list/Algorithm/Merge-\u5408\u5E76\
               /LeetCode-1669-\u5408\u5E76\u4E24\u4E2A\u94FE\u8868/index.md"
         - "\u5408\u5E76\u6709\u5E8F\u94FE\u8868":
           - "LeetCode-21-\u5408\u5E76\u4E24\u4E2A\u6709\u5E8F\u94FE\u8868":
-            - Introduction: "Data-structure/Linked-list/LeetCode/Merge-\u5408\u5E76\
+            - Introduction: "Data-structure/Linked-list/Algorithm/Merge-\u5408\u5E76\
                 /\u5408\u5E76\u6709\u5E8F\u94FE\u8868/LeetCode-21-\u5408\u5E76\u4E24\
                 \u4E2A\u6709\u5E8F\u94FE\u8868/index.md"
             - "LeetCode-\u5251\u6307-Offer-25-\u5408\u5E76\u4E24\u4E2A\u6392\u5E8F\u7684\u94FE\u8868":
-              - Introduction: "Data-structure/Linked-list/LeetCode/Merge-\u5408\u5E76\
+              - Introduction: "Data-structure/Linked-list/Algorithm/Merge-\u5408\u5E76\
                   /\u5408\u5E76\u6709\u5E8F\u94FE\u8868/LeetCode-21-\u5408\u5E76\u4E24\
                   \u4E2A\u6709\u5E8F\u94FE\u8868/LeetCode-\u5251\u6307-Offer-25-\u5408\
                   \u5E76\u4E24\u4E2A\u6392\u5E8F\u7684\u94FE\u8868/index.md"
           - "LeetCode-23-\u5408\u5E76K\u4E2A\u5347\u5E8F\u94FE\u8868-Hard":
-            - Introduction: "Data-structure/Linked-list/LeetCode/Merge-\u5408\u5E76\
+            - Introduction: "Data-structure/Linked-list/Algorithm/Merge-\u5408\u5E76\
                 /\u5408\u5E76\u6709\u5E8F\u94FE\u8868/LeetCode-23-\u5408\u5E76K\u4E2A\
                 \u5347\u5E8F\u94FE\u8868-Hard/index.md"
       - "\u516C\u5171\u8282\u70B9":
         - "LeetCode-160-\u76F8\u4EA4\u94FE\u8868":
-          - Introduction: "Data-structure/Linked-list/LeetCode/\u516C\u5171\u8282\u70B9\
-              /LeetCode-160-\u76F8\u4EA4\u94FE\u8868/index.md"
+          - Introduction: "Data-structure/Linked-list/Algorithm/\u516C\u5171\u8282\
+              \u70B9/LeetCode-160-\u76F8\u4EA4\u94FE\u8868/index.md"
         - "LeetCode-\u5251\u6307-Offer-52-\u4E24\u4E2A\u94FE\u8868\u7684\u7B2C\u4E00\u4E2A\u516C\u5171\u8282\u70B9":
-          - Introduction: "Data-structure/Linked-list/LeetCode/\u516C\u5171\u8282\u70B9\
-              /LeetCode-\u5251\u6307-Offer-52-\u4E24\u4E2A\u94FE\u8868\u7684\u7B2C\
-              \u4E00\u4E2A\u516C\u5171\u8282\u70B9/index.md"
+          - Introduction: "Data-structure/Linked-list/Algorithm/\u516C\u5171\u8282\
+              \u70B9/LeetCode-\u5251\u6307-Offer-52-\u4E24\u4E2A\u94FE\u8868\u7684\
+              \u7B2C\u4E00\u4E2A\u516C\u5171\u8282\u70B9/index.md"
       - "Reverse-\u53CD\u8F6C":
         - "LeetCode-206-\u53CD\u8F6C\u94FE\u8868-\u7B80\u5355":
-          - Introduction: "Data-structure/Linked-list/LeetCode/Reverse-\u53CD\u8F6C\
+          - Introduction: "Data-structure/Linked-list/Algorithm/Reverse-\u53CD\u8F6C\
               /LeetCode-206-\u53CD\u8F6C\u94FE\u8868-\u7B80\u5355/index.md"
         - "LeetCode-92-\u53CD\u8F6C\u94FE\u8868-II-\u4E2D\u7B49":
-          - Introduction: "Data-structure/Linked-list/LeetCode/Reverse-\u53CD\u8F6C\
+          - Introduction: "Data-structure/Linked-list/Algorithm/Reverse-\u53CD\u8F6C\
               /LeetCode-92-\u53CD\u8F6C\u94FE\u8868-II-\u4E2D\u7B49/index.md"
         - "LeetCode-\u5251\u6307-Offer-06-\u4ECE\u5C3E\u5230\u5934\u6253\u5370\u94FE\u8868-\u7B80\u5355":
-          - Introduction: "Data-structure/Linked-list/LeetCode/Reverse-\u53CD\u8F6C\
+          - Introduction: "Data-structure/Linked-list/Algorithm/Reverse-\u53CD\u8F6C\
               /LeetCode-\u5251\u6307-Offer-06-\u4ECE\u5C3E\u5230\u5934\u6253\u5370\
               \u94FE\u8868-\u7B80\u5355/index.md"
+      - Sort-linked-list:
+        - "LeetCode-147-\u5BF9\u94FE\u8868\u8FDB\u884C\u63D2\u5165\u6392\u5E8F":
+          - Introduction: "Data-structure/Linked-list/Algorithm/Sort-linked-list/LeetCode-147-\u5BF9\
+              \u94FE\u8868\u8FDB\u884C\u63D2\u5165\u6392\u5E8F/index.md"
+        - "LeetCode-148-\u6392\u5E8F\u94FE\u8868":
+          - Introduction: "Data-structure/Linked-list/Algorithm/Sort-linked-list/LeetCode-148-\u6392\
+              \u5E8F\u94FE\u8868/index.md"
+      - Circle-detection:
+        - Introduction: Data-structure/Linked-list/Algorithm/Circle-detection/index.md
+        - "TODO-Floyd\u5224\u73AF\u7B97\u6CD5":
+          - Introduction: "Data-structure/Linked-list/Algorithm/Circle-detection/TODO-Floyd\u5224\
+              \u73AF\u7B97\u6CD5/index.md"
   - Stack:
     - Introduction: Data-structure/Stack/index.md
     - wikipedia-Stack(abstract-data-type):
@@ -819,6 +851,7 @@ nav:
       - Depth:
         - Introduction: Data-structure/Tree/Tree-algorithm/Depth/index.md
       - Sum:
+        - Introduction: Data-structure/Tree/Tree-algorithm/Sum/index.md
         - "LeetCode-124-\u4E8C\u53C9\u6811\u4E2D\u7684\u6700\u5927\u8DEF\u5F84\u548C":
           - Introduction: "Data-structure/Tree/Tree-algorithm/Sum/LeetCode-124-\u4E8C\
               \u53C9\u6811\u4E2D\u7684\u6700\u5927\u8DEF\u5F84\u548C/index.md"
@@ -966,11 +999,21 @@ nav:
   - TODO: Data-structure/TODO.md
 - LeetCode:
   - Introduction: LeetCode/index.md
+  - "\u6570\u5B66-\u6570\u5B57":
+    - Introduction: "LeetCode/\u6570\u5B66-\u6570\u5B57/index.md"
+    - "LeetCode-7-\u6574\u6570\u53CD\u8F6C":
+      - Introduction: "LeetCode/\u6570\u5B66-\u6570\u5B57/LeetCode-7-\u6574\u6570\u53CD\
+          \u8F6C/index.md"
+    - "LeetCode-273-\u6574\u6570\u8F6C\u6362\u82F1\u6587\u8868\u793A-\u56F0\u96BE":
+      - Introduction: "LeetCode/\u6570\u5B66-\u6570\u5B57/LeetCode-273-\u6574\u6570\
+          \u8F6C\u6362\u82F1\u6587\u8868\u793A-\u56F0\u96BE/index.md"
+    - "\u5927\u6574\u6570\u7B97\u672F":
+      - Introduction: "LeetCode/\u6570\u5B66-\u6570\u5B57/\u5927\u6574\u6570\u7B97\
+          \u672F/index.md"
+  - Subsequence-Subarray-Substring:
+    - Introduction: LeetCode/Subsequence-Subarray-Substring/index.md
   - "LeetCode-16.19-\u6C34\u57DF\u5927\u5C0F":
     - Introduction: "LeetCode/LeetCode-16.19-\u6C34\u57DF\u5927\u5C0F/index.md"
-  - "Subsequence(\u5B50\u5E8F\u5217)-Subarray(\u5B50\u6570\u7EC4)-Substring(\u5B50\u4E32)":
-    - Introduction: "LeetCode/Subsequence(\u5B50\u5E8F\u5217)-Subarray(\u5B50\u6570\
-        \u7EC4)-Substring(\u5B50\u4E32)/index.md"
   - "Tournament-\u6BD4\u8D5B":
     - Introduction: "LeetCode/Tournament-\u6BD4\u8D5B/index.md"
     - "\u8BA1\u7B97\u673A\u7B97\u6CD5\u8BBE\u8BA1\u4E0E\u5206\u6790-2.11-\u5FAA\u73AF\u8D5B\u65E5\u7A0B\u8868":
@@ -989,6 +1032,8 @@ nav:
             /1.1-\u52A8\u6001\u89C4\u5212\u57FA\u672C\u6280\u5DE7/\u52A8\u6001\u89C4\
             \u5212\u8BE6\u89E3/index.md"
     - "1.2-\u5B50\u5E8F\u5217\u7C7B\u578B\u95EE\u9898":
+      - Introduction: "Expert-labuladong/1-\u52A8\u6001\u89C4\u5212\u7CFB\u5217/1.2-\u5B50\
+          \u5E8F\u5217\u7C7B\u578B\u95EE\u9898/index.md"
       - "\u5B50\u5E8F\u5217\u89E3\u9898\u6A21\u677F-\u6700\u957F\u56DE\u6587\u5B50\u5E8F\u5217":
         - Introduction: "Expert-labuladong/1-\u52A8\u6001\u89C4\u5212\u7CFB\u5217\
             /1.2-\u5B50\u5E8F\u5217\u7C7B\u578B\u95EE\u9898/\u5B50\u5E8F\u5217\u89E3\
@@ -1522,6 +1567,15 @@ nav:
         - Introduction: "Expert-labuladong/3.4-\u6570\u5B66\u8FD0\u7B97\u6280\u5DE7\
             /Randomized-algorithm/\u968F\u673A\u7B97\u6CD5\u4E4B\u6C34\u5858\u62BD\
             \u6837\u7B97\u6CD5/index.md"
+        - "LeetCode-382-\u94FE\u8868\u968F\u673A\u8282\u70B9-\u4E2D\u7B49":
+          - Introduction: "Expert-labuladong/3.4-\u6570\u5B66\u8FD0\u7B97\u6280\u5DE7\
+              /Randomized-algorithm/\u968F\u673A\u7B97\u6CD5\u4E4B\u6C34\u5858\u62BD\
+              \u6837\u7B97\u6CD5/LeetCode-382-\u94FE\u8868\u968F\u673A\u8282\u70B9\
+              -\u4E2D\u7B49/index.md"
+        - "LeetCode-398-\u968F\u673A\u6570\u7D22\u5F15":
+          - Introduction: "Expert-labuladong/3.4-\u6570\u5B66\u8FD0\u7B97\u6280\u5DE7\
+              /Randomized-algorithm/\u968F\u673A\u7B97\u6CD5\u4E4B\u6C34\u5858\u62BD\
+              \u6837\u7B97\u6CD5/LeetCode-398-\u968F\u673A\u6570\u7D22\u5F15/index.md"
   - "4-\u9AD8\u9891\u9762\u8BD5\u7CFB\u5217":
     - "\u624B\u628A\u624B\u641E\u61C2\u63A5\u96E8\u6C34\u95EE\u9898\u7684\u591A\u79CD\u89E3\u6CD5":
       - Introduction: "Expert-labuladong/4-\u9AD8\u9891\u9762\u8BD5\u7CFB\u5217/\u624B\
@@ -1534,6 +1588,10 @@ nav:
       - Introduction: "Expert-labuladong/4-\u9AD8\u9891\u9762\u8BD5\u7CFB\u5217/\u5982\
           \u4F55\u62C6\u89E3\u590D\u6742\u95EE\u9898-\u5B9E\u73B0\u4E00\u4E2A\u8BA1\
           \u7B97\u5668/index.md"
+      - "LeetCode-224-\u57FA\u672C\u8BA1\u7B97\u5668":
+        - Introduction: "Expert-labuladong/4-\u9AD8\u9891\u9762\u8BD5\u7CFB\u5217\
+            /\u5982\u4F55\u62C6\u89E3\u590D\u6742\u95EE\u9898-\u5B9E\u73B0\u4E00\u4E2A\
+            \u8BA1\u7B97\u5668/LeetCode-224-\u57FA\u672C\u8BA1\u7B97\u5668/index.md"
   - "\u624B\u6495\u529B\u6263\u9AD8\u9891\u9762\u8BD5\u9898-56\u4E2A":
     - Introduction: "Expert-labuladong/\u624B\u6495\u529B\u6263\u9AD8\u9891\u9762\u8BD5\
         \u9898-56\u4E2A/index.md"

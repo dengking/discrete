@@ -13,7 +13,9 @@ nav:
     
     - Shellsort: Shellsort
     
-    - Sort-linked-list: Sort-linked-list
+    - Bucket-sort: Bucket-sort
+    
+    - Hybrid: Hybrid
     
     - Lexicographical-order-字典序: Lexicographical-order-字典序
     

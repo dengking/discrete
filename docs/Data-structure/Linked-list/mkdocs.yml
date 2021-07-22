@@ -4,5 +4,4 @@ nav:
     - Double-linked-list: Double-linked-list        
     - Sentinel-node: Sentinel-node
     - Dummy-node: Dummy-node
-    - Circle-detection: Circle-detection
-    - LeetCode: LeetCode
+    - Algorithm: Algorithm

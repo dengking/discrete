@@ -1,4 +1,6 @@
 nav:
     - Introduction: index.md
     - How-to-analysis: How-to-analysis
-    - Dynamic-programming-VS-search-VS-greedy
+    - Dynamic-programming-VS-search-VS-greedy: Dynamic-programming-VS-search-VS-greedy
+    
+    
