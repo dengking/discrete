@@ -13368,13 +13368,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    求解子树和
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -16046,7 +16039,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../LeetCode/Subsequence%28%E5%AD%90%E5%BA%8F%E5%88%97%29-Subarray%28%E5%AD%90%E6%95%B0%E7%BB%84%29-Substring%28%E5%AD%90%E4%B8%B2%29/" class="md-nav__link">
+      <a href="../../../../../LeetCode/Subsequence(子序列)-Subarray(子数组)-Substring(子串)/index.md" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -22675,13 +22668,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    求解子树和
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -22701,7 +22687,7 @@
 <p>是在阅读 geeksforgeeks <a href="https://www.geeksforgeeks.org/maximum-sub-tree-sum-in-a-binary-tree-such-that-the-sub-tree-is-also-a-bst/?ref=rp">Maximum sub-tree sum in a Binary Tree such that the sub-tree is also a BST</a> 时，发现这个问题的，这篇文章已经收录于 </p>
 </blockquote>
 <h2 id="_1">我的解题</h2>
-<h2 id="_2">求解子树和</h2>
+<p>是按照  geeksforgeeks <a href="https://www.geeksforgeeks.org/maximum-sub-tree-sum-in-a-binary-tree-such-that-the-sub-tree-is-also-a-bst/?ref=rp">Maximum sub-tree sum in a Binary Tree such that the sub-tree is also a BST</a>  中的解法写的。</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 
@@ -22742,17 +22728,17 @@
 <span class="p">{</span>
 
     <span class="c1">// Max Value in the subtree</span>
-    <span class="kt">int</span> <span class="n">max</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">max_val</span><span class="p">;</span>
 
     <span class="c1">// Min value in the subtree</span>
-    <span class="kt">int</span> <span class="n">min</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">min_val</span><span class="p">;</span>
 
     <span class="c1">// If subtree is BST</span>
     <span class="kt">bool</span> <span class="n">isBST</span><span class="p">;</span>
 
     <span class="c1">// Sum of the nodes of the sub-tree</span>
     <span class="c1">// rooted under the current node</span>
-    <span class="kt">int</span> <span class="n">sum</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">sum_of_node</span><span class="p">;</span>
 
     <span class="c1">// Max sum of BST found till now</span>
     <span class="kt">int</span> <span class="n">currmax</span><span class="p">;</span>
@@ -22772,16 +22758,17 @@
     <span class="p">{</span>
         <span class="c1">// Base case</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">root</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
-            <span class="k">return</span> <span class="p">{</span> <span class="n">INT_MIN</span><span class="p">,</span> <span class="n">INT_MAX</span><span class="p">,</span> <span class="nb">true</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">};</span>
+            <span class="k">return</span>
+            <span class="p">{</span>   <span class="n">INT_MIN</span><span class="p">,</span> <span class="n">INT_MAX</span><span class="p">,</span> <span class="nb">true</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">};</span>
 
         <span class="c1">// If current node is a leaf node then</span>
         <span class="c1">// return from the function and store</span>
         <span class="c1">// information about the leaf node</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span> <span class="o">==</span> <span class="nb">NULL</span> <span class="o">&amp;&amp;</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
         <span class="p">{</span>
-            <span class="n">maxsum</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">maxsum</span><span class="p">,</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">);</span>
+            <span class="n">maxsum</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">maxsum</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
             <span class="k">return</span>
-            <span class="p">{</span>   <span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">,</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">,</span> <span class="nb">true</span><span class="p">,</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">,</span> <span class="n">maxsum</span><span class="p">};</span>
+            <span class="p">{</span>   <span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">,</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">,</span> <span class="nb">true</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">maxsum</span><span class="p">};</span>
         <span class="p">}</span>
 
         <span class="c1">// Store information about the left subtree</span>
@@ -22794,16 +22781,15 @@
 
         <span class="c1">// If the subtree rooted under the current node</span>
         <span class="c1">// is a BST</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">L</span><span class="p">.</span><span class="n">isBST</span> <span class="o">&amp;&amp;</span> <span class="n">R</span><span class="p">.</span><span class="n">isBST</span> <span class="o">&amp;&amp;</span> <span class="n">L</span><span class="p">.</span><span class="n">max</span> <span class="o">&lt;</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">&amp;&amp;</span> <span class="n">R</span><span class="p">.</span><span class="n">min</span> <span class="o">&gt;</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">L</span><span class="p">.</span><span class="n">isBST</span> <span class="o">&amp;&amp;</span> <span class="n">R</span><span class="p">.</span><span class="n">isBST</span> <span class="o">&amp;&amp;</span> <span class="n">L</span><span class="p">.</span><span class="n">max_val</span> <span class="o">&lt;</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">&amp;&amp;</span> <span class="n">R</span><span class="p">.</span><span class="n">min_val</span> <span class="o">&gt;</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">)</span>
         <span class="p">{</span>
 
-            <span class="n">BST</span><span class="p">.</span><span class="n">max</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">,</span> <span class="n">max</span><span class="p">(</span><span class="n">L</span><span class="p">.</span><span class="n">max</span><span class="p">,</span> <span class="n">R</span><span class="p">.</span><span class="n">max</span><span class="p">));</span>
-            <span class="n">BST</span><span class="p">.</span><span class="n">min</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">,</span> <span class="n">min</span><span class="p">(</span><span class="n">L</span><span class="p">.</span><span class="n">min</span><span class="p">,</span> <span class="n">R</span><span class="p">.</span><span class="n">min</span><span class="p">));</span>
+            <span class="n">BST</span><span class="p">.</span><span class="n">max_val</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">,</span> <span class="n">max</span><span class="p">(</span><span class="n">L</span><span class="p">.</span><span class="n">max_val</span><span class="p">,</span> <span class="n">R</span><span class="p">.</span><span class="n">max_val</span><span class="p">));</span>
+            <span class="n">BST</span><span class="p">.</span><span class="n">min_val</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">,</span> <span class="n">min</span><span class="p">(</span><span class="n">L</span><span class="p">.</span><span class="n">min_val</span><span class="p">,</span> <span class="n">R</span><span class="p">.</span><span class="n">min_val</span><span class="p">));</span>
+            <span class="n">BST</span><span class="p">.</span><span class="n">sum_of_node</span> <span class="o">=</span> <span class="n">R</span><span class="p">.</span><span class="n">sum_of_node</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">L</span><span class="p">.</span><span class="n">sum_of_node</span><span class="p">;</span>
+            <span class="n">maxsum</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">maxsum</span><span class="p">,</span> <span class="n">BST</span><span class="p">.</span><span class="n">sum_of_node</span><span class="p">);</span>
 
-            <span class="n">maxsum</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">maxsum</span><span class="p">,</span> <span class="n">R</span><span class="p">.</span><span class="n">sum</span> <span class="o">+</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">+</span> <span class="n">L</span><span class="p">.</span><span class="n">sum</span><span class="p">);</span>
-            <span class="n">BST</span><span class="p">.</span><span class="n">sum</span> <span class="o">=</span> <span class="n">R</span><span class="p">.</span><span class="n">sum</span> <span class="o">+</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">+</span> <span class="n">L</span><span class="p">.</span><span class="n">sum</span><span class="p">;</span>
-
-            <span class="c1">// Update the current maximum sum</span>
+            <span class="c1">// Update the current maximum sum_of_node</span>
             <span class="n">BST</span><span class="p">.</span><span class="n">currmax</span> <span class="o">=</span> <span class="n">maxsum</span><span class="p">;</span>
 
             <span class="n">BST</span><span class="p">.</span><span class="n">isBST</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
@@ -22812,15 +22798,15 @@
         <span class="k">else</span>
         <span class="p">{</span>
             <span class="c1">// If the whole tree is not a BST then</span>
-            <span class="c1">// update the current maximum sum</span>
+            <span class="c1">// update the current maximum sum_of_node</span>
             <span class="n">BST</span><span class="p">.</span><span class="n">isBST</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
             <span class="n">BST</span><span class="p">.</span><span class="n">currmax</span> <span class="o">=</span> <span class="n">maxsum</span><span class="p">;</span>
-            <span class="n">BST</span><span class="p">.</span><span class="n">sum</span> <span class="o">=</span> <span class="n">R</span><span class="p">.</span><span class="n">sum</span> <span class="o">+</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">+</span> <span class="n">L</span><span class="p">.</span><span class="n">sum</span><span class="p">;</span>
-
+            <span class="n">BST</span><span class="p">.</span><span class="n">sum_of_node</span> <span class="o">=</span> <span class="n">R</span><span class="p">.</span><span class="n">sum_of_node</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">L</span><span class="p">.</span><span class="n">sum_of_node</span><span class="p">;</span>
             <span class="k">return</span> <span class="n">BST</span><span class="p">;</span>
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">};</span>
+
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
 

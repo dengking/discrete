@@ -15991,7 +15991,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../LeetCode/Subsequence%28%E5%AD%90%E5%BA%8F%E5%88%97%29-Subarray%28%E5%AD%90%E6%95%B0%E7%BB%84%29-Substring%28%E5%AD%90%E4%B8%B2%29/" class="md-nav__link">
+      <a href="../../../../LeetCode/Subsequence(子序列)-Subarray(子数组)-Substring(子串)/index.md" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -22798,7 +22798,9 @@
 $$
 \max{ 0, \max \limits_{1 \le i \le j \le n} \sum_{k=i}^j a_k }
 $$</p>
-<p><strong><em>SUMMARY</em></strong> : 需要注意的是，子序列是连续的，这意味中，在遇到一个新的元素的时候，必须要将它加入到子序列中，但是可选的是将之前的子序列给抛弃掉；</p>
+<blockquote>
+<p>NOTE: 需要注意的是，子序列是连续的，这意味中，在遇到一个新的元素的时候，必须要将它加入到子序列中，但是可选的是将之前的子序列给抛弃掉；</p>
+</blockquote>
 <h3 id="on3on3"><span><span class="MathJax_Preview">O(n^3)</span><script type="math/tex">O(n^3)</script></span>解决算法</h3>
 <p><strong>思想</strong>：从序列首元素开始穷举所有可能的子序列。 </p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
@@ -22829,9 +22831,6 @@ $$</p>
     <span class="n">system</span><span class="p">(</span><span class="s">&quot;pause&quot;</span><span class="p">);</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-<span class="err">————————————————</span>
-<span class="err">版权声明：本文为</span><span class="n">CSDN博主</span><span class="err">「</span><span class="n">SanFanCSgo</span><span class="err">」的原创文章，遵循</span> <span class="n">CC</span> <span class="mf">4.0</span> <span class="n">BY</span><span class="o">-</span><span class="n">SA</span> <span class="err">版权协议，转载请附上原文出处链接及本声明。</span>
-<span class="err">原文链接：</span><span class="nl">https</span><span class="p">:</span><span class="c1">//blog.csdn.net/weixin_40170902/article/details/80585218</span>
 </code></pre></div>
 <h3 id="on2on2"><span><span class="MathJax_Preview">O(n^2)</span><script type="math/tex">O(n^2)</script></span>解决算法</h3>
 <p>思想：直接在划定子序列时累加元素值，减少一层循环。 </p>
@@ -22862,9 +22861,6 @@ $$</p>
     <span class="n">system</span><span class="p">(</span><span class="s">&quot;pause&quot;</span><span class="p">);</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-<span class="err">————————————————</span>
-<span class="err">版权声明：本文为</span><span class="n">CSDN博主</span><span class="err">「</span><span class="n">SanFanCSgo</span><span class="err">」的原创文章，遵循</span> <span class="n">CC</span> <span class="mf">4.0</span> <span class="n">BY</span><span class="o">-</span><span class="n">SA</span> <span class="err">版权协议，转载请附上原文出处链接及本声明。</span>
-<span class="err">原文链接：</span><span class="nl">https</span><span class="p">:</span><span class="c1">//blog.csdn.net/weixin_40170902/article/details/80585218</span>
 </code></pre></div>
 <h3 id="on#log#non#log#n-"><span><span class="MathJax_Preview">O(n \log n)</span><script type="math/tex">O(n \log n)</script></span>解决算法-二分法</h3>
 <h3 id="onon-"><span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span>算法-动态规划法</h3>
@@ -22928,9 +22924,6 @@ $$</p>
     <span class="n">system</span><span class="p">(</span><span class="s">&quot;pause&quot;</span><span class="p">);</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-<span class="err">————————————————</span>
-<span class="err">版权声明：本文为</span><span class="n">CSDN博主</span><span class="err">「</span><span class="n">SanFanCSgo</span><span class="err">」的原创文章，遵循</span> <span class="n">CC</span> <span class="mf">4.0</span> <span class="n">BY</span><span class="o">-</span><span class="n">SA</span> <span class="err">版权协议，转载请附上原文出处链接及本声明。</span>
-<span class="err">原文链接：</span><span class="nl">https</span><span class="p">:</span><span class="c1">//blog.csdn.net/weixin_40170902/article/details/80585218</span>
 </code></pre></div>
 <p>这种实现和上面的那种实现是完全不同的；</p>
 <h2 id="draft">draft: 源代码</h2>

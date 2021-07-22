@@ -1,6 +1,7 @@
 nav:
     - Introduction: index.md
+    - 数学-数字: 数学-数字
+    - Subsequence-Subarray-Substring: Subsequence-Subarray-Substring    
     - LeetCode-16.19-水域大小: LeetCode-16.19-水域大小
 
-    - Subsequence(子序列)-Subarray(子数组)-Substring(子串): Subsequence(子序列)-Subarray(子数组)-Substring(子串)
     - Tournament-比赛: Tournament-比赛

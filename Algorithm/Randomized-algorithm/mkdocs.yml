@@ -1,3 +1,6 @@
 nav:
     - Introduction: index.md
     - Monte-Carlo-algorithm: Monte-Carlo-algorithm
+    - Random-sample: Random-sample
+    - Fisher–Yates-shuffle: Fisher–Yates-shuffle
+    
