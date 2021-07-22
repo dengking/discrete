@@ -15,7 +15,7 @@ $$
 \max\{ 0, \max \limits_{1 \le i \le j \le n} \sum_{k=i}^j a_k \}
 $$
 
-***SUMMARY*** : 需要注意的是，子序列是连续的，这意味中，在遇到一个新的元素的时候，必须要将它加入到子序列中，但是可选的是将之前的子序列给抛弃掉；
+> NOTE: 需要注意的是，子序列是连续的，这意味中，在遇到一个新的元素的时候，必须要将它加入到子序列中，但是可选的是将之前的子序列给抛弃掉；
 
 ### $O(n^3)$解决算法
 
@@ -50,9 +50,7 @@ int main()
     system("pause");
     return 0;
 }
-————————————————
-版权声明：本文为CSDN博主「SanFanCSgo」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/weixin_40170902/article/details/80585218
+
 ```
 
 
@@ -91,9 +89,7 @@ int main()
     system("pause");
     return 0;
 }
-————————————————
-版权声明：本文为CSDN博主「SanFanCSgo」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/weixin_40170902/article/details/80585218
+
 ````
 
 
@@ -170,9 +166,7 @@ int main()
     system("pause");
     return 0;
 }
-————————————————
-版权声明：本文为CSDN博主「SanFanCSgo」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/weixin_40170902/article/details/80585218
+
 ```
 
 这种实现和上面的那种实现是完全不同的；

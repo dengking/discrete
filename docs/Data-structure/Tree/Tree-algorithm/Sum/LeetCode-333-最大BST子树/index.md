@@ -8,11 +8,7 @@
 
 ## 我的解题
 
-
-
-
-
-## 求解子树和
+是按照  geeksforgeeks [Maximum sub-tree sum in a Binary Tree such that the sub-tree is also a BST](https://www.geeksforgeeks.org/maximum-sub-tree-sum-in-a-binary-tree-such-that-the-sub-tree-is-also-a-bst/?ref=rp)  中的解法写的。
 
 ```C++
 #include <bits/stdc++.h>
@@ -55,17 +51,17 @@ struct Info
 {
 
 	// Max Value in the subtree
-	int max;
+	int max_val;
 
 	// Min value in the subtree
-	int min;
+	int min_val;
 
 	// If subtree is BST
 	bool isBST;
 
 	// Sum of the nodes of the sub-tree
 	// rooted under the current node
-	int sum;
+	int sum_of_node;
 
 	// Max sum of BST found till now
 	int currmax;
@@ -85,16 +81,17 @@ public:
 	{
 		// Base case
 		if (root == NULL)
-			return { INT_MIN, INT_MAX, true, 0, 0};
+			return
+			{	INT_MIN, INT_MAX, true, 0, 0};
 
 		// If current node is a leaf node then
 		// return from the function and store
 		// information about the leaf node
 		if (root->left == NULL && root->right == NULL)
 		{
-			maxsum = max(maxsum, root->val);
+			maxsum = max(maxsum, 1);
 			return
-			{	root->val, root->val, true, root->val, maxsum};
+			{	root->val, root->val, true, 1, maxsum};
 		}
 
 		// Store information about the left subtree
@@ -107,16 +104,15 @@ public:
 
 		// If the subtree rooted under the current node
 		// is a BST
-		if (L.isBST && R.isBST && L.max < root->val && R.min > root->val)
+		if (L.isBST && R.isBST && L.max_val < root->val && R.min_val > root->val)
 		{
 
-			BST.max = max(root->val, max(L.max, R.max));
-			BST.min = min(root->val, min(L.min, R.min));
+			BST.max_val = max(root->val, max(L.max_val, R.max_val));
+			BST.min_val = min(root->val, min(L.min_val, R.min_val));
+			BST.sum_of_node = R.sum_of_node + 1 + L.sum_of_node;
+			maxsum = max(maxsum, BST.sum_of_node);
 
-			maxsum = max(maxsum, R.sum + root->val + L.sum);
-			BST.sum = R.sum + root->val + L.sum;
-
-			// Update the current maximum sum
+			// Update the current maximum sum_of_node
 			BST.currmax = maxsum;
 
 			BST.isBST = true;
@@ -125,15 +121,15 @@ public:
 		else
 		{
 			// If the whole tree is not a BST then
-			// update the current maximum sum
+			// update the current maximum sum_of_node
 			BST.isBST = false;
 			BST.currmax = maxsum;
-			BST.sum = R.sum + root->val + L.sum;
-
+			BST.sum_of_node = R.sum_of_node + 1 + L.sum_of_node;
 			return BST;
 		}
 	}
 };
+
 int main()
 {
 

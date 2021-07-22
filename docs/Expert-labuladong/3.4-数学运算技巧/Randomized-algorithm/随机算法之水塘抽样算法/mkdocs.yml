@@ -1,3 +1,5 @@
 nav:
     - Introduction: index.md
+    - LeetCode-382-链表随机节点-中等: LeetCode-382-链表随机节点-中等
+    - LeetCode-398-随机数索引: LeetCode-398-随机数索引
     

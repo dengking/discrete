@@ -102,7 +102,9 @@ leetcode [56. 合并区间](https://leetcode-cn.com/problems/merge-intervals/)
 
 以空间换时间
 
+### LeetCode  [1. 两数之和](https://leetcode-cn.com/problems/two-sum/)
 
+以空间换时间
 
 ### 二分法
 
