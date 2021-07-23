@@ -14,6 +14,12 @@
 
 ## 数组算法中的以空间换时间
 
+下面描述的四个数组相关的算法，其实存在着如下的相似点:
+
+1、区间在扩大
+
+
+
 一、min、max
 
 股票买卖问题
@@ -28,9 +34,9 @@
 
 这在 `Expert-labuladong\1-动态规划系列\1.2-子序列类型问题\最大子数组` 章节中，进行了讨论。最最常规的实现方式是$O(n^3)$，通过观察递归关系，记录子问题的解，然后根据递归关系，获取更大问题的解，可以将其转换为$O(n^2)$​。
 
-### 找数算法中的以空间换时间
+### 找数算法、hash map以空间换时间
 
-LeetCode [1711. 大餐计数](https://leetcode-cn.com/problems/count-good-meals/)
+#### LeetCode [1711. 大餐计数](https://leetcode-cn.com/problems/count-good-meals/)
 
 使用hash map保持数字出现的次数。
 
@@ -40,21 +46,49 @@ LeetCode [1711. 大餐计数](https://leetcode-cn.com/problems/count-good-meals/
 >
 > 1、滑动窗口
 
-## LeetCode  [1. 两数之和](https://leetcode-cn.com/problems/two-sum/)
+#### LeetCode  [1. 两数之和](https://leetcode-cn.com/problems/two-sum/)
 
 以空间换时间
 
+## 滑动窗口以空间换时间
+
+参见 labuladong [我写了套框架，把滑动窗口算法变成了默写题](https://mp.weixin.qq.com/s/ioKXTMZufDECBUwRRp3zaA) :
+
+```C++
+/* 滑动窗口算法框架 */
+void slidingWindow(string s, string t) {
+    // 预处理字符串
+    unordered_map<char, int> need, window;
+    for (char c : t) need[c]++;
+
+    int left = 0, right = 0;
+    int valid = 0; 
+    while (right < s.size()) {
+        // c 是将移入窗口的字符
+        char c = s[right];
+        // 右移窗口
+        right++;
+        // 进行窗口内数据的一系列更新
+        ...
+
+        /*** debug 输出的位置 ***/
+        printf("window: [%d, %d)\n", left, right);
+        /********************/
+
+        // 判断左侧窗口是否要收缩
+        while (window needs shrink) {
+            // d 是将移出窗口的字符
+            char d = s[left];
+            // 左移窗口
+            left++;
+            // 进行窗口内数据的一系列更新
+            ...
+        }
+    }
+}
+```
 
 
-## hash map 以空间换时间
-
-
-
-### LeetCode [1711. 大餐计数](https://leetcode-cn.com/problems/count-good-meals/)
-
-
-
-### LeetCode  [1. 两数之和](https://leetcode-cn.com/problems/two-sum/)
 
 
 
@@ -79,6 +113,8 @@ LeetCode [392. 判断子序列](https://leetcode-cn.com/problems/is-subsequence/
 ## LeetCode [解数独](https://leetcode-cn.com/problems/sudoku-solver/solution/jie-shu-du-by-leetcode-solution/)
 
 其中就用"以空间换时间"来进行优化。
+
+
 
 
 
