@@ -1,9 +1,8 @@
 nav:
     - Introduction: index.md
-    - State-solution-space: State-solution-space
+    - 穷举State-solution-space: 穷举State-solution-space
     - Divide-and-Conquer: Divide-and-Conquer
     - Overlapping-subproblem: Overlapping-subproblem
-    - 穷举State-solution-space: 穷举State-solution-space
     - Recurrence-relation递归状态转移方程: Recurrence-relation递归状态转移方程
-    - wikipedia-Analysis-of-algorithms: wikipedia-Analysis-of-algorithms
+
     

@@ -1,7 +1,6 @@
 nav:
     - Introduction: index.md
     - wikipedia-Algorithmic-paradigm: wikipedia-Algorithmic-paradigm    
-    - 算法思维: 算法思维
     - Guide: Guide    
     - Brute-force: Brute-force
     - DP&Greedy: DP&Greedy
