@@ -1,5 +1,7 @@
 # labuladong [LeetCode 股票问题的一种通用解法](https://mp.weixin.qq.com/s/TrN7mMdLEPCmT5mOXzgP5A)
 
+
+
 ## *1*、Best Time to Buy and Sell Stock (Easy)
 
 > NOTE: 
@@ -9,6 +11,8 @@
 > 
 
 ![图片](https://mmbiz.qpic.cn/mmbiz_png/map09icNxZ4kbOQM3dXVKdgSXOCibeUUK2nACKnCmYcLSOsGpvKc46tF7vzVSfIUISR0gd93cMPE9phGOZiaImlWw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+
 
 
 
@@ -79,6 +83,8 @@ result = max(所有可能)
 #### 动态规划: 旧状态向新状态的转移
 
 很多人认为这道题不是动态规划，但是我认为最值的更新就是旧状态向新状态的转移，所以这个问题还是含有动态规划的技巧的。**不要觉得此题简单，这里完成了最困难的一步：穷举。后面所有的题目都可以基于此框架扩展出来。**
+
+
 
 ## *2*、Best Time to Buy and Sell Stock II (Easy)
 

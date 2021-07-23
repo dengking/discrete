@@ -1,5 +1,7 @@
 # Divide-and-conquer algorithm
 
+
+
 ## 非常重要的计算思想
 
 "divide-and-conquer" 简单然而强大: 
@@ -32,6 +34,18 @@
 
 
 
+## Divide and conquer example
+
+labuladong [手把手搞懂接雨水问题的多种解法](https://mp.weixin.qq.com/s/mFqrlhqYEPhRa9p4ewl3Xw)
+
+> 对于这种问题，我们不要想整体，而应该去想局部；就像之前的文章写的动态规划问题处理字符串问题，不要考虑如何处理整个字符串，而是去思考应该如何处理每一个字符。
+>
+> 这么一想，可以发现这道题的思路其实很简单。具体来说，仅仅对于位置`i`，能装下多少水呢？
+
+很多algorithm，其实都是基于解空间、原问题和子问题而构建的
+
+
+
 ## Divide-and-conquer and parallel computing
 
 
@@ -46,6 +60,8 @@ Parallel computing、distributed computing能够加速divide-and-conquer的性�
 
 二、"distributed computing parallel divide-and-conquer"
 
+
+
 ### 使用divide-and-conquer来分解
 
 > NOTE: 
@@ -56,6 +72,8 @@ Parallel computing、distributed computing能够加速divide-and-conquer的性�
 
 2、distributed computing、parallel computing 都 蕴含着 divide-and-conquer思想
 
+
+
 ### 参见
 
 1、"wikipedia [Divide-and-conquer algorithm](https://en.wikipedia.org/wiki/Divide-and-conquer_algorithm) # Parallelism"章节
@@ -63,8 +81,6 @@ Parallel computing、distributed computing能够加速divide-and-conquer的性�
 2、工程"Parallel-computing"的`Fork–join-model`章节
 
 3、stackoverflow [difference of divide and conquer & fork and join](https://stackoverflow.com/questions/29686964/difference-of-divide-and-conquer-fork-and-join)
-
-
 
 
 

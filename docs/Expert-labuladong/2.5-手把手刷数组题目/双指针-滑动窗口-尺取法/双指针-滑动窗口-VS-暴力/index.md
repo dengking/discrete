@@ -1,4 +1,6 @@
-# 双指针、滑动窗口、尺取法
+# 滑动窗口 VS 暴力搜索
+
+
 
 ## stackoverflow [Is two pointer problem same as sliding window](https://stackoverflow.com/questions/64078162/is-two-pointer-problem-same-as-sliding-window)
 
@@ -24,7 +26,9 @@ Hope it answers your question.
 
 3、滑动窗口，基于上一次的位置开始进行expand、shrink，它不必每次重头再来。
 
-
+> NOTE: 
+>
+> 以空间换时间
 
 ## TODO
 
