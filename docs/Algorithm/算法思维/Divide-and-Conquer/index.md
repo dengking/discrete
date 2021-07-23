@@ -12,6 +12,8 @@
 
 三、它是很多其它algorithm的基石
 
+dynamic programming、greedy algorithm 等等，都是基于它的。
+
 四、distributed computing、parallel computing 都蕴含着 divide-and-conquer思想，在"Divide-and-conquer and parallel computing"中，对此进行了讨论。
 
 

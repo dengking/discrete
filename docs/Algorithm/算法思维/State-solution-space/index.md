@@ -12,9 +12,15 @@
 
 2、很多algorithm的优势在于它比较好地罗列了问题的所有可能性，典型的例子就是滑动窗口，先比与暴力搜索，它高效的多。
 
-## Systematic method: 罗列所有的可能性
+## Systematic method: 穷举、高效的穷举
 
 如何进行枚举呢？在下面章节中，进行了讨论: 
+
+1、`LeetCode\Subsequence-Subarray-Substring\Systematic-method-穷举`
+
+2、`Algorithm\State-space-search`
+
+
 
 
 

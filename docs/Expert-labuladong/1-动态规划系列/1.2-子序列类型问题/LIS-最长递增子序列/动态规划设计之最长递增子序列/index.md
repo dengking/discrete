@@ -4,7 +4,9 @@
 
 > NOTE: 
 >
-> 一、"数学归纳思想"让我想到了"tag-divide conquer-problem原问题subproblem子问题"
+> 一、"数学归纳思想"让我想到了"tag-divide conquer-problem原问题subproblem子问题"、
+>
+> 二、这个例子，非常好的体现了动态规划的"以空间换时间"
 
 最长递增子序列（Longest Increasing Subsequence，简写 LIS）是比较经典的一个问题，比较容易想到的是动态规划解法，时间复杂度 O(N^2)，我们借这个问题来由浅入深讲解如何写动态规划。
 

@@ -1,4 +1,4 @@
-# 穷举、systematic method
+# state space、solution space、穷举、systematic method
 
 这个问题在 labuladong [子序列解题模板：最长回文子序列](https://mp.weixin.qq.com/s/zNai1pzXHeB2tQE6AdOXTA) 有着总结: 
 
@@ -44,7 +44,4 @@ labuladong [LeetCode 股票问题的一种通用解法](https://mp.weixin.qq.com
 
 典型的通过回溯法枚举出所有的可能子序列。
 
-
-
-## 高效的穷举
 

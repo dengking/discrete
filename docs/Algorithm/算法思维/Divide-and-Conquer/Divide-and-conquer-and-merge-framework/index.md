@@ -88,3 +88,34 @@ $$
 
 wikipedia [快速排序](https://en.wikipedia.org/wiki/Quicksort)
 
+### 补充: 使用二分思想的算法
+
+1、leetcode [23. 合并K个升序链表](https://leetcode-cn.com/problems/merge-k-sorted-lists/)  # 方法三：分治合并
+
+自顶向下
+
+2、quick select
+
+参见  labuladong [快排亲兄弟：快速选择算法详解](https://mp.weixin.qq.com/s/TRO3FOKT90Mpvn3hQWVBAQ) 。
+
+3、merge sort
+
+参见 labuladong [东哥手把手带你套框架刷通二叉树|第一期](https://mp.weixin.qq.com/s/izZ5uiWzTagagJec6Y7RvQ) 
+
+```C++
+void sort(int[] nums, int lo, int hi) {
+    int mid = (lo + hi) / 2;
+    sort(nums, lo, mid);
+    sort(nums, mid + 1, hi);
+
+    /****** 后序遍历位置 ******/
+    // 合并两个排好序的子数组
+    merge(nums, lo, mid, hi);
+    /************************/
+}
+```
+
+4、两数之和、三数之和
+
+参见 labuladong [双指针技巧汇总](https://mp.weixin.qq.com/s/yLc7-CZdti8gEMGWhd0JTg) 
+

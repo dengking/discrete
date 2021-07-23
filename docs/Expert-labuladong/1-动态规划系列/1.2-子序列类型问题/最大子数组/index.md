@@ -92,7 +92,25 @@ int main()
 
 ````
 
-
+> NOTE: 
+>
+> 计算 `sum([i, j])` 即从 `i` 到 `j` 的子数组的和；
+>
+> 从上述实现来看，由于它计算的是sum，并且序列是不断地扩展的
+>
+> 显然: 
+>
+> ```
+> sum( [ i, j ] ) = sum( [ i, j - 1] ) + array[ j ]
+> ```
+>
+> 显然，这是典型的原问题 和 子问题，通过 `tempSum` 来保存子问题 `sum( [ i, j - 1] )`
+>
+> 这是非常典型的动态规划思想、以空间换时间
+>
+> 它的计算次序如下:
+>
+> ![](./max-sub-array.jpg)
 
 ### $O(n \log n)$解决算法-二分法
 
@@ -138,7 +156,7 @@ int MaxSum(int n, int *a){
 }
 ```
 
-在[最大子段和问题：蛮力、递归及动态规划](https://blog.csdn.net/weixin_40170902/article/details/80585218)中给出的程序是这样的：
+在 csdn [最大子段和问题：蛮力、递归及动态规划](https://blog.csdn.net/weixin_40170902/article/details/80585218) 中给出的程序是这样的：
 
 ```c++
 #include<iostream>
