@@ -1,5 +1,5 @@
 nav:
     - Introduction: index.md
     - LeetCode-7-整数反转: LeetCode-7-整数反转
-    - LeetCode-273-整数转换英文表示-困难: LeetCode-273-整数转换英文表示-困难
+    - LeetCode-9-回文数: LeetCode-9-回文数
     - 大整数算术: 大整数算术
