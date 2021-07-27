@@ -6,6 +6,10 @@
 
 非常类似于二分；
 
+2、leetcode [148. 排序链表](https://leetcode-cn.com/problems/sort-list/)
+
+
+
 ## 回溯法
 
 
@@ -100,7 +104,23 @@ LeetCode-34-在排序数组中查找元素的第一个和最后一个位置
 
 ## 回文
 
-记得将在newcode上看到的一种写法记下来。
+TODO 需要将相关试题解析总结
 
 
+
+## 两数相加
+
+LeetCode [简单易懂Java/C++ /Python/js【培养算法思维】- 两数相加](https://leetcode-cn.com/problems/add-two-numbers/solution/jian-dan-yi-dong-javacpythonjs-pei-yang-y2w6g/)
+
+一个思路轻而易举的解决以下 5 道算法面试题：
+
+1、leetcode 989 号算法题：数组形式的整数加法
+
+2、leetcode 66 号算法题：加 1
+
+3、leetcode 415 号算法题：字符串相加
+
+4、leetcode 67 号算法题：二进制求和
+
+5、leetcode 2 号算法题：两数相加
 

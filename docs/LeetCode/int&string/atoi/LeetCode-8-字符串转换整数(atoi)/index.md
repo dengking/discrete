@@ -174,6 +174,12 @@ int main()
 > 一、第一列表示的是**状态**，第一行表示的是**输入**
 >
 > 上述表格表达了**状态**在**输入**下的转换
+>
+> 二、思考: 上述"automaton"要如何实现呢？
+>
+> 在下面的source code中，是使用的hash map + vector 来实现的
+>
+> 对于输入，它是使用的 `index [0-9]` 来进行编码的
 
 接下来编程部分就非常简单了：我们只需要把上面这个**状态转换表**抄进代码即可。
 
@@ -181,3 +187,67 @@ int main()
 
 
 
+### 完整程序
+
+```C++
+#include <bits/stdc++.h>
+using namespace std;
+class Automaton
+{
+	string state = "start";
+	unordered_map<string, vector<string>> table = { { "start", { "start", "signed", "in_number", "end" } }, { "signed", { "end", "end", "in_number", "end" } }, { "in_number", { "end", "end", "in_number", "end" } }, { "end", { "end", "end", "end", "end" } } };
+
+	int get_col(char c)
+	{
+		if (isspace(c))
+			return 0;
+		if (c == '+' or c == '-')
+			return 1;
+		if (isdigit(c))
+			return 2;
+		return 3;
+	}
+public:
+	int sign = 1;
+	long long ans = 0;
+
+	void get(char c)
+	{
+		state = table[state][get_col(c)];
+		if (state == "in_number")
+		{
+			ans = ans * 10 + c - '0';
+			ans = sign == 1 ? min(ans, (long long) INT_MAX) : min(ans, -(long long) INT_MIN);
+		}
+		else if (state == "signed")
+			sign = c == '+' ? 1 : -1;
+	}
+};
+
+class Solution
+{
+public:
+	int myAtoi(string str)
+	{
+		Automaton automaton;
+		for (char c : str)
+			automaton.get(c);
+		return automaton.sign * automaton.ans;
+	}
+};
+
+int main()
+{
+	Solution s;
+	cout << s.myAtoi("-91283472332") << endl;
+}
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -g
+
+
+```
+
+
+
+### [Edward ElricL3](https://leetcode-cn.com/u/zdxiq125/) 评论
+
+准确地说，这是确定有限状态机（deterministic finite automaton, DFA）。其实这题已经不算是容易写“出臃肿代码”的了。考虑清楚边界（主要是溢出处理）和输入种类（+, -, 0-9以及其他），大概在20行内完成代码不难。说实话LC官方题解里很少见给出标准DFA解法的，点个赞。另外看到评论区乌烟瘴气的，真让人唏嘘（没有一点基本的敬畏心、浮躁功利、认为题目边界太复杂导致自己不能AC，那是何其自负）。给两个更加需要DFA的题目吧：[utf-8-validation](https://leetcode-cn.com/problems/utf-8-validation/) ( [附dfa解法](https://leetcode-cn.com/problems/utf-8-validation/solution/java-dfa-by-zdxiq125/) ) 以及 [valid-number](https://leetcode-cn.com/problems/valid-number/)。 顺便贴一下普通解法（那种臃肿的、易错的、可能会被test cases虐到骂娘的；但如果骂娘了，本质还是基本功不扎实）。
