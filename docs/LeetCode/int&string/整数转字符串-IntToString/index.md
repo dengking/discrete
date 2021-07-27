@@ -181,3 +181,18 @@ int main()
 
 ```
 
+
+
+## 参考文章
+
+cnblogs [itoa的源代码实现](https://www.cnblogs.com/zfyouxi/p/4011020.html)
+
+CSDN [itoa的源码实现](https://blog.csdn.net/yang15225094594/article/details/8129991)
+
+geeksforgeeks [Implement your own itoa()](https://www.geeksforgeeks.org/implement-itoa/)
+
+
+
+## `itoa` source code
+
+[glibc](https://code.woboq.org/userspace/glibc/)/[stdio-common](https://code.woboq.org/userspace/glibc/stdio-common/)/[_itoa.c](https://code.woboq.org/userspace/glibc/stdio-common/_itoa.c.html)

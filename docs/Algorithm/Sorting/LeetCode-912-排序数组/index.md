@@ -1,5 +1,7 @@
 # leetcode [912. 排序数组](https://leetcode-cn.com/problems/sort-an-array/)
 
+
+
 ## 我的解题
 
 ### Quick sort
@@ -105,6 +107,71 @@ private:
 		return slow - 1;
 	}
 };
+
+```
+
+
+
+### Merge sort
+
+```C++
+#include <bits/stdc++.h>
+using namespace std;
+
+class Solution
+{
+	vector<int> temp; // 保存临时排序结果
+public:
+	vector<int> sortArray(vector<int> &nums)
+	{
+		temp.resize((int) nums.size(), 0);
+		mergeSort(nums, 0, nums.size() - 1);
+		return nums;
+	}
+private:
+	void mergeSort(vector<int> &nums, int left, int right)
+	{
+		if (left >= right) // base case
+		{
+			return;
+		}
+		int mid = (left + right) >> 1;
+		mergeSort(nums, left, mid);
+		mergeSort(nums, mid + 1, right);
+		int i = left, j = mid + 1;
+		int count = 0;
+		while (i <= mid && j <= right)
+		{
+			if (nums[i] <= nums[j])
+			{
+				temp[count++] = nums[i++];
+			}
+			else
+			{
+				temp[count++] = nums[j++];
+			}
+		}
+		while (i <= mid)
+		{
+			temp[count++] = nums[i++];
+		}
+		while (j <= right)
+		{
+			temp[count++] = nums[j++];
+		}
+		for (int i = 0; i < right - left + 1; ++i)
+		{
+			nums[i + left] = temp[i];
+		}
+	}
+};
+
+int main()
+{
+
+}
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -g
+
 
 ```
 

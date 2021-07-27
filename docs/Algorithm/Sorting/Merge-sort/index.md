@@ -33,18 +33,176 @@ void sort(int[] nums, int lo, int hi) {
 
 
 
+## Implementation
+
+### 递归的实现方式
+
+LeetCode [912. 排序数组](https://leetcode-cn.com/problems/sort-an-array/) # Merge sort
+
+```C++
+#include <bits/stdc++.h>
+using namespace std;
+
+class Solution
+{
+	vector<int> temp; // 保存临时排序结果
+public:
+	vector<int> sortArray(vector<int> &nums)
+	{
+		temp.resize((int) nums.size(), 0);
+		mergeSort(nums, 0, nums.size() - 1);
+		return nums;
+	}
+private:
+	void mergeSort(vector<int> &nums, int left, int right)
+	{
+		if (left >= right) // base case
+		{
+			return;
+		}
+		int mid = (left + right) >> 1;
+		mergeSort(nums, left, mid);
+		mergeSort(nums, mid + 1, right);
+		int i = left, j = mid + 1;
+		int count = 0;
+		while (i <= mid && j <= right)
+		{
+			if (nums[i] <= nums[j])
+			{
+				temp[count++] = nums[i++];
+			}
+			else
+			{
+				temp[count++] = nums[j++];
+			}
+		}
+		while (i <= mid)
+		{
+			temp[count++] = nums[i++];
+		}
+		while (j <= right)
+		{
+			temp[count++] = nums[j++];
+		}
+		for (int i = 0; i < right - left + 1; ++i)
+		{
+			nums[i + left] = temp[i];
+		}
+	}
+};
+
+int main()
+{
+
+}
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -g
+
+```
+
+### 非递归的实现方式
+
+此算法是根据递归版本的归并排序算法改编而来，具体的改编思路如下：
+
+算法`MergeSort`利用递归机制，实现了把待排序数组一分为二，然后在二分为四，依次分割，直到待排序的集合中只有一个元素为止，然后不断地合并两个排好序的数组段，合并操作由函数Merge来完成，真正实现排序的过程也是在这个函数中发生的。
+
+因此我们消解递归的思路就是：使用其它方法来进行划分，不用递归来划分。 
+
+`void MergePass(int a[],int b[],int s,int n)`的理解：
+
+| 2s   | 2s   | 2s   | ………  |      |
+| ---- | ---- | ---- | ---- | ---- |
+|      |      |      |      |      |
 
 
-## hackerearth [Merge Sort](https://www.hackerearth.com/zh/practice/algorithms/sorting/merge-sort/tutorial/)
 
-Merge sort is a divide-and-conquer algorithm based on the idea of breaking down a list into several sub-lists until each sublist consists of a single element and merging those sublists in a manner that results into a sorted list. 
+```C++
+#include<iostream>
+using namespace std;
 
- 
+void MergeSort(int a[], int n); //a是待排序数组，n是数组a的长度
+void Merge(int a[], int b[], int left, int m, int right);
+void MergePass(int a[], int b[], int s, int n); //a是待排序数组，n是数组a的长度,s是子段的长度，此函数把部分有序的序列放到了数组b中
 
-**Idea:** 
+/**
+ * @brief
+ *
+ * @param a 待排序数组
+ * @param n 是数组a的长度
+ */
+void MergeSort(int a[], int n)
+{
+	int *b = new int[n];
+	int s = 1; //s定义的是子段的长度，初始时，子段长度为1，则自然有序
+	while (s < n)
+	{
+		MergePass(a, b, s, n); //合并到数组b中
+		s += s;
+		MergePass(b, a, s, n);
+		s += s;
+	}
+}
+/**
+ * @brief a是待排序数组，n是数组a的长度,s是子段的长度，此函数把部分有序的序列放到了数组b中
+ *
+ * @param a
+ * @param b
+ * @param s
+ * @param n
+ */
+void MergePass(int a[], int b[], int s, int n) //
+{
+	int i = 0;
+	while (i <= n - 2 * s)
+	{ //此循环能够使循环次数k满足k*（2*s）<=n的k取到最大值。
+	  //它实现这个控制的思路是按照逆向思维方式：n-2*s标识的是使数组剩余2*s长度的起始下标，显然一旦i超过了这个值，则while中按照2*s为单位进行排序就是不合法的，所以要跳出循环
+		Merge(a, b, i, i + s - 1, i + 2 * s - 1);		//注意对于这个过程的理解请参考文档
+		i = i + 2 * s;
+	}		//只有当i>n-2*s才弹出循环
+	if (i + s < n)
+	{		//也就是剩余的子段的长度比s要大
+		Merge(a, b, i, i + s - 1, n - 1);		//注意对于这个过程的理解请参考文档
+	}
+	else
+	{
+		for (int k = i; i < n; i++)
+		{
+			b[k++] = a[i];
+		}
+	}
+}
 
- 
+void Merge(int a[], int b[], int left, int m, int right)
+{		//合并a[left:i]和a[m+1:right]到b[left，right]
+	int i = left, j = m + 1;
+	int k = left;		//i是指向第一段的指针，j是指向第二段的指针，k原来作为数组b的下标
+	while ((i <= m) && (j <= right))
+	{		//这个while循环原来把a[left:i]和a[m+1:right]中的数据按序放进数组b中
+		if (a[i] < a[j])
+		{         //注意循环的控制条件，把它翻译成自然语言就是：只要两段数组有一段放完了，那么另外一段是有序的，无需比较直接可以放进数组b中
+			b[k++] = a[i++];
+		}
+		else
+		{
+			b[k++] = a[j++];
+		}
+	}
+	if (i <= m)
+	{         //i<=m说明导致跳出while循环的原因是j>right，即第二段已经完全放到b中了
+		for (; i <= m; i++)
+			b[k++] = a[i];
+	}
+	else
+	{
+		for (; j <= right; j++)
+			b[k++] = a[j];
+	}
+}
 
-- Divide the unsorted list into N sublists, each containing 1 element.  
-- Take adjacent pairs of two singleton lists and merge them to form a list of 2 elements. N will now convert into N/2 lists of size 2.
-- Repeat the process till a single sorted list of obtained. 
+```
+
+
+
+## See also
+
+hackerearth [Merge Sort](https://www.hackerearth.com/zh/practice/algorithms/sorting/merge-sort/tutorial/)
+
