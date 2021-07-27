@@ -16,6 +16,10 @@
 
 二、创建**哑节点** `dummyHead`，令 `dummyHead.next = head`。引入**哑节点**是为了便于在 **head 节点**之前插入节点。
 
+> NOTE: 
+>
+> 需要结合后面的source code来进行理解
+
 三、维护 `lastSorted` 为链表的已排序部分的最后一个节点，初始时 `lastSorted = head`。
 
 四、维护 `curr` 为待插入的元素，初始时 `curr = head.next`。
@@ -26,7 +30,7 @@
 
 2、否则，从链表的头节点开始往后遍历链表中的节点，寻找插入 `curr` 的位置。令 `prev` 为插入 `curr` 的位置的前一个节点，进行如下操作，完成对 `curr` 的插入：
 
-```C++
+```Java
 lastSorted.next = curr.next
 curr.next = prev.next
 prev.next = curr
@@ -37,4 +41,91 @@ prev.next = curr
 七、重复第 5 步和第 6 步，直到 `curr` 变成空，排序结束。
 
 八、返回 `dummyHead.next`，为排序后的链表的头节点。
+
+### 完整程序
+
+```C++
+#include <bits/stdc++.h>
+using namespace std;
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+
+struct ListNode
+{
+	int val;
+	ListNode *next;
+	ListNode() :
+					val(0), next(nullptr)
+	{
+	}
+	ListNode(int x) :
+					val(x), next(nullptr)
+	{
+	}
+	ListNode(int x, ListNode *next) :
+					val(x), next(next)
+	{
+	}
+};
+
+class Solution
+{
+public:
+	/**
+	 * @brief 将curr插入到 [head, lastSorted] 之间
+	 *
+	 * @param head
+	 * @return
+	 */
+	ListNode* insertionSortList(ListNode *head)
+	{
+		if (head == nullptr)
+		{
+			return head;
+		}
+		ListNode *dummyHead = new ListNode(0);
+		dummyHead->next = head;
+		ListNode *lastSorted = head;
+		ListNode *curr = head->next; // 将curr插入到 [head, lastSorted] 之间
+		while (curr != nullptr)
+		{
+			if (lastSorted->val <= curr->val)
+			{
+				lastSorted = lastSorted->next;
+			}
+			else
+			{
+				ListNode *prev = dummyHead;
+				while (prev->next->val <= curr->val) // 找到插入位置
+				{
+					prev = prev->next;
+				}
+				/**
+				 * 将curr插入到prev之后
+				 */
+				lastSorted->next = curr->next;
+				curr->next = prev->next;
+				prev->next = curr;
+			}
+			curr = lastSorted->next;
+		}
+		return dummyHead->next;
+	}
+};
+
+int main()
+{
+
+}
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -g
+
+```
 
