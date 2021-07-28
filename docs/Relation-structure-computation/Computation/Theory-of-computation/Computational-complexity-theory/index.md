@@ -10,11 +10,7 @@
 
 I am learning about Big O Notation running times and amortized（分摊） times.  I understand the notion of *O(n)* linear time, meaning that the size of the input affects the growth of the algorithm proportionally...and the same goes for, for example, quadratic time $O(n^2)$ etc..even algorithms, such as permutation generators, with *O(n!)* times, that grow by factorials.
 
-  
-
-For example, the following function is *O(n)* because the algorithm grows in proportion to its input *n*:
-
-  
+For example, the following function is *O(n)* because the algorithm grows in proportion to its input *n*:  
 
 ```c
 f(int n) {
@@ -24,15 +20,9 @@ f(int n) {
 }
 ```
 
-  
-
 Similarly, if there was a nested loop, the time would be $O(n^2)$.
 
-  
-
 But what exactly is *O(log n)*?  For example, what does it mean to say that the height of a **complete binary tree** is *O(log n)*?
-
-  
 
 I do know (maybe not in great detail) what Logarithm is, in the sense that:  $log_{10}{ 100} = 2$, but I cannot understand how to identify a function with a logarithmic time.
 
@@ -94,3 +84,46 @@ For the below examples, we're now at the printer's office. Phone books are waiti
   
 
 For more mathematical explanation you can checkout how the time complexity arrives to `log n` here. https://hackernoon.com/what-does-the-time-complexity-o-log-n-actually-mean-45f94bb5bfbf
+
+
+
+## 典型例子
+
+一、labuladong [当老司机学会了贪心算法](https://mp.weixin.qq.com/s/k-z_oewAqMYc3vpmOm4gEQ) 
+
+> NOTE: 
+>
+> LeetCode [134. 加油站](https://leetcode-cn.com/problems/gas-station/)
+
+```Java
+int canCompleteCircuit(int[] gas, int[] cost) {
+    int n = gas.length;
+    int sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += gas[i] - cost[i];
+    }
+    if (sum < 0) {
+        // 总油量小于总的消耗，无解
+        return -1;
+    }
+    // 记录油箱中的油量
+    int tank = 0;
+    // 记录起点
+    int start = 0;
+    for (int i = 0; i < n; i++) {
+        tank += gas[i] - cost[i];
+        if (tank < 0) {
+            // 无法从 start 走到 i
+            // 所以站点 i + 1 应该是起点
+            tank = 0;
+            start = i + 1;
+        }
+    }
+    return start == n ? 0 : start;
+}
+```
+
+> NOTE: 
+>
+> 上述复杂性为 O(N)
+
