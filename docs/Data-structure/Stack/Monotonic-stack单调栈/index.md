@@ -14,3 +14,12 @@
 
 1、能够保证相对顺序，比如"All-nearest-smaller-values"、"[下一个更大元素-Next Greater Number](https://leetcode-cn.com/problems/next-greater-element-i/)"
 
+
+
+参考:
+
+一、`Expert-labuladong\2.4-手把手设计数据结构\Monotonic-stack单调栈`
+
+二、`Expert-liuzhenglaichn\Monotonic-stack单调栈`
+
+三、

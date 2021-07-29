@@ -1,5 +1,7 @@
 # 我的刷题
 
+
+
 ## 递归经典例子
 
 1、leetcode [23. 合并K个升序链表](https://leetcode-cn.com/problems/merge-k-sorted-lists/)  # 方法三：分治合并
@@ -11,18 +13,6 @@
 
 
 ## 回溯法
-
-
-
-### [37. 解数独](https://leetcode-cn.com/problems/sudoku-solver/)
-
-还未完成
-
-LeetCode-51-N-皇后-Hard
-
-LeetCode-52-N-皇后-II-Hard
-
-LeetCode-面试题-08.12-八皇后
 
 
 

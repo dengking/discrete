@@ -2,8 +2,7 @@ nav:
     - Introduction: index.md
     - wikipedia-Stack(abstract-data-type): wikipedia-Stack(abstract-data-type)
     - geeksforgeeks-Stack-Data-Structure: geeksforgeeks-Stack-Data-Structure.md
-    # 单调栈
-    - Monotonic-stack: Monotonic-stack 
+    - Monotonic-stack单调栈: Monotonic-stack单调栈 # 单调栈
     # 对栈进行排序
     - Sort-stack: Sort-stack
     # 栈和队列
