@@ -106,5 +106,161 @@ class Solution {
 
 参考的 [Edward Elric](https://leetcode-cn.com/u/zdxiq125/) # [[Java] DFA](https://leetcode-cn.com/problems/utf-8-validation/solution/java-dfa-by-zdxiq125/) ，使用C++实现。
 
+需要注意，type 和 mask 之间的对应关系。
 
+```C++
+#include <bits/stdc++.h>
+using namespace std;
+
+static const int TYPE_0 = 0b00000000; // 单字节
+static const int TYPE_1 = 0b10000000; // 多字节的非第一位
+static const int TYPE_2 = 0b11000000; // 二字节
+static const int TYPE_3 = 0b11100000; // 三字节
+static const int TYPE_4 = 0b11110000; // 四字节
+
+/**
+ * 下面的DFA仅仅存储了有效的状态转换，对于无效的状态转换，它没有存储
+ * 它其实存储的就是原图
+ */
+static unordered_map<int, unordered_map<int, int>> DFA { //
+{ 0, { { TYPE_0, 0 }, { TYPE_2, 1 }, { TYPE_3, 2 }, { TYPE_4, 3 } } }, //
+				{ 1, { { TYPE_1, 0 } } }, //
+				{ 2, { { TYPE_1, 4 } } }, //
+				{ 3, { { TYPE_1, 5 } } }, //
+				{ 4, { { TYPE_1, 0 } } }, //
+				{ 5, { { TYPE_1, 6 } } }, //
+				{ 6, { { TYPE_1, 0 } } }  //
+
+};
+// masks for most significant 1 to 5 bis
+static const int MASKS[] { 0b10000000, 0b11000000, 0b11100000, 0b11110000, 0b11111000 };
+// input type enumation
+static const int TYPES[] { TYPE_0, TYPE_1, TYPE_2, TYPE_3, TYPE_4 };
+
+using Size = ptrdiff_t;
+
+template<class Type, Size n>
+constexpr auto n_items(Type (&)[n]) -> Size
+{
+	return n;
+}
+
+class Solution
+{
+public:
+	bool validUtf8(vector<int> &data)
+	{
+		int cur = 0; // 当前状态
+		for (auto &&input : data)
+		{
+			int next = getNext(cur, input);
+			if (next == -1)
+			{
+				return false;
+			}
+			cur = next;
+		}
+		return cur == 0;
+	}
+private:
+	static int getInputType(int input)
+	{
+		for (int i = 0; i < n_items(MASKS); ++i)
+		{
+			if ((input & MASKS[i]) == TYPES[i])
+			{
+				return TYPES[i];
+			}
+		}
+		return -1;
+	}
+	static int getNext(int cur, int input)
+	{
+		int type = getInputType(input);
+		if (type == -1)
+		{
+			return -1;
+		}
+		else
+		{
+			auto iter = DFA.find(cur);
+			if (iter != DFA.end())
+			{
+				auto &&edges = iter->second;
+				if (edges.count(type))
+				{
+					return edges[type];
+				}
+				else
+				{
+					return -1;
+				}
+			}
+			else
+			{
+				return -1;
+			}
+		}
+	}
+};
+
+int main()
+{
+	Solution s;
+	vector<int> v { 197, 130, 1 };
+	s.validUtf8(v);
+}
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -g
+
+
+```
+
+
+
+## LeetCode [C++优美代码](https://leetcode-cn.com/problems/utf-8-validation/solution/cjing-jian-ma-by-xiaohu9527-om7b/)
+
+```C++
+#include <bits/stdc++.h>
+using namespace std;
+
+class Solution
+{
+public:
+	bool validUtf8(vector<int> &data)
+	{
+		int c = 0; // 期待有多少个byte
+		for (const int &num : data)
+		{
+			if (c == 0)
+			{
+				if ((num >> 5) == 0b110) // 读取前3 bit
+					c = 1;
+				else if ((num >> 4) == 0b1110) // 读取前4 bit
+					c = 2;
+				else if ((num >> 3) == 0b11110) // 读取前5 bit
+					c = 3;
+				else if ((num >> 7)) // 读取前1 bit
+					return false;
+			}
+			else
+			{
+				if ((num >> 6) != 0b10)
+					return false;
+				--c;
+			}
+		}
+		return c == 0;
+	}
+};
+
+int main()
+{
+	Solution s;
+	vector<int> v { 197, 130, 1 };
+	s.validUtf8(v);
+}
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -g
+
+
+```
 

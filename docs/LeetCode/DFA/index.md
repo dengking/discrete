@@ -12,3 +12,17 @@
 
 3、LeetCode [65. 有效数字](https://leetcode-cn.com/problems/valid-number/) 困难
 
+
+
+## 分析 与 实现
+
+DFA是一个graph，DFA的构成: 
+
+一、输入的种类
+
+从深入的种类入手是最快的，思考在各种输入的情况下，状态如何进行转换
+
+二、节点: 状态
+
+三、edge: 状态的转换 
+

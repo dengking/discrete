@@ -2,10 +2,10 @@ nav:
     - Introduction: index.md
     - 数学-数字: 数学-数字
     - Subsequence-Subarray-Substring: Subsequence-Subarray-Substring    
-    - int&string: int&string
+    - int&string: int&string # int&string 和 DFA 是密切相关的，要将两者放到一起
+    - DFA: DFA
     - Partition-划分: Partition-划分
     - 设计数据结构: 设计数据结构
     - 技巧总结: 技巧总结
-    - DFA: DFA
     - Tournament-比赛: Tournament-比赛
     

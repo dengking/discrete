@@ -10,4 +10,5 @@ nav:
     - BST: BST    
     - geeksforgeeks-tree-algorithm: geeksforgeeks-tree-algorithm
     - LeetCode-431-将N叉树编码为二叉树: LeetCode-431-将N叉树编码为二叉树    
+    - ZigZagTree: ZigZagTree
     

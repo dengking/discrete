@@ -2,4 +2,5 @@ nav:
     - Introduction: index.md
     - LeetCode-7-整数反转: LeetCode-7-整数反转
     - LeetCode-9-回文数: LeetCode-9-回文数
+    - LeetCode-393-UTF-8编码验证-中等: LeetCode-393-UTF-8编码验证-中等
     - 大整数算术: 大整数算术
