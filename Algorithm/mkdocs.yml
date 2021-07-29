@@ -1,12 +1,14 @@
 nav:
     - Introduction: index.md
+    - 算法思维: 算法思维
     - Paradigm: Paradigm
     - Randomized-algorithm: Randomized-algorithm
     - Analysis: Analysis
     - Search: Search
     - Binary-search: Binary-search # 可以看做是search       
     - State-space-search: State-space-search # 可以看做是search       
-    - Sorting: Sorting    
+    - Sorting: Sorting  
+    - Merge-algorithm: Merge-algorithm
     - Classical-algorithm: Classical
     - Application: Application
     - 海量数据处理: 海量数据处理

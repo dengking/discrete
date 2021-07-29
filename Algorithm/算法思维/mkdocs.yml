@@ -1,0 +1,8 @@
+nav:
+    - Introduction: index.md
+    - 穷举State-solution-space: 穷举State-solution-space
+    - Divide-and-Conquer: Divide-and-Conquer
+    - Overlapping-subproblem: Overlapping-subproblem
+    - Recurrence-relation递归状态转移方程: Recurrence-relation递归状态转移方程
+
+    
