@@ -26,6 +26,8 @@
 
 二、`Algorithm\State-space-search`
 
+选择
+
 三、滑动窗口
 
 labuladong [我写了套框架，把滑动窗口算法变成了默写题](https://mp.weixin.qq.com/s/ioKXTMZufDECBUwRRp3zaA) 
@@ -34,7 +36,9 @@ labuladong [我写了套框架，把滑动窗口算法变成了默写题](https:
 
 四、动态规划描述问题的state space
 
-状态有哪些、状态的维度、状态的组合
+状态有哪些、状态的维度、状态的组合；
+
+DP的选择；
 
 ## Combinational analysis
 
