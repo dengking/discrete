@@ -1,4 +1,4 @@
-# leetcode [78. 子集](https://leetcode-cn.com/problems/subsets/)
+# LeetCode [78. 子集](https://leetcode-cn.com/problems/subsets/)
 
 
 
@@ -7,6 +7,8 @@
 > NOTE: 
 >
 > 1、典型的子集树: 每个元素有两种选择，则长度为`n`的集合，它的解空间大小为$2^n$
+
+
 
 ### 方法一：迭代法实现子集枚举
 

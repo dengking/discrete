@@ -32,7 +32,7 @@
 
 问题很简单，输入一个**不包含重复数字**的数组，要求算法输出这些数字的所有子集。
 
-```
+```c++
 vector<vector<int>> subsets(vector<int>& nums);
 ```
 
@@ -71,24 +71,31 @@ subset(`[1,2,3]`)
 翻译成代码就很容易理解了：
 
 ```c++
-vector<vector<int>> subsets(vector<int>& nums) {
-    // base case，返回一个空集
-    if (nums.empty()) return {{}};
-    // 把最后一个元素拿出来
-    int n = nums.back();
-    nums.pop_back();
-    // 先递归算出前面元素的所有子集
-    vector<vector<int>> res = subsets(nums);
+vector<vector<int>> subsets(vector<int> &nums)
+{
+	// base case，返回一个空集
+	if (nums.empty())
+		return {{}};
+	// 把最后一个元素拿出来
+	int n = nums.back();
+	nums.pop_back();
+	// 先递归算出前面元素的所有子集
+	vector<vector<int>> res = subsets(nums);
 
-    int size = res.size();
-    for (int i = 0; i < size; i++) {
-        // 然后在之前的结果之上追加
-        res.push_back(res[i]);
-        res.back().push_back(n);
-    }
-    return res;
+	int size = res.size();
+	for (int i = 0; i < size; i++)
+	{
+		// 然后在之前的结果之上追加
+		res.push_back(res[i]);
+		res.back().push_back(n);
+	}
+	return res;
 }
 ```
+
+> NOTE: 
+>
+> 一、上述实现是比较自顶向下，每次剥离一个元素；
 
 **这个问题的时间复杂度计算比较容易坑人**。我们之前说的计算递归算法时间复杂度的方法，是找到递归深度，然后乘以每次递归中迭代的次数。对于这个问题，递归深度显然是 N，但我们发现每次递归 for 循环的迭代次数取决于 `res` 的长度，并不是固定的。
 
@@ -156,7 +163,34 @@ void backtrack(vector<int>& nums, int start, vector<int>& track) {
 >
 > 没有理解上述code；
 >
-> 我觉得比较简单的写法是: 每个元素都有两个选择: 0-不选、1-选，在"leetcode [78. 子集](https://leetcode-cn.com/problems/subsets/) 中等"中，就是使用的这种写法。
+> 我觉得比较简单的写法是: 每个元素都有两个选择: 0-不选、1-选，在"leetcode [78. 子集](https://leetcode-cn.com/problems/subsets/) 中等"中，就是使用的这种写法:
+>
+> ````C++
+> class Solution {
+> public:
+>     vector<int> t;
+>     vector<vector<int>> ans;
+> 
+>     void dfs(int cur, vector<int>& nums) {
+>         if (cur == nums.size()) {
+>             ans.push_back(t);
+>             return;
+>         }
+>         t.push_back(nums[cur]);
+>         dfs(cur + 1, nums);
+>         t.pop_back();
+>         dfs(cur + 1, nums);
+>     }
+> 
+>     vector<vector<int>> subsets(vector<int>& nums) {
+>         dfs(0, nums);
+>         return ans;
+>     }
+> };
+> 
+> ````
+>
+> 
 
 可以看见，对 `res` 的更新是一个**前序遍历**，也就是说，`res` 就是树上的所有节点：
 

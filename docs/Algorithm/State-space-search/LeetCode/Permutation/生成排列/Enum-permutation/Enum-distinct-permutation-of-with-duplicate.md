@@ -1,8 +1,4 @@
-[TOC]
-
-
-
-# [Print all distinct permutations of a given string with duplicates](https://www.geeksforgeeks.org/print-all-permutations-of-a-string-with-duplicates-allowed-in-input-string/)
+# geeksforgeeks [Print all distinct permutations of a given string with duplicates](https://www.geeksforgeeks.org/print-all-permutations-of-a-string-with-duplicates-allowed-in-input-string/)
 
 ## 问题描述
 

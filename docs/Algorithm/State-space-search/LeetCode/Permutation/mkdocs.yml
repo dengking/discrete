@@ -1,0 +1,6 @@
+nav:
+    - Introduction: index.md
+    - LeetCode-排列问题: LeetCode-排列问题
+    - 生成组合: 生成组合
+    - 生成排列: 生成排列
+        
