@@ -127,3 +127,12 @@ LeetCode [37. 解数独](https://leetcode-cn.com/problems/sudoku-solver/)
 
 值得一读
 
+
+
+## 对重复元素的处理
+
+下面两道题都是与重复元素有关的:
+
+#### [90. 子集 II](https://leetcode-cn.com/problems/subsets-ii/)
+
+#### [47. 全排列 II](https://leetcode-cn.com/problems/permutations-ii/)

@@ -1,6 +1,6 @@
 nav:
     - Introduction: index.md
-    - Backtrack-enum-all-permutations-of-string: Backtrack-enum-all-permutations-of-string.md
-    - Enum-distinct-permutation-of-with-duplicate: Enum-distinct-permutation-of-with-duplicate.md
+    - Backtrack-enum-all-permutations-of-string: Backtrack-enum-all-permutations-of-string
+    - Enum-distinct-permutation-of-with-duplicate: Enum-distinct-permutation-of-with-duplicate
 
     
