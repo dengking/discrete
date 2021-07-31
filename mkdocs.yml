@@ -921,6 +921,9 @@ nav:
             - Introduction: "Data-structure/Tree/Tree-algorithm/Traversal/Breadth-first-traverse/LeetCode-\u5251\
                 \u6307-Offer-32-III-\u4ECE\u4E0A\u5230\u4E0B\u6253\u5370\u4E8C\u53C9\
                 \u6811/index.md"
+        - "LeetCode-987-\u4E8C\u53C9\u6811\u7684\u5782\u5E8F\u904D\u5386-\u56F0\u96BE":
+          - Introduction: "Data-structure/Tree/Tree-algorithm/Traversal/LeetCode-987-\u4E8C\
+              \u53C9\u6811\u7684\u5782\u5E8F\u904D\u5386-\u56F0\u96BE/index.md"
       - Top-K-rank-of-node:
         - Introduction: Data-structure/Tree/Tree-algorithm/Top-K-rank-of-node/index.md
         - "LeetCode-671-\u4E8C\u53C9\u6811\u4E2D\u7B2C\u4E8C\u5C0F\u7684\u8282\u70B9":
