@@ -118,3 +118,46 @@ func nextPermutation(nums []int) {
 
 ```
 
+
+
+## 我的解题
+
+
+
+```C++
+#include <bits/stdc++.h>
+using namespace std;
+
+class Solution
+{
+public:
+	void nextPermutation(vector<int> &nums)
+	{
+		int i = nums.size() - 2;
+		while (i >= 0 && nums[i] >= nums[i + 1]) // 寻找第一个非递减的
+		{
+			--i;
+		}
+		// 如果nums已经是最大的sequence，那么它就是递减的，那么当上述while循环退出的时候，i就是-1
+		if (i >= 0)
+		{
+			int j = nums.size() - 1;
+			while (j >= 0 && nums[j] <= nums[i])
+			{
+				--j;
+			}
+			swap(nums[i], nums[j]);
+		}
+		reverse(nums.begin() + i + 1, nums.end());
+	}
+};
+
+int main()
+{
+	Solution s;
+}
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -g
+
+
+```
+
