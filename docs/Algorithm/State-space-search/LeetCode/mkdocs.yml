@@ -1,6 +1,6 @@
 nav:
     - Introduction: index.md
-    - 子集: 子集
+    - Subset-子集: Subset-子集
     - Permutation: Permutation
     - Combination: Combination
     - LeetCode-698-划分为k个相等的子集: LeetCode-698-划分为k个相等的子集    

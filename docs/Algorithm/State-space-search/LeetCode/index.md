@@ -131,6 +131,12 @@ LeetCode [37. 解数独](https://leetcode-cn.com/problems/sudoku-solver/)
 
 ## 对重复元素的处理
 
+处理方法:
+
+通过排序将重复元素放到一起，将重复元素看做是同一个元素，然后判断相邻的相同元素
+
+
+
 下面两道题都是与重复元素有关的:
 
 #### [90. 子集 II](https://leetcode-cn.com/problems/subsets-ii/)

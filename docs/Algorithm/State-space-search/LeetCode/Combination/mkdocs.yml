@@ -1,4 +1,5 @@
 nav:
     - Introduction: index.md
-    - 组合: 组合
-    - 组合总和: 组合总和    
+    - LeetCode-77-组合: LeetCode-77-组合
+    - LeetCode-组合总和: LeetCode-组合总和    
+    

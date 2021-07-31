@@ -1,3 +1,5 @@
 nav:
     - Introduction: index.md
+    - LeetCode-排列问题: LeetCode-排列问题    
+    - geeksforgeeks-permutation: geeksforgeeks-permutation
     
