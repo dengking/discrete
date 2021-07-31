@@ -38,7 +38,7 @@ public:
 			{
 				swap(nums[k], nums[i]);
 				dfs(nums, k + 1);
-				swap(nums[i], nums[k]);
+				swap(nums[i], nums[k]); // 回溯
 			}
 		}
 	}
