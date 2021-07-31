@@ -166,3 +166,75 @@ int main()
 
 那么这部分剪枝的条件即为：**和前一个元素值相同（此处隐含这个元素的index>0），并且前一个元素还没有被使用过**
 
+
+
+## 我的解题
+
+```C++
+#include <bits/stdc++.h>
+using namespace std;
+
+class Solution
+{
+	vector<vector<int>> m_res; // 最终结果
+	vector<int> m_vis; // 第 i 个元素是否放入到了排列中
+	vector<int> m_track; //
+public:
+	vector<vector<int>> permuteUnique(vector<int> &nums)
+	{
+		m_vis.resize(nums.size(), 0);
+		m_track.resize(nums.size());
+		sort(nums.begin(), nums.end());
+		backtrace(0, nums);
+		return m_res;
+	}
+private:
+	void backtrace(int index, vector<int> &nums)
+	{
+		int len = nums.size();
+		if (index == len)
+		{
+			m_res.push_back(m_track);
+		}
+		else
+		{
+			for (int i = 0; i < len; ++i)
+			{
+				if ((i > 0) && (nums[i] == nums[i - 1]) && (!m_vis[i - 1]))
+				{
+					continue;
+				}
+				if (m_vis[i])
+				{
+					continue;
+				}
+				m_vis[i] = 1;
+				m_track[index] = nums[i];
+				backtrace(index + 1, nums);
+				m_vis[i] = 0; // 回溯
+			}
+		}
+	}
+};
+
+template<typename ...Args>
+ostream& operator <<(ostream &stream, const vector<Args...> &v)
+{
+	for (auto &&i : v)
+	{
+		stream << i << endl;
+	}
+	return stream;
+}
+
+int main()
+{
+	Solution s;
+	vector<int> nums { 1, 1, 2 };
+	cout << s.permuteUnique(nums) << endl;
+}
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -g
+
+
+```
+

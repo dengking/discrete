@@ -1,7 +1,5 @@
 # 生成排列数的算法
 
-
-
 参考文章:
 
 1、CSDN [全排列—含重复元素](https://blog.csdn.net/drawlessonsfrom/article/details/108936498)
@@ -9,6 +7,8 @@
 2、LeetCode [46. 全排列](https://leetcode-cn.com/problems/permutations/) 中等
 
 3、LeetCode [47. 全排列 II](https://leetcode-cn.com/problems/permutations-ii/) 中等
+
+
 
 ## 基于回溯法的算法
 
@@ -210,7 +210,7 @@ for (int i = first; i < len; ++i)
 
 ## Steinhaus-Johnson-Trotter-algorithm
 
-
+参见 `Steinhaus-Johnson-Trotter-algorithm` 章节。
 
 ## TODO
 

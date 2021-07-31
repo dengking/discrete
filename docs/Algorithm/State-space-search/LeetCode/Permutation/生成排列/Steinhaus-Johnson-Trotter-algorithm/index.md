@@ -2,6 +2,14 @@
 
 
 
+## infogalactic [Steinhaus–Johnson–Trotter algorithm](https://infogalactic.com/info/Steinhaus%E2%80%93Johnson%E2%80%93Trotter_algorithm)
+
+
+
+## Steinhaus-Johnson-Trotter算法
+
+
+
 **Steinhaus-Johnson-Trotter算法**是一种基于最小变换的全排列生成算法，对于排列`a[1...n]`，该算法通过将`a[i]`，与`a[i-1]`（或`a[i+1]`）进行交换，生成下一个排列，直到所有排列生成完毕为止，这样，当前排列与其后继排列只是两个相邻位置的元素发生了调换。当然，为了防止重复生成某一个排列，算法并非随意调换某两个元素之间的位置，其生成全排列的具体规则如下。
 
 1、首先，以**字典序**最小的排列起始，并且为该排列的每个元素赋予一个移动方向，初始所有元素的移动方向都**向左**。
