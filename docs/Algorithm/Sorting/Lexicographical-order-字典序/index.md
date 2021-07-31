@@ -23,3 +23,35 @@ lexicographical order **is** alphabetical order. The other type is numerical ord
 ```
 
 Those values are in lexicographical order. 10 comes after 2 in numerical order, but 10 comes before 2 in "alphabetical" order.
+
+
+
+## LeetCode 字典序
+
+https://leetcode-cn.com/problemset/all/?search=%E5%AD%97%E5%85%B8%E5%BA%8F
+
+
+
+### Monotonic-stack解Max-min字典序subsequence(子序列)
+
+leetcode [316. 去除重复字母](https://leetcode-cn.com/problems/remove-duplicate-letters/) ( leetcode  [1081. 不同字符的最小子序列](https://leetcode-cn.com/problems/smallest-subsequence-of-distinct-characters/) )
+
+leetcode [402. 移掉K位数字](https://leetcode-cn.com/problems/remove-k-digits/)
+
+leetcode [321. 拼接最大数](https://leetcode-cn.com/problems/create-maximum-number/)
+
+
+
+参见:
+
+1、labuladong [啊这，一道数组去重的算法题把东哥整不会了…](https://mp.weixin.qq.com/s/Yq49ZBEW3DJx6nXk1fMusw)
+
+2、`Data-structure\Stack\Monotonic-stack单调栈\Monotonic-stack解Max-min-subsequence(子序列)`
+
+3、leetcode [402. 移掉K位数字](https://leetcode-cn.com/problems/remove-k-digits/) # [一招吃遍力扣四道题，妈妈再也不用担心我被套路啦～](https://leetcode-cn.com/problems/remove-k-digits/solution/yi-zhao-chi-bian-li-kou-si-dao-ti-ma-ma-zai-ye-b-5/)
+
+
+
+### 生成字典序序列
+
+LeetCode [31. 下一个排列](https://leetcode-cn.com/problems/next-permutation/)
