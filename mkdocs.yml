@@ -722,32 +722,47 @@ nav:
     - Introduction: Data-structure/Stack/index.md
     - wikipedia-Stack(abstract-data-type):
       - Introduction: Data-structure/Stack/wikipedia-Stack(abstract-data-type)/index.md
-    - geeksforgeeks-Stack-Data-Structure: Data-structure/Stack/geeksforgeeks-Stack-Data-Structure.md
-    - "Monotonic-stack\u5355\u8C03\u6808":
-      - Introduction: "Data-structure/Stack/Monotonic-stack\u5355\u8C03\u6808/index.md"
+    - geeksforgeeks-Stack:
+      - Introduction: Data-structure/Stack/geeksforgeeks-Stack/index.md
+      - Design&&Impl:
+        - max-min-stack:
+          - Introduction: Data-structure/Stack/geeksforgeeks-Stack/Design&&Impl/max-min-stack/index.md
+          - "LeetCode-155-\u6700\u5C0F\u6808":
+            - Introduction: "Data-structure/Stack/geeksforgeeks-Stack/Design&&Impl/max-min-stack/LeetCode-155-\u6700\
+                \u5C0F\u6808/index.md"
+      - Stack&&queue:
+        - Introduction: Data-structure/Stack/geeksforgeeks-Stack/Stack&&queue/index.md
+        - "LeetCode-\u5251\u6307-Offer-09-\u7528\u4E24\u4E2A\u6808\u5B9E\u73B0\u961F\u5217":
+          - Introduction: "Data-structure/Stack/geeksforgeeks-Stack/Stack&&queue/LeetCode-\u5251\
+              \u6307-Offer-09-\u7528\u4E24\u4E2A\u6808\u5B9E\u73B0\u961F\u5217/index.md"
+      - Sort-stack:
+        - Introduction: Data-structure/Stack/geeksforgeeks-Stack/Sort-stack/index.md
+      - Push-pop-problem:
+        - Introduction: Data-structure/Stack/geeksforgeeks-Stack/Push-pop-problem/index.md
+        - "LeetCode-946-\u9A8C\u8BC1\u6808\u5E8F\u5217":
+          - Introduction: "Data-structure/Stack/geeksforgeeks-Stack/Push-pop-problem/LeetCode-946-\u9A8C\
+              \u8BC1\u6808\u5E8F\u5217/index.md"
+        - "LeetCode-\u5251\u6307-Offer-31-\u6808\u7684\u538B\u5165-\u5F39\u51FA\u5E8F\u5217":
+          - Introduction: "Data-structure/Stack/geeksforgeeks-Stack/Push-pop-problem/LeetCode-\u5251\
+              \u6307-Offer-31-\u6808\u7684\u538B\u5165-\u5F39\u51FA\u5E8F\u5217/index.md"
+    - "Monotonic-stack-\u5355\u8C03\u6808":
+      - Introduction: "Data-structure/Stack/Monotonic-stack-\u5355\u8C03\u6808/index.md"
       - All-nearest-smaller-values:
-        - Introduction: "Data-structure/Stack/Monotonic-stack\u5355\u8C03\u6808/All-nearest-smaller-values/index.md"
+        - Introduction: "Data-structure/Stack/Monotonic-stack-\u5355\u8C03\u6808/All-nearest-smaller-values/index.md"
       - Stack-sortable-permutation:
-        - Introduction: "Data-structure/Stack/Monotonic-stack\u5355\u8C03\u6808/Stack-sortable-permutation/index.md"
+        - Introduction: "Data-structure/Stack/Monotonic-stack-\u5355\u8C03\u6808/Stack-sortable-permutation/index.md"
       - Max-min-lexicographical-order-subsequence:
-        - Introduction: "Data-structure/Stack/Monotonic-stack\u5355\u8C03\u6808/Max-min-lexicographical-order-subsequence/index.md"
+        - Introduction: "Data-structure/Stack/Monotonic-stack-\u5355\u8C03\u6808/Max-min-lexicographical-order-subsequence/index.md"
         - "LeetCode-402-\u79FB\u6389K\u4F4D\u6570\u5B57":
-          - Introduction: "Data-structure/Stack/Monotonic-stack\u5355\u8C03\u6808\
+          - Introduction: "Data-structure/Stack/Monotonic-stack-\u5355\u8C03\u6808\
               /Max-min-lexicographical-order-subsequence/LeetCode-402-\u79FB\u6389\
               K\u4F4D\u6570\u5B57/index.md"
         - "LeetCode-316-\u53BB\u9664\u91CD\u590D\u5B57\u6BCD":
-          - Introduction: "Data-structure/Stack/Monotonic-stack\u5355\u8C03\u6808\
+          - Introduction: "Data-structure/Stack/Monotonic-stack-\u5355\u8C03\u6808\
               /Max-min-lexicographical-order-subsequence/LeetCode-316-\u53BB\u9664\
               \u91CD\u590D\u5B57\u6BCD/index.md"
         - "LeetCode-402-\u79FB\u6389K\u4F4D\u6570\u5B57": "LeetCode-402-\u79FB\u6389\
             K\u4F4D\u6570\u5B57"
-    - Sort-stack:
-      - Introduction: Data-structure/Stack/Sort-stack/index.md
-    - Stack-and-queue:
-      - Introduction: Data-structure/Stack/Stack-and-queue/index.md
-      - "LeetCode-\u5251\u6307-Offer-09-\u7528\u4E24\u4E2A\u6808\u5B9E\u73B0\u961F\u5217":
-        - Introduction: "Data-structure/Stack/Stack-and-queue/LeetCode-\u5251\u6307\
-            -Offer-09-\u7528\u4E24\u4E2A\u6808\u5B9E\u73B0\u961F\u5217/index.md"
     - "Reverse-by-stack-\u53CD\u8F6C":
       - Reverse-a-string-using-stack:
         - Introduction: "Data-structure/Stack/Reverse-by-stack-\u53CD\u8F6C/Reverse-a-string-using-stack/index.md"
@@ -755,7 +770,9 @@ nav:
           /Reverse-individual-words.md"
     - "Reverse-stack-\u53CD\u8F6C":
       - Introduction: "Data-structure/Stack/Reverse-stack-\u53CD\u8F6C/index.md"
-    - Application-of-stack: Data-structure/Stack/Application-of-stack.md
+    - Application:
+      - Introduction: Data-structure/Stack/Application/index.md
+      - Stack-machine: Data-structure/Stack/Application/Stack-machine.md
   - Graph:
     - Introduction: Data-structure/Graph/index.md
     - Graph-theory:
