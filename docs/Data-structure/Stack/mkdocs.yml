@@ -4,6 +4,5 @@ nav:
     - geeksforgeeks-Stack: geeksforgeeks-Stack
     - Monotonic-stack-单调栈: Monotonic-stack-单调栈 # 单调栈
     - Reverse-by-stack-反转: Reverse-by-stack-反转 # 使用栈来进行反转    
-    - Reverse-stack-反转: Reverse-stack-反转 # 反转stack
     - Application: Application
     
