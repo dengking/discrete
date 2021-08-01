@@ -1,3 +1,7 @@
+# Reverse stack
+
+
+
 ## geeksforgeeks [Reverse a stack using recursion](https://www.geeksforgeeks.org/reverse-a-stack-using-recursion/)
 
 ### 问题描述
@@ -10,7 +14,9 @@ push(S)
 pop(S) 
 ```
 
-> NOTE: 上述三个操作是这个问题的限制，也就是说在我们的实现中只能够使用上述三个操作；该问题的另外一个限制是只能够使用递归，不能够使用`while`；
+> NOTE: 
+>
+> 上述三个操作是这个问题的限制，也就是说在我们的实现中只能够使用上述三个操作；该问题的另外一个限制是只能够使用递归，不能够使用`while`；
 
 
 
@@ -46,9 +52,9 @@ Then 1 is inserted at the bottom
 
 So we need a function that inserts at the **bottom of a stack** using the above given basic stack function.
 
-**void insertAtBottom(():** First pops all stack items and stores the popped item in **function call stack** using **recursion**. And when stack becomes empty, pushes new item and all items stored in call stack.
+**void `insertAtBottom()`:** First pops all stack items and stores the popped item in **function call stack** using **recursion**. And when stack becomes empty, pushes new item and all items stored in call stack.
 
-**void reverse():** This function mainly uses `insertAtBottom()` to pop all items one by one and insert the popped items at the bottom.
+**void `reverse()`:** This function mainly uses `insertAtBottom()` to pop all items one by one and insert the popped items at the bottom.
 
 
 
@@ -162,55 +168,18 @@ int main()
 } 
 
 // This code is contributed by Gautam Singh 
-
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -g
 ```
 
+> NOTE: 
+>
+> 上述解法其实本质上来说是借助两个stack来实现reverse，每个stack类似于 [Tower of Hanoi](https://en.wikipedia.org/wiki/Tower_of_Hanoi) 中的一根柱子；在这个例子中，我需要借鉴的一个技巧就是对function call stack的运用，这是一个非常好的demo；
 
 
-
-
-
-
-***SUMMARY*** : 上述解法其实本质上来说是借助两个stack来实现reverse，每个stack类似于 [Tower of Hanoi](https://en.wikipedia.org/wiki/Tower_of_Hanoi) 中的一根柱子；在这个例子中，我需要借鉴的一个技巧就是对function call stack的运用，这是一个非常好的demo；
-
-#### `reverse`
-
-> 这个函数其实是将`st`柱子清空，然后再将栈中的元素给放回来；
 
 #### `insertAtBottom`
 
-```c++
-// Below is a recursive function 
-// that inserts an element 
-// at the bottom of a stack. 
-char insert_at_bottom(char x) 
-{ 
 
-	if(st.size() == 0) 
-	st.push(x); 
-
-	else
-	{ 
-		
-		// All items are held in Function Call 
-		// Stack until we reach end of the stack 
-		// When the stack becomes empty, the 
-		// st.size() becomes 0, the above if 
-		// part is executed and the item is 
-		// inserted at the bottom 
-			
-		char a = st.top(); 
-		st.pop(); 
-		insert_at_bottom(x); 
-
-		// push allthe items held in 
-		// Function Call Stack 
-		// once the item is inserted 
-		// at the bottom 
-		st.push(a); 
-	} 
-} 
-```
 
 > NOTE: 
 >

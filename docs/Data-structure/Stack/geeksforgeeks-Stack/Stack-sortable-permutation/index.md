@@ -2,7 +2,7 @@
 
 一、由于栈的操作只有`push`、`pop`、`top`，无法进行swap，因此对于栈排序的核心是: 
 
-1、坚持"monotonic order"，即使当前stack中的element保持"monotonic"，一旦，待`push`的element和`top`之间不满足"monotonic order"，那么就需要将当前stack全部"pop and append" 到array中。因此，栈排序是可能需要分多次"pop and append" 的。
+1、坚持"monotonic order"，即让当前stack中的element保持"monotonic"，一旦，待`push`的element和`top`之间不满足"monotonic order"，那么就需要将当前stack全部"pop and append" 到array中。因此，栈排序是可能需要分多次"pop and append" 的。
 
 2、对于一个排好序的stack，"pop and append" 到一个array中，这个array是能够保持和stack相同的顺序的，这个过程好比是将一个叠有盘子的竖直柱子(stack)的横过来(array)。
 

@@ -216,8 +216,6 @@ int main(void)
 
 
 
-
-
 ## geeksforgeeks [Sort a stack using a temporary stack](https://www.geeksforgeeks.org/sort-stack-using-temporary-stack/)
 
 > NOTE: 
@@ -242,20 +240,20 @@ Output : [1, 2, 3, 4, 5, 8]
 
 ###  Algorithm 
 
-一、Create a temporary stack say `tmpStack`.
+一、Create a **temporary stack** say `tmpStack`.
 
-二、While input stack is NOT empty do this:
+二、While **input stack** is NOT empty do this:
 
-1、Pop an element from input stack call it `temp`
+1、Pop an element from **input stack** call it `temp`
 
-2、while **temporary stack** is NOT empty and top of temporary stack is greater than `temp`,
-pop from **temporary stack** and push it to the input stack
+2、while **temporary stack** is NOT empty and top of **temporary stack** is greater than `temp`,
+pop from **temporary stack** and push it to the **input stack**
 
 > NOTE: 
 >
 > 一、" top of temporary stack is greater than `temp`" 说明 "top of temporary stack " 应该位于 temp之下
 
-3、push **temp** in temporary stack
+3、push **temp** in **temporary stack**
 
 三、The sorted numbers are in `tmpStack`
 

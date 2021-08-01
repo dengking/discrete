@@ -14,7 +14,7 @@
 
 ## 回溯法
 
-
+参见 `Algorithm\State-space-search\LeetCode` 章节，其中进行了非常好的总结。
 
 ## 数组类型问题
 
@@ -86,11 +86,31 @@ LeetCode-1011-在D天内送达包裹的能力
 
 LeetCode-34-在排序数组中查找元素的第一个和最后一个位置
 
+
+
 #### 两数之和、三数之和
 
 参见 labuladong [双指针技巧汇总](https://mp.weixin.qq.com/s/yLc7-CZdti8gEMGWhd0JTg) 
 
 参见 `Expert-labuladong\2.5-手把手刷数组题目\n-sum问题` 章节
+
+
+
+### 凑数
+
+LeetCode [39. 组合总和](https://leetcode-cn.com/problems/combination-sum/) 中等
+
+找出所有的sum之和为target的组合
+
+LeetCode [322. 零钱兑换](https://leetcode-cn.com/problems/coin-change/) 中等
+
+凑够零钱所需的最少的币数
+
+
+
+背包问题是最最经典的凑数问题；
+
+
 
 ## 回文
 
