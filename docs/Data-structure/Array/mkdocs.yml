@@ -2,5 +2,5 @@ nav:
     - Introduction: index.md
     - Bit-array: Bit-array
     - Circular-array: Circular-array
-    - Prefix-sum-array-and-difference-array: Prefix-sum-array-and-difference-array
+    - Prefix-sum&&difference-array: Prefix-sum&&difference-array
     - LeetCode: LeetCode

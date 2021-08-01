@@ -63,3 +63,7 @@
 [Directed graph traversal, orderings and applications to data-flow analysis](https://eli.thegreenplace.net/2015/directed-graph-traversal-orderings-and-applications-to-data-flow-analysis/)
 
 [Control-flow graph](https://en.wikipedia.org/wiki/Control-flow_graph)
+
+
+
+如何判断一个graph是否是tree？

@@ -4,5 +4,5 @@ nav:
     - Stack&&queue: Stack&&queue
     - Sort-stack: Sort-stack # 对栈进行排序
     - Push-pop-problem: Push-pop-problem
-    
+    - Stack-sortable-permutation: Stack-sortable-permutation
     
