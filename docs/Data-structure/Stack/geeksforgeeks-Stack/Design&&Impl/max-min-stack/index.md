@@ -84,24 +84,29 @@ Inserts `x` at the top of stack.
 
 > NOTE: 
 >
-> 因为`x`是小于`minEle`的，所以 `(2*x – minEle)` 是小于`x`的
+> 一、因为`x`是小于`minEle`的，所以 `(2*x – minEle)` 是小于`x`的
+>
+> 二、
+
+
 
 #### Pop()  
 
 Removes an element from top of stack.
 
-一、Remove element from top. Let the removed element be y. Two cases arise:
+一、Remove element from top. Let the removed element be `y`. Two cases arise:
 
-1、If y is greater than or equal to minEle, the minimum element in the stack is still minEle.
+1、If `y` is greater than or equal to `minEle`, the minimum element in the stack is still `minEle`.
 
-2、If y is less than minEle, the minimum element now becomes `(2*minEle – y)`, so update `(minEle = 2*minEle – y)`. This is where we retrieve previous minimum from current minimum and its value in stack. For example, let the element to be removed be 1 and `minEle` be 2. We remove 1 and update `minEle` as 2*2 – 1 = 3.
+2、If `y` is less than `minEle`, the minimum element now becomes `(2*minEle – y)`, so update `(minEle = 2*minEle – y)`. This is where we retrieve previous minimum from current minimum and its value in stack. For example, let the element to be removed be 1 and `minEle` be 2. We remove `1` and update `minEle` as `2*2 – 1 = 3`.
 
 
 
 **Important Points:**
 
-- Stack doesn’t hold actual value of an element if it is minimum so far.
-- Actual minimum element is always stored in `minEle`
+1、Stack doesn’t hold actual value of an element if it is minimum so far.
+
+2、Actual minimum element is always stored in `minEle`
 
 
 

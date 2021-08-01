@@ -8,7 +8,7 @@
 
 
 
-## geeksforgeeks [Check if the given push and pop sequences of Stack is valid or not](https://www.geeksforgeeks.org/check-if-the-given-push-and-pop-sequences-of-stack-is-valid-or-not/)
+## geeksforgeeks [Check if the given push and pop sequences of Stack is valid or not](https://www.geeksforgeeks.org/check-if-the-given-push-and-pop-sequences-of-stack-is-valid-or-not/) 
 
 Given `push[]` and `pop[]` sequences with distinct values. The task is to check if this could have been the result of a sequence of push and pop operations on an initially empty stack. Return “True” if it otherwise returns “False”. 
 
@@ -30,7 +30,7 @@ Output: False
 
 ###  Approach 
 
- If the element `X` has been pushed to the stack then check if the top element in the `pop[]` sequence is `X` or not. If it is `X` then pop it right now else top of the `push[]` sequence will be changed and make the sequences invalid. So, similarly do the same for all the elements and check if the stack is empty or not in the last. If empty then print **True** else print **False**. 
+If the element `X` has been pushed to the stack then check if the top element in the `pop[]` sequence is `X` or not. If it is `X` then pop it right now else top of the `push[]` sequence will be changed and make the sequences invalid. So, similarly do the same for all the elements and check if the stack is empty or not in the last. If empty then print **True** else print **False**. 
 
  Below is the implementation of above approach: 
 

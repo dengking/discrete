@@ -730,6 +730,10 @@ nav:
           - "LeetCode-155-\u6700\u5C0F\u6808":
             - Introduction: "Data-structure/Stack/geeksforgeeks-Stack/Design&&Impl/max-min-stack/LeetCode-155-\u6700\
                 \u5C0F\u6808/index.md"
+            - "LeetCode-\u9762\u8BD5\u9898 03.02-\u6808\u7684\u6700\u5C0F\u503C":
+              - Introduction: "Data-structure/Stack/geeksforgeeks-Stack/Design&&Impl/max-min-stack/LeetCode-155-\u6700\
+                  \u5C0F\u6808/LeetCode-\u9762\u8BD5\u9898 03.02-\u6808\u7684\u6700\
+                  \u5C0F\u503C/index.md"
       - Stack&&queue:
         - Introduction: Data-structure/Stack/geeksforgeeks-Stack/Stack&&queue/index.md
         - "LeetCode-\u5251\u6307-Offer-09-\u7528\u4E24\u4E2A\u6808\u5B9E\u73B0\u961F\u5217":
@@ -737,14 +741,18 @@ nav:
               \u6307-Offer-09-\u7528\u4E24\u4E2A\u6808\u5B9E\u73B0\u961F\u5217/index.md"
       - Sort-stack:
         - Introduction: Data-structure/Stack/geeksforgeeks-Stack/Sort-stack/index.md
+        - "LeetCode-\u9762\u8BD5\u9898-03-05-\u6808\u6392\u5E8F":
+          - Introduction: "Data-structure/Stack/geeksforgeeks-Stack/Sort-stack/LeetCode-\u9762\
+              \u8BD5\u9898-03-05-\u6808\u6392\u5E8F/index.md"
       - Push-pop-problem:
         - Introduction: Data-structure/Stack/geeksforgeeks-Stack/Push-pop-problem/index.md
         - "LeetCode-946-\u9A8C\u8BC1\u6808\u5E8F\u5217":
           - Introduction: "Data-structure/Stack/geeksforgeeks-Stack/Push-pop-problem/LeetCode-946-\u9A8C\
               \u8BC1\u6808\u5E8F\u5217/index.md"
-        - "LeetCode-\u5251\u6307-Offer-31-\u6808\u7684\u538B\u5165-\u5F39\u51FA\u5E8F\u5217":
-          - Introduction: "Data-structure/Stack/geeksforgeeks-Stack/Push-pop-problem/LeetCode-\u5251\
-              \u6307-Offer-31-\u6808\u7684\u538B\u5165-\u5F39\u51FA\u5E8F\u5217/index.md"
+          - "LeetCode-\u5251\u6307-Offer-31-\u6808\u7684\u538B\u5165-\u5F39\u51FA\u5E8F\u5217":
+            - Introduction: "Data-structure/Stack/geeksforgeeks-Stack/Push-pop-problem/LeetCode-946-\u9A8C\
+                \u8BC1\u6808\u5E8F\u5217/LeetCode-\u5251\u6307-Offer-31-\u6808\u7684\
+                \u538B\u5165-\u5F39\u51FA\u5E8F\u5217/index.md"
     - "Monotonic-stack-\u5355\u8C03\u6808":
       - Introduction: "Data-structure/Stack/Monotonic-stack-\u5355\u8C03\u6808/index.md"
       - All-nearest-smaller-values:
@@ -772,7 +780,8 @@ nav:
       - Introduction: "Data-structure/Stack/Reverse-stack-\u53CD\u8F6C/index.md"
     - Application:
       - Introduction: Data-structure/Stack/Application/index.md
-      - Stack-machine: Data-structure/Stack/Application/Stack-machine.md
+      - Stack-machine:
+        - Introduction: Data-structure/Stack/Application/Stack-machine/index.md
   - Graph:
     - Introduction: Data-structure/Graph/index.md
     - Graph-theory:
