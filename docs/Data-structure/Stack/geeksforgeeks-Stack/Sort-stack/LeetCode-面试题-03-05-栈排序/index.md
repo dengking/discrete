@@ -6,6 +6,10 @@
 
 ### 递归法
 
+> NOTE: 
+>
+> 是按照 geeksforgeeks [Sort a stack using recursion](https://www.geeksforgeeks.org/sort-a-stack-using-recursion/) 中的算法写的
+
 ```C++
 #include <bits/stdc++.h>
 using namespace std;

@@ -1,6 +1,10 @@
 # Sort a stack
 
-## geeksforgeeks [Sort a stack using recursion](https://www.geeksforgeeks.org/sort-a-stack-using-recursion/)
+使用 leetcode [面试题 03.05. 栈排序](https://leetcode-cn.com/problems/sort-of-stacks-lcci/) 来进行联系。
+
+
+
+## geeksforgeeks [Sort a stack using recursion](https://www.geeksforgeeks.org/sort-a-stack-using-recursion/) 
 
 ### 问题描述
 
@@ -216,6 +220,10 @@ int main(void)
 
 ## geeksforgeeks [Sort a stack using a temporary stack](https://www.geeksforgeeks.org/sort-stack-using-temporary-stack/)
 
+> NOTE: 
+>
+> 这个算法相对是比较简单的
+
 ### 问题描述
 
 Given a stack of integers, sort it in ascending（升序） order using another temporary stack.
@@ -234,13 +242,22 @@ Output : [1, 2, 3, 4, 5, 8]
 
 ###  Algorithm 
 
-1. Create a temporary stack say **tmpStack**.
-2. While input stack is NOT empty do this:
-    - Pop an element from input stack call it **temp**
-    - while temporary stack is NOT empty and top of temporary stack is greater than temp,
-        pop from temporary stack and push it to the input stack
-    - push **temp** in temporary stack
-3. The sorted numbers are in tmpStack
+一、Create a temporary stack say `tmpStack`.
+
+二、While input stack is NOT empty do this:
+
+1、Pop an element from input stack call it `temp`
+
+2、while **temporary stack** is NOT empty and top of temporary stack is greater than `temp`,
+pop from **temporary stack** and push it to the input stack
+
+> NOTE: 
+>
+> 一、" top of temporary stack is greater than `temp`" 说明 "top of temporary stack " 应该位于 temp之下
+
+3、push **temp** in temporary stack
+
+三、The sorted numbers are in `tmpStack`
 
  
 
