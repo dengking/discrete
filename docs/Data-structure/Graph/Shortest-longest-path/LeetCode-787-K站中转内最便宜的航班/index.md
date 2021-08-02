@@ -1,8 +1,4 @@
-# LeetCode [787. K 站中转内最便宜的航班](https://leetcode-cn.com/problems/cheapest-flights-within-k-stops/)
-
-
-
-
+# LeetCode [787. K 站中转内最便宜的航班](https://leetcode-cn.com/problems/cheapest-flights-within-k-stops/) 
 
 需要注意"中转次数"的含义:
 
@@ -11,6 +7,8 @@
 2、中转1次，表示两个节点之间有一个节点连接
 
 3、理论上，一个由N个节点组成的graph，最大的中转次数为: N - 2
+
+
 
 ## 我的解题: dijkstra 算法
 

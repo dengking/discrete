@@ -1,10 +1,26 @@
-# labuladong [图文详解二叉堆，实现优先级队列](https://mp.weixin.qq.com/s/o7tdyLiYm668dpUWd-x7Lg)
+# labuladong [图文详解二叉堆，实现优先级队列](https://mp.weixin.qq.com/s/o7tdyLiYm668dpUWd-x7Lg) 
 
 > NOTE: 
 >
 > 一、在 infogalactic [Heap (data structure)](https://infogalactic.com/info/Heap_(data_structure)) 中，对heap有着非常好的描述
 >
-> 
+> 二、通过 binary heap 的实现原理来理解max heap、min heap 和 comparator 之间的关系
+>
+> 在 labuladong [图文详解二叉堆，实现优先级队列](https://mp.weixin.qq.com/s/o7tdyLiYm668dpUWd-x7Lg) 中，对 binary heap 的实现原理进行了非常好的介绍
+>
+> binary heap 所强调的是 parent node 和 children node之间的关系，所以它的comparator是基于 parent node 和 children node 的；
+>
+> binary heap 的原理是: 
+>
+> 在insert的时候，首先将元素插入到末尾，然后swim(上浮)；显然，对于max heap，我们总是需要将max放到堆顶，当 `less(parent, children)` 的时候，就将元素换到parent的位置，从而实现swim(上浮)；
+>
+> 在delete的时候，首先将末尾元素换到头，然后sink；
+>
+> 总的来说，
+>
+> 1、对于max heap，无论是swim(上浮)还是sink(下沉)，都是当`less(parent, children)`的时候；
+>
+> 2、对于min heap，无论是swim(上浮)还是sink(下沉)，都是当`great(parent, children)`的时候；
 
 二叉堆（Binary Heap）没什么神秘，性质比二叉搜索树 BST 还简单。其主要操作就两个，`sink`（下沉）和`swim`（上浮），用以维护二叉堆的性质。其主要应用有两个，首先是一种排序方法「堆排序」，第二是一种很有用的数据结构「优先级队列」。
 

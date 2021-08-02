@@ -1,5 +1,6 @@
 nav:
     - Introduction: index.md
     - LeetCode-31-下一个排列: LeetCode-31-下一个排列
+    - LeetCode-386-字典序排数-中等: LeetCode-386-字典序排数-中等
     - LeetCode-1754-构造字典序最大的合并字符串: LeetCode-1754-构造字典序最大的合并字符串
-    
+     

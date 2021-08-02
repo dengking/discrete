@@ -134,3 +134,11 @@ LeetCode [简单易懂Java/C++ /Python/js【培养算法思维】- 两数相加]
 
 5、leetcode 2 号算法题：两数相加
 
+## LeetCode 一题多解
+
+LeetCode [787. K 站中转内最便宜的航班](https://leetcode-cn.com/problems/cheapest-flights-within-k-stops/) 中等
+
+这道题是可以使用多种解法的
+
+
+

@@ -61,6 +61,7 @@ public:
 			res.push_back(q.top().row);
 			q.pop();
 		}
+		reverse(res.begin(), res.end()); // 必须要reverse，因为题目要求是从小到大
 		return res;
 	}
 };
@@ -74,7 +75,7 @@ int main()
 
 ```
 
-
+需要注意的是，题目最终的要求是从小到大排列，所以需要 `reverse(res.begin(), res.end());`
 
 ## 官方解题
 

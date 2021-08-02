@@ -21,7 +21,9 @@
 
 2、dynamic programming
 
+三、集合S为**CLOSED**集，它能够避免circle、陷入死循环
 
+## 完整code
 
 ```c++
 #define  maxint 9999
@@ -102,4 +104,3 @@ int main()
 
 上述实现，使用数组`dist`来记录从`src`到各个其他节点的最短距离。
 
-如果进过
