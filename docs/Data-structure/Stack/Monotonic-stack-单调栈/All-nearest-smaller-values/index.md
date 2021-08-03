@@ -1,13 +1,14 @@
-# wikipedia [All nearest smaller values](https://en.wikipedia.org/wiki/All_nearest_smaller_values)
+# wikipedia [All nearest smaller values](https://en.wikipedia.org/wiki/All_nearest_smaller_values) 
 
 > NOTE: 
 >
 > 一、两个限制：
 >
-> - nearest 最近
-> - smaller 更小，需要注意的是，不是minimum(最小)
+> 1、nearest 最近
 >
-> 二、这个算法，stack的`top`对应的是current element的nearest smaller，因此，每次当取到current element后，就和`top`进行比较，如果`top`比current element要大，显然可以将它剔除，如此往复，直到找到一个比current element要小的或者直至stack为空。
+> 2、smaller 更小，需要注意的是，不是minimum(最小)
+>
+> 二、这个算法，stack的`top`对应的是current element的nearest smaller，因此，每次当取到current element后，就和`top`进行比较，如果`top`比**current element**要大，显然可以将它剔除，如此往复，直到找到一个比current element要小的或者直至stack为空。
 >
 > 思考: 为什么可以直接剔除？因为如果`top`比current element要大，显然，`top`不是current element的nearest smaller，并且current element是比top更优秀的值。
 >
@@ -19,13 +20,15 @@ In [computer science](https://en.wikipedia.org/wiki/Computer_science), the **all
 
 for each position in a sequence of numbers, search among the previous positions for the **last position**（也就是最近的nearest ） that contains a **smaller** value. This problem can be solved efficiently both by parallel and non-parallel algorithms: [Berkman, Schieber & Vishkin (1993)](https://en.wikipedia.org/wiki/All_nearest_smaller_values#CITEREFBerkmanSchieberVishkin1993), who first identified the procedure as a useful subroutine for other parallel programs, developed efficient [algorithms](https://en.wikipedia.org/wiki/Parallel_algorithms) to solve it in the [Parallel Random Access Machine](https://en.wikipedia.org/wiki/Parallel_Random_Access_Machine) model; it may also be solved in [linear time](https://en.wikipedia.org/wiki/Linear_time) on a non-parallel computer using a [stack](https://en.wikipedia.org/wiki/Stack_(data_structure))-based algorithm. Later researchers have studied algorithms to solve it in other models of parallel computation. 
 
+
+
 ## Example
 
  Suppose that the input is the binary [van der Corput sequence](https://en.wikipedia.org/wiki/Van_der_Corput_sequence) 
 
  0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15. 
 
- The first element of the sequence (0) has no previous value. The nearest (only) smaller value previous to 8 and to 4 is 0. All three values previous to 12 are smaller, but the **nearest** one is 4. Continuing in the same way, the nearest previous smaller values for this sequence (indicating the nonexistence of a previous smaller value by a dash) are 
+The first element of the sequence (0) has no previous value. The nearest (only) smaller value previous to 8 and to 4 is 0. All three values previous to 12 are smaller, but the **nearest** one is 4. Continuing in the same way, the nearest previous smaller values for this sequence (indicating the nonexistence of a previous smaller value by a dash) are 
 
  —, 0, 0, 4, 0, 2, 2, 6, 0, 1, 1, 5, 1, 3, 3, 7. 
 
@@ -35,19 +38,25 @@ for each position in a sequence of numbers, search among the previous positions 
 
 [Berkman, Schieber & Vishkin (1993)](https://en.wikipedia.org/wiki/All_nearest_smaller_values#CITEREFBerkmanSchieberVishkin1993) mention many other problems that may be solved efficiently in parallel using a nearest smaller values computation. Among them, they include the following:
 
-1、[Merge algorithms](https://en.wikipedia.org/wiki/Merge_algorithm), computing the merge step of a [merge sort](https://en.wikipedia.org/wiki/Merge_sort). The input to these algorithms consists of two sorted arrays of numbers; the desired output is the same set of numbers in a single sorted array. If one concatenates the two sorted arrays, the first in ascending order and the second in descending order, then the predecessor(前驱) of each value in the output is either its **closest previous smaller value** or its **closest following smaller value** (whichever of the two is larger), and the position of each value in the sorted output array may easily be calculated from the positions of these two nearest smaller values.
+1、[Merge algorithms](https://en.wikipedia.org/wiki/Merge_algorithm), computing the merge step of a [merge sort](https://en.wikipedia.org/wiki/Merge_sort). The input to these algorithms consists of two sorted arrays of numbers; the desired output is the same set of numbers in a single sorted array. If one concatenates the two sorted arrays, the first in **ascending order** and the second in **descending order**, then the predecessor(前驱) of each value in the output is either its **closest previous smaller value** or its **closest following smaller value** (whichever of the two is larger), and the position of each value in the sorted output array may easily be calculated from the positions of these two nearest smaller values.
 
-
+> NOTE: 
+>
+> 没有读懂
 
 2、Construction of [Cartesian trees](https://en.wikipedia.org/wiki/Cartesian_tree). A Cartesian tree is a [data structure](https://en.wikipedia.org/wiki/Data_structure) introduced by [Vuillemin (1980)](https://en.wikipedia.org/wiki/All_nearest_smaller_values#CITEREFVuillemin1980) and further studied by [Gabow, Bentley & Tarjan (1984)](https://en.wikipedia.org/wiki/All_nearest_smaller_values#CITEREFGabowBentleyTarjan1984) for [range searching](https://en.wikipedia.org/wiki/Range_searching) applications. Cartesian trees also arise in the definition of the [treap](https://en.wikipedia.org/wiki/Treap) and [randomized binary search tree](https://en.wikipedia.org/wiki/Randomized_binary_search_tree) data structures for [binary searching](https://en.wikipedia.org/wiki/Binary_search). The Cartesian tree of a sequence of values has a node for each value. The root of the tree is the minimum value of the sequence; for every other node, the parent of the node is either its closest previous smaller value or its closest following smaller value (whichever of the two exists and is larger). Thus, Cartesian trees may be constructed in linear time based on an all nearest smaller values algorithm.
 
-3、Matching [parentheses](https://en.wikipedia.org/wiki/Parenthesis). If a sequence of open and close parenthesis characters is given as input, together with the nesting depth of each parenthesis, then the match to each open parenthesis is the next close parenthesis with no larger nesting depth, so it can be found by an all nearest smaller values computation that breaks ties in favor of close parentheses. If the nesting depths are not given, they can be calculated using a [prefix sum](https://en.wikipedia.org/wiki/Prefix_sum) computation.
+> NOTE: 
+>
+> 未读
+
+3、Matching [parentheses](https://en.wikipedia.org/wiki/Parenthesis). If a sequence of open and close parenthesis characters is given as input, together with the nesting depth of each parenthesis, then the match to each open parenthesis is the next close parenthesis with no larger nesting depth, so it can be found by an **all nearest smaller values** computation that breaks ties in favor of close parentheses. If the **nesting depths** are not given, they can be calculated using a [prefix sum](https://en.wikipedia.org/wiki/Prefix_sum) computation.
 
 > NOTE: 
 >
 > 1、此处的prefix sum的含义是什么？
 
-Similar techniques may also be applied to problems of [polygon triangulation](https://en.wikipedia.org/wiki/Polygon_triangulation), [convex hull](https://en.wikipedia.org/wiki/Convex_hull) construction (parallelizing the sequential [Graham scan](https://en.wikipedia.org/wiki/Graham_scan) convex hull algorithm), reconstruction of trees from two of the trees' traversal orderings, and quadtree construction.[[1\]](https://en.wikipedia.org/wiki/All_nearest_smaller_values#cite_note-1)
+Similar techniques may also be applied to problems of [polygon triangulation](https://en.wikipedia.org/wiki/Polygon_triangulation), [convex hull](https://en.wikipedia.org/wiki/Convex_hull) construction (parallelizing the sequential [Graham scan](https://en.wikipedia.org/wiki/Graham_scan) convex hull algorithm), reconstruction of trees from two of the trees' traversal orderings, and quadtree construction.
 
 ## Sequential algorithm
 
@@ -113,18 +122,53 @@ An even simpler linear-time sequential algorithm ([Barbay, Fischer & Navarro (20
 ```pseudocode
 for i from 1 to n:
     j = i-1
-    while A[j] >= A[i]:
+    while A[j] >= A[i]: # 找A[i]的nearest smaller value
         j = P[j]
     P[i] = j
 ```
 
 > NOTE: 
 >
-> 其实通过上述算法发现这个问题存在着一定的递归性（第n+1个元素的nearest smaller元素要么是它的前一个元素要么就是它的前一个元素的nearest smaller元素）的意味：要想获得第`i`个元素的结果，其实只需要做两件事：
+> 一、其实通过上述算法发现这个问题存在着一定的递归性（第n+1个元素的nearest smaller元素要么是它的前一个元素要么就是它的前一个元素的nearest smaller元素）的意味：要想获得第`i`个元素的结果，其实只需要做两件事：
 >
 > 1、和它的前一个元素进行比较，如果前一个元素比他还小，则结果就是它的前一个元素，否则
 >
 > 2、和它的前一个元素的结果进行比较，如此往复，直至找到了目标值；
+>
+> 二、上述体现了dynamic programming的思想
+>
+> 三、下面是完整的code
+>
+> LeetCode [496. 下一个更大元素 I](https://leetcode-cn.com/problems/next-greater-element-i/) 中等
+>
+> ```C++
+> class Solution
+> {
+> public:
+> 	vector<int> nextGreaterElement(vector<int> &nums1, vector<int> &nums2)
+> 	{
+> 		int len = nums2.size();
+> 		unordered_map<int, int> nge; //nge是next greater number的缩写
+> 		vector<int> next_greater_index(len, -1);
+> 		for (int i = len - 1; i >= 0; --i)
+> 		{
+> 			int j = i + 1;
+> 			while (j >= 0 && j < len && nums2[j] <= nums2[i])
+> 			{
+> 				j = next_greater_index[j];
+> 			}
+> 			next_greater_index[i] = j;
+> 			nge[nums2[i]] = (j >= 0 && j < len) ? nums2[j] : -1;
+> 		}
+> 		vector<int> ret;
+> 		for (auto &&n : nums1)
+> 		{
+> 			ret.push_back(nge[n]);
+> 		}
+> 		return ret;
+> 	}
+> };
+> ```
 >
 > 
 

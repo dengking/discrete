@@ -1,3 +1,8 @@
 nav:
     - Introduction: index.md
+    - LeetCode-84-Largest-Rectangle-in-Histogram: LeetCode-84-Largest-Rectangle-in-Histogram
+    - LeetCode-85-Maximal-Rectangle: LeetCode-85-Maximal-Rectangle
+    - LeetCode-456-132-模式: LeetCode-456-132-模式
+    - LeetCode-901-股票价格跨度: LeetCode-901-股票价格跨度
+    
     

@@ -22,4 +22,29 @@
 
 二、`Expert-liuzhenglaichn\Monotonic-stack单调栈`
 
-三、
+
+
+## All nearest smaller value && Next greater number
+
+这两个问题本质上是相同的，Next greater number 是 All nearest smaller value 的反。
+
+一、All nearest smaller value
+
+前面
+
+smaller
+
+二、Next greater number
+
+后面
+
+greater
+
+
+
+## 算法
+
+使用单调栈
+
+参见 labuladong [单调栈 Monotonic Stack 的使用](https://mp.weixin.qq.com/s/_b_QzXkL4e0y5241betVSg)
+

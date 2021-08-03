@@ -1,3 +1,6 @@
 nav:
     - Introduction: index.md
-    
+    - LeetCode-496-下一个更大元素-I-简单: LeetCode-496-下一个更大元素-I-简单
+    - LeetCode-503-下一个更大元素-II-中等: LeetCode-503-下一个更大元素-II-中等
+    - LeetCode-556-下一个更大元素-III-中等: LeetCode-556-下一个更大元素-III-中等
+    - LeetCode-739-每日温度-中等: LeetCode-739-每日温度-中等

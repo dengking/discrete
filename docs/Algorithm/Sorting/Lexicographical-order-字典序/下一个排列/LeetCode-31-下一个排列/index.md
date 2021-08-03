@@ -161,3 +161,9 @@ int main()
 
 ```
 
+### 为什么使用`std::reverse` 而不是 `std::sort` ?
+
+上述算法的最后一步是使用 `reverse(nums.begin() + i + 1, nums.end());` ，而不是 `std::sort` ，为什么呢？
+
+首先需要搞清楚目的: 让 `[nums.begin() + i + 1, nums.end()]` 范围内的元素为增序；显然通过 `std::sort` 是可以实现的；但是，考虑到，此时  `[nums.begin() + i + 1, nums.end()]`  内的元素是降序的，因此，通过复杂的更低的 `std::reverse` 可以实现让 `[nums.begin() + i + 1, nums.end()]` 范围内的元素为增序的目的；
+
