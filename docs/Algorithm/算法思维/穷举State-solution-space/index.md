@@ -44,3 +44,9 @@ DP的选择；
 
 问题的解空间的构建依赖于combinational analysis中的原理。
 
+
+
+## Example
+
+LeetCode [413. 等差数列划分](https://leetcode-cn.com/problems/arithmetic-slices/) 中等
+

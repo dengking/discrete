@@ -8,6 +8,16 @@
 
 2、通过对recurrence relation进行简单的推演，画出其recursion activation tree，通过规则1来进行判断；在下面的"非常形象的说明"章节中，就给出了这样的案例。
 
+3、子数组问题: 
+
+一个例子: LeetCode [413. 等差数列划分](https://leetcode-cn.com/problems/arithmetic-slices/) 
+
+> 给你一个整数数组 `nums` ，返回数组 `nums` 中所有为等差数组的 **子数组** 个数。
+>
+> **子数组** 是数组中的一个连续序列。
+
+这个问题是典型的存在重叠子问题的: 已知一个子数组的公差为`d`，如果一个新的元素与数组的最后一个元素的公差为`d`，那么它们就形成了一个更大的**等差子数组**。
+
 ## wikipedia [Overlapping subproblems](https://en.wikipedia.org/wiki/Overlapping_subproblems)
 
 In [computer science](https://en.wikipedia.org/wiki/Computer_science), a [problem](https://en.wikipedia.org/wiki/Problem) is said to have **overlapping subproblems** if the problem can be broken down into subproblems which are reused several times or a recursive algorithm for the problem solves the same subproblem over and over rather than always generating new subproblems.[[1\]](https://en.wikipedia.org/wiki/Overlapping_subproblems#cite_note-1)[[2\]](https://en.wikipedia.org/wiki/Overlapping_subproblems#cite_note-2) [[3\]](https://en.wikipedia.org/wiki/Overlapping_subproblems#cite_note-3)

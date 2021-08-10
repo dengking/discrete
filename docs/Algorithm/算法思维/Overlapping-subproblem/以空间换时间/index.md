@@ -50,6 +50,18 @@
 
 以空间换时间
 
+
+
+### 子数组问题
+
+1、最大子数组和问题
+
+上面对它进行了详细的描述。
+
+2、LeetCode [413. 等差数列划分](https://leetcode-cn.com/problems/arithmetic-slices/) 中等
+
+
+
 ## 滑动窗口以空间换时间
 
 参见 labuladong [我写了套框架，把滑动窗口算法变成了默写题](https://mp.weixin.qq.com/s/ioKXTMZufDECBUwRRp3zaA) :
@@ -113,8 +125,6 @@ LeetCode [392. 判断子序列](https://leetcode-cn.com/problems/is-subsequence/
 ## LeetCode [解数独](https://leetcode-cn.com/problems/sudoku-solver/solution/jie-shu-du-by-leetcode-solution/)
 
 其中就用"以空间换时间"来进行优化。
-
-
 
 
 

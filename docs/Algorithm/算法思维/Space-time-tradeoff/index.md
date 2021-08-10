@@ -1,5 +1,7 @@
 # Space–time tradeoff
 
+一、关于以空间换时间，参见 `Algorithm\算法思维\Overlapping-subproblem\以空间换时间` 章节
+
 
 
 ## infogalactic [Space-time tradeoff](https://infogalactic.com/info/Space%E2%80%93time_tradeoff)
