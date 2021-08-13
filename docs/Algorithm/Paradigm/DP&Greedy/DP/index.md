@@ -30,7 +30,59 @@
 
 
 
+
+
+## 动态规划问题的分类
+
+### 分类方法一
+
+一、计数
+
+由于DP是会进行穷举的，因此可以实现计数，下面是相关例题: 
+
+LeetCode [446. 等差数列划分 II - 子序列](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/) 困难
+
+
+
+二、求解最值
+
+最长递增子序列 LeetCode [300. 最长递增子序列](https://leetcode-cn.com/problems/longest-increasing-subsequence/)。
+
+LeetCode [322. 零钱兑换](https://leetcode-cn.com/problems/coin-change/)
+
+LeetCode [518. 零钱兑换 II](https://leetcode-cn.com/problems/coin-change-2/)
+
+### 分类方法二
+
+一、子序列
+
+参见 `Subsequence-子序列问题` 章节。
+
+
+
+## 动态规划复杂度分析
+
+一、动态规划是否能够实现 $O(N)$​ 的复杂度？
+
+动态规划算法的复杂度和动态规划算法本身没有关系，而是和具体问题相关的:
+
+1、最大子数组和使用动态规划是否能够实现 $O(N)$ 复杂度
+
+参见 labuladong [动态规划套路：最大子数组和](https://mp.weixin.qq.com/s/nrULqCsRsrPKi3Y-nUfnqg)
+
+> NOTE: 
+>
+> 子数组问题的理想复杂度就是$O(N)$
+
+2、很多**子序列**问题，复杂度都为$O(N^2)$
+
+关于这一点，是我在阅读 LeetCode [446. 等差数列划分 II - 子序列](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/) 困难 # [【负雪明烛】揭秘子序列动态规划的套路](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/solution/fu-xue-ming-zhu-jie-mi-zi-xu-lie-dong-ta-gepk/) 时，想到的。
+
+
+
 ## TODO
+
+
 
 berkeley [Chapter 6 Dynamic programming](https://people.eecs.berkeley.edu/~vazirani/algorithms/chap6.pdf)
 
@@ -39,12 +91,3 @@ berkeley [Chapter 6 Dynamic programming](https://people.eecs.berkeley.edu/~vazir
 ## 素材
 
 1、"wikipedia [Recursion (computer science)](https://en.wikipedia.org/wiki/Recursion_(computer_science)) # Recursive functions and algorithms"
-
-
-
-## LeetCode
-
-LeetCode [322. 零钱兑换](https://leetcode-cn.com/problems/coin-change/)
-
-LeetCode [518. 零钱兑换 II](https://leetcode-cn.com/problems/coin-change-2/)
-

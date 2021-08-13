@@ -1,4 +1,4 @@
-# leetcode [300. 最长递增子序列](https://leetcode-cn.com/problems/longest-increasing-subsequence/)
+# LeetCode [300. 最长递增子序列](https://leetcode-cn.com/problems/longest-increasing-subsequence/)
 
 
 
@@ -45,4 +45,6 @@ int main()
 
 
 ```
+
+它和最大子段和是非常类似的。
 
