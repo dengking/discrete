@@ -58,13 +58,19 @@ LeetCode [518. 零钱兑换 II](https://leetcode-cn.com/problems/coin-change-2/)
 
 参见 `Subsequence-子序列问题` 章节。
 
+二、子数组
 
+参见 
 
 ## 动态规划复杂度分析
 
 一、动态规划是否能够实现 $O(N)$​ 的复杂度？
 
 动态规划算法的复杂度和动态规划算法本身没有关系，而是和具体问题相关的:
+
+### $O(N)$ 复杂度
+
+
 
 1、最大子数组和使用动态规划是否能够实现 $O(N)$ 复杂度
 
@@ -74,7 +80,13 @@ LeetCode [518. 零钱兑换 II](https://leetcode-cn.com/problems/coin-change-2/)
 >
 > 子数组问题的理想复杂度就是$O(N)$
 
-2、很多**子序列**问题，复杂度都为$O(N^2)$
+2、LeetCode [413. 等差数列划分](https://leetcode-cn.com/problems/arithmetic-slices/) 中等
+
+等差子数组的个数
+
+### $O(N^2)$ 复杂度
+
+2、很多**子序列**问题，复杂度都为$O(N^2)$​​​ 复杂度
 
 关于这一点，是我在阅读 LeetCode [446. 等差数列划分 II - 子序列](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/) 困难 # [【负雪明烛】揭秘子序列动态规划的套路](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/solution/fu-xue-ming-zhu-jie-mi-zi-xu-lie-dong-ta-gepk/) 时，想到的。
 
@@ -91,3 +103,4 @@ berkeley [Chapter 6 Dynamic programming](https://people.eecs.berkeley.edu/~vazir
 ## 素材
 
 1、"wikipedia [Recursion (computer science)](https://en.wikipedia.org/wiki/Recursion_(computer_science)) # Recursive functions and algorithms"
+
