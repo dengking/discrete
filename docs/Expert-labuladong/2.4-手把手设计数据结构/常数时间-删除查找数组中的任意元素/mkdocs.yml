@@ -1,4 +1,5 @@
 nav:
     - Introduction: index.md
-    - LeetCode-380-O(1)时间插入-删除和获取随机元素-中等: LeetCode-380-O(1)时间插入-删除和获取随机元素-中等
+    - LeetCode-380-O(1)时间插入删除和获取随机元素-中等: LeetCode-380-O(1)时间插入删除和获取随机元素-中等
     - LeetCode-710-黑名单中的随机数-困难: LeetCode-710-黑名单中的随机数-困难
+    

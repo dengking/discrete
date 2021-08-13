@@ -242,12 +242,11 @@ nav:
           - Introduction: Algorithm/Paradigm/DP&Greedy/DP/wikipedia-Dynamic-programming/index.md
         - geeksforgeeks-Dynamic-Programming:
           - Introduction: Algorithm/Paradigm/DP&Greedy/DP/geeksforgeeks-Dynamic-Programming/index.md
-        - "CSDN-DP\u7B97\u6CD5\u5206\u7C7B\u603B\u7ED3":
-          - Introduction: "Algorithm/Paradigm/DP&Greedy/DP/CSDN-DP\u7B97\u6CD5\u5206\
-              \u7C7B\u603B\u7ED3/index.md"
-        - "\u6700\u5927\u5B50\u6BB5\u548C":
-          - Introduction: "Algorithm/Paradigm/DP&Greedy/DP/\u6700\u5927\u5B50\u6BB5\
-              \u548C/index.md"
+        - Expert-Accagain:
+          - Introduction: Algorithm/Paradigm/DP&Greedy/DP/Expert-Accagain/index.md
+          - "ACM\u52A8\u6001\u89C4\u5212\u603B\u7ED3":
+            - Introduction: "Algorithm/Paradigm/DP&Greedy/DP/Expert-Accagain/ACM\u52A8\
+                \u6001\u89C4\u5212\u603B\u7ED3/index.md"
         - Catalan:
           - Introduction: Algorithm/Paradigm/DP&Greedy/DP/Catalan/index.md
           - "julyedu-\u4ECE\u66B4\u529B\u9012\u5F52\u8D70\u5411\u52A8\u6001\u89C4\u5212-\u7814\u7A76\u8FC7\u5361\u7279\u5170\u6570":
@@ -284,11 +283,28 @@ nav:
           - "TODO-\u6392\u961F\u627E\u96F6\u95EE\u9898":
             - Introduction: "Algorithm/Paradigm/DP&Greedy/DP/Catalan/TODO-\u6392\u961F\
                 \u627E\u96F6\u95EE\u9898/index.md"
+        - "DP\u89E3\u5B50\u5E8F\u5217\u95EE\u9898":
+          - Introduction: "Algorithm/Paradigm/DP&Greedy/DP/DP\u89E3\u5B50\u5E8F\u5217\
+              \u95EE\u9898/index.md"
+        - "DP\u89E3\u5B50\u6570\u7EC4\u95EE\u9898":
+          - Introduction: "Algorithm/Paradigm/DP&Greedy/DP/DP\u89E3\u5B50\u6570\u7EC4\
+              \u95EE\u9898/index.md"
         - LeetCode:
           - Introduction: Algorithm/Paradigm/DP&Greedy/DP/LeetCode/index.md
           - "LeetCode-120-\u4E09\u89D2\u5F62\u6700\u5C0F\u8DEF\u5F84\u548C-\u4E2D\u7B49":
             - Introduction: "Algorithm/Paradigm/DP&Greedy/DP/LeetCode/LeetCode-120-\u4E09\
                 \u89D2\u5F62\u6700\u5C0F\u8DEF\u5F84\u548C-\u4E2D\u7B49/index.md"
+          - "LeetCode-\u7B49\u5DEE\u6570\u5217":
+            - Introduction: "Algorithm/Paradigm/DP&Greedy/DP/LeetCode/LeetCode-\u7B49\
+                \u5DEE\u6570\u5217/index.md"
+            - "LeetCode-413-\u7B49\u5DEE\u6570\u5217\u5212\u5206-\u4E2D\u7B49":
+              - Introduction: "Algorithm/Paradigm/DP&Greedy/DP/LeetCode/LeetCode-\u7B49\
+                  \u5DEE\u6570\u5217/LeetCode-413-\u7B49\u5DEE\u6570\u5217\u5212\u5206\
+                  -\u4E2D\u7B49/index.md"
+            - "LeetCode-446-\u7B49\u5DEE\u6570\u5217\u5212\u5206-II-\u5B50\u5E8F\u5217-\u56F0\u96BE":
+              - Introduction: "Algorithm/Paradigm/DP&Greedy/DP/LeetCode/LeetCode-\u7B49\
+                  \u5DEE\u6570\u5217/LeetCode-446-\u7B49\u5DEE\u6570\u5217\u5212\u5206\
+                  -II-\u5B50\u5E8F\u5217-\u56F0\u96BE/index.md"
       - Greedy:
         - Introduction: Algorithm/Paradigm/DP&Greedy/Greedy/index.md
         - Huffman-Coding:
@@ -459,9 +475,20 @@ nav:
     - "Lexicographical-order-\u5B57\u5178\u5E8F":
       - Introduction: "Algorithm/Sorting/Lexicographical-order-\u5B57\u5178\u5E8F\
           /index.md"
-      - "LeetCode-31-\u4E0B\u4E00\u4E2A\u6392\u5217":
+      - "\u4E0B\u4E00\u4E2A\u6392\u5217":
         - Introduction: "Algorithm/Sorting/Lexicographical-order-\u5B57\u5178\u5E8F\
-            /LeetCode-31-\u4E0B\u4E00\u4E2A\u6392\u5217/index.md"
+            /\u4E0B\u4E00\u4E2A\u6392\u5217/index.md"
+        - "LeetCode-31-\u4E0B\u4E00\u4E2A\u6392\u5217":
+          - Introduction: "Algorithm/Sorting/Lexicographical-order-\u5B57\u5178\u5E8F\
+              /\u4E0B\u4E00\u4E2A\u6392\u5217/LeetCode-31-\u4E0B\u4E00\u4E2A\u6392\
+              \u5217/index.md"
+        - "LeetCode-556-\u4E0B\u4E00\u4E2A\u66F4\u5927\u5143\u7D20-III-\u4E2D\u7B49":
+          - Introduction: "Algorithm/Sorting/Lexicographical-order-\u5B57\u5178\u5E8F\
+              /\u4E0B\u4E00\u4E2A\u6392\u5217/LeetCode-556-\u4E0B\u4E00\u4E2A\u66F4\
+              \u5927\u5143\u7D20-III-\u4E2D\u7B49/index.md"
+      - "LeetCode-386-\u5B57\u5178\u5E8F\u6392\u6570-\u4E2D\u7B49":
+        - Introduction: "Algorithm/Sorting/Lexicographical-order-\u5B57\u5178\u5E8F\
+            /LeetCode-386-\u5B57\u5178\u5E8F\u6392\u6570-\u4E2D\u7B49/index.md"
       - "LeetCode-1754-\u6784\u9020\u5B57\u5178\u5E8F\u6700\u5927\u7684\u5408\u5E76\u5B57\u7B26\u4E32":
         - Introduction: "Algorithm/Sorting/Lexicographical-order-\u5B57\u5178\u5E8F\
             /LeetCode-1754-\u6784\u9020\u5B57\u5178\u5E8F\u6700\u5927\u7684\u5408\u5E76\
@@ -493,6 +520,9 @@ nav:
       - "LeetCode-1337-\u77E9\u9635\u4E2D\u6218\u6597\u529B\u6700\u5F31\u7684K\u884C-\u7B80\u5355":
         - Introduction: "Algorithm/Sorting/Top-K-rank/LeetCode-1337-\u77E9\u9635\u4E2D\
             \u6218\u6597\u529B\u6700\u5F31\u7684K\u884C-\u7B80\u5355/index.md"
+    - "LeetCode-581-\u6700\u77ED\u65E0\u5E8F\u8FDE\u7EED\u5B50\u6570\u7EC4-\u4E2D\u7B49":
+      - Introduction: "Algorithm/Sorting/LeetCode-581-\u6700\u77ED\u65E0\u5E8F\u8FDE\
+          \u7EED\u5B50\u6570\u7EC4-\u4E2D\u7B49/index.md"
   - Merge-algorithm:
     - Introduction: Algorithm/Merge-algorithm/index.md
     - K-way-merge-algorithm:
@@ -588,6 +618,11 @@ nav:
         - Introduction: Data-structure/Array/Circular-array/spdlog-circular_q/index.md
       - martinbroadhurst-cirque:
         - Introduction: Data-structure/Array/Circular-array/martinbroadhurst-cirque/index.md
+    - O(N)-array-algorithm:
+      - Introduction: Data-structure/Array/O(N)-array-algorithm/index.md
+      - "double-pointer\u904D\u5386\u4E00\u8F6E\u5E8F\u5217":
+        - Introduction: "Data-structure/Array/O(N)-array-algorithm/double-pointer\u904D\
+            \u5386\u4E00\u8F6E\u5E8F\u5217/index.md"
     - Prefix-sum&&difference-array:
       - Introduction: Data-structure/Array/Prefix-sum&&difference-array/index.md
       - Difference-array:
@@ -766,6 +801,8 @@ nav:
       - Introduction: "Data-structure/Stack/Monotonic-stack-\u5355\u8C03\u6808/index.md"
       - All-nearest-smaller-values:
         - Introduction: "Data-structure/Stack/Monotonic-stack-\u5355\u8C03\u6808/All-nearest-smaller-values/index.md"
+      - Next-Greater-Number:
+        - Introduction: "Data-structure/Stack/Monotonic-stack-\u5355\u8C03\u6808/Next-Greater-Number/index.md"
       - Max-min-lexicographical-order-subsequence:
         - Introduction: "Data-structure/Stack/Monotonic-stack-\u5355\u8C03\u6808/Max-min-lexicographical-order-subsequence/index.md"
         - "LeetCode-402-\u79FB\u6389K\u4F4D\u6570\u5B57":
@@ -780,6 +817,19 @@ nav:
             K\u4F4D\u6570\u5B57"
       - LeetCode-Monotonic-stack:
         - Introduction: "Data-structure/Stack/Monotonic-stack-\u5355\u8C03\u6808/LeetCode-Monotonic-stack/index.md"
+        - LeetCode-84-Largest-Rectangle-in-Histogram:
+          - Introduction: "Data-structure/Stack/Monotonic-stack-\u5355\u8C03\u6808\
+              /LeetCode-Monotonic-stack/LeetCode-84-Largest-Rectangle-in-Histogram/index.md"
+        - LeetCode-85-Maximal-Rectangle:
+          - Introduction: "Data-structure/Stack/Monotonic-stack-\u5355\u8C03\u6808\
+              /LeetCode-Monotonic-stack/LeetCode-85-Maximal-Rectangle/index.md"
+        - "LeetCode-456-132-\u6A21\u5F0F":
+          - Introduction: "Data-structure/Stack/Monotonic-stack-\u5355\u8C03\u6808\
+              /LeetCode-Monotonic-stack/LeetCode-456-132-\u6A21\u5F0F/index.md"
+        - "LeetCode-901-\u80A1\u7968\u4EF7\u683C\u8DE8\u5EA6":
+          - Introduction: "Data-structure/Stack/Monotonic-stack-\u5355\u8C03\u6808\
+              /LeetCode-Monotonic-stack/LeetCode-901-\u80A1\u7968\u4EF7\u683C\u8DE8\
+              \u5EA6/index.md"
       - Monotonic-stack-VS-dynamic-programming:
         - Introduction: "Data-structure/Stack/Monotonic-stack-\u5355\u8C03\u6808/Monotonic-stack-VS-dynamic-programming/index.md"
     - "Reverse-by-stack-\u53CD\u8F6C":
@@ -846,12 +896,19 @@ nav:
           - Introduction: "Data-structure/Graph/Shortest-longest-path/Dijkstra's-algorithm/\u8BA1\
               \u7B97\u673A\u7B97\u6CD5\u8BBE\u8BA1\u4E0E\u5206\u6790-4-5-\u5355\u6E90\
               \u6700\u77ED\u8DEF\u5F84/index.md"
-        - "LeetCode-787-K\u7AD9\u4E2D\u8F6C\u5185\u6700\u4FBF\u5B9C\u7684\u822A\u73ED":
-          - Introduction: "Data-structure/Graph/Shortest-longest-path/Dijkstra's-algorithm/LeetCode-787-K\u7AD9\
-              \u4E2D\u8F6C\u5185\u6700\u4FBF\u5B9C\u7684\u822A\u73ED/index.md"
       - "Bellman\u2013Ford-algorithm":
         - Introduction: "Data-structure/Graph/Shortest-longest-path/Bellman\u2013\
             Ford-algorithm/index.md"
+      - "LeetCode-787-K\u7AD9\u4E2D\u8F6C\u5185\u6700\u4FBF\u5B9C\u7684\u822A\u73ED":
+        - Introduction: "Data-structure/Graph/Shortest-longest-path/LeetCode-787-K\u7AD9\
+            \u4E2D\u8F6C\u5185\u6700\u4FBF\u5B9C\u7684\u822A\u73ED/index.md"
+      - "LeetCode-743-\u7F51\u7EDC\u5EF6\u8FDF\u65F6\u95F4-\u4E2D\u7B49":
+        - Introduction: "Data-structure/Graph/Shortest-longest-path/LeetCode-743-\u7F51\
+            \u7EDC\u5EF6\u8FDF\u65F6\u95F4-\u4E2D\u7B49/index.md"
+      - "LeetCode-847-\u8BBF\u95EE\u6240\u6709\u8282\u70B9\u7684\u6700\u77ED\u8DEF\u5F84-\u56F0\u96BE":
+        - Introduction: "Data-structure/Graph/Shortest-longest-path/LeetCode-847-\u8BBF\
+            \u95EE\u6240\u6709\u8282\u70B9\u7684\u6700\u77ED\u8DEF\u5F84-\u56F0\u96BE\
+            /index.md"
     - Topological-sorting:
       - Introduction: Data-structure/Graph/Topological-sorting/index.md
     - Spanning-tree:
@@ -907,6 +964,12 @@ nav:
       - "LeetCode-547-\u7701\u4EFD\u6570\u91CF":
         - Introduction: "Data-structure/Graph/LeetCode/LeetCode-547-\u7701\u4EFD\u6570\
             \u91CF/index.md"
+      - "LeetCode-\u9762\u8BD5\u9898-16.19-\u6C34\u57DF\u5927\u5C0F-\u4E2D\u7B49":
+        - Introduction: "Data-structure/Graph/LeetCode/LeetCode-\u9762\u8BD5\u9898\
+            -16.19-\u6C34\u57DF\u5927\u5C0F-\u4E2D\u7B49/index.md"
+      - "LeetCode-\u6B27\u62C9\u56DE\u8DEF":
+        - Introduction: "Data-structure/Graph/LeetCode/LeetCode-\u6B27\u62C9\u56DE\
+            \u8DEF/index.md"
   - Tree:
     - Introduction: Data-structure/Tree/index.md
     - Tree-structure:
@@ -1128,20 +1191,53 @@ nav:
     - "LeetCode-7-\u6574\u6570\u53CD\u8F6C":
       - Introduction: "LeetCode/\u6570\u5B66-\u6570\u5B57/LeetCode-7-\u6574\u6570\u53CD\
           \u8F6C/index.md"
-    - "LeetCode-9-\u56DE\u6587\u6570":
-      - Introduction: "LeetCode/\u6570\u5B66-\u6570\u5B57/LeetCode-9-\u56DE\u6587\u6570\
-          /index.md"
     - "LeetCode-393-UTF-8\u7F16\u7801\u9A8C\u8BC1-\u4E2D\u7B49":
       - Introduction: "LeetCode/\u6570\u5B66-\u6570\u5B57/LeetCode-393-UTF-8\u7F16\
           \u7801\u9A8C\u8BC1-\u4E2D\u7B49/index.md"
     - "\u5927\u6574\u6570\u7B97\u672F":
       - Introduction: "LeetCode/\u6570\u5B66-\u6570\u5B57/\u5927\u6574\u6570\u7B97\
           \u672F/index.md"
+    - Bitwise-operation:
+      - Introduction: "LeetCode/\u6570\u5B66-\u6570\u5B57/Bitwise-operation/index.md"
+      - "LeetCode-9-\u56DE\u6587\u6570":
+        - Introduction: "LeetCode/\u6570\u5B66-\u6570\u5B57/Bitwise-operation/LeetCode-9-\u56DE\
+            \u6587\u6570/index.md"
+      - "LeetCode-136-\u53EA\u51FA\u73B0\u4E00\u6B21\u7684\u6570\u5B57-\u7B80\u5355":
+        - Introduction: "LeetCode/\u6570\u5B66-\u6570\u5B57/Bitwise-operation/LeetCode-136-\u53EA\
+            \u51FA\u73B0\u4E00\u6B21\u7684\u6570\u5B57-\u7B80\u5355/index.md"
+      - "LeetCode-137-\u53EA\u51FA\u73B0\u4E00\u6B21\u7684\u6570\u5B57-II-\u4E2D\u7B49":
+        - Introduction: "LeetCode/\u6570\u5B66-\u6570\u5B57/Bitwise-operation/LeetCode-137-\u53EA\
+            \u51FA\u73B0\u4E00\u6B21\u7684\u6570\u5B57-II-\u4E2D\u7B49/index.md"
+      - "LeetCode-260-\u53EA\u51FA\u73B0\u4E00\u6B21\u7684\u6570\u5B57-III-\u4E2D\u7B49":
+        - Introduction: "LeetCode/\u6570\u5B66-\u6570\u5B57/Bitwise-operation/LeetCode-260-\u53EA\
+            \u51FA\u73B0\u4E00\u6B21\u7684\u6570\u5B57-III-\u4E2D\u7B49/index.md"
   - Subsequence-Subarray-Substring:
     - Introduction: LeetCode/Subsequence-Subarray-Substring/index.md
     - "Systematic-method-\u7A77\u4E3E":
       - Introduction: "LeetCode/Subsequence-Subarray-Substring/Systematic-method-\u7A77\
           \u4E3E/index.md"
+    - "\u5B50\u4E32\u5B50\u6570\u7EC4\u95EE\u9898":
+      - Introduction: "LeetCode/Subsequence-Subarray-Substring/\u5B50\u4E32\u5B50\u6570\
+          \u7EC4\u95EE\u9898/index.md"
+    - "\u5B50\u5E8F\u5217\u95EE\u9898":
+      - Introduction: "LeetCode/Subsequence-Subarray-Substring/\u5B50\u5E8F\u5217\u95EE\
+          \u9898/index.md"
+    - "\u6ED1\u52A8\u7A97\u53E3\u7B97\u6CD5":
+      - Introduction: "LeetCode/Subsequence-Subarray-Substring/\u6ED1\u52A8\u7A97\u53E3\
+          \u7B97\u6CD5/index.md"
+      - "\u6ED1\u52A8\u7A97\u53E3\u89E3\u5B50\u6570\u7EC4\u5B50\u4E32\u95EE\u9898":
+        - Introduction: "LeetCode/Subsequence-Subarray-Substring/\u6ED1\u52A8\u7A97\
+            \u53E3\u7B97\u6CD5/\u6ED1\u52A8\u7A97\u53E3\u89E3\u5B50\u6570\u7EC4\u5B50\
+            \u4E32\u95EE\u9898/index.md"
+        - "TODO-LeetCode-1839-\u6240\u6709\u5143\u97F3\u6309\u987A\u5E8F\u6392\u5E03\u7684\u6700\u957F\u5B50\u5B57\u7B26\u4E32":
+          - Introduction: "LeetCode/Subsequence-Subarray-Substring/\u6ED1\u52A8\u7A97\
+              \u53E3\u7B97\u6CD5/\u6ED1\u52A8\u7A97\u53E3\u89E3\u5B50\u6570\u7EC4\u5B50\
+              \u4E32\u95EE\u9898/TODO-LeetCode-1839-\u6240\u6709\u5143\u97F3\u6309\
+              \u987A\u5E8F\u6392\u5E03\u7684\u6700\u957F\u5B50\u5B57\u7B26\u4E32/index.md"
+      - "\u6ED1\u52A8\u7A97\u53E3\u89E3\u5B50\u5E8F\u5217\u95EE\u9898":
+        - Introduction: "LeetCode/Subsequence-Subarray-Substring/\u6ED1\u52A8\u7A97\
+            \u53E3\u7B97\u6CD5/\u6ED1\u52A8\u7A97\u53E3\u89E3\u5B50\u5E8F\u5217\u95EE\
+            \u9898/index.md"
   - int&string:
     - Introduction: LeetCode/int&string/index.md
     - itoa-IntToString:
@@ -1150,9 +1246,9 @@ nav:
       - "LeetCode-8-\u5B57\u7B26\u4E32\u8F6C\u6362\u6574\u6570(atoi)-\u4E2D\u7B49":
         - Introduction: "LeetCode/int&string/atoi/LeetCode-8-\u5B57\u7B26\u4E32\u8F6C\
             \u6362\u6574\u6570(atoi)-\u4E2D\u7B49/index.md"
-    - "LeetCode-273-\u6574\u6570\u8F6C\u6362\u82F1\u6587\u8868\u793A-\u56F0\u96BE":
-      - Introduction: "LeetCode/int&string/LeetCode-273-\u6574\u6570\u8F6C\u6362\u82F1\
-          \u6587\u8868\u793A-\u56F0\u96BE/index.md"
+    - "TODO-LeetCode-273-\u6574\u6570\u8F6C\u6362\u82F1\u6587\u8868\u793A-\u56F0\u96BE":
+      - Introduction: "LeetCode/int&string/TODO-LeetCode-273-\u6574\u6570\u8F6C\u6362\
+          \u82F1\u6587\u8868\u793A-\u56F0\u96BE/index.md"
   - DFA:
     - Introduction: LeetCode/DFA/index.md
     - "LeetCode-65-\u6709\u6548\u6570\u5B57-\u56F0\u96BE":
@@ -1164,20 +1260,10 @@ nav:
       - Introduction: "LeetCode/Partition-\u5212\u5206/csse.uwa.edu-CITS7209/index.md"
   - "\u8BBE\u8BA1\u6570\u636E\u7ED3\u6784":
     - Introduction: "LeetCode/\u8BBE\u8BA1\u6570\u636E\u7ED3\u6784/index.md"
-    - LeetCode-380:
-      - Introduction: "LeetCode/\u8BBE\u8BA1\u6570\u636E\u7ED3\u6784/LeetCode-380-O(1)\u65F6\
-          \u95F4\u63D2\u5165\u5220\u9664\u548C\u83B7\u53D6\u968F\u673A\u5143\u7D20\
-          -\u4E2D\u7B49/index.md"
   - "\u6280\u5DE7\u603B\u7ED3":
     - "odd\u5947\u6570-even\u5076\u6570-\u4E2D\u70B9":
       - Introduction: "LeetCode/\u6280\u5DE7\u603B\u7ED3/odd\u5947\u6570-even\u5076\
           \u6570-\u4E2D\u70B9/index.md"
-    - "\u904D\u5386\u4E00\u8F6E\u5E8F\u5217":
-      - Introduction: "LeetCode/\u6280\u5DE7\u603B\u7ED3/\u904D\u5386\u4E00\u8F6E\u5E8F\
-          \u5217/index.md"
-      - "double-pointer\u904D\u5386\u4E00\u8F6E\u5E8F\u5217":
-        - Introduction: "LeetCode/\u6280\u5DE7\u603B\u7ED3/\u904D\u5386\u4E00\u8F6E\
-            \u5E8F\u5217/double-pointer\u904D\u5386\u4E00\u8F6E\u5E8F\u5217/index.md"
   - "Tournament-\u6BD4\u8D5B":
     - Introduction: "LeetCode/Tournament-\u6BD4\u8D5B/index.md"
     - "\u8BA1\u7B97\u673A\u7B97\u6CD5\u8BBE\u8BA1\u4E0E\u5206\u6790-2.11-\u5FAA\u73AF\u8D5B\u65E5\u7A0B\u8868":
@@ -1555,6 +1641,26 @@ nav:
         - Introduction: "Expert-labuladong/2.4-\u624B\u628A\u624B\u8BBE\u8BA1\u6570\
             \u636E\u7ED3\u6784/Monotonic-stack\u5355\u8C03\u6808/\u5355\u8C03\u6808\
             Monotonic-Stack\u7684\u4F7F\u7528/index.md"
+        - "LeetCode-496-\u4E0B\u4E00\u4E2A\u66F4\u5927\u5143\u7D20-I-\u7B80\u5355":
+          - Introduction: "Expert-labuladong/2.4-\u624B\u628A\u624B\u8BBE\u8BA1\u6570\
+              \u636E\u7ED3\u6784/Monotonic-stack\u5355\u8C03\u6808/\u5355\u8C03\u6808\
+              Monotonic-Stack\u7684\u4F7F\u7528/LeetCode-496-\u4E0B\u4E00\u4E2A\u66F4\
+              \u5927\u5143\u7D20-I-\u7B80\u5355/index.md"
+        - "LeetCode-503-\u4E0B\u4E00\u4E2A\u66F4\u5927\u5143\u7D20-II-\u4E2D\u7B49":
+          - Introduction: "Expert-labuladong/2.4-\u624B\u628A\u624B\u8BBE\u8BA1\u6570\
+              \u636E\u7ED3\u6784/Monotonic-stack\u5355\u8C03\u6808/\u5355\u8C03\u6808\
+              Monotonic-Stack\u7684\u4F7F\u7528/LeetCode-503-\u4E0B\u4E00\u4E2A\u66F4\
+              \u5927\u5143\u7D20-II-\u4E2D\u7B49/index.md"
+        - "LeetCode-556-\u4E0B\u4E00\u4E2A\u66F4\u5927\u5143\u7D20-III-\u4E2D\u7B49":
+          - Introduction: "Expert-labuladong/2.4-\u624B\u628A\u624B\u8BBE\u8BA1\u6570\
+              \u636E\u7ED3\u6784/Monotonic-stack\u5355\u8C03\u6808/\u5355\u8C03\u6808\
+              Monotonic-Stack\u7684\u4F7F\u7528/LeetCode-556-\u4E0B\u4E00\u4E2A\u66F4\
+              \u5927\u5143\u7D20-III-\u4E2D\u7B49/index.md"
+        - "LeetCode-739-\u6BCF\u65E5\u6E29\u5EA6-\u4E2D\u7B49":
+          - Introduction: "Expert-labuladong/2.4-\u624B\u628A\u624B\u8BBE\u8BA1\u6570\
+              \u636E\u7ED3\u6784/Monotonic-stack\u5355\u8C03\u6808/\u5355\u8C03\u6808\
+              Monotonic-Stack\u7684\u4F7F\u7528/LeetCode-739-\u6BCF\u65E5\u6E29\u5EA6\
+              -\u4E2D\u7B49/index.md"
       - "\u5355\u8C03\u6808\u89E3\u9898\u6A21\u677F\u79D2\u6740\u4E09\u9053\u7B97\u6CD5\u9898":
         - Introduction: "Expert-labuladong/2.4-\u624B\u628A\u624B\u8BBE\u8BA1\u6570\
             \u636E\u7ED3\u6784/Monotonic-stack\u5355\u8C03\u6808/\u5355\u8C03\u6808\
@@ -1563,11 +1669,12 @@ nav:
       - Introduction: "Expert-labuladong/2.4-\u624B\u628A\u624B\u8BBE\u8BA1\u6570\u636E\
           \u7ED3\u6784/\u5E38\u6570\u65F6\u95F4-\u5220\u9664\u67E5\u627E\u6570\u7EC4\
           \u4E2D\u7684\u4EFB\u610F\u5143\u7D20/index.md"
-      - "LeetCode-380-O(1)\u65F6\u95F4\u63D2\u5165-\u5220\u9664\u548C\u83B7\u53D6\u968F\u673A\u5143\u7D20":
+      - "LeetCode-380-O(1)\u65F6\u95F4\u63D2\u5165\u5220\u9664\u548C\u83B7\u53D6\u968F\u673A\u5143\u7D20-\u4E2D\u7B49":
         - Introduction: "Expert-labuladong/2.4-\u624B\u628A\u624B\u8BBE\u8BA1\u6570\
             \u636E\u7ED3\u6784/\u5E38\u6570\u65F6\u95F4-\u5220\u9664\u67E5\u627E\u6570\
             \u7EC4\u4E2D\u7684\u4EFB\u610F\u5143\u7D20/LeetCode-380-O(1)\u65F6\u95F4\
-            \u63D2\u5165-\u5220\u9664\u548C\u83B7\u53D6\u968F\u673A\u5143\u7D20/index.md"
+            \u63D2\u5165\u5220\u9664\u548C\u83B7\u53D6\u968F\u673A\u5143\u7D20-\u4E2D\
+            \u7B49/index.md"
       - "LeetCode-710-\u9ED1\u540D\u5355\u4E2D\u7684\u968F\u673A\u6570-\u56F0\u96BE":
         - Introduction: "Expert-labuladong/2.4-\u624B\u628A\u624B\u8BBE\u8BA1\u6570\
             \u636E\u7ED3\u6784/\u5E38\u6570\u65F6\u95F4-\u5220\u9664\u67E5\u627E\u6570\
@@ -1885,6 +1992,12 @@ nav:
     - Introduction: Expert-Emre-Bolat/Coding-Patterns-K-way-Merge/index.md
   - Coding-Patterns-Merge-Intervals:
     - Introduction: Expert-Emre-Bolat/Coding-Patterns-Merge-Intervals/index.md
+- Expert-Edward-Elric:
+  - Introduction: Expert-Edward-Elric/index.md
+- "Expert-\u8D1F\u96EA\u660E\u70DB":
+  - Introduction: "Expert-\u8D1F\u96EA\u660E\u70DB/index.md"
+- "Expert-\u5BAB\u6C34\u4E09\u53F6":
+  - Introduction: "Expert-\u5BAB\u6C34\u4E09\u53F6/index.md"
 - Course-YSC2229-Introductory-Data-Structures-and-Algorithms:
   - Introduction: Course-YSC2229-Introductory-Data-Structures-and-Algorithms/index.md
   - 4.4-Complexity-of-Divide-and-Conquer-Algorithms:
