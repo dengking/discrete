@@ -141,3 +141,9 @@ int main()
 
 最后的问题就是如何处理非二进制。
 
+### 完整代码
+
+> NOTE: 
+>
+> 下面代码是截取自 CSDN [ural 1057 Amount of degrees 【数位dp】](https://blog.csdn.net/y990041769/article/details/40515677)
+
