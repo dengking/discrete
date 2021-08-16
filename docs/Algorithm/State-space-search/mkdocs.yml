@@ -2,7 +2,7 @@ nav:
     - Introduction: index.md
     - Backtracking: Backtracking
     - Branch-and-Bound: Branch-and-Bound
-    - LeetCode: LeetCode
     - VS-brute-force-search: VS-brute-force-search
     - Constraint-satisfaction-problem: Constraint-satisfaction-problem.md
+    - Application: App
     

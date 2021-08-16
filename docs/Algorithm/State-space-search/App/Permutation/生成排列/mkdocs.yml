@@ -1,6 +1,5 @@
 nav:
     - Introduction: index.md
     - Steinhaus-Johnson-Trotter-algorithm: Steinhaus-Johnson-Trotter-algorithm
-    - LeetCode-排列问题: LeetCode-排列问题    
     - geeksforgeeks-permutation: geeksforgeeks-permutation
     

@@ -1,3 +1,5 @@
 nav:
     - Introduction: index.md
     - 生成排列: 生成排列
+    - LeetCode-排列问题: LeetCode-排列问题    
+    
