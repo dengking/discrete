@@ -60,7 +60,15 @@ LeetCode [518. 零钱兑换 II](https://leetcode-cn.com/problems/coin-change-2/)
 
 二、子数组
 
-参见 
+参见 `DP解子数组问题` 章节。
+
+三、DP解最短路径问题
+
+四、数位DP
+
+五、区间DP
+
+
 
 ## 动态规划复杂度分析
 
