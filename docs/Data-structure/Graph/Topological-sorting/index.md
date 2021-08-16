@@ -46,25 +46,17 @@ A topological ordering is possible if and only if the graph has no [directed cyc
 
 
 
+## labuladong [拓扑排序，YYDS！](https://mp.weixin.qq.com/s/7nP92FhCTpTKIAplj_xWpA)
+
+
+
 ## Implementation
 
 github [Algo-Tree](https://github.com/Algo-Phantoms/Algo-Tree)/[Code](https://github.com/Algo-Phantoms/Algo-Tree/tree/main/Code)/[C++](https://github.com/Algo-Phantoms/Algo-Tree/tree/main/Code/C%2B%2B)/[Topological_sort.cpp](https://github.com/Algo-Phantoms/Algo-Tree/blob/main/Code/C%2B%2B/Topological_sort.cpp)
 
 
 
-## TODO
-
-jianshu [拓扑排序(一)——有向图成环检测](https://www.jianshu.com/p/d6042b659f70)
-
-csdn [[ZZ]如何判断有向图是否成环](https://blog.csdn.net/leonsc/article/details/5973209)
-
-csdn [数据结构 图 有向无环图](https://blog.csdn.net/nomad2/article/details/1559664)
-
-csdn [拓扑排序判断有向图是否成环](https://blog.csdn.net/qq_40642465/article/details/80670269)
-
-
-
-### leetcode
+## LeetCode 课程表
 https://leetcode-cn.com/problems/course-schedule/solution/ke-cheng-biao-by-leetcode-solution/
 
 https://leetcode-cn.com/problems/course-schedule-ii/solution/ke-cheng-biao-ii-by-leetcode-solution/
@@ -77,3 +69,14 @@ https://leetcode-cn.com/problems/course-schedule-iv/
 
 
 ​																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
+
+## TODO
+
+jianshu [拓扑排序(一)——有向图成环检测](https://www.jianshu.com/p/d6042b659f70)
+
+csdn [[ZZ]如何判断有向图是否成环](https://blog.csdn.net/leonsc/article/details/5973209)
+
+csdn [数据结构 图 有向无环图](https://blog.csdn.net/nomad2/article/details/1559664)
+
+csdn [拓扑排序判断有向图是否成环](https://blog.csdn.net/qq_40642465/article/details/80670269)
+
