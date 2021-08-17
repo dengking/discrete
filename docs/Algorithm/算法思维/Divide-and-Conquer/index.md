@@ -10,6 +10,10 @@
 
 二、思考原问题 和 子问题(原问题 和 子问题 之间的关系)；尤其是对于大型的问题，这是非常重要的一种解决问题的思路，典型的例子: [external sorting](https://en.wanweibaike.com/wiki-External%20sorting)。
 
+> NOTE: 
+>
+> 这是自顶向下的思考方式
+
 三、它是很多其它algorithm的基石
 
 dynamic programming、greedy algorithm 等等，都是基于它的。
