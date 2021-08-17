@@ -78,7 +78,21 @@ int main()
 
 这样我们可以得到状态间的转移方程：
 $$
-f[\textit{mask}] = \sum_{i \in \textit{mask} ~\wedge \big( i+1 \mid \textit{num}(\textit{mask}) ~\vee~ \textit{num}(\textit{mask}) \mid i+1 \big) } f[\textit{mask} - 2^i]
+f[\textit{mask}] = \sum_{i \in \textit{mask} ~\wedge \big( i+1 \mid \textit{num}(\textit{mask}) ~\vee~ \textit{num}(\textit{mask}) \mid i+1 \big) } f[\textit{mask} - 2^i]
 $$
 其中 $\textit{num}(\textit{mask})$ 表示二进制数 $\textit{mask}$中 $1$ 的个数，$x \mid y$ 表示 $x$ 可以整除 $y$。
+
+
+
+## 【宫水三叶】详解两种状态压缩 DP 思路
+
+利用数据范围不超过 $15$，我们可以使用「状态压缩 DP」进行求解。
+
+**使用一个二进制数表示当前哪些数已被选，哪些数未被选，目的是为了可以使用位运算进行加速。**
+
+假设变量 `state` 存放了「当前数的使用情况」，当我们需要检查值为 k 的数是否被使用时，可以使用位运算
+
+
+
+**定义 `f[i][state]`为考虑前 `i` 个数，且当前选择方案为 `state` 的所有方案数量。**
 

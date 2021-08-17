@@ -1,7 +1,8 @@
 nav:
     - Introduction: index.md
-    - Subset-子集: Subset-子集
-    - Permutation: Permutation
-    - Combination: Combination
+    - Subset: Subset # 子集
+    - Permutation: Permutation # 排列
+    - Combination: Combination # 组合
+    - Complete-n-ary-tree: Complete-n-ary-tree # 完全n叉树
     - LeetCode-698-划分为k个相等的子集: LeetCode-698-划分为k个相等的子集    
     

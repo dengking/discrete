@@ -20,17 +20,15 @@ https://www.geeksforgeeks.org/top-20-backtracking-algorithm-interview-questions/
 
 
 
-### [eight queens puzzle](https://en.wikipedia.org/wiki/Eight_queens_puzzle)
+### [Eight queens puzzle](https://en.wikipedia.org/wiki/Eight_queens_puzzle)
 
 
 
-### [crosswords](https://en.wikipedia.org/wiki/Crosswords)
+### [Crosswords](https://en.wikipedia.org/wiki/Crosswords)
 
 
 
-### [verbal arithmetic](https://en.wikipedia.org/wiki/Verbal_arithmetic)
-
-
+### [Verbal arithmetic](https://en.wikipedia.org/wiki/Verbal_arithmetic)
 
 
 
@@ -38,9 +36,7 @@ https://www.geeksforgeeks.org/top-20-backtracking-algorithm-interview-questions/
 
 
 
-
-
-### [parsing](https://en.wikipedia.org/wiki/Parsing) 
+### [Parsing](https://en.wikipedia.org/wiki/Parsing) 
 
 参见[*Compilers: Principles, Techniques, and Tools*](https://en.wikipedia.org/wiki/Compilers:_Principles,_Techniques,_and_Tools)的4.4 Top-Down Parsing，其中介绍了使用backtrack来实现parsing。
 
