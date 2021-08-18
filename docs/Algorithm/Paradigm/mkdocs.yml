@@ -3,7 +3,8 @@ nav:
     - wikipedia-Algorithmic-paradigm: wikipedia-Algorithmic-paradigm    
     - Guide: Guide    
     - Brute-force: Brute-force
-    - DP&Greedy: DP&Greedy
+    - DP: DP
+    - Greedy: Greedy    
     - Heuristic: Heuristic
     - Statistical-algorithms: Statistical-algorithms
 

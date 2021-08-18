@@ -52,3 +52,11 @@ https://github.com/SharingSource/LogicStack-LeetCode/wiki/%E5%BA%8F%E5%88%97-DP
 >
 > 首先，子序列问题本身就相对子串、子数组更困难一些，因为前者是不连续的序列，而后两者是连续的，就算穷举都不容易，更别说求解相关的算法问题了。
 
+
+
+## TODO
+
+https://stackoverflow.com/questions/tagged/dynamic-programming?tab=Active
+
+序列问题与多条规划算法
+

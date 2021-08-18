@@ -12,3 +12,11 @@
 
 3、LeetCode [【宫水三叶】将数位 DP 问题转化为计数类模拟题](https://leetcode-cn.com/problems/number-of-digit-one/solution/gong-shui-san-xie-jiang-shu-wei-dp-wen-t-c9oi/) 
 
+
+
+## TODO
+
+CSDN [数字游戏 （dp）](https://blog.csdn.net/xiaofang3a/article/details/39897737)
+
+cnblogs [计数DP之数字](https://www.cnblogs.com/soda-ma/p/13325119.html)
+

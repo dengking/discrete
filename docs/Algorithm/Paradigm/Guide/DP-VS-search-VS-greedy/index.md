@@ -1,4 +1,4 @@
-# VS
+# DP VS search VS greedy
 
 ## 动态规划VS贪心算法
 
