@@ -6,7 +6,7 @@ nav:
     - Computational-problems: Computational-problems
     - Implementation: Implementation
     - Graph-traversal: Graph-traversal
-    - Path: Path # 路径问题
+    - 路径问题: 路径问题 # 路径问题
     - Topological-sorting: Topological-sorting
     - Spanning-tree: Spanning-tree    
     - Search-algorithm: Search-algorithm # graph和tree中都会存在的一种问题

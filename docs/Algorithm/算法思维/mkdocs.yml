@@ -2,9 +2,10 @@ nav:
     - Introduction: index.md
     - 穷举State-solution-space: 穷举State-solution-space
     - Divide-and-Conquer: Divide-and-Conquer
+    - Recurrence-relation: Recurrence-relation    
     - Overlapping-subproblem: Overlapping-subproblem
     - Space-time-tradeoff: Space-time-tradeoff
-    - Recurrence-relation: Recurrence-relation
     - Optimal-substructure: Optimal-substructure
     - Bellman-equation: Bellman-equation
+    - 穷举-DP-greedy: 穷举-DP-greedy
     
