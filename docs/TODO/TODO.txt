@@ -1,0 +1,19 @@
+CRDT
+
+
+https://www.aristeia.com/Papers/DDJ_Jul_Aug_2004_revised.pdf
+
+MTU network
+
+https://blog.csdn.net/wenbingoon/article/details/8915082
+
+https://blog.csdn.net/pi9nc/article/details/17165171?utm_medium=distribute.pc_relevant_bbs_down.none-task-blog-baidujs-1.nonecase&depth_1-utm_source=distribute.pc_relevant_bbs_down.none-task-blog-baidujs-1.nonecase
+
+https://wiki.eltima.com/user-guides/sec-pc/tcp-server.html
+
+https://blog.csdn.net/weixin_45583158/article/details/102694114
+
+https://www.linuxjournal.com/content/tcp-analysis-wireshark
+
+
+https://www.cnblogs.com/kex1n/p/6502002.html
