@@ -70,3 +70,6 @@ for(int len=2;len<=n;len++)
 ## CSDN [区间dp入门](https://blog.csdn.net/qq_40772692/article/details/80183248)
 
 
+
+## jianshu [算法学习之区间dp](https://www.jianshu.com/p/9c6401ea2f9b)
+
