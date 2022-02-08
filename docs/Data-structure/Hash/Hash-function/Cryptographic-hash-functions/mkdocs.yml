@@ -1,4 +1,5 @@
 nav:
     - Introduction: index.md
     - Cipher: Cipher.md
-    - Salt(cryptography): Salt(cryptography).md
+    - Salt: Salt
+    
