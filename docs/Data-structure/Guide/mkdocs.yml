@@ -1,7 +1,7 @@
 nav:
     - Introduction: index.md
     - List-of-data-structure: List-of-data-structure
-    - Graph&&tree&&list: Graph&&tree&&list
+    - Graph&tree&list: Graph&tree&list
     - Hybrid-data-structure: Hybrid-data-structure
     - Double-linked-list-VS-binary-tree: Double-linked-list-VS-binary-tree
     
