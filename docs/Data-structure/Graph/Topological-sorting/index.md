@@ -1,20 +1,46 @@
 # Topological sorting
 
-一、[207. 课程表](https://leetcode-cn.com/problems/course-schedule/) # [力扣官方题解](https://leetcode-cn.com/problems/course-schedule/solution/ke-cheng-biao-by-leetcode-solution/)
+## LeetCode [207. 课程表](https://leetcode-cn.com/problems/course-schedule/) # [力扣官方题解](https://leetcode-cn.com/problems/course-schedule/solution/ke-cheng-biao-by-leetcode-solution/)
 
-1、如果图 `G` 中存在环（即图 `G` 不是「有向无环图」），那么图 `G` 不存在拓扑排序。
+> NOTE: 
+>
+> 一、原文给出了两种算法:DFS和BFS，相比之下，BFS是更加容易理解的，因为它是符合我们直接进行topological sorting的顺序的
+>
+> 二、首先需要根据 `prerequisites` 数组构建出dependency graph，这样能够找到它的相邻节点，原味给出的解法中都是使用的**adjacent list**
+>
+> 
+
+
+
+1、如果图 `G` 中存在环（即图 `G` 不是「有向无环图」），那么图 `G` 不存在**拓扑排序**。
 
 这是因为假设图中存在环 $x_1, x_2, \cdots, x_n, x_1$ ，那么 $x_1$ 在排列中必须出现在 $x_n$的前面，但 $x_n$ 同时也必须出现在 $x_1$  的前面，因此不存在一个满足要求的排列，也就不存在拓扑排序；
 
+> NOTE: 
+>
+> 一、上述使用的是反证法: 自相矛盾
+>
+> 二、在实现topological sorting的时候，一个非常重要的问题是circle，一旦有circle则无法进行topological sorting
+
 2、如果图 $G$ 是有向无环图，那么它的拓扑排序可能不止一种。举一个最极端的例子，如果图 $G$ 值包含 $n$ 个节点却没有任何边，那么任意一种编号的排列都可以作为拓扑排序。
 
-二、在实现topological sorting的时候，一个非常重要的问题是circle，一旦有circle则无法进行topological sorting
 
-三、使用 "入度" 和 "长度" :
 
-1、一个node，如果它的 "入度"  为0，则表示它没有依赖其他节点
+### 方法二: 广度优先搜索
 
-2、一个node，如果它的 "长度"  为0，则表示没有其它节点依赖它
+> NOTE: 
+>
+> 一、使用 "入度" 和 "长度"概念来进行理解:
+>
+> 1、一个node，如果它的 "入度"  为0，则表示它没有依赖其他节点
+>
+> 2、一个node，如果它的 "出度"  为0，则表示没有其它节点依赖它
+>
+> 其实只需要入度即可: 某个节点的入度如果非0，则表示它存在依赖
+
+上面的想法类似于**广度优先搜索**，因此我们可以将**广度优先搜索**的流程与**拓扑排序**的求解联系起来。
+
+
 
 ## 算法思想
 
