@@ -1,4 +1,5 @@
 nav:
     - Introduction: index.md
-    
+    - 拓扑排序: 拓扑排序
+    - union-find: union-find
     

@@ -4,17 +4,41 @@
 
 
 
-## wanweibaike [Disjoint-set data structure](https://en.wanweibaike.com/wiki-Union%20find) 
+## wikipedia [Disjoint-set data structure](https://en.wikipedia.org/wiki/Disjoint-set_data_structure) 
 
-In [computer science](https://en.wanweibaike.com/wiki-Computer_science), a **disjoint-set data structure**, also called a **union–find data structure** or **merge–find set**, is a data structure that stores a collection of [disjoint](https://en.wanweibaike.com/wiki-Disjoint_sets) (non-overlapping) sets. Equivalently, it stores a [partition of a set](https://en.wanweibaike.com/wiki-Partition_of_a_set) into disjoint subsets. It provides operations for adding new sets, merging sets (replacing them by their [union](https://en.wanweibaike.com/wiki-Union_(set_theory))), and finding a representative member of a set. The last operation allows to find out efficiently if any two elements are in the same or different sets.
+In [computer science](https://en.wanweibaike.com/wiki-Computer_science), a **disjoint-set data structure**, also called a **union–find data structure** or **merge–find set**, is a data structure that stores a collection of [disjoint](https://en.wanweibaike.com/wiki-Disjoint_sets) (non-overlapping) sets. Equivalently, it stores a [partition of a set](https://en.wanweibaike.com/wiki-Partition_of_a_set) into disjoint subsets. 
 
-Disjoint-set data structures play a key role in [Kruskal's algorithm](https://en.wanweibaike.com/wiki-Kruskal's_algorithm) for finding the [minimum spanning tree](https://en.wanweibaike.com/wiki-Minimum_spanning_tree) of a graph. The importance of minimum spanning trees means that disjoint-set data structures underlie a wide variety of algorithms. In addition, disjoint-set data structures also have applications to symbolic computation, as well in compilers, especially for [register allocation](https://en.wanweibaike.com/wiki-Register_allocation) problems.
+> NOTE: 
+>
+> 一、显然它是由"a collection of [disjoint](https://en.wanweibaike.com/wiki-Disjoint_sets) (non-overlapping) sets"组成
+
+### ADT
+
+It provides operations for :
+
+1、adding new sets
+
+2、merging sets (replacing them by their [union](https://en.wanweibaike.com/wiki-Union_(set_theory))), 
+
+3、finding a representative member of a set. 
+
+4、find out efficiently if any two elements are in the same or different sets.
+
+### Implementation
 
 
 
 ### Applications
 
-Disjoint-set data structures model the [partitioning of a set](https://en.wanweibaike.com/wiki-Partition_of_a_set), for example to keep track of the [connected components](https://en.wanweibaike.com/wiki-Connected_component_(graph_theory)) of an [undirected graph](https://en.wanweibaike.com/wiki-Undirected_graph). This model can then be used to determine whether two vertices belong to the same component, or whether adding an edge between them would result in a cycle. The Union–Find algorithm is used in high-performance implementations of [unification](https://en.wanweibaike.com/wiki-Unification_(computer_science)).[[15\]](https://en.wanweibaike.com/wiki-Union find#cite_note-Knight1989-15)
+Disjoint-set data structures play a key role in [Kruskal's algorithm](https://en.wikipedia.org/wiki/Kruskal's_algorithm) for finding the [minimum spanning tree](https://en.wikipedia.org/wiki/Minimum_spanning_tree) of a graph. The importance of minimum spanning trees means that disjoint-set data structures underlie a wide variety of algorithms. 
+
+In addition, disjoint-set data structures also have applications to symbolic computation, as well in compilers, especially for [register allocation](https://en.wikipedia.org/wiki/Register_allocation) problems.
+
+Disjoint-set data structures model the [partitioning of a set](https://en.wanweibaike.com/wiki-Partition_of_a_set), for example to keep track of the [connected components](https://en.wanweibaike.com/wiki-Connected_component_(graph_theory)) of an [undirected graph](https://en.wanweibaike.com/wiki-Undirected_graph). This model can then be used to determine whether two vertices belong to the same component, or whether adding an edge between them would result in a cycle. The Union–Find algorithm is used in high-performance implementations of [unification](https://en.wanweibaike.com/wiki-Unification_(computer_science)).
+
+> NOTE: 
+>
+> 一、在labuladong [Union-Find 并查集算法详解](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247484751&idx=1&sn=a873c1f51d601bac17f5078c408cc3f6&scene=21#wechat_redirect) 将这种application称之为 "动态连通性"
 
 This data structure is used by the [Boost Graph Library](https://en.wanweibaike.com/wiki-Boost_Graph_Library) to implement its [Incremental Connected Components](http://www.boost.org/libs/graph/doc/incremental_components.html) functionality. It is also a key component in implementing [Kruskal's algorithm](https://en.wanweibaike.com/wiki-Kruskal's_algorithm) to find the [minimum spanning tree](https://en.wanweibaike.com/wiki-Minimum_spanning_tree) of a graph.
 
