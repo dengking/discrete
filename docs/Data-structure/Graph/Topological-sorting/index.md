@@ -20,9 +20,9 @@
 
 1、找到没有被依赖的
 
-2、使用dependency relation构建的structure，如果能够进行topological sorting，则会形成hierarchy structure。
+2、使用dependency relation构建的structure，如果能够进行**topological sorting**，则会形成**hierarchy structure**。
 
-3、验证relation的分析不断地向下寻找，直到找到一个没有任何依赖的
+3、沿着relation的分析不断地向下寻找，直到找到一个没有任何依赖的
 
 4、应该是depth first search
 

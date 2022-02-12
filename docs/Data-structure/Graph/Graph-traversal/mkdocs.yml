@@ -1,4 +1,5 @@
 nav:
     - Introduction: index.md
-    - Depth-first search-DFS: Depth-first search-DFS
-    - Breadth-first-search-BFS: Breadth-first-search-BFS
+    - DFS-Depth-first-search: DFS-Depth-first-search
+    - BFS-Breadth-first-search: BFS-Breadth-first-search
+    
