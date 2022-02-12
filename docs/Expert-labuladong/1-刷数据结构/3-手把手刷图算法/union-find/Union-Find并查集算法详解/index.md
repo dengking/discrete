@@ -1,4 +1,4 @@
-# [Union-Find 并查集算法详解](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247484751&idx=1&sn=a873c1f51d601bac17f5078c408cc3f6&scene=21#wechat_redirect)
+# labuladong [Union-Find 并查集算法详解](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247484751&idx=1&sn=a873c1f51d601bac17f5078c408cc3f6&scene=21#wechat_redirect)
 
 > NOTE: 
 >
@@ -258,7 +258,7 @@ public void union(int p, int q) {
 
 要做到这一点，非常简单，只需要在`find`中加一行代码：
 
-```
+```C++
 private int find(int x) {
     while (parent[x] != x) {
         // 进行路径压缩
@@ -268,6 +268,20 @@ private int find(int x) {
     return x;
 }
 ```
+
+> NOTE: 
+>
+> 一、看到:
+>
+> ```C++
+>         parent[x] = parent[parent[x]];
+> ```
+>
+> 我的第一反应是: `parent[parent[x]]` 是否会出界？
+>
+> 答案是: 不会的，因为它执行的条件是 `parent[x] != x`，这就意味着: 树的高度至少为 2；
+>
+> 上述操作的含义是: 让节点`x`挂到它的grand-parent下。
 
 这个操作有点匪夷所思，看个 GIF 就明白它的作用了（为清晰起见，这棵树比较极端）：
 
@@ -283,7 +297,7 @@ PS：读者可能会问，这个 GIF 图的`find`过程完成之后，树高恰�
 
 我们先来看一下完整代码：
 
-```
+```Java
 class UF {
     // 连通分量个数
     private int count;
@@ -338,4 +352,3 @@ class UF {
 
 Union-Find 算法的复杂度可以这样分析：构造函数初始化数据结构需要 O(N) 的时间和空间复杂度；连通两个节点`union`、判断两个节点的连通性`connected`、计算连通分量`count`所需的时间复杂度均为 O(1)。
 
-至此，算法就说完了。后续可以考虑谈几道用到该算法的有趣问题，敬请期待。

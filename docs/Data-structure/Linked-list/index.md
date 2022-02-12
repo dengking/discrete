@@ -26,9 +26,3 @@ A [heap](https://en.wikipedia.org/wiki/Heap_(data_structure)) shares some of the
 
 A [self-organizing list](https://en.wikipedia.org/wiki/Self-organizing_list) rearranges its nodes based on some heuristic which reduces search times for data retrieval by keeping commonly accessed nodes at the head of the list.
 
-
-
-
-
-
-
