@@ -1,6 +1,6 @@
 nav:
     - Introduction: index.md
-    - 最长回文子串: 最长回文子串
-    - 如何高效判断回文单链表: 如何高效判断回文单链表
-    - 构造回文的最小插入次数: 构造回文的最小插入次数
+    - labuladong-最长回文子串: labuladong-最长回文子串
+    - labuladong-如何高效判断回文单链表: labuladong-如何高效判断回文单链表
+    - labuladong-构造回文的最小插入次数: labuladong-构造回文的最小插入次数
     
