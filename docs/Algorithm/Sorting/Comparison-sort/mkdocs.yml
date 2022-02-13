@@ -1,0 +1,18 @@
+nav:
+    - Introduction: index.md
+    
+    - Bubble-Sort: Bubble-Sort
+    
+    - Insertion-sort: Insertion-sort
+    
+    - Quick-sort: Quick-sort
+    
+    - Merge-sort: Merge-sort
+    
+    - Heapsort: Heapsort
+    
+    - Shellsort: Shellsort
+    
+    - Bucket-sort: Bucket-sort
+    
+    - Lexicographical-order: Lexicographical-order   

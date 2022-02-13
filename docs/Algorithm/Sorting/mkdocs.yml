@@ -1,26 +1,9 @@
 nav:
     - Introduction: index.md
-    
-    - Bubble-Sort: Bubble-Sort
-    
-    - Insertion-sort: Insertion-sort
-    
-    - Quick-sort: Quick-sort
-    
-    - Merge-sort: Merge-sort
-    
-    - Heapsort: Heapsort
-    
-    - Shellsort: Shellsort
-    
-    - Bucket-sort: Bucket-sort
-    
+    - Comparison-sort: Comparison-sort
+    - Distribution-sort: Distribution-sort
     - Hybrid: Hybrid
-    
-    - Lexicographical-order-字典序: Lexicographical-order-字典序
-    
-    - LeetCode-912-排序数组: LeetCode-912-排序数组
-    
     - Top-K-rank: Top-K-rank
-    
+    - LeetCode-912-排序数组: LeetCode-912-排序数组
     - LeetCode-581-最短无序连续子数组-中等: LeetCode-581-最短无序连续子数组-中等
+    
