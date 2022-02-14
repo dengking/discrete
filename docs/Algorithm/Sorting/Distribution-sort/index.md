@@ -1,5 +1,7 @@
 # Distribution sort
 
+"distribution sort"顾名思义是根据数据的分布来进行排序，典型的例子就是counting-sort。
+
 ## wikipedia [Sorting algorithm](https://en.wikipedia.org/wiki/Sorting_algorithm) # Distribution sort
 
 See also: [External sorting](https://infogalactic.com/info/External_sorting)
