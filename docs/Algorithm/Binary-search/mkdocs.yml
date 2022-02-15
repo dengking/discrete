@@ -2,3 +2,5 @@ nav:
     - Introduction: index.md
     - wikipedia-Binary-search-algorithm: wikipedia-Binary-search-algorithm
     - Complexity-analysis: Complexity-analysis
+    - LeetCode-540-有序数组中的单一元素-中等: LeetCode-540-有序数组中的单一元素-中等
+    
