@@ -1,16 +1,16 @@
-# **labuladong** [我作了首诗，保你闭着眼睛也能写对二分查找](https://mp.weixin.qq.com/s/M1KfTfNlu4OCK8i9PSAmug)
+# **labuladong** [我作了首诗，保你闭着眼睛也能写对二分查找](https://mp.weixin.qq.com/s/M1KfTfNlu4OCK8i9PSAmug) 
 
-> 一、为了描述方便，使用range来表示**搜索区间**，原文中始终强调range、while条件
+> 一、为了描述方便，使用range来表示**搜索区间**，原文中始终强调range，因为while的条件是基于range，while循环体也是对range进行操作
 >
-> 二、由于是双指针(left、right)，即存在两个元素，因此，最终range的长度，缩减为2，即此时left pointer 和 right pointer相遇，然后缩减为1
+> 二、二分搜索能够保证，`left`、`right`不断地向target靠近，这是binary search的核心特性，后续的三种形式都是以此为前提的。
+>
+> 三、由于是双指针(left、right)，即存在两个元素，因此，最终range的长度，缩减为2，即此时left pointer 和 right pointer相遇，然后缩减为1
 >
 > 1、寻找左边界的二分搜索和寻找右边界的二分搜索就是利用的这个特性。
 >
 > 2、寻找左边界的二分搜索和寻找右边界的二分搜索中，当`nums[mid] == target`时，它会将`nums[mid]`从range中剔除，因此，当while退出的时候，肯定是因为range为0了，即`left == right`
 >
-> 3、二分搜索能够保证，`left`、`right`不断地向target靠近。
->
-> 4、对于寻找左侧边界的二分搜索，当while退出的时候，如果存在target，那么它就指向target。
+> 3、对于寻找左侧边界的二分搜索，当while退出的时候，如果存在target，那么它就指向target。
 >
 > 
 >
@@ -32,7 +32,7 @@
 >
 > **搜索区间的界定是要统一的，在开始搜索前和搜索中，在搜索中，需要不断地变化搜索区间，需要始终保持区间策略的一致**
 >
-> 六、最终统一为左闭右闭的形式
+> 六、最终统一为**左闭右闭**的形式，在最后面给出了完整的程序，下面是一些分析:
 >
 > 对于区间，非常容易理解；
 >
@@ -44,9 +44,9 @@
 >
 > 最终left、right肯定会逼近目标元素，最终的终止条件是left > right，即left ==  right + 1 ，即left在right的右侧；
 >
-> 对于**left bound**: 当命中target的时候，不断地缩小right，最终，right错过target，指向target的左侧，left指向target，因此最终返回left
+> 对于**left bound**: 当命中target的时候，不断地缩小right，最终，right错过target，指向target的左侧，当循环条件不满足，即left ==  right + 1，left指向target，因此最终返回left；由于算法中执行left + 1，因此需要考虑left超过array的范围。
 >
-> 对于**right bound**: 当命中target的时候，不断地增大left，最终，left错过target，指向target的右侧，right指向target，因此最终返回right
+> 对于**right bound**: 当命中target的时候，不断地增大left，最终，left错过target，指向target的右侧，当循环条件不满足，即left ==  right + 1，right指向target，因此最终返回right；由于算法中执行right - 1，因此需要考虑right超过array的范围。
 >
 > 2、要么不存在: 
 >
@@ -62,11 +62,9 @@
 >
 > 对于**right bound**: 最终返回的是right，此时right是安全的，不会越界
 >
-> 
+> 可以看到: 可能的情况是非常多的
 
 本文就来探究几个最常用的二分查找场景：寻找一个数、寻找左侧边界、寻找右侧边界。而且，我们就是要深入细节，比如不等号是否应该带等号，`mid` 是否应该加一等等。
-
-
 
 
 
@@ -74,9 +72,7 @@
 
 > NOTE: 
 >
-> 1、上述"零"是什么含义？章节号
->
-> 2、可以看到，下面的code中，`...`主要是对边界的划分，或者使用作者的概念: **搜索区间**
+> 可以看到，下面的code中，`...`主要是对边界的划分，或者使用作者的概念: **搜索区间**
 >
 > 
 
@@ -216,28 +212,9 @@ int binarySearch(int[] nums, int target) {
     return nums[left] == target ? left : -1;
 ```
 
+
 > NOTE: 
-> 一、作者上面这段话是有误的，下面是例子:
->
-> 例子一: 数组中只有一个元素`[2]`，查找`0`。
->
-> 显然，演算流程如下:
->
-> left=0, right=1, mid=0，array[mid] > 0, 则target位于mid的左边
->
-> left=0, right=mid-1=0
->
-> 由于采用的是左开右闭，right是无效索引，所以`left==right`时，表示区间已经为空了。
->
-> 例子二: 数组中只有一个元素`[2]`，查找`3`。
->
-> 显然，演算流程如下:
->
-> left=0, right=1, mid=0，array[mid] < 3, 则target位于mid的右边
->
-> left=mid+1=1, right=1
->
-> 由于采用的是左开右闭，right是无效索引，所以`left==right`时，表示区间已经为空了。
+> 一、作者上面这段话是有误的，在"binary-search错误分析"章节中进行了详细的分析。
 
 ### 2、为什么`left = mid + 1`，`right = mid - 1`？
 
@@ -293,6 +270,10 @@ PS：这里先要说一个搜索左右边界和上面这个算法的一个区别
 
 因为对于搜索左右侧边界的二分查找，这种写法比较普遍，我就拿这种写法举例了，保证你以后看到这类代码可以理解。其实你非要用两端都闭的写法反而更简单，我会在后面写相关的代码，把三种二分搜索都用一种两端都闭的写法统一起来，你耐心往后看就行了。
 
+> NOTE: 
+>
+> 简而言之: 左闭右闭也是可以的
+
 ### 2、为什么没有返回 -1 的操作？如果`nums`中不存在`target`这个值，怎么办？
 
 答：因为要一步一步来，先理解一下这个「左侧边界」(即 `left`)有什么特殊含义：
@@ -331,7 +312,7 @@ int left_search(std::vector<int> &nums, int target)
 	int left = 0, right = nums.size();
 	while (left < right)
 	{
-		int mid = left + (right - left - 1) / 2;
+		int mid = left + (right - left - 1) / 2; // 这里是需要注意的，是非常容易遗漏 -1的
 		if (nums[mid] == target)
 		{
 			right = mid;
@@ -359,7 +340,7 @@ int main()
 	std::vector<int> a2 = { -1, 0, 3, 5, 9, 9, 9, 12 };
 	std::cout << left_search(a2, target) << std::endl;
 }
-// g++ test.cpp -g
+// g++ test.cpp -g -fsanitize=address -fno-omit-frame-pointer
 
 ```
 

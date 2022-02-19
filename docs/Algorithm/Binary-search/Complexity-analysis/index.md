@@ -1,4 +1,4 @@
-# binary search complexity
+# binary search complexity analysis
 
 ## stackoverflow [how to calculate binary search complexity](https://stackoverflow.com/questions/8185079/how-to-calculate-binary-search-complexity)
 
