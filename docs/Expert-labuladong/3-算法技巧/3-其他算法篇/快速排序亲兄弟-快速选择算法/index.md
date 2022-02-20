@@ -180,6 +180,10 @@ int findKthLargest(int[] nums, int k) {
 }
 ```
 
+> NOTE: 
+>
+> 最终肯定会不断地向目标逼近，这和binary search是非常类似的
+
 这个代码框架其实非常像我们前文 [二分搜索框架](http://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247485044&idx=1&sn=e6b95782141c17abe206bfe2323a4226&chksm=9bd7f87caca0716aa5add0ddddce0bfe06f1f878aafb35113644ebf0cf0bfe51659da1c1b733&scene=21#wechat_redirect) 的代码，这也是这个算法高效的原因，但是时间复杂度为什么是`O(N)`呢？按理说类似二分搜索的逻辑，时间复杂度应该一定会出现对数才对呀？
 
 其实这个`O(N)`的时间复杂度是个均摊复杂度，因为我们的`partition`函数中需要利用 [双指针技巧](http://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247488584&idx=1&sn=90f7956fd9d8320fcb81aaf33c3fe7f1&chksm=9bd7ea40aca06356cdb87ba86518c50646b48b8534d42625ba454c084187400b979c8d736a61&scene=21#wechat_redirect) 遍历`nums[lo..hi]`，那么总共遍历了多少元素呢？
