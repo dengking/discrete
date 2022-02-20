@@ -1,5 +1,9 @@
 # labuladong [洗牌算法详解：你会排序，但你会打乱吗？](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247484503&idx=1&sn=e30ef74eb16ad385c16681cd6dfe15cf&chksm=9bd7fa5faca07349c6877bc69f9a27e13585f2c5ed2237ad37ac5b272611039391acc1dcd33d&scene=21#wechat_redirect)
 
+> NOTE: 
+>
+> 本文介绍的算法其实就是 [Fisher–Yates shuffle](https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle) 。
+
 所以我们面临两个问题：
 
 \1. 什么叫做「真的乱」？
