@@ -1,6 +1,6 @@
 # LeetCode [398. 随机数索引](https://leetcode-cn.com/problems/random-pick-index/)
 
-
+这个题目没有说明的是这个数组是单调递增的。
 
 ## 我的解题
 

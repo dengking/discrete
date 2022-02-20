@@ -59,7 +59,7 @@ public:
 		int k = 2;
 		while (node)
 		{
-			if (rand() % k == 0)
+			if (rand() % k == 0) // 让当前节点以 1/k的概率被选中
 			{
 				res = node->val;
 			}
