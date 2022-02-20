@@ -52,6 +52,8 @@ public:
 
 ### Randomized quick sort
 
+#### 写法一
+
 通过随机化的方式来避免退化
 
 ```C++
@@ -107,6 +109,68 @@ private:
 		return slow - 1;
 	}
 };
+
+```
+
+#### 写法二
+
+```C++
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+class Solution {
+public:
+	vector<int> sortArray(vector<int>& nums) {
+		shuffleArray(nums);
+		sortArrayImpl(nums, 0, nums.size() - 1);
+		return nums;
+
+	}
+	void sortArrayImpl(vector<int>& nums, int start, int end) {
+		if (start >= end) {
+			return;
+		}
+		int p = partition(nums, start, end);
+		sortArrayImpl(nums, start, p - 1);
+		sortArrayImpl(nums, p + 1, end);
+	}
+	int partition(vector<int>& nums, int start, int end) {
+		int left = start, right = end + 1;
+		int pivot = nums[start];
+		while (true) {
+			while (nums[++left] < pivot && left < end);
+			while (nums[--right] > pivot && right > start);
+			if (left >= right)
+				break;
+			swap(nums[left], nums[right]);
+		}
+		swap(nums[start], nums[right]);
+		return right;
+	}
+	// 采用Fisher–Yates-shuffle算法
+	void shuffleArray(vector<int>& nums) {
+		srand(time(0));
+		int len = nums.size();
+		for (int i = 0; i < len; ++i) {
+			int j = rand() % (len - i);
+			swap(nums[i], nums[j]);
+		}
+	}
+};
+
+int main()
+{
+	vector<int> nums{ 5,2,3,1 };
+	Solution s;
+	s.sortArray(nums);
+}
+
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -Werror
 
 ```
 
@@ -174,4 +238,6 @@ int main()
 
 
 ```
+
+
 

@@ -146,13 +146,98 @@ Quicksort also competes with [merge sort](https://en.wikipedia.org/wiki/Merge_so
 
 ## Implementation
 
-### 计算机算法设计与分析
+一、下面两种实现方式，其实都使用了double pointer: 
+
+1、double pointer: left、right pointer: 由两端向中间扩展
+
+labuladong [快排亲兄弟：快速选择算法详解](https://mp.weixin.qq.com/s/TRO3FOKT90Mpvn3hQWVBAQ) 	
+
+“计算机算法设计与分析”
+
+相比之下，这种方法是更加容易理解的，根据labuladong [快排亲兄弟：快速选择算法详解](https://mp.weixin.qq.com/s/TRO3FOKT90Mpvn3hQWVBAQ) 中的解释可知，这种写法是源自《算法4》的。
+
+2、double pointer: fast、slow pointer
+
+“hackerearth [Quick Sort](https://www.hackerearth.com/zh/practice/algorithms/sorting/quick-sort/tutorial/)”中的实现方式的思路是：自左向右进行扩展、fast-slow double pointer。
+
+二、分三段，只需要两个boundary，分别对应`i`和`j`。
+
+
+
+### double pointer: left、right pointer
+
+
+
+#### labuladong [快排亲兄弟：快速选择算法详解](https://mp.weixin.qq.com/s/TRO3FOKT90Mpvn3hQWVBAQ) 	
+
+```C++
+int partition(int[] nums, int lo, int hi) {
+    if (lo == hi) return lo;
+    // 将 nums[lo] 作为默认分界点 pivot
+    int pivot = nums[lo];
+    // j = hi + 1 因为 while 中会先执行 --
+    int i = lo, j = hi + 1;
+    while (true) {
+        // 保证 nums[lo..i] 都小于 pivot
+        while (nums[++i] < pivot) {
+            if (i == hi) break;
+        }
+        // 保证 nums[j..hi] 都大于 pivot
+        while (nums[--j] > pivot) {
+            if (j == lo) break;
+        }
+        if (i >= j) break;
+        // 如果走到这里，一定有：
+        // nums[i] > pivot && nums[j] < pivot
+        // 所以需要交换 nums[i] 和 nums[j]，
+        // 保证 nums[lo..i] < pivot < nums[j..hi]
+        swap(nums, i, j);
+    }
+    // 将 pivot 值交换到正确的位置
+    swap(nums, j, lo);
+    // 现在 nums[lo..j-1] < nums[j] < nums[j+1..hi]
+    return j;
+}
+
+// 交换数组中的两个元素
+void swap(int[] nums, int i, int j) {
+    int temp = nums[i];
+    nums[i] = nums[j];
+    nums[j] = temp;
+}
+```
+
+> NOTE: 
+>
+> 一、注意: 
+>
+> 1、上述 `i` 是left，`j`是right
+>
+> 2、由于循环体内一定会执行`--j`，因此虽然j的初始值是 `hi + 1`，实际执行过程中是不会
+>
+> 3、由于`a[lo]`会被选做pivot，因此第一次 `++i` 顺利地pass掉它了，这是非常合理的
+>
+> 4、通过2、3的总结可知，`i`、`j`的初始化选择的妙处，并且第一次执行的时候，它们都能够pass掉无效值 
+>
+> 二、为什么最终执行的 `swap(nums, j, lo)`？
+>
+> 以排序 `5,1,6,2,7,4,8` 为例
+>
+> 当退出 `while(true)` 的时候，`i`和`j`肯定都过界了，即此时 `i` 指向的大于pivot的，`j` 指向的是小于pivot的，partition的要求是小于它的要在它的左边，因此要和 `j` 进行交换
+>
+> 三、思考: 何时因为 `i == j` 而break？
+>
+> 比如数组是有序递减的: `6,5,4,5,2,1`，显然，循环退出是由于`i == j`，此时进行 `swap(nums, j, lo)` 也是合理的
+
+熟悉快速排序逻辑的读者应该可以理解这段代码的含义了，这个`partition`函数细节较多，上述代码参考《算法4》，是众多写法中最漂亮简洁的一种，所以建议背住，这里就不展开解释了。
+
+#### 计算机算法设计与分析
 
 ![](./Quick-sort-0.jpg)
 ![](./Quick-sort-1.jpg)
 ![](./Quick-sort-2.jpg)
 
-#### 完整程序
+##### 完整程序
 
 
 
@@ -161,24 +246,16 @@ Quicksort also competes with [merge sort](https://en.wikipedia.org/wiki/Merge_so
 #include <iostream>
 #include <algorithm>
 /**
+ * 此算法采用的是分治策略，divide：将a分成三段a[start]< a[start],<a[start];,conquer: 递归地求解各个字段
  * @param start 数组起始下标
  * @param end 数组终止下标
  **/
 template<typename T>
 void QuickSort(T a[], int start, int end);
-
+// 对a进行划分，以a[start]作为基准，进行划分后a[start]左边的元素都比它小，右边的元素都比它大
 template<typename T>
 int Partition(T a[], int start, int end);
 
-template<typename T>
-void Swap(T& a, T& b)
-{
-	T tmp = a;
-	a = b;
-	b = tmp;
-
-
-}
 /*Displays the array, passed to this method*/
 template<typename T>
 void display(T arr[], int n);
@@ -226,21 +303,23 @@ void QuickSort(T a[], int start, int end)
 template<typename T>
 int Partition(T a[], int start, int end)
 {
-	int i = start, j = end + 1;
-	T pivot = a[start];
+	int i = start, j = end + 1; //i指向数组头，j指向数组尾
+	T pivot = a[start]; //x是基准
 	while (true)
 	{
-		while (a[++i] < pivot and i < end)
+        // 因为选择a[start]为pivot，因此不需要比较第一个数，可以直接++i
+        // 直到a[i]〉=x才跳出循环，这时候是需要进行置换的
+		while (a[++i] < pivot && i < end) 
 			;
-		while (a[--j] > pivot)
+		while (a[--j] > pivot && j > start)
 			;
+        //这是本循环退出的唯一途径，循环退出时，i指向的是右段的第一个元素，j指向的是左段的最后一个元素，显然，x最终要插在这两个元素之间
 		if (i >= j)
 			break;
 		std::swap(a[i], a[j]); // 使用标准库的swap函数
 
 	}
-	a[start] = a[j];
-	a[j] = pivot;
+	swap(a[start], a[j]);
 	return j;
 }
 
@@ -268,66 +347,13 @@ void display(T arr[], int n)
 
 
 
-#### `randomized_partition` 避免退化
+### double pointer: fast、slow pointer
 
-当原数组本身是有序的时候，如果每次都选择第一个元素作为pivot，那么将导致quick sort退化，下面是源自: https://leetcode-cn.com/submissions/detail/194476777/testcase/ 
-
-```C++
-[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52, ......50000]
-```
-
-这种情况下是会超时的。
-
-
-
-源自: LeetCode [912. 排序数组](https://leetcode-cn.com/problems/sort-an-array/) # [官方解题](https://leetcode-cn.com/problems/sort-an-array/solution/pai-xu-shu-zu-by-leetcode-solution/)
-
-```C++
-class Solution {
-    int partition(vector<int>& nums, int l, int r) {
-        int pivot = nums[r];
-        int i = l - 1;
-        for (int j = l; j <= r - 1; ++j) {
-            if (nums[j] <= pivot) {
-                i = i + 1;
-                swap(nums[i], nums[j]);
-            }
-        }
-        swap(nums[i + 1], nums[r]);
-        return i + 1;
-    }
-    int randomized_partition(vector<int>& nums, int l, int r) {
-        int i = rand() % (r - l + 1) + l; // 随机选一个作为我们的主元
-        swap(nums[r], nums[i]);
-        return partition(nums, l, r);
-    }
-    void randomized_quicksort(vector<int>& nums, int l, int r) {
-        if (l < r) {
-            int pos = randomized_partition(nums, l, r);
-            randomized_quicksort(nums, l, pos - 1);
-            randomized_quicksort(nums, pos + 1, r);
-        }
-    }
-public:
-    vector<int> sortArray(vector<int>& nums) {
-        srand((unsigned)time(NULL));
-        randomized_quicksort(nums, 0, (int)nums.size() - 1);
-        return nums;
-    }
-};
-
-
-```
-
-
-
-
-
-### hackerearth [Quick Sort](https://www.hackerearth.com/zh/practice/algorithms/sorting/quick-sort/tutorial/)
+#### hackerearth [Quick Sort](https://www.hackerearth.com/zh/practice/algorithms/sorting/quick-sort/tutorial/)
 
 讲解地非常不错。
 
-#### `partition`
+##### `partition`
 
 ```c++
 int partition ( int A[],int start ,int end) {
@@ -506,15 +532,120 @@ int main()
 
 
 
-### 对比两种实现方式
 
-上述两种实现方式，其实都使用了double pointer: 
 
-1、“计算机算法设计与分析”中的实现的思路是：由两端向中间扩展
+### `randomized_partition` 避免退化
 
-2、“hackerearth [Quick Sort](https://www.hackerearth.com/zh/practice/algorithms/sorting/quick-sort/tutorial/)”中的实现方式的思路是：自左向右进行扩展、fast-slow double pointer。
+当原数组本身是有序的时候，如果每次都选择第一个元素作为pivot，那么将导致quick sort退化，下面是源自: https://leetcode-cn.com/submissions/detail/194476777/testcase/ 
 
-分三段，只需要两个boundary，分别对应`i`和`j`。
+```C++
+[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52, ......50000]
+```
+
+这种情况下是会超时的。
+
+
+
+源自: LeetCode [912. 排序数组](https://leetcode-cn.com/problems/sort-an-array/) # [官方解题](https://leetcode-cn.com/problems/sort-an-array/solution/pai-xu-shu-zu-by-leetcode-solution/)
+
+```C++
+class Solution {
+    int partition(vector<int>& nums, int l, int r) {
+        int pivot = nums[r];
+        int i = l - 1;
+        for (int j = l; j <= r - 1; ++j) {
+            if (nums[j] <= pivot) {
+                i = i + 1;
+                swap(nums[i], nums[j]);
+            }
+        }
+        swap(nums[i + 1], nums[r]);
+        return i + 1;
+    }
+    int randomized_partition(vector<int>& nums, int l, int r) {
+        int i = rand() % (r - l + 1) + l; // 随机选一个作为我们的主元
+        swap(nums[r], nums[i]);
+        return partition(nums, l, r);
+    }
+    void randomized_quicksort(vector<int>& nums, int l, int r) {
+        if (l < r) {
+            int pos = randomized_partition(nums, l, r);
+            randomized_quicksort(nums, l, pos - 1);
+            randomized_quicksort(nums, pos + 1, r);
+        }
+    }
+public:
+    vector<int> sortArray(vector<int>& nums) {
+        srand((unsigned)time(NULL));
+        randomized_quicksort(nums, 0, (int)nums.size() - 1);
+        return nums;
+    }
+};
+
+
+```
+
+#### 写法二
+
+```C++
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+class Solution {
+public:
+	vector<int> sortArray(vector<int>& nums) {
+		shuffleArray(nums);
+		sortArrayImpl(nums, 0, nums.size() - 1);
+		return nums;
+
+	}
+	void sortArrayImpl(vector<int>& nums, int start, int end) {
+		if (start >= end) {
+			return;
+		}
+		int p = partition(nums, start, end);
+		sortArrayImpl(nums, start, p - 1);
+		sortArrayImpl(nums, p + 1, end);
+	}
+	int partition(vector<int>& nums, int start, int end) {
+		int left = start, right = end + 1;
+		int pivot = nums[start];
+		while (true) {
+			while (nums[++left] < pivot && left < end);
+			while (nums[--right] > pivot && right > start);
+			if (left >= right)
+				break;
+			swap(nums[left], nums[right]);
+		}
+		swap(nums[start], nums[right]);
+		return right;
+	}
+	// 采用Fisher–Yates-shuffle算法
+	void shuffleArray(vector<int>& nums) {
+		srand(time(0));
+		int len = nums.size();
+		for (int i = 0; i < len; ++i) {
+			int j = rand() % (len - i);
+			swap(nums[i], nums[j]);
+		}
+	}
+};
+
+int main()
+{
+	vector<int> nums{ 5,2,3,1 };
+	Solution s;
+	s.sortArray(nums);
+}
+
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -Werror
+
+```
 
 
 

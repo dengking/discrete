@@ -1,8 +1,8 @@
 #include<iostream>
 using namespace std; 
 
-void  QuickSort(int a[], int start, int end);//此算法采用的是分治策略，divide：将a分成三段a[start]< a[start],<a[start];,conquer: 递归地求解各个字段
-int Pation(int a[], int start, int end);//对a进行划分，以a[start]作为基准，进行划分后a[start]左边的元素都比它小，右边的元素都比它大
+void  QuickSort(int a[], int start, int end);
+int Pation(int a[], int start, int end);//
 void Swap(int &x, int &y);
 
 
