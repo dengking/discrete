@@ -2,8 +2,6 @@
 
 言归正传，鉴于前文 [我作了首诗，保你闭着眼睛也能写对二分查找](http://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247485044&idx=1&sn=e6b95782141c17abe206bfe2323a4226&chksm=9bd7f87caca0716aa5add0ddddce0bfe06f1f878aafb35113644ebf0cf0bfe51659da1c1b733&scene=21#wechat_redirect) 的那首《二分搜索升天词》很受好评，并在民间广为流传，成为安睡助眠的一剂良方，今天在滑动窗口算法框架中，我再次编写一首小诗来歌颂滑动窗口算法的伟大：
 
-
-
 链表子串数组题，用双指针别犹豫。
 
 **双指针**家**三兄弟**，各个都是万人迷。
