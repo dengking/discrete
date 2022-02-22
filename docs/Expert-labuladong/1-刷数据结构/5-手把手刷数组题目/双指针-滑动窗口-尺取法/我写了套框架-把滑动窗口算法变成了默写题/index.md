@@ -284,6 +284,10 @@ string minWindow(string s, string t) {
 
 需要注意的是，当我们发现某个字符在`window`的数量满足了`need`的需要，就要更新`valid`，表示有一个字符已经满足要求。而且，你能发现，两次对窗口内数据的更新操作是完全对称的。
 
+> NOTE: 
+>
+> 互相对称、互为镜像
+
 当`valid == need.size()`时，说明`T`中所有字符已经被覆盖，已经得到一个可行的覆盖子串，现在应该开始收缩窗口了，以便得到「最小覆盖子串」。
 
 移动`left`收缩窗口时，窗口内的字符都是可行解，所以应该在收缩窗口的阶段进行最小覆盖子串的更新，以便从可行解中找到长度最短的最终结果。
@@ -302,7 +306,6 @@ string minWindow(string s, string t) {
 > public:
 > 	string minWindow(string s, string t)
 > 	{
-> 
 > 		unordered_map<char, int> need, window;
 > 		// 预处理字符串t，便于进行匹配
 > 		for (auto &&c : t)
@@ -331,7 +334,7 @@ string minWindow(string s, string t) {
 > 			{
 > 				if (right - left < len) // 需要注意，窗口是[left, right)即左开右闭，需要注意的是，由于right不属于窗口，因此它的长度不能够是: right - left + 1，这是错误的
 > 				{
-> 					len = right - left + 1;
+> 					len = right - left + 1; // 此处有误
 > 					start = left;
 > 				}
 > 				c = s[left];
@@ -399,24 +402,30 @@ string minWindow(string s, string t) {
 > 作者的:
 >
 > ```C++
->             // 进行窗口内数据的一系列更新
->             if (need.count(d)) {
->                 if (window[d] == need[d])
->                     valid--;
->                 window[d]--;
->             }  
+>          // 进行窗口内数据的一系列更新
+>          if (need.count(d)) {
+>              if (window[d] == need[d])
+>                  valid--;
+>              window[d]--;
+>          }  
 > ```
 >
-> 再结合这个测试用例，可知问题的症结了:
+> 再结合这个测试用例，可知问题的症结了: 由于题目的要求是子串，因此是允许window中某个字符的个数比need中的字符个数要多，但是少是绝对不行的，因此可以设置更新 `valid` 的阈值，即 `window[d] == need[d]` ，可以看到原算法中，对于 `valid` 的更新都是在相同的前提下: 
 >
-> 由于题目的要求是子串，因此，如果window中，某个字符的个数比need中的字符个数要多，比如对于测试用例:
+> ```C++
+> window[d] == need[d]
+> ```
+>
+> 比如对于测试用例:
 >
 > ```C++
 > "aaaaaaaaaaaabbbbbcdd"
 > "abcdd"
 > ```
 >
-> 显然，当`valid == need.size()`即需要shrink的时候，window已经包含了整个字符串`"aaaaaaaaaaaabbbbbcdd"`，按照我的写法，只要 `if (window[c] != need[c])` 就 `--valid;` 停止shrink，显然这是犯了逻辑错误，应该是当 `if (window[d] == need[d])`，而此时又要进行shrink，显然会导致不满足条件，要通知shrink；
+> 一直到最后，整个window的valid才符合题目要求。
+>
+> 显然在进行shrink的时候，当 `valid == need.size()` 时，此时它将跌破阈值，此时就需要更新`valid`；
 
 ## 真题二、字符串排列
 
@@ -428,7 +437,7 @@ string minWindow(string s, string t) {
 >
 > 3、LeetCode [567. 字符串的排列](https://leetcode-cn.com/problems/permutation-in-string/) 中等
 >
-> 4、作者给出的解法是比较复杂的，这个问题可以使用更加简单的滑动窗口写法，参见 LeetCode [567. 字符串的排列](https://leetcode-cn.com/problems/permutation-in-string/)  的官方解题给出的写法。下面的程序是不容易理解的。
+> 4、作者给出的解法是比较复杂的，这个问题可以使用更加简单的滑动窗口写法，叫做尺取法，参见 LeetCode [567. 字符串的排列](https://leetcode-cn.com/problems/permutation-in-string/)  的官方解题给出的写法。
 
 LeetCode 567 题，Permutation in String，难度 Medium：
 

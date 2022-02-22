@@ -1,9 +1,5 @@
 nav:
     - Introduction: index.md
-    - Systematic-method-穷举: Systematic-method-穷举
     - 子串子数组问题: 子串子数组问题
     - 子序列问题: 子序列问题
-    - 滑动窗口算法: 滑动窗口算法
-    
-
     
