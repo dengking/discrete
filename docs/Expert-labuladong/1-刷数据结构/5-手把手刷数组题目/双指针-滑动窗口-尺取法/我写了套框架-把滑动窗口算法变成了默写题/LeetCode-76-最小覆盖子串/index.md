@@ -72,3 +72,64 @@ int main()
 
 ```
 
+### 二刷写的代码
+
+```C++
+#include <string>
+#include <unordered_map>
+#include <algorithm>
+#include <random>
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+class Solution {
+public:
+	string minWindow(string s, string t) {
+		unordered_map<char, int> need, window;
+		for (auto&& c : t) {
+			need[c]++;
+		}
+		int left = 0, right = 0;
+		int validCount = 0; // window中已经符合预期的字符数量的字符的个数
+		int subStrMinLen = INT_MAX;
+		int subStrStartIndex = 0;
+		while (right < s.size()) {
+			char inChar = s[right++];
+			if (need.count(inChar)) {
+				window[inChar]++;
+				if (window[inChar] == need[inChar]) {
+					++validCount;
+				}
+			}
+			while (validCount == need.size())
+			{
+				int subStrLen = right - left; // 左开右闭区间
+				if (subStrLen < subStrMinLen) {
+					subStrMinLen = subStrLen;
+					subStrStartIndex = left;
+				}
+				char outChar = s[left++];
+				if (need.count(outChar)) {
+					
+					if (window[outChar] == need[outChar]) {
+						--validCount;
+					}
+					window[outChar]--;
+				}
+			}
+		}
+		return subStrMinLen == INT_MAX ? "" : s.substr(subStrStartIndex, subStrMinLen);
+	}
+};
+
+int main()
+{
+	Solution s;
+}
+
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -Werror
+
+```
+

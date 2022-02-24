@@ -134,7 +134,7 @@ void slidingWindow(string s, string t) {
 >
 > 2、LeetCode [76. 最小覆盖子串](https://leetcode-cn.com/problems/minimum-window-substring/) 困难
 >
-> 
+> 包含覆盖的含义是: 不要求连续、保持相对顺序
 
 LeetCode 76 题，Minimum Window Substring，难度 **Hard**，我带大家看看它到底有多 **Hard**：
 
@@ -296,7 +296,7 @@ string minWindow(string s, string t) {
 
 > NOTE: 
 >
-> 下面是我第一次写的程序:
+> 二、下面是我第一次写的程序:
 >
 > ```C++
 > #include <bits/stdc++.h>
@@ -402,12 +402,12 @@ string minWindow(string s, string t) {
 > 作者的:
 >
 > ```C++
->          // 进行窗口内数据的一系列更新
->          if (need.count(d)) {
->              if (window[d] == need[d])
->                  valid--;
->              window[d]--;
->          }  
+>       // 进行窗口内数据的一系列更新
+>       if (need.count(d)) {
+>           if (window[d] == need[d])
+>               valid--;
+>           window[d]--;
+>       }  
 > ```
 >
 > 再结合这个测试用例，可知问题的症结了: 由于题目的要求是子串，因此是允许window中某个字符的个数比need中的字符个数要多，但是少是绝对不行的，因此可以设置更新 `valid` 的阈值，即 `window[d] == need[d]` ，可以看到原算法中，对于 `valid` 的更新都是在相同的前提下: 
@@ -426,18 +426,81 @@ string minWindow(string s, string t) {
 > 一直到最后，整个window的valid才符合题目要求。
 >
 > 显然在进行shrink的时候，当 `valid == need.size()` 时，此时它将跌破阈值，此时就需要更新`valid`；
+>
+> 这种写法是典型的**边缘触发**，如果修改为先的写法，则是水平触发:
+>
+> ```C++
+> #include <string>
+> #include <unordered_map>
+> #include <algorithm>
+> #include <random>
+> #include <iostream>
+> #include <cstdlib>
+> #include <ctime>
+> using namespace std;
+> 
+> class Solution {
+> public:
+> 	string minWindow(string s, string t) {
+> 		unordered_map<char, int> need, window;
+> 		for (auto&& c : t) {
+> 			need[c]++;
+> 		}
+> 		int left = 0, right = 0;
+> 		int validCount = 0; // window中已经符合预期的字符数量的字符的个数
+> 		int subStrMinLen = INT_MAX;
+> 		int subStrStartIndex = 0;
+> 		while (right < s.size()) {
+> 			char inChar = s[right++];
+> 			if (need.count(inChar)) {
+> 				window[inChar]++;
+> 				if (window[inChar] >= need[inChar]) {
+> 					++validCount;
+> 				}
+> 			}
+> 			while (validCount == need.size())
+> 			{
+> 				int subStrLen = right - left; // 左开右闭区间
+> 				if (subStrLen < subStrMinLen) {
+> 					subStrMinLen = subStrLen;
+> 					subStrStartIndex = left;
+> 				}
+> 				char outChar = s[left++];
+> 				if (need.count(outChar)) {
+> 					
+> 					if (window[outChar] <= need[outChar]) {
+> 						--validCount;
+> 					}
+> 					window[outChar]--;
+> 				}
+> 			}
+> 		}
+> 		return subStrMinLen == INT_MAX ? "" : s.substr(subStrStartIndex, subStrMinLen);
+> 	}
+> };
+> 
+> int main()
+> {
+> 	Solution s;
+> }
+> 
+> // g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -Werror
+> 
+> ```
+>
+> 这种水平触发，是显然不行的
 
 ## 真题二、字符串排列
 
 > NOTE: 
 >
+> 一、LeetCode [567. 字符串的排列](https://leetcode-cn.com/problems/permutation-in-string/) 中等
+>
 > 1、典型的判断是否存在，不需要罗列所有的可能性
 >
-> 2、要求窗口的长度 和 子串的长度相同、并且窗口包含了子串的时候，则找到了解
+> 2、排列的含义是: 要求窗口的长度 和 子串的长度相同、并不要求相对顺序
 >
-> 3、LeetCode [567. 字符串的排列](https://leetcode-cn.com/problems/permutation-in-string/) 中等
->
-> 4、作者给出的解法是比较复杂的，这个问题可以使用更加简单的滑动窗口写法，叫做尺取法，参见 LeetCode [567. 字符串的排列](https://leetcode-cn.com/problems/permutation-in-string/)  的官方解题给出的写法。
+> 二、作者给出的解法并不好，比较复杂，并不符合这个题目，在 `LeetCode-567-字符串的排列` 中讨论了更加简单的写法，它充分利用了题目的要求。
 
 LeetCode 567 题，Permutation in String，难度 Medium：
 
