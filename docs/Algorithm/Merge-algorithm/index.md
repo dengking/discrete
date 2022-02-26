@@ -147,3 +147,12 @@ LeetCode [56. 合并区间](https://leetcode-cn.com/problems/merge-intervals) �
 
 #### LeetCode [617. 合并二叉树](https://leetcode-cn.com/problems/merge-two-binary-trees/)
 
+
+
+### merge + top K
+
+#### LeetCode [373. 查找和最小的 K 对数字](https://leetcode-cn.com/problems/find-k-pairs-with-smallest-sums/) 中等
+
+#### LeetCode [786. 第 K 个最小的素数分数](https://leetcode-cn.com/problems/k-th-smallest-prime-fraction/) 困难
+
+#### LeetCode [378. 有序矩阵中第 K 小的元素](https://leetcode-cn.com/problems/kth-smallest-element-in-a-sorted-matrix/) 中等

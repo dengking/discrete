@@ -211,8 +211,33 @@ if __name__ == '__main__':
 
 ```
 
+> NOTE: 
+>
+> 一、思考: 为什么 `j` 的值取不到 `i` 呢？
+>
+> 如果 `j` 取值为 `i`，显然，这是不合法的，因为我们就是要求解`i`，而如果j取值为i，那么就相当于求解i的时候依赖于i本身。
+
 其中`j`变量减 2 是给`C-A C-C`留下操作数，看个图就明白了：![图片](https://mmbiz.qpic.cn/mmbiz_jpg/map09icNxZ4m3X1IvJ8odynQ3xazBJv6MASib0LhiaDIQcMYAY2MxeeapTwVht1EEicgGKhw4DTgibIWLrvbu3oWNUg/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1)
 
 这样，此算法就完成了，时间复杂度 O(N^2)，空间复杂度 O(N)，这种解法应该是比较高效的了。
 
 PS：这个思路跟前文 [动态规划设计之最长递增子序列](http://mp.weixin.qq.com/s?__biz=MzU0MDg5OTYyOQ==&mid=2247484232&idx=1&sn=21234a9e4db908f438e1cb2e8c7ffff4&chksm=fb33630acc44ea1c91027bff20e9902e20e4269d54f3c178dc1e07f344d48d7ff1a4ca48ba39&scene=21#wechat_redirect) 有异曲同工之妙，如果有疑问可以去看看。
+
+## 最后总结
+
+动态规划难就难在寻找状态转移，不同的定义可以产生不同的状态转移逻辑，虽然最后都能得到正确的结果，但是效率可能有巨大的差异。
+
+回顾第一种解法，重叠子问题已经消除了，但是效率还是低，到底低在哪里呢？抽象出递归框架：
+
+```Python
+def dp(n, a_num, copy):
+    dp(n - 1, a_num + 1, copy),    # A
+    dp(n - 1, a_num + copy, copy), # C-V
+    dp(n - 2, a_num, a_num)        # C-A C-C
+```
+
+看这个穷举逻辑，是有可能出现这样的操作序列`C-A C-C，C-A C-C...`或者`C-V,C-V,...`。显然这种操作序列的结果不是最优的，但是我们并没有想办法规避这些情况的发生，**从而增加了很多没必要的子问题计算**。
+
+回顾第二种解法，我们稍加思考，发现最优的序列应该是这种形式：`A,A..C-A,C-C,C-V,C-V..C-A,C-C,C-V..`。
+
+根据这个事实，我们重新定义了状态，重新寻找了状态转移，从逻辑上减少了无效的子问题个数，从而提高了算法的效率。
