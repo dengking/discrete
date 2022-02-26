@@ -1,4 +1,5 @@
 nav:
     - Introduction: index.md
     - DP解路径问题: DP解路径问题
+    - K-way-merge-多路归并: K-way-merge-多路归并
     

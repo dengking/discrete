@@ -52,7 +52,9 @@ In this case, we would simultaneously merge k-runs together.
 
 A straightforward implementation would scan all k arrays to determine the minimum. This straightforward implementation results in a running time of Θ(kn). Note that this is mentioned only as a possibility, for the sake of discussion. Although it would work, it is not efficient.
 
-
+> NOTE: 
+>
+> 这种算法它用到了如下两种数据结构
 
 **Heap**
 
