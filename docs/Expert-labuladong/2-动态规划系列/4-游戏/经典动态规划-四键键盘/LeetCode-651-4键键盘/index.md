@@ -1,4 +1,4 @@
-# leetcode [651. 4键键盘](https://leetcode-cn.com/problems/4-keys-keyboard/)
+# LeetCode [651. 4键键盘](https://leetcode-cn.com/problems/4-keys-keyboard/) 
 
 假设你有一个特殊的键盘包含下面的按键：
 
