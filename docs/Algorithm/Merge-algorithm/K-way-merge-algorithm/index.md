@@ -10,7 +10,7 @@
 
 
 
-## wanweibaike [k-way merge algorithm](https://en.wanweibaike.com/wiki-K-Way%20Merge%20Algorithms) 
+## wikipedia [k-way merge algorithm](https://en.wikipedia.org/wiki/K-way_merge_algorithm) 
 
 
 
