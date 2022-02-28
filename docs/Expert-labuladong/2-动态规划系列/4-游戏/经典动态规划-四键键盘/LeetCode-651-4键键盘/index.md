@@ -35,3 +35,46 @@ A, A, A, Ctrl A, Ctrl C, Ctrl V, Ctrl V
 1 <= N <= 50
 结果不会超过 32 位有符号整数范围。
 
+
+
+## 我的解题
+
+最后一次，要么按ctr-A要么按ctr-V
+
+```C++
+#include <string>
+#include <vector>
+#include <stack>
+#include <unordered_map>
+#include <algorithm>
+#include <random>
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+class Solution {
+public:
+	int maxA(int n) {
+		vector<int> dp(n+1);
+		for (int i = 1; i <= n; ++i) { // i 表示可以按几次
+			dp[i] = dp[i-1] + 1; // 按A
+			for (int j = 2; j < i; ++j) { // j表示
+				dp[i] = max(dp[i], dp[j - 2] * (i - j + 1));
+			}
+		}
+		return dp[n];
+	}
+};
+int main()
+{
+	Solution s;
+
+}
+
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -Werror
+
+```
+
+
+

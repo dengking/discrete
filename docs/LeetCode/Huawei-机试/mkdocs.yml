@@ -2,5 +2,6 @@ nav:
     - Introduction: index.md
     - 数组: 数组
     - 字符串: 字符串
-    
+    - 动态规划: 动态规划
+    - 树: 树
     
