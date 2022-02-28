@@ -1,14 +1,32 @@
 数组：370 531  
 
-字符串： 536 544   
+字符串： 
 
-动态规划：651 750 1055  
+536 [从字符串生成二叉树](https://leetcode-cn.com/problems/construct-binary-tree-from-string/) 已做 
+
+544   
+
+动态规划：
+
+651 四键键盘: 动态规划 
+
+750: 未做 
+
+1055：双指针 
 
 数学：469 573  
 
-树：536 545  
+树：
 
-哈希表：311 314 
+536 [从字符串生成二叉树](https://leetcode-cn.com/problems/construct-binary-tree-from-string/) 已做
+
+545  [545. 二叉树的边界](https://leetcode-cn.com/problems/boundary-of-binary-tree/) 已做
+
+哈希表：
+
+311  [311. 稀疏矩阵的乘法](https://leetcode-cn.com/problems/sparse-matrix-multiplication/)
+
+314 
 
 深搜：505 1059 
 
