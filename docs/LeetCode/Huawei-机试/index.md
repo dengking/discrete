@@ -40,7 +40,7 @@
 | 并查集   |                                                              |                     |          |
 |          | [261. 以图判树](https://leetcode-cn.com/problems/graph-valid-tree/) |                     |          |
 | 滑动窗口 |                                                              |                     |          |
-|          | [1100. 长度为 K 的无重复字符子串](https://leetcode-cn.com/problems/find-k-length-substrings-with-no-repeated-characters/) |                     |          |
+|          | [1100. 长度为 K 的无重复字符子串](https://leetcode-cn.com/problems/find-k-length-substrings-with-no-repeated-characters/) |                     | 已做     |
 | 递归     |                                                              |                     |          |
 |          | [625. 最小因式分解](https://leetcode-cn.com/problems/minimum-factorization/) |                     |          |
 | 二叉树   |                                                              |                     |          |
