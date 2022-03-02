@@ -38,11 +38,11 @@
 | 链表     |                                                              |                     |          |
 |          | [426. 将二叉搜索树转化为排序的双向链表](https://leetcode-cn.com/problems/convert-binary-search-tree-to-sorted-doubly-linked-list/) |                     |          |
 | 并查集   |                                                              |                     |          |
-|          | [261. 以图判树](https://leetcode-cn.com/problems/graph-valid-tree/) |                     |          |
+|          | [261. 以图判树](https://leetcode-cn.com/problems/graph-valid-tree/) |                     | 已做     |
 | 滑动窗口 |                                                              |                     |          |
 |          | [1100. 长度为 K 的无重复字符子串](https://leetcode-cn.com/problems/find-k-length-substrings-with-no-repeated-characters/) |                     | 已做     |
 | 递归     |                                                              |                     |          |
-|          | [625. 最小因式分解](https://leetcode-cn.com/problems/minimum-factorization/) |                     |          |
+|          | [625. 最小因式分解](https://leetcode-cn.com/problems/minimum-factorization/) | 贪心算法            | 已做     |
 | 二叉树   |                                                              |                     |          |
 |          | [1214. 查找两棵二叉搜索树之和](https://leetcode-cn.com/problems/two-sum-bsts/) |                     | 已做     |
 |          |                                                              |                     |          |
