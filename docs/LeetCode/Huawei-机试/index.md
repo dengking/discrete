@@ -34,7 +34,7 @@
 |          | [490. 迷宫](https://leetcode-cn.com/problems/the-maze/)      |                     |          |
 |          | [505. 迷宫 II](https://leetcode-cn.com/problems/the-maze-ii/) |                     |          |
 | 栈       |                                                              |                     |          |
-|          | [439. 三元表达式解析器](https://leetcode-cn.com/problems/ternary-expression-parser/) |                     |          |
+|          | [439. 三元表达式解析器](https://leetcode-cn.com/problems/ternary-expression-parser/) |                     | 已做     |
 | 链表     |                                                              |                     |          |
 |          | [426. 将二叉搜索树转化为排序的双向链表](https://leetcode-cn.com/problems/convert-binary-search-tree-to-sorted-doubly-linked-list/) |                     | 已做     |
 | 并查集   |                                                              |                     |          |

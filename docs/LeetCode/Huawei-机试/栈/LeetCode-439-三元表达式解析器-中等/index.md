@@ -164,3 +164,94 @@ T?T?F?7:T?T?F?3:F?0:0:6:1:0:5
 ```
 就这样迭代, 我们只需要在遇到'`?`'时直接解析当前这个最简三元表达式即可, 不用去考虑嵌套关系
 
+```Python
+class Solution:
+    def parseTernary(self, expression: str) -> str:
+        # 用来标记下一个遇到的字符是条件
+        is_condition = 0
+        stk = []
+        # 因为是从右至左结合,所以也从右至左遍历
+        for i in range(len(expression) - 1, -1, -1):
+            if expression[i] == ':':
+                continue
+            elif expression[i] == '?':  # 标记下一个遇到的字符是条件
+                is_condition = 1
+            else:
+                if is_condition:
+                    if expression[i] == 'T':  # 说明栈中的第一个元素是结果, 但要把错误结果删掉
+                        res = stk[-1]
+                        stk.pop()
+                        stk.pop()
+                        stk.append(res)
+                    else:  # 说明栈中第二个元素是结果, 删掉栈顶元素即可
+                        stk.pop()
+                    is_condition = 0
+                else:  # 当前扫描到的元素不是条件, 就是直接入栈
+                    stk.append(expression[i])
+        return stk[-1]
+```
+
+### c++
+
+```c++
+#include <string>
+#include <vector>
+#include <stack>
+#include <unordered_map>
+#include <algorithm>
+#include <random>
+#include <iostream>
+#include <stdexcept>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+
+class Solution {
+public:
+	string parseTernary(string expression) {
+		stack<char> st;
+		bool is_condition = false;
+		for (int i = expression.size() - 1; i >= 0; --i) {
+			if (expression[i] == ':') {
+				continue;
+			}
+			else if (expression[i] == '?') {
+				is_condition = true;
+			}
+			else {
+				if (is_condition) {
+					is_condition = false;
+					if (expression[i] == 'T') {
+						char res = st.top();
+						st.pop();
+						st.pop();//将false分支弹出栈
+						st.push(res);
+					}
+					else if (expression[i] == 'F') {
+						st.pop();
+					}
+					else {
+						std::abort();
+					}
+				}
+				else {
+					st.push(expression[i]);
+				}
+			}
+		}
+		string s(1, st.top());
+		return s;
+	}
+};
+
+int main()
+{
+	Solution s;
+	cout << s.parseTernary("F?T:F?T?1:2:F?3:4") << endl;
+}
+
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -Werror
+
+```
+
