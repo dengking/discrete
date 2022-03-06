@@ -1,7 +1,5 @@
 # labuladong [动态规划套路：最大子数组和](https://mp.weixin.qq.com/s/nrULqCsRsrPKi3Y-nUfnqg)
 
-
-
 > NOTE: 
 >
 > 一、原题: leetcode [53. 最大子序和](https://leetcode-cn.com/problems/maximum-subarray/) 简单
@@ -94,6 +92,50 @@ int maxSubArray(int[] nums) {
 }
 ```
 
+> NOTE: 
+>
+> 一、
+>
+> ```c++
+> #include <string>
+> #include <vector>
+> #include <stack>
+> #include <unordered_map>
+> #include <algorithm>
+> #include <random>
+> #include <iostream>
+> #include <stdexcept>
+> #include <cstdlib>
+> #include <ctime>
+> using namespace std;
+> 
+> class Solution {
+> public:
+> 	int maxSubArray(vector<int>& nums) {
+> 		int N = nums.size();
+> 		vector<int> dp(nums.size());
+> 		dp[0] = nums[0];
+> 		int res = dp[0];
+> 		for (int i = 1; i < N; ++i) {
+> 			dp[i] = max(nums[i], dp[i - 1] + nums[i]);
+> 			res = max(res, dp[i]);
+> 		}
+> 		return res;
+> 	}
+> };
+> 
+> 
+> int main()
+> {
+> 	Solution s;
+> }
+> 
+> // g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -Werror
+> 
+> ```
+>
+> 
+
 以上解法时间复杂度是 O(N)，空间复杂度也是 O(N)，较暴力解法已经很优秀了，不过**注意到`dp[i]`仅仅和`dp[i-1]`的状态有关**，那么我们可以进行「状态压缩」，将空间复杂度降低：
 
 ```Java
@@ -115,6 +157,50 @@ int maxSubArray(int[] nums) {
     return res;
 }
 ```
+
+> NOTE: 
+>
+> 一、
+>
+> ```C++
+> #include <string>
+> #include <vector>
+> #include <stack>
+> #include <unordered_map>
+> #include <algorithm>
+> #include <random>
+> #include <iostream>
+> #include <stdexcept>
+> #include <cstdlib>
+> #include <ctime>
+> using namespace std;
+> 
+> class Solution {
+> public:
+> 	int maxSubArray(vector<int>& nums) {
+> 		int N = nums.size();
+> 		int prev = nums[0];
+> 		int res = prev;
+> 		for (int i = 1; i < N; ++i) {
+> 			int cur = max(nums[i], prev + nums[i]);
+> 			res = max(res, cur);
+> 			prev = cur;
+> 		}
+> 		return res;
+> 	}
+> };
+> 
+> 
+> int main()
+> {
+> 	Solution s;
+> }
+> 
+> // g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -Werror
+> 
+> ```
+>
+> 
 
 ## 最后总结
 
