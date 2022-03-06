@@ -94,7 +94,7 @@ int main()
 
 > NOTE: 
 >
-> 计算 `sum([i, j])` 即从 `i` 到 `j` 的子数组的和；
+> 一、计算 `sum([i, j])` 即从 `i` 到 `j` 的子数组的和；
 >
 > 从上述实现来看，由于它计算的是sum，并且序列是不断地扩展的
 >
@@ -111,6 +111,67 @@ int main()
 > 它的计算次序如下:
 >
 > ![](./max-sub-array.jpg)
+>
+> 二、一种错误的写法
+>
+> ```c++
+> #include <string>
+> #include <vector>
+> #include <stack>
+> #include <unordered_map>
+> #include <algorithm>
+> #include <random>
+> #include <iostream>
+> #include <stdexcept>
+> #include <cstdlib>
+> #include <ctime>
+> using namespace std;
+> 
+> class Solution {
+> public:
+> 	int subarraySum(vector<int>& nums, int k) {
+> 		int N = nums.size();
+> 		int res = 0;
+> 		for (int end = 0; end < N; ++end) {
+> 			int sum = 0;
+> 			for (int start = 0; start <= end; ++start) {
+> 				sum = nums[start] + sum;
+> 				if (sum == k) {
+> 					++res;
+> 				}
+> 			}
+> 		}
+> 		return res;
+> 	}
+> };
+> 
+> 
+> int main()
+> {
+> 	Solution s;
+> 	vector<int> nums{ 1,2,3,4 };
+> 	int k = 5;
+> 	cout<<s.subarraySum(nums, k)<<endl;
+> }
+> 
+> // g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -Werror
+> 
+> ```
+>
+> 这是在做 LeetCode [560. 和为 K 的子数组](https://leetcode-cn.com/problems/subarray-sum-equals-k/) 的时候，我写的一个非常典型的错误的代码，上述程序预期的输出应该是1，但是实际的输出是0。
+>
+> 上述程序实际执行的是:
+>
+> ```C++
+> 0
+> 0, 01
+> 0, 01, 012
+> 0, 01, 012, 0123
+> 0, 01, 012, 0123, 01234
+> 0, 01, 012, 0123, 01234, 012345
+> ```
+>
+> 
 
 ### $O(n \log n)$解决算法-二分法
 
