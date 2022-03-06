@@ -93,19 +93,31 @@ left、right双指针从中间向两边扩散
 
 一、labuladong [动态规划套路：最大子数组和](https://mp.weixin.qq.com/s/nrULqCsRsrPKi3Y-nUfnqg) 
 
+### 素材
+
+一、labuladong [我写了套框架，把滑动窗口算法变成了默写题](https://mp.weixin.qq.com/s/ioKXTMZufDECBUwRRp3zaA) 
+
 ### 例题
 
 一、LeetCode [3. 无重复字符的最长子串](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/) 中等
+
+二、LeetCode [438. 找到字符串中所有字母异位词](https://leetcode-cn.com/problems/find-all-anagrams-in-a-string/) 中等
+
+三、LeetCode [76. 最小覆盖子串](https://leetcode-cn.com/problems/minimum-window-substring/) 困难
+
+四、LeetCode [567. 字符串的排列](https://leetcode-cn.com/problems/permutation-in-string/) 中等
 
 
 
 ## 前缀和
 
+### 素材
 
+labuladong [前缀和技巧：解决子数组问题](https://mp.weixin.qq.com/s/4TxF0xVhlUO6v3teip9Jzg)
 
 ## 例题
 
-
+一、LeetCode [560. 和为K的子数组](https://leetcode-cn.com/problems/subarray-sum-equals-k/)
 
 ### 等差子数组
 

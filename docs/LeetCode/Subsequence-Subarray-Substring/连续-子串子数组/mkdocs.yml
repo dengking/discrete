@@ -1,4 +1,5 @@
 nav:
     - Introduction: index.md
     - LeetCode-连续1: LeetCode-连续1
+    - 子数组和问题: 子数组和问题
     
