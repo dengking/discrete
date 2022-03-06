@@ -4,7 +4,21 @@
 >
 > LeetCode [134. 加油站](https://leetcode-cn.com/problems/gas-station/)
 
+## 暴力解法
 
+要说暴力解法，肯定很容易想到，用一个 for 循环遍历所有站点，假设为起点，然后再套一层 for 循环，判断一下是否能够转一圈回到起点：
+
+```Java
+int n = gas.length;
+for (int start = 0; start < n; start++) {
+    for (int step = 0; step < n; step++) {
+        int i = (start + step) % n;
+        tank += gas[i];
+        tank -= cost[i];
+        // 判断油箱中的油是否耗尽
+    }
+}
+```
 
 ## 图像解法
 

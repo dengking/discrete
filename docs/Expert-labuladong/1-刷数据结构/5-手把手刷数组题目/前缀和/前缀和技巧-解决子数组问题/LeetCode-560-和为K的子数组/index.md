@@ -54,6 +54,132 @@ int main()
 
 https://leetcode-cn.com/submissions/detail/278393448/testcase/
 
+### 前缀和 + 哈希表优化
+
+这是在阅读了 labuladong [前缀和技巧：解决子数组问题](https://mp.weixin.qq.com/s/4TxF0xVhlUO6v3teip9Jzg) 后写出的算法。
+
+#### 第一次
+
+```c++
+#include <string>
+#include <vector>
+#include <stack>
+#include <unordered_map>
+#include <algorithm>
+#include <random>
+#include <iostream>
+#include <stdexcept>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+class Solution {
+public:
+	int subarraySum(vector<int>& nums, int k) {
+		int N = nums.size();
+		unordered_map<int, int> preSum;
+		int res = 0;
+		int sum = 0;
+
+		for (int i = 0; i < N; ++i) {
+			sum += nums[i];
+			int sum_j = sum - k;
+			if (preSum.count(sum_j)) {
+				res += preSum[sum_j];
+			}
+			++preSum[sum];
+		}
+		return res;
+	}
+};
+
+
+int main()
+{
+	Solution s;
+	vector<int> nums{ 1,2,3,4 };
+	int k = 5;
+	cout << s.subarraySum(nums, k) << endl;
+}
+
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -Werror
+
+```
+
+上述算法在下面测试用例的时候出现了错误:
+
+```
+输入: 
+[1,1,1]
+2
+输出:
+1
+预期结果:
+2
+```
+
+后来对比 labuladong [前缀和技巧：解决子数组问题](https://mp.weixin.qq.com/s/4TxF0xVhlUO6v3teip9Jzg)  中的代码:
+
+> ![图片](https://mmbiz.qpic.cn/mmbiz_png/map09icNxZ4nprA4oSAUhXDDuD1ObegYzaJCy4KoRTxORRicnMajCaLcb282KaOCG3JiaW1n99quwwJiaYyfFh7aow/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+
+发现，缺少:
+
+```Java
+// base case
+preSum.put(0, 1); 
+```
+
+这个base case是表示prefix sum的值是0，总是存在1个，显然这是和实际情况对应的，因为可能存在从第0个元素开始的子数组的和恰好对于`k`的，显然如果不加这个的话，是会导致这种情况被漏掉的。
+
+修改后的code如下:
+
+```C++
+#include <string>
+#include <vector>
+#include <stack>
+#include <unordered_map>
+#include <algorithm>
+#include <random>
+#include <iostream>
+#include <stdexcept>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+class Solution {
+public:
+	int subarraySum(vector<int>& nums, int k) {
+		int N = nums.size();
+		unordered_map<int, int> preSum;
+		preSum[0] = 1;
+		int res = 0;
+		int sum = 0;
+
+		for (int i = 0; i < N; ++i) {
+			sum += nums[i];
+			int sum_j = sum - k;
+			if (preSum.count(sum_j)) {
+				res += preSum[sum_j];
+			}
+			++preSum[sum];
+		}
+		return res;
+	}
+};
+
+
+int main()
+{
+	Solution s;
+	vector<int> nums{ 1,2,3,4 };
+	int k = 5;
+	cout << s.subarraySum(nums, k) << endl;
+}
+
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -Werror
+
+```
+
 
 
 ## [官方解题 # 方法一：枚举](https://leetcode-cn.com/problems/subarray-sum-equals-k/solution/he-wei-kde-zi-shu-zu-by-leetcode-solution/)
@@ -76,7 +202,9 @@ https://leetcode-cn.com/submissions/detail/278393448/testcase/
 
 > NOTE: 
 >
-> 看到了"我们需要枚举所有的 `j` 来判断是否符合条件，这一步是否可以优化呢？"，我的第一想法是"以空间换时间"，最最典型的是通过哈希表直接进行查找
+> 一、看到了"我们需要枚举所有的 `j` 来判断是否符合条件，这一步是否可以优化呢？"，我的第一想法是"以空间换时间"，最最典型的是通过哈希表直接进行查找
+>
+> 二、原文的讲解非常晦涩，labuladong [前缀和技巧：解决子数组问题](https://mp.weixin.qq.com/s/4TxF0xVhlUO6v3teip9Jzg) 中的讲解更加浅显易懂
 
 我们定义 $\textit{pre}[i]$ 为 `[0..i]` 里所有数的和，则 $\textit{pre}[i]$ 可以由 $\textit{pre}[i-1]$ 递推而来，即：
 
@@ -91,5 +219,5 @@ $$
 $$
 prev[j-1] == prev[i] - k
 $$
-所以我们考虑以 `i` 结尾的和为 `k` 的连续子数组个数时只要统计有多少个前缀和为 $\textit{pre}[i]-k$ 的 \textit{pre}[j]pre[j] 即可。
+所以我们考虑以 `i` 结尾的和为 `k` 的连续子数组个数时只要统计有多少个前缀和为 $\textit{pre}[i]-k$ 的 $\textit{pre}[j]$ 即可。
 
