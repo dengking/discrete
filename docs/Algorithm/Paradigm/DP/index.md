@@ -4,8 +4,6 @@
 
 ## DP状态机、状态转移方程
 
-
-
 一、从下面几个角度来进行讨论:
 
 1、"DP状态机"、"状态转移方程"描述的是"**原问题**"和"**子问题**"之间的函数关系
@@ -27,10 +25,6 @@
 在课本的例子中，能够使用动态规划算法解决的问题都具有最优子结构性质，也就是问题的最优解包含其子问题的最优解（当我在用动态规划解决问题的时候，用数学公式描述出这种关系是解决这个问题的核心所在）注意这样的描述本来就包含递归的思想。动态规划算法所维护的二维数组`m[i][j]`值表示子问题i到j的最优值。
 
 动态规划算法也是从底层到高层，从子问题到完全问题逐渐来解决问题的。
-
-
-
-
 
 ## 动态规划问题的分类
 
@@ -56,11 +50,11 @@ LeetCode [518. 零钱兑换 II](https://leetcode-cn.com/problems/coin-change-2/)
 
 一、子序列
 
-参见 `Subsequence-子序列问题` 章节。
+参见 `非连续-子序列` 章节。
 
 二、子数组
 
-参见 `DP解子数组问题` 章节。
+参见 `连续-子串子数组` 章节。
 
 三、DP解最短路径问题
 
@@ -98,17 +92,9 @@ LeetCode [518. 零钱兑换 II](https://leetcode-cn.com/problems/coin-change-2/)
 
 关于这一点，是我在阅读 LeetCode [446. 等差数列划分 II - 子序列](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/) 困难 # [【负雪明烛】揭秘子序列动态规划的套路](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/solution/fu-xue-ming-zhu-jie-mi-zi-xu-lie-dong-ta-gepk/) 时，想到的。
 
-
-
-## TODO
-
-
-
-berkeley [Chapter 6 Dynamic programming](https://people.eecs.berkeley.edu/~vazirani/algorithms/chap6.pdf)
-
-
-
 ## 素材
 
-1、"wikipedia [Recursion (computer science)](https://en.wikipedia.org/wiki/Recursion_(computer_science)) # Recursive functions and algorithms"
+1、wikipedia [Recursion (computer science)](https://en.wikipedia.org/wiki/Recursion_(computer_science)) # Recursive functions and algorithms
+
+2、berkeley [Chapter 6 Dynamic programming](https://people.eecs.berkeley.edu/~vazirani/algorithms/chap6.pdf)
 
