@@ -81,6 +81,20 @@ In the merge sort algorithm, this [subroutine](https://en.wikipedia.org/wiki/Sub
 
 
 
+## 素材
+
+一、宫水三页 [【多路归并】从朴素优先队列到多路归并](https://mp.weixin.qq.com/s?__biz=MzU4NDE3MTEyMA==&mid=2247490029&idx=1&sn=bba9ddff88d247db310406ee418d5a15&chksm=fd9cb2f2caeb3be4b1f84962677337dcb5884374e5b6b80340834eaff79298d11151da2dd5f7&token=252055586&lang=zh_CN#rd)
+
+## 相关算法
+
+1、double pointer
+
+典型例子merge sort，这种一般是merge two sequence
+
+2、heap
+
+这种一般是merge multiple sequence
+
 ## LeetCode 试题
 
 下面总结一些归并的试题。
@@ -157,4 +171,3 @@ LeetCode [56. 合并区间](https://leetcode-cn.com/problems/merge-intervals) �
 
 #### LeetCode [378. 有序矩阵中第 K 小的元素](https://leetcode-cn.com/problems/kth-smallest-element-in-a-sorted-matrix/) 中等
 
-### [【多路归并】从朴素优先队列到多路归并](https://mp.weixin.qq.com/s?__biz=MzU4NDE3MTEyMA==&mid=2247490029&idx=1&sn=bba9ddff88d247db310406ee418d5a15&chksm=fd9cb2f2caeb3be4b1f84962677337dcb5884374e5b6b80340834eaff79298d11151da2dd5f7&token=252055586&lang=zh_CN#rd)
