@@ -2,7 +2,7 @@
 
 非连续，但是相对位置是保持不变的。
 
-## 常用解法
+## 算法、复杂度
 
 ### 穷举
 
@@ -12,11 +12,19 @@
 
 但是，有的时候，还是要进行穷举，那如何进行穷举呢？
 
-一、回溯法
+#### 回溯法
 
-LeetCode [491. 递增子序列](https://leetcode-cn.com/problems/increasing-subsequences/) 中等，这是典型例子 。
+一、LeetCode [491. 递增子序列](https://leetcode-cn.com/problems/increasing-subsequences/) 中等，这是典型例子 。
 
-LeetCode [446. 等差数列划分 II - 子序列](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/) 困难，在这道题中，我刚开始使用回溯法进行穷举，结果超时。
+二、LeetCode [446. 等差数列划分 II - 子序列](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/) 困难，在这道题中，我刚开始使用回溯法进行穷举，结果超时。
+
+三、这个问题在 labuladong [子序列解题模板：最长回文子序列](https://mp.weixin.qq.com/s/zNai1pzXHeB2tQE6AdOXTA) 有着总结
+
+典型例子:
+
+1、`LeetCode-491-递增子序列`
+
+典型的通过回溯法枚举出所有的可能子序列。
 
 
 
