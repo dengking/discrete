@@ -71,3 +71,54 @@ int main()
 
 ### 三指针
 
+```c++
+#include <string>
+#include <vector>
+#include <queue>
+#include <set>
+#include <stack>
+#include <unordered_map>
+#include <algorithm>
+#include <random>
+#include <iostream>
+#include <stdexcept>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+class Solution {
+public:
+	int nthUglyNumber(int n) {
+		std::vector<long long> nums(n+1);
+		nums[0] = 1;
+		nums[1] = 1;
+
+		int a = 1;
+		int b = 1;
+		int c = 1;
+		for (int i = 2; i <= n; ++i) {
+			long long next_a = nums[a] * 2;
+			long long next_b = nums[a] * 3;
+			long long next_c = nums[a] * 5;
+
+			long long next = min(next_a, min(next_b, next_c));
+			if (next = next_a) ++a;
+			if (next = next_b) ++b;
+			if (next = next_c) ++c;
+			nums[i] = next;
+		}
+		return nums[n];
+	}
+};
+
+int main()
+{
+	Solution s;
+	vector<int> nums{ 1,2,3,4 };
+	int k = 5;
+}
+
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -Werror
+
+```
+
