@@ -2,14 +2,6 @@
 
 
 
-关于实现，参见:
-
-1、geeksforgeeks [Merge k sorted arrays | Set 1](https://www.geeksforgeeks.org/merge-k-sorted-arrays/)
-
-2、leetcode [合并K个排序链表](https://leetcode-cn.com/problems/merge-k-sorted-lists/solution/he-bing-kge-pai-xu-lian-biao-by-leetcode-solutio-2/)
-
-
-
 ## wikipedia [k-way merge algorithm](https://en.wikipedia.org/wiki/K-way_merge_algorithm) 
 
 
@@ -62,3 +54,12 @@ A straightforward implementation would scan all k arrays to determine the minimu
 
 **Tournament Tree**
 
+
+
+## Implementation
+
+1、geeksforgeeks [Merge k sorted arrays | Set 1](https://www.geeksforgeeks.org/merge-k-sorted-arrays/)
+
+2、LeetCode [合并K个排序链表](https://leetcode-cn.com/problems/merge-k-sorted-lists/solution/he-bing-kge-pai-xu-lian-biao-by-leetcode-solutio-2/)
+
+3、宫水三叶 [【多路归并】从朴素优先队列到多路归并](https://mp.weixin.qq.com/s?__biz=MzU4NDE3MTEyMA==&mid=2247490029&idx=1&sn=bba9ddff88d247db310406ee418d5a15&chksm=fd9cb2f2caeb3be4b1f84962677337dcb5884374e5b6b80340834eaff79298d11151da2dd5f7&token=252055586&lang=zh_CN#rd)
