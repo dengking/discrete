@@ -4,6 +4,6 @@ nav:
     - Circular-array: Circular-array
     - O(N)-array-algorithm: O(N)-array-algorithm    
     - Prefix-sum&difference-array: Prefix-sum&difference-array
-    - LeetCode: LeetCode
+    # - LeetCode: LeetCode
 
     

@@ -1,4 +1,6 @@
 nav:
     - Introduction: index.md
     - K-way-merge-algorithm: K-way-merge-algorithm
+    - Merge-array: Merge-array
+    - Merge-linked-list: Merge-linked-list
     
