@@ -1,4 +1,4 @@
-# Mixed data structure
+# hybrid data structure
 
 一、separate chaining based hash table
 
