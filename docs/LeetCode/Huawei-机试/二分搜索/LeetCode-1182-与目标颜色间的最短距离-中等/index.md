@@ -29,5 +29,9 @@
 
 ## 我的解题
 
-这道题和labuladong [二分查找的妙用：判定子序列](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247484479&idx=1&sn=31a3fc4aebab315e01ea510e482b186a&scene=21#wechat_redirect) 中提出的解法有些类似。
+这道题和labuladong [二分查找的妙用：判定子序列](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247484479&idx=1&sn=31a3fc4aebab315e01ea510e482b186a&scene=21#wechat_redirect) 中提出的解法有些类似：
+
+1、接口会被反复调用，因此提醒我可能需要以空间换时间
+
+2、保存每个节点的位置信息，然后binary search
 
