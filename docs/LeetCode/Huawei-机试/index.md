@@ -32,7 +32,7 @@
 |          | [487. 最大连续1的个数 II](https://leetcode-cn.com/problems/max-consecutive-ones-ii/) |                     |          |
 | 广搜     |                                                              |                     |          |
 |          | [490. 迷宫](https://leetcode-cn.com/problems/the-maze/)      |                     |          |
-|          | [505. 迷宫 II](https://leetcode-cn.com/problems/the-maze-ii/) |                     |          |
+|          | [505. 迷宫 II](https://leetcode-cn.com/problems/the-maze-ii/) |                     | 已做     |
 | 栈       |                                                              |                     |          |
 |          | [439. 三元表达式解析器](https://leetcode-cn.com/problems/ternary-expression-parser/) |                     | 已做     |
 | 链表     |                                                              |                     |          |
