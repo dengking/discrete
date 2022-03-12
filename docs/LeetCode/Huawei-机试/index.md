@@ -18,7 +18,7 @@
 |          | [573. 松鼠模拟](https://leetcode-cn.com/problems/squirrel-simulation/) |                     |          |
 | 哈希表   |                                                              |                     |          |
 |          | [311. 稀疏矩阵的乘法](https://leetcode-cn.com/problems/sparse-matrix-multiplication/) |                     |          |
-|          | [314. 二叉树的垂直遍历](https://leetcode-cn.com/problems/binary-tree-vertical-order-traversal/) |                     |          |
+|          | [314. 二叉树的垂直遍历](https://leetcode-cn.com/problems/binary-tree-vertical-order-traversal/) |                     | 已做     |
 | 深搜     |                                                              |                     |          |
 |          | [505. 迷宫 II](https://leetcode-cn.com/problems/the-maze-ii/) |                     |          |
 |          | [1059. 从始点到终点的所有路径](https://leetcode-cn.com/problems/all-paths-from-source-lead-to-destination/) |                     | 已做     |
@@ -29,7 +29,7 @@
 |          | [1057. 校园自行车分配](https://leetcode-cn.com/problems/campus-bikes/) |                     |          |
 | 双指针   |                                                              |                     |          |
 |          | [360. 有序转化数组](https://leetcode-cn.com/problems/sort-transformed-array/) |                     | 已做     |
-|          | [487. 最大连续1的个数 II](https://leetcode-cn.com/problems/max-consecutive-ones-ii/) |                     |          |
+|          | [487. 最大连续1的个数 II](https://leetcode-cn.com/problems/max-consecutive-ones-ii/) |                     | 已做     |
 | 广搜     |                                                              |                     |          |
 |          | [490. 迷宫](https://leetcode-cn.com/problems/the-maze/)      |                     |          |
 |          | [505. 迷宫 II](https://leetcode-cn.com/problems/the-maze-ii/) |                     | 已做     |
