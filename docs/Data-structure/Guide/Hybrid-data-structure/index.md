@@ -12,5 +12,5 @@
 
 它可以看做是linked list of dynamic array
 
-三、linked hash map
+三、LRU linked hash map
 
