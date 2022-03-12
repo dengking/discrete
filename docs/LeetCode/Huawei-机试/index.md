@@ -21,9 +21,9 @@
 |          | [314. 二叉树的垂直遍历](https://leetcode-cn.com/problems/binary-tree-vertical-order-traversal/) |                     |          |
 | 深搜     |                                                              |                     |          |
 |          | [505. 迷宫 II](https://leetcode-cn.com/problems/the-maze-ii/) |                     |          |
-|          | [1059. 从始点到终点的所有路径](https://leetcode-cn.com/problems/all-paths-from-source-lead-to-destination/) |                     |          |
+|          | [1059. 从始点到终点的所有路径](https://leetcode-cn.com/problems/all-paths-from-source-lead-to-destination/) |                     | 已做     |
 | 二分查找 |                                                              |                     |          |
-|          | [1182. 与目标颜色间的最短距离](https://leetcode-cn.com/problems/shortest-distance-to-target-color/) |                     |          |
+|          | [1182. 与目标颜色间的最短距离](https://leetcode-cn.com/problems/shortest-distance-to-target-color/) |                     | 已做     |
 | 贪心     |                                                              |                     |          |
 |          | [1055. 形成字符串的最短路径](https://leetcode-cn.com/problems/shortest-way-to-form-string/) |                     | 已做     |
 |          | [1057. 校园自行车分配](https://leetcode-cn.com/problems/campus-bikes/) |                     |          |
