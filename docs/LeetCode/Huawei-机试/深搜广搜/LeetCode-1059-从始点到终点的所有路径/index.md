@@ -448,3 +448,47 @@ public:
 
 ```
 
+
+
+## 拓扑排序
+
+### [灵剑2012](https://leetcode-cn.com/u/ling-jian-2012/) [标准的拓扑排序应用](https://leetcode-cn.com/problems/all-paths-from-source-lead-to-destination/solution/biao-zhun-de-tuo-bu-pai-xu-ying-yong-by-jy6wb/)
+
+
+
+### [梦璃夜·天星![img](https://assets.leetcode-cn.com/contest/level/Guardian_sm.png)](https://leetcode-cn.com/u/muriyatensei/) [【C++】普通拓扑排序](https://leetcode-cn.com/problems/all-paths-from-source-lead-to-destination/solution/c-pu-tong-tuo-bu-pai-xu-by-muriyatensei-zo9z/)
+
+从结尾向起点找，能到起点就证明可以
+
+> NOTE:
+>
+> 从下面的实现来看，它将图反过来了
+
+```c++
+class Solution {
+public:
+    bool leadsToDestination(int n, vector<vector<int>>& edges, int so, int de) {
+        vector<vector<int>> e(n);
+        vector<int> d(n);
+        for(auto&& x: edges){
+            e[x[1]].push_back(x[0]);
+            d[x[0]]++;
+        }        
+        if(d[de]) return false; // 目标节点有入度，说明它后面有节点
+        queue<int> q;
+        q.push(de);
+        while(q.size()){
+            int now = q.front(); q.pop();
+            if(now == so) return true;
+            for(int next: e[now]){
+                if(--d[next] == 0){
+                    q.push(next);
+                }
+            }
+        }
+        return false;
+    }
+};
+
+```
+
