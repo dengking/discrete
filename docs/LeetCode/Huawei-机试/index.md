@@ -14,8 +14,8 @@
 |          | [536  从字符串生成二叉树](https://leetcode-cn.com/problems/construct-binary-tree-from-string/) |                     | 已做     |
 |          | [545. 二叉树的边界](https://leetcode-cn.com/problems/boundary-of-binary-tree/) |                     | 已做     |
 | 数学     |                                                              |                     |          |
-|          | [469. 凸多边形](https://leetcode-cn.com/problems/convex-polygon/) |                     |          |
-|          | [573. 松鼠模拟](https://leetcode-cn.com/problems/squirrel-simulation/) |                     |          |
+|          | [469. 凸多边形](https://leetcode-cn.com/problems/convex-polygon/) |                     | 已做     |
+|          | [573. 松鼠模拟](https://leetcode-cn.com/problems/squirrel-simulation/) |                     | 已做     |
 | 哈希表   |                                                              |                     |          |
 |          | [311. 稀疏矩阵的乘法](https://leetcode-cn.com/problems/sparse-matrix-multiplication/) |                     | 已做     |
 |          | [314. 二叉树的垂直遍历](https://leetcode-cn.com/problems/binary-tree-vertical-order-traversal/) |                     | 已做     |
