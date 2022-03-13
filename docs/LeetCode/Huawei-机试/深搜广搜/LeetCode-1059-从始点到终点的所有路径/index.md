@@ -411,3 +411,40 @@ int main()
 ## 更优秀的解法
 
 ### [c++/python3 回溯+记忆化 判断图中有没有环 判断叶节点](https://leetcode-cn.com/problems/all-paths-from-source-lead-to-destination/solution/cpython3-hui-su-ji-yi-hua-pan-duan-tu-zh-qmqx/)
+
+```c++
+class Solution 
+{
+public:
+    bool leadsToDestination(int n, vector<vector<int>>& edges, int source, int destination) 
+    {
+        unordered_map<int, vector<int>> adjvex; //邻接表
+        for (auto & v: edges)
+            adjvex[v[0]].push_back(v[1]);
+        if (adjvex.count(destination) > 0)  //终点还有后继结点，必不行
+            return false;
+        vector<bool> visited(n, false);     //记忆化
+
+        std::function<bool (int)> backtrace = [&] (int x)
+        {
+            if (adjvex.count(x) == 0)       //是叶节点
+                return x == destination;
+            for (int & y: adjvex[x])
+            {
+                if (visited[y] == true)     //之前已经visit了，有环
+                    return false;
+                visited[y] = true;          //借
+                if (backtrace(y) == false)
+                    return false;
+                visited[y] = false;         //回溯。有借有还
+            }
+            return true;
+        };
+
+        visited[source] = true;             //从source出发
+        return backtrace(source);
+    }
+};
+
+```
+
