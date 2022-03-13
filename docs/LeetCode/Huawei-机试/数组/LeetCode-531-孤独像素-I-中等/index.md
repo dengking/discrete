@@ -51,6 +51,7 @@ public:
 			}
 		return lonelyCount;
 	}
+  // 确定所在行、所在列都只有一个W，那么它就是孤独的像素
 	int isLonely(vector<vector<char>>& picture, int rowCount, int colCount, int curRow, int curCol) {
 		int rowBlackCount = 0;
 		for (int i = 0; i < colCount; ++i)
