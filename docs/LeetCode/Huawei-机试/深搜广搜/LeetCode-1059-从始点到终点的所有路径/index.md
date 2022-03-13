@@ -2,11 +2,11 @@
 
 ## 我的解题
 
-思路：验证从起点出发的每一条路径，核实它能否到达终点。需要处理环问题。只要发现有一条不能到达终点，则立即判定为false。
-
-
+思路：验证从起点出发的每一条路径，核实它能否到达终点。需要处理环问题。
 
 如何来表示最终结果？
+
+这是典型的存在性问题，只要发现有一条不能到达终点，则立即判定为false。这种题目是比较
 
 ### 第一次解题
 
@@ -236,6 +236,174 @@ int main()
 true
 预期结果：
 false
+```
+
+`[2,6]` 这条边显然是无法到达目标节点的。
+
+### 第四次解题
+
+```c++
+#include <iostream>
+#include <vector>
+#include <utility> // std::pair
+#include <unordered_map>
+#include <string>
+#include <set>
+#include <map>
+#include <climits> // INT_MAX
+using namespace std;
+
+class Solution
+{
+  unordered_map<int, vector<int> > graph_;
+  bool hasCircle{false};
+  vector<bool> visited_;
+  int countReach_{0}; //到达终点的次数
+public:
+  bool leadsToDestination(int n, vector<vector<int> > &edges, int source, int destination)
+  {
+    for (auto &&e : edges)
+    {
+      if (e[0] == e[1])
+        return false;
+      graph_[e[0]].push_back(e[1]);
+    }
+    if (graph_.count(destination) > 0) //终点还有后继结点，必不行
+      return false;
+    visited_ = vector<bool>(n, false);
+    visited_[source] = true;
+    return dfs(source, destination);
+  }
+  bool dfs(int source, int destination)
+  {
+    if (source == destination)
+    {
+      return true;
+    }
+    if (!graph_.count(source))
+    {
+      return false;
+    }
+    for (auto &&n : graph_[source])
+    {
+      if (!visited_[n])
+      {
+        visited_[n] = true;
+        if (dfs(n, destination))
+        {
+          visited_[n] = false;
+          continue;
+        }
+        else
+        {
+          return false;
+        }
+      }
+      else
+      {
+        return false;
+      }
+    }
+    return true; // 这里是需要注意的
+  }
+};
+
+int main()
+{
+  Solution s;
+}
+
+```
+
+上述程序在如下用例无法通过：
+
+```
+50
+[[5,15],[38,34],[29,5],[6,32],[46,2],[34,22],[2,25],[1,18],[10,10],[26,46],[40,46],[36,19],[16,13],[46,6],[19,32],[7,41],[14,32],[20,13],[0,43],[17,14],[42,41],[40,12],[28,7],[36,35],[18,2],[28,11],[14,32],[4,9],[26,6],[7,17],[49,41],[17,2],[36,34],[18,0],[26,15],[27,10],[26,46],[41,14],[47,19],[19,14],[6,3],[16,14],[21,43],[4,15],[5,2],[31,2],[5,30],[7,33],[18,2],[9,33],[21,44],[1,43],[37,17],[8,24],[21,33],[46,45],[29,14],[22,32],[14,14],[22,32],[42,6],[7,14],[35,13],[36,35],[5,25],[2,3],[23,22],[44,33],[24,13],[35,19],[20,14],[14,32],[35,5],[44,13],[32,32],[32,32],[28,46],[32,32],[37,10],[38,46],[30,30],[0,3],[15,9],[39,15],[42,44],[2,20],[47,0],[49,44],[45,4],[36,22],[13,13],[14,30],[13,14],[31,31],[45,3],[45,5],[34,14],[44,9],[30,30],[40,12],[13,30],[25,20],[34,14],[41,22],[12,34],[5,33],[20,22],[48,5],[48,7],[46,0],[14,32],[32,30],[38,46],[30,30],[35,15],[37,20],[42,2],[26,13],[8,48],[20,30],[37,33],[28,18],[32,30],[10,10],[48,44],[24,14],[8,9],[0,14],[1,43],[14,14],[20,22],[31,10],[1,0],[4,7],[27,41],[41,22],[0,22],[17,19],[8,16],[18,38],[37,23],[5,22],[35,23],[14,30],[30,30],[13,32],[28,23],[24,25],[45,2],[25,22]]
+15
+33
+```
+
+经过调试发现，它是在如下语句退出的：
+
+```c++
+      if (e[0] == e[1])
+        return false;
+```
+
+查看测试用例，的确存在 `[14,14]` 这样的数据。将上面这条语句删除，即可通过。
+
+### 第五次提交
+
+```c++
+#include <iostream>
+#include <vector>
+#include <utility> // std::pair
+#include <unordered_map>
+#include <string>
+#include <set>
+#include <map>
+#include <climits> // INT_MAX
+using namespace std;
+
+class Solution
+{
+  unordered_map<int, vector<int> > graph_;
+  bool hasCircle{false};
+  vector<bool> visited_;
+  int countReach_{0}; //到达终点的次数
+public:
+  bool leadsToDestination(int n, vector<vector<int> > &edges, int source, int destination)
+  {
+    for (auto &&e : edges)
+    {
+      graph_[e[0]].push_back(e[1]);
+    }
+    if (graph_.count(destination) > 0) //终点还有后继结点，必不行
+      return false;
+    visited_ = vector<bool>(n, false);
+    visited_[source] = true;
+    return dfs(source, destination);
+  }
+  bool dfs(int source, int destination)
+  {
+    if (source == destination)
+    {
+      return true;
+    }
+    if (!graph_.count(source))
+    {
+      return false;
+    }
+    for (auto &&n : graph_[source])
+    {
+      if (!visited_[n])
+      {
+        visited_[n] = true;
+        if (dfs(n, destination))
+        {
+          visited_[n] = false;
+          continue;
+        }
+        else
+        {
+          return false;
+        }
+      }
+      else
+      {
+        return false;
+      }
+    }
+    return true; // 这里是需要注意的
+  }
+};
+
+int main()
+{
+  Solution s;
+}
+
 ```
 
 
