@@ -150,7 +150,7 @@ public:
 		}
 
 		for (int i = 1; i < length; ++i)
-			diffArray[i] += diffArray[i - 1];
+			diffArray[i] += diffArray[i - 1]; // 因为是从0开始的
 		return diffArray;
 	}
 
