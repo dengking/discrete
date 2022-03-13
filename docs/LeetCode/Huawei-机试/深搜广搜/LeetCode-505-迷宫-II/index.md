@@ -976,7 +976,7 @@ public:
       }
       x -= direction[0];
       y -= direction[1];
-      if (distance_[x][y] > distance_[curX][curY] + step)
+      if (distance_[x][y] > distance_[curX][curY] + step) // 及时剪枝
       {
         distance_[x][y] = distance_[curX][curY] + step;
         dfs(maze, destination, x, y);

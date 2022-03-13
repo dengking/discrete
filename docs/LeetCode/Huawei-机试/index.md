@@ -31,7 +31,7 @@
 |          | [360. 有序转化数组](https://leetcode-cn.com/problems/sort-transformed-array/) |                     | 已做     |
 |          | [487. 最大连续1的个数 II](https://leetcode-cn.com/problems/max-consecutive-ones-ii/) |                     | 已做     |
 | 广搜     |                                                              |                     |          |
-|          | [490. 迷宫](https://leetcode-cn.com/problems/the-maze/)      |                     |          |
+|          | [490. 迷宫](https://leetcode-cn.com/problems/the-maze/)      |                     | 已做     |
 |          | [505. 迷宫 II](https://leetcode-cn.com/problems/the-maze-ii/) |                     | 已做     |
 | 栈       |                                                              |                     |          |
 |          | [439. 三元表达式解析器](https://leetcode-cn.com/problems/ternary-expression-parser/) |                     | 已做     |
