@@ -1,75 +1,22 @@
 # LeetCode [743. 网络延迟时间](https://leetcode-cn.com/problems/network-delay-time/) 中等
 
+这个题目有一个特别需要注意的地方：
 
+> 有 `n` 个网络节点，标记为 `1` 到 `n`
 
-## 第一次解题 BFS
+它的标记是从1开始的，而不是从0开始的，因此需要进行一次转换。
 
-这个题目其实是要求解从源点出发到达所有的其它节点的距离，显然是可以通过遍历的方式来实现的，我们可以采用BFS。
+对于节点标记是从0-N的这种问题，adjacent list有两种选择：
 
-```C++
-#include <bits/stdc++.h>
-using namespace std;
+1、`unordered_map<int, vector<vector<int> > > graph;`
 
-class Solution
-{
-public:
-	int networkDelayTime(vector<vector<int>> &times, int n, int k)
-	{
-		int maxDelayTime = -1; // 最大的网络延时
-		vector<bool> visited(n, false);
-		// pair<int, int> 节点编号、源节点到该节点的延时
-		queue<pair<int, int>> q; // 队列
-		q.push( { k, 0 });
-		visited[n] = true;
-		while (!q.empty())
-		{
-			pair<int, int> curr_node = q.front();
-			q.pop();
-			for (auto &&edge : times)
-			{
-				if (edge[0] == curr_node.first && !visited[edge[1]]) // 表示源点是v
-				{
-					pair<int, int> next_node { edge[1], curr_node.second + edge[2] };
-					q.push(next_node); // 将目标节点放到queue中
-					maxDelayTime = max(maxDelayTime, next_node.second);
-				}
-			}
-		}
-		return maxDelayTime;
-	}
-};
+2、`vector<vector<int>> g(n, vector<int>(n, inf)); // graph`
 
-int main()
-{
+显然相比之下，第二种方式是更好的。
 
-}
-// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -g
+## 我的解题
 
-
-```
-
-结果测试，在下面的用例中，无法通过:
-
-```C++
-输入：
-[[1,2,1],[2,3,2],[1,3,2]]
-3
-1
-输出：
-3
-预期结果：
-2
-```
-
-后来看标准答案，方知道应该采用dijkstra算法；
-
-
-
-### LeetCode [C++ BFS](https://leetcode-cn.com/problems/network-delay-time/solution/c-bfs-by-qiank-rv2f/)
-
-
-
-## 第二次解题
+这是参考的 [官方解题](https://leetcode-cn.com/problems/network-delay-time/solution/wang-luo-yan-chi-shi-jian-by-leetcode-so-6phc/) 写的：
 
 ```C++
 #include <bits/stdc++.h>
@@ -131,11 +78,15 @@ int main()
 
 
 
-## [官方解题](https://leetcode-cn.com/problems/network-delay-time/solution/wang-luo-yan-chi-shi-jian-by-leetcode-so-6phc/)、使用dijkstra算法
+## [官方解题](https://leetcode-cn.com/problems/network-delay-time/solution/wang-luo-yan-chi-shi-jian-by-leetcode-so-6phc/) 使用dijkstra算法
 
-
+根据题意，从节点 `k` 发出的信号，到达节点 `x` 的时间就是节点 `k` 到节点 `x` 的最短路的长度。因此我们需要求出节点 `k` 到其余所有点的最短路，其中的最大值就是答案。若存在从 `k` 出发无法到达的点，则返回 -1。
 
 ### 不使用 `priority_queue`
+
+> NOTE: 
+>
+> 下面的这种写法不好，不建议采用
 
 
 
@@ -149,16 +100,16 @@ public:
 	int networkDelayTime(vector<vector<int>> &times, int n, int k)
 	{
 		const int inf = INT_MAX / 2;
-		vector<vector<int>> g(n, vector<int>(n, inf)); // graph
+		vector<vector<int>> g(n, vector<int>(n, inf)); // graph，这种表示方式记录的是从source到所有的n个节点的距离，它可以通过inf开判定两个节点之间是否可达
 		for (auto &t : times)
 		{
-			int x = t[0] - 1, y = t[1] - 1;
-			g[x][y] = t[2];
+			int x = t[0] - 1, y = t[1] - 1; // 需要注意标号到下标的转换
+			g[x][y] = t[2]; // 从节点x到节点y的距离为t[2]
 		}
 
 		vector<int> dist(n, inf);
-		dist[k - 1] = 0;
-		vector<int> used(n);
+		dist[k - 1] = 0; // 需要注意标号到下标的转换
+		vector<int> used(n); // 这是visited array
 		for (int i = 0; i < n; ++i)
 		{
 			int x = -1;
@@ -193,7 +144,9 @@ int main()
 
 ### 使用`priority_queue`
 
-
+> NOTE:
+>
+> 这种写法较好，建议采用
 
 ```c++
 #include <bits/stdc++.h>
@@ -205,27 +158,27 @@ public:
 	int networkDelayTime(vector<vector<int>> &times, int n, int k)
 	{
 		const int inf = INT_MAX / 2;
-		vector<vector<pair<int, int>>> g(n);
+		vector<vector<pair<int, int>>> g(n); // 在graph中，pair.fist 是节点index， pair.second是当前节点的parent到它的weight
 		for (auto &t : times)
 		{
-			int x = t[0] - 1, y = t[1] - 1;
+			int x = t[0] - 1, y = t[1] - 1; // 需要注意标号到下标的转换
 			g[x].emplace_back(y, t[2]);
 		}
 
 		vector<int> dist(n, inf);
-		dist[k - 1] = 0;
-		priority_queue<pair<int, int>, vector<pair<int, int>>, greater<>> q;
-		q.emplace(0, k - 1);
+		dist[k - 1] = 0; // 需要注意标号到下标的转换
+		priority_queue<pair<int, int>, vector<pair<int, int>>, greater<>> q; // 这是min heap
+		q.emplace(0, k - 1); // 在priority_queue中，pair.first 是当前节点的parent到它的weight，pair.second 是节点index
 		while (!q.empty())
 		{
-			auto p = q.top();
+			auto p = q.top(); // q是当前节点
 			q.pop();
 			int time = p.first, x = p.second;
 			if (dist[x] < time)
 			{
 				continue;
 			}
-			for (auto &e : g[x])
+			for (auto &e : g[x]) // 对于所有的临接节点
 			{
 				int y = e.first, d = dist[x] + e.second;
 				if (d < dist[y])
@@ -247,6 +200,59 @@ int main()
 }
 // g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -g
 
+
+```
+
+## [XingHe](https://leetcode-cn.com/u/QRhqcDD90G/) # [c++/python3/java （1）朴素dijkstra算法 （2）最小堆+visited+dijkstra算法](https://leetcode-cn.com/problems/network-delay-time/solution/cpython3java-1po-su-dijkstrasuan-fa-2zui-ks36/)
+
+### （二）最小堆+visited+dijkstra算法
+
+```c++
+class Solution 
+{
+public:
+    int networkDelayTime(vector<vector<int>>& times, int n, int k) 
+    {
+        //---------------------最小堆+visited+朴素dijkstra算法 -----------------------//
+        int INF = 1e9;
+        unordered_map<int, vector<pair<int, int>>> adjvex;
+        for (auto v : times)
+        {
+            int x = v[0],  y = v[1],  cost = v[2];
+            x --;
+            y --;
+            adjvex[x].push_back({y, cost});
+        }
+
+        int start = k - 1;
+        vector<int> dist(n, INF);
+        vector<bool> visited(n, false);
+        dist[start] = 0;
+        priority_queue<pair<int,int>, vector<pair<int,int>>, greater<pair<int,int>> > minHeap;
+        minHeap.push({0, start});
+        while (!minHeap.empty())
+        {
+            auto [d, x] = minHeap.top();
+            minHeap.pop();
+            if (visited[x] == true)
+                continue;
+            visited[x] = true;
+            for (auto [y, cost] : adjvex[x])
+            {
+                if (dist[x] + cost < dist[y])
+                {
+                    dist[y] = dist[x] + cost;
+                    minHeap.push({dist[y], y});
+                }
+            }
+        }
+
+        //---- 最后一个到达的，是求max
+        int res = *max_element(dist.begin(), dist.end());  
+        return (res != INF ? res : -1);
+
+    }   
+};
 
 ```
 
