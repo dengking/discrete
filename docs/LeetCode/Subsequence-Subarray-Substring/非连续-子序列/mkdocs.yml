@@ -1,4 +1,3 @@
 nav:
     - Introduction: index.md
     - DP解子序列问题: DP解子序列问题    
-    - 滑动窗口解不连续子序列问题: 滑动窗口解不连续子序列问题

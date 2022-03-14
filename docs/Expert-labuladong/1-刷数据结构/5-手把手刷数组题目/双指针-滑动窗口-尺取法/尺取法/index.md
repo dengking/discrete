@@ -13,3 +13,4 @@ zhihu [尺取法（二）](https://zhuanlan.zhihu.com/p/31427570)
 二、acwing [尺取法](https://www.acwing.com/blog/content/4409/)
 
 三、LeetCode [567. 字符串的排列](https://leetcode-cn.com/problems/permutation-in-string/)  
+

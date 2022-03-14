@@ -1,4 +1,4 @@
-# 滑动窗口解子数组、子(字符)串
+# 滑动窗口解子串、子序列问题
 
 ## 前提条件
 
@@ -6,9 +6,21 @@
 
 一、labuladong [动态规划套路：最大子数组和](https://mp.weixin.qq.com/s/nrULqCsRsrPKi3Y-nUfnqg) 
 
-## 素材
+## 问题分类
 
-一、labuladong [我写了套框架，把滑动窗口算法变成了默写题](https://mp.weixin.qq.com/s/ioKXTMZufDECBUwRRp3zaA) 
+这类问题有多种分类方式：
+
+### 一、窗口是否定长？
+
+#### 定长窗口
+
+1、Leetcode [1100. 长度为 K 的无重复字符子串](https://leetcode-cn.com/problems/find-k-length-substrings-with-no-repeated-characters/) 中等
+
+2、Leetcode [567. 字符串的排列](https://leetcode-cn.com/problems/permutation-in-string/) 中等
+
+### 二、连续还是不连续？
+
+
 
 ## LeetCode例题
 
@@ -21,4 +33,8 @@
 四、LeetCode [567. 字符串的排列](https://leetcode-cn.com/problems/permutation-in-string/) 中等
 
 五、LeetCode [1839. 所有元音按顺序排布的最长子字符串](https://leetcode-cn.com/problems/longest-substring-of-all-vowels-in-order/) 中等
+
+## 素材
+
+一、labuladong [我写了套框架，把滑动窗口算法变成了默写题](https://mp.weixin.qq.com/s/ioKXTMZufDECBUwRRp3zaA) 
 

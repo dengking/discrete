@@ -2,5 +2,4 @@ nav:
     - Introduction: index.md
     - LeetCode-连续1: LeetCode-连续1
     - 子数组和问题: 子数组和问题
-    - 滑动窗口解连续-子数组子串: 滑动窗口解连续-子数组子串
     
