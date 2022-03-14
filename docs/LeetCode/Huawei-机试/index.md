@@ -26,7 +26,7 @@
 |          | [1182. 与目标颜色间的最短距离](https://leetcode-cn.com/problems/shortest-distance-to-target-color/) |                     | 已做     |
 | 贪心     |                                                              |                     |          |
 |          | [1055. 形成字符串的最短路径](https://leetcode-cn.com/problems/shortest-way-to-form-string/) |                     | 已做     |
-|          | [1057. 校园自行车分配](https://leetcode-cn.com/problems/campus-bikes/) |                     |          |
+|          | [1057. 校园自行车分配](https://leetcode-cn.com/problems/campus-bikes/) |                     | 已做     |
 | 双指针   |                                                              |                     |          |
 |          | [360. 有序转化数组](https://leetcode-cn.com/problems/sort-transformed-array/) |                     | 已做     |
 |          | [487. 最大连续1的个数 II](https://leetcode-cn.com/problems/max-consecutive-ones-ii/) |                     | 已做     |
