@@ -38,17 +38,11 @@ KMP算法要解决的问题就是在字符串（也叫主串）中的模式（pa
 
 ```java
 /**
-
  * 暴力破解法
-
  * @param ts 主串
-
  * @param ps 模式串
-
  * @return 如果找到，返回在主串中第一个字符出现的下标，否则为-1
-
  */
-
 public static int bf(String ts, String ps) {
     char[] t = ts.toCharArray();
     char[] p = ps.toCharArray();
@@ -160,31 +154,18 @@ public static int bf(String ts, String ps) {
 
 ```java
 public static int[] getNext(String ps) {
-
     char[] p = ps.toCharArray();
-
     int[] next = new int[p.length];
-
-    next[0] = -1;
-
+    next[0] = -1; // 第0个元素匹配失败，j不需要移动，要移动i
     int j = 0;
-
     int k = -1;
-
     while (j < p.length - 1) {
-
        if (k == -1 || p[j] == p[k]) {
-
             next[++j] = ++k;
-
        } else {
-
            k = next[k];
-
        }
-
     }
-
     return next;
 
 }
@@ -194,6 +175,8 @@ public static int[] getNext(String ps) {
 
 好，先把这个放一边，我们自己来推导思路，现在要始终记住一点，`next[j]`的值（也就是`k`）表示，当`P[j] != T[i]`时，`j`指针的下一步移动位置。
 
+#### 当`j`为0时
+
 先来看第一个：当`j`为0时，如果这时候不匹配，怎么办？
 
 ![img](https://images0.cnblogs.com/blog/416010/201308/17084258-efd2e95d3644427ebc0304ed3d7adefb.png)
@@ -202,11 +185,15 @@ public static int[] getNext(String ps) {
 
 > NOTE: 看了下面的完整的代码就知道为什么使用`-1`来作为初始值，因为`i++`和`j++`是在相同的分支中，`j++`后`j`为0，这就保证了从P的第一个元素开始匹配。
 
+#### 当`j`为1时
+
 如果是当`j`为1的时候呢？
 
  ![img](https://images0.cnblogs.com/blog/416010/201308/17084310-29f9f8dbb6034151a383e7ccf6f5583e.png)
 
 显然，`j`指针一定是后移到0位置的。因为它前面也就只有这一个位置了。
+
+#### 当`P[k] == P[j]`时
 
 下面这个是最重要的，请看如下图：
 
@@ -220,9 +207,13 @@ public static int[] getNext(String ps) {
 
 我们发现一个规律：
 
-#### 当`P[k] == P[j]`时
-
 当`P[k] == P[j]`时，有`next[j+1] == next[j] + 1`
+
+> NOTE: 
+>
+> 递归函数
+
+
 
 其实这个是可以证明的：
 
@@ -252,51 +243,34 @@ public static int[] getNext(String ps) {
 
 > NOTE: 构建`next`数组的算法是使用的数学归纳法来求解next数组的每个值，即根据`next`数组中前`j`个元素的值来求解`next[j+1]`的值。
 
-
+### KMP算法
 
 有了`next`数组之后就一切好办了，我们可以动手写KMP算法了：
 
 ```java
 public static int KMP(String ts, String ps) {
-
     char[] t = ts.toCharArray();
-
     char[] p = ps.toCharArray();
-
+  
     int i = 0; // 主串的位置
-
     int j = 0; // 模式串的位置
 
     int[] next = getNext(ps);
 
     while (i < t.length && j < p.length) {
-
        if (j == -1 || t[i] == p[j]) { // 当j为-1时，要移动的是i，当然j也要归0
-
            i++;
-
            j++;
-
        } else {
-
            // i不需要回溯了
-
            // i = i - j + 1;
-
            j = next[j]; // j回到指定位置
-
        }
-
     }
-
     if (j == p.length) {
-
        return i - j;
-
     } else {
-
        return -1;
-
     }
 
 }
