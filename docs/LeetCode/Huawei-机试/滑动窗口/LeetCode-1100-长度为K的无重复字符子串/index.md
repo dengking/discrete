@@ -458,3 +458,72 @@ int main()
 
 ```
 
+
+
+## 二刷
+
+这是典型的定长窗口，和leetcode  [567. 字符串的排列](https://leetcode-cn.com/problems/permutation-in-string/) 类似。
+
+```c++
+#include <iostream>
+#include <vector>
+#include <queue>
+#include <utility> // std::pair
+#include <unordered_map>
+#include <string>
+#include <set>
+#include <map>
+#include <climits> // INT_MAX
+using namespace std;
+
+class Solution
+{
+public:
+  int numKLenSubstrNoRepeats(string s, int k)
+  {
+    int N = s.size();
+    if (N < k)
+    {
+      return false;
+    }
+    unordered_map<char, int> window;
+    for (int i = 0; i < k; ++i)
+    {
+      ++window[s[i]];
+    }
+    auto isNotRepeat = [&]() -> bool
+    {
+      for (auto &&item : window)
+      {
+        if (item.second > 1)
+        {
+          return false;
+        }
+      }
+      return true;
+    };
+    int res = 0;
+    if (isNotRepeat())
+    {
+      ++res;
+    }
+    for (int i = k; i < N; ++i)
+    {
+      ++window[s[i]];
+      --window[s[i - k]];
+      if (isNotRepeat())
+      {
+        ++res;
+      }
+    }
+    return res;
+  }
+};
+
+int main()
+{
+  Solution s;
+}
+
+```
+

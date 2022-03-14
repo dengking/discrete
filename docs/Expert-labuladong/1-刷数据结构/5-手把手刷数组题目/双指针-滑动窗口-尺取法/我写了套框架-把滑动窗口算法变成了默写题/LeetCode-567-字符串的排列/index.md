@@ -1,5 +1,9 @@
 # leetcode [567. 字符串的排列](https://leetcode-cn.com/problems/permutation-in-string/) 中等
 
+## 我的解题
+
+### 解法一
+
 labuladong [我写了套框架，把滑动窗口算法变成了默写题](https://mp.weixin.qq.com/s/ioKXTMZufDECBUwRRp3zaA) 中的解法写的程序:
 
 ```C++
@@ -73,7 +77,69 @@ int main()
 
 ```
 
-labuladong 给出的解法是比较复杂的，它没有应用题目的条件排列，这要求字符串连续，但是并不需要保持相对顺序，其实说白了就是: 窗口的大小是固定的，因此这个问题可以使用更加简单的滑动窗口写法，这种写法其实可以叫做"尺取法"，参见 LeetCode [567. 字符串的排列](https://leetcode-cn.com/problems/permutation-in-string/)  的官方解题给出的写法: 
+labuladong 给出的解法是比较复杂的，它没有应用题目的条件排列，这要求字符串连续，但是并不需要保持相对顺序，其实说白了就是: 窗口的大小是固定的，因此这个问题可以使用更加简单的滑动窗口写法，这种写法其实可以叫做"尺取法"，参见 LeetCode [567. 字符串的排列](https://leetcode-cn.com/problems/permutation-in-string/)  的官方解题。
+
+
+
+### 解法二
+
+```c++
+#include <iostream>
+#include <vector>
+#include <queue>
+#include <utility> // std::pair
+#include <unordered_map>
+#include <string>
+#include <set>
+#include <map>
+#include <climits> // INT_MAX
+using namespace std;
+
+class Solution
+{
+public:
+  bool checkInclusion(string s1, string s2)
+  {
+    int len1 = s1.size();
+    int len2 = s2.size();
+    if (len2 < len1)
+    {
+      return false;
+    }
+    vector<int> need(26);
+    vector<int> window(26);
+    for (int i = 0; i < len1; ++i)
+    {
+      ++need[s1[i] - 'a'];
+      ++window[s2[i] - 'a'];
+    }
+    if (need == window)
+      return true;
+    for (int i = len1; i < len2; ++i)
+    {
+      ++window[s2[i] - 'a'];
+      --window[s2[i - len1] - 'a'];
+      if (window == need)
+        return true;
+    }
+    return false;
+  }
+};
+
+int main()
+{
+  Solution s;
+}
+
+```
+
+上述解法三参考 官方解题 # [滑动窗口](https://leetcode-cn.com/problems/permutation-in-string/solution/zi-fu-chuan-de-pai-lie-by-leetcode-solut-7k7u/) 写的。
+
+
+
+## 官方解题 # [滑动窗口](https://leetcode-cn.com/problems/permutation-in-string/solution/zi-fu-chuan-de-pai-lie-by-leetcode-solut-7k7u/)
+
+
 
 ```C++
 class Solution {
@@ -113,11 +179,15 @@ bool checkInclusion(string s1, string s2)
 
 ```
 
-显然上述写法非常简单易懂。
+> NOTE:
+>
+> 显然上述写法非常简单易懂，在面试过程中，这种简单易懂的程序能够节省更多的时间。
 
 
 
-## 错误程序
+
+
+### 错误程序
 
 ```C++
 #include <string>

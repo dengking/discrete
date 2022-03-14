@@ -12,15 +12,41 @@
 
 ### 一、窗口是否定长？
 
-#### 定长窗口
-
-1、Leetcode [1100. 长度为 K 的无重复字符子串](https://leetcode-cn.com/problems/find-k-length-substrings-with-no-repeated-characters/) 中等
-
-2、Leetcode [567. 字符串的排列](https://leetcode-cn.com/problems/permutation-in-string/) 中等
+参见`定长滑动窗口`章节。
 
 ### 二、连续还是不连续？
 
 
+
+### 三、
+
+1、存在性问题
+
+2、计数问题
+
+3、最优值问题
+
+## 窗口表示与比较
+
+一、目标值和窗口的比较这是滑动窗口算法的一个common issue
+
+一般，将目标值称为`need`，将窗口称之为`window`。
+
+窗口的表示：
+
+1、Leetcode [567. 字符串的排列](https://leetcode-cn.com/problems/permutation-in-string/) # [官方解题](https://leetcode-cn.com/problems/permutation-in-string/solution/zi-fu-chuan-de-pai-lie-by-leetcode-solut-7k7u/)
+
+```c++
+vector<int> cnt1(26), cnt2(26);
+for (int i = 0; i < n; ++i) {
+  ++cnt1[s1[i] - 'a'];
+  ++cnt2[s2[i] - 'a'];
+}
+if (need == window)
+  return true;
+```
+
+上述直接使用vector来表示need和window。
 
 ## LeetCode例题
 
