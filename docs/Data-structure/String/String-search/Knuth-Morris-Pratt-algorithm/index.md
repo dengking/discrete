@@ -171,6 +171,61 @@ public static int[] getNext(String ps) {
 }
 ```
 
+> NOTE:
+>
+> 一、根据后面的KMP算法的implementation：
+>
+> ```c++
+> public static int KMP(String ts, String ps) {
+>     char[] t = ts.toCharArray();
+>     char[] p = ps.toCharArray();
+>   
+>     int i = 0; // 主串的位置
+>     int j = 0; // 模式串的位置
+> 
+>     int[] next = getNext(ps);
+>     while (i < t.length && j < p.length) {
+>        if (j == -1 || t[i] == p[j]) { // 当j为-1时，要移动的是i，当然j也要归0
+>            i++;
+>            j++;
+>        } else {
+>            // i不需要回溯了
+>            // i = i - j + 1;
+>            j = next[j]; // j回到指定位置
+>        }
+>     }
+>     if (j == p.length) {
+>        return i - j;
+>     } else {
+>        return -1;
+>     }
+> 
+> }
+> ```
+>
+> `next[j]` 表示的是 `[0:j-1]` 的公共前后缀的长度，因为当`p[j]`和`t[i]`不相等的时候，显然需要充分利用研究匹配部分的信息，对于公共前后缀部分，是不需要再次进行匹配的，而是可以直接利用的。
+>
+> 另外需要注意的一点是，`next[j]`保存的是长度，根据长度和下标的映射关系，如果使用此长度作为下标，显然会匹配到公共前后缀的后一个元素，这是非常符合KMP算法的，因为它就是需要从这个开始匹配。
+>
+> 二、上述算法是典型的fast-slow double pointer，k就是slow pointer，j就是fast pointer。
+>
+> 于此类似的使用fast-slow double pointer来处理array的algorithm，在下面的文章中有介绍：
+>
+> 1、labuladong [如何高效对有序数组/链表去重？](https://mp.weixin.qq.com/s/6Eb7gKqNqXH9B0hSZvMs5A)
+>
+> 2、labuladong  [双指针技巧秒杀四道数组/链表题目](https://mp.weixin.qq.com/s/55UPwGL0-Vgdh8wUEPXpMQ)
+>
+> 另外需要注意对特殊情况的处理，当只有一个元素的还是，它有公共前缀吗？该算法是假定有的
+>
+> 三、初始值说明
+>
+> ```
+> next[0] == -1
+> next[1] == 0
+> ```
+>
+> 
+
 这个版本的求`next`数组的算法应该是流传最广泛的，代码是很简洁。可是真的很让人摸不到头脑，它这样计算的依据到底是什么？
 
 好，先把这个放一边，我们自己来推导思路，现在要始终记住一点，`next[j]`的值（也就是`k`）表示，当`P[j] != T[i]`时，`j`指针的下一步移动位置。
