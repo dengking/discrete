@@ -85,3 +85,97 @@ int main()
 
 ```
 
+### 二刷
+
+```c++
+#include <iostream>
+#include <vector>
+#include <queue>
+#include <utility> // std::pair
+#include <unordered_map>
+#include <string>
+#include <set>
+#include <map>
+#include <climits> // INT_MAX
+using namespace std;
+
+class UFSet
+{
+  vector<int> parent_;
+  vector<int> size_;
+  int count_{0};
+
+public:
+  UFSet(int n) : count_(n), size_(n, 1)
+  {
+    for (int i = 0; i < n; ++i)
+    {
+      parent_.push_back(i);
+    }
+  }
+  int count()
+  {
+    return count_;
+  }
+  bool Union(int first, int second)
+  {
+    int first_parent = find(first);
+    int second_parent = find(second);
+    if (first_parent != second_parent) // 后面都是root间的事情
+    {
+      if (size_[first_parent] >= size_[second_parent]) // 将小树并入大树
+      {
+        parent_[second_parent] = first_parent;
+        size_[first_parent] += size_[second_parent];
+      }
+      else
+      {
+        parent_[first_parent] = second_parent;
+        size_[second_parent] += size_[first_parent];
+      }
+      --count_;
+      return true;
+    }
+    else
+    {
+      return false;
+    }
+  }
+  int find(int i)
+  {
+    while (parent_[i] != i)
+    {
+      parent_[i] = parent_[parent_[i]];
+      i = parent_[i];
+    }
+    return parent_[i];
+  }
+};
+class Solution
+{
+public:
+  bool validTree(int n, vector<vector<int> > &edges)
+  {
+    UFSet uf = UFSet(n);
+    for (auto &&e : edges)
+    {
+      if (uf.Union(e[0], e[1]))
+      {
+        continue;
+      }
+      else
+      {
+        return false;
+      }
+    }
+    return uf.count() == 1;
+  }
+};
+
+int main()
+{
+  Solution s;
+}
+
+```
+
