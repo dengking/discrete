@@ -73,7 +73,7 @@ class Solution {
 		TreeNode* t = root->left;
 		while (t)
 		{
-			if (isLeaf(t)) {
+			if (isLeaf(t)) { // 到达了终点
 				break;
 			}
 			else {
@@ -92,7 +92,7 @@ class Solution {
 		TreeNode* t = root->right;
 		while (t)
 		{
-			if (isLeaf(t)) {
+			if (isLeaf(t)) { // 到达了终点
 				break;
 			}
 			else {
@@ -130,6 +130,10 @@ public:
 };
 
 ```
+
+> NOTE: 
+>
+> 需要注意：仅仅便利左边界和遍历整棵树的方式是不同的
 
 
 

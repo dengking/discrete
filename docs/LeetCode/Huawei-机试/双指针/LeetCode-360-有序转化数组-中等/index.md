@@ -4,19 +4,98 @@
 
 ## 我的解题
 
+
+
+其实题目已经非常明显地提示用由两端到中间的双指针了：
+
+一、`a != 0`，则是抛物线，
+
 这道题需要有高中数学知识， `f(x)`是典型的抛物线函数，它的对称轴是 (`2 * a / b`)，因此最终结果，由跟对称轴的距离远近决定。
 
-1、如果`a`大于0，则越近越小
+1、如果`a`大于0，则越近越小，则数组外侧的元素的值更大，当使用双指针从外侧向内侧靠近的时候，显然数组填值的顺序是从n到0
 
-2、如果`a`小于0，则越远越小
+2、如果`a`小于0，则越远越小，则数组外侧的元素的值更小，当使用双指针从外侧向内侧靠近的时候，显然数组填值的顺序是从0到n
 
-其实题目已经非常明显地提示用双指针了：
+对于抛物线对称轴和数组元素的大小关系，其实有三种情况：
 
-1、抛物线
+1、对称轴位于数组元素左侧
 
-2、`nums = [-4,-2,2,4]`
+2、对称轴位于数组元素中
 
-可以看到，它有正有负，正好中轴线位于两者之间
+3、对称轴位于数组右侧
+
+对于上述三种情况，双指针都能够cover掉，从这也可以看出双指针都优势，它非常灵活。
+
+二、`a == 0`，则是直线
+
+对于直线由于它是单调的，因此双指针分别指向最大值和最小值
+
+```c++
+#include <iostream>
+#include <vector>
+#include <queue>
+#include <utility> // std::pair
+#include <unordered_map>
+#include <string>
+#include <set>
+#include <map>
+#include <climits> // INT_MAX
+using namespace std;
+
+class Solution
+{
+public:
+  vector<int> sortTransformedArray(vector<int> &nums, int a, int b, int c)
+  {
+    if (nums.empty())
+    {
+      return {};
+    }
+    int N = nums.size();
+    vector<int> res(N);
+    int left = 0, right = N - 1;
+    int index = 0;
+    int index_move = 0;
+    if (a > 0)
+    {
+      index = right;
+      index_move = -1;
+    }
+    else
+    {
+      index = left;
+      index_move = 1;
+    }
+
+    auto fx = [&](const auto &x)
+    {
+      return a * x * x + b * x + c;
+    };
+    while (left <= right)
+    {
+      int left_val = fx(nums[left]);
+      int right_val = fx(nums[right]);
+      if (a > 0)
+      {
+        res[index--] = max(left_val, right_val);
+        left_val > right_val ? ++left : --right;
+      }
+      else
+      {
+        res[index++] = min(left_val, right_val);
+        left_val < right_val ? ++left : --right;
+      }
+    }
+    return res;
+  }
+};
+
+int main()
+{
+  Solution s;
+}
+
+```
 
 
 

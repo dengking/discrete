@@ -83,3 +83,31 @@ int main()
 
 ```
 
+### 二刷
+
+```c++
+
+class Solution
+{
+public:
+  string findContestMatch(int n)
+  {
+    vector<string> strs;
+    for (int i = 1; i <= n; ++i)
+    {
+      strs.push_back(to_string(i));
+    }
+    for (int i = n; i > 0; i /= 2)
+    {
+      for (int j = 0; j < i / 2; ++j)
+      {
+        string s = "(" + strs[j] + "," + strs[i - j - 1] + ")";
+        strs[j] = move(s);
+      }
+    }
+    return strs[0];
+  }
+};
+
+```
+
