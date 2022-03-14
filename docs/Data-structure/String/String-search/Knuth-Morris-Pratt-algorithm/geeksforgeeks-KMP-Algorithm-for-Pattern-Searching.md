@@ -1,8 +1,4 @@
-[TOC]
-
-
-
-# [KMP Algorithm for Pattern Searching](https://www.geeksforgeeks.org/kmp-algorithm-for-pattern-searching/)
+# geeksforgeeks [KMP Algorithm for Pattern Searching](https://www.geeksforgeeks.org/kmp-algorithm-for-pattern-searching/)
 
 
 

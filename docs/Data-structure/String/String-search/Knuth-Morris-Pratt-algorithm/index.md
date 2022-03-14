@@ -1,16 +1,18 @@
-# Introduction
+# Knuth–Morris–Pratt algorithm
 
 It takes me some effort to master KMP algorithm. Here are three articles that helped me solve the mystery as I learned. 
 
 
 
-# 1. [Knuth–Morris–Pratt algorithm](https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm)
+## wikipedia [Knuth–Morris–Pratt algorithm](https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm)
 
 In [computer science](https://en.wikipedia.org/wiki/Computer_science), the **Knuth–Morris–Pratt [string-searching algorithm](https://en.wikipedia.org/wiki/String-searching_algorithm)** (or **KMP algorithm**) searches for occurrences of a "word" `W` within a main "text string" `S` by employing the observation that when a mismatch occurs, the word itself embodies sufficient information to determine where the next match could begin, thus bypassing re-examination of previously matched characters.
 
-The [algorithm](https://en.wikipedia.org/wiki/Algorithm) was conceived by [James H. Morris](https://en.wikipedia.org/wiki/James_H._Morris) and independently discovered by [Donald Knuth](https://en.wikipedia.org/wiki/Donald_Knuth) "a few weeks later" from automata theory.[[1\]](https://en.wikipedia.org/wiki/Knuth–Morris–Pratt_algorithm#cite_note-knuth1977-1)[[2\]](https://en.wikipedia.org/wiki/Knuth–Morris–Pratt_algorithm#cite_note-2) Morris and [Vaughan Pratt](https://en.wikipedia.org/wiki/Vaughan_Pratt) published a technical report in 1970.[[3\]](https://en.wikipedia.org/wiki/Knuth–Morris–Pratt_algorithm#cite_note-3) The three also published the algorithm jointly in 1977.[[1\]](https://en.wikipedia.org/wiki/Knuth–Morris–Pratt_algorithm#cite_note-knuth1977-1) Independently, in 1969, [Matiyasevich](https://en.wikipedia.org/wiki/Yuri_Matiyasevich)[[4\]](https://en.wikipedia.org/wiki/Knuth–Morris–Pratt_algorithm#cite_note-4)[[5\]](https://en.wikipedia.org/wiki/Knuth–Morris–Pratt_algorithm#cite_note-5) discovered a similar algorithm, coded by a two-dimensional Turing machine, while studying a string-pattern-matching recognition problem over a binary alphabet. This was the first linear-time algorithm for string matching.
+The [algorithm](https://en.wikipedia.org/wiki/Algorithm) was conceived by [James H. Morris](https://en.wikipedia.org/wiki/James_H._Morris) and independently discovered by [Donald Knuth](https://en.wikipedia.org/wiki/Donald_Knuth) "a few weeks later" from automata theory. Morris and [Vaughan Pratt](https://en.wikipedia.org/wiki/Vaughan_Pratt) published a technical report in 1970.[[3\]](https://en.wikipedia.org/wiki/Knuth–Morris–Pratt_algorithm#cite_note-3) The three also published the algorithm jointly in 1977.[[1\]](https://en.wikipedia.org/wiki/Knuth–Morris–Pratt_algorithm#cite_note-knuth1977-1) Independently, in 1969, [Matiyasevich](https://en.wikipedia.org/wiki/Yuri_Matiyasevich) discovered a similar algorithm, coded by a two-dimensional Turing machine, while studying a string-pattern-matching recognition problem over a binary alphabet. This was the first linear-time algorithm for string matching.
 
-# 2. [详解KMP算法](https://www.cnblogs.com/yjiyjige/p/3263858.html)
+
+
+## cnblogs [详解KMP算法](https://www.cnblogs.com/yjiyjige/p/3263858.html)
 
 KMP算法要解决的问题就是在字符串（也叫主串）中的模式（pattern）定位问题。说简单点就是我们平时常说的关键字搜索。模式串就是关键字（接下来称它为`P`），如果它在一个主串（接下来称为`T`）中出现，就返回它的具体位置，否则返回`-1`（常用手段）。
 
@@ -48,49 +50,37 @@ KMP算法要解决的问题就是在字符串（也叫主串）中的模式（pa
  */
 
 public static int bf(String ts, String ps) {
-
     char[] t = ts.toCharArray();
-
     char[] p = ps.toCharArray();
 
     int i = 0; // 主串的位置
-
     int j = 0; // 模式串的位置
 
     while (i < t.length && j < p.length) {
-
        if (t[i] == p[j]) { // 当两个字符相同，就比较下一个
-
            i++;
-
            j++;
-
        } else {
-
            i = i - j + 1; // 一旦不匹配，i后退
-
            j = 0; // j归0
-
        }
-
     }
 
     if (j == p.length) {
-
        return i - j;
-
     } else {
-
        return -1;
-
     }
-
 }
 ```
 
 上面的程序是没有问题的，但不够好！
 
-> NOTE: geeksforgeeks的文章[Naive algorithm for Pattern Searching](https://www.geeksforgeeks.org/naive-algorithm-for-pattern-searching/)中给出的代码是比上述代码更加容易理解的。 
+> NOTE: 
+>
+> 一、geeksforgeeks的文章[Naive algorithm for Pattern Searching](https://www.geeksforgeeks.org/naive-algorithm-for-pattern-searching/)中给出的代码是比上述代码更加容易理解的。 
+>
+> 二、上述程序是典型的double pointer
 
 
 
@@ -162,7 +152,7 @@ public static int bf(String ts, String ps) {
 
 这一段只是为了证明我们为什么可以直接将`j`移动到`k`而无须再比较前面的`k`个字符。
 
-## 求解next数组
+### 求解next数组
 
 好，接下来就是重点了，怎么求这个（这些）`k`呢？因为在`P`的每一个位置都可能发生不匹配，也就是说我们要计算每一个位置`j`对应的`k`，所以用一个数组`next`来保存，`next[j] = k`，表示当`T[i] != P[j]`时，**`j`指针**的下一个位置。
 
@@ -230,7 +220,7 @@ public static int[] getNext(String ps) {
 
 我们发现一个规律：
 
-### 当`P[k] == P[j]`时
+#### 当`P[k] == P[j]`时
 
 当`P[k] == P[j]`时，有`next[j+1] == next[j] + 1`
 
@@ -244,7 +234,7 @@ public static int[] getNext(String ps) {
 
 这里的公式不是很好懂，还是看图会容易理解些。
 
-### 当`P[k] != P[j]`时,
+#### 当`P[k] != P[j]`时,
 
 当`P[k] != P[j]`时，如下图所示：
 
@@ -397,9 +387,9 @@ public static int[] getNext(String ps) {
 
 
 
-# 3. [Computing the KMP failure function (f(k))](http://www.mathcs.emory.edu/~cheung/Courses/323/Syllabus/Text/Matching-KMP2.html)
+## emory [Computing the KMP failure function (f(k))](http://www.mathcs.emory.edu/~cheung/Courses/323/Syllabus/Text/Matching-KMP2.html)
 
-## definition of `f(k)`
+### definition of `f(k)`
 
 ```
    f(k) = MaxOverlap ( "p0 p1 ... pk" )
@@ -415,7 +405,7 @@ public static int[] getNext(String ps) {
 
 
 
-## Naive way to find ***f(k)***:
+### Naive way to find ***f(k)***:
 
 ```
    Given P = "p0 p1 ... pm-1"
@@ -480,7 +470,7 @@ public static int[] getNext(String ps) {
 
 
 
-## Relating `f(k)` to `f(k−1)`
+### Relating `f(k)` to `f(k−1)`
 
 The values `f(k)` are computed easily using **existing prefix overlap information**:
 
@@ -532,11 +522,11 @@ Yes, because f(k) is computed using a similar prefix as f(k−1):
 
 We will next learn how to exploit the similarity to compute f(k)
 
-### Fact between `f(k)` and `f(k−1)`
+#### Fact between `f(k)` and `f(k−1)`
 
 **Fact:** f(k)   ≤   f(k−1) + 1
 
-### Computation trick 1
+#### Computation trick 1
 
 Let use denote: `f(k−1) = x`
 
@@ -573,7 +563,7 @@ If `px == pk`, then:
 
 
 
-### Prelude to computation trick 2
+#### Prelude to computation trick 2
 
 Consider the prefix `ababyabab` where f(8) = 4:
 
@@ -692,7 +682,7 @@ Because the characters are equal, we have found the maximum overlap:
 
 > NOTE:  这里可以假设，如果`p[3]`和`p[9]`并不相等，则上述流程需要继续下去，至于终止条件，显然是直至比较到第一个元素都不相等。
 
-### Computation trick #2
+#### Computation trick #2
 
 Let: f(k−1) = x
 
@@ -732,7 +722,7 @@ In pseudo code:
 
 
 
-## Algorithm to compute KMP failure function
+### Algorithm to compute KMP failure function
 
 **Java code:**
 
@@ -929,15 +919,15 @@ public class ComputeF
 
 
 
-# KMP实现分析
+## KMP实现分析
 
 通过上述三篇文章，能够知道KMP算法的原理，现在需要考虑的是如何来进行实现。
 
-## 计算KMP failure function的递归公式
+### 计算KMP failure function的递归公式
 
 当`pattern[j]`与`pattern[f[j-1]]`不相等的时候，这个递归公式中涉及到了不断地循环递归，使用数学公式不方便描述，下面的python程序是非常简洁易懂的，并且是非常接近数学公式的，所以这里就省略掉递归公式。
 
-## 计算KMP failure function的python实现
+### 计算KMP failure function的python实现
 
 failure function `f(j)`表示的是从`pattern[0]`到`pattern[j]`的序列（显然这个序列的长度是`j+1`）的最长公共前缀后缀的**长度**，即`f(j)`所表示的是长度为`j+1`的序列的最长公共前缀后缀的长度。显然`f[0]==0`，因为长度为1的序列的最长前缀后缀的长度为0。所以，当已知序列的长度为`i`，来查询其最长公共前缀后缀的时候，使用的是`f(i-1)`。因为`i`表示的是长度，所以`pattern[i]`引用的是数组的第`i+1`个元素。
 
@@ -959,13 +949,13 @@ def get_failure_array(pattern):
 
 
 
-## 计算KMP failure function 和 dynamic programming
+### 计算KMP failure function 和 dynamic programming
 
 KMP的failure function的求解过程在计算`f(k+1)`的时所依赖的`f(0),f(1)...,f(k)`都是通过查failure table而获得的，而不是重新计算，这其实就是动态规划算法的思想。在上述代码中，`i`就表示计算`f(k+1)`所依赖的数据，它的实现方式是非常类似于迭代版的斐波那契数列。
 
 
 
-## KMP的实现
+### KMP的实现
 
 ```python
 def kmp_search(pattern, text):
@@ -996,10 +986,13 @@ def kmp_search(pattern, text):
 
 思考：为什么`j = failure[j - 1]`？其实结合前面的例子就可以知道了，这里不再赘述。
 
-# KMP in leetcode
+## KMP in leetcode
 
 http://www.voidcn.com/article/p-uuefgkai-bnw.html
 
-#### [28. 实现 strStr()](https://leetcode-cn.com/problems/implement-strstr/)
+leetcode [28. 实现 strStr()](https://leetcode-cn.com/problems/implement-strstr/)
+
+leetcode [214. 最短回文串](https://leetcode-cn.com/problems/shortest-palindrome/)
 
 https://leetcode.com/problems/shortest-palindrome/discuss/60113/clean-kmp-solution-with-super-detailed-explanation
+
