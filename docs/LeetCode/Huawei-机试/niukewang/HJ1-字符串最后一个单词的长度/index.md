@@ -62,3 +62,42 @@ int main()
 
 ```
 
+
+
+## 错误写法
+
+```c++
+#include <iostream>
+#include <string>
+using namespace std;
+//!!!不区分大小写，所以进行ascll码+32一样也++
+int main()
+{
+  string str;
+  int count = 0;
+  cin >> str;
+  cout << str << endl;
+  for (auto &&c : str)
+  {
+    if (c == ' ')
+    {
+      count = 0;
+    }
+    else
+    {
+      ++count;
+    }
+  }
+  cout << count << endl;
+  return 0;
+}
+```
+
+输出如下：
+
+```
+abc dd
+abc
+3
+```
+
