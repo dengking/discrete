@@ -14,6 +14,8 @@
 
 ![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/gibkIz0MVqdH4BiajD8HeXJSPSVviccPkjLAJxmP9Kto2Uqwjtv0AOYx9brfPaeSicxYPpjFzKarQygiaKGHYyV7F4w/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
+
+
 那么对于这个问题，我们可以先对集合求和，得出`sum`，把问题转化为背包问题：
 
 **给一个可装载重量为`sum/2`的背包和`N`个物品，每个物品的重量为`nums[i]`。现在让你装物品，是否存在一种装法，能够恰好将背包装满**？

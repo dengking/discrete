@@ -1,5 +1,9 @@
 # leetcode [一篇文章吃透背包问题！（细致引入+解题模板+例题分析+代码呈现](https://leetcode-cn.com/problems/partition-equal-subset-sum/solution/yi-pian-wen-zhang-chi-tou-bei-bao-wen-ti-a7dd/)
 
+> NOTE:
+>
+> 这篇文章非常好，总结得非常全面
+
 ## 背包问题：
 
 **背包问题**是**动态规划**非常重要的一类问题，它有很多变种，但题目千变万化都离不开我根据力扣上背包问题的题解和一些大佬的经验总结的解题模板
@@ -33,6 +37,10 @@
 3、组合背包问题：背包中的物品要考虑顺序
 
 4、分组背包问题：不止一个背包，需要遍历每个背包
+
+> NOTE:
+>
+> 一、leetcode [416. 分割等和子集](https://leetcode-cn.com/problems/partition-equal-subset-sum/) 就是典型的分组背包问题
 
 而每个背包问题要求的也是不同的，按照所求问题分类，又可以分为以下几种：
 
@@ -104,6 +112,12 @@ void bags()
 
 ```
 
+> NOTE:
+>
+> 一、上述是典型的01背包最优值问题
+>
+> 
+
 二维代码可以进行优化，去除选取物品的那一层，简化为一维背包
 // 一维
 //状态定义：`dp[j]`表示容量为j的背包能放下东西的最大价值
@@ -159,7 +173,7 @@ void test_1_wei_bag_problem()
 
 下面看一下具体的题目分析：
 
-## 本题[322. 零钱兑换](https://leetcode-cn.com/problems/coin-change/)
+## [322. 零钱兑换](https://leetcode-cn.com/problems/coin-change/)
 
 // 零钱兑换：给定amount,求用任意数量不同面值的零钱换到amount所用的最少数量
 // 完全背包最值问题：外循环coins,内循环amount正序,应用状态方程1

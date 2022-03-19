@@ -20,7 +20,7 @@
 
 ![图片](https://mmbiz.qpic.cn/sz_mmbiz_jpg/gibkIz0MVqdHoaEqAyTK5MZLdRia4f8TbwNQb7fZjwicAoF3d7J7EPJibQJm0sYDX0R1MxK1pnP9LGMTpTUic2vzfFw/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
-```
+```java
 int change(int amount, int[] coins);
 ```
 
@@ -38,7 +38,20 @@ PS：至于 Coin Change 1，在我们前文 动态规划套路详解 写过。
 
 ## 解题思路
 
+### **第一步要明确两点，「状态」和「选择」**。
 
+这部分都是背包问题的老套路了，我还是啰嗦一下吧：
+
+状态有两个，就是「背包的容量」和「可选择的物品」，选择就是「装进背包」或者「不装进背包」。
+
+明白了状态和选择，动态规划问题基本上就解决了，只要往这个框架套就完事儿了：
+
+```pseudocode
+for 状态1 in 状态1的所有取值：
+    for 状态2 in 状态2的所有取值：
+        for ...
+            dp[状态1][状态2][...] = 计算(选择1，选择2...)
+```
 
 ### 第二步要明确dp数组的定义
 
@@ -51,6 +64,12 @@ PS：至于 Coin Change 1，在我们前文 动态规划套路详解 写过。
 经过以上的定义，可以得到：
 
 base case 为`dp[0][..] = 0， dp[..][0] = 1`。因为如果不使用任何硬币面值，就无法凑出任何金额；如果凑出的目标金额为 0，那么“无为而治”就是唯一的一种凑法。
+
+> NOTE: 
+>
+> 一、对于 `dp[..][0] = 1` ，其实是比较好理解的: 
+>
+> 要凑0，显然什么都不选就是唯一的方案。
 
 
 
@@ -127,6 +146,7 @@ int change(int amount, int[] coins) {
 }
 ```
 
-这个解法和之前的思路完全相同，将二维`dp`数组压缩为一维，时间复杂度 O(N*amount)，空间复杂度 O(amount)。
+这个解法和之前的思路完全相同，将二维`dp`数组压缩为一维，时间复杂度 `O(N*amount)`，空间复杂度 `O(amount)`。
 
 至此，这道零钱兑换问题也通过背包问题的框架解决了。
+

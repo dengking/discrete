@@ -6,9 +6,11 @@
 
 ## 我的解题
 
-这个问题在 labuladong [动态规划详解](https://mp.weixin.qq.com/s/Cw39C9MY9Wr2JlcvBQZMcA)  中，给出了非常详细的解释。
+一、这个问题在 labuladong [动态规划详解](https://mp.weixin.qq.com/s/Cw39C9MY9Wr2JlcvBQZMcA)  中，给出了非常详细的解释。
 
 通过"状态、选择、base case"可以思考出"状态转移方程"。
+
+二、这个问题是典型的完全背包问题
 
 ```C++
 #include <bits/stdc++.h>
