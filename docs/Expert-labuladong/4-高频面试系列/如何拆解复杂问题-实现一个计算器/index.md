@@ -189,13 +189,49 @@ int calculate(string s)
 
 比如上述例子就可以分解为`+2`，`-3`，`*4`，`+5`几对儿，我们刚才不是没有处理乘除号吗，很简单，**其他部分都不用变**，在`switch`部分加上对应的 case 就行了：
 
+```c++
+for (int i = 0; i < s.size(); i++) {
+    char c = s[i];
+    if (isdigit(c)) 
+        num = 10 * num + (c - '0');
+
+    if (!isdigit(c) || i == s.size() - 1) {
+        switch (sign) {
+            int pre;
+            case '+':
+                stk.push(num); break;
+            case '-':
+                stk.push(-num); break;
+            // 只要拿出前一个数字做对应运算即可
+            case '*':
+                pre = stk.top();
+                stk.pop();
+                stk.push(pre * num);
+                break;
+            case '/':
+                pre = stk.top();
+                stk.pop();
+                stk.push(pre / num);
+                break;
+        }
+        // 更新符号为当前符号，数字清零
+        sign = c;
+        num = 0;
+    }
+}
+```
+
+**乘除法优先于加减法体现在，乘除法可以和栈顶的数结合，而加减法只能把自己放入栈**。
+
+![图片](https://mmbiz.qpic.cn/sz_mmbiz_jpg/gibkIz0MVqdHkrHcjbgpQW7OC3rxGgxibfYtk6URQ04rfkt1QmUUUcslSYWDEaCEqqETKNlXmMImOELbIz5ctzug/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1)
+
 
 
 
 
 ### 如何处理空格字符
 
-现在我们**思考一下****如何处理字符串中可能出现的空格字符**。其实也非常简单，想想空格字符的出现，会影响我们现有代码的哪一部分？
+现在我们思考一下**如何处理字符串中可能出现的空格字符**。其实也非常简单，想想空格字符的出现，会影响我们现有代码的哪一部分？
 
 ```c++
 // 如果 c 非数字
@@ -267,3 +303,50 @@ calculate(3*(4-5/2)-6)
 ```
 
 可以脑补一下，无论多少层括号嵌套，通过 calculate 函数递归调用自己，都可以将括号中的算式化简成一个数字。**换句话说，括号包含的算式，我们直接视为一个数字就行了**。
+
+现在的问题是，递归的开始条件和结束条件是什么？**遇到`(`开始递归，遇到`)`结束递归**：
+
+```python
+def calculate(s: str) -> int:
+
+    def helper(s: List) -> int:
+        stack = []
+        sign = '+'
+        num = 0
+
+        while len(s) > 0:
+            c = s.pop(0)
+            if c.isdigit():
+                num = 10 * num + int(c)
+            # 遇到左括号开始递归计算 num
+            if c == '(':
+                num = helper(s)
+
+            if (not c.isdigit() and c != ' ') or len(s) == 0:
+                if sign == '+': ...
+                elif sign == '-': ... 
+                elif sign == '*': ...
+                elif sign == '/': ...
+                num = 0
+                sign = c
+            # 遇到右括号返回递归结果
+            if c == ')': break
+        return sum(stack)
+
+    return helper(list(s))
+```
+
+![图片](https://mmbiz.qpic.cn/sz_mmbiz_jpg/gibkIz0MVqdHkrHcjbgpQW7OC3rxGgxibfGEwEG2vuLs0DNZwqT2wEFibNOht4ImXh0mRJsFV1ib8ab4IicEz5FVm7A/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1)
+
+![图片](https://mmbiz.qpic.cn/sz_mmbiz_jpg/gibkIz0MVqdHkrHcjbgpQW7OC3rxGgxibfZic7S8jZmKib5tdZibSnES7bdvh1Da4mafaaFtzN3DDrxf9RQ5ZYRnK0g/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1)
+
+![图片](https://mmbiz.qpic.cn/sz_mmbiz_jpg/gibkIz0MVqdHkrHcjbgpQW7OC3rxGgxibf3ia3Omic6s5eT0mPVjvqMQT4aHEU7Tc7jKibHpmiakhpkGg0qHvk3NfxHw/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1)
+
+
+
+你看，加了两三行代码，就可以处理括号了，这就是递归的魅力。至此，计算器的全部功能就实现了，通过对问题的层层拆解化整为零，再回头看，这个问题似乎也没那么复杂嘛。
+
+## 五、最后总结
+
+本文借实现计算器的问题，主要想表达的是一种处理复杂问题的思路。
+
