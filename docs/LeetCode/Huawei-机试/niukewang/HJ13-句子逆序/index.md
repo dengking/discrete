@@ -45,3 +45,19 @@ int main()
 
 https://blog.nowcoder.net/n/540451a641ca47cdb8a8abceb624173c
 
+```c++
+int main()
+{
+    string s;
+    stack<string> temp;
+    while(cin>>s)
+        temp.push(s);
+    while(!temp.empty())
+    {
+        cout<<temp.top()<<" ";
+        temp.pop();
+    }
+    return 0;
+}
+```
+
