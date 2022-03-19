@@ -21,7 +21,7 @@ int main()
     else
     {
 
-      int padding = 8 - s.size() % 8;
+      int padding = (8 - s.size() % 8)%8;
       for (int i = 0; i < padding; ++i)
       {
         s += "0";
@@ -29,7 +29,7 @@ int main()
       int N = s.size() + padding;
       for (int i = 0; i < N; i += 8)
       {
-        cout << s.substr(i, 8);
+        cout << s.substr(i, 8) << endl;
       }
     }
   }

@@ -17,7 +17,7 @@ int char2int(char c)
   {
     return c - '0';
   }
-  if (c >= 'A' && c <= 'E')
+  if (c >= 'A' && c <= 'F')
   {
     return c - 'A' + 10;
   }
