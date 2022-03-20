@@ -211,7 +211,7 @@ void test_1_wei_bag_problem()
 
 下面看一下具体的题目分析：
 
-## [322. 零钱兑换](https://leetcode-cn.com/problems/coin-change/)
+## [322. 零钱兑换](https://leetcode-cn.com/problems/coin-change/) - 最优值
 
 // 零钱兑换：给定amount,求用任意数量不同面值的零钱换到amount所用的最少数量
 // 完全背包最值问题：外循环coins,内循环amount正序,应用状态方程1
@@ -263,9 +263,11 @@ int coinChange(vector<int> &coins, int amount)
 > };
 > ```
 >
-> 
+> 三、空问题：`dp[0] == 0` 金额为0，显然是不需要任何货币的。
+>
+>   
 
-## [416. 分割等和子集](https://leetcode-cn.com/problems/partition-equal-subset-sum/)
+## [416. 分割等和子集](https://leetcode-cn.com/problems/partition-equal-subset-sum/) - 存在性
 
 // 分割等和子集：判断是否能将一个数组分割为两个子集,其和相等
 // 0-1背包存在性问题：是否存在一个子集,其和为target=sum/2,外循环nums,内循环target倒序,应用状态方程2
@@ -286,9 +288,13 @@ bool canPartition(vector<int> &nums)
 }
 ```
 
+> NOTE:
+>
+> 一、空问题 `dp[0] == true` ，这样才能够让后续的问题进行运算  
 
 
-## [494. 目标和](https://leetcode-cn.com/problems/target-sum/)
+
+## [494. 目标和](https://leetcode-cn.com/problems/target-sum/) - 计数
 
 // 目标和：给数组里的每个数字添加正负号得到target
 // 数组和sum,目标和s, 正数和x,负数和y,则x+y=sum,x-y=s,那么x=(s+sum)/2=target
@@ -318,7 +324,7 @@ int findTargetSumWays(vector<int> &nums, int s)
 
 
 
-## [279. 完全平方数](https://leetcode-cn.com/problems/perfect-squares/)
+## [279. 完全平方数](https://leetcode-cn.com/problems/perfect-squares/) - 最优值
 
 // 完全平方数：对于一个正整数n,找出若干个完全平方数使其和为n,返回完全平方数最少数量
 // 完全背包的最值问题：完全平方数最小为1,最大为sqrt(n),故题目转换为在nums=[1,2.....sqrt(n)]中选任意数平方和为target=n

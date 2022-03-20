@@ -129,3 +129,56 @@ int main()
 
 ## leetcode [一篇文章吃透背包问题！（细致引入+解题模板+例题分析+代码呈现）](https://leetcode-cn.com/problems/partition-equal-subset-sum/solution/yi-pian-wen-zhang-chi-tou-bei-bao-wen-ti-a7dd/)
 
+
+
+## 二刷
+
+```c++
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <bitset>
+#include <map>
+#include <stack>
+#include <unordered_map>
+#include <unordered_set>
+#include <cmath>
+#include <numeric>
+
+using namespace std;
+
+class Solution
+{
+public:
+  bool canPartition(vector<int> &nums)
+  {
+    int sum = std::accumulate(nums.begin(), nums.end(), 0);
+    if (sum % 2 != 0)
+    {
+      return false;
+    }
+    int len = nums.size();
+    int target = sum / 2;
+    vector<vector<bool>> dp(len + 1, vector<bool>(target + 1, false));
+    dp[0][0] = true; // 空问题
+    for (int i = 1; i <= len; ++i)
+    {
+      int cur_num = nums[i - 1];
+      for (int j = 0; j <= target; ++j)
+      {
+        if (j >= cur_num)
+        {
+          dp[i][j] = dp[i][j] || dp[i - 1][j] || dp[i - 1][j - cur_num];
+        }
+        else
+        {
+          dp[i][j] = dp[i][j] || dp[i - 1][j];
+        }
+      }
+    }
+    return dp[len][target];
+  }
+};
+```
+
