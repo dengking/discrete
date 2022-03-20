@@ -341,7 +341,9 @@ int numSquares(int n)
 }
 ```
 
-
+> NOTE: 
+>
+> 这道题和 [322. 零钱兑换](https://leetcode-cn.com/problems/coin-change/) 一模一样
 
 ## [377. 组合总和 Ⅳ](https://leetcode-cn.com/problems/combination-sum-iv/)
 
@@ -385,7 +387,9 @@ int change(int amount, vector<int> &coins)
 }
 ```
 
-
+> NOTE: 
+>
+> 需要注意的是，上述使用的是加法。
 
 ## [1049. 最后一块石头的重量 II](https://leetcode-cn.com/problems/last-stone-weight-ii/)
 

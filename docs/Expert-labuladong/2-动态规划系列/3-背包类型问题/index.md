@@ -22,3 +22,10 @@
 
 2、 LeetCode [518. 零钱兑换 II](https://leetcode-cn.com/problems/coin-change-2/) 
 
+
+
+## 凑零钱问题
+
+leetcode [322. 零钱兑换](https://leetcode-cn.com/problems/coin-change/) 要求解的是 "凑成总金额所需的 **最少的硬币个数** "；
+
+LeetCode [518. 零钱兑换 II](https://leetcode-cn.com/problems/coin-change-2/) 要求解的是 "可以凑成总金额的硬币组合数"；
