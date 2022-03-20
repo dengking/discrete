@@ -1,4 +1,4 @@
-# leetcode [一篇文章吃透背包问题！（细致引入+解题模板+例题分析+代码呈现](https://leetcode-cn.com/problems/partition-equal-subset-sum/solution/yi-pian-wen-zhang-chi-tou-bei-bao-wen-ti-a7dd/)
+# leetcode [一篇文章吃透背包问题！（细致引入+解题模板+例题分析+代码呈现](https://leetcode-cn.com/problems/partition-equal-subset-sum/solution/yi-pian-wen-zhang-chi-tou-bei-bao-wen-ti-a7dd/) 
 
 > NOTE:
 >
@@ -22,6 +22,14 @@
 
 2、`target`可能题目已经给出(显式)，也可能是需要我们从题目的信息中挖掘出来(非显式)(常见的非显式`target`比如sum/2等)
 
+> NOTE:
+>
+> 关于这种情况的典型例子：
+>
+> 1、leetcode [416. 分割等和子集](https://leetcode-cn.com/problems/partition-equal-subset-sum/)
+>
+> 2、leetcode [494. 目标和](https://leetcode-cn.com/problems/target-sum/)
+
 3、选取方式有常见的一下几种：每个元素选一次/每个元素选多次/选元素进行排列组合
 
 那么对应的背包问题就是下面我们要讲的背包分类
@@ -38,9 +46,7 @@
 
 4、分组背包问题：不止一个背包，需要遍历每个背包
 
-> NOTE:
->
-> 一、leetcode [416. 分割等和子集](https://leetcode-cn.com/problems/partition-equal-subset-sum/) 就是典型的分组背包问题
+
 
 而每个背包问题要求的也是不同的，按照所求问题分类，又可以分为以下几种：
 
@@ -116,7 +122,27 @@ void bags()
 >
 > 一、上述是典型的01背包最优值问题
 >
-> 
+> 二、上述实现其实和 labuladong [经典动态规划：0-1 背包问题](https://mp.weixin.qq.com/s/RXfnhSpVBmVneQjDSUSAVQ) 中的有差异的：
+>
+> 虽然两个版本中，都将dp table定义为：
+>
+>  labuladong [经典动态规划：0-1 背包问题](https://mp.weixin.qq.com/s/RXfnhSpVBmVneQjDSUSAVQ) 
+>
+> ```c++
+> vector<vector<int>> dp(N + 1, vector<int>(W + 1, 0));
+> ```
+>
+> leetcode [一篇文章吃透背包问题！（细致引入+解题模板+例题分析+代码呈现](https://leetcode-cn.com/problems/partition-equal-subset-sum/solution/yi-pian-wen-zhang-chi-tou-bei-bao-wen-ti-a7dd/) 
+>
+> ```c++
+> vector<vector<int>> dp(weight.size() + 1, vector<int>(bagWeight + 1, 0));
+> ```
+>
+> 即它们都考虑了空问题，但是 leetcode [一篇文章吃透背包问题！（细致引入+解题模板+例题分析+代码呈现](https://leetcode-cn.com/problems/partition-equal-subset-sum/solution/yi-pian-wen-zhang-chi-tou-bei-bao-wen-ti-a7dd/) 其实并没有考虑没有物品的情况。
+>
+> 我更加倾向于 labuladong [经典动态规划：0-1 背包问题](https://mp.weixin.qq.com/s/RXfnhSpVBmVneQjDSUSAVQ) 中的写法。
+
+### 压缩
 
 二维代码可以进行优化，去除选取物品的那一层，简化为一维背包
 // 一维
@@ -151,7 +177,15 @@ void test_1_wei_bag_problem()
 
 背包问题大体的解题模板是两层循环，分别遍历物品nums和背包容量target，然后写转移方程，根据背包的分类我们确定物品和容量遍历的先后顺序，根据问题的分类我们确定状态转移方程的写法
 
-### 首先是背包分类的模板：
+> NOTE:
+>
+> 一、转移方程: 
+>
+> 1、根据背包的分类我们确定物品和容量遍历的先后顺序
+>
+> 2、根据问题的分类我们确定状态转移方程的写法
+
+#### 首先是背包分类的模板：
 
 1、0/1背包：外循环`nums`,内循环`target`,`target`倒序且`target>=nums[i]`;
 
@@ -161,7 +195,9 @@ void test_1_wei_bag_problem()
 
 4、分组背包：这个比较特殊，需要三重循环：外循环背包bags,内部两层循环根据题目的要求转化为1,2,3三种背包类型的模板
 
-然后是问题分类的模板：
+
+
+### 然后是问题分类的模板：
 
 1、最值问题: `dp[i] = max/min(dp[i], dp[i-nums]+1)`或`dp[i] = max/min(dp[i], dp[i-num]+nums)`;
 
@@ -194,6 +230,36 @@ int coinChange(vector<int> &coins, int amount)
     return dp[amount] == INT_MAX ? -1 : dp[amount];
 }
 ```
+
+> NOTE:
+>
+> 零钱的变化范围是`[0, amount]`，所以整个区间的长度为 amount + 1 。
+>
+> ```c++
+> 
+> class Solution
+> {
+> public:
+>   int coinChange(vector<int> &coins, int amount)
+>   {
+>     vector<int> dp(amount + 1, INT_MAX);
+>     dp[0] = 0;
+>     for (int i = 1; i <= amount; ++i)
+>     {
+>       for (auto &&coin : coins)
+>       {
+>         if (i >= coin)
+>         {
+>           dp[i] = min(dp[i], dp[i - coin] + 1);
+>         }
+>       }
+>     }
+>     return dp[amount] == INT_MAX ? -1 : dp[amount];
+>   }
+> };
+> ```
+>
+> 
 
 ## [416. 分割等和子集](https://leetcode-cn.com/problems/partition-equal-subset-sum/)
 
@@ -239,6 +305,10 @@ int findTargetSumWays(vector<int> &nums, int s)
     return dp[target];
 }
 ```
+
+> NOTE: 
+>
+> 凑出0就一种方案，关于此，在 labuladong [经典动态规划：完全背包问题](https://mp.weixin.qq.com/s/zGJZpsGVMlk-Vc2PEY4RPw) 中有专门的介绍
 
 
 

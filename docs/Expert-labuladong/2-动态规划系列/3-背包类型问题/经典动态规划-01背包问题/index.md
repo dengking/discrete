@@ -1,4 +1,4 @@
-# labuladong [经典动态规划：0-1 背包问题](https://mp.weixin.qq.com/s/RXfnhSpVBmVneQjDSUSAVQ)
+# labuladong [经典动态规划：0-1 背包问题](https://mp.weixin.qq.com/s/RXfnhSpVBmVneQjDSUSAVQ) 
 
 ## 动规标准套路
 

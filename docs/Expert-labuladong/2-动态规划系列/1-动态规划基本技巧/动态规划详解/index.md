@@ -148,7 +148,11 @@ int fib(int n) {
 >
 > 二、原题 leetcode [322. 零钱兑换](https://leetcode-cn.com/problems/coin-change/) 中等
 >
-> 三、这个问题让我想到了01背包问题
+> 三、凑零钱问题是典型的完全背包问题，这在下面的文章中进行了介绍：
+>
+> 1、[一篇文章吃透背包问题！（细致引入+解题模板+例题分析+代码呈现）](https://leetcode-cn.com/problems/partition-equal-subset-sum/solution/yi-pian-wen-zhang-chi-tou-bei-bao-wen-ti-a7dd/)
+>
+> 
 
 先看下题目：给你`k`种面值的硬币，面值分别为`c1, c2 ... ck`，每种硬币的数量无限，再给一个总金额`amount`，问你**最少**需要几枚硬币凑出这个金额，如果不可能凑出，算法返回 -1 。算法的函数签名如下：
 
@@ -290,6 +294,12 @@ int coinChange(vector<int>& coins, int amount) {
     return (dp[amount] == amount + 1) ? -1 : dp[amount];
 }
 ```
+
+> NOTE:
+>
+> 一、上述问题，在写的时候，是非常容易出现integer overflow的，比如我写的一个版本如下：
+>
+> 
 
 ![图片](https://mmbiz.qpic.cn/sz_mmbiz_jpg/gibkIz0MVqdHQbgLwcCQ3KTwWiaU7h29jiaKTgMynOUL4MU9S1VF4Rnc9AmFPrzhTPvqt1gclzGEE8fMSblGMczqw/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
