@@ -78,7 +78,7 @@
 
 这九类问题我认为几乎可以涵盖力扣上所有的背包问题
 
-## 背包问题解题模板
+## 0-1背包问题解题模板
 
 首先先了解一下原始背包问题的解题思路和代码：
 
@@ -141,6 +141,8 @@ void bags()
 > 即它们都考虑了空问题，但是 leetcode [一篇文章吃透背包问题！（细致引入+解题模板+例题分析+代码呈现](https://leetcode-cn.com/problems/partition-equal-subset-sum/solution/yi-pian-wen-zhang-chi-tou-bei-bao-wen-ti-a7dd/) 其实并没有考虑没有物品的情况。
 >
 > 我更加倾向于 labuladong [经典动态规划：0-1 背包问题](https://mp.weixin.qq.com/s/RXfnhSpVBmVneQjDSUSAVQ) 中的写法。
+>
+> 三、可以看到，上述问题，在两个分支中，有相同的情况
 
 ### 压缩
 
@@ -233,7 +235,9 @@ int coinChange(vector<int> &coins, int amount)
 
 > NOTE:
 >
-> 零钱的变化范围是`[0, amount]`，所以整个区间的长度为 amount + 1 。
+> 一、零钱的变化范围是`[0, amount]`，所以整个区间的长度为 amount + 1 。
+>
+> 二、上述为了避免integer overflow，使用了 `long long` 类型，下面的程序就是会出现integer overflow的：
 >
 > ```c++
 > 
@@ -308,7 +312,9 @@ int findTargetSumWays(vector<int> &nums, int s)
 
 > NOTE: 
 >
-> 凑出0就一种方案，关于此，在 labuladong [经典动态规划：完全背包问题](https://mp.weixin.qq.com/s/zGJZpsGVMlk-Vc2PEY4RPw) 中有专门的介绍
+> 一、凑出0就一种方案：什么都不选，关于此，在 labuladong [经典动态规划：完全背包问题](https://mp.weixin.qq.com/s/zGJZpsGVMlk-Vc2PEY4RPw) 中有专门的介绍
+>
+> 二、上面使用的是压缩版本的代码，在 [leetcode 官方解题](https://leetcode-cn.com/problems/target-sum/solution/mu-biao-he-by-leetcode-solution-o0cp/) 中给出了二维数组的版本的代码
 
 
 

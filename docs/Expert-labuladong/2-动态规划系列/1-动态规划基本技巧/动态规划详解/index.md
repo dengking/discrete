@@ -297,9 +297,7 @@ int coinChange(vector<int>& coins, int amount) {
 
 > NOTE:
 >
-> 一、上述问题，在写的时候，是非常容易出现integer overflow的，比如我写的一个版本如下：
->
-> 
+> 一、上述问题，在写的时候，是非常容易出现integer overflow的
 
 ![图片](https://mmbiz.qpic.cn/sz_mmbiz_jpg/gibkIz0MVqdHQbgLwcCQ3KTwWiaU7h29jiaKTgMynOUL4MU9S1VF4Rnc9AmFPrzhTPvqt1gclzGEE8fMSblGMczqw/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
