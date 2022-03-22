@@ -2,11 +2,40 @@
 
 ## 完全背包 vs 0-1背包
 
-完全背包不需要考虑物品，只需要考虑背包容量，因此它是一维的；
+一、完全背包不需要考虑物品，只需要考虑背包容量，因此它是一维的；
 
-0-1背包需要考虑物品，考虑背包容量，因此它是二维的；
+需要注意的是：在温泉背包问题中，我们一次只取一个物品，下次循环的时候，还是从第一个物品开始，因此这样就能够实现重复取同一个物品了，典型的例子就是零钱兑换问题，比如 leetcode [322. 零钱兑换](https://leetcode-cn.com/problems/coin-change/) ：
 
-## 完全背包-凑零钱
+```c++
+class Solution
+{
+public:
+  int coinChange(vector<int> &coins, int amount)
+  {
+    vector<long long> dp(amount + 1, INT_MAX);
+    dp[0] = 0;
+    for (int i = 0; i <= amount; ++i)
+    {
+      for (auto &&coin : coins)
+      {
+        if (i >= coin)
+        {
+          dp[i] = min(dp[i], dp[i - coin] + 1);
+        }
+      }
+    }
+    return dp[amount] == INT_MAX ? -1 : dp[amount];
+  }
+};
+```
+
+
+
+二、0-1背包需要考虑物品，考虑背包容量，因此它是二维的；
+
+## 完全背包
+
+### 凑零钱
 
 在如下文章中进行了介绍：
 
@@ -24,8 +53,11 @@
 
 
 
-## 凑零钱问题
-
 leetcode [322. 零钱兑换](https://leetcode-cn.com/problems/coin-change/) 要求解的是 "凑成总金额所需的 **最少的硬币个数** "；
 
 LeetCode [518. 零钱兑换 II](https://leetcode-cn.com/problems/coin-change-2/) 要求解的是 "可以凑成总金额的硬币组合数"；
+
+### 与顺序是否相关
+
+可以肯定的是，如果与顺序相关，则组合数会更多，如果与顺序无比，则组合数更少。
+

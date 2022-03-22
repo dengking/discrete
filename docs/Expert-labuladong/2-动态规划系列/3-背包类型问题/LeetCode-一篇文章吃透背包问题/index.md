@@ -373,7 +373,9 @@ int combinationSum4(vector<int> &nums, int target)
 }
 ```
 
-
+> NOTE:
+>
+> 一、在leetcode [377. 组合总和 Ⅳ](https://leetcode-cn.com/problems/combination-sum-iv/) # [官方解题](https://leetcode-cn.com/problems/combination-sum-iv/solution/zu-he-zong-he-iv-by-leetcode-solution-q8zv/) 中给出了上述代码的解释。
 
 ## [518. 零钱兑换 II](https://leetcode-cn.com/problems/coin-change-2/)
 
@@ -395,7 +397,89 @@ int change(int amount, vector<int> &coins)
 
 > NOTE: 
 >
-> 需要注意的是，上述使用的是加法。
+> 一、需要注意的是，上述使用的是加法。
+>
+> 二、上述leetcode [377. 组合总和 Ⅳ](https://leetcode-cn.com/problems/combination-sum-iv/) 和 leetcode [518. 零钱兑换 II](https://leetcode-cn.com/problems/coin-change-2/) 的解法有什么差异？
+>
+> leetcode [【宫水三叶】本题与「完全背包」问题的主要区别，以及「溢出处理」说明](https://leetcode-cn.com/problems/combination-sum-iv/solution/gong-shui-san-xie-yu-wan-quan-bei-bao-we-x0kn/)
+>
+> 
+>
+> 如果将上述写法替换为如下形式：
+>
+> ```c++
+> #include <iostream>
+> #include <string>
+> #include <algorithm>
+> #include <vector>
+> #include <bitset>
+> #include <map>
+> #include <stack>
+> #include <unordered_map>
+> #include <unordered_set>
+> #include <cmath>
+> #include <numeric>
+> #include <climits>
+> 
+> using namespace std;
+> 
+> class Solution
+> {
+> public:
+>   int change(int amount, vector<int> &coins)
+>   {
+>     int len = coins.size();
+>     vector<int> dp(amount + 1);
+>     dp[0] = 1;
+> 
+>     for (int j = 0; j <= amount; ++j)
+>     {
+>       for (auto &&cur_coin : coins)
+>       {
+>         if (j >= cur_coin)
+>         {
+>           dp[j] += dp[j - cur_coin];
+>         }
+>       }
+>     }
+> 
+>     return dp[amount];
+>   }
+> };
+> 
+> int main()
+> {
+> }
+> ```
+>
+> 进行测试：
+>
+> ```
+> 输入
+> 5
+> [1,2,5]
+> 输出
+> 9
+> 预期结果
+> 4
+> ```
+>
+> 
+>
+> ```
+> 输入：amount = 5, coins = [1, 2, 5]
+> 输出：4
+> 解释：有四种方式可以凑成总金额：
+> 5=5
+> 5=2+2+1
+> 5=2+1+1+1
+> 5=1+1+1+1+1
+> 
+> ```
+>
+> 如果将上述 4种方案进行排列，发现总共的排列数正好是9，也就是说上面的写法其实是与顺序有关的，而题目的要求是与顺序无关的。可以看到，两端代码非常类似，但是内涵却千差万别。
+>
+> 显然，对于求解组合总数的问题，是需要考虑是否考虑顺序的。
 
 ## [1049. 最后一块石头的重量 II](https://leetcode-cn.com/problems/last-stone-weight-ii/)
 
@@ -448,3 +532,6 @@ int numRollsToTarget(int d, int f, int target)
 那么背包问题到这里就全部总结完毕了，相信看了这篇文章大家对背包问题的理解又上了一个全新的层次。
 最后，关注我@eh-xing-qing,给定更多优质题解
 
+
+
+# leetcode [希望用一种规律搞定背包问题](https://leetcode-cn.com/problems/combination-sum-iv/solution/xi-wang-yong-yi-chong-gui-lu-gao-ding-bei-bao-wen-/)
