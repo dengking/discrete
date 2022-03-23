@@ -241,3 +241,140 @@ int main()
 
 
 
+
+
+## 三刷
+
+### quick sort
+
+```c++
+
+class Solution
+{
+public:
+  vector<int> sortArray(vector<int> &nums)
+  {
+    std::random_device rd;
+    std::mt19937 mt{rd()};
+    std::shuffle(nums.begin(), nums.end(), mt);
+    sortArrayImpl(nums, 0, nums.size() - 1);
+    return nums;
+  }
+
+private:
+  void sortArrayImpl(vector<int> &nums, int start, int end)
+  {
+    if (start < end)
+    {
+      int p = partition(nums, start, end);
+      sortArrayImpl(nums, start, p - 1);
+      sortArrayImpl(nums, p + 1, end);
+    }
+  }
+
+  int partition(vector<int> &nums, int start, int end)
+  {
+    int left = start, right = end + 1;
+    int pivot = nums[start];
+    while (true)
+    {
+      while (nums[++left] < pivot)
+      {
+        if (left == end)
+          break;
+      }
+      while (nums[--right] > pivot)
+      {
+        if (right == start)
+          break;
+      }
+      if (left >= right)
+        break;
+      swap(nums[left], nums[right]);
+    }
+    swap(nums[start], nums[right]);
+    return right;
+  }
+};
+
+```
+
+### merge sort
+
+```c++
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <bitset>
+#include <map>
+#include <stack>
+#include <unordered_map>
+#include <unordered_set>
+#include <cmath>
+#include <numeric>
+#include <climits>
+#include <random>
+
+using namespace std;
+
+class Solution
+{
+  std::vector<int> tmp;
+
+public:
+  vector<int> sortArray(vector<int> &nums)
+  {
+    tmp.reserve(nums.size());
+    sortArray(nums, 0, nums.size() - 1);
+    return nums;
+  }
+
+private:
+  void sortArray(vector<int> &nums, int start, int stop)
+  {
+    if (start < stop)
+    {
+      int mid = start + (stop - start) / 2;
+      sortArray(nums, start, mid);
+      sortArray(nums, mid + 1, stop);
+      merge(nums, start, mid, stop);
+    }
+  }
+  void merge(vector<int> &nums, int start, int mid, int stop)
+  {
+    int cnt = 0;
+    int first = start;
+    int second = mid + 1;
+    while (first <= mid && second <= stop)
+    {
+      if (nums[first] < nums[second])
+      {
+        tmp[cnt++] = nums[first++];
+      }
+      else
+      {
+        tmp[cnt++] = nums[second++];
+      }
+    }
+    while (first <= mid)
+    {
+      tmp[cnt++] = nums[first++];
+    }
+    while (second <= stop)
+    {
+      tmp[cnt++] = nums[second++];
+    }
+    int len = stop - start + 1;
+    for (int i = 0; i < len; ++i)
+    {
+      nums[i + start] = tmp[i];
+    }
+  }
+};
+
+int main()
+{
+}
+```
+
