@@ -426,25 +426,25 @@ int change(int amount, vector<int> &coins)
 > class Solution
 > {
 > public:
->   int change(int amount, vector<int> &coins)
->   {
->     int len = coins.size();
->     vector<int> dp(amount + 1);
->     dp[0] = 1;
+> int change(int amount, vector<int> &coins)
+> {
+>  int len = coins.size();
+>  vector<int> dp(amount + 1);
+>  dp[0] = 1;
 > 
->     for (int j = 0; j <= amount; ++j)
->     {
->       for (auto &&cur_coin : coins)
->       {
->         if (j >= cur_coin)
->         {
->           dp[j] += dp[j - cur_coin];
->         }
->       }
->     }
+>  for (int j = 0; j <= amount; ++j)
+>  {
+>    for (auto &&cur_coin : coins)
+>    {
+>      if (j >= cur_coin)
+>      {
+>        dp[j] += dp[j - cur_coin];
+>      }
+>    }
+>  }
 > 
->     return dp[amount];
->   }
+>  return dp[amount];
+> }
 > };
 > 
 > int main()
@@ -480,6 +480,13 @@ int change(int amount, vector<int> &coins)
 > 如果将上述 4种方案进行排列，发现总共的排列数正好是9，也就是说上面的写法其实是与顺序有关的，而题目的要求是与顺序无关的。可以看到，两端代码非常类似，但是内涵却千差万别。
 >
 > 显然，对于求解组合总数的问题，是需要考虑是否考虑顺序的。
+>
+> 在leetcode [零钱兑换 II](https://leetcode-cn.com/problems/coin-change-2/solution/ling-qian-dui-huan-ii-by-leetcode-soluti-f7uh/) 中，介绍了：
+>
+> > 上述做法不会重复计算不同的排列。因为外层循环是遍历数组 $\textit{coins}$ 的值，内层循环是遍历不同的金额之和，在计算 $\textit{dp}[i]$ 的值时，可以确保金额之和等于 $i$ 的硬币面额的顺序，由于顺序确定，因此不会重复计算不同的排列。
+> >
+>
+> 
 
 ## [1049. 最后一块石头的重量 II](https://leetcode-cn.com/problems/last-stone-weight-ii/)
 
