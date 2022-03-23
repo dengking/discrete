@@ -143,5 +143,5 @@ dp[5] += dp[5-5] = dp[0] = 1 + 3
 
 #### 总结
 
-上述算法其实是通过对coins进行排序来顺序去重的目的，每次都是append一个新的coin到之前的sequence中，它非常巧妙。
+上述算法其实是通过对coins进行排序来顺序去重的目的，其实 `dp[i] += dp[i - coin]` 所做的是append一个新的coin到之前的sequence中，它非常巧妙。
 
