@@ -543,4 +543,3 @@ int numRollsToTarget(int d, int f, int target)
 
 
 
-# leetcode [希望用一种规律搞定背包问题](https://leetcode-cn.com/problems/combination-sum-iv/solution/xi-wang-yong-yi-chong-gui-lu-gao-ding-bei-bao-wen-/)
