@@ -376,6 +376,8 @@ int combinationSum4(vector<int> &nums, int target)
 > NOTE:
 >
 > 一、在leetcode [377. 组合总和 Ⅳ](https://leetcode-cn.com/problems/combination-sum-iv/) # [官方解题](https://leetcode-cn.com/problems/combination-sum-iv/solution/zu-he-zong-he-iv-by-leetcode-solution-q8zv/) 中给出了上述代码的解释。
+>
+> 需要注意的是，上述代码是无法通过的。
 
 ## [518. 零钱兑换 II](https://leetcode-cn.com/problems/coin-change-2/)
 
