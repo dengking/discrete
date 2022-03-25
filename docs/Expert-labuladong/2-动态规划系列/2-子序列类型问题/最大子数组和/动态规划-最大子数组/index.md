@@ -5,6 +5,14 @@
 > 一、原题: leetcode [53. 最大子序和](https://leetcode-cn.com/problems/maximum-subarray/) 简单
 >
 > 二、LeetCode [53. 最大子序和](https://leetcode-cn.com/problems/maximum-subarray/) 其实和 LeetCode [485. 最大连续 1 的个数](https://leetcode-cn.com/problems/max-consecutive-ones/) 非常类似
+>
+> 三、和背包问题有些像：
+>
+> 每个数有两个选择：
+>
+> 1、自成一派
+>
+> 2、和之前的字数组连成一片
 
 
 
