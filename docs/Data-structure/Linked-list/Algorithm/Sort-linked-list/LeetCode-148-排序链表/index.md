@@ -59,7 +59,7 @@ public:
 		{
 			return head;
 		}
-		if (head->next == tail) // 只剩下一个节点，因为是左闭右开
+		if (head->next == tail) // 只剩下一个节点，因为是左闭右开，这一步非常重要，因为后面需要进行合并
 		{
 			head->next = nullptr; // 断开链表
 			return head;
@@ -104,11 +104,11 @@ public:
 		}
 		if (temp1 != nullptr)
 		{
-			temp->next = temp1;
+			temp->next = temp1; // 直接append
 		}
 		else if (temp2 != nullptr)
 		{
-			temp->next = temp2;
+			temp->next = temp2; // 直接append
 		}
 		return dummyHead->next;
 	}
@@ -122,4 +122,10 @@ int main()
 
 
 ````
+
+上述code非常好，它非常好的推广merge sort 到linked list。
+
+1、因为刚开始并不知道linked list的tail node，因此采用左开右闭
+
+2、首先需要将linked list一分为二，直至只剩下single node，然后进行merge，生成更大的linked list；
 

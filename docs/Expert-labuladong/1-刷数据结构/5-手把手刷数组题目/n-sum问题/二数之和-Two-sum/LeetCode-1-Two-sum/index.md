@@ -23,13 +23,11 @@ public:
 			{
 				if (nums[i] + nums[j] == target)
 				{
-					return
-					{	i, j};
+					return {i, j};
 				}
 			}
 		}
-		return
-		{	-1, -1};
+		return {-1, -1};
 	}
 };
 ostream& operator<<(ostream &stream, vector<int> v)
@@ -77,10 +75,9 @@ public:
 			auto it = hashtable.find(target - nums[i]);
 			if (it != hashtable.end())
 			{
-				return
-				{	it->second, i};
-			}
-			hashtable[nums[i]] = i;
+				return {it->second, i};
+			} 
+      hashtable[nums[i]] = i;
 		}
 		return
 		{};
@@ -127,3 +124,39 @@ int main()
 上述这种策略，对于更多的数，貌似是行不通的。
 
 2、方法一是从后面的数中找数，方法二是: 一次遍历，从过往的数据中，找数。
+
+### sort + binary search
+
+labuladong [一个函数秒杀 2Sum 3Sum 4Sum 问题](https://mp.weixin.qq.com/s/fSyJVvggxHq28a0SdmZm6Q)
+
+```c++
+vector<int> twoSum(vector<int> &nums, int target)
+{
+	// 先对数组排序
+	sort(nums.begin(), nums.end());
+	// 左右指针
+	int lo = 0, hi = nums.size() - 1;
+	while (lo < hi)
+	{
+		int sum = nums[lo] + nums[hi];
+		// 根据 sum 和 target 的比较，移动左右指针
+		if (sum < target)
+		{
+			lo++;
+		}
+		else if (sum > target)
+		{
+			hi--;
+		}
+		else if (sum == target)
+		{
+			return
+			{	nums[lo], nums[hi]};
+		}
+	}
+	return {};
+}
+
+
+```
+

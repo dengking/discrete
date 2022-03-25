@@ -27,12 +27,12 @@ public:
 	int countPairs(vector<int> &deliciousness)
 	{
 		int maxNum = *max_element(deliciousness.begin(), deliciousness.end());
-		int maxSum = 2 * maxNum;
+		int maxSum = 2 * maxNum; 
 		unordered_map<int, int> mp;
 		int ret = 0;
 		for (auto &&num : deliciousness)
 		{
-			for (int sum = 1; sum <= maxSum; sum <<= 1)
+			for (int sum = 1; sum <= maxSum; sum <<= 1) // 枚举2的幂直至maxSum
 			{
 				int count = mp.count(sum - num) ? mp[sum - num] : 0;
 				ret = (count + ret) % MOD;

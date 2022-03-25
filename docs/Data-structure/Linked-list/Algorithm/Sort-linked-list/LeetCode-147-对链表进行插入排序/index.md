@@ -93,7 +93,7 @@ public:
 		}
 		ListNode *dummyHead = new ListNode(0);
 		dummyHead->next = head;
-		ListNode *lastSorted = head;
+		ListNode *lastSorted = head; // 单个节点肯定是有序的
 		ListNode *curr = head->next; // 将curr插入到 [head, lastSorted] 之间
 		while (curr != nullptr)
 		{

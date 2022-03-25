@@ -30,8 +30,8 @@ public:
 		int res = 0;
 		for (int i = 0; i < N; ++i) {
 			int sum = 0;
-			for (int j = i; j < N; ++j) {
-				sum = nums[j] + sum;
+			for (int j = i; j < N; ++j) { // 需要从i开始，因为一个元素也是一个子数组
+				sum = nums[j] + sum; // 更新sum
 				if (sum == k) {
 					++res;
 				}

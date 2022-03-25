@@ -2,9 +2,17 @@
 
 对链表的排序，有如下方式:
 
-1、转换为array，然后对array进行排序
+一、转换为array，然后对array进行排序
 
-2、对linked list设计algorithm
+二、适用于linked list 的sort algorithm
+
+1、insert sort
+
+LeetCode-147-对链表进行插入排序
+
+2、merge sort
+
+LeetCode-148-排序链表
 
 ## TODO
 
