@@ -12,7 +12,9 @@
 
 ## [简单的dp思路](https://leetcode-cn.com/problems/shortest-way-to-form-string/solution/jian-dan-de-dpsi-lu-by-djc33636822-ltcn/)
 
-
+> NOTE:
+>
+> 这个思路相对比较简单
 
 ## [【python3】双指针](https://leetcode-cn.com/problems/shortest-way-to-form-string/solution/python3-shuang-zhi-zhen-by-caiji-ud-mlbx/)
 

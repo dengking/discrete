@@ -178,3 +178,25 @@ int main()
 
 ```
 
+## [【python3】动态规划](https://leetcode-cn.com/problems/max-consecutive-ones-ii/solution/python3-dong-tai-gui-hua-by-caiji-ud-awny/)
+
+
+
+```python
+class Solution:
+    def findMaxConsecutiveOnes(self, nums: List[int]) -> int:
+        n = len(nums)
+        dp = [[0,0] for _ in range(n+1)]
+        res = 0
+        for i in range(1,n+1):
+            if nums[i-1] == 1:
+                dp[i][0] = dp[i-1][0]+1
+                dp[i][1] = dp[i-1][1]+1
+            else:
+                dp[i][0] = 0 
+                dp[i][1] = dp[i-1][0]+1
+            res = max(res,dp[i][0],dp[i][1])
+        return res
+
+```
+

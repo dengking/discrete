@@ -70,7 +70,7 @@ class Solution {
 		}
 	}
 	void addLeft(vector<int>& boundary, TreeNode* root) {
-		TreeNode* t = root->left;
+		TreeNode* t = root->left; // 首先取root 的leaf node
 		while (t)
 		{
 			if (isLeaf(t)) { // 到达了终点
@@ -133,7 +133,7 @@ public:
 
 > NOTE: 
 >
-> 需要注意：仅仅便利左边界和遍历整棵树的方式是不同的
+> 需要注意：仅仅遍历左边界和遍历整棵树的方式是不同的
 
 
 
