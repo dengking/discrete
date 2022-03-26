@@ -196,7 +196,7 @@ def maxA(N: int) -> int:
         dp[i] = dp[i - 1] + 1
         # 按C-V键
         # j作为若干C-V的起点
-        for j in range(2, i):
+        for j in range(2, i): # 从2开始没有问题，因为 dp[2-2] 为 0 ，因此相对于是从3开始
             # 全选 & 复制 dp[j-2]，连续粘贴i-j次
             # 屏幕上共 dp[j-2] * (i - j + 1) 个 A
             dp[i] = max(dp[i], dp[j - 2] * (i - j + 1))

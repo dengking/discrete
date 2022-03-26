@@ -78,3 +78,24 @@ int main()
 
 
 
+### 二刷
+
+```c++
+class Solution {
+public:
+	int maxA(int n) {
+		vector<int> dp(n+1);
+		for (int i = 1; i <= n; ++i) { // i 表示可以按几次
+			dp[i] = dp[i-1] + 1; // 按A
+			for (int j = 3; j < i; ++j) { // j表示第几次按ctr-V
+				dp[i] = max(dp[i], dp[j - 2] * (i - j + 1));
+			}
+		}
+		return dp[n];
+	}
+};
+```
+
+
+
+将 `j` 的起始值修改为3.

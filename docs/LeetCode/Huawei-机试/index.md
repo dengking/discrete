@@ -8,7 +8,7 @@
 |          | [544. 输出比赛匹配对](https://leetcode-cn.com/problems/output-contest-matches/) 中等 |                     | 已做     |
 | 动态规划 |                                                              |                     |          |
 |          | [651. 4键键盘](https://leetcode-cn.com/problems/4-keys-keyboard/) |                     | 已做     |
-|          | [750. 角矩形的数量](https://leetcode-cn.com/problems/number-of-corner-rectangles/) 中等 |                     |          |
+|          | [750. 角矩形的数量](https://leetcode-cn.com/problems/number-of-corner-rectangles/) 中等 |                     | 已做     |
 |          | [1055. 形成字符串的最短路径](https://leetcode-cn.com/problems/shortest-way-to-form-string/) | 双指针              | 已做     |
 | 树       |                                                              |                     |          |
 |          | [536  从字符串生成二叉树](https://leetcode-cn.com/problems/construct-binary-tree-from-string/) |                     | 已做     |
