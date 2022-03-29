@@ -1,4 +1,65 @@
-# [算法题就像搭乐高：手把手带你拆解 LFU 算法](https://mp.weixin.qq.com/s/oXv03m1J8TwtHwMJEZ1ApQ)
+# labuladong [算法题就像搭乐高：手把手带你拆解 LFU 算法](https://mp.weixin.qq.com/s/oXv03m1J8TwtHwMJEZ1ApQ) 
+
+而 LFU 算法相当于是淘汰访问频次最低的数据，如果访问频次最低的数据有多条，需要淘汰最旧的数据。把数据按照访问频次进行排序，而且频次还会不断变化，这可不容易实现。
+
+> NOTE:
+>
+> 一、LFU是典型的多级排序：
+>
+> 1、频率
+>
+> 2、如果频率相同，则需要淘汰最旧的
+>
+> 显然LFU的复杂度比LRU要高出一筹。
+>
+> 
+
+
+
+## 二、思路分析
+
+**1、**使用一个`HashMap`存储`key`到`val`的映射，就可以快速计算`get(key)`。
+
+```java
+HashMap<Integer, Integer> keyToVal;
+```
+
+**2、**使用一个`HashMap`存储`key`到`freq`的映射，就可以快速操作`key`对应的`freq`。
+
+```java
+HashMap<Integer, Integer> keyToFreq;
+```
+
+> NOTE:
+>
+> 因为在访问一个key后，就需要更新它的frequency。
+
+**3、**这个需求应该是 LFU 算法的核心，所以我们分开说。
+
+**3.1、**首先，肯定是需要`freq`到`key`的映射，用来找到`freq`最小的`key`。
+
+**3.2、**将`freq`最小的`key`删除，那你就得快速得到当前所有`key`最小的`freq`是多少。想要时间复杂度 O(1) 的话，肯定不能遍历一遍去找，那就用一个变量`minFreq`来记录当前最小的`freq`吧。
+
+**3.3、**可能有多个`key`拥有相同的`freq`，所以 **`freq`对`key`是一对多的关系**，即一个`freq`对应一个`key`的列表。
+
+**3.4、**希望`freq`对应的`key`的列表是**存在时序**的，便于快速查找并删除最旧的`key`。
+
+**3.5、**希望**能够快速删除`key`列表中的任何一个`key`**，因为如果频次为`freq`的某个`key`被访问，那么它的频次就会变成`freq+1`，就应该从`freq`对应的`key`列表中删除，加到`freq+1`对应的`key`的列表中。
+
+```Java
+HashMap<Integer, LinkedHashSet<Integer>> freqToKeys;
+int minFreq = 0;
+```
+
+介绍一下这个`LinkedHashSet`，它满足我们 3.3，3.4，3.5 这几个要求。你会发现普通的链表`LinkedList`能够满足 3.3，3.4 这两个要求，但是由于普通链表不能快速访问链表中的某一个节点，所以无法满足 3.5 的要求。
+
+`LinkedHashSet`顾名思义，是链表和哈希集合的结合体。链表不能快速访问链表节点，但是插入元素具有时序；哈希集合中的元素无序，但是可以对元素进行快速的访问和删除。
+
+> NOTE:
+>
+> 这是典型的hybrid data structure。
+
+那么，它俩结合起来就兼具了哈希集合和链表的特性，既可以在 O(1) 时间内访问或删除其中的元素，又可以保持插入的时序，高效实现 3.5 这个需求。
 
 > NOTE: 
 >
@@ -38,7 +99,7 @@ class LFUCache {
 }
 ```
 
-### 三、代码框架
+## 三、代码框架
 
 LFU 的逻辑不难理解，但是写代码实现并不容易，因为你看我们要维护`KV`表，`KF`表，`FK`表三个映射，特别容易出错。对于这种情况，labuladong 教你三个技巧：
 
@@ -102,7 +163,15 @@ public void put(int key, int val) {
 
 `increaseFreq`和`removeMinFreqKey`方法是 LFU 算法的核心，我们下面来看看怎么借助`KV`表，`KF`表，`FK`表这三个映射巧妙完成这两个函数。
 
-### 四、LFU 核心逻辑
+## 四、LFU 核心逻辑
+
+### `removeMinFreqKey`
+
+> NOTE:
+>
+> `removeMinFreqKey` 只会在`put`函数中被调用
+
+
 
 首先来实现`removeMinFreqKey`函数：
 
@@ -132,6 +201,10 @@ private void removeMinFreqKey() {
 实际上没办法快速计算`minFreq`，只能线性遍历`FK`表或者`KF`表来计算，这样肯定不能保证 O(1) 的时间复杂度。
 
 **但是，其实这里没必要更新`minFreq`变量**，因为你想想`removeMinFreqKey`这个函数是在什么时候调用？在`put`方法中插入新`key`时可能调用。而你回头看`put`的代码，插入新`key`时一定会把`minFreq`更新成 1，所以说即便这里`minFreq`变了，我们也不需要管它。
+
+
+
+### `increaseFreq`
 
 下面来实现`increaseFreq`函数：
 
