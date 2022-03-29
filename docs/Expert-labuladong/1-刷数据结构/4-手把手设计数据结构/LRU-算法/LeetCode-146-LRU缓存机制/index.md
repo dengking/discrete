@@ -341,3 +341,54 @@ int main()
 
 ```
 
+## [朱雀](https://leetcode-cn.com/u/zhu-que-3/) # [c++双向链表和哈希表](https://leetcode-cn.com/problems/lru-cache/solution/cshuang-xiang-lian-biao-he-ha-xi-biao-by-l476/)
+
+
+
+```c++
+class LRUCache {
+private:
+  list<pair<int, int>> cache;   ////< @note pair[key]=value
+  unordered_map<int, list<pair<int, int>>::iterator> key2node;
+  int cap;                      ////< @note 最大容量
+
+public:
+  LRUCache(int capacity) : cap(capacity) {}
+
+  int get(int key) {
+    if (key2node.find(key) == key2node.end()) {
+      return -1;
+    }
+    pair<int, int> node = *key2node[key];
+    cache.erase(key2node[key]); ////< @note 将节点移到链表头部并更新map
+    cache.push_front(node);
+    key2node[key] = cache.begin();
+    return node.second;
+  }
+
+  void put(int key, int val) {
+    auto newNode = std::make_pair(key, val);
+
+    if (key2node.count(key)) {  ////< @note 若该节点已存在，则删除旧的节点
+      cache.erase(key2node[key]);
+    } else {
+      if (cap == cache.size()) {
+        key2node.erase(cache.back().first);
+        cache.pop_back();       ////< @note 删除链表最后一个数据
+      }
+    }
+
+    cache.push_front(newNode);  ////< @node 插入新的节点到头部
+    key2node[key] = cache.begin();
+  }
+};
+
+/**
+ * Your LRUCache object will be instantiated and called as such:
+ * LRUCache* obj = new LRUCache(capacity);
+ * int param_1 = obj->get(key);
+ * obj->put(key,value);
+ */
+
+```
+
