@@ -1,6 +1,6 @@
 nav:
-    - LRU-算法: LRU-算法
-    - LFU-算法: LFU-算法
+    - Introduction: index.md
+    - LRU-LFU: LRU-LFU
     - 设计最大频率栈: 设计最大频率栈
     - 设计朋友圈时间线功能: 设计朋友圈时间线功能    
     - Monotonic-stack单调栈: Monotonic-stack单调栈

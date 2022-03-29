@@ -156,7 +156,9 @@ private void removeLeastRecently() {
 }
 ```
 
-
+> NOTE:
+>
+> 可以看到，上述封装都涉及两个数据结构，显然封装起来是能够避免错误的
 
 ### 「为什么要在链表中同时存储 key 和 val，而不是只存储 val」
 
