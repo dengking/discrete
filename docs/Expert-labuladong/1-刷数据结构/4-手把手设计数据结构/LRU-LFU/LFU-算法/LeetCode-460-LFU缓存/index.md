@@ -1,4 +1,4 @@
-# [460. LFU 缓存](https://leetcode-cn.com/problems/lfu-cache/)
+# leetcode [460. LFU 缓存](https://leetcode-cn.com/problems/lfu-cache/)
 
 
 
@@ -143,7 +143,9 @@ int main()
 
 
 
-## 官方解题
+## [官方解题](https://leetcode-cn.com/problems/lfu-cache/solution/lfuhuan-cun-by-leetcode-solution/)
+
+
 
 ```C++
 #include <bits/stdc++.h>
