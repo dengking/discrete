@@ -145,7 +145,31 @@ int main()
 
 ## [官方解题](https://leetcode-cn.com/problems/lfu-cache/solution/lfuhuan-cun-by-leetcode-solution/)
 
+### 方法一：哈希表 + 平衡二叉树
 
+本方法需要使用到「平衡二叉树」。在 C++ 语言中，我们可以直接使用 `std::set` 类作为平衡二叉树；同样在 Java 语言中，我们可以直接使用 `TreeSet`。但是在 Python 语言中，并没有内置的库可以用来模拟平衡二叉树。
+
+首先我们定义缓存的数据结构：
+
+```C++
+struct Node {
+    int cnt; // 频率
+    int time; // 插入时间
+    int key, value; 
+    
+    // 我们需要实现一个 Node 类的比较函数
+    // 将 cnt（使用频率）作为第一关键字，time（最近一次使用的时间）作为第二关键字
+    // 下面是 C++ 语言的一个比较函数的例子
+    bool operator< (const Node& rhs) const {
+        return cnt == rhs.cnt ? time < rhs.time : cnt < rhs.cnt;
+    }
+};
+
+```
+
+> NOTE:
+>
+> 这是典型的多级排序
 
 ```C++
 #include <bits/stdc++.h>
@@ -257,3 +281,10 @@ int main()
 
 ```
 
+### 方法二：双哈希表
+
+> NOTE:
+>
+> 这种算法和 labuladong [算法题就像搭乐高：手把手带你拆解 LFU 算法](https://mp.weixin.qq.com/s/oXv03m1J8TwtHwMJEZ1ApQ) 类似
+>
+> 
