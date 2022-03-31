@@ -7,4 +7,5 @@ nav:
     - LeetCode-173-二叉搜索树迭代器: LeetCode-173-二叉搜索树迭代器
     - Breadth-first-traverse: Breadth-first-traverse
     - LeetCode-987-二叉树的垂序遍历-困难: LeetCode-987-二叉树的垂序遍历-困难
-    
+    - LeetCode-314-二叉树的垂直遍历: LeetCode-314-二叉树的垂直遍历
+    - LeetCode-545-二叉树的边界-中等: LeetCode-545-二叉树的边界-中等
