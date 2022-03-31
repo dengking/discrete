@@ -1,4 +1,4 @@
-# [460. LFU 缓存](https://leetcode-cn.com/problems/lfu-cache/)
+# leetcode [460. LFU 缓存](https://leetcode-cn.com/problems/lfu-cache/)
 
 
 
@@ -143,7 +143,162 @@ int main()
 
 
 
-## 官方解题
+## [官方解题](https://leetcode-cn.com/problems/lfu-cache/solution/lfuhuan-cun-by-leetcode-solution/)
+
+### 方法一：哈希表 + 平衡二叉树
+
+本方法需要使用到「平衡二叉树」。在 C++ 语言中，我们可以直接使用 `std::set` 类作为平衡二叉树；同样在 Java 语言中，我们可以直接使用 `TreeSet`。但是在 Python 语言中，并没有内置的库可以用来模拟平衡二叉树。
+
+首先我们定义缓存的数据结构：
+
+```C++
+struct Node {
+    int cnt; // 频率
+    int time; // 插入时间
+    int key, value; 
+    
+    // 我们需要实现一个 Node 类的比较函数
+    // 将 cnt（使用频率）作为第一关键字，time（最近一次使用的时间）作为第二关键字
+    // 下面是 C++ 语言的一个比较函数的例子
+    bool operator< (const Node& rhs) const {
+        return cnt == rhs.cnt ? time < rhs.time : cnt < rhs.cnt;
+    }
+};
+
+```
+
+> NOTE:
+>
+> 这是典型的多级排序
+
+
+
+```c++
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <bitset>
+#include <map>
+#include <list>
+#include <stack>
+#include <unordered_map>
+#include <unordered_set>
+#include <cmath>
+#include <numeric>
+#include <climits>
+#include <random>
+// example1.cpp
+// new-delete-type-mismatch error
+#include <memory>
+#include <vector>
+struct Node
+{
+  int cnt, time, key, value;
+
+  Node(int _cnt, int _time, int _key, int _value) : cnt(_cnt), time(_time), key(_key), value(_value) {}
+
+  bool operator<(const Node &rhs) const
+  {
+    return cnt == rhs.cnt ? time < rhs.time : cnt < rhs.cnt;
+  }
+};
+class LFUCache
+{
+  // 缓存容量，时间戳
+  int capacity, time;
+  unordered_map<int, Node> key_table;
+  set<Node> S;
+
+public:
+  LFUCache(int _capacity)
+  {
+    capacity = _capacity;
+    time = 0;
+    key_table.clear();
+    S.clear();
+  }
+
+  int get(int key)
+  {
+    if (capacity == 0)
+      return -1;
+    auto it = key_table.find(key);
+    // 如果哈希表中没有键 key，返回 -1
+    if (it == key_table.end())
+      return -1;
+    // 从哈希表中得到旧的缓存
+    Node cache = it->second;
+    // 从平衡二叉树中删除旧的缓存
+    S.erase(cache);
+    // 将旧缓存更新
+    cache.cnt += 1;
+    cache.time = ++time;
+    // 将新缓存重新放入哈希表和平衡二叉树中
+    S.insert(cache);
+    it->second = cache;
+    return cache.value;
+  }
+
+  void put(int key, int value)
+  {
+    if (capacity == 0)
+      return;
+    auto it = key_table.find(key);
+    if (it == key_table.end())
+    {
+      // 如果到达缓存容量上限
+      if (key_table.size() == capacity)
+      {
+        // 从哈希表和平衡二叉树中删除最近最少使用的缓存
+        key_table.erase(S.begin()->key);
+        S.erase(S.begin());
+      }
+      // 创建新的缓存
+      Node cache = Node(1, ++time, key, value);
+      // 将新缓存放入哈希表和平衡二叉树中
+      key_table.insert(make_pair(key, cache));
+      S.insert(cache);
+    }
+    else
+    {
+      // 这里和 get() 函数类似
+      Node cache = it->second;
+      S.erase(cache);
+      cache.cnt += 1;
+      cache.time = ++time;
+      cache.value = value;
+      S.insert(cache);
+      it->second = cache;
+    }
+  }
+};
+
+```
+
+> NOTE:
+>
+> 一、`key_table` 实现了 labuladong [算法题就像搭乐高：手把手带你拆解 LFU 算法](https://mp.weixin.qq.com/s/oXv03m1J8TwtHwMJEZ1ApQ) 中的：
+>
+> 1、`keyToVal`
+>
+> 2、`keyToFreq`
+>
+> `S` 则实现了 labuladong [算法题就像搭乐高：手把手带你拆解 LFU 算法](https://mp.weixin.qq.com/s/oXv03m1J8TwtHwMJEZ1ApQ) 中的`freqToKeys` ，它保证我们能够以`O(1)`实现找到应该被删除的元素
+>
+> 二、上述算法相比于 labuladong [算法题就像搭乐高：手把手带你拆解 LFU 算法](https://mp.weixin.qq.com/s/oXv03m1J8TwtHwMJEZ1ApQ) 会简单很多
+>
+> 三、set是典型的ordered data structure。
+
+### 方法二：双哈希表
+
+> NOTE:
+>
+> 这种算法和 labuladong [算法题就像搭乐高：手把手带你拆解 LFU 算法](https://mp.weixin.qq.com/s/oXv03m1J8TwtHwMJEZ1ApQ) 类似
+>
+> 
+
+
 
 ```C++
 #include <bits/stdc++.h>
