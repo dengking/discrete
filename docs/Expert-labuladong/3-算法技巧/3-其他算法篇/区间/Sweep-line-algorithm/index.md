@@ -4,6 +4,10 @@
 
 ## infogalactic [Sweep line algorithm](https://infogalactic.com/info/Sweep_line_algorithm)
 
+> NOTE:
+>
+> sweep line的含义是 扫线
+
 ## csdn [扫描线Sweep Line算法总结](https://blog.csdn.net/u013325815/article/details/103957911)
 
 ## csdn [Time Intersection](https://blog.csdn.net/u013325815/article/details/103402697)
