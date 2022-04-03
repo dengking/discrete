@@ -1,6 +1,12 @@
 # 区间问题
 
+一、区间问题其实也是可以使用left- right double pointer来进行解释的，关于这一点，是在leetcode [Ikaruga](https://leetcode-cn.com/u/ikaruga/) [【合并区间】排序 + 双指针](https://leetcode-cn.com/problems/merge-intervals/solution/merge-intervals-by-ikaruga/) 上提出的
+
+
+
 素材：
 
 1、emre [Coding Patterns: Merge Intervals](https://emre.me/coding-patterns/merge-intervals/)
+
+2、**甜姨的奇妙冒险** [秒懂力扣区间题目：重叠区间、合并区间、插入区间](https://mp.weixin.qq.com/s/ioUlNa4ZToCrun3qb4y4Ow)
 
