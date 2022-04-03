@@ -1,4 +1,5 @@
 nav:
     - Introduction: index.md
     - LeetCode-57-插入区间: LeetCode-57-插入区间
+    - LeetCode-986-区间列表的交集: LeetCode-986-区间列表的交集
     
