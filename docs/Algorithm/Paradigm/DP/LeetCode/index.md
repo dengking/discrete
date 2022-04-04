@@ -1,4 +1,4 @@
-# LeetCode问题整理
+# LeetCode DP问题整理
 
 ## Fibonacci DP 
 
@@ -41,6 +41,8 @@ public:
 一、加法法则
 
 二、LeetCode [62. 不同路径](https://leetcode-cn.com/problems/unique-paths/) 和 LeetCode [1155. 掷骰子的N种方法](https://leetcode-cn.com/problems/number-of-dice-rolls-with-target-sum/) 比较类似。
+
+三、计数问题，本质上是罗列所有的可能性、穷举，因此对于这种问题，基本上是都可以通过回溯法来解决的，一个典型的案例就是在 LeetCode [1155. 掷骰子的N种方法](https://leetcode-cn.com/problems/number-of-dice-rolls-with-target-sum/) # [Java题解 动态规划法](https://leetcode-cn.com/problems/number-of-dice-rolls-with-target-sum/solution/javati-jie-cong-jian-dan-di-gui-dao-ya-s-3jg7/) 中所总结的，它首先使用回溯法，然后使用DP。
 
 #### LeetCode [70. 爬楼梯](https://leetcode-cn.com/problems/climbing-stairs/) 
 
