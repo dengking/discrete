@@ -5,7 +5,8 @@ nav:
     - Expert-Accagain: Expert-Accagain
     - Catalan-DP: Catalan-DP
     - Fibonacci-DP: Fibonacci-DP
-    - DP解区间问题: DP解区间问题
+    - 背包DP: 背包DP
+    - 区间DP: 区间DP
     - DP-on-Tree: DP-on-Tree
     - LeetCode: LeetCode
     

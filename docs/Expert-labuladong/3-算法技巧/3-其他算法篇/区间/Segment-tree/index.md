@@ -8,9 +8,7 @@ In [computer science](https://en.wikipedia.org/wiki/Computer_science), a **segme
 
 
 
-## LeetCode [segment tree](https://leetcode.com/tag/segment-tree/
-
-)
+## LeetCode [segment tree](https://leetcode.com/tag/segment-tree/)
 
 
 

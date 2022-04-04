@@ -1,10 +1,46 @@
 # LeetCode问题整理
 
-## Fibonacci DP 计数问题
+## Fibonacci DP 
 
-### Fibonacci DP
+跟背包DP一样，Fibonacci DP 也可以分为计数问题、最优值问题。
 
-#### LeetCode [70. 爬楼梯](https://leetcode-cn.com/problems/climbing-stairs/)
+### 原问题
+
+#### leetcode [509. 斐波那契数](https://leetcode-cn.com/problems/fibonacci-number/) 简单 
+
+##### 核心code
+
+```c++
+class Solution
+{
+public:
+  int fib(int n)
+  {
+    if (n <= 1)
+    {
+      return n;
+    }
+    int prev = 1, prev_prev = 0, cur = 0;
+    for (int i = 2; i <= n; ++i)
+    {
+      cur = prev + prev_prev;
+      prev_prev = prev;
+      prev = cur;
+    }
+    return cur;
+  }
+};
+```
+
+
+
+
+
+### 计数
+
+#### LeetCode [70. 爬楼梯](https://leetcode-cn.com/problems/climbing-stairs/) 
+
+##### 核心code
 
 ```C++
 class Solution
@@ -28,9 +64,15 @@ public:
 };
 ```
 
+##### hightlight
+
+一、计数问题
+
 
 
 #### leetcode [91. 解码方法](https://leetcode-cn.com/problems/decode-ways/) 中等
+
+##### 核心code
 
 ```c++
 
@@ -86,37 +128,11 @@ public:
 
 
 
-#### leetcode [509. 斐波那契数](https://leetcode-cn.com/problems/fibonacci-number/) 简单 
-
-```c++
-class Solution
-{
-public:
-  int fib(int n)
-  {
-    if (n <= 1)
-    {
-      return n;
-    }
-    int prev = 1, prev_prev = 0, cur = 0;
-    for (int i = 2; i <= n; ++i)
-    {
-      cur = prev + prev_prev;
-      prev_prev = prev;
-      prev = cur;
-    }
-    return cur;
-  }
-};
-```
 
 
+#### LeetCode [62. 不同路径](https://leetcode-cn.com/problems/unique-paths/) 中等
 
-
-
-### LeetCode [62. 不同路径](https://leetcode-cn.com/problems/unique-paths/) 中等
-
-#### 核心code
+##### 核心code
 
 ```C++
 class Solution {
@@ -141,7 +157,7 @@ public:
 };
 ```
 
-#### hightlight
+##### hightlight
 
 一、这个问题没有空问题
 
@@ -150,3 +166,18 @@ public:
 宫水三叶 [DP 路径问题](https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzU4NDE3MTEyMA==&action=getalbum&album_id=1773144264147812354&scene=173&from_msgid=2247485319&from_itemidx=1&count=3&uin=&key=&devicetype=Windows+10+x64&version=6303052a&lang=zh_CN&ascene=7&fontgear=2)
 
 三、它也可以归入fibonacci DP
+
+
+
+### 最优值问题
+
+leetcode [746. 使用最小花费爬楼梯](https://leetcode-cn.com/problems/min-cost-climbing-stairs/) 和 leetcode [198. 打家劫舍](https://leetcode-cn.com/problems/house-robber/) 非常类似
+
+
+
+
+
+#### leetcode [746. 使用最小花费爬楼梯](https://leetcode-cn.com/problems/min-cost-climbing-stairs/) 
+
+
+
