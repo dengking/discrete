@@ -4,11 +4,35 @@
 
 ## 我的解题
 
-楼顶为 `i` 时，从第0楼爬上来的最小话费。
+这是在阅读 emre.me [Coding Patterns: Staircase (DP)](https://emre.me/coding-patterns/staircase/) 时发现的。
 
 ```
 dp[i] = min(dp[i-1]+cost[i-1], dp[i-2]+cost[i-2]) # 爬到第i楼需要支付的费用
+```
+
+
+```
 dp[0] = 0
+```
+
+
+```
+dp[1] = 0
+```
+
+
+上述base case非常重要，因为题目要求可以从0楼、1楼开始，所以它们的初始值都是0.
+```
+dp[2] = dp[0] + cost[0] # 从0楼走两步到了2
+        dp[1] + cost[1] # 从1楼走一步
+```
+
+
+
+```
+dp[3] = dp[2] + cost[2] # 从2楼再走一步
+        dp[1] + cost[1] + cost[2] # 从1楼走一步到2楼，从2楼走一步到3楼
+        dp[1] + cost[1] # 从1楼走两步到3楼
 ```
 
 
@@ -42,20 +66,15 @@ public:
   int minCostClimbingStairs(vector<int> &cost)
   {
     int n = cost.size();
-    vector<int> dp(n, INT_MAX / 2);
+    vector<int> dp(n + 1, INT_MAX / 2);
     dp[0] = 0;
-    for (int i = 0; i < 2; ++i)
-    {
-      if (i + 1 < n)
-        dp[i + 1] = min(dp[i + 1], cost[i]);
-      if (i + 2 < n)
-        dp[i + 2] = min(dp[i + 2], cost[i]);
-    }
-    for (int i = 2; i < n; ++i)
+    dp[1] = 0;                                     // 爬到1楼
+    dp[2] = min(dp[0] + cost[0], dp[1] + cost[1]); // 爬到2楼
+    for (int i = 3; i <= n; ++i)                   // 爬到第n楼
     {
       dp[i] = min(dp[i - 1] + cost[i - 1], dp[i - 2] + cost[i - 2]);
     }
-    return dp[n - 1];
+    return dp[n];
   }
 };
 

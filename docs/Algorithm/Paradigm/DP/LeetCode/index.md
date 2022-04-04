@@ -38,6 +38,10 @@ public:
 
 ### 计数
 
+一、加法法则
+
+二、LeetCode [62. 不同路径](https://leetcode-cn.com/problems/unique-paths/) 和 LeetCode [1155. 掷骰子的N种方法](https://leetcode-cn.com/problems/number-of-dice-rolls-with-target-sum/) 比较类似。
+
 #### LeetCode [70. 爬楼梯](https://leetcode-cn.com/problems/climbing-stairs/) 
 
 ##### 核心code
@@ -175,9 +179,29 @@ leetcode [746. 使用最小花费爬楼梯](https://leetcode-cn.com/problems/min
 
 
 
-
-
 #### leetcode [746. 使用最小花费爬楼梯](https://leetcode-cn.com/problems/min-cost-climbing-stairs/) 
 
+```c++
 
+class Solution
+{
+public:
+  int minCostClimbingStairs(vector<int> &cost)
+  {
+    int n = cost.size();
+    vector<int> dp(n + 1, INT_MAX / 2);
+    dp[0] = 0;
+    dp[1] = 0;                                     // 爬到1楼
+    dp[2] = min(dp[0] + cost[0], dp[1] + cost[1]); // 爬到2楼
+    for (int i = 3; i <= n; ++i)                   // 爬到第n楼
+    {
+      dp[i] = min(dp[i - 1] + cost[i - 1], dp[i - 2] + cost[i - 2]);
+    }
+    return dp[n];
+  }
+};
+
+```
+
+#### 打家劫舍系列
 
