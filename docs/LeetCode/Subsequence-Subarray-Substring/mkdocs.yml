@@ -2,4 +2,7 @@ nav:
     - Introduction: index.md
     - 连续-子串子数组: 连续-子串子数组
     - 非连续-子序列: 非连续-子序列
+    - 滑动窗口: 滑动窗口
+    - LeetCode-等差数列: LeetCode-等差数列
+    - LeetCode-连续1: LeetCode-连续1
     

@@ -32,11 +32,17 @@
 
 一、计数
 
+> NOTE:
+>
+> tag-DP解计数问题
+
 由于DP是会进行穷举的，因此可以实现计数，下面是相关例题: 
 
 LeetCode [446. 等差数列划分 II - 子序列](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/) 困难
 
 LeetCode [552. 学生出勤记录 II](https://leetcode-cn.com/problems/student-attendance-record-ii/) 困难
+
+
 
 二、求解最值
 

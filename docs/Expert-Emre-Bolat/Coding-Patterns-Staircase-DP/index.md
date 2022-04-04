@@ -1,4 +1,4 @@
-# emre.me [Coding Patterns: Staircase (DP)](https://emre.me/coding-patterns/staircase/)
+# emre.me [Coding Patterns: Staircase (DP)](https://emre.me/coding-patterns/staircase/) 
 
 > NOTE: 
 >
@@ -23,3 +23,4 @@ We will introduce [Staircase](https://emre.me/coding-patterns/staircase) pattern
 4、[LeetCode 746 - Min Cost Climbing Stairs [*easy*]](https://leetcode.com/problems/min-cost-climbing-stairs/)
 
 5、[LeetCode 1155 - Number of Dice Rolls With Target Sum [*medium*]](https://leetcode.com/problems/number-of-dice-rolls-with-target-sum/)
+

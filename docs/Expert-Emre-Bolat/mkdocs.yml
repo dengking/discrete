@@ -1,5 +1,6 @@
 nav:
     - Introduction: index.md
-    - Coding-Patterns-Staircase楼梯(DP): Coding-Patterns-Staircase楼梯(DP)
+    - Coding-Patterns-Staircase-DP: Coding-Patterns-Staircase-DP
     - Coding-Patterns-K-way-Merge: Coding-Patterns-K-way-Merge
     - Coding-Patterns-Merge-Intervals: Coding-Patterns-Merge-Intervals
+    

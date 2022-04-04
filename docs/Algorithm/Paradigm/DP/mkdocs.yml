@@ -3,7 +3,8 @@ nav:
     - wikipedia-Dynamic-programming: wikipedia-Dynamic-programming
     - geeksforgeeks-Dynamic-Programming: geeksforgeeks-Dynamic-Programming
     - Expert-Accagain: Expert-Accagain
-    - Catalan: Catalan  
+    - Catalan-DP: Catalan-DP
+    - Fibonacci-DP: Fibonacci-DP
     - DP解区间问题: DP解区间问题
     - DP-on-Tree: DP-on-Tree
     - LeetCode: LeetCode

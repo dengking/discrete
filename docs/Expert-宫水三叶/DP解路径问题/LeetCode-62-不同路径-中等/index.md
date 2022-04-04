@@ -24,6 +24,8 @@ a[i][j] = a[i][j-1] (i=0)
 a[i][j] = a[i-1][j] (j=0)
 ```
 
+
+
 ### 完整代码
 
 ```C++
@@ -64,3 +66,8 @@ int main()
 
 ```
 
+
+
+### fibonacci DP计数问题
+
+在 emre.me [Coding Patterns: Staircase (DP)](https://emre.me/coding-patterns/staircase/) 中将上述问题归入到了"Staircase (DP)"即"fibonacci DP计数问题"范畴中，从上述实现来看，我觉得是比较符合的。
