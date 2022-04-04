@@ -30,6 +30,90 @@ public:
 
 
 
+#### leetcode [91. 解码方法](https://leetcode-cn.com/problems/decode-ways/) 中等
+
+```c++
+
+class Solution
+{
+public:
+  int numDecodings(string s)
+  {
+    int N = s.size();
+    vector<int> dp(N + 1);
+    dp[0] = 1;
+    for (int i = 1; i <= N; ++i)
+    {
+      if (s[i - 1] == '0')
+      {
+        if (i <= 1)
+        {
+          dp[i] = 0;
+          return 0;
+        }
+        else
+        {
+          if (s[i - 2] == '1' || s[i - 2] == '2') // 前一位数这两个数，才能够形成有个有效的二位数
+            dp[i] = dp[i - 2];
+          else
+            return 0;
+        }
+      }
+      else
+      {
+        dp[i] = dp[i - 1]; // 单独映射到一个字母
+        if (i >= 2)
+        {
+          if (s[i - 2] == '0') // 前一位数0，则不需要考虑两者形成两位数
+          {
+            continue;
+          }
+          else
+          {
+            auto ss = s.substr(i - 2, 2);
+            if (atoi(ss.c_str()) <= 26) // 需要考察两位数能否映射位一个字母
+              dp[i] += dp[i - 2];
+          }
+        }
+      }
+    }
+    return dp[N];
+  }
+};
+```
+
+
+
+
+
+#### leetcode [509. 斐波那契数](https://leetcode-cn.com/problems/fibonacci-number/) 简单 
+
+```c++
+class Solution
+{
+public:
+  int fib(int n)
+  {
+    if (n <= 1)
+    {
+      return n;
+    }
+    int prev = 1, prev_prev = 0, cur = 0;
+    for (int i = 2; i <= n; ++i)
+    {
+      cur = prev + prev_prev;
+      prev_prev = prev;
+      prev = cur;
+    }
+    return cur;
+  }
+};
+```
+
+
+
+
+
 ### LeetCode [62. 不同路径](https://leetcode-cn.com/problems/unique-paths/) 中等
 
 #### 核心code
@@ -64,3 +148,5 @@ public:
 二、来源
 
 宫水三叶 [DP 路径问题](https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzU4NDE3MTEyMA==&action=getalbum&album_id=1773144264147812354&scene=173&from_msgid=2247485319&from_itemidx=1&count=3&uin=&key=&devicetype=Windows+10+x64&version=6303052a&lang=zh_CN&ascene=7&fontgear=2)
+
+三、它也可以归入fibonacci DP
