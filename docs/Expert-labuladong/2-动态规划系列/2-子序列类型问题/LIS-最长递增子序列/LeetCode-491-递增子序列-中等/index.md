@@ -2,6 +2,96 @@
 
 
 
+## 我的解题
+
+### 回溯法
+
+```c++
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <bitset>
+#include <map>
+#include <list>
+#include <stack>
+#include <unordered_map>
+#include <unordered_set>
+#include <cmath>
+#include <numeric>
+#include <climits>
+#include <random>
+// example1.cpp
+// new-delete-type-mismatch error
+#include <memory>
+#include <vector>
+using namespace std;
+
+class Solution
+{
+public:
+  vector<vector<int>> findSubsequences(vector<int> &nums)
+  {
+    vector<vector<int>> res;
+
+    vector<int> temp;
+    std::function<void(int)> dfs = [&](int index)
+    {
+      if (index >= nums.size())
+      {
+        if (temp.size() <= 1)
+          return;
+        for (auto &&n : res)
+        {
+          if (n == temp)
+            return;
+        }
+        res.push_back(temp);
+        return;
+      }
+
+      bool selected = false;
+      if (temp.empty())
+      {
+        selected = true;
+      }
+      else
+      {
+        if (nums[index] >= temp.back())
+          selected = true;
+      }
+      if (selected)
+      {
+        // 选择nums[index]
+        temp.push_back(nums[index]);
+        dfs(index + 1);
+        temp.pop_back();
+      }
+
+      // 不选择nums[index]
+      dfs(index + 1);
+    };
+    dfs(0);
+    return res;
+  }
+};
+
+int main()
+{
+  Solution s;
+  auto v = vector<int>{4, 6, 7, 7};
+  s.findSubsequences(v);
+}
+```
+
+上述解法在如下用例超时：
+
+```c++
+[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+```
+
+
+
 ## LeetCode [官方解题](https://leetcode-cn.com/problems/increasing-subsequences/solution/di-zeng-zi-xu-lie-by-leetcode-solution/)
 
 ### 方法二：递归枚举 + 减枝

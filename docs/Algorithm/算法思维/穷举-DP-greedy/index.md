@@ -1,5 +1,8 @@
 # 穷举、DP、greedy
 
+穷举其实是解决一切问题的基础
+
+
 
 
 ## 从"穷举"到DP、greedy
@@ -27,4 +30,22 @@ LeetCode [552. 学生出勤记录 II](https://leetcode-cn.com/problems/student-a
 
 
 五、LeetCode [576. 出界的路径数](https://leetcode-cn.com/problems/out-of-boundary-paths/) 中等
+
+
+
+## 穷举的方法
+
+### for
+
+### 回溯法
+
+1、LeetCode [491. 递增子序列](https://leetcode-cn.com/problems/increasing-subsequences/) 中等
+
+2、
+
+### 二进制枚举
+
+
+
+
 

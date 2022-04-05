@@ -23,3 +23,4 @@ leetcode [1081. 不同字符的最小子序列](https://leetcode-cn.com/problems
 > 1、 `Monotonic-Stack\Max-min-subsequence-子序列` 章节中已经总结了
 >
 > 2、leetcode [402. 移掉K位数字](https://leetcode-cn.com/problems/remove-k-digits/) # [一招吃遍力扣四道题，妈妈再也不用担心我被套路啦～](https://leetcode-cn.com/problems/remove-k-digits/solution/yi-zhao-chi-bian-li-kou-si-dao-ti-ma-ma-zai-ye-b-5/)
+
