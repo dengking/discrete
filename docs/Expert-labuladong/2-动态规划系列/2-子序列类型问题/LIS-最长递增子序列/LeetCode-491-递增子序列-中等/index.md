@@ -90,7 +90,7 @@ int main()
 [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
 ```
 
-
+上述算法超时的根源在于去重这一步骤。
 
 ## LeetCode [官方解题](https://leetcode-cn.com/problems/increasing-subsequences/solution/di-zeng-zi-xu-lie-by-leetcode-solution/)
 
