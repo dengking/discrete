@@ -98,12 +98,6 @@ int main()
 
 
 
-
-
-
-
-
-
 ## leetcode [MaughamL3](https://leetcode-cn.com/u/maugahm-4/) # [Java题解 动态规划法](https://leetcode-cn.com/problems/number-of-dice-rolls-with-target-sum/solution/javati-jie-cong-jian-dan-di-gui-dao-ya-s-3jg7/)
 
 ### 思路一：简单递归
