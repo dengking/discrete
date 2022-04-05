@@ -44,6 +44,59 @@ $$
 f[i][j] = \sum_{k = 1}^{m}f[i - 1][j - k], j >= k
 $$
 
+```c++
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <bitset>
+#include <map>
+#include <list>
+#include <stack>
+#include <unordered_map>
+#include <unordered_set>
+#include <cmath>
+#include <numeric>
+#include <climits>
+#include <random>
+// example1.cpp
+// new-delete-type-mismatch error
+#include <memory>
+#include <vector>
+using namespace std;
+
+static constexpr int MOD = 1000000000 + 7;
+class Solution
+{
+public:
+  int numRollsToTarget(int n, int k, int target)
+  {
+    vector<vector<int>> dp(n + 1, vector<int>(target + 1));
+    dp[0][0] = 1;
+    for (int i = 1; i <= n; ++i)
+    {
+      for (int j = 1; j <= target; ++j)
+      {
+        for (int l = 1; l <= min(j, k); l++)
+        {
+          dp[i][j] = (dp[i][j] + dp[i - 1][j - l]) % MOD;
+        }
+      }
+    }
+    return dp[n][target];
+  }
+};
+
+int main()
+{
+  Solution s;
+  cout << s.numRollsToTarget(1, 6, 3) << endl;
+  cout << s.numRollsToTarget(2, 6, 7) << endl;
+  cout << s.numRollsToTarget(30, 30, 500) << endl;
+}
+```
+
+
 
 
 
