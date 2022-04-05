@@ -1,5 +1,7 @@
 # LeetCode DP问题整理
 
+DP本质上还是从穷举、DFS 转换过来的。
+
 ## Fibonacci DP 
 
 跟背包DP一样，Fibonacci DP 也可以分为计数问题、最优值问题。
@@ -206,4 +208,38 @@ public:
 ```
 
 #### 打家劫舍系列
+
+
+
+## 子序列、子串、子数组
+
+### 最优值问题
+
+#### LIS、最长递增子序列
+
+LeetCode [300. 最长递增子序列](https://leetcode-cn.com/problems/longest-increasing-subsequence/)
+
+```c++
+class Solution
+{
+public:
+	int lengthOfLIS(vector<int> &nums)
+	{
+		int n = nums.size();
+		vector<int> dp(n, 1);
+		for (int i = 1; i < n; ++i)
+		{
+			for (int j = 0; j < i; ++j)
+			{
+				if (nums[j] < nums[i])
+				{
+					dp[i] = max(dp[i], dp[j] + 1);
+				}
+			}
+		}
+		int res = *max_element(dp.begin(), dp.end());
+		return res;
+	}
+};
+```
 
