@@ -1,2 +1,0 @@
-# LeetCode [1155. 掷骰子的N种方法](https://leetcode-cn.com/problems/number-of-dice-rolls-with-target-sum/) 中等
-

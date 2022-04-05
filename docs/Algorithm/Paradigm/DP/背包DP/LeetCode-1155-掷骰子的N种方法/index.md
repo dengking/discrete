@@ -69,3 +69,9 @@ int main()
 
 ### 思路二：自顶向下的动态规划
 
+
+
+## leetcode [【动态规划/背包问题】运用分组背包进行求解](https://leetcode-cn.com/problems/number-of-dice-rolls-with-target-sum/solution/dong-tai-gui-hua-bei-bao-wen-ti-yun-yong-axtf/)
+
+
+
