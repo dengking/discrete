@@ -74,6 +74,10 @@ public:
 
 ## LeetCode [官方解题](https://leetcode-cn.com/problems/increasing-subsequences/solution/di-zeng-zi-xu-lie-by-leetcode-solution/)
 
+> NOTE:
+>
+> 面试的时候，更容易写出的是"方法二：递归枚举 + 减枝"，因为"方法一：二进制枚举 + 哈希"中的hash是难以写出的
+
 ### 方法一：二进制枚举 + 哈希
 
 > NOTE:
@@ -132,4 +136,35 @@ public:
 3、前者不被选择，后者被选择
 
 4、前者不被选择，后者不被选择
+
+```c++
+class Solution {
+public:
+    vector<int> temp; 
+    vector<vector<int>> ans;
+
+    void dfs(int cur, int last, vector<int>& nums) {
+        if (cur == nums.size()) {
+            if (temp.size() >= 2) {
+                ans.push_back(temp);
+            }
+            return;
+        }
+        if (nums[cur] >= last) {
+            temp.push_back(nums[cur]);
+            dfs(cur + 1, nums[cur], nums);
+            temp.pop_back();
+        }
+        if (nums[cur] != last) {
+            dfs(cur + 1, last, nums);
+        }
+    }
+
+    vector<vector<int>> findSubsequences(vector<int>& nums) {
+        dfs(0, INT_MIN, nums);
+        return ans;
+    }
+};
+
+```
 
