@@ -1,4 +1,18 @@
-# labuladong [最长递增子序列之信封嵌套问题](https://mp.weixin.qq.com/s/PSDCjKlTh8MtANdgi-QIug)
+# labuladong [最长递增子序列之信封嵌套问题](https://mp.weixin.qq.com/s/PSDCjKlTh8MtANdgi-QIug) 
+
+> NOTE:
+>
+> 其实这个问题可以想象成下面的样子：
+>
+> ![](./WechatIMG6.jpeg)
+>
+> 可以看到：
+>
+> 1、左侧边界：自上而下递增
+>
+> 2、右侧边界：自上而下递减
+>
+> 因此，在进行排序的时候，是按照
 
 ## 二、解法
 
