@@ -1,5 +1,6 @@
 nav:
     - Introduction: index.md
+    - 背包DP: 背包DP
     - DP解路径问题: DP解路径问题
     - K-way-merge-多路归并: K-way-merge-多路归并
     
