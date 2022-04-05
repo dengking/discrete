@@ -4,95 +4,81 @@
 
 ## 我的解题
 
-### 回溯法
+这道题其实和 LeetCode [90. 子集 II](https://leetcode-cn.com/problems/subsets-ii/) 非常类似，它在那道题的基础上增加了一个递增子序列而已。
+
+### 第一次解题
 
 ```c++
-#include <iostream>
-#include <string>
-#include <algorithm>
-#include <vector>
-#include <bitset>
-#include <map>
-#include <list>
-#include <stack>
-#include <unordered_map>
-#include <unordered_set>
-#include <cmath>
-#include <numeric>
-#include <climits>
-#include <random>
-// example1.cpp
-// new-delete-type-mismatch error
-#include <memory>
-#include <vector>
-using namespace std;
 
 class Solution
 {
 public:
   vector<vector<int>> findSubsequences(vector<int> &nums)
   {
+    // sort(nums.begin(), nums.end());
     vector<vector<int>> res;
-
-    vector<int> temp;
-    std::function<void(int)> dfs = [&](int index)
+    vector<int> tmp;
+    int N = nums.size();
+    for (int mask = 0; mask < (1 << N); ++mask)
     {
-      if (index >= nums.size())
+      bool good = true;
+      tmp.clear();
+      for (int i = 0; i < N; ++i)
       {
-        if (temp.size() <= 1)
-          return;
-        for (auto &&n : res)
+        if (mask & (1 << i))
         {
-          if (n == temp)
-            return;
+          if (i > 0 && (nums[i] == nums[i - 1]) && ((mask & (1 << (i - 1))) == 0))
+          {
+            good = false;
+            break;
+          }
+          if (tmp.size() == 0)
+          {
+            tmp.push_back(nums[i]);
+          }
+          else if (nums[i] >= tmp.back())
+          {
+            tmp.push_back(nums[i]);
+          }
+          else
+          {
+            good = false;
+            break;
+          }
         }
-        res.push_back(temp);
-        return;
       }
+      if (good && tmp.size() >= 2)
+      {
 
-      bool selected = false;
-      if (temp.empty())
-      {
-        selected = true;
+        res.push_back(tmp);
       }
-      else
-      {
-        if (nums[index] >= temp.back())
-          selected = true;
-      }
-      if (selected)
-      {
-        // 选择nums[index]
-        temp.push_back(nums[index]);
-        dfs(index + 1);
-        temp.pop_back();
-      }
-
-      // 不选择nums[index]
-      dfs(index + 1);
-    };
-    dfs(0);
+    }
     return res;
   }
 };
 
-int main()
-{
-  Solution s;
-  auto v = vector<int>{4, 6, 7, 7};
-  s.findSubsequences(v);
-}
 ```
 
-上述解法在如下用例超时：
+上述算法是仿照 LeetCode [90. 子集 II](https://leetcode-cn.com/problems/subsets-ii/) 写的，它在如下用例执行失败：
 
 ```c++
-[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+输入：
+[1,2,3,4,5,6,7,8,9,10,1,1,1,1,1]
 ```
 
-上述算法超时的根源在于去重这一步骤。
+显然，它身边的原因是：重复元素1没有在一起，而这道题要求的是递增子序列，因此需要保持元素的相对位置不变，所以不能够先排序，所以上述算法无法应用到这一题。
+
+
+
+
 
 ## LeetCode [官方解题](https://leetcode-cn.com/problems/increasing-subsequences/solution/di-zeng-zi-xu-lie-by-leetcode-solution/)
+
+### 方法一：二进制枚举 + 哈希
+
+> NOTE:
+>
+> 由于这道题的结果是顺序相关的，因此不能够先排序然后将重复的元素放到一起然后使用类似于 LeetCode [90. 子集 II](https://leetcode-cn.com/problems/subsets-ii/) 的方法，所以需要该换另外一种去重的方法，这种方法使用的是Rabin-Karp hash来快速去重
 
 ### 方法二：递归枚举 + 减枝
 

@@ -215,6 +215,8 @@ int main()
 
 ## 我的解题
 
+
+
 ```C++
 #include <bits/stdc++.h>
 using namespace std;
@@ -283,6 +285,48 @@ int main()
 	cout << subsets << endl;
 }
 // g++ test.cpp -pedantic -Wall -Wextra --std=c++11
+
+```
+
+
+
+## 二刷
+
+```c++
+
+class Solution
+{
+public:
+  vector<vector<int>> subsetsWithDup(vector<int> &nums)
+  {
+    sort(nums.begin(), nums.end());
+    vector<vector<int>> res;
+    vector<int> tmp;
+    int N = nums.size();
+    for (int mask = 0; mask < (1 << N); ++mask)
+    {
+      bool dup = false;
+      tmp.clear();
+      for (int i = 0; i < N; ++i)
+      {
+        if (mask & (1 << i))
+        {
+          if (i > 0 && (nums[i] == nums[i - 1]) && ((mask & (1 << (i - 1))) == 0))
+          {
+            dup = true;
+            break;
+          }
+          tmp.push_back(nums[i]);
+        }
+      }
+      if (!dup)
+      {
+        res.push_back(tmp);
+      }
+    }
+    return res;
+  }
+};
 
 ```
 

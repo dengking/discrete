@@ -225,3 +225,60 @@ int main()
 
 ```
 
+
+
+## 二刷
+
+### 二进制枚举
+
+```c++
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <bitset>
+#include <map>
+#include <list>
+#include <stack>
+#include <unordered_map>
+#include <unordered_set>
+#include <cmath>
+#include <numeric>
+#include <climits>
+#include <random>
+// example1.cpp
+// new-delete-type-mismatch error
+#include <memory>
+#include <vector>
+using namespace std;
+
+class Solution
+{
+public:
+  vector<vector<int>> subsets(vector<int> &nums)
+  {
+    vector<vector<int>> res;
+    vector<int> tmp;
+    int N = nums.size();
+    for (int mask = 0; mask < (1 << N); ++mask)
+    {
+      tmp.clear();
+      for (int i = 0; i < N; ++i)
+      {
+        if (mask & (1 << i))
+        {
+          tmp.push_back(nums[i]);
+        }
+      }
+      res.push_back(tmp);
+    }
+    return res;
+  }
+};
+
+int main()
+{
+  Solution s;
+}
+```
+
