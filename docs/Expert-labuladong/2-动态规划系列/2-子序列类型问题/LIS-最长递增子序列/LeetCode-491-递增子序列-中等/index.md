@@ -137,6 +137,8 @@ public:
 
 4、前者不被选择，后者不被选择
 
+其中第二种情况和第三种情况其实是等价的，我们这样限制之后，舍弃了第二种，保留了第三种，于是达到了去重的目的。
+
 ```c++
 class Solution {
 public:
@@ -168,3 +170,6 @@ public:
 
 ```
 
+> NOTE:
+>
+> 相比于 LeetCode [90. 子集 II](https://leetcode-cn.com/problems/subsets-ii/) ，上述算法并不要求重复元素在一起，上述算法中的`last`为上一个选中的元素
