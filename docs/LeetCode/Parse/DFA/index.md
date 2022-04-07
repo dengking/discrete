@@ -1,4 +1,4 @@
-# DFA
+# DFA parse
 
 在 LeetCode [8. 字符串转换整数 (atoi)](https://leetcode-cn.com/problems/string-to-integer-atoi/)  # [官方解题](https://leetcode-cn.com/problems/string-to-integer-atoi/solution/zi-fu-chuan-zhuan-huan-zheng-shu-atoi-by-leetcode-/) 中，[Edward Elric](https://leetcode-cn.com/u/zdxiq125/) 有如下评论:
 
