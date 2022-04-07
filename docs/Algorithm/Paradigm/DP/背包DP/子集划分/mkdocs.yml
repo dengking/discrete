@@ -1,5 +1,5 @@
 nav:
     - Introduction: index.md
-    - csse.uwa.edu-CITS7209: csse.uwa.edu-CITS7209
-    - factorization-整数分解: factorization-整数分解
+    - LeetCode-416-分割等和子集: LeetCode-416-分割等和子集
+    - LeetCode-698-划分为k个相等的子集: LeetCode-698-划分为k个相等的子集
     
