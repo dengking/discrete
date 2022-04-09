@@ -40,7 +40,19 @@
 >
 > 状态使用`int`类型表示，值域: `[0-6]`
 >
-> 
+> 三、下面是使用table表示的上述DFA
+>
+> |           | `0xxxxxxx` | `110xxxxx` | `1110xxxx` | `11110xxx` | `10xxxxxx` |
+> | --------- | ---------- | ---------- | ---------- | ---------- | ---------- |
+> | **start** | end        | 1          | 2          | 3          | end        |
+> | **1**     | end        | end        | end        | end        | end        |
+> | **2**     |            |            |            |            | 4          |
+> | **3**     |            |            |            |            | 5          |
+> | **4**     |            |            |            |            | end        |
+> | **5**     |            |            |            |            | 6          |
+> | **6**     |            |            |            |            | end        |
+>
+> 上述table最后，默认值是end状态
 
 ### Code
 
@@ -104,7 +116,17 @@ class Solution {
 
 ## 我的实现
 
-参考的 [Edward Elric](https://leetcode-cn.com/u/zdxiq125/) # [[Java] DFA](https://leetcode-cn.com/problems/utf-8-validation/solution/java-dfa-by-zdxiq125/) ，使用C++实现。
+参考
+
+1、 [Edward Elric](https://leetcode-cn.com/u/zdxiq125/) # [[Java] DFA](https://leetcode-cn.com/problems/utf-8-validation/solution/java-dfa-by-zdxiq125/) ，使用C++实现。
+
+2、[leetcode 8 字符串转换整数 (atoi) # 官方解题](https://leetcode-cn.com/problems/string-to-integer-atoi/solution/zi-fu-chuan-zhuan-huan-zheng-shu-atoi-by-leetcode-/) 
+
+相比之下，[leetcode 8 字符串转换整数 (atoi) # 官方解题](https://leetcode-cn.com/problems/string-to-integer-atoi/solution/zi-fu-chuan-zhuan-huan-zheng-shu-atoi-by-leetcode-/) 中对DFA的实现是更加容易理解的
+
+1、如果能够正常完成解析，则消耗的数字等于入参的长度。
+
+2、上述table最后，默认
 
 需要注意，type 和 mask 之间的对应关系。
 

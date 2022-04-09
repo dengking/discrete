@@ -173,7 +173,7 @@ int main()
 >
 > 一、第一列表示的是**状态**，第一行表示的是**输入**
 >
-> 上述表格表达了**状态**在**输入**下的转换
+> 上述表格表达了**当前状态**在**输入**下的转换到的**目标状态**
 >
 > 二、思考: 上述"automaton"要如何实现呢？
 >
@@ -190,60 +190,89 @@ int main()
 ### 完整程序
 
 ```C++
-#include <bits/stdc++.h>
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <bitset>
+#include <map>
+#include <list>
+#include <stack>
+#include <unordered_map>
+#include <unordered_set>
+#include <cmath>
+#include <numeric>
+#include <climits>
+#include <random>
+// example1.cpp
+// new-delete-type-mismatch error
+#include <memory>
+#include <vector>
 using namespace std;
+
 class Automaton
 {
-	string state = "start";
-	unordered_map<string, vector<string>> table = { { "start", { "start", "signed", "in_number", "end" } }, { "signed", { "end", "end", "in_number", "end" } }, { "in_number", { "end", "end", "in_number", "end" } }, { "end", { "end", "end", "end", "end" } } };
+  string state = "start"; // 当前所处的状态
+  // DFA
+  unordered_map<string, vector<string>> table = {
+      {"start", {"start", "signed", "in_number", "end"}},
+      {"signed", {"end", "end", "in_number", "end"}},
+      {"in_number", {"end", "end", "in_number", "end"}},
+      {"end", {"end", "end", "end", "end"}} //
+  };
+  /**
+   * @brief 获得字符 c 所属的类别
+   *
+   * @param c
+   * @return int
+   */
+  int get_col(char c)
+  {
+    if (isspace(c))
+      return 0;
+    if (c == '+' or c == '-')
+      return 1;
+    if (isdigit(c))
+      return 2;
+    return 3;
+  }
 
-	int get_col(char c)
-	{
-		if (isspace(c))
-			return 0;
-		if (c == '+' or c == '-')
-			return 1;
-		if (isdigit(c))
-			return 2;
-		return 3;
-	}
 public:
-	int sign = 1;
-	long long ans = 0;
+  int sign = 1;
+  long long ans = 0;
 
-	void get(char c)
-	{
-		state = table[state][get_col(c)];
-		if (state == "in_number")
-		{
-			ans = ans * 10 + c - '0';
-			ans = sign == 1 ? min(ans, (long long) INT_MAX) : min(ans, -(long long) INT_MIN);
-		}
-		else if (state == "signed")
-			sign = c == '+' ? 1 : -1;
-	}
+  void get(char c)
+  {
+    state = table[state][get_col(c)]; // 下一个状态由当前所处状态 + 当前的输入决定的
+    if (state == "in_number")
+    {
+      ans = ans * 10 + c - '0';
+      ans = sign == 1 ? min(ans, (long long)INT_MAX) : min(ans, -(long long)INT_MIN);
+    }
+    else if (state == "signed")
+    {
+      sign = c == '+' ? 1 : -1;
+    }
+  }
 };
 
 class Solution
 {
 public:
-	int myAtoi(string str)
-	{
-		Automaton automaton;
-		for (char c : str)
-			automaton.get(c);
-		return automaton.sign * automaton.ans;
-	}
+  int myAtoi(string str)
+  {
+    Automaton automaton;
+    for (char c : str)
+      automaton.get(c);
+    return automaton.sign * automaton.ans;
+  }
 };
 
 int main()
 {
-	Solution s;
-	cout << s.myAtoi("-91283472332") << endl;
+  Solution s;
+  cout << s.myAtoi("-91283472332") << endl;
 }
-// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -g
-
-
 ```
 
 

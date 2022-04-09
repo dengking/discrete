@@ -1,4 +1,4 @@
-# LeetCode [65. 有效数字](https://leetcode-cn.com/problems/valid-number/)
+# LeetCode [65. 有效数字](https://leetcode-cn.com/problems/valid-number/) 
 
 ## 我的解题
 
@@ -16,7 +16,7 @@
 
 
 
-## 官方解题
+## LeetCode [65. 有效数字](https://leetcode-cn.com/problems/valid-number/) # [官方解题](https://leetcode-cn.com/problems/valid-number/solution/you-xiao-shu-zi-by-leetcode-solution-298l/)
 
 ![fig1](https://assets.leetcode-cn.com/solution-static/65/1.png)
 
@@ -117,3 +117,6 @@ int main()
 
 
 
+
+
+## LeetCode [65. 有效数字](https://leetcode-cn.com/problems/valid-number/) # [表驱动法](https://leetcode-cn.com/problems/valid-number/solution/biao-qu-dong-fa-by-user8973/)

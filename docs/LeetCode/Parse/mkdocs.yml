@@ -1,5 +1,6 @@
 nav:
     - Introduction: index.md
+    - int&string: int&string # int&string 和 DFA 是密切相关的，要将两者放到一起
     - DFA: DFA
     - Parentheses-括号: Parentheses-括号
     - Parse-stack: Parse-stack
