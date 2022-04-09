@@ -16,6 +16,14 @@
 
 ## Example
 
+|                                                              |      |      |      |      |
+| ------------------------------------------------------------ | ---- | ---- | ---- | ---- |
+| [LeetCode 8 字符串转换整数 (atoi) # 官方解题](https://leetcode-cn.com/problems/string-to-integer-atoi/solution/zi-fu-chuan-zhuan-huan-zheng-shu-atoi-by-leetcode-/) |      |      |      |      |
+| [LeetCode 393. UTF-8 编码验证](https://leetcode-cn.com/problems/utf-8-validation/) # [Edward Elric](https://leetcode-cn.com/u/zdxiq125/) # [[Java] DFA](https://leetcode-cn.com/problems/utf-8-validation/solution/java-dfa-by-zdxiq125/) |      |      |      |      |
+| LeetCode [65. 有效数字](https://leetcode-cn.com/problems/valid-number/) # [官方解题](https://leetcode-cn.com/problems/valid-number/solution/you-xiao-shu-zi-by-leetcode-solution-298l/) |      |      |      |      |
+
+
+
 ### [LeetCode 8 字符串转换整数 (atoi) # 官方解题](https://leetcode-cn.com/problems/string-to-integer-atoi/solution/zi-fu-chuan-zhuan-huan-zheng-shu-atoi-by-leetcode-/)
 
 本题可以建立如下图所示的自动机：
@@ -156,6 +164,10 @@ int main()
 
 
 
+### LeetCode [65. 有效数字](https://leetcode-cn.com/problems/valid-number/) # [官方解题](https://leetcode-cn.com/problems/valid-number/solution/you-xiao-shu-zi-by-leetcode-solution-298l/)
+
+
+
 ## 分析 与 实现
 
 DFA是一个graph，DFA的构成: 
@@ -182,7 +194,7 @@ DFA是一个graph，DFA的构成:
 
 基于DFA的parse的implementation就是table-driven parse，这在下面的文章中描述了：
 
-1、LeetCode [65. 有效数字](https://leetcode-cn.com/problems/valid-number/) # [表驱动法](https://leetcode-cn.com/problems/valid-number/solution/biao-qu-dong-fa-by-user8973/)
+1、LeetCode [65. 有效数字](https://leetcode-cn.com/problems/valid-number/) # [表驱动法](https://leetcode-cn.com/problems/valid-number/solution/biao-qu-dong-fa-by-user8973/) 
 
 
 
