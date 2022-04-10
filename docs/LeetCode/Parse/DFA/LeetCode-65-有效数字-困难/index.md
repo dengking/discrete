@@ -20,6 +20,20 @@
 
 ![fig1](https://assets.leetcode-cn.com/solution-static/65/1.png)
 
+> NOTE:
+>
+> 一、上述DFA中有两个"小数点"状态：
+>
+> 1、小数点（左无整数）
+>
+> 2、小数点（左有整数）
+>
+> 这提示我们，为了能够cover所有的状态，需要进行扩充
+>
+> 二、上述基于DFA的方式是非常容易扩充的
+
+
+
 ```C++
 #include <bits/stdc++.h>
 using namespace std;
@@ -120,3 +134,100 @@ int main()
 
 
 ## LeetCode [65. 有效数字](https://leetcode-cn.com/problems/valid-number/) # [表驱动法](https://leetcode-cn.com/problems/valid-number/solution/biao-qu-dong-fa-by-user8973/)
+
+> NOTE:
+>
+> 其中给出的DFA都是使用的数字来作为状态标号，不容易理解。
+
+![DFA.jpg](https://pic.leetcode-cn.com/0683d701f2948a2bd8c235867c21a3aed5977691f129ecf34d681d43d57e339c-DFA.jpg)
+
+```c++
+// #include <bits/stdc++.h>
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <bitset>
+#include <map>
+#include <list>
+#include <stack>
+#include <unordered_map>
+#include <unordered_set>
+#include <cmath>
+#include <numeric>
+#include <climits>
+#include <random>
+// example1.cpp
+// new-delete-type-mismatch error
+#include <memory>
+#include <vector>
+using namespace std;
+class Solution
+{
+public:
+  bool isNumber(string s)
+  {
+    if (s.empty())
+      return false;
+    int n = s.size();
+
+    int state = 0;
+    vector<bool> finals({0, 0, 0, 1, 0, 1, 1, 0, 1}); // 合法的终止状态
+    vector<vector<int>> transfer({
+        {0, 1, 6, 2, -1, -1},
+        {-1, -1, 6, 2, -1, -1},
+        {-1, -1, 3, -1, -1, -1},
+        {8, -1, 3, -1, 4, -1},
+        {-1, 7, 5, -1, -1, -1},
+        {8, -1, 5, -1, -1, -1},
+        {8, -1, 6, 3, 4, -1},
+        {-1, -1, 5, -1, -1, -1},
+        {8, -1, -1, -1, -1, -1},
+    });
+
+    for (int i = 0; i < n; ++i)
+    {
+      state = transfer[state][_make(s[i])];
+      if (state < 0)
+        return false;
+    }
+    return finals[state];
+  }
+
+private:
+  int _make(const char &c)
+  {
+    switch (c)
+    {
+    case ' ':
+      return 0;
+    case '+':
+      return 1;
+    case '-':
+      return 1;
+    case '.':
+      return 3;
+    case 'e':
+      return 4;
+    default:
+      return _number(c);
+    }
+  }
+
+  int _number(const char &c)
+  {
+    if (c >= '0' && c <= '9')
+      return 2;
+    else
+      return 5;
+  }
+};
+
+int main()
+{
+  Solution s;
+}
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -g
+
+```
+
