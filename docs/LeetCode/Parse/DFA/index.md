@@ -16,11 +16,11 @@
 
 ## Example
 
-|                                                              |      |      |      |      |
-| ------------------------------------------------------------ | ---- | ---- | ---- | ---- |
-| [LeetCode 8 字符串转换整数 (atoi) # 官方解题](https://leetcode-cn.com/problems/string-to-integer-atoi/solution/zi-fu-chuan-zhuan-huan-zheng-shu-atoi-by-leetcode-/) |      |      |      |      |
-| [LeetCode 393. UTF-8 编码验证](https://leetcode-cn.com/problems/utf-8-validation/) # [Edward Elric](https://leetcode-cn.com/u/zdxiq125/) # [[Java] DFA](https://leetcode-cn.com/problems/utf-8-validation/solution/java-dfa-by-zdxiq125/) |      |      |      |      |
-| LeetCode [65. 有效数字](https://leetcode-cn.com/problems/valid-number/) # [官方解题](https://leetcode-cn.com/problems/valid-number/solution/you-xiao-shu-zi-by-leetcode-solution-298l/) |      |      |      |      |
+|                                                              |          |      |      |      |
+| ------------------------------------------------------------ | -------- | ---- | ---- | ---- |
+| [LeetCode 8 字符串转换整数 (atoi) # 官方解题](https://leetcode-cn.com/problems/string-to-integer-atoi/solution/zi-fu-chuan-zhuan-huan-zheng-shu-atoi-by-leetcode-/) |          |      |      |      |
+| [LeetCode 393. UTF-8 编码验证](https://leetcode-cn.com/problems/utf-8-validation/) # [Edward Elric](https://leetcode-cn.com/u/zdxiq125/) # [[Java] DFA](https://leetcode-cn.com/problems/utf-8-validation/solution/java-dfa-by-zdxiq125/) | 判断类型 |      |      |      |
+| LeetCode [65. 有效数字](https://leetcode-cn.com/problems/valid-number/) # [官方解题](https://leetcode-cn.com/problems/valid-number/solution/you-xiao-shu-zi-by-leetcode-solution-298l/) | 判断类型 |      |      |      |
 
 
 
@@ -170,6 +170,8 @@ int main()
 
 ## 分析 与 实现
 
+### 实现方式：二维table
+
 DFA是一个graph，DFA的构成: 
 
 一、输入的种类
@@ -180,7 +182,9 @@ DFA是一个graph，DFA的构成:
 
 三、edge: 状态的转换，表示从当前节点（状态）转移到的目标节点（状态） 
 
-通过前面的例子和总结可以知道，DFA的实现其实就是要实现一个二维table，这个二维table记录每个节点（状态）在每个输入种类下的转移到的目标状态。
+二维table
+
+通过前面的例子和总结可以知道，DFA的实现其实就是要实现一个**二维table**，这个二维table记录每个节点（状态）在每个输入种类下的转移到的目标状态。
 
 更加具体来说：
 
@@ -188,7 +192,21 @@ DFA是一个graph，DFA的构成:
 
 2、如果**状态**、**输入种类**使用的是integer类型表示，则能够使用vector
 
+有如下实现方式：
 
+1、`std::vector<std::vector<std::string>>`
+
+2、`std::vector<std::unordered_map<std::string, std::string>>`
+
+3、`std::unordered_map<std::string, std::unordered_map<std::string, std::string>>`
+
+
+
+### 结果判断
+
+1、最终状态是**终态**，需要注意的是，**终态**可以有多个，有的状态是既可以作为**状态**也可以作为**非状态**，典型的例子就是leetcode [65. 有效数字](https://leetcode-cn.com/problems/valid-number/) 。
+
+2、输入数据被消耗完了，如果数据没有消耗完，则显然是不符合格式要求的。
 
 ### table-driven parse
 
