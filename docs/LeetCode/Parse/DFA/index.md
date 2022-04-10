@@ -208,6 +208,8 @@ DFA是一个graph，DFA的构成:
 
 2、输入数据被消耗完了，如果数据没有消耗完，则显然是不符合格式要求的。
 
+3、对于存在性问题，如果当前状态在当前输入下没有转换，则说明不合法，可以直接拒绝掉
+
 ### table-driven parse
 
 基于DFA的parse的implementation就是table-driven parse，这在下面的文章中描述了：

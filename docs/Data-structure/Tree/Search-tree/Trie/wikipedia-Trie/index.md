@@ -1,4 +1,4 @@
-# wikipedia [Trie](https://en.wikipedia.org/wiki/Trie)
+# wikipedia [Trie](https://en.wikipedia.org/wiki/Trie) 
 
 > NOTE: trie也可以称之为前缀树
 
