@@ -44,7 +44,9 @@
 >
 > 通过DFA能够将各个部分给连接起来
 >
-> 二、corner case
+> 二、edge corner case
+>
+> 这个题目的corner case就是`"4."`
 >
 > 这种corner case其实是出题人为了增加题目的难度，其实main case就已经cover来大部分的情况了。
 >

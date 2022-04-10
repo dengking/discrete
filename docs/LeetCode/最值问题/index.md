@@ -1,4 +1,28 @@
-# Monotonic-stack单调栈-VS-dynamic-programming动态规划
+# 最值问题
+
+## 解法
+
+### 枚举所有的可能性+择优
+
+1、暴力、回溯法
+
+2、动态规划
+
+### 贪心
+
+1、贪心算法
+
+
+
+### 借助数据结构
+
+1、单调栈
+
+
+
+
+
+## Monotonic-stack单调栈-VS-dynamic-programming动态规划
 
 这是在 LeetCode [121. 买卖股票的最佳时机](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/) # [C++ 利用哨兵👨‍✈️，维护一个单调栈📈(图解，直观掌握)](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/solution/c-li-yong-shao-bing-wei-hu-yi-ge-dan-diao-zhan-tu-/) 中提出的:
 
@@ -14,3 +38,4 @@
 
 
 可以看出，在这类问题上，DP和单调栈都可以使用。
+
