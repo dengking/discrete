@@ -581,3 +581,88 @@ int main()
 
 ```
 
+
+
+### 二刷
+
+```c++
+// #include <bits/stdc++.h>
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <bitset>
+#include <map>
+#include <list>
+#include <stack>
+#include <unordered_map>
+#include <unordered_set>
+#include <queue>
+#include <cmath>
+#include <numeric>
+#include <climits>
+#include <random>
+// example1.cpp
+// new-delete-type-mismatch error
+#include <memory>
+#include <vector>
+using namespace std;
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+struct ListNode
+{
+  int val;
+  ListNode *next;
+  ListNode() : val(0), next(nullptr) {}
+  ListNode(int x) : val(x), next(nullptr) {}
+  ListNode(int x, ListNode *next) : val(x), next(next) {}
+};
+class Solution
+{
+public:
+  ListNode *mergeKLists(vector<ListNode *> &lists)
+  {
+    ListNode head{};
+    auto *tail = &head;
+    auto cmp = [](const ListNode *left, const ListNode *right) -> bool
+    {
+      return left->val > right->val;
+    };
+    std::priority_queue<ListNode *, std::vector<ListNode *>, decltype(cmp)> q(cmp);
+    for (auto &&n : lists)
+    {
+      q.push(n);
+    }
+    while (!q.empty())
+    {
+      auto *n = q.top();
+      tail->next = n; // append to tail
+      tail = tail->next;
+      q.pop();
+      if (n->next != nullptr)
+      {
+        q.push(n->next);
+      }
+    }
+    // tail->next = nullptr; // 这一步骤是可以不需要的，因为最后的一定是原列表的tail node，因此它的next一定是nullptr
+    return head.next;
+  }
+};
+
+int main()
+{
+  Solution s;
+}
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -g
+
+```
+
