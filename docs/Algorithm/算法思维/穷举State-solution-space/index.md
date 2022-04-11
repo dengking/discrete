@@ -1,14 +1,24 @@
 # 穷举state space、solution space
 
-正如在discrete book中所说的：
+正如：
+
+1、在discrete book中所说的：
 
 > an important problem- solving skill is the ability to count or enumunate objets
+
+2、labuladong [我的刷题经验总结](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247492216&idx=1&sn=36ae4ac33640cc3814186b75d6c8d368&scene=21#wechat_redirect)
+
+> **如果要让我一句话总结，我想说算法的本质就是「穷举」**。
+
+3、[liuzhenglaichn # Remember during interview](https://liuzhenglaichn.gitbook.io/algorithm/)
+
+> First talk about the brute force solution, then think about better approaches.
 
 一、这是一种systematic method
 
 二、问题的解空间、可能的组合、罗列所有的可能性、问题的解空间、组合分析
 
-这是系统性地解决问题的第一步
+这是系统性地解决问题的第一步。
 
 我目前比较熟悉的分析解空间的方式是组合分析，这种分析方法并不能够代表所有，像动态规划的sequence类问题，它的解空间就不是组合分析的。
 

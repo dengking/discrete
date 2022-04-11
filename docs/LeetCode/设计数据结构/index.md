@@ -12,3 +12,12 @@
 
 Array of hash map
 
+
+
+## example
+
+单调栈
+
+trie
+
+dfa

@@ -1,7 +1,7 @@
 nav:
     - Introduction: index.md
     - 数学-数字: 数学-数字
-    - 最值问题: 最值问题
+    - 最优值问题: 最优值问题
     - Subsequence-Subarray-Substring: Subsequence-Subarray-Substring    
     - 区间: 区间
     - Parse: Parse

@@ -14,6 +14,80 @@
 
 
 
+## 核心思想
+
+1、使用regex描述抽象结构，然后使用DFA进行实现。
+
+2、和trie一样，匹配的过程是验证path进行，只要匹配了一个path，则表示复合pattern
+
+3、DFA需要有programmer来抽象出regex，而trie则不需要
+
+
+
+## 分析 与 实现
+
+### 实现方式：二维table
+
+DFA是一个graph，DFA的构成: 
+
+一、输入的种类
+
+从输入的种类入手是最快的，思考在各种输入的情况下，状态如何进行转换
+
+二、节点: 状态，每个节点都需要考虑在所有的输入种类下的转换
+
+三、edge: 状态的转换，表示从当前节点（状态）转移到的目标节点（状态） 
+
+二维table
+
+通过前面的例子和总结可以知道，DFA的实现其实就是要实现一个**二维table**，这个二维table记录每个节点（状态）在每个输入种类下的转移到的目标状态。
+
+更加具体来说：
+
+1、如果**状态**、**输入种类**使用的是非integer类型表示，则不能够使用vector，而应该使用hash map来进行实现
+
+2、如果**状态**、**输入种类**使用的是integer类型表示，则能够使用vector
+
+有如下实现方式：
+
+1、`std::vector<std::vector<std::string>>`
+
+2、`std::vector<std::unordered_map<std::string, std::string>>`
+
+3、`std::unordered_map<std::string, std::unordered_map<std::string, std::string>>`
+
+
+
+### 结果判断
+
+1、最终状态是**接受状态**，需要注意的是，**接受状态**可以有多个，有的状态是既可以作为**接受状态**也可以作为**非接受状态**，典型的例子就是leetcode [65. 有效数字](https://leetcode-cn.com/problems/valid-number/) 。
+
+2、输入数据被消耗完了，如果数据没有消耗完，则显然是不符合格式要求的。
+
+3、对于存在性问题，如果当前状态在当前输入下没有转换，则说明不合法，可以直接拒绝掉
+
+### table-driven parse
+
+基于DFA的parse的implementation就是table-driven parse，这在下面的文章中描述了：
+
+1、LeetCode [65. 有效数字](https://leetcode-cn.com/problems/valid-number/) # [表驱动法](https://leetcode-cn.com/problems/valid-number/solution/biao-qu-dong-fa-by-user8973/) 
+
+
+
+### DFA的局限性
+
+DFA对应的是regex，它是线性的，它无法处理带括号的nesting关系，典型例子：
+
+1、 [leetcode 字符串转换整数 (atoi) # 官方解题](https://leetcode-cn.com/problems/string-to-integer-atoi/solution/zi-fu-chuan-zhuan-huan-zheng-shu-atoi-by-leetcode-/) ，其实题目中情况是可以使用regex进行描述的:
+
+```
+[ ]*[-+]?[0-9]*
+```
+
+
+
+
+
 ## Example
 
 |                                                              |          |      |      |      |
@@ -165,66 +239,4 @@ int main()
 
 
 ### LeetCode [65. 有效数字](https://leetcode-cn.com/problems/valid-number/) # [官方解题](https://leetcode-cn.com/problems/valid-number/solution/you-xiao-shu-zi-by-leetcode-solution-298l/)
-
-
-
-## 分析 与 实现
-
-### 实现方式：二维table
-
-DFA是一个graph，DFA的构成: 
-
-一、输入的种类
-
-从输入的种类入手是最快的，思考在各种输入的情况下，状态如何进行转换
-
-二、节点: 状态，每个节点都需要考虑在所有的输入种类下的转换
-
-三、edge: 状态的转换，表示从当前节点（状态）转移到的目标节点（状态） 
-
-二维table
-
-通过前面的例子和总结可以知道，DFA的实现其实就是要实现一个**二维table**，这个二维table记录每个节点（状态）在每个输入种类下的转移到的目标状态。
-
-更加具体来说：
-
-1、如果**状态**、**输入种类**使用的是非integer类型表示，则不能够使用vector，而应该使用hash map来进行实现
-
-2、如果**状态**、**输入种类**使用的是integer类型表示，则能够使用vector
-
-有如下实现方式：
-
-1、`std::vector<std::vector<std::string>>`
-
-2、`std::vector<std::unordered_map<std::string, std::string>>`
-
-3、`std::unordered_map<std::string, std::unordered_map<std::string, std::string>>`
-
-
-
-### 结果判断
-
-1、最终状态是**接受状态**，需要注意的是，**接受状态**可以有多个，有的状态是既可以作为**接受状态**也可以作为**非接受状态**，典型的例子就是leetcode [65. 有效数字](https://leetcode-cn.com/problems/valid-number/) 。
-
-2、输入数据被消耗完了，如果数据没有消耗完，则显然是不符合格式要求的。
-
-3、对于存在性问题，如果当前状态在当前输入下没有转换，则说明不合法，可以直接拒绝掉
-
-### table-driven parse
-
-基于DFA的parse的implementation就是table-driven parse，这在下面的文章中描述了：
-
-1、LeetCode [65. 有效数字](https://leetcode-cn.com/problems/valid-number/) # [表驱动法](https://leetcode-cn.com/problems/valid-number/solution/biao-qu-dong-fa-by-user8973/) 
-
-
-
-### DFA的局限性
-
-DFA对应的是regex，它是线性的，它无法处理带括号的nesting关系，典型例子：
-
-1、 [leetcode 字符串转换整数 (atoi) # 官方解题](https://leetcode-cn.com/problems/string-to-integer-atoi/solution/zi-fu-chuan-zhuan-huan-zheng-shu-atoi-by-leetcode-/) ，其实题目中情况是可以使用regex进行描述的:
-
-```
-[ ]*[-+]?[0-9]*
-```
 

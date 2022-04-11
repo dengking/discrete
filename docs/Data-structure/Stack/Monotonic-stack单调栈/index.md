@@ -16,11 +16,11 @@
 
 
 
-参考:
+素材:
 
-一、`Expert-labuladong\2.4-手把手设计数据结构\Monotonic-stack单调栈`
+一、[Expert-labuladong 单调栈解题模板秒杀三道算法题](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247487704&idx=1&sn=eb9ac24c644aa0950638c9b20384e982&scene=21#wechat_redirect) 
 
-二、`Expert-liuzhenglaichn\Monotonic-stack单调栈`
+二、gitbook [Expert-liuzhenglaichn **Monotonic Stack**](https://liuzhenglaichn.gitbook.io/algorithm/monotonic-stack)
 
 
 
@@ -41,10 +41,4 @@ smaller
 greater
 
 
-
-## 算法
-
-使用单调栈
-
-参见 labuladong [单调栈 Monotonic Stack 的使用](https://mp.weixin.qq.com/s/_b_QzXkL4e0y5241betVSg)
 
