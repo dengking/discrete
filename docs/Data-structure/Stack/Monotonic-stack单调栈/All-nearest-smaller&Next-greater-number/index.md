@@ -1,4 +1,25 @@
-# wikipedia [All nearest smaller values](https://en.wikipedia.org/wiki/All_nearest_smaller_values) 
+# All nearest smaller value && Next greater number
+
+这两个问题本质上是相同的，Next greater number 是 All nearest smaller value 的反，它们都需要两重：
+
+1、位置
+
+2、数值
+
+显然这是单调栈能够解决的。
+
+|                           | 含义       | 要求          | 遍历方向 |
+| ------------------------- | ---------- | ------------- | -------- |
+| All nearest smaller value | 最近更小   | 前面、smaller | 从左往右 |
+| Next greater number       | 下一个更大 | 后面、greater | 从右往左 |
+
+两者其实就是反了一下。
+
+## 保存过去状态
+
+两个算法都需要保存过去的状态，这样才能够获得过去的数值信息。
+
+## wikipedia [All nearest smaller values](https://en.wikipedia.org/wiki/All_nearest_smaller_values) 
 
 > NOTE: 
 >
@@ -26,7 +47,7 @@ for each position in a sequence of numbers, search among the previous positions 
 
 
 
-## Example
+### Example
 
  Suppose that the input is the binary [van der Corput sequence](https://en.wikipedia.org/wiki/Van_der_Corput_sequence) 
 
@@ -38,7 +59,7 @@ The first element of the sequence (0) has no previous value. The nearest (only) 
 
  In most applications, the positions of the **nearest smaller values**, and not the values themselves, should be computed, and in many applications the same computation should be computed for the reversal of the sequence in order to find the following smaller value that is closest in the sequence. 
 
-## Applications
+### Applications
 
 [Berkman, Schieber & Vishkin (1993)](https://en.wikipedia.org/wiki/All_nearest_smaller_values#CITEREFBerkmanSchieberVishkin1993) mention many other problems that may be solved efficiently in parallel using a nearest smaller values computation. Among them, they include the following:
 
@@ -62,16 +83,16 @@ The first element of the sequence (0) has no previous value. The nearest (only) 
 
 Similar techniques may also be applied to problems of [polygon triangulation](https://en.wikipedia.org/wiki/Polygon_triangulation), [convex hull](https://en.wikipedia.org/wiki/Convex_hull) construction (parallelizing the sequential [Graham scan](https://en.wikipedia.org/wiki/Graham_scan) convex hull algorithm), reconstruction of trees from two of the trees' traversal orderings, and quadtree construction.
 
-## Sequential algorithm
+### Sequential algorithm
 
-### Using stack
+#### Using stack
 
 On a sequential computer, it is straightforward to compute all nearest smaller values using a [stack data structure](https://en.wikipedia.org/wiki/Stack_(data_structure)): one processes the values in sequence order, using the stack to maintain a subsequence of the values that have been processed so far and are smaller than any later value that has already been processed. In [pseudocode](https://en.wikipedia.org/wiki/Pseudocode), the algorithm is as follows. 
 
 ```pseudocode
 S = new empty stack data structure
 for x in the input sequence:
-    while S is nonempty and the top element of S is greater than or equal to x: // x < S.top()，显然它的停止条件是 s.top() < x
+    while S is nonempty and the top element of S is greater than or equal to x: // 循环条件：x <= S.top()，显然它的停止条件是 s.top() < x
         pop S
     if S is empty:
         x has no preceding smaller value
@@ -115,11 +136,11 @@ for x in the input sequence:
 >
 > 
 
-### Computation complexity
+#### Computation complexity
 
 Despite having a nested loop structure, the running time of this algorithm is linear, because every iteration of the inner loop removes an item that had been added in some previous iteration of the outer loop. It is closely related to an algorithm of [Knuth](https://en.wikipedia.org/wiki/Donald_Knuth) for [sorting with a stack](https://en.wikipedia.org/wiki/Stack-sortable_permutation) (for inputs that can be sorted in this way).[[2\]](https://en.wikipedia.org/wiki/All_nearest_smaller_values#cite_note-2)
 
-### Simpler linear-time sequential algorithm 
+#### Simpler linear-time sequential algorithm 
 
 An even simpler linear-time sequential algorithm ([Barbay, Fischer & Navarro (2012)](https://en.wikipedia.org/wiki/All_nearest_smaller_values#CITEREFBarbayFischerNavarro2012), Lemma 1) does not even need a stack; it assumes that the input sequence is given as an array `A[1,n]`, and stores the index `j` of the preceding smaller value of the i'th value `A[i]` in `P[i]`. We assume an artificial（假设的） overall minimum at `A[0]`:
 
@@ -178,7 +199,7 @@ for i from 1 to n:
 
 
 
-### 比较
+#### 比较
 
 比较这两种算法的实现思路：
 

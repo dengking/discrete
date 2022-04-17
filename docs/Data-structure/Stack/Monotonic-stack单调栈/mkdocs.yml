@@ -1,7 +1,6 @@
 nav:
     - Introduction: index.md
-    - All-nearest-smaller-values: All-nearest-smaller-values
-    - Next-Greater-Number: Next-Greater-Number
+    - All-nearest-smaller&Next-greater-number: All-nearest-smaller&Next-greater-number
     - Max-min-lexicographical-order-subsequence: Max-min-lexicographical-order-subsequence
     - LeetCode-Monotonic-stack: LeetCode-Monotonic-stack
     

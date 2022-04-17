@@ -26,27 +26,3 @@
 
 
 
-## All nearest smaller value && Next greater number
-
-这两个问题本质上是相同的，Next greater number 是 All nearest smaller value 的反，它们都需要两重：
-
-1、位置
-
-2、数值
-
-显然这是单调栈能够解决的
-
-一、All nearest smaller value
-
-前面
-
-smaller
-
-二、Next greater number
-
-后面
-
-greater
-
-
-

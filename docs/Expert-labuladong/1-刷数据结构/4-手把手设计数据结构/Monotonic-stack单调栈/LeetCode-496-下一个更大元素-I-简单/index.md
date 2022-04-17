@@ -91,3 +91,70 @@ int main()
 
 ```
 
+
+
+## 二刷
+
+```c++
+// #include <bits/stdc++.h>
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <bitset>
+#include <map>
+#include <list>
+#include <stack>
+#include <unordered_map>
+#include <unordered_set>
+#include <queue>
+#include <cmath>
+#include <numeric>
+#include <climits>
+#include <random>
+// example1.cpp
+// new-delete-type-mismatch error
+#include <memory>
+#include <vector>
+using namespace std;
+
+class Solution
+{
+public:
+  vector<int> nextGreaterElement(vector<int> &nums1, vector<int> &nums2)
+  {
+    stack<int> stk;
+    unordered_map<int, int> index;
+    for (int i = nums2.size() - 1; i >= 0; --i)
+    {
+      while (!stk.empty() && (stk.top() <= nums2[i]))
+      {
+        stk.pop();
+      }
+      if (stk.empty())
+      {
+        index[nums2[i]] = -1;
+      }
+      else
+      {
+        index[nums2[i]] = stk.top();
+      }
+      stk.push(nums2[i]);
+    }
+    vector<int> res;
+    for (auto &&num : nums1)
+    {
+      res.push_back(index[num]);
+    }
+    return res;
+  }
+};
+
+int main()
+{
+  Solution s;
+}
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -g
+
+```
+
