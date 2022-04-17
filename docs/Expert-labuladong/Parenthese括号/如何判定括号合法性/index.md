@@ -6,7 +6,7 @@
 
 
 
-```c+
+```c++
 bool isValid(string str) {
     // 待匹配的左括号数量
     int left = 0;
@@ -22,6 +22,25 @@ bool isValid(string str) {
     return left == 0;
 }
 ```
+
+> NOTE:
+>
+> 需要注意，上述算法中
+>
+> ```c++
+>         if (left < 0)
+>             return false;
+> ```
+>
+> 是非常重要的，因为它能够处理处理如下情况：
+>
+> ```c++
+> ))((
+> ```
+>
+> 如果不加上述情况，则会判断为true。
+>
+> 显然如果复合情况，则left是一直 >= 0 的。
 
 ## 二、处理多种括号
 

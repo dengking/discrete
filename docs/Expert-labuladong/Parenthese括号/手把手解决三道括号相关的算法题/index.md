@@ -10,3 +10,7 @@
 
 ## 平衡括号串（一）
 
+> NOTE:
+>
+> leetcode [921.使括号有效的最小插入（**Medium**）](https://leetcode-cn.com/problems/minimum-add-to-make-parentheses-valid/)
+
