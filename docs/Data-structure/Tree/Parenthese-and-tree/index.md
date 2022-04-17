@@ -139,10 +139,6 @@ labuladong [回溯算法最佳实践：合法括号生成](https://mp.weixin.qq.
 
 
 
-### 思考：如何使用递归来实现括号匹配？？
-
-一般我们都是使用一个显示的stack，那么如何使用递归来使用call stack呢？
-
 
 
 ### TODO

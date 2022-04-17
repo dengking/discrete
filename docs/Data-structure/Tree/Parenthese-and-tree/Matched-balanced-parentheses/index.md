@@ -1,8 +1,26 @@
-# geeksforgeeks [Check for balanced parentheses in an expression](https://www.geeksforgeeks.org/check-for-balanced-parentheses-in-an-expression/)
+# Matched balanced parentheses
 
 
 
-## 问题描述
+## algorithm: stack
+
+素材：
+
+1、geeksforgeeks [Check for balanced parentheses in an expression](https://www.geeksforgeeks.org/check-for-balanced-parentheses-in-an-expression/)
+
+2、labuladong
+
+labuladong [3 分钟看懂如何判断括号的合法性](https://mp.weixin.qq.com/s/o2MjTSIC4FkPscF5MnLXMQ)
+
+labuladong [手把手解决三道括号相关的算法题](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247487246&idx=1&sn=4a514020ce9dc8777e2d1d503188b62b&scene=21#wechat_redirect)
+
+
+
+### geeksforgeeks [Check for balanced parentheses in an expression](https://www.geeksforgeeks.org/check-for-balanced-parentheses-in-an-expression/)
+
+
+
+#### 问题描述
 
 >**Input**: exp = “[()]{}{[()()]()}”
 >**Output**: Balanced
@@ -12,7 +30,7 @@
 
 
 
-## Algorithm: 
+#### Algorithm
 
 ```c++
 // CPP program to check for balanced parenthesis. 
@@ -89,4 +107,6 @@ int main()
 } 
 
 ```
+
+## algorithm: prefix sum
 
