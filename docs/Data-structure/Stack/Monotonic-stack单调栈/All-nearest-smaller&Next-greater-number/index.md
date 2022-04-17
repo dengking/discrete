@@ -146,7 +146,7 @@ An even simpler linear-time sequential algorithm ([Barbay, Fischer & Navarro (20
 
 ```pseudocode
 for i from 1 to n:
-    j = i-1
+    j = i-1 # 前一个数
     while A[j] >= A[i]: # 找A[i]的nearest smaller value
         j = P[j]
     P[i] = j
@@ -195,6 +195,10 @@ for i from 1 to n:
 > };
 > ```
 >
+> 四、上述版本是更加适合于处理circular array的，比如：
+>
+> leetcode [503. 下一个更大元素 II](https://leetcode-cn.com/problems/next-greater-element-ii/) 
+>
 > 
 
 
@@ -203,5 +207,7 @@ for i from 1 to n:
 
 比较这两种算法的实现思路：
 
-算法1使用的数据结构是栈，栈顶元素，它对输入数据所使用的数据结构没有任何的限制；算法2要求输入数据是支持random access的，它使用数组`p`来保存结果，这样它能够充分利用这个问题的递归性，如果从这个角度来进行分析的话，算法1中的栈其实也是原来保存结果的，只不过它具有一定的优化（使用了淘汰机制）；其实从这个角度也看出了数据结构和算法的紧密关联；
+算法1使用的数据结构是栈，栈顶元素，它对输入数据所使用的数据结构没有任何的限制；
+
+算法2要求输入数据是支持random access的，它使用数组`p`来保存结果，这样它能够充分利用这个问题的递归性，如果从这个角度来进行分析的话，算法1中的栈其实也是原来保存结果的，只不过它具有一定的优化（使用了**淘汰机制**）；其实从这个角度也看出了数据结构和算法的紧密关联；
 
