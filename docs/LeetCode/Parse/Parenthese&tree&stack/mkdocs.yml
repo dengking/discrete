@@ -5,4 +5,4 @@ nav:
     - Matched-balanced-parentheses: Matched-balanced-parentheses
     - Depth-of-nested-parenthesis: Depth-of-nested-parenthesis
     - Bracket(tournament): Bracket(tournament)
-        
+    - 从包含括号的字符串生成二叉树: 从包含括号的字符串生成二叉树

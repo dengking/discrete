@@ -2,7 +2,6 @@ nav:
     - Introduction: index.md
     - int&string: int&string # int&string 和 DFA 是密切相关的，要将两者放到一起
     - DFA: DFA
+    - Parenthese&tree&stack: Parenthese&tree&stack
     - Parse-stack: Parse-stack
-    - LeetCode-536-从字符串生成二叉树-中等: LeetCode-536-从字符串生成二叉树-中等
-    - LeetCode-544-输出比赛匹配对-中等: LeetCode-544-输出比赛匹配对-中等
         

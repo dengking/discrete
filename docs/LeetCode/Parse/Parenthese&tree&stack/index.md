@@ -139,13 +139,9 @@ labuladong [回溯算法最佳实践：合法括号生成](https://mp.weixin.qq.
 
 
 
-
-
 ### TODO
 
 geeksforgeeks [Binary tree to string with brackets](https://www.geeksforgeeks.org/binary-tree-string-brackets/)
-
-geeksforgeeks [Construct Binary Tree from String with bracket representation](https://www.geeksforgeeks.org/construct-binary-tree-string-bracket-representation/)
 
 
 

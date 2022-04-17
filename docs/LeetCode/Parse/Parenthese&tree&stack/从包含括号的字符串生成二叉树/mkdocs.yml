@@ -1,0 +1,4 @@
+nav:
+    - Introduction: index.md
+    - LeetCode-536-从字符串生成二叉树-中等: LeetCode-536-从字符串生成二叉树-中等
+        
