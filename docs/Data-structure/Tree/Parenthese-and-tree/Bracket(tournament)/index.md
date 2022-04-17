@@ -13,3 +13,7 @@ A **bracket** or **tournament bracket** is a [tree diagram](https://en.wikipedia
 
 
 ![](360px-SixteenPlayerSingleEliminationTournamentBracket.svg.png)
+
+## leetcode
+
+leetcode [544. 输出比赛匹配对](https://leetcode-cn.com/problems/output-contest-matches/) 中等

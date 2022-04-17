@@ -1,8 +1,4 @@
-
-
-
-
-## i-programmer [Parentheses Are Trees](https://www.i-programmer.info/programming/theory/3458-brackets-are-trees.html)
+# i-programmer [Parentheses Are Trees](https://www.i-programmer.info/programming/theory/3458-brackets-are-trees.html)
 
 Parentheses are at the heart of programming. Understand parentheses and you can rule the earth. No, seriously! Parentheses, trees and stacks are all interconnected in a very deep and fundamental way.
 
@@ -230,15 +226,9 @@ Yes parenthesises are fundamental to programming so much so that some programmer
 
 Only if you are a programmer... 
 
-
-
-
-
-
-
-
-
-完全加括号问题其实是可以使用树来进行表示的
+> NOTE:
+>
+> 完全加括号问题其实是可以使用树来进行表示的
 
 
 

@@ -2,3 +2,7 @@ nav:
     - Introduction: index.md
     - i-programmer-Parentheses-Are-Trees: i-programmer-Parentheses-Are-Trees
     - Bracket(tournament): Bracket(tournament)
+    - Matched-balanced-parentheses: Matched-balanced-parentheses
+    - Depth-of-nested-parenthesis: Depth-of-nested-parenthesis
+    - Bracket(tournament): Bracket(tournament)
+        
