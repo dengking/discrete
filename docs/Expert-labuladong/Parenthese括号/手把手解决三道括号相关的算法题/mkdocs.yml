@@ -1,4 +1,5 @@
 nav:
     - Introduction: index.md
     - LeetCode-20-有效的括号: LeetCode-20-有效的括号
+    - LeetCode-921-使括号有效的最少添加: LeetCode-921-使括号有效的最少添加
     
