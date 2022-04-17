@@ -174,10 +174,10 @@ for i from 1 to n:
 > 	{
 > 		int len = nums2.size();
 > 		unordered_map<int, int> nge; //nge是next greater number的缩写
-> 		vector<int> next_greater_index(len, -1);
+> 		vector<int> next_greater_index(len, -1); // 保存的是索引
 > 		for (int i = len - 1; i >= 0; --i)
 > 		{
-> 			int j = i + 1;
+> 			int j = i + 1; // 后一个数
 > 			while (j >= 0 && j < len && nums2[j] <= nums2[i])
 > 			{
 > 				j = next_greater_index[j];
@@ -209,5 +209,9 @@ for i from 1 to n:
 
 算法1使用的数据结构是栈，栈顶元素，它对输入数据所使用的数据结构没有任何的限制；
 
-算法2要求输入数据是支持random access的，它使用数组`p`来保存结果，这样它能够充分利用这个问题的递归性，如果从这个角度来进行分析的话，算法1中的栈其实也是原来保存结果的，只不过它具有一定的优化（使用了**淘汰机制**）；其实从这个角度也看出了数据结构和算法的紧密关联；
+算法2要求输入数据是支持random access的，它使用数组`p`来保存结果，这样它能够充分利用这个问题的递归性；
+
+如果从这个角度来进行分析的话，算法1中的栈其实也是原来保存结果的，只不过它具有一定的优化（使用了**淘汰机制**）;
+
+
 
