@@ -14,6 +14,8 @@
 
 1、能够保证相对顺序，比如"All-nearest-smaller-values"、"[下一个更大元素-Next Greater Number](https://leetcode-cn.com/problems/next-greater-element-i/)"
 
+四、介绍这个algorithm最好的文章是：wikipedia [All nearest smaller values](https://en.wikipedia.org/wiki/All_nearest_smaller_values) 
+
 
 
 素材:

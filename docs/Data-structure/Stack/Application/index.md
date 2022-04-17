@@ -45,3 +45,14 @@
 
 
 ### [Stack machine](https://en.wikipedia.org/wiki/Stack_machine)
+
+### 用stack来保存过去状态
+
+"括号匹配问题"和"[All nearest smaller values](https://en.wikipedia.org/wiki/All_nearest_smaller_values)"其实非常类似：
+
+1、使用stack来保存状态
+
+2、当匹配的时候，则pop
+
+3、reverse-by-stack
+

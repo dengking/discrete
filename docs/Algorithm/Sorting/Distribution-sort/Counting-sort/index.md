@@ -55,7 +55,7 @@ public int[] countSort(int[] A) {
 >
 > 一、上述是最最简单的，它假定数组`A`的元素的范围是: `[0, max]`
 >
-> 最后要按照count数组将原数组进行排序
+> 最后要按照count数组将原数组进行排序，它使用原数组中的元素作为count array的index
 
 ### 04 优化版: 空间优化
 

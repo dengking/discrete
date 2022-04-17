@@ -8,6 +8,8 @@
 >
 > 2、smaller 更小，需要注意的是，不是minimum(最小)
 >
+> 简而言之: 最近更小
+>
 > 二、这个算法，stack的`top`对应的是current element的nearest smaller，因此，每次当取到current element后，就和`top`进行比较，如果`top`比**current element**要大，显然可以将它剔除，如此往复，直到找到一个比current element要小的或者直至stack为空。
 >
 > 思考: 为什么可以直接剔除？因为如果`top`比current element要大，显然，`top`不是current element的nearest smaller，并且current element是比top更优秀的值。
@@ -15,6 +17,8 @@
 > 如果`top`比current element要小，显然`top`就是nearest smaller。依然要将current value `push`，是因为后续可能遇到比current value更大的。
 >
 > 由于是单调的，因此，stack中的element，自顶向下是递减的。
+>
+> 三、"单调栈"名称的由来是栈中的元素是单调的
 
 In [computer science](https://en.wikipedia.org/wiki/Computer_science), the **all nearest smaller values** problem is the following task: 
 
@@ -67,7 +71,7 @@ On a sequential computer, it is straightforward to compute all nearest smaller v
 ```pseudocode
 S = new empty stack data structure
 for x in the input sequence:
-    while S is nonempty and the top element of S is greater than or equal to x:
+    while S is nonempty and the top element of S is greater than or equal to x: // x < S.top()，显然它的停止条件是 s.top() < x
         pop S
     if S is empty:
         x has no preceding smaller value
