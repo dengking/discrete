@@ -1,5 +1,7 @@
 # Lexicographical order 字典序
 
+
+
 ## baike [字典序](https://baike.baidu.com/item/%E5%AD%97%E5%85%B8%E5%BA%8F/7786229?fr=aladdin)
 
 对于数字1、2、3......n的排列，不同排列的先后关系是从左到右逐个比较对应的数字的先后来决定的。例如对于5个数字的排列 12354和12345，排列12345在前，排列12354在后。按照这样的规定，5个数字的所有的排列中最前面的是12345，最后面的是 54321。
@@ -56,3 +58,12 @@ LeetCode [321. 拼接最大数](https://leetcode-cn.com/problems/create-maximum-
 
 LeetCode [31. 下一个排列](https://leetcode-cn.com/problems/next-permutation/)
 
+LeetCode [386. 字典序排数](https://leetcode-cn.com/problems/lexicographical-numbers/)
+
+leetcode [556. 下一个更大元素 III](https://leetcode-cn.com/problems/next-greater-element-iii/)
+
+
+leetcode [31. 下一个排列](https://leetcode-cn.com/problems/next-permutation/)
+
+
+leetcode [440. 字典序的第K小数字](https://leetcode-cn.com/problems/k-th-smallest-in-lexicographical-order/)
