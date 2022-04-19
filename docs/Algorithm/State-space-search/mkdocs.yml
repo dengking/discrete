@@ -1,8 +1,6 @@
 nav:
     - Introduction: index.md
-    - Backtracking: Backtracking
-    - Branch-and-Bound: Branch-and-Bound
-    - VS-brute-force-search: VS-brute-force-search
     - Constraint-satisfaction-problem: Constraint-satisfaction-problem.md
+    - Algorithm: Algorithm
     - Application: App
     

@@ -1,4 +1,4 @@
-# 穷举state space、solution space
+# 穷举state space、solution space的算法
 
 正如：
 
@@ -24,9 +24,11 @@
 
 
 
-## 穷举的方法
+## 穷举的算法
 
-### for
+### for、brute-force
+
+
 
 ### 回溯法
 
@@ -35,6 +37,10 @@
 2、
 
 ### 二进制枚举
+
+
+
+### 双指针、滑动窗口
 
 
 
@@ -63,6 +69,20 @@ labuladong [我写了套框架，把滑动窗口算法变成了默写题](https:
 状态有哪些、状态的维度、状态的组合；
 
 DP的选择；
+
+### Compared with brute-force search
+
+通过与brute-force search来进行对比能够更加深入地理解backtracing、Branch-and-bound的思想：
+
+总的来说，无论是backtracing还是branch-and-bound，都是充分运用已知信息来进行剪枝、进行优化、加速搜索，进而避免像暴力搜索那样搜索完整的解空间。
+
+
+
+### 如何避免回溯
+
+如何避免回溯？下面结合了例子进行了说明：
+
+- KMP算法: https://www.cnblogs.com/dusf/p/kmp.html
 
 
 

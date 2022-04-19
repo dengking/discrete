@@ -1,4 +1,4 @@
 nav:
     - Introduction: index.md
-    - Combinatorial-explosion: Combinatorial-explosion
-    
+    - Backtracking: Backtracking
+    - Branch-and-Bound: Branch-and-Bound    
