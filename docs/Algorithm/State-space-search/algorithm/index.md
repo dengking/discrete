@@ -1,4 +1,6 @@
-# 穷举state space、solution space的算法
+# state space、solution space的算法
+
+## 穷举是解决一切问题的基础
 
 正如：
 
@@ -41,6 +43,17 @@
 
 
 ### 双指针、滑动窗口
+
+
+
+## Algorithm paradigm
+
+本章描述实现search algorithm的常见Paradigm：
+
+| algorithm paradigm | search strategy                               |
+| ------------------ | --------------------------------------------- |
+| Backtracking       | - Depth-first search                          |
+| Branch-and-Bound   | - Breadth-first search<br>- Best-first search |
 
 
 

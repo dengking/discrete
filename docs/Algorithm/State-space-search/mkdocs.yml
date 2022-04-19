@@ -1,5 +1,6 @@
 nav:
     - Introduction: index.md
+    - wikipedia-Search-algorithm: wikipedia-Search-algorithm
     - Constraint-satisfaction-problem: Constraint-satisfaction-problem.md
     - Algorithm: Algorithm
     - Application: App
