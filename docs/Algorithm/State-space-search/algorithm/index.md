@@ -64,10 +64,6 @@ labuladong [我写了套框架，把滑动窗口算法变成了默写题](https:
 
 DP的选择；
 
-## Combinational analysis
-
-问题的解空间的构建依赖于combinational analysis中的原理。
-
 
 
 ## Example
