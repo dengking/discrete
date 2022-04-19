@@ -1,7 +1,6 @@
 nav:
     - Introduction: index.md
     - wikipedia-Algorithmic-paradigm: wikipedia-Algorithmic-paradigm
-    - Brute-force: Brute-force
     - DP: DP
     - Greedy: Greedy    
     - Heuristic: Heuristic

@@ -8,13 +8,17 @@
 
 
 
-## [java 字典序的遍历](https://leetcode-cn.com/problems/lexicographical-numbers/solution/java-zi-dian-xu-de-bian-li-by-ppppjqute/)
+## [PPPPjcute](https://leetcode-cn.com/u/ppppjcute/)  # [java 字典序的遍历](https://leetcode-cn.com/problems/lexicographical-numbers/solution/java-zi-dian-xu-de-bian-li-by-ppppjqute/)
 
 字典序可以抽象为一棵树
 
 ![QQ20201028-170405@2x.png](https://pic.leetcode-cn.com/1603875858-aRThUF-QQ20201028-170405@2x.png)
 
 所以，有小到大输出其实就是输出他的先序遍历，参考二叉搜索树的先序遍历写法。
+
+> NOTE: 
+>
+> 这个算法的本质是通过剪枝一棵完全十叉树来生成字典树，它的第一棵子树是所有以1打头的，第二棵子树是所有以2打头的
 
 一、递归：
 此处不一样的是需要舍去头结点0，以1-9分别为根节点进行遍历输出：
@@ -67,6 +71,7 @@ class Solution {
 }
 
 ```
+
 
 ### 迭代
 

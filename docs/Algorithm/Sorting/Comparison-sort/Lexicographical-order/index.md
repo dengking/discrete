@@ -56,14 +56,19 @@ LeetCode [321. 拼接最大数](https://leetcode-cn.com/problems/create-maximum-
 
 ### 生成字典序序列
 
-LeetCode [31. 下一个排列](https://leetcode-cn.com/problems/next-permutation/)
-
-LeetCode [386. 字典序排数](https://leetcode-cn.com/problems/lexicographical-numbers/)
-
-leetcode [556. 下一个更大元素 III](https://leetcode-cn.com/problems/next-greater-element-iii/)
 
 
-leetcode [31. 下一个排列](https://leetcode-cn.com/problems/next-permutation/)
+| 题目                                                         |      |
+| ------------------------------------------------------------ | ---- |
+| LeetCode [31. 下一个排列](https://leetcode-cn.com/problems/next-permutation/) |      |
+| leetcode [440. 字典序的第K小数字](https://leetcode-cn.com/problems/k-th-smallest-in-lexicographical-order/) |      |
 
 
-leetcode [440. 字典序的第K小数字](https://leetcode-cn.com/problems/k-th-smallest-in-lexicographical-order/)
+
+| 题目                                                         |      |
+| ------------------------------------------------------------ | ---- |
+| LeetCode [386. 字典序排数](https://leetcode-cn.com/problems/lexicographical-numbers/) |      |
+| leetcode [556. 下一个更大元素 III](https://leetcode-cn.com/problems/next-greater-element-iii/) |      |
+
+
+

@@ -24,6 +24,20 @@
 
 
 
+## 穷举的方法
+
+### for
+
+### 回溯法
+
+1、LeetCode [491. 递增子序列](https://leetcode-cn.com/problems/increasing-subsequences/) 中等
+
+2、
+
+### 二进制枚举
+
+
+
 ## 高效的穷举
 
 很多高效的algorithm在于它比较好地罗列了问题的所有可能性，相比与暴力搜索，它高效的多，它们的一般思路为: 
