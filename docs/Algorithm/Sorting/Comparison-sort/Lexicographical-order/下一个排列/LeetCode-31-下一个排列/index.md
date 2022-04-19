@@ -2,6 +2,46 @@
 
 cppreference [std::next_permutation](https://en.cppreference.com/w/cpp/algorithm/next_permutation)
 
+## [官方解题](https://leetcode-cn.com/problems/next-permutation/solution/xia-yi-ge-pai-lie-by-leetcode-solution/)
+
+以数字序列 `[1,2,3] `为例，其排列按照字典序依次为：
+
+```c++
+[1,2,3]
+[1,3,2]
+[2,1,3]
+[2,3,1]
+[3,1,2]
+[3,2,1]
+```
+
+### 方法一：两遍扫描
+
+![fig1](https://assets.leetcode-cn.com/solution-static/31/31.gif)
+
+
+
+```c++
+class Solution {
+public:
+    void nextPermutation(vector<int>& nums) {
+        int i = nums.size() - 2;
+        while (i >= 0 && nums[i] >= nums[i + 1]) {
+            i--;
+        }
+        if (i >= 0) {
+            int j = nums.size() - 1;
+            while (j >= 0 && nums[i] >= nums[j]) {
+                j--;
+            }
+            swap(nums[i], nums[j]);
+        }
+        reverse(nums.begin() + i + 1, nums.end());
+    }
+};
+
+```
+
 
 
 ## LeetCode [下一个排列算法详解：思路+推导+步骤，看不懂算我输！](https://leetcode-cn.com/problems/next-permutation/solution/xia-yi-ge-pai-lie-suan-fa-xiang-jie-si-lu-tui-dao-/)
