@@ -1,0 +1,13 @@
+nav:
+    - Introduction: index.md
+    - Graph-traversal: Graph-traversal
+    - 路径问题: 路径问题 # 路径问题
+    - Topological-sorting: Topological-sorting
+    - Spanning-tree: Spanning-tree    
+    - Search-algorithm: Search-algorithm # graph和tree中都会存在的一种问题
+    - Flood-Fill-泛洪算法: Flood-Fill-泛洪算法    
+    - LeetCode: LeetCode    
+    - Circular: Circular
+    - Dominator: Dominator
+    - Closure: Closure
+    
