@@ -18,7 +18,11 @@
 
 > NOTE: 
 >
-> 这个算法的本质是通过剪枝一棵完全十叉树来生成字典树，它的第一棵子树是所有以1打头的，第二棵子树是所有以2打头的
+> 一、这个算法的本质是通过**剪枝**一棵完全十叉树来生成字典树，它的第一棵子树是所有以1打头的，第二棵子树是所有以2打头的
+>
+> 需要注意的是，这个tree的特殊性：它的第一层节点的范围是1-9，后面的是0-9
+>
+> 二、它采用的是pre-order即先序遍历，它的模式非常类似于append-to-tail模式，即将每个node（一个数）append到result中去
 
 一、递归：
 此处不一样的是需要舍去头结点0，以1-9分别为根节点进行遍历输出：
@@ -71,7 +75,68 @@ class Solution {
 }
 
 ```
-
+> NOTE:
+>
+> 对应的c++代码如下：
+>
+> ```c++
+> // #include <bits/stdc++.h>
+> #include <iostream>
+> #include <string>
+> #include <algorithm>
+> #include <vector>
+> #include <bitset>
+> #include <map>
+> #include <list>
+> #include <stack>
+> #include <unordered_map>
+> #include <unordered_set>
+> #include <queue>
+> #include <cmath>
+> #include <numeric>
+> #include <climits>
+> #include <random>
+> // example1.cpp
+> // new-delete-type-mismatch error
+> #include <memory>
+> #include <vector>
+> using namespace std;
+> 
+> class Solution
+> {
+> public:
+>   vector<int> lexicalOrder(int n)
+>   {
+>     vector<int> res;
+>     std::function<void(int)> dfs = [&](int num)
+>     {
+>       if (num > n) // 剪枝
+>       {
+>         return;
+>       }
+>       res.push_back(num); // 典型的pre-order traversal
+>       for (int i = 0; i <= 9; ++i)
+>       {
+>         dfs(num * 10 + i);
+>       }
+>     };
+>     for (int num = 1; num <= 9; ++num)
+>     {
+>       dfs(num);
+>     }
+>     return res;
+>   }
+> };
+> 
+> int main()
+> {
+>   Solution s;
+> }
+> // g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -g
+> 
+> ```
+>
+> 
 
 ### 迭代
 
