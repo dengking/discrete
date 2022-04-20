@@ -165,6 +165,71 @@ class Solution {
 }
 ```
 
+> NOTE:
+>
+> C++代码如下：
+>
+> ```c++
+> // #include <bits/stdc++.h>
+> #include <iostream>
+> #include <string>
+> #include <algorithm>
+> #include <vector>
+> #include <bitset>
+> #include <map>
+> #include <list>
+> #include <stack>
+> #include <unordered_map>
+> #include <unordered_set>
+> #include <queue>
+> #include <cmath>
+> #include <numeric>
+> #include <climits>
+> #include <random>
+> // example1.cpp
+> // new-delete-type-mismatch error
+> #include <memory>
+> #include <vector>
+> using namespace std;
+> 
+> class Solution
+> {
+> public:
+>   vector<int> lexicalOrder(int n)
+>   {
+>     vector<int> res;
+>     int curr = 1;
+>     // 10叉树的先序遍历
+>     for (int i = 0; i < n; i++)
+>     {
+>       res.push_back(curr);
+>       if (curr * 10 <= n)
+>       {
+>         curr *= 10; //进入下一层
+>       }
+>       else
+>       {
+>         if (curr >= n)
+>           curr /= 10; //如果这一层结束了
+>         curr += 1;
+>         while (curr % 10 == 0)
+>           curr /= 10; //如果>10就要返回上一层
+>       }
+>     }
+>     return res;
+>   }
+> };
+> 
+> int main()
+> {
+>   Solution s;
+> }
+> // g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -g
+> 
+> ```
+>
+> 
+
 
 
 ## 我的解题
