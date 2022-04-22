@@ -2,6 +2,23 @@
 
 
 
+## [【宫水三叶】将数位 DP 问题转化为计数类模拟题](https://leetcode-cn.com/problems/number-of-digit-one/solution/gong-shui-san-xie-jiang-shu-wei-dp-wen-t-c9oi/)
+
+> NOTE:
+>
+> 相比于[官方解题](https://leetcode-cn.com/problems/number-of-digit-one/solution/shu-zi-1-de-ge-shu-by-leetcode-solution-zopq/)而言，[【宫水三叶】将数位 DP 问题转化为计数类模拟题](https://leetcode-cn.com/problems/number-of-digit-one/solution/gong-shui-san-xie-jiang-shu-wei-dp-wen-t-c9oi/)的更加容易理解，两者本质上是类似的，都是按照数位来进行统计。
+
+这是一道经典的「数位 DP」模板题的简化版，原题在 [这里](https://leetcode-cn.com/link/?target=https%3A%2F%2Fwww.luogu.com.cn%2Fproblem%2FP1980) 。
+
+### 计数类模拟
+
+回到本题，我们需要计算 $[1,n]$ 范围内所有数中 $1$ 出现的次数。
+
+举个 🌰，对于一个长度为 $m$ 的数字 $n$，我们可以计算其在「个位（从右起第 $1$ 位）」、「十位（第 $2$ 位）」、「百位（第 $3$ 位）」和「第 $m$ 位」中 $1$ 出现的次数。
+
+假设有 $n = abcde$，即 $m = 5，$假设我们需要统计第 $3$ 位中 $1$ 出现的次数，即可统计满足 $--1--$ 形式，同时满足 $1 <= --1-- <= abcde$ 
+
+
 ## [官方解题](https://leetcode-cn.com/problems/number-of-digit-one/solution/shu-zi-1-de-ge-shu-by-leetcode-solution-zopq/)
 
 ### 方法一：枚举每一数位上 1 的个数
@@ -10,9 +27,11 @@
 
 > NOTE: 
 >
-> 基于数位而不是基于数的统计方式，这是一种高效的穷举，这一类问题都是基于数位的。
+> 这道题是要求解从1到n的各个数每一位上1的个数的总数，这种思路本质上是：基于**数位**而不是基于**数**的统计方式，这是一种高效的穷举，这一类问题都是基于数位的：
 >
-> 这个算法仅仅统计
+> 我们可以想象将1-n的所有数字，从上到下进行排列：
+>
+>  
 
 为了直观地叙述我们的算法，下面我们以「**百位**」进行举例，对于几个不同的 $n$​ 手动计算出答案，随后扩展到任意数位。
 
@@ -20,15 +39,34 @@
 
 > NOTE: 
 >
-> 要统计百位，就要看它的上一位: 千位。
+> 一、要统计百位上为1的数的个数，即要统计如下形式：
 >
-> 一、对于上面这段话，可以结合下面的例子来进行理解:
+> ```
+> **1**
+> ```
 >
-> ![](./IMG_20210816_094358.jpg)
+> 其实，[【宫水三叶】将数位 DP 问题转化为计数类模拟题](https://leetcode-cn.com/problems/number-of-digit-one/solution/gong-shui-san-xie-jiang-shu-wei-dp-wen-t-c9oi/) 中的统计方式上更好的
 >
-> 二、 $[100, 199]$ 的个数固定，为100个；那有多少个这样的区间呢？则是由更高位决定的。
+> 对于上面这段话，可以结合下面的例子来进行理解:
 >
+> |        | 范围        |
+> | ------ | ----------- |
+> | `11**` | `1100~1199` |
+> | `21**` | `2100~2199` |
+> | `31**` | `3100~3199` |
+> |        |             |
+>
+> $[100, 199]$ 的个数固定为100个，它固定占三位，那有多少个这样的区间呢？显然除以1000即可，按照下面的公式：
+> $$
+> \lfloor \frac{n}{1000} \rfloor \times 100
+> $$
 > 
+>
+> 每1000，百位上的1出现100次；
+>
+> 每个10
+
+
 
 
 
@@ -62,6 +100,10 @@ $$
 用形象化的语言描述 (1)式的意义即为：
 
 > 当数位为 $10^k$ 时，最后的 $k$ 个数位每 $10^{k+1}$ 个数会循环一次，并且其中包含 $10^k$ 个 $1$，由于 $n$ 包含 $\lfloor \dfrac{n}{10^{k+1}} \rfloor$ 个完整的循环，那么这一部分的 $1$ 的个数为 $\lfloor \dfrac{n}{10^{k+1}} \rfloor \times 10^k$ 。不在循环中的部分还有 $n \bmod 10^{k+1}$个数，这一部分的 $1$ 的个数为 $n \bmod 10^{k+1} - 10^k + 1$，如果这个值小于 $0$，那么调整为出现 $0$ 次；如果这个值大于 $10^k$ ，那么调整为出现 $10^k$ 次。
+
+> NOTE:
+>
+> 上述能够非常好的简化代码
 
 ### 完整代码
 
@@ -98,8 +140,7 @@ int main()
 > NOTE:
 >
 > 上述程序的逻辑是: 首先从个位开始至最高位逐位进行统计，即 `k` 从 `0` 开始。
+>
+> 
 
-
-
-## [【宫水三叶】将数位 DP 问题转化为计数类模拟题](https://leetcode-cn.com/problems/number-of-digit-one/solution/gong-shui-san-xie-jiang-shu-wei-dp-wen-t-c9oi/)
 
