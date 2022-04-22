@@ -103,9 +103,9 @@ $$
 
 > NOTE:
 >
-> 上述能够非常好的简化代码的例子
+> 上述能够非常好的简化代码的例子: 使用min、max来限制上限、下限。
 
-### 完整代码
+#### 完整代码
 
 ```C++
 #include <bits/stdc++.h>
@@ -116,7 +116,7 @@ class Solution
 public:
 	int countDigitOne(int n)
 	{
-		// mulk 表示 10^k，即个位、十位、百位、千位
+		// mulk 表示 10^k，即个位、十位、百位、千位，它应该是 multiple K的缩写
 		// 在下面的代码中，可以发现 k 并没有被直接使用到（都是使用 10^k）
 		// 但为了让代码看起来更加直观，这里保留了 k
 		long long mulk = 1;
@@ -141,4 +141,26 @@ int main()
 >
 > 上述程序的逻辑是: 首先从个位开始至最高位逐位进行统计，即 `k` 从 `0` 开始。
 
+```c++
+
+class Solution
+{
+public:
+  int countDigitOne(int n)
+  {
+    long long mulk = 1; // mulk表示的是10^k，它应该是 multiple K的缩写，对应各位、十位、百位、千位
+                        // 在下面的代码中，可以发现 k 并没有被直接使用到（都是使用 10^k）
+                        // 但为了让代码看起来更加直观，这里保留了 k
+    int cnt = 0;
+    for (int k = 0; mulk <= n; ++k)
+    {
+      long long divider = mulk * 10;                                             // 除数
+      cnt += (n / divider * mulk + min(max(n % divider - mulk + 1, 0LL), mulk)); // 使用min、max来调整上限下限
+      mulk *= 10;
+    }
+    return cnt;
+  }
+};
+
+```
 
