@@ -40,3 +40,14 @@ CSDN [数字游戏 （dp）](https://blog.csdn.net/xiaofang3a/article/details/39
 
 cnblogs [计数DP之数字](https://www.cnblogs.com/soda-ma/p/13325119.html)
 
+
+
+## use tree to represent number
+
+例子：
+
+1、lexilogical number
+
+complete n-ary tree
+
+2、
