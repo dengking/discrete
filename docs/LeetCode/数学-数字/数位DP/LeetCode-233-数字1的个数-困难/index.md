@@ -16,10 +16,17 @@
 
 举个 🌰，对于一个长度为 $m$ 的数字 $n$，我们可以计算其在「个位（从右起第 $1$ 位）」、「十位（第 $2$ 位）」、「百位（第 $3$ 位）」和「第 $m$ 位」中 $1$ 出现的次数。
 
-假设有 $n = abcde$，即 $m = 5，$假设我们需要统计第 $3$ 位中 $1$ 出现的次数，即可统计满足 $--1--$ 形式，同时满足 $1 <= --1-- <= abcde$ 
+假设有 $n = abcde$，即 $m = 5，$假设我们需要统计第 $3$ 位中 $1$ 出现的次数，即可统计满足 $--1--$ 形式，同时满足 $1 <= --1-- <= abcde$ 要求的数有多少个，我们称 $1 <= --1-- <= abcde$ 关系为「大小要求」。
 
+我们只需对 $c$ 前后出现的值进行分情况讨论：
 
-## [官方解题](https://leetcode-cn.com/problems/number-of-digit-one/solution/shu-zi-1-de-ge-shu-by-leetcode-solution-zopq/)
+1、当 $c$ 前面的部分 $< ab$，即范围为 $[0, ab)$，此时必然满足「大小要求」，因此后面的部分可以任意取，即范围为 $[0, 99]$。根据「乘法原理」，可得知此时数量为 $ab * 100$；
+
+> NOTE:
+>
+> 如何求得 $ab$ 的值呢？除以 1000 即可，这在 [官方解题](https://leetcode-cn.com/problems/number-of-digit-one/solution/shu-zi-1-de-ge-shu-by-leetcode-solution-zopq/) 中进行了很好的验证。
+
+## [官方解题](https://leetcode-cn.com/problems/number-of-digit-one/solution/shu-zi-1-de-ge-shu-by-leetcode-solution-zopq/) 
 
 ### 方法一：枚举每一数位上 1 的个数
 
@@ -45,9 +52,7 @@
 > **1**
 > ```
 >
-> 其实，[【宫水三叶】将数位 DP 问题转化为计数类模拟题](https://leetcode-cn.com/problems/number-of-digit-one/solution/gong-shui-san-xie-jiang-shu-wei-dp-wen-t-c9oi/) 中的统计方式上更好的
->
-> 对于上面这段话，可以结合下面的例子来进行理解:
+> 其实，[【宫水三叶】将数位 DP 问题转化为计数类模拟题](https://leetcode-cn.com/problems/number-of-digit-one/solution/gong-shui-san-xie-jiang-shu-wei-dp-wen-t-c9oi/) 中的讲解方式上更好的，更加容易理解，结合来看是更好的。下面的例子来进行理解:
 >
 > |        | 范围        |
 > | ------ | ----------- |

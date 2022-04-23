@@ -207,3 +207,36 @@ int main()
 
 首先需要搞清楚目的: 让 `[nums.begin() + i + 1, nums.end()]` 范围内的元素为增序；显然通过 `std::sort` 是可以实现的；但是，考虑到，此时  `[nums.begin() + i + 1, nums.end()]`  内的元素是降序的，因此，通过复杂的更低的 `std::reverse` 可以实现让 `[nums.begin() + i + 1, nums.end()]` 范围内的元素为增序的目的；
 
+
+
+## 二刷
+
+```c++
+
+class Solution
+{
+public:
+  void nextPermutation(vector<int> &nums)
+  {
+    int i = nums.size() - 1 - 1;            // 让i指向倒数第二个元素
+    while (i >= 0 && nums[i] >= nums[i + 1]) //比较第i个元素和第i+1个元素，具体例子 53421，找出 34
+    {
+      --i;
+    }
+    if (i >= 0)
+    {
+      int j = i + 1;
+      while (j < nums.size() && nums[j] > nums[i]) // 此时 [i+1, -1] 是单调递减的，选择需要找到大于 nums[i]的最下的数，只需要从i+1开始寻找直到最后一个，循环退出的时候，
+        ++j;
+      std::swap(nums[i], nums[j - 1]); // 注意：交换之后，[i+1, -1] 依然是单调递减的，因为 nums[j] < nums[i]
+    }
+    else // 已经是最大的排列了，此时i的值为-1
+    {
+      // 不需要做什么
+    }
+    std::reverse(nums.begin() + i + 1, nums.end()); // 将[i+1, -1]reverse一下，这样就是单调递增的了
+  }
+};
+
+```
+
