@@ -1,5 +1,15 @@
 # leetcode [402. 移掉K位数字](https://leetcode-cn.com/problems/remove-k-digits/)
 
+给你一个以字符串表示的非负整数 `num` 和一个整数 `k` ，移除这个数中的 `k` 位数字，使得剩下的数字最小。
+
+## 素材
+
+1、[力扣加加](https://leetcode-cn.com/u/fe-lucifer/) # [一招吃遍力扣四道题，妈妈再也不用担心我被套路啦～](https://leetcode-cn.com/problems/remove-k-digits/solution/yi-zhao-chi-bian-li-kou-si-dao-ti-ma-ma-zai-ye-b-5/)
+
+这个解答是非常好的。
+
+2、[官方解题](https://leetcode-cn.com/problems/remove-k-digits/solution/yi-diao-kwei-shu-zi-by-leetcode-solution/)
+
 
 
 ## 例子
@@ -21,10 +31,6 @@
 1、保证相对顺序
 
 2、剩余位数
-
-
-
-## 我的解题
 
 ### 最极端的例子
 
@@ -56,15 +62,23 @@
 
 
 
+## 我的解题
+
+
+
 ### 规律是什么？
+
+从高位到地位，从左到右，单调递增的数字最小；
+
+从高位到地位，从左到右，单调递法的数字最大；
 
 尽可能地从最高有效位开始删起，总是选择较小的digit，删除较大的digit(贪心)，其实它就是**字典序**，按照字典序来进行理解是非常快的。
 
-monotonic stack的优势:
+### 算法模式
 
-1、它的排序能够保持相对位置
+贪心 + 单调栈
 
-
+### 完整代码
 
 ```C++
 #include <bits/stdc++.h>
@@ -141,75 +155,4 @@ int main()
 ```
 
 
-
-## [官方解题](https://leetcode-cn.com/problems/remove-k-digits/solution/yi-diao-kwei-shu-zi-by-leetcode-solution/)
-
-### 贪心 + 单调栈
-
-
-
-### 完整程序
-
-耗时更少，不知为何。
-
-```C++
-#include <bits/stdc++.h>
-using namespace std;
-
-/**
- * @brief
- * 作者：LeetCode-Solution
- 链接：https://leetcode-cn.com/problems/remove-k-digits/solution/yi-diao-kwei-shu-zi-by-leetcode-solution/
- 来源：力扣（LeetCode）
- 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
- *
- */
-class Solution
-{
-public:
-	string removeKdigits(string num, int k)
-	{
-		vector<char> stk;
-		for (auto &digit : num)
-		{
-			while (stk.size() > 0 && stk.back() > digit && k)
-			{
-				stk.pop_back();
-				k -= 1;
-			}
-			stk.push_back(digit);
-		}
-
-		for (; k > 0; --k)
-		{
-			stk.pop_back();
-		}
-
-		string ans = "";
-		bool isLeadingZero = true;
-		for (auto &digit : stk)
-		{
-			if (isLeadingZero && digit == '0')
-			{
-				continue;
-			}
-			isLeadingZero = false;
-			ans += digit;
-		}
-		return ans == "" ? "0" : ans;
-	}
-};
-
-// Driven Program
-int main()
-{
-	Solution s;
-	cout << s.removeKdigits("1432219", 3) << endl;
-	cout << s.removeKdigits("10200", 1) << endl;
-	cout << s.removeKdigits("10", 2) << endl;
-	cout << s.removeKdigits("10", 1) << endl;
-}
-// g++ test.cpp
-
-```
 

@@ -1,6 +1,19 @@
 # Monotonic stack解 "最大、最小 子序列(subsequence)"
 
-## leetcode [402. 移掉K位数字](https://leetcode-cn.com/problems/remove-k-digits/) # [一招吃遍力扣四道题，妈妈再也不用担心我被套路啦～](https://leetcode-cn.com/problems/remove-k-digits/solution/yi-zhao-chi-bian-li-kou-si-dao-ti-ma-ma-zai-ye-b-5/)
+## leetcode [402. 移掉K位数字](https://leetcode-cn.com/problems/remove-k-digits/) #[力扣加加](https://leetcode-cn.com/u/fe-lucifer/) # [一招吃遍力扣四道题，妈妈再也不用担心我被套路啦～](https://leetcode-cn.com/problems/remove-k-digits/solution/yi-zhao-chi-bian-li-kou-si-dao-ti-ma-ma-zai-ye-b-5/) 
+
+这就是接下来要给大家讲的四个题，其中 1081 和 316 题只是换了说法而已。
+
+- [316. 去除重复字母](https://leetcode-cn.com/problems/remove-duplicate-letters/) (困难)
+- [321. 拼接最大数](https://leetcode-cn.com/problems/create-maximum-number/) (困难)
+- [321. 拼接最大数](https://leetcode-cn.com/problems/create-maximum-number/) (困难)
+- [1081. 不同字符的最小子序列](https://leetcode-cn.com/problems/smallest-subsequence-of-distinct-characters/) （中等）
+
+- [402. 移掉 K 位数字](https://leetcode-cn.com/problems/remove-k-digits/)
+
+
+
+### 总结
 
 > NOTE: 
 >
@@ -14,22 +27,35 @@
 
 316、去除重复字母（困难），我们使用 hashmap 代替了数组的遍历查找，属于典型的空间换时间方式，可以认识到数据结构的灵活使用是多么的重要。背后的思路是怎么样的？为什么想到空间换时间的方式，我在文中也进行了详细的说明，这都是值得大家思考的问题。然而实际上，这些题目中使用的栈也都是空间换时间的思想。大家下次碰到需要空间换取时间的场景，是否能够想到本文给大家介绍的栈和哈希表呢？
 
-321、拼接最大数（困难）则需要我们能够对问题进行分解，这绝对不是一件简单的事情。但是对难以解决的问题进行分解是一种很重要的技能，希望大家能够通过这道题加深这种分治思想的理解。 大家可以结合我之前写过的几个题解练习一下，它们分别是：
-
-【简单易懂】归并排序（Python）
-大家也可以关注我获取更多更新鲜的 LeetCode 题解
+321、拼接最大数（困难）则需要我们能够对问题进行分解，这绝对不是一件简单的事情。但是对难以解决的问题进行分解是一种很重要的技能，希望大家能够通过这道题加深这种分治思想的理解。 
 
 
 
 ## 我的分析
 
+
+
 leetcode [316. 去除重复字母](https://leetcode-cn.com/problems/remove-duplicate-letters/) ( leetcode  [1081. 不同字符的最小子序列](https://leetcode-cn.com/problems/smallest-subsequence-of-distinct-characters/) )
 
-leetcode [402. 移掉K位数字](https://leetcode-cn.com/problems/remove-k-digits/)
+leetcode [402. 移掉K位数字](https://leetcode-cn.com/problems/remove-k-digits/) 
 
 leetcode [321. 拼接最大数](https://leetcode-cn.com/problems/create-maximum-number/)
 
+上述题目，本质上的解法应该归入greedy algorithm，它们都需要lexicographical-order、数字值的知识，下面是总结归纳：
 
+| 题目                                                         |                            |                                                              |
+| ------------------------------------------------------------ | -------------------------- | ------------------------------------------------------------ |
+| leetcode [402. 移掉K位数字](https://leetcode-cn.com/problems/remove-k-digits/) | "剩下的数字最小"           | 从左到右、从低位到高位，单调递增的数字序列的值是最下的，它本质上是字典序最小 |
+| leetcode [316. 去除重复字母](https://leetcode-cn.com/problems/remove-duplicate-letters/) | "**返回结果的字典序最小**" |                                                              |
+| leetcode  [1081. 不同字符的最小子序列](https://leetcode-cn.com/problems/smallest-subsequence-of-distinct-characters/) |                            |                                                              |
+| leetcode [321. 拼接最大数](https://leetcode-cn.com/problems/create-maximum-number/) |                            | divide-and-conqure-and-merge+打擂台求解最优值                |
+|                                                              |                            |                                                              |
+
+monolithic stack恰好能够满足解决这些问题的需求：
+
+1、monolithic stack能够保留过去的状态，它能够找到单调递增、单调递减的序列，且这个序列是最小、最大的，因此它是非常适合于由于解决这类问题的。
+
+2、能够保持相对位置不变，非常符合题目的要求
 
 ### 题目要求分析
 
@@ -41,15 +67,9 @@ leetcode [316. 去除重复字母](https://leetcode-cn.com/problems/remove-dupli
 
 #### 2、字典次序、数值次序
 
-leetcode [316. 去除重复字母](https://leetcode-cn.com/problems/remove-duplicate-letters/) ( leetcode  [1081. 不同字符的最小子序列](https://leetcode-cn.com/problems/smallest-subsequence-of-distinct-characters/) )要求:
+leetcode [402. 移掉K位数字](https://leetcode-cn.com/problems/remove-k-digits/) 
 
-> "**返回结果的字典序最小**" 
-
-leetcode [402. 移掉K位数字](https://leetcode-cn.com/problems/remove-k-digits/) 要求:
-
-> "剩下的数字最小"
-
-它本质上是字典序最小。
+leetcode [316. 去除重复字母](https://leetcode-cn.com/problems/remove-duplicate-letters/)、leetcode  [1081. 不同字符的最小子序列](https://leetcode-cn.com/problems/smallest-subsequence-of-distinct-characters/) 
 
 
 
@@ -75,4 +95,4 @@ leetcode [402. 移掉K位数字](https://leetcode-cn.com/problems/remove-k-digit
 
 1、Monotonic-stack+greedy
 
-2、divide-and-conquer
+2、divide-and-conquer-and-merge+打擂台求解最优值
