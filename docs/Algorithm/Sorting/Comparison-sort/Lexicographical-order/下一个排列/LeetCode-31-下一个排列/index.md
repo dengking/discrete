@@ -165,39 +165,62 @@ func nextPermutation(nums []int) {
 
 
 ```C++
-#include <bits/stdc++.h>
+// #include <bits/stdc++.h>
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <bitset>
+#include <map>
+#include <list>
+#include <stack>
+#include <unordered_map>
+#include <unordered_set>
+#include <queue>
+#include <cmath>
+#include <numeric>
+#include <climits>
+#include <random>
+// example1.cpp
+// new-delete-type-mismatch error
+#include <memory>
+#include <vector>
 using namespace std;
 
 class Solution
 {
 public:
-	void nextPermutation(vector<int> &nums)
-	{
-		int i = nums.size() - 2;
-		while (i >= 0 && nums[i] >= nums[i + 1]) // 寻找第一个非递减的
-		{
-			--i;
-		}
-		// 如果nums已经是最大的sequence，那么它就是递减的，那么当上述while循环退出的时候，i就是-1
-		if (i >= 0)
-		{
-			int j = nums.size() - 1;
-			while (j >= 0 && nums[j] <= nums[i])
-			{
-				--j;
-			}
-			swap(nums[i], nums[j]);
-		}
-		reverse(nums.begin() + i + 1, nums.end());
-	}
+  void nextPermutation(vector<int> &nums)
+  {
+    int i = nums.size() - 1 - 1;             // 让i指向倒数第二个元素
+    while (i >= 0 && nums[i] >= nums[i + 1]) //比较第i个元素和第i+1个元素，具体例子 53421，找出 34
+    {
+      --i;
+    }
+    // 如果nums已经是最大的sequence，那么它就是递减的，那么当上述while循环退出的时候，i就是-1
+    if (i >= 0)
+    {
+      int j = i + 1;
+      while (j < nums.size() && nums[j] > nums[i]) // 此时 [i+1, -1] 是单调递减的，选择需要找到大于 nums[i]的最小的数，只需要从i+1开始寻找直到最后一个，循环退出的时候，
+      {                                            // 需要注意:  nums[j] >= nums[i] 是错误的，带一个例子即可知晓：534421，如果带上=，则j会指向2
+        ++j;
+      }
+      std::swap(nums[i], nums[j - 1]); // 注意：交换之后，[i+1, -1] 依然是单调递减的，因为 nums[j] < nums[i]
+    }
+    else // 已经是最大的排列了，此时i的值为-1
+    {
+      // 不需要做什么
+    }
+    std::reverse(nums.begin() + i + 1, nums.end()); // 将[i+1, -1]reverse一下，这样就是单调递增的了
+  }
 };
 
 int main()
 {
-	Solution s;
+  Solution s;
+  vector<int> nums{5, 1, 1};
 }
 // g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -g
-
 
 ```
 
@@ -212,31 +235,6 @@ int main()
 ## 二刷
 
 ```c++
-
-class Solution
-{
-public:
-  void nextPermutation(vector<int> &nums)
-  {
-    int i = nums.size() - 1 - 1;            // 让i指向倒数第二个元素
-    while (i >= 0 && nums[i] >= nums[i + 1]) //比较第i个元素和第i+1个元素，具体例子 53421，找出 34
-    {
-      --i;
-    }
-    if (i >= 0)
-    {
-      int j = i + 1;
-      while (j < nums.size() && nums[j] > nums[i]) // 此时 [i+1, -1] 是单调递减的，选择需要找到大于 nums[i]的最小的数，只需要从i+1开始寻找直到最后一个，循环退出的时候，
-        ++j;
-      std::swap(nums[i], nums[j - 1]); // 注意：交换之后，[i+1, -1] 依然是单调递减的，因为 nums[j] < nums[i]
-    }
-    else // 已经是最大的排列了，此时i的值为-1
-    {
-      // 不需要做什么
-    }
-    std::reverse(nums.begin() + i + 1, nums.end()); // 将[i+1, -1]reverse一下，这样就是单调递增的了
-  }
-};
 
 ```
 
