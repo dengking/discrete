@@ -226,7 +226,7 @@ public:
     if (i >= 0)
     {
       int j = i + 1;
-      while (j < nums.size() && nums[j] > nums[i]) // 此时 [i+1, -1] 是单调递减的，选择需要找到大于 nums[i]的最下的数，只需要从i+1开始寻找直到最后一个，循环退出的时候，
+      while (j < nums.size() && nums[j] > nums[i]) // 此时 [i+1, -1] 是单调递减的，选择需要找到大于 nums[i]的最小的数，只需要从i+1开始寻找直到最后一个，循环退出的时候，
         ++j;
       std::swap(nums[i], nums[j - 1]); // 注意：交换之后，[i+1, -1] 依然是单调递减的，因为 nums[j] < nums[i]
     }
