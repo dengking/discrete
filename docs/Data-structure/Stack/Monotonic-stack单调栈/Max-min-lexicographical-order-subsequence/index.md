@@ -43,13 +43,13 @@ leetcode [321. 拼接最大数](https://leetcode-cn.com/problems/create-maximum-
 
 上述题目，本质上的解法应该归入greedy algorithm，它们都需要lexicographical-order、数字值的知识，下面是总结归纳：
 
-| 题目                                                         |                            |                                                              |
-| ------------------------------------------------------------ | -------------------------- | ------------------------------------------------------------ |
-| leetcode [402. 移掉K位数字](https://leetcode-cn.com/problems/remove-k-digits/) | "剩下的数字最小"           | 从左到右、从低位到高位，单调递增的数字序列的值是最下的，它本质上是字典序最小 |
-| leetcode [316. 去除重复字母](https://leetcode-cn.com/problems/remove-duplicate-letters/) | "**返回结果的字典序最小**" |                                                              |
-| leetcode  [1081. 不同字符的最小子序列](https://leetcode-cn.com/problems/smallest-subsequence-of-distinct-characters/) |                            |                                                              |
-| leetcode [321. 拼接最大数](https://leetcode-cn.com/problems/create-maximum-number/) |                            | divide-and-conqure-and-merge+打擂台求解最优值                |
-|                                                              |                            |                                                              |
+| 题目                                                         |              |                            |                                                              |
+| ------------------------------------------------------------ | ------------ | -------------------------- | ------------------------------------------------------------ |
+| leetcode [402. 移掉K位数字](https://leetcode-cn.com/problems/remove-k-digits/) | 去重K位      | "剩下的数字最小"           | 从左到右、从低位到高位，单调递增的数字序列的值是最下的，它本质上是字典序最小；<br>这道题增加了一点难度系数就是：K，这就意味着必须要删除掉K，从而得到一个长度为N-K的单调递增序列。 <br>这道题也可以归入"**定长子序列问题**"的范畴。 |
+| leetcode [316. 去除重复字母](https://leetcode-cn.com/problems/remove-duplicate-letters/) | 去重重复字母 | "**返回结果的字典序最小**" | 从左到右、从低位到高位，单调递增的数字序列的值是最下的，它本质上是字典序最小；<br>这道题也可以归入"**定长子序列问题**"的范畴。 |
+| leetcode  [1081. 不同字符的最小子序列](https://leetcode-cn.com/problems/smallest-subsequence-of-distinct-characters/) |              |                            |                                                              |
+| leetcode [321. 拼接最大数](https://leetcode-cn.com/problems/create-maximum-number/) |              |                            | divide-and-conqure-and-merge+穷举打擂台求解最优值            |
+|                                                              |              |                            |                                                              |
 
 monolithic stack恰好能够满足解决这些问题的需求：
 

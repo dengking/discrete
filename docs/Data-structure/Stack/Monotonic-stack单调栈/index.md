@@ -14,11 +14,24 @@
 
 1、能够保证相对顺序，比如"All-nearest-smaller-values"、"[下一个更大元素-Next Greater Number](https://leetcode-cn.com/problems/next-greater-element-i/)"
 
+2、能够保存过去的状态
+
 四、介绍这个algorithm最好的文章是：wikipedia [All nearest smaller values](https://en.wikipedia.org/wiki/All_nearest_smaller_values) 
 
 
 
-素材:
+## 应用题汇总
+
+|                                           | 例题 | 栈中元素单调性 | 含义       | 要求          | 遍历方向 |
+| ----------------------------------------- | ---- | -------------- | ---------- | ------------- | -------- |
+| All nearest smaller value                 |      | 单调递增       | 最近更小   | 前面、smaller | 从左往右 |
+| Next greater number                       |      | 单调递增       | 下一个更大 | 后面、greater | 从右往左 |
+| Max-min-lexicographical-order-subsequence |      | 单调递增       |            | 前面、smaller | 从左往右 |
+|                                           |      |                |            |               |          |
+
+
+
+## 素材
 
 一、[Expert-labuladong 单调栈解题模板秒杀三道算法题](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247487704&idx=1&sn=eb9ac24c644aa0950638c9b20384e982&scene=21#wechat_redirect) 
 

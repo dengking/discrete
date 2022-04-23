@@ -82,52 +82,66 @@
 
 ```C++
 #include <bits/stdc++.h>
+// #include <bits/stdc++.h>
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <bitset>
+#include <map>
+#include <list>
+#include <stack>
+#include <unordered_map>
+#include <unordered_set>
+#include <queue>
+#include <deque>
+#include <cmath>
+#include <numeric>
+#include <climits>
+#include <random>
+// example1.cpp
+// new-delete-type-mismatch error
+#include <memory>
+#include <vector>
 using namespace std;
 
 class Solution
 {
 public:
-	string removeKdigits(string num, int k)
-	{
-		deque<char> mono_stack; // 单调栈
-		int delete_count = 0; // 删除的次数
-		for (auto &&digit : num)
-		{
-			while (delete_count < k && !mono_stack.empty() && digit < mono_stack.back())
-			{
-				mono_stack.pop_back();
-				++delete_count;
-			}
-			mono_stack.push_back(digit);
-		}
-		/**
-		 * 处理`1234567` 这种已经是单调递增的序列，这种序列，单调栈是无法处理的，因此需要在下面添加程序进行特殊处理
-		 */
-		for (; delete_count < k; ++delete_count)
-		{
-			mono_stack.pop_back();
-		}
-		if (mono_stack.empty())
-		{
-			return "0";
-		}
-		else
-		{
-			std::string ret;
-			bool isLeadingZero = true; // 注意输出不能有任何前导零。
-			for (auto &&digit : mono_stack)
-			{
-				if (isLeadingZero && digit == '0')
-				{
-					continue;
-				}
-				isLeadingZero = false;
-				ret.push_back(digit);
-			}
-			// 如果mono_stack只有一个0，则ret为空，此时应该返回"0"，而不是ret
-			return ret.empty() ? "0" : ret;
-		}
-	}
+  string removeKdigits(string num, int k)
+  {
+    std::deque<char> stk; // 这个题目要求在两端删除元素，因此需要使用deque
+    int delete_cnt = 0;
+    for (auto &&c : num)
+    {
+      while (!stk.empty() && delete_cnt < k && c < stk.back())
+      {
+        stk.pop_back();
+        ++delete_cnt;
+      }
+      stk.push_back(c);
+    }
+
+    for (; delete_cnt < k; ++delete_cnt)
+    {
+      stk.pop_back();
+    }
+    while (!stk.empty() && stk.front() == '0') // 题目要求去除前导零
+    {                                          // 在while循环中访问元素前，一定要判定是否为空，否则会发生asan
+      stk.pop_front();
+    }
+    if (stk.empty()) //题目要求剩余为空就是 0
+    {
+      return "0";
+    }
+
+    std::string res;
+    for (auto &&c : stk)
+    {
+      res.push_back(c);
+    }
+    return res;
+  }
 };
 
 // Driven Program
@@ -139,7 +153,7 @@ int main()
 	cout << s.removeKdigits("10", 2) << endl;
 	cout << s.removeKdigits("10", 1) << endl;
 }
-// g++ test.cpp
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -g
 
 ```
 
