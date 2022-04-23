@@ -2,7 +2,7 @@
 
 
 
-例子:
+## 例子
 
 121219 k=3
 
@@ -24,17 +24,47 @@
 
 
 
-规律是什么？
+## 我的解题
 
-1、尽可能地从最高有效位开始删起，总是选择较小的digit，删除较大的digit(贪心)，其实它就是**字典序**，按照字典序来进行理解是非常快的。
+### 最极端的例子
+
+最极端的例子一：
+
+```
+12345
+```
+
+显然，直接删除掉最右边即可；
+
+
+
+最极端的例子二：
+
+```
+54321
+```
+
+显然，直接删除掉最左边即可；
+
+### 普通例子
+
+```
+425
+```
+
+显然，删4而非2；
+
+
+
+### 规律是什么？
+
+尽可能地从最高有效位开始删起，总是选择较小的digit，删除较大的digit(贪心)，其实它就是**字典序**，按照字典序来进行理解是非常快的。
 
 monotonic stack的优势:
 
 1、它的排序能够保持相对位置
 
 
-
-## 我的解题
 
 ```C++
 #include <bits/stdc++.h>
@@ -112,9 +142,7 @@ int main()
 
 
 
-
-
-## [标准答案](https://leetcode-cn.com/problems/remove-k-digits/solution/yi-diao-kwei-shu-zi-by-leetcode-solution/)
+## [官方解题](https://leetcode-cn.com/problems/remove-k-digits/solution/yi-diao-kwei-shu-zi-by-leetcode-solution/)
 
 ### 贪心 + 单调栈
 
