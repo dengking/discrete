@@ -1,10 +1,10 @@
 # leetcode [321. 拼接最大数](https://leetcode-cn.com/problems/create-maximum-number/)
 
-## [一招吃遍力扣四道题，妈妈再也不用担心我被套路啦～](https://leetcode-cn.com/problems/create-maximum-number/solution/yi-zhao-chi-bian-li-kou-si-dao-ti-ma-ma-zai-ye-b-7/)
+## [力扣加加](https://leetcode-cn.com/u/fe-lucifer/) # [一招吃遍力扣四道题，妈妈再也不用担心我被套路啦～](https://leetcode-cn.com/problems/create-maximum-number/solution/yi-zhao-chi-bian-li-kou-si-dao-ti-ma-ma-zai-ye-b-7/)
 
 > NOTE: 
 >
-> 一、这个解题是非常好的，它是"divide-and-conquer-and-merge"非常经典的例题
+> 一、这个解题是非常好的，它是"divide-and-conquer-and-merge"非常经典的例题，它的base就是 leetcode [402. 移掉K位数字](https://leetcode-cn.com/problems/remove-k-digits/) 
 >
 > 
 
@@ -18,7 +18,74 @@
 
 假如 k1 和 k2 个数字，已经取出来了。那么剩下要做的就是将这个长度分别为 k1 和 k2 的数字，合并成一个长度为 k 的数组合并成一个最大的数组。
 
+以题目的 `nums1 = [3, 4, 6, 5] nums2 = [9, 1, 2, 5, 8, 3] k = 5` 为例。以题目的 `nums1 = [3, 4, 6, 5] nums2 = [9, 1, 2, 5, 8, 3] k = 5` 为例。
 
+运用第一题的方法，我们计算出应该取 `nums1` 的 `[6]`，并取 `nums2` 的 `[9,5,8,3]`。如何将 `[6]` 和 `[9,5,8,3]`，使得数字尽可能大，并且保持相对位置不变呢？
+
+实际上这个过程有点类似`归并排序`中的**治**，而上面我们分别计算 num1 和 num2 的最大数的过程类似`归并排序`中的**分**。
+
+![img](https://pic.leetcode-cn.com/276105e4f130a04413b466232b0a79537902b2d6e8bf016f2c84e6ff8e3af3de.jpg)
+
+代码：
+
+> 我们将从 num1 中挑选的 k1 个数组成的数组称之为 A，将从 num2 中挑选的 k2 个数组成的数组称之为 B，
+
+```python
+def merge(A, B):
+    ans = []
+    while A or B:
+        bigger = A if A > B else B
+        ans.append(bigger[0])
+        bigger.pop(0)
+    return ans
+
+
+```
+
+> NOTE:
+>
+> 上述算法其实非常简单，其实就是first-second双指针
+
+这里需要说明一下。 在很多编程语言中：**如果 A 和 B 是两个数组，当前仅当 A 的首个元素字典序大于 B 的首个元素，A > B 返回 true，否则返回 false**。
+
+以合并 [6] 和 [9,5,8,3] 为例，图解过程如下：
+
+![img](https://pic.leetcode-cn.com/dcae5d6f7feb6e8adb14ad15292f052771d6dfdf1e682d6e657f69b6a404479e.jpg)
+
+### 具体算法：
+
+### 完整code
+
+
+
+```c++
+class Solution:
+    def maxNumber(self, nums1, nums2, k):
+
+        def pick_max(nums, k):
+            stack = []
+            drop = len(nums) - k
+            for num in nums:
+                while drop and stack and stack[-1] < num:
+                    stack.pop()
+                    drop -= 1
+                stack.append(num)
+            return stack[:k]
+
+        def merge(A, B):
+            ans = []
+            while A or B:
+                bigger = A if A > B else B
+                ans.append(bigger.pop(0))
+            return ans
+
+        return max(merge(pick_max(nums1, i), pick_max(nums2, k-i)) for i in range(k+1) if i <= len(nums1) and k-i <= len(nums2))
+
+```
+
+> NOTE:
+>
+> 通过上述code可以看出，它是典型的divide-and-conqure-merge+打擂台取最优值，它的base是 leetcode [402. 移掉K位数字](https://leetcode-cn.com/problems/remove-k-digits/) 。
 
 ## 我的解答
 
