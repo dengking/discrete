@@ -224,3 +224,130 @@ int main()
 
 ```
 
+
+
+## 二刷
+
+```c++
+// #include <bits/stdc++.h>
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <bitset>
+#include <map>
+#include <list>
+#include <stack>
+#include <unordered_map>
+#include <unordered_set>
+#include <queue>
+#include <deque>
+#include <cmath>
+#include <numeric>
+#include <climits>
+#include <random>
+// example1.cpp
+// new-delete-type-mismatch error
+#include <memory>
+#include <vector>
+using namespace std;
+
+class Solution
+{
+  /**
+   * @brief 按照递减的顺序将nums1和nums2进行合并
+   *
+   * @param nums1
+   * @param nums2
+   * @return vector<int>
+   */
+  vector<int> merge(vector<int> &nums1, vector<int> &nums2)
+  {
+    vector<int> res;
+    int first = 0, second = 0;
+    while (first < nums1.size() && second < nums2.size())
+    {
+      if (nums1[first] > nums2[second])
+      {
+        res.push_back(nums1[first]);
+        ++first;
+      }
+      else
+      {
+        res.push_back(nums2[second]);
+        ++second;
+      }
+    }
+    while (first < nums1.size())
+    {
+      res.push_back(nums1[first]);
+      ++first;
+    }
+    while (second < nums2.size())
+    {
+      res.push_back(nums2[second]);
+      ++second;
+    }
+    return res;
+  }
+  /**
+   * @brief 选择长度为k的数字，它的字典许要尽可能地大
+   *
+   * @param nums1
+   * @param k
+   * @return vector<int>
+   */
+  vector<int> select(vector<int> &nums, int k)
+  {
+    vector<int> mono_stack;
+    int max_delete_cnt = nums.size() - k;
+    if (max_delete_cnt == 0)
+    {
+      return nums;
+    }
+    for (auto &&num : nums)
+    {
+      while (!mono_stack.empty() && num > mono_stack.back() && max_delete_cnt > 0)
+      {
+        max_delete_cnt--;
+        mono_stack.pop_back();
+      }
+      mono_stack.push_back(num);
+    }
+    for (; max_delete_cnt > 0; --max_delete_cnt)
+    {
+      mono_stack.pop_back();
+    }
+    return mono_stack;
+  }
+
+public:
+  vector<int> maxNumber(vector<int> &nums1, vector<int> &nums2, int k)
+  {
+    vector<int> res;
+    for (int m = 1; m <= nums1.size(); ++m)
+    {
+      for (int n = k - m; n <= nums2.size(); ++n)
+      {
+        if (m > 0 && n > 0)
+        {
+          auto first = select(nums1, m);
+          auto second = select(nums2, n);
+          auto third = merge(first, second);
+          res = max(res, third);
+        }
+      }
+    }
+    return res;
+  }
+};
+
+int main()
+{
+  Solution s;
+  vector<int> nums{5, 1, 1};
+}
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -g
+
+```
+
