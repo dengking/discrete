@@ -1,6 +1,148 @@
 # leetcode [321. 拼接最大数](https://leetcode-cn.com/problems/create-maximum-number/)
 
-## [力扣加加](https://leetcode-cn.com/u/fe-lucifer/) # [一招吃遍力扣四道题，妈妈再也不用担心我被套路啦～](https://leetcode-cn.com/problems/create-maximum-number/solution/yi-zhao-chi-bian-li-kou-si-dao-ti-ma-ma-zai-ye-b-7/)
+现在从这两个数组中选出 `k (k <= m + n)` 个数字拼接成一个新的数。
+
+> NOTE:
+>
+> `k (k <= m + n)` 这个条件比较重要
+
+## [官方解题](https://leetcode-cn.com/problems/create-maximum-number/solution/pin-jie-zui-da-shu-by-leetcode-solution/)
+
+
+
+```c++
+// #include <bits/stdc++.h>
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <bitset>
+#include <map>
+#include <list>
+#include <stack>
+#include <unordered_map>
+#include <unordered_set>
+#include <queue>
+#include <deque>
+#include <cmath>
+#include <numeric>
+#include <climits>
+#include <random>
+// example1.cpp
+// new-delete-type-mismatch error
+#include <memory>
+#include <vector>
+using namespace std;
+
+class Solution
+{
+public:
+  vector<int> maxNumber(vector<int> &nums1, vector<int> &nums2, int k)
+  {
+    int m = nums1.size(), n = nums2.size();
+    vector<int> maxSubsequence(k, 0);
+    // start 和 end表示从第一个array nums1中选取的元素的个数的范围
+    // 由于题目的前提条件是: k <= m + n，因此两个数组中的元素是必然能够凑足k个的
+    // start的值如何来决定呢？需要注意的是：它的最小值不是1，由于我们最终要凑够k个元素，因此它的最小值就是将nums2中的元素全部选中，然后此时最少要从nums1中选择几个元素
+    int start = max(0, k - n), end = min(k, m); 
+    for (int i = start; i <= end; i++)
+    {
+      vector<int> subsequence1(MaxSubsequence(nums1, i));
+      vector<int> subsequence2(MaxSubsequence(nums2, k - i));
+      vector<int> curMaxSubsequence(merge(subsequence1, subsequence2));
+      if (compare(curMaxSubsequence, 0, maxSubsequence, 0) > 0)
+      {
+        maxSubsequence.swap(curMaxSubsequence);
+      }
+    }
+    return maxSubsequence;
+  }
+
+  vector<int> MaxSubsequence(vector<int> &nums, int k)
+  {
+    int length = nums.size();
+    vector<int> stack(k, 0);
+    int top = -1;
+    int remain = length - k;
+    for (int i = 0; i < length; i++)
+    {
+      int num = nums[i];
+      while (top >= 0 && stack[top] < num && remain > 0)
+      {
+        top--;
+        remain--;
+      }
+      if (top < k - 1)
+      {
+        stack[++top] = num;
+      }
+      else
+      {
+        remain--;
+      }
+    }
+    return stack;
+  }
+
+  vector<int> merge(vector<int> &subsequence1, vector<int> &subsequence2)
+  {
+    int x = subsequence1.size(), y = subsequence2.size();
+    if (x == 0)
+    {
+      return subsequence2;
+    }
+    if (y == 0)
+    {
+      return subsequence1;
+    }
+    int mergeLength = x + y;
+    vector<int> merged(mergeLength);
+    int index1 = 0, index2 = 0;
+    for (int i = 0; i < mergeLength; i++)
+    {
+      if (compare(subsequence1, index1, subsequence2, index2) > 0)
+      {
+        merged[i] = subsequence1[index1++];
+      }
+      else
+      {
+        merged[i] = subsequence2[index2++];
+      }
+    }
+    return merged;
+  }
+
+  int compare(vector<int> &subsequence1, int index1, vector<int> &subsequence2, int index2)
+  {
+    int x = subsequence1.size(), y = subsequence2.size();
+    while (index1 < x && index2 < y)
+    {
+      int difference = subsequence1[index1] - subsequence2[index2];
+      if (difference != 0)
+      {
+        return difference;
+      }
+      index1++;
+      index2++;
+    }
+    return (x - index1) - (y - index2);
+  }
+};
+
+int main()
+{
+  Solution s;
+  vector<int> nums{4, 3, 2, 3, 5, 2, 1};
+  int k = 4;
+  s.canPartitionKSubsets(nums, k);
+}
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -g
+
+```
+
+​	
+
+## [力扣加加](https://leetcode-cn.com/u/fe-lucifer/) # [一招吃遍力扣四道题，妈妈再也不用担心我被套路啦～](https://leetcode-cn.com/problems/create-maximum-number/solution/yi-zhao-chi-bian-li-kou-si-dao-ti-ma-ma-zai-ye-b-7/) 
 
 > NOTE: 
 >
@@ -85,148 +227,15 @@ class Solution:
 
 > NOTE:
 >
-> 通过上述code可以看出，它是典型的divide-and-conqure-merge+打擂台取最优值，它的base是 leetcode [402. 移掉K位数字](https://leetcode-cn.com/problems/remove-k-digits/) 。
-
-## 我的解答
-
-```C++
-#include <bits/stdc++.h>
-using namespace std;
-
-using index_t = size_t;
-class Solution
-{
-public:
-	/**
-	 * @brief 从 nums 中挑出k个最大的，并保持相对位置不变
-	 *
-	 * @param nums
-	 * @return
-	 */
-	vector<int> pickMax(vector<int> &nums, size_t k)
-	{
-		vector<int> ret;
-		size_t len = nums.size();
-		size_t delete_count = len - k;
-
-		for (auto &&num : nums)
-		{
-			while (ret.size() > 0 && delete_count > 0 && ret.back() < num)
-			{
-				ret.pop_back();
-				--delete_count;
-			}
-			ret.push_back(num);
-		}
-		for (; delete_count > 0; --delete_count)
-		{
-			ret.pop_back();
-		}
-		return ret;
-
-	}
-	vector<int> merge(const vector<int> &nums1, const vector<int> &nums2)
-	{
-		vector<int> ret;
-		index_t i1 = 0, i2 = 0;
-		while (i1 < nums1.size() && i2 < nums2.size())
-		{
-			if (nums1[i1] > nums2[i2])
-			{
-				ret.push_back(nums1[i1]);
-				++i1;
-			}
-			else
-			{
-				ret.push_back(nums2[i2]);
-				++i2;
-			}
-		}
-		while (i1++ < nums1.size())
-		{
-			ret.push_back(nums1[i1]);
-		}
-		while (i2++ < nums2.size())
-		{
-			ret.push_back(nums2[i2]);
-		}
-		return ret;
-	}
-	friend bool operator>(const vector<int> &nums1, const vector<int> &nums2)
-	{
-		if (nums1.size() == nums2.size())
-		{
-			for (index_t i = 0; i < nums1.size(); ++i)
-			{
-				if (nums1[i] > nums2[i])
-				{
-					return true;
-				}
-			}
-			return false;
-		}
-		else if (nums1.size() > nums2.size())
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
-	}
-	vector<int> maxNumber(vector<int> &nums1, vector<int> &nums2, size_t k)
-	{
-		vector<int> max;
-		for (index_t i = 0; i < k; ++i)
-		{
-			if (i <= nums1.size() && k - i <= nums2.size())
-			{
-				auto temp = merge(pickMax(nums1, i), pickMax(nums2, k - i));
-				if (max < temp)
-				{
-					max = temp;
-				}
-			}
-		}
-		return max;
-	}
-};
-ostream& operator<<(ostream &s, vector<int> v)
-{
-	for (auto &&i : v)
-	{
-		s << i;
-	}
-	return s;
-}
-
-// Driven Program
-int main()
-{
-	Solution s;
-	vector<int> nums1 = { 3, 4, 6, 5 };
-	vector<int> nums2 = { 9, 1, 2, 5, 8, 3 };
-	size_t k = 5;
-	cout << s.maxNumber(nums1, nums2, k) << endl;
-
-	nums1 = { 6, 7 };
-	nums2 = { 6, 0, 4 };
-	k = 5;
-	cout << s.maxNumber(nums1, nums2, k) << endl;
-
-	nums1 = { 3, 9 };
-	nums2 = { 8, 9 };
-	k = 3;
-	cout << s.maxNumber(nums1, nums2, k) << endl;
-}
-// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra
-
-
-```
+> 一、通过上述code可以看出，它是典型的divide-and-conqure-merge+打擂台取最优值，它的base是 leetcode [402. 移掉K位数字](https://leetcode-cn.com/problems/remove-k-digits/) 。
+>
+> 二、它的merge算法：每次从字典序更大的array中取出一个元素。
 
 
 
-## 二刷
+
+
+## 我的解题-存在bug
 
 ```c++
 // #include <bits/stdc++.h>
@@ -301,7 +310,7 @@ class Solution
   {
     vector<int> mono_stack;
     int max_delete_cnt = nums.size() - k;
-    if (max_delete_cnt == 0)
+    if (max_delete_cnt <= 0) // 不需要删除元素
     {
       return nums;
     }
@@ -348,6 +357,182 @@ int main()
   vector<int> nums{5, 1, 1};
 }
 // g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -g
+
+```
+
+
+
+上述算法的bug在merge函数中，下面是例子：
+
+```
+输入
+[6,7]
+[6,0,4]
+5
+输出
+[6,6,7,0,4]
+预期结果
+[6,7,6,0,4]
+```
+
+我的merge函数是按照merge sort的写法写的，通过上述例子可以看出，它是不符合这道题的要求的，那以什么样的算法来实现呢？在 [力扣加加](https://leetcode-cn.com/u/fe-lucifer/) # [一招吃遍力扣四道题，妈妈再也不用担心我被套路啦～](https://leetcode-cn.com/problems/create-maximum-number/solution/yi-zhao-chi-bian-li-kou-si-dao-ti-ma-ma-zai-ye-b-7/) 中，给出了算法：
+
+```c++s
+class Solution:
+    def maxNumber(self, nums1, nums2, k):
+
+        def pick_max(nums, k):
+            stack = []
+            drop = len(nums) - k
+            for num in nums:
+                while drop and stack and stack[-1] < num:
+                    stack.pop()
+                    drop -= 1
+                stack.append(num)
+            return stack[:k]
+
+        def merge(A, B):
+            ans = []
+            while A or B:
+                bigger = A if A > B else B
+                ans.append(bigger.pop(0))
+            return ans
+
+        return max(merge(pick_max(nums1, i), pick_max(nums2, k-i)) for i in range(k+1) if i <= len(nums1) and k-i <= len(nums2))
+
+
+```
+
+
+
+## 我的解题
+
+一、一开始想仿照[力扣加加](https://leetcode-cn.com/u/fe-lucifer/) # [一招吃遍力扣四道题，妈妈再也不用担心我被套路啦～](https://leetcode-cn.com/problems/create-maximum-number/solution/yi-zhao-chi-bian-li-kou-si-dao-ti-ma-ma-zai-ye-b-7/) 中merge函数的写法
+
+```c++
+  vector<int> merge(vector<int> &nums1, vector<int> &nums2)
+  {
+    vector<int> res;
+    vector<int> *bigger = nullptr;
+    while (!nums1.empty() || !nums2.empty())
+    {
+      if (nums1 > nums2)
+      {
+        bigger = &nums1;
+      }
+      else
+      {
+        bigger = &nums2;
+      }
+      bigger->pop_front();
+    }
+    return res;
+  }
+```
+
+但是C++中，`std::vector`不支持`pop_front`。所以上述写法是无效的，因此还是需要像 [官方解题](https://leetcode-cn.com/problems/create-maximum-number/solution/pin-jie-zui-da-shu-by-leetcode-solution/) 中的实现一个`compare` 函数。
+
+
+
+
+
+```c++
+
+class Solution
+{
+  /**
+   * @brief 按照递减的顺序将nums1和nums2进行合并
+   *
+   * @param nums1
+   * @param nums2
+   * @return vector<int>
+   */
+  vector<int> merge(vector<int> &nums1, vector<int> &nums2)
+  {
+    vector<int> res;
+    res.reserve(nums1.size() + nums2.size());
+    int first = 0, second = 0;
+    while (first < nums1.size() || second < nums2.size())
+    {
+      if (compare(nums1, first, nums2, second) > 0)
+      {
+        res.push_back(nums1[first]);
+        ++first;
+      }
+      else
+      {
+        res.push_back(nums2[second]);
+        ++second;
+      }
+    }
+    return res;
+  }
+  /// 这是为了支持merge函数而添加的
+  int compare(vector<int> &nums1, int index1, vector<int> &nums2, int index2)
+  {
+    int first = index1, second = index2;
+    while (first < nums1.size() && second < nums2.size())
+    {
+      int diff = nums1[first] - nums2[second];
+      if (diff != 0)
+      {
+        return diff;
+      }
+      ++first;
+      ++second;
+    }
+    return (nums1.size() - index1) - (nums2.size() - index2);
+  }
+  /**
+   * @brief 选择长度为k的数字，它的字典许要尽可能地大
+   *
+   * @param nums1
+   * @param k
+   * @return vector<int>
+   */
+  vector<int> select(vector<int> &nums, int k)
+  {
+    vector<int> mono_stack;
+    int max_delete_cnt = nums.size() - k;
+    if (max_delete_cnt <= 0) // 不需要删除元素
+    {
+      return nums;
+    }
+    for (auto &&num : nums)
+    {
+      while (!mono_stack.empty() && num > mono_stack.back() && max_delete_cnt > 0)
+      {
+        max_delete_cnt--;
+        mono_stack.pop_back();
+      }
+      mono_stack.push_back(num);
+    }
+    for (; max_delete_cnt > 0; --max_delete_cnt)
+    {
+      mono_stack.pop_back();
+    }
+    return mono_stack;
+  }
+
+public:
+  vector<int> maxNumber(vector<int> &nums1, vector<int> &nums2, int k)
+  {
+    vector<int> res;
+    int m = nums1.size(), n = nums2.size();
+    int start = max(0, k - n), end = min(k, m);
+    for (int i = start; i <= end; ++i)
+    {
+      auto first = select(nums1, i);
+      auto second = select(nums2, k - i);
+      auto merged = merge(first, second);
+      if (res < merged)
+      {
+        res.swap(merged);
+      }
+    }
+    return res;
+  }
+};
 
 ```
 
