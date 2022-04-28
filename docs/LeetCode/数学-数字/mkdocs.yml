@@ -1,5 +1,6 @@
 nav:
     - Introduction: index.md
+    - 数位DP: 数位DP
     - LeetCode-7-整数反转: LeetCode-7-整数反转
     - 大整数算术: 大整数算术
     - Bitwise-operation: Bitwise-operation
