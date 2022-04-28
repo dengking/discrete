@@ -18,7 +18,11 @@
 
 四、介绍这个algorithm最好的文章是：wikipedia [All nearest smaller values](https://en.wikipedia.org/wiki/All_nearest_smaller_values) 
 
+五、
 
+单调栈能够找到最小的单调递增子序列，留在栈底的一定是最小的数值，因此它能够找到股票最大利润、最小的数。
+
+单调栈能够找到最大的单调递减子序列，留在栈底的一定是最大的数值
 
 ## 应用题汇总
 
