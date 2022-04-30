@@ -320,6 +320,107 @@ int main()
 
 ```
 
+
+
+### 二刷
+
+```c++
+// #include <bits/stdc++.h>
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <bitset>
+#include <map>
+#include <list>
+#include <stack>
+#include <unordered_map>
+#include <unordered_set>
+#include <queue>
+#include <deque>
+#include <cmath>
+#include <numeric>
+#include <climits>
+#include <random>
+// example1.cpp
+// new-delete-type-mismatch error
+#include <memory>
+#include <vector>
+using namespace std;
+
+class LRUCache
+{
+  list<pair<int, int>> values_;
+  unordered_map<int, list<pair<int, int>>::iterator> key2val_;
+  int capacity_{0};
+
+private:
+  void makeRecently(int key)
+  {
+    auto itor = key2val_[key];
+    int val = itor->second;
+    values_.erase(itor);
+    values_.emplace_front(key, val);
+    key2val_[key] = values_.begin();
+  }
+
+public:
+  LRUCache(int capacity) : capacity_{capacity}
+  {
+  }
+
+  int get(int key)
+  {
+    if (key2val_.count(key))
+    {
+      makeRecently(key);
+      return key2val_[key]->second;
+    }
+    else
+    {
+      return -1;
+    }
+  }
+
+  void put(int key, int value)
+  {
+    if (key2val_.count(key)) // already exist
+    {
+      makeRecently(key);
+      key2val_[key]->second = value;
+    }
+    else
+    {
+      if (key2val_.size() >= capacity_) // full
+      {
+        auto toDelKey = values_.back().first; // 待删除
+        values_.pop_back();
+        key2val_.erase(toDelKey);
+      }
+      values_.emplace_front(key, value);
+      key2val_[key] = values_.begin();
+    }
+  }
+};
+
+/**
+ * Your LRUCache object will be instantiated and called as such:
+ * LRUCache* obj = new LRUCache(capacity);
+ * int param_1 = obj->get(key);
+ * obj->put(key,value);
+ */
+
+int main()
+{
+}
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -g
+
+```
+
+
+
+
+
 ## [朱雀](https://leetcode-cn.com/u/zhu-que-3/) # [c++双向链表和哈希表](https://leetcode-cn.com/problems/lru-cache/solution/cshuang-xiang-lian-biao-he-ha-xi-biao-by-l476/)
 
 
