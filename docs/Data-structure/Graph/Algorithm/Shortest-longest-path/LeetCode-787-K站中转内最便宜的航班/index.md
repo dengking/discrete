@@ -100,9 +100,7 @@ int main()
 
 选择:
 
-当有多个parent的时候，从哪个parent节点过来
-
-这是比较特殊的，由于不同的节点，它的parent的个数不同，因此可能的选择是不同的；
+当有多个parent的时候，从哪个parent节点过来，这是比较特殊的，由于不同的节点，它的parent的个数不同，因此可能的选择是不同的；
 
 ### 结合具体例子来思考递归方程
 
@@ -126,6 +124,14 @@ base case:
 
 ```
 
+解释：
+
+1、如果能够结果k-1次到达v，那么肯定能够经过k次到达v，所以:
+
+```
+m(v, k) = m(v, k-1)
+```
+
 
 
 ### 完整程序
@@ -138,7 +144,7 @@ class Solution
 public:
 	int findCheapestPrice(int n, vector<vector<int>> &flights, int src, int dst, int k)
 	{
-		int col = k + 1; //列数
+		int col = k + 1; //列数，从0-k，一共有k+1列
 		vector<vector<long>> dp(n, vector<long>(col, INT_MAX));
 		// base case
 		for (int i = 0; i < col; ++i)
