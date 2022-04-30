@@ -4,6 +4,18 @@
 
 ## DP状态机、状态转移方程
 
+DP本质上还是从解空间穷举、状态空间穷举，这一点和DFS 是相同的：
+
+1、都是基于选择，选择导致状态的转移：在DFS中，状态转移对应的是递归进入到下一层、对应的是从解空间的上一个节点进入到了下一个节点、对应的从graph或tree的上一个节点到下一个节点，在DFS中，问题的规模一般通过递归函数的参数来进行描述。动态规划也是如此，所不同的是，它将结果给保存下来了，最最能够体现它们之间关联的是如下例子：
+
+a、labuladong [毕 业 旅 行](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247491204&idx=1&sn=3f03f4da933ffa0baf4eb05f444d85e3&scene=21#wechat_redirect) / [旅游省钱大法：加权最短路径](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247491204&idx=1&sn=3f03f4da933ffa0baf4eb05f444d85e3&scene=21#wechat_redirect)
+
+
+
+2、子问题的相互独立。
+
+
+
 一、从下面几个角度来进行讨论:
 
 1、"DP状态机"、"状态转移方程"描述的是"**原问题**"和"**子问题**"之间的函数关系
@@ -25,6 +37,8 @@
 在课本的例子中，能够使用动态规划算法解决的问题都具有最优子结构性质，也就是问题的最优解包含其子问题的最优解（当我在用动态规划解决问题的时候，用数学公式描述出这种关系是解决这个问题的核心所在）注意这样的描述本来就包含递归的思想。动态规划算法所维护的二维数组`m[i][j]`值表示子问题i到j的最优值。
 
 动态规划算法也是从底层到高层，从子问题到完全问题逐渐来解决问题的。
+
+
 
 ## 动态规划问题的分类
 
@@ -52,6 +66,8 @@ LeetCode [322. 零钱兑换](https://leetcode-cn.com/problems/coin-change/)
 
 LeetCode [518. 零钱兑换 II](https://leetcode-cn.com/problems/coin-change-2/)
 
+
+
 ### 分类方法二
 
 一、子序列
@@ -67,6 +83,8 @@ LeetCode [518. 零钱兑换 II](https://leetcode-cn.com/problems/coin-change-2/)
 四、数位DP
 
 五、区间DP
+
+
 
 
 

@@ -1,5 +1,7 @@
 # LeetCode [787. K 站中转内最便宜的航班](https://leetcode-cn.com/problems/cheapest-flights-within-k-stops/) 
 
+这道题是为在阅读labuladong [毕 业 旅 行](https://mp.weixin.qq.com/s/D-iahj0gSs1UnDv_6KsNWQ) 时发现的，其中中进行了比较好的讲解。
+
 需要注意"中转次数"的含义:
 
 1、中转0次，表示直达
@@ -91,6 +93,8 @@ int main()
 
 
 ## 我的解题: 动态规划
+
+
 
 状态:
 

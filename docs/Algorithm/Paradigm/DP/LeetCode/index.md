@@ -1,6 +1,6 @@
 # LeetCode DP问题整理
 
-DP本质上还是从穷举、DFS 转换过来的。
+
 
 ## Fibonacci DP 
 
@@ -249,3 +249,16 @@ public:
 
 #### 最大子数组和
 
+
+
+## K次
+
+1、LeetCode [787. K 站中转内最便宜的航班](https://leetcode-cn.com/problems/cheapest-flights-within-k-stops/)
+
+2、股票买卖
+
+labuladong [团灭 LeetCode 股票买卖问题](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247494095&idx=4&sn=7aed55b22e93c0e43b83172923b51acc&scene=21#wechat_redirect)
+
+
+
+可以看到，它们都将K次加入到了状态转移方程。

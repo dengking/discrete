@@ -1,0 +1,5 @@
+nav:
+    - Introduction: index.md
+    - 最小路径和: 最小路径和
+    - 加权最短路径: 加权最短路径
+    
