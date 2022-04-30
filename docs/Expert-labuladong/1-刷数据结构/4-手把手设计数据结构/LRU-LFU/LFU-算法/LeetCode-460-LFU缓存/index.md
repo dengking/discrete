@@ -410,3 +410,153 @@ int main()
 
 ```
 
+
+
+## 二刷: 存在bug的代码
+
+我的思路是不保存`minFreq`，而是使用`freq2node_.begin()`来获得最小的freq，这种写法就需要保证为空的list要及时删除掉，否则它为空，但是还占用一个slot，在这些下面的时候是会抛出exception的：
+
+```c++
+        int toDelKey = freq2node_.begin()->second.back().first;
+        freq2node_.begin()->second.pop_back();
+```
+
+因为对一个empty list 执行 `pop_back` 显然是错误的，是会抛出exception的。
+
+```c++
+// #include <bits/stdc++.h>
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <bitset>
+#include <map>
+#include <list>
+#include <stack>
+#include <unordered_map>
+#include <unordered_set>
+#include <queue>
+#include <deque>
+#include <cmath>
+#include <numeric>
+#include <climits>
+#include <random>
+// example1.cpp
+// new-delete-type-mismatch error
+#include <memory>
+#include <vector>
+using namespace std;
+
+class LFUCache
+{
+  map<int, list<pair<int, int>>> freq2node_;
+  unordered_map<int, list<pair<int, int>>::iterator> key2node_;
+  unordered_map<int, int> key2freq_;
+  int capacity_{0};
+
+private:
+  /**
+   * @brief 增加频率
+   *
+   * @param key
+   */
+  void increaseFreq(int key)
+  {
+    // 首先取出从前的旧值
+    auto freq = key2freq_[key];
+    auto node = key2node_[key];
+    int val = node->second;
+    /// 动态更新cache、index
+    // 1、切换freq
+    freq2node_[freq].erase(node); // 此处是o(1)
+    if (freq2node_[freq].empty())
+    {
+      freq2node_.erase(freq);
+    }
+    auto newFreq = freq + 1;
+    freq2node_[newFreq].emplace_front(key, val);
+    // 2、更新index
+    key2freq_[key] = newFreq;
+    key2node_[key] = freq2node_[newFreq].begin();
+  }
+
+public:
+  LFUCache(int capacity) : capacity_{capacity}
+  {
+  }
+
+  int get(int key)
+  {
+    if (key2node_.count(key))
+    {
+      increaseFreq(key);
+      return key2node_[key]->second;
+    }
+    else
+    {
+      return -1;
+    }
+  }
+
+  void put(int key, int value)
+  {
+    if (key2node_.count(key))
+    {
+      increaseFreq(key);
+      key2node_[key]->second = value; // 更新value
+    }
+    else
+    {
+      if (key2node_.size() >= capacity_)
+      {
+        int toDelKey = freq2node_.begin()->second.back().first;
+        freq2node_.begin()->second.pop_back();
+        if (freq2node_.begin()->second.empty())
+        {
+          freq2node_.erase(toDelKey);
+        }
+        /// 动态更新cache、index
+
+        key2node_.erase(toDelKey);
+        key2freq_.erase(toDelKey);
+      }
+      freq2node_[1].emplace_front(key, value);
+      /// 动态更新cache、index
+
+      key2freq_[key] = 1;
+      key2node_[key] = freq2node_[1].begin();
+    }
+  }
+};
+
+/**
+ * Your LFUCache object will be instantiated and called as such:
+ * LFUCache* obj = new LFUCache(capacity);
+ * int param_1 = obj->get(key);
+ * obj->put(key,value);
+ */
+
+int main()
+{
+  LFUCache lfu(2);
+  lfu.put(1, 1); // cache=[1,_], cnt(1)=1
+  lfu.put(2, 2); // cache=[2,1], cnt(2)=1, cnt(1)=1
+  lfu.get(1);    // 返回 1
+                 // cache=[1,2], cnt(2)=1, cnt(1)=2
+  lfu.put(3, 3); // 去除键 2 ，因为 cnt(2)=1 ，使用计数最小
+                 // cache=[3,1], cnt(3)=1, cnt(1)=2
+  lfu.get(2);    // 返回 -1（未找到）
+  lfu.get(3);    // 返回 3
+                 // cache=[3,1], cnt(3)=2, cnt(1)=2
+  lfu.put(4, 4); // 去除键 1 ，1 和 3 的 cnt 相同，但 1 最久未使用
+                 // cache=[4,3], cnt(4)=1, cnt(3)=2
+  lfu.get(1);    // 返回 -1（未找到）
+  lfu.get(3);    // 返回 3
+                 // cache=[3,4], cnt(4)=1, cnt(3)=3
+  lfu.get(4);    // 返回 4
+                 // cache=[3,4], cnt(4)=2, cnt(3)=3
+}
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -g
+
+```
+

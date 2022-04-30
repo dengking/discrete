@@ -357,10 +357,12 @@ class LRUCache
 private:
   void makeRecently(int key)
   {
+    // 首先取出从前的旧值
     auto itor = key2val_[key];
     int val = itor->second;
     values_.erase(itor);
     values_.emplace_front(key, val);
+    // 动态更新
     key2val_[key] = values_.begin();
   }
 
@@ -374,7 +376,7 @@ public:
     if (key2val_.count(key))
     {
       makeRecently(key);
-      return key2val_[key]->second;
+      return values_.front().second;
     }
     else
     {
