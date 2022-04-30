@@ -134,3 +134,93 @@ int main()
 
 
 
+### 第三次提交
+
+```c++
+// #include <bits/stdc++.h>
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <bitset>
+#include <map>
+#include <list>
+#include <stack>
+#include <unordered_map>
+#include <unordered_set>
+#include <queue>
+#include <deque>
+#include <cmath>
+#include <numeric>
+#include <climits>
+#include <random>
+// example1.cpp
+// new-delete-type-mismatch error
+#include <memory>
+#include <vector>
+using namespace std;
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+
+struct TreeNode
+{
+  int val;
+  TreeNode *left;
+  TreeNode *right;
+  TreeNode() : val(0), left(nullptr), right(nullptr) {}
+  TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+  TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+};
+
+class Solution
+{
+public:
+  /**
+   * @brief width、depth
+   *
+   * @param root
+   * @return vector<vector<int>>
+   */
+  vector<vector<int>> verticalOrder(TreeNode *root)
+  {
+    map<int, map<int, vector<int>>> states;
+    dfs(root, 0, 0, states);
+    vector<vector<int>> res;
+
+    for (auto &&col : states)
+    {
+      res.push_back({});                        // 插入一个空vector，这种写法更加简洁
+      for (auto &&[first, second] : col.second) // 使用c++17 struct binding
+      {
+        std::copy(second.begin(), second.end(), std::back_inserter(res.back())); // 使用algorithm
+      }
+    }
+    return res;
+  }
+  void dfs(TreeNode *root, int depth, int width, map<int, map<int, vector<int>>> &states)
+  {
+    if (root)
+    {
+      states[width][depth].push_back(root->val);
+      dfs(root->left, depth + 1, width - 1, states);
+      dfs(root->right, depth + 1, width + 1, states);
+    }
+  }
+};
+
+int main()
+{
+}
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -g
+
+```
+

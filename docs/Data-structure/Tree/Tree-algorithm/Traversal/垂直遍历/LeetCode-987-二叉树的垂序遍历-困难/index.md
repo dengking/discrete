@@ -121,3 +121,45 @@ int main()
 
 ```
 
+### 二刷
+
+
+
+```c++
+
+class Solution
+{
+  std::map<int, std::map<int, std::priority_queue<int, std::vector<int>, std::greater<int>>>> states;
+
+public:
+  vector<vector<int>> verticalTraversal(TreeNode *root)
+  {
+    dfs(root, 0, 0);
+    vector<vector<int>> res;
+    for (auto &&[_, col] : states)
+    {
+      res.push_back({});
+      for (auto &&[_, nodes] : col)
+      {
+        while (!nodes.empty())
+        {
+          res.back().push_back(nodes.top());
+          nodes.pop();
+        }
+      }
+    }
+    return res;
+  }
+  void dfs(TreeNode *root, int col, int depth)
+  {
+    if (root)
+    {
+      states[col][depth].push(root->val);
+      dfs(root->left, col - 1, depth + 1);
+      dfs(root->right, col + 1, depth + 1);
+    }
+  }
+};
+
+```
+
