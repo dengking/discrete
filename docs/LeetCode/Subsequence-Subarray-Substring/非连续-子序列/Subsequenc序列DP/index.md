@@ -46,3 +46,15 @@ https://stackoverflow.com/questions/tagged/dynamic-programming?tab=Active
 
 序列问题与多条规划算法
 
+
+
+# 序列DP
+
+
+
+可以按照如下的方式来进行划分：
+
+1、单个序列
+
+2、两个序列
+

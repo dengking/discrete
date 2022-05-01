@@ -54,21 +54,9 @@ a、labuladong [毕 业 旅 行](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw
 >
 > tag-DP解计数问题
 
-由于DP是会进行穷举的，因此可以实现计数，下面是相关例题: 
-
-LeetCode [446. 等差数列划分 II - 子序列](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/) 困难
-
-LeetCode [552. 学生出勤记录 II](https://leetcode-cn.com/problems/student-attendance-record-ii/) 困难
-
-
+由于DP是会进行穷举的，因此可以实现计数。
 
 二、求解最值
-
-最长递增子序列 LeetCode [300. 最长递增子序列](https://leetcode-cn.com/problems/longest-increasing-subsequence/)。
-
-LeetCode [322. 零钱兑换](https://leetcode-cn.com/problems/coin-change/)
-
-LeetCode [518. 零钱兑换 II](https://leetcode-cn.com/problems/coin-change-2/)
 
 
 

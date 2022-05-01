@@ -253,6 +253,12 @@ public:
 
 
 
+### 计数问题
+
+#### LeetCode [446. 等差数列划分 II - 子序列](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/) 困难
+
+
+
 ## K次
 
 1、LeetCode [787. K 站中转内最便宜的航班](https://leetcode-cn.com/problems/cheapest-flights-within-k-stops/) 
@@ -333,3 +339,20 @@ public:
 ```
 
 可以看到，上述求解最优值的过程，其实和前面的LeetCode [746. 使用最小花费爬楼梯](https://leetcode-cn.com/problems/min-cost-climbing-stairs/) 、LeetCode [300. 最长递增子序列](https://leetcode-cn.com/problems/longest-increasing-subsequence/) 非常类似。
+
+
+
+## 背包DP
+
+### 零钱兑换
+
+LeetCode [322. 零钱兑换](https://leetcode-cn.com/problems/coin-change/)
+
+LeetCode [518. 零钱兑换 II](https://leetcode-cn.com/problems/coin-change-2/)
+
+
+
+## 计数问题
+
+LeetCode [552. 学生出勤记录 II](https://leetcode-cn.com/problems/student-attendance-record-ii/) 困难
+
