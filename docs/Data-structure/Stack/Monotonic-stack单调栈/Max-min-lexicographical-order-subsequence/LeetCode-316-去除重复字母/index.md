@@ -24,6 +24,8 @@
 
 四、由于涉及删除元素，因此在删除的时候，需要将对应的元素从visited array中剔除。
 
+五、这道题在
+
 ## 用例
 
 
@@ -120,7 +122,7 @@ public:
 		string mono_stack;
 		for (auto &&c : s)
 		{
-			if (!in_stack[IndexOf(c)]) // 不在栈中
+			if (!in_stack[IndexOf(c)]) // 不在栈中，过滤掉重复字符
 			{
 				while (mono_stack.size() > 0 && c < mono_stack.back())
 				{

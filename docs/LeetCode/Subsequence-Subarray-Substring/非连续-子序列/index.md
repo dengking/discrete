@@ -78,6 +78,14 @@ subsequence的特征：
 
 由于子序列要求保持相对顺序，并且可以不连续，对于这类问题，单调栈是可以使用的。
 
+这类问题的特征是：
+
+1、移除部分
+
+2、最值问题
+
+它们都可以转换为和字典序相关的。
+
 ## LeetCode 子序列类问题
 
 https://leetcode-cn.com/problemset/all/?search=%E5%AD%90%E5%BA%8F%E5%88%97
