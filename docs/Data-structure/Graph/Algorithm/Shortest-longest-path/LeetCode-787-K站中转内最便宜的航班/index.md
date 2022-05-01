@@ -335,10 +335,9 @@ Parent(v) 表示节点v的parent节点
 Price(u, v) 表示从节点u到节点v的价格，其实就是图的权重
 m(v, k) = min(m(v, k-1), m(Parent(v), k-1) + Price(Parent(v), v))
 
-base case:
-
-所有直接与source节点，都不需要经过中转(k=0)，它们的最小价格是可以直接获得的。
-
+base case: 
+1、从src到src，无论经过多少次中转都是0
+2、所有直接与source节点，都不需要经过中转(k=0)，它们的最小价格是可以直接获得的。
 ```
 
 解释：

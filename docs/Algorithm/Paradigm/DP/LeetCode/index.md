@@ -1,6 +1,8 @@
 # LeetCode DP问题整理
 
+## 最优值问题
 
+可以把所有的**最优值问题**一起拿起来进行对比。
 
 ## Fibonacci DP 
 
@@ -217,7 +219,7 @@ public:
 
 #### LIS、最长递增子序列
 
-LeetCode [300. 最长递增子序列](https://leetcode-cn.com/problems/longest-increasing-subsequence/)
+LeetCode [300. 最长递增子序列](https://leetcode-cn.com/problems/longest-increasing-subsequence/) 
 
 ```c++
 class Solution
@@ -253,7 +255,7 @@ public:
 
 ## K次
 
-1、LeetCode [787. K 站中转内最便宜的航班](https://leetcode-cn.com/problems/cheapest-flights-within-k-stops/)
+1、LeetCode [787. K 站中转内最便宜的航班](https://leetcode-cn.com/problems/cheapest-flights-within-k-stops/) 
 
 2、股票买卖
 
@@ -262,3 +264,72 @@ labuladong [团灭 LeetCode 股票买卖问题](https://mp.weixin.qq.com/s?__biz
 
 
 可以看到，它们都将K次加入到了状态转移方程。
+
+
+
+## graph DP
+
+### 最优值问题
+
+#### LeetCode [787. K 站中转内最便宜的航班](https://leetcode-cn.com/problems/cheapest-flights-within-k-stops/) 
+
+```c++
+m(v, k) 表示从source节点到v节点，中转k次的最便宜的价格
+Parent(v) 表示节点v的parent节点
+Price(u, v) 表示从节点u到节点v的价格，其实就是图的权重
+m(v, k) = min(m(v, k-1), m(Parent(v), k-1) + Price(Parent(v), v))
+
+base case: 
+1、从src到src，无论经过多少次中转都是0
+2、所有直接与source节点，都不需要经过中转(k=0)，它们的最小价格是可以直接获得的。
+```
+
+
+
+##### 核心code
+
+```c++
+
+class Solution
+{
+public:
+  int findCheapestPrice(int n, vector<vector<int>> &flights, int src, int dst, int k)
+  {
+    int col = k + 1; //列数，从0-k，一共有k+1列
+    vector<vector<long>> dp(n, vector<long>(col, INT_MAX));
+    // base case
+    for (int i = 0; i < col; ++i)
+    {
+      dp[src][i] = 0; // 从src到src，无论经过多少次中转都是0
+    }
+    for (auto &&flight : flights)
+    {
+      int src_node = flight[0];  // 源节点
+      int dest_node = flight[1]; // 目标节点
+      int weight = flight[2];
+      if (src_node == src) // 是源节点
+      {
+        dp[dest_node][0] = weight;
+      }
+    }
+    for (int i = 1; i <= k; ++i)
+    {
+      for (auto &&flight : flights)
+      {
+        int src_node = flight[0];  // 源节点
+        int dest_node = flight[1]; // 目标节点
+        int weight = flight[2];
+        dp[dest_node][i] = min({
+            dp[dest_node][i],            // 自己
+            dp[dest_node][i - 1],        // 前一个节点
+            dp[src_node][i - 1] + weight //
+        });
+      }
+    }
+    return dp[dst][k] == INT_MAX ? -1 : dp[dst][k];
+  }
+};
+
+```
+
+可以看到，上述求解最优值的过程，其实和前面的LeetCode [746. 使用最小花费爬楼梯](https://leetcode-cn.com/problems/min-cost-climbing-stairs/) 、LeetCode [300. 最长递增子序列](https://leetcode-cn.com/problems/longest-increasing-subsequence/) 非常类似。
