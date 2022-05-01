@@ -2,23 +2,53 @@
 
 
 
-## DP状态机、状态转移方程
+## DP VS DFS
 
 DP本质上还是从解空间穷举、状态空间穷举，这一点和DFS 是相同的：
 
-1、都是基于选择，**选择**导致状态的转移：在DFS中，状态转移对应的是递归进入到下一层、对应的是从解空间的上一个节点进入到了下一个节点、对应的从graph或tree的上一个节点到下一个节点，在DFS中，问题的规模一般通过递归函数的参数来进行描述。动态规划也是如此，所不同的是，它将结果给保存下来了。
+一、都是基于**选择**，**选择**导致状态的转移：
+
+1、在DFS中，状态转移对应的是：
+
+a、递归进入到下一层；
+
+b、从解空间的上一个节点进入到了下一个节点；
+
+c、从graph或tree的上一个节点到下一个节点；
+
+2、在DP中，选择导致状态的转移：
+
+二、问题规模、状态的描述
+
+1、在DFS中，问题的规模、状态一般通过递归函数的参数来进行描述。
 
 在DFS中，我们一般将问题的规模通过函数的入参数进行传入，其实这个入参对应的是动态规划的状态，也就是动态规划的状态其实和问题的规模密切相关，关于这一点，在 labuladong [毕 业 旅 行](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247491204&idx=1&sn=3f03f4da933ffa0baf4eb05f444d85e3&scene=21#wechat_redirect) / [旅游省钱大法：加权最短路径](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247491204&idx=1&sn=3f03f4da933ffa0baf4eb05f444d85e3&scene=21#wechat_redirect) 中的例子能够非常好的说明。其实这是能够说通的，因为我们动态规划就是将子问题的结果给保存下来，所以它的状态就是和子问题相对应的。
+
+2、动态规划也是如此，所不同的是，它将结果给保存下来了。
 
 最最能够体现它们之间关联的是如下例子：
 
 a、labuladong [毕 业 旅 行](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247491204&idx=1&sn=3f03f4da933ffa0baf4eb05f444d85e3&scene=21#wechat_redirect) / [旅游省钱大法：加权最短路径](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247491204&idx=1&sn=3f03f4da933ffa0baf4eb05f444d85e3&scene=21#wechat_redirect)
 
+三、解的保存；
+
+DFS with return value；
+
+DP- table将问题的解保存下来；
+
+让我想起这个点的是：
+
+1、背包DP存在性问题
+
+2、labuladong [毕 业 旅 行](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247491204&idx=1&sn=3f03f4da933ffa0baf4eb05f444d85e3&scene=21#wechat_redirect) / [旅游省钱大法：加权最短路径](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247491204&idx=1&sn=3f03f4da933ffa0baf4eb05f444d85e3&scene=21#wechat_redirect) 中展示的基于DFS 的最值问题
+
+3、之前写的DFS的存在性问题
+
+四、子问题的相互独立。
 
 
-2、子问题的相互独立。
 
-
+## DP状态机、状态转移方程
 
 一、从下面几个角度来进行讨论:
 
