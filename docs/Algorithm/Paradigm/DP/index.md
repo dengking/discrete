@@ -38,11 +38,15 @@ DP- table将问题的解保存下来；
 
 让我想起这个点的是：
 
-1、背包DP存在性问题
+1、存在性问题
+
+a、背包DP存在性问题
+
+b、之前写的DFS的存在性问题：当使用DFS解存在性问题的时候，通过return bool来判断。
 
 2、labuladong [毕 业 旅 行](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247491204&idx=1&sn=3f03f4da933ffa0baf4eb05f444d85e3&scene=21#wechat_redirect) / [旅游省钱大法：加权最短路径](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247491204&idx=1&sn=3f03f4da933ffa0baf4eb05f444d85e3&scene=21#wechat_redirect) 中展示的基于DFS 的最值问题
 
-3、之前写的DFS的存在性问题
+
 
 四、子问题的相互独立。
 
