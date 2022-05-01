@@ -25,6 +25,3 @@
 ## 三、time and space tradeoff
 
 
-
-
-

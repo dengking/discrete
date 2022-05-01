@@ -6,6 +6,14 @@
 
 
 
+### [wiki](https://github.com/SharingSource/LogicStack-LeetCode/wiki)
+
+> NOTE:
+>
+> 这个wiki中，整理了各种类别的问题。
+
+
+
 ## 微信公众号[「宫水三叶的刷题日记」](https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzU4NDE3MTEyMA==&scene=124&uin=&key=&devicetype=Windows+10+x64&version=6303052a&lang=zh_CN&a8scene=7&fontgear=2)
 
 
