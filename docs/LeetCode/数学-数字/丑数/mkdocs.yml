@@ -1,4 +1,7 @@
 nav:
     - Introduction: index.md
+    - LeetCode-263-丑数: LeetCode-263-丑数
+    - LeetCode-240-丑数-II: LeetCode-240-丑数-II
+    - LeetCode-1201-丑数-III: LeetCode-1201-丑数-III        
     - LeetCode-313-超级丑数-中等: LeetCode-313-超级丑数-中等
     
