@@ -349,47 +349,52 @@ base case:
 m(v, k) = m(v, k-1)
 ```
 
-
+2、要想得到每个节点的parent，需要构建indegree table。
 
 ### 完整程序
 
 ```C++
 #include <bits/stdc++.h>
 using namespace std;
+
 class Solution
 {
 public:
-	int findCheapestPrice(int n, vector<vector<int>> &flights, int src, int dst, int k)
-	{
-		int col = k + 1; //列数，从0-k，一共有k+1列
-		vector<vector<long>> dp(n, vector<long>(col, INT_MAX));
-		// base case
-		for (int i = 0; i < col; ++i)
-		{
-			dp[src][i] = 0; // 从src到src，它的价格是0
-		}
-		for (auto &&flight : flights)
-		{
-			int src_node = flight[0]; // 源节点
-			int dest_node = flight[1]; // 目标节点
-			int weight = flight[2];
-			if (src_node == src) // 是源节点
-			{
-				dp[dest_node][0] = weight;
-			}
-		}
-		for (int i = 1; i <= k; ++i)
-		{
-			for (auto &&flight : flights)
-			{
-				int src_node = flight[0]; // 源节点
-				int dest_node = flight[1]; // 目标节点
-				int weight = flight[2];
-				dp[dest_node][i] = min( { dp[dest_node][i - 1], dp[dest_node][i], dp[src_node][i - 1] + weight });
-			}
-		}
-		return dp[dst][k] == INT_MAX ? -1 : dp[dst][k];
-	}
+  int findCheapestPrice(int n, vector<vector<int>> &flights, int src, int dst, int k)
+  {
+    int col = k + 1; //列数，从0-k，一共有k+1列
+    vector<vector<long>> dp(n, vector<long>(col, INT_MAX));
+    // base case
+    for (int i = 0; i < col; ++i)
+    {
+      dp[src][i] = 0; // 从src到src，无论经过多少次中转都是0
+    }
+    for (auto &&flight : flights)
+    {
+      int src_node = flight[0];  // 源节点
+      int dest_node = flight[1]; // 目标节点
+      int weight = flight[2];
+      if (src_node == src) // 是源节点
+      {
+        dp[dest_node][0] = weight;
+      }
+    }
+    for (int i = 1; i <= k; ++i)
+    {
+      for (auto &&flight : flights)
+      {
+        int src_node = flight[0];  // 源节点
+        int dest_node = flight[1]; // 目标节点
+        int weight = flight[2];
+        dp[dest_node][i] = min({
+            dp[dest_node][i],            // 自己
+            dp[dest_node][i - 1],        // 前一个节点
+            dp[src_node][i - 1] + weight //
+        });
+      }
+    }
+    return dp[dst][k] == INT_MAX ? -1 : dp[dst][k];
+  }
 };
 
 // Driver code
