@@ -8,7 +8,7 @@
 
 一、LeetCode [446. 等差数列划分 II - 子序列](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/) 困难
 
-这道题，我一开始就是使用的穷举的方法，在较大深入下，直接超时
+这道题，我一开始就是使用的穷举的方法，在较大输入下，直接超时
 
 二、labuladong [子序列解题模板：最长回文子序列](https://mp.weixin.qq.com/s/zNai1pzXHeB2tQE6AdOXTA) 
 
@@ -44,7 +44,7 @@
 
 ## 动态规划
 
-参见 `DP解子序列问题` 章节。
+参见 `Subsequenc序列DP` 章节。
 
 
 
@@ -67,6 +67,10 @@
 二分法也可以用于子序列。
 
 
+
+## 单调栈
+
+由于子序列要求保持相对顺序，并且可以不连续，对于这类问题，单调栈是可以使用的。
 
 ## LeetCode 子序列类问题
 
