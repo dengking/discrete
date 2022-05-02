@@ -11,63 +11,89 @@
 使用回溯法进行穷举:
 
 ```c++
-#include <bits/stdc++.h>
+// #include <bits/stdc++.h>
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <bitset>
+#include <map>
+#include <list>
+#include <stack>
+#include <unordered_map>
+#include <unordered_set>
+#include <queue>
+#include <deque>
+#include <cmath>
+#include <numeric>
+#include <climits>
+#include <random>
+// example1.cpp
+// new-delete-type-mismatch error
+#include <memory>
+#include <vector>
 using namespace std;
 
 class Solution
 {
-public:
-	int numberOfArithmeticSlices(vector<int> &nums)
-	{
-		int count = 0;
-		vector<int> track;
-		track.reserve(nums.size());
-		backtrace(nums, count, 0, track);
-		return count;
-	}
-	void backtrace(vector<int> &nums, int &count, int index, vector<int> &track)
-	{
-		if (index == nums.size())
-		{
-			if (track.size() >= 3)
-			{
-				++count;
-			}
+  vector<int> track_;
+  int cnt_ = 0;
 
-			return;
-		}
-		if (track.size() >= 2)
-		{
-			// 选择第index个数
-			if (long(nums[index]) - track.back() == long(track[1]) - track[0])
-			{
-				track.push_back(nums[index]);
-				backtrace(nums, count, index + 1, track);
-				track.pop_back();
-			}
-			// 不选择第index个数
-			backtrace(nums, count, index + 1, track);
-		}
-		else
-		{
-			// 选择第index个数
-			track.push_back(nums[index]);
-			backtrace(nums, count, index + 1, track);
-			track.pop_back();
-			// 不选择第index个数
-			backtrace(nums, count, index + 1, track);
-		}
-	}
+public:
+  int numberOfArithmeticSlices(vector<int> &nums)
+  {
+    track_.reserve(nums.size());
+    dfs(0, nums);
+    return cnt_;
+  }
+  void dfs(int i, vector<int> &nums)
+  {
+    if (i == nums.size())
+    {
+      if (track_.size() >= 3)
+      {
+        ++cnt_;
+      }
+      return;
+    }
+    if (track_.size() >= 2) // 剪枝，需要注意的是：这里是能够取到2的
+    {
+      auto diff1 = 1LL * track_[1] - track_[0];
+      auto diff2 = 1LL * nums[i] - track_.back();
+      if (diff1 == diff2)
+      {
+        // 选择第i个元素
+        track_.push_back(nums[i]);
+        dfs(i + 1, nums);
+        track_.pop_back();
+      }
+
+      // 不选择第i个元素
+      dfs(i + 1, nums);
+    }
+    else
+    {
+      // 选择第i个元素
+      track_.push_back(nums[i]);
+      dfs(i + 1, nums);
+      track_.pop_back();
+
+      // 不选择第i个元素
+      dfs(i + 1, nums);
+    }
+  }
 };
 
+// Driver code
 int main()
 {
-	Solution s;
-	vector<int> nums { 2, 4, 6, 8, 10 };
-	s.numberOfArithmeticSlices(nums);
-}
-// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -g
 
+  Solution solu;
+  vector<int> nums = {2, 4, 6, 8, 10};
+  solu.numberOfArithmeticSlices(nums);
+  return 0;
+}
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra
 
 ```
 
@@ -115,7 +141,7 @@ int main()
 
 
 
-需要结合具体的例子来理解算法的运行过程。
+需要结合具体的例子来理解算法的运行过程，这个以 [liweiwei1419](https://leetcode-cn.com/u/liweiwei1419/) # [动态规划（Java）](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/solution/dong-tai-gui-hua-java-by-liweiwei1419-jc84/) 中的内容为参考。
 
 
 
@@ -160,40 +186,74 @@ $$
 ### 完整代码
 
 ```C++
-#include <bits/stdc++.h>
+// #include <bits/stdc++.h>
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <bitset>
+#include <map>
+#include <list>
+#include <stack>
+#include <unordered_map>
+#include <unordered_set>
+#include <queue>
+#include <deque>
+#include <cmath>
+#include <numeric>
+#include <climits>
+#include <random>
+// example1.cpp
+// new-delete-type-mismatch error
+#include <memory>
+#include <vector>
 using namespace std;
 
 class Solution
 {
 public:
-	int numberOfArithmeticSlices(vector<int> &nums)
-	{
-		int ans = 0;
-		int n = nums.size();
-		vector<unordered_map<long long, int>> f(n); // key: 公差 value: 若等差数列的个数
-		for (int i = 0; i < n; ++i)
-		{
-			for (int j = 0; j < i; ++j)
-			{
-				long long d = 1LL * nums[i] - nums[j]; // 计算公差
-				auto it = f[j].find(d);
-				int cnt = it == f[j].end() ? 0 : it->second;
-				ans += cnt;//只有当在j中找到了公差d的时候，它们才能够形成一个长度大于等于3的等差数列
-				f[i][d] += cnt + 1;
-			}
-		}
-		return ans;
-	}
+  int numberOfArithmeticSlices(vector<int> &nums)
+  {
+    if (nums.size() < 3)
+    {
+      return 0;
+    }
+    // hybrid ds
+    // unordered_map: key 公差; value 计数
+    // vector[i] 表示以 nums[i] 结尾的弱等差数列的统计情况
+    vector<unordered_map<long long, int>> dp(nums.size());
+    int cnt = 0;
+    for (int i = 0; i < nums.size(); ++i) // 第一层循环遍历元素
+    {
+      for (int j = 0; j < i; ++j)
+      {
+        auto diff = 1LL * nums[i] - nums[j]; // 必须要转换为long long，否则会报 UndefinedBehaviorSanitizer: undefined-behavior signed integer overflow: -294967296 - 2000000000 cannot be represented in type 'int'
+        if (dp[j].count(diff))               // 在dp[j]中，发现了diff，说明存在以 nums[i] 结尾公差为diff的弱等差数列，因此可以形成符合题目要求的等差数列
+        {
+          dp[i][diff] += 1;           // nums[i] 和 nums[j] 可以形成一个弱等差数列，更新弱等差数列的个数
+          dp[i][diff] += dp[j][diff]; // 更新弱等差数列的个数
+          cnt += dp[j][diff];         // 能够形成一个符合题目要求的等差数列
+        }
+        else // 在dp[j]中，并没有发现diff，说明不存在以 nums[i] 结尾公差为diff的弱等差数列，因此就无法形成符合题目要求的等差数列
+        {
+          dp[i][diff] += 1; // nums[i] 和 nums[j] 可以形成一个弱等差数列，更新弱等差数列的个数
+        }
+      }
+    }
+    return cnt;
+  }
 };
 
+// Driver code
 int main()
 {
-	Solution s;
-	vector<int> nums { 2, 4, 6, 8, 10 };
-	s.numberOfArithmeticSlices(nums);
-}
-// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -g
 
+  Solution solu;
+  vector<int> nums = {2, 4, 6, 8, 10};
+  solu.numberOfArithmeticSlices(nums);
+  return 0;
+}
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra
 
 ```
 
@@ -202,8 +262,6 @@ int main()
 > 关于上述嵌套for循环，在 [【负雪明烛】揭秘子序列动态规划的套路](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/solution/fu-xue-ming-zhu-jie-mi-zi-xu-lie-dong-ta-gepk/) 中，有着非常好的描述；
 >
 > 
-
-
 
 
 
@@ -220,6 +278,26 @@ int main()
 2、题目不要求连续，因此在求每一个状态的时候，就需要 **考虑它之前的所有的元素**；
 
 3、能不能接上去，看「公差」，因此记录状态的时候，除了要求以 `nums[i]` 结尾以外，还要记录「公差」，两个整数的差可以有很多很多，因此需要用哈希表记录下来。
+
+到这里为止，每一个 `nums[i]` 的状态，其实是一张哈希表（键值对），「键」 是 `nums[i]` 与它前面的每一个元素的「差」，那「值」是什么呢？「值」是以 `nums[i]` 结尾组成的、公差为某个值的 **长度大于等于 2** 的**等差子序列**的个数（就是官方题解中提到的**弱等差数列**的个数）。
+
+### 状态的「值」是什么？
+
+> NOTE:
+>
+> 其实就是弱等差数列的个数
+
+1、计算「差」，至少需要两个元素；
+
+2、**等差数列**最开始形成的时候，即：**只有两个元素的时候，对结果没有贡献**，因为题目要求等差数列的长度至少为3；
+
+### 以「示例 1」 为例
+
+输入：`nums = [2, 4, 6, 8, 10]`。
+
+整个过程形成的键值对如下：
+
+![image.png](https://pic.leetcode-cn.com/1628618290-XVlBzg-image.png)
 
 
 

@@ -2,11 +2,11 @@
 
 
 
-## 我的解题
+## 我的解题-一次错误的解题记录
 
 这道题其实和 LeetCode [90. 子集 II](https://leetcode-cn.com/problems/subsets-ii/) 非常类似，它在那道题的基础上增加了一个递增子序列而已。
 
-### 第一次解题
+
 
 ```c++
 
