@@ -42,9 +42,9 @@ subsequence的特征：
 
 ## 滑动窗口
 
-如果"子序列、单调、最优化问题"，则可以使用滑动窗口。
+需要注意，滑动窗口是不能够用来解子序列问题的，这在下面的文章中进行了说明：
 
-参见 `滑动窗口解子序列问题` 章节。
+1、[446. 等差数列划分 II - 子序列](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/) # [liweiwei1419](https://leetcode-cn.com/u/liweiwei1419/) # [动态规划（Java）](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/solution/dong-tai-gui-hua-java-by-liweiwei1419-jc84/)
 
 
 
@@ -76,15 +76,17 @@ subsequence的特征：
 
 ## 单调栈
 
-由于子序列要求保持相对顺序，并且可以不连续，对于这类问题，单调栈是可以使用的。
+一、由于子序列要求保持相对顺序，并且可以不连续，对于这类问题，单调栈是可以使用的。
 
-这类问题的特征是：
+二、这类问题的特征是：
 
 1、移除部分
 
 2、最值问题
 
 它们都可以转换为和字典序相关的。
+
+三、在对应的章节中，有着非常好的描述
 
 ## LeetCode 子序列类问题
 

@@ -93,13 +93,39 @@ int main()
 
 
 
+## DP解法
+
+在下面的文章中进行了非常好的阐述：
+
+1、[官方解题](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/solution/deng-chai-shu-lie-hua-fen-ii-zi-xu-lie-b-77pl/) 的讲解是把这个算法的细节讲的最好的，其中使用了 **弱等差子序列** 的概念，这个概念是理解这个问题的核心所在。
+
+2、[liweiwei1419](https://leetcode-cn.com/u/liweiwei1419/) # [动态规划（Java）](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/solution/dong-tai-gui-hua-java-by-liweiwei1419-jc84/)
+
+这篇文章中，结合了具体的例子来进行说明，可以作为1的补充
+
+3、[[负雪明烛]揭秘子序列动态规划的套路](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/solution/fu-xue-ming-zhu-jie-mi-zi-xu-lie-dong-ta-gepk/) 
+
+这篇文章是讲解整体思路最好的。
+
+
+
+阅读顺序: 
+
+首先阅读3掌握大思路，但是这篇文章对细节的描述不够，需要阅读 1 来掌握细节，2中有具体的例子，能够帮助理解细节。
+
+
+
+需要结合具体的例子来理解算法的运行过程。
+
+
+
 ## [官方解题](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/solution/deng-chai-shu-lie-hua-fen-ii-zi-xu-lie-b-77pl/) 
 
 我们首先考虑至少有两个元素的**等差子序列**，下文将其称作**弱等差子序列**。
 
 > NOTE: 
 >
-> 一、需要注意的是是"至少为两个"，因此三个也是一个等差子序列
+> 一、需要注意的是 **弱等差子序列**  的要求是: "至少为两个"，因此三个也是一个 **弱等差子序列**  
 
 由于尾项和公差可以确定一个**等差数列**，因此我们定义状态 $f[i][d]$​ 表示尾项为 $\textit{nums}[i] $​，公差为 $d$​ 的**弱等差子序列**的个数。
 
@@ -108,6 +134,7 @@ int main()
 $$
 f[i][d]+=f[j][d]+1
 $$
+
 > NOTE: 
 >
 > 一、上述思路，在 [【负雪明烛】揭秘子序列动态规划的套路](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/solution/fu-xue-ming-zhu-jie-mi-zi-xu-lie-dong-ta-gepk/) 中，有着更好的描述
@@ -143,7 +170,7 @@ public:
 	{
 		int ans = 0;
 		int n = nums.size();
-		vector<unordered_map<long long, int>> f(n);
+		vector<unordered_map<long long, int>> f(n); // key: 公差 value: 若等差数列的个数
 		for (int i = 0; i < n; ++i)
 		{
 			for (int j = 0; j < i; ++j)
@@ -151,7 +178,7 @@ public:
 				long long d = 1LL * nums[i] - nums[j]; // 计算公差
 				auto it = f[j].find(d);
 				int cnt = it == f[j].end() ? 0 : it->second;
-				ans += cnt;
+				ans += cnt;//只有当在j中找到了公差d的时候，它们才能够形成一个长度大于等于3的等差数列
 				f[i][d] += cnt + 1;
 			}
 		}
@@ -174,11 +201,29 @@ int main()
 >
 > 关于上述嵌套for循环，在 [【负雪明烛】揭秘子序列动态规划的套路](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/solution/fu-xue-ming-zhu-jie-mi-zi-xu-lie-dong-ta-gepk/) 中，有着非常好的描述；
 >
->  
+> 
 
 
 
-## [【负雪明烛】揭秘子序列动态规划的套路](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/solution/fu-xue-ming-zhu-jie-mi-zi-xu-lie-dong-ta-gepk/) 
+
+
+## [liweiwei1419](https://leetcode-cn.com/u/liweiwei1419/) # [动态规划（Java）](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/solution/dong-tai-gui-hua-java-by-liweiwei1419-jc84/)
+
+本题与 [413. 等差数列划分](https://leetcode-cn.com/problems/arithmetic-slices/) 唯一不同的是：题目要求的等差数列在输入数组上 **可以不连续**，所以「滑动窗口」用不上，但是「动态规划」多半可以。
+
+### 状态定义
+
+> **关键**：状态不够用了，需要「升维」，在原来定义的状态的基础上加上「公差」。
+
+1、「以 `nums[i]` 结尾」这件事情肯定要定义在状态中；
+
+2、题目不要求连续，因此在求每一个状态的时候，就需要 **考虑它之前的所有的元素**；
+
+3、能不能接上去，看「公差」，因此记录状态的时候，除了要求以 `nums[i]` 结尾以外，还要记录「公差」，两个整数的差可以有很多很多，因此需要用哈希表记录下来。
+
+
+
+## [[负雪明烛]揭秘子序列动态规划的套路](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/solution/fu-xue-ming-zhu-jie-mi-zi-xu-lie-dong-ta-gepk/) 
 
 我见到**子序列问题**，就想到了经典的题目：[300. 最长递增子序列](https://leetcode-cn.com/problems/longest-increasing-subsequence/)。也就是想起来了动态规划，本题和 300 题的动态规划的思路是相通的。
 
@@ -195,10 +240,18 @@ int main()
 > 一、上面这段描述，其实结合最长递增子序列是非常好理解的，参见 `Expert-labuladong\1-动态规划系列\1.2-子序列类型问题\LIS-最长递增子序列` 章节
 >
 > 二、divide conquer-problem原问题subproblem子问题
+>
+> 显然内部循环是从子问题推到出更大问题的过程，这其实就是状态的转移
+>
+> 三、始终转移：`i` 是外循环，`j`是内循环
 
 1、对于「**最长递增子序列**」问题，我们对 $i, j$ 的要求是 $nums[i] > nums[j]$，即递增；
 
 2、对于「**能构成等差数列的子序列**」问题，我们对 $i, j$ 的要求是 $num[i]$ 可以在 $nums[j]$ 的基础上构成等差数列。
+
+> NOTE: 
+>
+> 这就是从子问题转移到更大的问题
 
 在动态规划问题中，我们找到一个符合条件的 $j$ ，然后就可以通过状态转移方程由 $dp[j]$ 推导出 $dp[i]$。
 
@@ -206,7 +259,9 @@ int main()
 
 一、**两重循环**：外部循环用于计算每个 `i` 位置的状态，内部循环用于寻找符合条件的 `j` 。
 
-
+> NOTE:
+>
+> 其实 `i` 描述的是问题的规模，它其实对应的是回溯法的
 
 二、**何为符合条件？**
 
@@ -218,11 +273,15 @@ int main()
 
 在上面的分析中，我们看到对于 $j$ 位置会有多个 $diff$，所以一维的状态转移方程已经不够用了。必须定义两维的状态 $dp[i][diff]$，但是由于 $diff$ 的取值范围很大，所以不能用二维数组。最终定义两位的状态是 $ dp[i]−>dict $，其含义是在 $i$ 位置，以 $diff$ 为公差的、且以 $nums[i]$ 为结尾元素的等差数列的个数为 $dp[i][diff] - 1$。为什么要减一，见[李威威的题解](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/solution/dong-tai-gui-hua-java-by-liweiwei1419-jc84/)。
 
-
+> NOTE:
+>
+> 一、上述 $ dp[i]−>dict $ 的含义是 $ dp[i] $ 的类型是 `dict`。
+>
+> 二、减一是因为要扣除长度为2的
 
 四、**状态转移方程？**
 
-当寻找到了一个 $j$ 符合条件时，相当于在长度为 $dp[j][diff]$ 的递增子序列的尾部增加了一个元素 $nums[i]$，所以以 $diff$ 为公差的、且以 $nums[i]$ 为结尾元素的等差数列的个数为 $dp[i][diff] += dp[j][diff] + 1。$
+当寻找到了一个 $j$ 符合条件时，相当于在长度为 $dp[j][diff]$ 的**递增子序列**的尾部增加了一个元素 $nums[i]$，所以以 $diff$ 为公差的、且以 $nums[i]$ 为结尾元素的等差数列的个数为 $dp[i][diff] += dp[j][diff] + 1。$
 
 
 
@@ -230,7 +289,23 @@ int main()
 
 题目要求的结果是所有能形成等差数列的子序列的个数，所以结果是累加所有的状态。这时候注意要加的是 $dp[j][diff]$，因为只有 $j$ 位置也出现了同样的 $diff$ 的时候，才会和 $i$ 一起形成长度 > 3 的等差数列。
 
+### 代码
 
+```python
+class Solution(object):
+    def numberOfArithmeticSlices(self, nums):
+        N = len(nums)
+        dp = [collections.defaultdict(int) for i in range(N)]
+        res = 0
+        for i in range(N):
+            for j in range(i):
+                diff = nums[i] - nums[j]
+                dp[i][diff] += dp[j][diff] + 1
+                if dp[j][diff]:
+                    res += dp[j][diff]
+        return res
+
+```
 
 
 
