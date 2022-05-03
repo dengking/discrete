@@ -2,4 +2,5 @@ nav:
     - Introduction: index.md
     - DFS-Depth-first-search: DFS-Depth-first-search
     - BFS-Breadth-first-search: BFS-Breadth-first-search
+    - LeetCode: LeetCode
     

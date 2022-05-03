@@ -122,7 +122,7 @@ b、之前写的DFS的存在性问题：当使用DFS解存在性问题的时候�
 
 ### $O(N)$ 复杂度
 
-
+一、一些子数组问题可以实现$O(N)$ 复杂度
 
 1、最大子数组和使用动态规划是否能够实现 $O(N)$ 复杂度
 
@@ -136,11 +136,15 @@ b、之前写的DFS的存在性问题：当使用DFS解存在性问题的时候�
 
 等差子数组的个数
 
+
+
 ### $O(N^2)$ 复杂度
 
-2、很多**子序列**问题，复杂度都为$O(N^2)$​​​ 复杂度
+一、很多**子序列**问题，复杂度都为$O(N^2)$​​​ 复杂度
 
 关于这一点，是我在阅读 LeetCode [446. 等差数列划分 II - 子序列](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/) 困难 # [【负雪明烛】揭秘子序列动态规划的套路](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/solution/fu-xue-ming-zhu-jie-mi-zi-xu-lie-dong-ta-gepk/) 时，想到的。
+
+
 
 ## 素材
 

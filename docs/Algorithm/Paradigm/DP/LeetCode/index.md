@@ -376,7 +376,21 @@ LeetCode [518. 零钱兑换 II](https://leetcode-cn.com/problems/coin-change-2/)
 
 ## 计数问题
 
+### base case
+
+DP解计数问题的base case对于empty problem，它一般会初始化为1，下面是例子：
+
+1、leetcode [91. 解码方法](https://leetcode-cn.com/problems/decode-ways/) 中等
+
+2、LeetCode [62. 不同路径](https://leetcode-cn.com/problems/unique-paths/) 中等
+
+3、leetcode [416. 分割等和子集](https://leetcode-cn.com/problems/partition-equal-subset-sum/) # [星晴pro](https://leetcode-cn.com/u/eh-xing-qing/) # [一篇文章吃透背包问题！（细致引入+解题模板+例题分析+代码呈现](https://leetcode-cn.com/problems/partition-equal-subset-sum/solution/yi-pian-wen-zhang-chi-tou-bei-bao-wen-ti-a7dd/) 
+
+
+
 LeetCode [552. 学生出勤记录 II](https://leetcode-cn.com/problems/student-attendance-record-ii/) 困难
+
+### Fibonacci DP
 
 
 
