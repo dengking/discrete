@@ -1,3 +1,7 @@
 nav:
     - Introduction: index.md
-    - LeetCode-等差数列: LeetCode-等差数列
+    - LeetCode-300-最长递增子序列: LeetCode-300-最长递增子序列
+    - LeetCode-491-递增子序列-中等: LeetCode-491-递增子序列-中等
+    - LeetCode-673-最长递增子序列的个数: LeetCode-673-最长递增子序列的个数
+    - LeetCode-674-最长连续递增序列: LeetCode-674-最长连续递增序列
+    - LeetCode-354-俄罗斯套娃信封问题: LeetCode-354-俄罗斯套娃信封问题    
