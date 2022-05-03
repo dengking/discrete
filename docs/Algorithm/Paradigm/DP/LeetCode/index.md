@@ -217,7 +217,7 @@ public:
 
 ### DP 子序列 VS DP 子数组
 
-两者的相同点: **DP方程**的定义都是以`nums[i]` 结尾的，算法过程都是 `nums[i]` 和它前面的**子序列**/**子数组**进行**连接**，所不同的是**子序列**不要求连续，但是**子数组**要求连续，因此子序列会遍历它前面的所有的元素，而子数组只需要考虑它紧邻的一个元素。
+两者的相同点: **DP方程**的定义都是以`nums[i]` 结尾的，算法过程都是 `nums[i]` 和它前面的**子序列**/**子数组**进行**连接**，所不同的是**子序列**不要求连续，但是**子数组**要求连续，因此子序列会遍历它前面的所有的元素，而子数组只需要考虑它紧邻的一个元素，其实这就决定了两者的复杂度: $O(N^2)$ VS $O(N)$。
 
 关于两者对比的最最经典的例子就是:
 
@@ -229,7 +229,13 @@ public:
 
 2、[446. 等差数列划分 II - 子序列](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/) # [动态规划（Java）](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/solution/dong-tai-gui-hua-java-by-liweiwei1419-jc84/)
 
+二、LeetCode [413. 等差数列划分](https://leetcode-cn.com/problems/arithmetic-slices/) 中等、LeetCode [446. 等差数列划分 II - 子序列](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/) 困难
 
+#### complexity: $O(N^2)$ VS $O(N)$
+
+对于子序列问题，追求 $O(N^2)$ 的复杂度；
+
+对于子数组问题，追求 $O(N)$ 的复杂度； 
 
 ### 最优值问题
 

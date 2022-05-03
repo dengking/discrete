@@ -52,6 +52,8 @@
 
 四、二分查找
 
+
+
 ### state space、solution space、穷举、systematic method
 
 这个问题在 labuladong [子序列解题模板：最长回文子序列](https://mp.weixin.qq.com/s/zNai1pzXHeB2tQE6AdOXTA) 有着总结: 
@@ -64,3 +66,22 @@ labuladong [LeetCode 股票问题的一种通用解法](https://mp.weixin.qq.com
 
 穷举所有可能的组合
 
+
+
+## subsequence子序列 VS subarray子数组、substr子(字符)串
+
+一、DP
+
+参见对应章节
+
+二、complexity: $O(N^2)$ VS $O(N)$
+
+对于子序列问题，追求 $O(N^2)$ 的复杂度；
+
+对于子数组问题，追求 $O(N)$ 的复杂度； 
+
+三、滑动窗口
+
+subsequence子序列 不适合使用 滑动窗口；
+
+subarray子数组、substr子(字符)串 适合使用 滑动窗口；

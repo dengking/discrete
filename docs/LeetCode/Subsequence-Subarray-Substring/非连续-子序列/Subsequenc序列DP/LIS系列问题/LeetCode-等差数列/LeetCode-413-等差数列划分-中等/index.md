@@ -15,60 +15,155 @@
 对于存在重叠子问题的，我们在设计算法的时候，需要据此进行优化: 因此，一个直观的写法是: 保存当前的公差`d`。
 
 
-## 我的解题-$O(N^3)$
+## 穷举 $O(N^3)$
 
 
 
 ```C++
-#include <bits/stdc++.h>
+// #include <bits/stdc++.h>
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <bitset>
+#include <map>
+#include <list>
+#include <stack>
+#include <unordered_map>
+#include <unordered_set>
+#include <queue>
+#include <deque>
+#include <cmath>
+#include <numeric>
+#include <climits>
+#include <random>
+// example1.cpp
+// new-delete-type-mismatch error
+#include <memory>
+#include <vector>
 using namespace std;
 
 class Solution
 {
 public:
-	int numberOfArithmeticSlices(vector<int> &nums)
-	{
-		int count = 0;
-		int len = nums.size();
-		for (int start = 0; start <= len - 3; ++start)
-		{
-			for (int end = start + 2; end < len; ++end)
-			{
-				bool match = true;
-				int diff = nums[start] - nums[start + 1];
-				for (int i = start + 1; i < end; ++i)
-				{
-					if (nums[i] - nums[i + 1] == diff)
-					{
-						continue;
-					}
-					else
-					{
-						match = false;
-						break;
-					}
-				}
-				if (match)
-				{
-					++count;
-				}
-			}
-		}
-		return count;
-	}
+  int numberOfArithmeticSlices(vector<int> &nums)
+  {
+    int count = 0;
+    int len = nums.size();
+    for (int start = 0; start <= len - 3; ++start) // 起始位置
+    {
+      for (int end = start + 2; end < len; ++end) // 终止位置
+      {
+        bool match = true;
+        int diff = nums[start] - nums[start + 1];
+        for (int i = start + 1; i < end; ++i) // 校验是否合法
+        {
+          if (nums[i] - nums[i + 1] == diff)
+          {
+            continue;
+          }
+          else
+          {
+            match = false;
+            break;
+          }
+        }
+        if (match)
+        {
+          ++count;
+        }
+      }
+    }
+    return count;
+  }
 };
+
+// Driver code
 int main()
 {
-	Solution s;
-}
-// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -g
 
+  Solution solu;
+  vector<int> nums = {2, 4, 6, 8, 10};
+  return 0;
+}
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra
 
 ```
 
 上述冗余计算在于: 每次都需要重新计算公差。
 
-## 官方解题
+
+
+## 动态规划
+
+这个解法是参考的leetcode [446. 等差数列划分 II - 子序列](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/) 的写法的：
+
+```c++
+// #include <bits/stdc++.h>
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <bitset>
+#include <map>
+#include <list>
+#include <stack>
+#include <unordered_map>
+#include <unordered_set>
+#include <queue>
+#include <deque>
+#include <cmath>
+#include <numeric>
+#include <climits>
+#include <random>
+// example1.cpp
+// new-delete-type-mismatch error
+#include <memory>
+#include <vector>
+using namespace std;
+
+class Solution
+{
+public:
+  int numberOfArithmeticSlices(vector<int> &nums)
+  {
+    // 弱等差数列的个数
+    vector<unordered_map<long long, int>> dp(nums.size());
+    int res = 0;
+    for (int i = 1; i < nums.size(); ++i)
+    {
+      auto diff = 1LL * nums[i] - nums[i - 1];
+      if (dp[i - 1].count(diff))
+      {
+        auto cnt = dp[i - 1][diff];
+        dp[i][diff] += cnt;
+        dp[i][diff] += 1;
+        res += cnt;
+      }
+      else
+      {
+        dp[i][diff] += 1;
+      }
+    }
+    return res;
+  }
+};
+
+// Driver code
+int main()
+{
+
+  Solution solu;
+  vector<int> nums = {2, 4, 6, 8, 10};
+  return 0;
+}
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra
+
+```
+
+
+
+## [官方解题](https://leetcode-cn.com/problems/arithmetic-slices/solution/deng-chai-shu-lie-hua-fen-by-leetcode-so-g7os/)
 
 ### 方法一: 差分 + 计数-$O(N^2)$
 
@@ -76,15 +171,23 @@ int main()
 
 
 
-### 优化: $O(N)$
+#### 优化: $O(N)$
 
 > NOTE: 
 >
 > 一、这种思路还是动态规划的思路，需要从"divide-and-conquer-原问题和子问题"的思想来进行思考， $t_i$ 记录的是以第 $i$ 个元素结尾的等差子数组的个数，那如何根据  $t_i$ 推导出 $t_{i+1}$ 呢？
 >
 > 下面的回答对这个问题进行了解答。
+>
+> 二、"要么连在一起，要么自成一派"，这和最大子数组和是类似的，这说明: 子数组的题目，很多都可以基于这个思路来做。这个思路是非常适合于子数组问题的，因为子数组问题要求连续性，显然，一旦与前面相邻的元素无法满足限制条件的时候，那么就可以自成一派，形成以自己打头的子数组，这样说能够降低问题的规模大。
+>
+> 三、对于子数组的问题，需要追求O(N) 的算法复杂度。
 
-如果我们已经求出了 $\textit{nums}[i - 1]$​ 以及 $\textit{nums}[i]$​ 作为等差数列的最后两项时，答案增加的次数 $t_i$​，那么能否快速地求出 $t_{i+1}$ 呢？
+如果我们已经求出了 $\textit{nums}[i - 1]$​ 以及 $\textit{nums}[i]$​ 作为**等差数列**的最后两项时，答案增加的次数 $t_i$​，那么能否快速地求出 $t_{i+1}$ 呢？
+
+> NOTE:
+>
+> 需要注意的是：由于题目要求的是子数组，即元素是连续的，所以上面枚举的是  $\textit{nums}[i - 1]$ 以及 $\textit{nums}[i]$ 
 
 答案是可以的：
 
@@ -98,4 +201,6 @@ $$
 t_{i+1} = 0
 $$
 这样一来，我们通过上述简单的递推，即可在 $O(1)$ 的时间计算等差数列数量的增量，总时间复杂度减少至 $O(n)$。
+
+
 
