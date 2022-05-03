@@ -1,6 +1,6 @@
 # LeetCode [413. 等差数列划分](https://leetcode-cn.com/problems/arithmetic-slices/) 中等
 
-这个问题是典型的存在**重叠子问题**的: 
+一、这个问题是典型的存在**重叠子问题**的: 
 
 1、已知一个子数组的公差为`d`，如果一个新的元素与数组的最后一个元素的公差为`d`，那么它们就形成了一个更大的**等差子数组**。
 
@@ -13,6 +13,8 @@
 
 
 对于存在重叠子问题的，我们在设计算法的时候，需要据此进行优化: 因此，一个直观的写法是: 保存当前的公差`d`。
+
+二、这道题和最大子数组和基本上思想相同。
 
 
 ## 穷举 $O(N^3)$
@@ -94,7 +96,7 @@ int main()
 
 
 
-## 动态规划
+## 动态规划  $O(N)$
 
 这个解法是参考的leetcode [446. 等差数列划分 II - 子序列](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/) 的写法的：
 
@@ -177,7 +179,75 @@ int main()
 
 - 否则更小的 $j$ 也无法作为等差数列的首个位置了，我们直接退出遍历。
 
+```c++
+// #include <bits/stdc++.h>
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <bitset>
+#include <map>
+#include <list>
+#include <stack>
+#include <unordered_map>
+#include <unordered_set>
+#include <queue>
+#include <deque>
+#include <cmath>
+#include <numeric>
+#include <climits>
+#include <random>
+// example1.cpp
+// new-delete-type-mismatch error
+#include <memory>
+#include <vector>
+using namespace std;
 
+class Solution
+{
+public:
+  int numberOfArithmeticSlices(vector<int> &nums)
+  {
+    int count = 0;
+    int len = nums.size();
+    if (len < 3)
+    {
+      return count;
+    }
+    for (int i = len - 2; i >= 1; --i)
+    {
+      int diff = nums[i] - nums[i + 1];
+      for (int j = i - 1; j >= 0; --j)
+      {
+        if (nums[j] - nums[j + 1] == diff)
+        {
+          ++count;
+        }
+        else
+        {
+          break; // "要么连在一起，要么自成一派"
+        }
+      }
+    }
+    return count;
+  }
+};
+
+// Driver code
+int main()
+{
+
+  Solution solu;
+  vector<int> nums = {2, 4, 6, 8, 10};
+  return 0;
+}
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra
+
+```
+
+> NOTE:
+>
+> "要么连在一起，要么自成一派"
 
 
 
@@ -185,13 +255,13 @@ int main()
 
 > NOTE: 
 >
-> 一、这种思路还是动态规划的思路，需要从"divide-and-conquer-原问题和子问题"的思想来进行思考， $t_i$ 记录的是以第 $i$ 个元素结尾的等差子数组的个数，那如何根据  $t_i$ 推导出 $t_{i+1}$ 呢？
->
-> 下面的回答对这个问题进行了解答。
+> 一、这种思路还是动态规划的思路，需要从"divide-and-conquer-原问题和子问题"的思想来进行思考， $t_i$ 记录的是以第 $i$ 个元素结尾的等差子数组的个数，那如何根据  $t_i$ 推导出 $t_{i+1}$ 呢？其实这个推导过程和 LeetCode [446. 等差数列划分 II - 子序列](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/) 困难 的推导过程类似。
 >
 > 二、"要么连在一起，要么自成一派"，这和最大子数组和是类似的，这说明: 子数组的题目，很多都可以基于这个思路来做。这个思路是非常适合于子数组问题的，因为子数组问题要求连续性，显然，一旦与前面相邻的元素无法满足限制条件的时候，那么就可以自成一派，形成以自己打头的子数组，这样说能够降低问题的规模大。
 >
 > 三、对于子数组的问题，需要追求O(N) 的算法复杂度。
+>
+> 四、
 
 如果我们已经求出了 $\textit{nums}[i - 1]$​ 以及 $\textit{nums}[i]$​ 作为**等差数列**的最后两项时，答案增加的次数 $t_i$​，那么能否快速地求出 $t_{i+1}$ 呢？
 
