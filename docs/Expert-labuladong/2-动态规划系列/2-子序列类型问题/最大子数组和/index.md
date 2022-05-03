@@ -250,6 +250,45 @@ int main()
 
 这种实现和上面的那种实现是完全不同的；
 
+> NOTE:
+>
+> 上述代码是经过状态压缩的DP写法，它的非压缩版本的写法如下:
+>
+> ```c++
+> 
+> class Solution
+> {
+> public:
+>   /**
+>    * @brief 整体思路是穷举以nums[i]结尾的最大子数组和然后将这些子数组和打擂台选择出最优值
+>    *
+>    * @param nums
+>    * @return int
+>    */
+>   int maxSubArray(vector<int> &nums)
+>   {
+>     vector<int> dp(nums.size()); //以nums[i]结尾的最大子数组和
+>     dp[0] = nums[0];             // base case
+>     for (int i = 1; i < nums.size(); ++i)
+>     {
+>       if (dp[i - 1] + nums[i] > nums[i]) // 有增益则与前面的相连
+>       {
+>         dp[i] = nums[i] + dp[i - 1];
+>       }
+>       else
+>       {
+>         dp[i] = nums[i]; // 自成一家
+>       }
+>     }
+>     return *std::max_element(dp.begin(), dp.end()); // 取出最大值
+>   }
+> };
+> ```
+>
+> 
+
+
+
 
 
 ## draft: 源代码

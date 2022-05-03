@@ -215,6 +215,22 @@ public:
 
 ## 子序列、子串、子数组
 
+### DP 子序列 VS DP 子数组
+
+两者的相同点: **DP方程**的定义都是以`nums[i]` 结尾的，算法过程都是 `nums[i]` 和它前面的**子序列**/**子数组**进行**连接**，所不同的是**子序列**不要求连续，但是**子数组**要求连续，因此子序列会遍历它前面的所有的元素，而子数组只需要考虑它紧邻的一个元素。
+
+关于两者对比的最最经典的例子就是:
+
+一、**LIS** 和 **最大子数组和**
+
+在下面的文章中进行了非常好的描述：
+
+1、[446. 等差数列划分 II - 子序列](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/) # [【负雪明烛】揭秘子序列动态规划的套路](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/solution/fu-xue-ming-zhu-jie-mi-zi-xu-lie-dong-ta-gepk/)
+
+2、[446. 等差数列划分 II - 子序列](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/) # [动态规划（Java）](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/solution/dong-tai-gui-hua-java-by-liweiwei1419-jc84/)
+
+
+
 ### 最优值问题
 
 #### LIS、最长递增子序列
@@ -356,3 +372,12 @@ LeetCode [518. 零钱兑换 II](https://leetcode-cn.com/problems/coin-change-2/)
 
 LeetCode [552. 学生出勤记录 II](https://leetcode-cn.com/problems/student-attendance-record-ii/) 困难
 
+
+
+## DP数组和最优解
+
+DP数组记录的是子问题的解，而不一定是最优解，有的用DP来求解的问题，它的最优解需要另外来进行计算，下面是典型的例子：
+
+1、LeetCode [53. 最大子数组和](https://leetcode-cn.com/problems/maximum-subarray/)
+
+2、LeetCode [446. 等差数列划分 II - 子序列](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/) 困难
