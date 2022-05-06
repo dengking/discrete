@@ -1,5 +1,6 @@
 nav:
     - Introduction: index.md
+    - Subset: Subset # 子集
     - Sudoku-solving: Sudoku-solving
     - N-queen: N-queen
     - Symbol-triangle: Symbol-triangle    

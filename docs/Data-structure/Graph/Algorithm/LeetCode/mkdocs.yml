@@ -1,5 +1,6 @@
 nav:
     - Introduction: index.md
+    - LeetCode-DFS: LeetCode-DFS
     - LeetCode-547-省份数量: LeetCode-547-省份数量
     - LeetCode-面试题-16.19-水域大小-中等: LeetCode-面试题-16.19-水域大小-中等
     - LeetCode-欧拉回路: LeetCode-欧拉回路    

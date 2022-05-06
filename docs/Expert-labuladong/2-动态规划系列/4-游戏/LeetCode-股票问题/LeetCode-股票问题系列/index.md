@@ -66,3 +66,41 @@
 
 返回获得利润的最大值。
 
+
+
+## leetcode [『 动态规划 』 DP模板解决一众买卖股票问题](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iv/solution/by-flix-us00/)
+
+
+
+```python
+class Solution:
+    def maxProfit(self, k: int, prices: List[int]) -> int:
+
+        n = len(prices)
+        if n<2 or k==0:
+            return 0
+        
+        k = min(k, n//2)        # n 天最多只能进行 n/2 笔交易
+        dp = [[[0]*2 for j in range(k+1)] for _ in range(n)]
+        
+        # 将不合理的初始状态统统设为一个较大的负值
+        for j in range(k+1):
+            dp[0][j][1] = float('-inf')
+            dp[0][j][0] = float('-inf')
+        
+        # 合理的初始化
+        dp[0][0][0] = 0
+        dp[0][1][1] = -prices[0]
+
+        # 状态转移
+        for i in range(1, n):
+            for j in range(1, k+1):
+                dp[i][j][1] = max(dp[i-1][j][1], dp[i-1][j-1][0] - prices[i])
+                dp[i][j][0] = max(dp[i-1][j][0], dp[i-1][j][1] + prices[i])
+        
+        # j次买卖股票后的最大值即为最大利润
+        return max(dp[n-1][j][0] for j in range(k+1))   
+
+
+```
+

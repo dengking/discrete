@@ -1,5 +1,11 @@
 # labuladong [团灭 LeetCode 打家劫舍问题](https://mp.weixin.qq.com/s/z44hk0MW14_mAQd7988mfw)
 
+> NOTE: 
+>
+> LeetCode-House-robber-打家劫舍系列是典型的fibonacci DP，更加准确的说，它和 leetcode [746. 使用最小花费爬楼梯](https://leetcode-cn.com/problems/min-cost-climbing-stairs/) 简单 非常类似。
+>
+> 
+
 
 
 ## House Robber I
@@ -177,9 +183,9 @@ int rob(int[] nums) {
 
 > NOTE: 
 >
-> leetcode [337. 打家劫舍 III](https://leetcode-cn.com/problems/house-robber-iii/) 中等
+> 一、leetcode [337. 打家劫舍 III](https://leetcode-cn.com/problems/house-robber-iii/) 中等
 >
-> 
+> 二、这道题是需要枚举所有的可能性大，容易忽视的是：在抢root的情况下，不一定要抢它的left 和 right的，也是可以不抢的。
 
 第三题又想法设法地变花样了，此强盗发现现在面对的房子不是一排，不是一圈，而是一棵二叉树！房子在二叉树的节点上，相连的两个房子不能同时被抢劫：
 

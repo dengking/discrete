@@ -4,6 +4,12 @@
 
 可以把所有的**最优值问题**一起拿起来进行对比。
 
+在下面的文章中给出了算法框架：
+
+一、labuladong [团灭 LeetCode 股票买卖问题](https://mp.weixin.qq.com/s/lQEj_K1lUY83QtIzqTikGA) 
+
+
+
 ## Fibonacci DP 
 
 跟背包DP一样，Fibonacci DP 也可以分为计数问题、最优值问题。
@@ -181,7 +187,13 @@ public:
 
 ### 最优值问题
 
-leetcode [746. 使用最小花费爬楼梯](https://leetcode-cn.com/problems/min-cost-climbing-stairs/) 和 leetcode [198. 打家劫舍](https://leetcode-cn.com/problems/house-robber/) 非常类似
+leetcode [746. 使用最小花费爬楼梯](https://leetcode-cn.com/problems/min-cost-climbing-stairs/) 和 leetcode [198. 打家劫舍](https://leetcode-cn.com/problems/house-robber/) 非常类似: 
+
+| 题目                                                         | 核心的思想                                                   | 核心code                                                     |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| leetcode [746. 使用最小花费爬楼梯](https://leetcode-cn.com/problems/min-cost-climbing-stairs/) | 两个选择: <br>1、从前一个台阶跨过来<br>2、从前两个台阶跨过来 | `dp[i] = min(dp[i - 1] + cost[i - 1], dp[i - 2] + cost[i - 2]);` |
+| leetcode [198. 打家劫舍](https://leetcode-cn.com/problems/house-robber/) | 两个选择:<br>1、抢: 从前两个跨过来<br>2、不抢: 从前一个跨过来 | `dp[dp_index] = max(dp[dp_index - 1], dp[dp_index - 2] + nums[i]);` |
+|                                                              |                                                              |                                                              |
 
 
 
@@ -277,25 +289,13 @@ public:
 
 #### 最大子数组和
 
-
+参见对应章节。
 
 ### 计数问题
 
 #### LeetCode [446. 等差数列划分 II - 子序列](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/) 困难
 
 
-
-## K次
-
-1、LeetCode [787. K 站中转内最便宜的航班](https://leetcode-cn.com/problems/cheapest-flights-within-k-stops/) 
-
-2、股票买卖
-
-labuladong [团灭 LeetCode 股票买卖问题](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247494095&idx=4&sn=7aed55b22e93c0e43b83172923b51acc&scene=21#wechat_redirect)
-
-
-
-可以看到，它们都将K次加入到了状态转移方程。
 
 
 
@@ -378,6 +378,18 @@ LeetCode [518. 零钱兑换 II](https://leetcode-cn.com/problems/coin-change-2/)
 
 
 
+## 最优值问题: 股票买卖DP
+
+和前面的Fibonacci DP 最优值问题、graph DP 最优值问题、背包DP最优值问题相比，股票买卖DP复杂度要高很多：
+
+1、它涉及买卖，因此涉及利润、成不的计算
+
+2、它需要维护当前持有股票的状态，这导致问题的维度进一步增加
+
+
+
+
+
 ## 计数问题
 
 ### base case
@@ -396,12 +408,106 @@ LeetCode [552. 学生出勤记录 II](https://leetcode-cn.com/problems/student-a
 
 ### Fibonacci DP
 
+Fibonacci DP的计数问题是典型的使用加分原理的。
 
 
-## DP数组和最优解
+
+## K次
+
+### DP
+
+1、LeetCode [787. K 站中转内最便宜的航班](https://leetcode-cn.com/problems/cheapest-flights-within-k-stops/) 
+
+2、股票买卖
+
+labuladong [团灭 LeetCode 股票买卖问题](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247494095&idx=4&sn=7aed55b22e93c0e43b83172923b51acc&scene=21#wechat_redirect)
+
+最多允许交易k次
+
+3、leetcode [651. 4键键盘](https://leetcode-cn.com/problems/4-keys-keyboard/)
+
+最多允许按n次键盘
+
+4、leetcode [1155. 掷骰子的N种方法](https://leetcode-cn.com/problems/number-of-dice-rolls-with-target-sum/)
+
+
+
+可以看到，它们都将K次加入到了状态转移方程。
+
+### 经典算法
+
+一些题目，需要在经典算法的基础上增加K次的限制，从而提升题目的难度，典型的就是之前做过的：
+
+一、Dijkstra algorithm 增加 k 次限制 
+
+LeetCode [787. K 站中转内最便宜的航班](https://leetcode-cn.com/problems/cheapest-flights-within-k-stops/) 
+
+二、monolithic algorithm增加 k 次限制
+
+三、priority_queue来解top K的问题
+
+
+
+## DP数组记录的状态和最优解
 
 DP数组记录的是子问题的解，而不一定是最优解，有的用DP来求解的问题，它的最优解需要另外来进行计算，下面是典型的例子：
 
 1、LeetCode [53. 最大子数组和](https://leetcode-cn.com/problems/maximum-subarray/)
 
 2、LeetCode [446. 等差数列划分 II - 子序列](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/) 困难
+
+3、LeetCode [最大连续1的个数 II](https://leetcode-cn.com/problems/max-consecutive-ones-ii/solution/zui-da-lian-xu-1de-ge-shu-ii-by-leetcode-solution/)
+
+题目要求的是最大的连续1的个数，dp table记录的是以`nums[i]`结尾的连续1的个数
+
+## DP继承上一个状态
+
+1、LeetCode [787. K 站中转内最便宜的航班](https://leetcode-cn.com/problems/cheapest-flights-within-k-stops/) 
+
+2、LeetCode [198. 打家劫舍](https://leetcode-cn.com/problems/house-robber/)
+
+3、labuladong [团灭 LeetCode 股票买卖问题](https://mp.weixin.qq.com/s/lQEj_K1lUY83QtIzqTikGA) 
+
+如果选择rest，则直接继承上一个节点的状态
+
+
+
+## dp分情况讨论列多个状态转移方程
+
+需要为每种选择都建立一个专门都状态转移方程
+
+### labuladong [团灭 LeetCode 股票买卖问题](https://mp.weixin.qq.com/s/lQEj_K1lUY83QtIzqTikGA) 
+
+当前有两种状态：
+
+1、持有股票
+
+可以选择rest、sell
+
+2、不持有股票
+
+可以选择rest、buy
+
+### LeetCode [487. 最大连续1的个数 II](https://leetcode-cn.com/problems/max-consecutive-ones-ii/) 
+
+[官方解题](https://leetcode-cn.com/problems/max-consecutive-ones-ii/solution/zui-da-lian-xu-1de-ge-shu-ii-by-leetcode-solution/)
+
+定义 `dp[i][0]` 为考虑到以 `i` 为结尾未使用操作将 `[0,i]` 某个 `0` 变成 `1` 的最大的连续 `1` 的个数，`dp[i][1]` 为考虑到以 `i` 为结尾使用操作将 `[0,i]` 某个 `0` 变成 `1` 的最大的连续 `1` 的个数。则我们可以列出转移式：
+$$
+dp[i][0]=\left\{\begin{matrix} dp[i-1][0]+1,nums[i]=1\\ 0,nums[i]=0 \end{matrix}\right.
+$$
+
+
+和
+
+$$
+dp[i][1]=\left\{\begin{matrix} dp[i-1][1]+1,nums[i]=1\\ dp[i-1][0]+1,nums[i]=0 \end{matrix}\right.
+$$
+
+
+## DP table的最优值 和 无效值
+
+这是我在阅读 labuladong [团灭 LeetCode 股票买卖问题](https://mp.weixin.qq.com/s/lQEj_K1lUY83QtIzqTikGA) 时发现的。
+
+那如何来选取无效值呢？保证它在算法中被抛弃掉即可，比如在  labuladong [团灭 LeetCode 股票买卖问题](https://mp.weixin.qq.com/s/lQEj_K1lUY83QtIzqTikGA) 中将无效值定位 `INT_MIN / 2`，综合题目的数据范围、算法使用max来选取数据，都能够保证无效值会被抛弃掉。
+

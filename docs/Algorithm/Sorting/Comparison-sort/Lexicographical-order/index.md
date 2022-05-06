@@ -32,7 +32,9 @@ Those values are in lexicographical order. 10 comes after 2 in numerical order, 
 
 https://leetcode-cn.com/problemset/all/?search=%E5%AD%97%E5%85%B8%E5%BA%8F
 
+### Lexicographical order tree
 
+典型的就是 LeetCode [386. 字典序排数](https://leetcode-cn.com/problems/lexicographical-numbers/) 中等，理解"Lexicographical order tree"，是解决基于它的问题的基础。
 
 ### Monotonic-stack解Max-min字典序subsequence(子序列)
 
@@ -61,7 +63,7 @@ LeetCode [321. 拼接最大数](https://leetcode-cn.com/problems/create-maximum-
 | 题目                                                         |      |
 | ------------------------------------------------------------ | ---- |
 | LeetCode [31. 下一个排列](https://leetcode-cn.com/problems/next-permutation/) |      |
-|                                                              |      |
+| leetcode [556. 下一个更大元素 III](https://leetcode-cn.com/problems/next-greater-element-iii/) |      |
 
 
 
@@ -69,7 +71,7 @@ LeetCode [321. 拼接最大数](https://leetcode-cn.com/problems/create-maximum-
 | ------------------------------------------------------------ | ---- |
 | LeetCode [386. 字典序排数](https://leetcode-cn.com/problems/lexicographical-numbers/) |      |
 | leetcode [440. 字典序的第K小数字](https://leetcode-cn.com/problems/k-th-smallest-in-lexicographical-order/) |      |
-| leetcode [556. 下一个更大元素 III](https://leetcode-cn.com/problems/next-greater-element-iii/) |      |
+|                                                              |      |
 
 
 

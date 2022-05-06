@@ -1,6 +1,5 @@
 nav:
     - Introduction: index.md
     - Brute-force: Brute-force
-    - DFS-Depth-first-search: DFS-Depth-first-search
     - Backtracking: Backtracking
     - Branch-and-Bound: Branch-and-Bound    

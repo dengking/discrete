@@ -1,4 +1,4 @@
-# leetcode [321. 拼接最大数](https://leetcode-cn.com/problems/create-maximum-number/)
+# leetcode [321. 拼接最大数](https://leetcode-cn.com/problems/create-maximum-number/) 困难
 
 现在从这两个数组中选出 `k (k <= m + n)` 个数字拼接成一个新的数。
 

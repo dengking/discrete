@@ -1,9 +1,7 @@
 # labuladong [团灭 LeetCode 股票买卖问题](https://mp.weixin.qq.com/s/lQEj_K1lUY83QtIzqTikGA) 
 
 > NOTE: 
-> 1、作者的思路还是穷举，它使用的是基于finite state machine的方式来进行穷举的，他使用了一个三维的状态转移方程来对股票买卖问题进行统一的建模，这个三维的状态转移方程初看起来是稍微有些复杂，但是结合具体的问题后，是容易理解的。
->
-> 并且作者展示了如何设计、如何实现。
+> 1、作者的思路还是穷举，它使用的是基于**finite state machin**e的方式来进行**穷举**的，它将问题的所有的可能性都进行了**穷举**，他使用了一个三维的**状态转移方**程来对这个问题进行统一的建模，这个三维的**状态转移方程**初看起来是稍微有些复杂，但是结合具体的问题后，是容易理解的。
 >
 > 2、展示了状态压缩的技巧
 >
@@ -12,6 +10,60 @@
 > 状态转移方程 可以看做是对 finite state machine 的数学描述；
 >
 > dynamic programming则告诉我们如何使用程序来进行实现；
+>
+> 4、股票买卖问题的选择是buy、sell、rest，这是由programer进行挖掘的；
+>
+> 5、这个题目的K次和 LeetCode [787. K 站中转内最便宜的航班](https://leetcode-cn.com/problems/cheapest-flights-within-k-stops/) 中的K次非常类似，在LeetCode [787. K 站中转内最便宜的航班](https://leetcode-cn.com/problems/cheapest-flights-within-k-stops/) 中，每增加一个中转节点，则可供选择的节点就多一些了，其中会穷举从0-K；
+>
+> 在本文给出的股票买卖问题的状态转移方程中，每一次买入，则交易次数增加一次，显然根据此就可以控制交易次数了。
+>
+> 这样的类比让我有这样的想法：graph的状态转移可以和节点沿着边进行转移这样的具体过程进行关联，因此便于我们理解抽象的过程；这道题再和 LeetCode [787. K 站中转内最便宜的航班](https://leetcode-cn.com/problems/cheapest-flights-within-k-stops/) 中的K进行对比，显然是能够帮助理解的。
+>
+> 6、这道题和 LeetCode [487. 最大连续1的个数 II](https://leetcode-cn.com/problems/max-consecutive-ones-ii/) 有一个相同点就是，需要分情况讨论，列两个状态转移方程，在这里，作者是根据股票持有状况来进行分类的。
+>
+> 两个状态转移方程，其实就意味着有两个DP table。
+>
+> 7、股票买卖问题其实也可以归入子序列问题范畴，因为它是选择非连续的prices来进行交易；但是它的递归方程其实和**子数组问题**的递归方程有关系，我们知道子数组的递归方程描述的就是`dp[i]` 和 `dp[i-1]`之间的关系，而股票买卖的递归方程也是如此，这是因为股票买卖问题要求"sell 必须在 buy 之后，buy 必须在 sell 之后"，并且buy的时候，需要基于之前收益进行buy。
+>
+> 八、为什么这个动态规划方程能够求解出最大的收益呢？
+>
+> 动态规划方程非常巧妙，看似简单，其实演算过程还是蛮复杂的。
+>
+> 总的思想: 两个max能够保证: 以更低的价格买入(`dp[i][k][1]`)，以更高的价格卖出(`dp[i][k][0]`)，尽可能地多进行交易。
+>
+> 更加具体的说: 
+>
+> 对于 `dp[i][1]`，它有两个选择：
+>
+> 1、rest
+>
+> 2、buy
+>
+> max保证: 只有当当前持有的利润扣除买入的成本比rest(之前)要更好的时候，才会选择buy
+>
+> 对于 `dp[i][0]`，它有两个选择：
+>
+> 1、rest
+>
+> 2、sell
+>
+> max保证: 只有当以当前价格进行交易赚取的利润比之前的(rest)要更好的时候，才会选择sell
+>
+> 需要注意的是：具体的买卖动作其实是由最大的收益来驱动的，并且按照上述递归方程，买入卖出串联进行的:
+>
+> `dp[i][k][1] = dp[i-1][k-1][0] - prices[i]`
+>
+> 即它是拿之前赚的钱来买新的股票，这就保证是串联的。买入是减，卖出是加，最终收益其实就是它们的综合。
+>
+> 在这个算法背后的真实的交易过程如下:
+>
+> ```
+> 买入 dp[0][0][1]->卖出->买入->卖出
+> ```
+>
+> 补充内容
+>
+> leetcode [『 动态规划 』 DP模板解决一众买卖股票问题](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iv/solution/by-flix-us00/)
 
 
 
@@ -20,8 +72,6 @@
 这篇文章用「状态机」的技巧给出最优解，可以全部提交通过。不要觉得这个名词高大上，文学词汇而已，实际上就是 **DP table**，等会儿一讲就明白了。
 
 本文就来告诉你处理这类问题的框架，拒绝奇技淫巧，稳扎稳打，以不变应万变。
-
-
 
 这 6 道题目是有共性的，本文通过对第四道题的分析，逐步解决所有问题。
 
@@ -59,7 +109,7 @@
 
 > NOTE: 
 >
-> 一、必须要先buy然后sell然后再buy，它的规则有些不相交区间的意味
+> 一、其实这是leetcode上很多问题的相同点：增加很多的限制条件，比如在打家劫舍系列问题中，就要求不能够抢连续两家；本题的限制是：必须要先buy然后sell然后再buy，它的规则有些不相交区间的意味
 
 很复杂对吧，不要怕，我们现在的目的只是穷举，你有再多的状态，老夫要做的就是一把梭全部列举出来。**这个问题的「状态」有三个**，第一个是天数，第二个是当天允许交易的最大次数，第三个是当前的持有状态（即之前说的 rest 的状态，我们不妨用 1 表示持有，0 表示没有持有）。
 
@@ -123,6 +173,14 @@
 
 ![图片](https://mmbiz.qpic.cn/mmbiz_png/map09icNxZ4nPicwNq5syrSwnBc02yxG3akByqn8e7kyr0hSKS6iaVkicDsZrc08oic4wp5c7sPk7LzicGJm3xlBRSew/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
+> NOTE:
+>
+> 一、DP table中存在空值和无意义的值两种情况，这是特别需要注意的。
+>
+> 因为这道题是求解最大值，作者使用 `-infinity` 来表示无效值。
+
+
+
 ### 状态转移方程
 
 把上面的状态转移方程总结一下：
@@ -143,9 +201,21 @@
 
 > NOTE: 
 >
-> LeetCode [121. 买卖股票的最佳时机](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/) 简单
+> 一、LeetCode [121. 买卖股票的最佳时机](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/) 简单
 >
-> 
+> 二、其实下面的状态转移方程能够cover LeetCode [121. 买卖股票的最佳时机](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/) 简单 所有的可能状态：在第i天，只有两种持有状态：
+>
+> 1、持有股票
+>
+> 2、不持有股票
+>
+> 所以，所有可能性的个数为: `n * 2`，再看看dp table，它的大小也是如此。
+>
+> 三、其实初读对于下面的算法能否成功计算出最优值是持怀疑态度的，可以参加 LeetCode [121. 买卖股票的最佳时机](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/) 简单
+>
+> 中记录的结合具体例子的推演过程，这样才能够完整地理解这个algorithm。
+
+
 
 直接套**状态转移**方程，根据 base case，可以做一些化简：
 
@@ -181,7 +251,31 @@
 
 两种方式都是一样的，不过这种编程方法简洁很多。但是如果没有前面状态转移方程的引导，是肯定看不懂的。后续的题目，我主要写这种空间复杂度 O(1) 的解法。
 
-
+> NOTE:
+>
+> leetcode [121. 买卖股票的最佳时机](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/) # [Gnakuw](https://leetcode-cn.com/u/nehzil/) # [121. 买卖股票的最佳时机（详细C++代码注释学习代码随想录的风格写的）](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/solution/gu-piao-dong-tai-gui-hua-jie-fa-by-kino-7qh40/)  的初始化过程更加容易理解：
+>
+> ```c++
+> class Solution {
+> public:
+>     int maxProfit(vector<int>& prices) {
+>         if(prices.size() == 0) return 0;
+>         /* 定义dp数组 */
+>         vector<vector<int>> dp(prices.size(),vector<int>(2,0));
+>         /* dp数组初始化 */
+>         dp[0][0] = -prices[0];
+>         dp[0][1] = 0;
+> 
+>         for(int i = 1; i < prices.size(); i++) {
+>             dp[i][0] = max(dp[i-1][0], -prices[i]);
+>             dp[i][1] = max(dp[i-1][1], dp[i-1][0] + prices[i]);
+>         }
+>         return dp[prices.size()-1][1];
+>     }
+> };
+> ```
+>
+> 
 
 ### 第二题，k = +infinity
 
@@ -254,6 +348,10 @@
 
 
 ### 第五题，k = 2
+
+> NOTE:
+>
+> k = 2 
 
 k = 2 和前面题目的情况稍微不同，因为上面的情况都和 k 的关系不太大。要么 k 是正无穷，状态转移和 k 没关系了；要么 k = 1，跟 k = 0 这个 base case 挨得近，最后也被消掉了。
 
