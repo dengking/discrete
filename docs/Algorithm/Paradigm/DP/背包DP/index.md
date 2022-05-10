@@ -61,7 +61,11 @@ public:
 
 1、LeetCode [518. 零钱兑换 II](https://leetcode-cn.com/problems/coin-change-2/) 中等
 
+三、典型例题:
 
+LeetCode [377. 组合总和 Ⅳ](https://leetcode-cn.com/problems/combination-sum-iv/)
+
+LeetCode [518. 零钱兑换 II](https://leetcode-cn.com/problems/coin-change-2/) 中等
 
 
 
