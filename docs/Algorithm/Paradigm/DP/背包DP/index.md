@@ -47,7 +47,21 @@ public:
 
 ### 与顺序是否相关
 
-可以肯定的是，如果与顺序相关，则组合数会更多，如果与顺序无比，则组合数更少。
+一、顺序是否对问题的结果产生影响？
+
+1、计数问题: 可以肯定的是，如果与顺序相关，则组合数会更多，如果与顺序无比，则组合数更少。
+
+2、最值问题: 顺序并不产生影响，因为不同顺序的结果相同，因此并不会对最终结果产生影响。
+
+
+
+二、资源
+
+在下面的文章中，有描述:
+
+1、LeetCode [518. 零钱兑换 II](https://leetcode-cn.com/problems/coin-change-2/) 中等
+
+
 
 
 
@@ -62,4 +76,37 @@ public:
 资源：
 
 1、[宫水三叶](https://leetcode-cn.com/u/ac_oier/) # [【动态规划/背包问题】运用分组背包进行求解](https://leetcode-cn.com/problems/number-of-dice-rolls-with-target-sum/solution/dong-tai-gui-hua-bei-bao-wen-ti-yun-yong-axtf/)
+
+## 习题汇总
+
+
+
+leetcode [322. 零钱兑换](https://leetcode-cn.com/problems/coin-change/) :
+
+
+
+```c++
+class Solution
+{
+public:
+  int coinChange(vector<int> &coins, int amount)
+  {
+    vector<long long> dp(amount + 1, INT_MAX);
+    dp[0] = 0;
+    for (int i = 0; i <= amount; ++i)
+    {
+      for (auto &&coin : coins)
+      {
+        if (i >= coin)
+        {
+          dp[i] = min(dp[i], dp[i - coin] + 1);
+        }
+      }
+    }
+    return dp[amount] == INT_MAX ? -1 : dp[amount];
+  }
+};
+```
+
+对于每个amount，会考虑所有的coins，显然它罗列了所有的可能性。
 
