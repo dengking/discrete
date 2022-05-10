@@ -4,6 +4,12 @@
 
 ## 我的解题
 
+整体思路: 
+
+1、找到待删除的节点current，然后让它的previous指向它的next；
+
+2、特殊节点的处理: head节点并没有previous，因此它需要放到循环之外
+
 
 
 ```C++
@@ -72,4 +78,7 @@ int main()
 
 
 
+
+
 ## 官方解题: [面试题18. 删除链表的节点（双指针，清晰图解）](https://leetcode-cn.com/problems/shan-chu-lian-biao-de-jie-dian-lcof/solution/mian-shi-ti-18-shan-chu-lian-biao-de-jie-dian-sh-2/)
+

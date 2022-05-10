@@ -51,12 +51,13 @@ public:
 			prev = cur; // 更新prev
 			cur = next; // 最后更新cur
 		}
-		return prev; // 需要注意的是，返回值是prev
+		return prev; // 需要注意的是，返回值是prev，因为上述while退出的时候，cur为nullptr
 	}
 	ListNode* reverseListRecursion(ListNode *head)
 	{
 		return reverseListRecursion(nullptr, head);
 	}
+  // 返回值是链表的head node
 	ListNode* reverseListRecursion(ListNode *prev, ListNode *cur)
 	{
 		if (cur) // 空指针保护

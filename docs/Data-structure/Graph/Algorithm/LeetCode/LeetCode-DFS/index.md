@@ -14,7 +14,7 @@
 
 6、prunc
 
-
+7、dfs-last
 
 ## dfs生成tree
 
@@ -56,8 +56,9 @@ leetcode [698. 划分为k个相等的子集](https://leetcode-cn.com/problems/pa
 
 有一些subset-tree的DFS，需要保存子集中的元素，然后进行判断，这种题目，后续，我们统一使用 `std::vector<int> track` 来表示子集，下面是例子:
 
-
 1、LeetCode [491. 递增子序列](https://leetcode-cn.com/problems/increasing-subsequences/) 中等
+
+dfs-last
 
 
 2、LeetCode [446. 等差数列划分 II - 子序列](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/) 困难
@@ -132,4 +133,36 @@ public:
 };
 
 ```
+
+## 二叉树的最近公共祖先
+
+labuladong [用 Git 来讲讲二叉树最近公共祖先](https://mp.weixin.qq.com/s/9RKzBcr3I592spAsuMH45g) 
+
+dfs-with return
+
+## 执行过程
+
+对于tree的BFS，最终肯定会回到root node。
+
+## 递归反转单链表
+
+labuladong [递归反转链表：如何拆解复杂问题](https://mp.weixin.qq.com/s/5wz_YJ3lTkDH3nWfVDi5SA) 
+
+dfs-last
+
+LeetCode [491. 递增子序列](https://leetcode-cn.com/problems/increasing-subsequences/) 中等
+
+dfs-last
+
+
+
+## post order
+
+leetcode [剑指 Offer 06. 从尾到头打印链表](https://leetcode-cn.com/problems/cong-wei-dao-tou-da-yin-lian-biao-lcof/)
+
+labuladong [用 Git 来讲讲二叉树最近公共祖先](https://mp.weixin.qq.com/s/9RKzBcr3I592spAsuMH45g) 
+
+
+
+## dfs linked-list
 

@@ -1,6 +1,10 @@
-# labuladong [用 Git 来讲讲二叉树最近公共祖先](https://mp.weixin.qq.com/s/9RKzBcr3I592spAsuMH45g)
+# labuladong [用 Git 来讲讲二叉树最近公共祖先](https://mp.weixin.qq.com/s/9RKzBcr3I592spAsuMH45g) 
 
-
+> NOTE:
+>
+> labuladong [一文秒杀 5 道最近公共祖先问题](https://mp.weixin.qq.com/s/njl6nuid0aalZdH5tuDpqQ)
+>
+> 
 
 上篇文章 [我用四个命令，总结了 Git 的所有套路](http://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247485544&idx=1&sn=afc9d9f72d811ec847fa64108d5c7412&chksm=9bd7f660aca07f7643f31bf16ab56ba695d964cdadde2aebc72e6817074504890fb09d2a80ca&scene=21#wechat_redirect) 写了 Git 最常用的命令，没有提分支合并，其实分支合并没什么困难的，主要就是`merge`和`rebase`两种方式。本文就用 Git 的`rebase`工作方式引出一个经典的算法问题：**最近公共祖先**（Lowest Common Ancestor，简称 LCA）。
 
@@ -69,7 +73,7 @@ TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
 
 > NOTE: 
 >
-> 其实这一段，主要是在描述 `lowestCommonAncestor`这个函数的**返回值**；理解了这个函数的**返回值**，就基本上理解了这个算法，理解这函数的返回值本节的前提是需要完整地掌握解题思路的，在 **"最近公共祖先"的含义""** 节中，简述了解题思路: 
+> 其实这一段，主要是在描述 `lowestCommonAncestor`这个函数的**返回值**；理解了这个函数的**返回值**，就基本上理解了这个算法，理解这函数的返回值前提是需要完整地掌握解题思路的，在 **"最近公共祖先"的含义""** 节中，简述了解题思路: 
 >
 > "后序遍历是从下往上，就好比从`p`和`q`出发往上走，第一次相交的节点就是这个`root`，你说这是不是最近公共祖先"
 >
@@ -87,22 +91,22 @@ TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
 >
 > ```Java
 > TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
->     // base case
->     if (root == null) return null;
->     if (root == p || root == q) return root;
+>  // base case
+>  if (root == null) return null;
+>  if (root == p || root == q) return root;
 > 
->     TreeNode left = lowestCommonAncestor(root.left, p, q);
->     TreeNode right = lowestCommonAncestor(root.right, p, q);
->     // 情况 1
->     if (left != null && right != null) {
->         return root;
->     }
->     // 情况 2
->     if (left == null && right == null) {
->         return null;
->     }
->     // 情况 3
->     return left == null ? right : left;
+>  TreeNode left = lowestCommonAncestor(root.left, p, q);
+>  TreeNode right = lowestCommonAncestor(root.right, p, q);
+>  // 情况 1
+>  if (left != null && right != null) {
+>      return root;
+>  }
+>  // 情况 2
+>  if (left == null && right == null) {
+>      return null;
+>  }
+>  // 情况 3
+>  return left == null ? right : left;
 > }
 > ```
 >
@@ -110,7 +114,17 @@ TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
 >
 > ![](./special-case.jpg)
 >
-> 如果要找 2 和 8的公共祖先，看图可知，答案是 2，结合上述算法来看，它能够正确的处理这种情况。
+> 如果要找 2 和 8的公共祖先，看图可知，答案是 2，结合上述算法来看，它能够正确的处理这种情况，它的执行过程如下:
+>
+> 由于DFS最终肯定会回到root node，因此，最终肯定会在节点1处，此时它的左子树返回的是node 2，它的右子树返回的是null，因此最终它返回的是node 2，其实这是符合预期的。那为什么能够这样做呢？这是因为题目说了: 目标节点肯定存在，那既然右子树不存在，那么肯定都在左子树中呀，因此直接返回左子树即可。
+>
+> ```java
+> if (root == p || root == q) return root;
+> ```
+>
+> 
+>
+> 四、对于tree的BFS，最终肯定会回到root node；
 
 **首先看第一个问题，这个函数是干嘛的**？或者说，你给我描述一下`lowestCommonAncestor`这个函数的「定义」吧。
 
