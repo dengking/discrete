@@ -1,5 +1,131 @@
 # 大整数
 
+## 蚂蚁集团面试题: 100!
+
+```c++
+// #include <bits/stdc++.h>
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <bitset>
+#include <map>
+#include <list>
+#include <stack>
+#include <unordered_map>
+#include <unordered_set>
+#include <queue>
+#include <deque>
+#include <cmath>
+#include <numeric>
+#include <climits>
+#include <random>
+// example1.cpp
+// new-delete-type-mismatch error
+#include <memory>
+#include <vector>
+using namespace std;
+
+#include <vector>
+#include <iostream>
+
+/**
+ * @brief 将一个数转换为vector
+ *
+ * @param num
+ * @return std::vector<int>
+ */
+std::vector<int> toVector(int num)
+{
+  std::vector<int> res;
+
+  while (num != 0)
+  {
+    res.push_back(num % 10);
+    num /= 10;
+  }
+
+  return res;
+}
+
+std::vector<int> add(std::vector<int> &left, std::vector<int> &right)
+{
+  // 双指针
+  int first = 0;
+  int second = 0;
+  int adder = 0; // 进位
+  std::vector<int> res;
+
+  while (first < left.size() && second < right.size())
+  {
+    int sum = left[first] + right[second] + adder;
+    res.push_back(sum % 10);
+    adder = sum / 10;
+    ++first;
+    ++second;
+  }
+  while (first < left.size())
+  {
+    int sum = left[first] + adder;
+
+    res.push_back(sum % 10);
+    adder = sum / 10;
+    ++first;
+  }
+  while (second < right.size())
+  {
+    int sum = right[second] + adder;
+    res.push_back(sum % 10);
+    adder = sum / 10;
+    ++second;
+  }
+  // 0099 + 001 = 00001
+  if (adder)
+  {
+    res.push_back(adder);
+  }
+  return res;
+}
+/**
+ * @brief 各位分别与right相处，比如: 789 * 10 = 700 * 10 + 80 * 10 + 9 * 10
+ *
+ * @param left
+ * @param right
+ * @return std::vector<int>
+ */
+std::vector<int> multiply(std::vector<int> &left, int right)
+{
+  std::vector<int> sum;
+  int multi = 1;
+  for (auto &&bit : left)
+  {
+    sum.push_back(bit * multi * right);
+    multi *= 10;
+  }
+  std::vector<int> res;
+  for (auto &&num : sum)
+  {
+    auto numVec = toVector(num);
+    res = add(res, numVec);
+  }
+  return res;
+}
+
+int main()
+{
+  std::vector<int> first = toVector(100);
+
+  for (int i = 99; i >= 98; --i)
+  {
+    first = multiply(first, i);
+  }
+  std::copy(first.begin(), first.end(), std::ostream_iterator<int>(std::cout, " "));
+}
+
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra
+
+```
+
 
 
 ## CSDN [C++ 高精度整数，两个大数相加如何处理](https://blog.csdn.net/qq_36770641/article/details/88899812)
