@@ -1,5 +1,7 @@
 # 背包DP
 
+一、背包问题其实属于0-1**子集数**，显然是可以使用回溯法来进行解决的
+
 
 
 ## 完全背包 vs 0-1背包
@@ -8,7 +10,7 @@
 
 一、完全背包不需要考虑物品，只需要考虑背包容量，因此它是一维的；
 
-需要注意的是：在完全背包问题中，我们一次只取一个物品，下次循环的时候，还是从第一个物品开始，因此这样就能够实现重复取同一个物品了，典型的例子就是零钱兑换问题，比如 leetcode [322. 零钱兑换](https://leetcode-cn.com/problems/coin-change/) ：
+需要注意的是：在完全背包问题中，我们一次只取一个物品，下次循环的时候，还是从第一个物品开始，因此这样就能够实现重复取同一个物品了，典型的例子就是**零钱兑换问题**，比如 leetcode [322. 零钱兑换](https://leetcode-cn.com/problems/coin-change/) ：
 
 ```c++
 class Solution
@@ -18,7 +20,7 @@ public:
   {
     vector<long long> dp(amount + 1, INT_MAX);
     dp[0] = 0;
-    for (int i = 0; i <= amount; ++i)
+    for (int i = 0; i <= amount; ++i) 
     {
       for (auto &&coin : coins)
       {
@@ -80,8 +82,6 @@ public:
 
 
 
-
-
 ## 资源
 
 1、leetcode [一篇文章吃透背包问题！（细致引入+解题模板+例题分析+代码呈现](https://leetcode-cn.com/problems/partition-equal-subset-sum/solution/yi-pian-wen-zhang-chi-tou-bei-bao-wen-ti-a7dd/) 
@@ -93,6 +93,8 @@ public:
 资源：
 
 1、[宫水三叶](https://leetcode-cn.com/u/ac_oier/) # [【动态规划/背包问题】运用分组背包进行求解](https://leetcode-cn.com/problems/number-of-dice-rolls-with-target-sum/solution/dong-tai-gui-hua-bei-bao-wen-ti-yun-yong-axtf/)
+
+
 
 ## 习题汇总
 
@@ -127,3 +129,34 @@ public:
 
 对于每个amount，会考虑所有的coins，显然它罗列了所有的可能性。
 
+
+
+## 计数原理
+
+
+
+### 加法原理 和 乘法原理
+
+
+
+baidu [两种基础的计数原理](https://baijiahao.baidu.com/s?id=1684072718838161596&wfr=spider&for=pc)
+
+1、加法原理
+
+2、乘法原理
+
+
+
+### 组合计数 和 排列计数
+
+
+
+不考虑不同顺序: 组合计数
+
+考虑不同顺序: 排列计数
+
+
+
+### 顺序敏感 和 顺序不敏感
+
+有的问题是顺序不敏感的，有的是顺序敏感的。

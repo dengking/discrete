@@ -145,3 +145,24 @@ dp[5] += dp[5-5] = dp[0] = 1 + 3
 
 上述算法其实是通过对coins进行排序来顺序去重的目的，其实 `dp[i] += dp[i - coin]` 所做的是append一个新的coin到之前的sequence中，它非常巧妙。
 
+## [官方解题](https://leetcode.cn/problems/coin-change-2/solution/ling-qian-dui-huan-ii-by-leetcode-soluti-f7uh/)
+
+
+
+```c++
+class Solution {
+public:
+    int change(int amount, vector<int>& coins) {
+        vector<int> dp(amount + 1);
+        dp[0] = 1;
+        for (int& coin : coins) {
+            for (int i = coin; i <= amount; i++) {
+                dp[i] += dp[i - coin];
+            }
+        }
+        return dp[amount];
+    }
+};
+
+```
+
