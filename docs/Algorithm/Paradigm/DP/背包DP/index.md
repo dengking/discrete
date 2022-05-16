@@ -1,4 +1,8 @@
-# 背包DP
+# 背包DP 和 fibonacci DP
+
+一、两者本质上是非常类似的: 可以认为 fibonacci DP 是简化版的 背包DP，背包DP 是泛化的 fibonacci DP ，两者的关联在下面文章中有着非常好的描述:
+
+1、 [徐洲更](https://leetcode.cn/u/xu-zhou-geng/) # [零钱兑换II和爬楼梯问题到底有什么不同？](https://leetcode.cn/problems/coin-change-2/solution/ling-qian-dui-huan-iihe-pa-lou-ti-wen-ti-dao-di-yo/) 
 
 
 
