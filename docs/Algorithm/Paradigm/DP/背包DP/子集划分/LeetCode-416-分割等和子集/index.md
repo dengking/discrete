@@ -26,7 +26,7 @@ public:
 		int count = nums.size();
 		int cap = sum / 2; // 背包的容量
 		vector<vector<bool>> dp(count + 1, vector<int>(cap + 1, false)); // dp table，一个二维矩阵
-		// base case，初始化dp table
+		// base case，初始化dp table: 背包容量为0，无论有多少个物品，都认为是能够实现划分为两个等和子集的
 		for (int i = 0; i <= count; ++i)
 		{
 			dp[i][0] = true;
