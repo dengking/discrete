@@ -68,6 +68,12 @@ void traverse(ListNode head) {
 >
 > 参见LeetCode [剑指 Offer 06. 从尾到头打印链表](https://leetcode-cn.com/problems/cong-wei-dao-tou-da-yin-lian-biao-lcof/)
 
+### 完整代码
+
+> NOTE:
+>
+> 这种实现方式的弊端: 理论上判断回文链表仅仅遍历linked-list的一半即可，但是这种方案会完整地遍历这个linked list。
+
 说到这了，其实可以稍作修改，模仿双指针实现回文判断的功能：
 
 ```Java
