@@ -24,7 +24,7 @@ leetcode [4. 寻找两个正序数组的中位数](https://leetcode-cn.com/probl
 
 ### labuladong [二分查找的妙用：判定子序列](https://mp.weixin.qq.com/s/hWi2hTrQewL_YKioGkXQJg)
 
-
+LeetCode [392. 判断子序列](https://leetcode-cn.com/problems/is-subsequence/) 简单
 
 ### labuladong  [动态规划设计之最长递增子序列 # 二分查找解法](https://mp.weixin.qq.com/s/02o_OPgePjaz3dXnw9TA1w)
 
@@ -36,3 +36,8 @@ leetcode [300. 最长递增子序列](https://leetcode-cn.com/problems/longest-i
 
 
 
+### labuladong [二分搜索只能用来查找元素吗？](https://mp.weixin.qq.com/s/QC24hyg0ZgjR7-LgnEzMYg) 
+
+LeetCode [875. 爱吃香蕉的珂珂](https://leetcode-cn.com/problems/koko-eating-bananas/) 中等
+
+LeetCode [1011. 在 D 天内送达包裹的能力](https://leetcode-cn.com/problems/capacity-to-ship-packages-within-d-days/) 中等
