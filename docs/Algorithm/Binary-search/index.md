@@ -41,3 +41,19 @@ leetcode [300. 最长递增子序列](https://leetcode-cn.com/problems/longest-i
 LeetCode [875. 爱吃香蕉的珂珂](https://leetcode-cn.com/problems/koko-eating-bananas/) 中等
 
 LeetCode [1011. 在 D 天内送达包裹的能力](https://leetcode-cn.com/problems/capacity-to-ship-packages-within-d-days/) 中等
+
+
+
+### top K、quick select
+
+labuladong [快排亲兄弟：快速选择算法详解](https://mp.weixin.qq.com/s/TRO3FOKT90Mpvn3hQWVBAQ) 	
+
+
+## 习题整理
+
+[随心源](https://leetcode.cn/u/sui-xin-yuan/) # [34. 蓝红二分法单模板秒杀二分查找](https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array/solution/lan-hong-hua-fen-fa-dan-mo-ban-miao-sha-e7r40/) 
+
+
+
+[随心源](https://leetcode.cn/u/sui-xin-yuan/) # [1201. 蓝红二分法分左右](https://leetcode.cn/problems/ugly-number-iii/solution/by-sui-xin-yuan-o8zd/) 
+

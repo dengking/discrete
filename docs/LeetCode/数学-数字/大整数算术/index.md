@@ -128,6 +128,12 @@ int main()
 
 
 
+## labuladong [教计算机做算术：字符串乘法](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247484466&idx=1&sn=0281340cc1f41230e4512e905b9d27dd&scene=21#wechat_redirect)
+
+
+
+
+
 ## CSDN [C++ 高精度整数，两个大数相加如何处理](https://blog.csdn.net/qq_36770641/article/details/88899812)
 
 
