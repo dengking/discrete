@@ -183,3 +183,88 @@ int main()
 3
 ```
 
+## 三刷
+
+```c++
+// #include <bits/stdc++.h>
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <bitset>
+#include <map>
+#include <list>
+#include <stack>
+#include <unordered_map>
+#include <unordered_set>
+#include <queue>
+#include <deque>
+#include <cmath>
+#include <numeric>
+#include <climits>
+#include <random>
+// example1.cpp
+// new-delete-type-mismatch error
+#include <memory>
+#include <vector>
+using namespace std;
+
+class Solution
+{
+public:
+  bool isCovered(vector<vector<int>> &ranges, int left, int right)
+  {
+    std::sort(ranges.begin(), ranges.end(), [](const vector<int> &left, const vector<int> &right)
+              { return left[0] < right[0]; }); // 进行排序
+    int start = 0;
+    int stop = 0;
+    // 两个区间之间三种关系
+    for (auto &&range : ranges)
+    {
+      if (range[1] <= stop) // 当前range被上一个range包含
+      {
+        continue;
+      }
+      else if (range[0] <= stop) // 当前range和上一个range相交
+      {
+        start = stop + 1;
+        stop = range[1];
+      }
+      else
+      {
+        start = range[0];
+        stop = range[1];
+      }
+
+      if (left < start) // [left, right] 位于 range的左边，显然不相交
+      {                 // 只有部分相交
+        return false;
+      }
+      else if (right <= stop) // 被区间覆盖
+      {
+        return true;
+      }
+      else if (left > stop) // 在区间右侧
+      {
+        continue;
+      }
+      else
+      {
+        left = stop + 1;
+      }
+    }
+    return false;
+  }
+};
+
+int main()
+{
+  vector<vector<int>> ranges{{3, 3}, {1, 1}};
+  int left = 3, right = 3;
+  Solution s;
+  s.isCovered(ranges, left, right);
+}
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra
+
+```
+
