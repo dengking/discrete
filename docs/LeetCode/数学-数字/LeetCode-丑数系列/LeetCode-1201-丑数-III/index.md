@@ -2,7 +2,7 @@
 
 
 
-## [珊璞桑](https://leetcode.cn/u/bloodborne/) # [想到二分法，成功一大半](https://leetcode.cn/problems/ugly-number-iii/solution/xiang-dao-er-fen-fa-cheng-gong-yi-da-ban-by-bloodb/)
+## [珊璞桑](https://leetcode.cn/u/bloodborne/) # [想到二分法，成功一大半](https://leetcode.cn/problems/ugly-number-iii/solution/xiang-dao-er-fen-fa-cheng-gong-yi-da-ban-by-bloodb/) 
 
 ### 解题思路
 
@@ -93,6 +93,108 @@ func gcd(x, y int) int {
 	}
 	return y
 }
+
+```
+
+
+
+## 我的解题
+
+下面的解题是参考的 [珊璞桑](https://leetcode.cn/u/bloodborne/) # [想到二分法，成功一大半](https://leetcode.cn/problems/ugly-number-iii/solution/xiang-dao-er-fen-fa-cheng-gong-yi-da-ban-by-bloodb/) 写的。
+
+```c++
+// #include <bits/stdc++.h>
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <bitset>
+#include <map>
+#include <list>
+#include <stack>
+#include <unordered_map>
+#include <unordered_set>
+#include <queue>
+#include <deque>
+#include <cmath>
+#include <numeric>
+#include <climits>
+#include <random>
+// example1.cpp
+// new-delete-type-mismatch error
+#include <memory>
+#include <vector>
+using namespace std;
+
+class Solution
+{
+public:
+  using ll = long long;
+
+  int nthUglyNumber(int n, int a, int b, int c)
+  {
+    ll ab = lcm(a, b), ac = lcm(a, c), bc = lcm(b, c);
+    ll abc = lcm(ab, c);
+    ll left = 0, right = n * min({a, b, c});
+    auto isUglyNumber = [&](ll num) -> bool // 判断是否是丑数
+    {
+      return num % a == 0 || num % b == 0 || num % c == 0;
+    };
+    while (left <= right)
+    {
+      ll mid = (left + right) / 2;
+      ll cnt = mid / a + mid / b + mid / c - mid / ab - mid / ac - mid / bc + mid / abc; // [0, mid]范围内有多少个丑数，使用容斥原理
+      if (cnt == n)                                                                      // 关于下面的逻辑，在 https://leetcode.cn/problems/ugly-number-iii/solution/xiang-dao-er-fen-fa-cheng-gong-yi-da-ban-by-bloodb/ 中有着很好的描述
+      {
+        if (isUglyNumber(mid))
+        {
+          return mid; // 最终程序肯定是从这里退出
+        }
+        else
+        {
+          right = mid - 1;
+        }
+      }
+      else if (cnt < n) // 需要扩大
+      {
+        left = mid + 1;
+      }
+      else // 需要缩小
+      {
+        right = mid - 1;
+      }
+    }
+    return -1; // 仅仅是为了编译通过
+  }
+
+  /**
+   * @brief 求解最大公约数
+   *
+   * @param a
+   * @param b
+   * @return ll
+   */
+  ll gcd(ll a, ll b)
+  {
+    return b == 0 ? a : gcd(b, a % b);
+  }
+  /**
+   * @brief 求解最大公倍数
+   *
+   * @param a
+   * @param b
+   * @return ll
+   */
+  ll lcm(ll a, ll b)
+  {
+    return a * b / gcd(a, b);
+  }
+};
+
+int main()
+{
+}
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra
 
 ```
 
