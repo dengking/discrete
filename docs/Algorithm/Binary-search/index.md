@@ -34,9 +34,15 @@ leetcode [300. 最长递增子序列](https://leetcode-cn.com/problems/longest-i
 
 ### n-sum
 
+labuladong [一个函数秒杀 2Sum 3Sum 4Sum 问题](https://mp.weixin.qq.com/s/fSyJVvggxHq28a0SdmZm6Q)
+
 
 
 ### labuladong [二分搜索只能用来查找元素吗？](https://mp.weixin.qq.com/s/QC24hyg0ZgjR7-LgnEzMYg) 
+
+
+
+
 
 LeetCode [875. 爱吃香蕉的珂珂](https://leetcode-cn.com/problems/koko-eating-bananas/) 中等
 
@@ -57,3 +63,8 @@ labuladong [快排亲兄弟：快速选择算法详解](https://mp.weixin.qq.com
 
 [随心源](https://leetcode.cn/u/sui-xin-yuan/) # [1201. 蓝红二分法分左右](https://leetcode.cn/problems/ugly-number-iii/solution/by-sui-xin-yuan-o8zd/) 
 
+
+
+LeetCode [875. 爱吃香蕉的珂珂](https://leetcode-cn.com/problems/koko-eating-bananas/) 中等
+
+题目求解 "`H`小时内吃完香蕉的最小速度`k`"，首先思考 `k` 的取值范围

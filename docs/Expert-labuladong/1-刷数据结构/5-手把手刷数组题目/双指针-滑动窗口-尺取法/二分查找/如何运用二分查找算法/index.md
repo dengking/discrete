@@ -16,7 +16,7 @@
 
 显然最少为 1，最大为`max(piles)`，因为一小时最多只能吃一堆香蕉。那么暴力解法就很简单了，只要从 1 开始穷举到`max(piles)`，一旦发现发现某个值可以在`H`小时内吃完所有香蕉，这个值就是最小速度：
 
-```
+```C++
 int minEatingSpeed(int[] piles, int H) {
     // piles 数组的最大值
     int max = getMax(piles);
