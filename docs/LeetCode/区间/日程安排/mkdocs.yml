@@ -1,4 +1,5 @@
 nav:
     - Introduction: index.md
     - LeetCode-729-我的日程安排-I: LeetCode-729-我的日程安排-I
-    
+    - LeetCode-731-我的日程安排表-II: LeetCode-731-我的日程安排表-II
+        
