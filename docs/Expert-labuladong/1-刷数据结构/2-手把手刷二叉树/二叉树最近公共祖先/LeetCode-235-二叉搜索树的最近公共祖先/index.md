@@ -32,6 +32,7 @@ struct TreeNode
 	{
 	}
 };
+
 class Solution
 {
 public:
@@ -42,7 +43,7 @@ public:
 			return nullptr;
 		}
 		TreeNode *ancestor = root;
-		while (true)
+		while (ancestor)
 		{
 			/**
 			 * 在左子树

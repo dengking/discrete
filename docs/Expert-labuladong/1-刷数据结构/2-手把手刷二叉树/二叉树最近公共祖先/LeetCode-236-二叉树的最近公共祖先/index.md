@@ -32,6 +32,7 @@ struct TreeNode
 	{
 	}
 };
+
 class Solution
 {
 public:
@@ -64,7 +65,7 @@ public:
 		/**
 		 * 左右子树中只有一个包含目标节点
 		 */
-		return left == nullptr ? right : left;
+		return left ? left : right;
 	}
 };
 
