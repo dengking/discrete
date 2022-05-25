@@ -4,6 +4,8 @@
 
 是按照 [详解一道高频面试题：接雨水](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247494095&idx=5&sn=8a69b2ca4d48e8b4db2b153a405c6e52&scene=21#wechat_redirect) 中的解法写的
 
+写法一: 
+
 ```c++
 // #include <bits/stdc++.h>
 #include <iostream>
@@ -64,6 +66,49 @@ int main()
 {
 }
 // g++ test.cpp --std=c++11 -pedantic -Wall -Wextra
+
+```
+
+
+
+写法二:
+
+```c++
+
+class Solution
+{
+public:
+  int trap(vector<int> &height)
+  {
+    if (height.empty())
+      return 0;
+    int n = height.size();
+    int left = 0, right = n - 1;
+    int res = 0;
+
+    int l_max = height[0];
+    int r_max = height[n - 1];
+
+    while (left <= right)
+    {
+      l_max = max(l_max, height[left]);
+      r_max = max(r_max, height[right]);
+
+      // res += min(l_max, r_max) - height[i]
+      if (l_max < r_max)
+      {
+        res += l_max - height[left];
+        left++;
+      }
+      else
+      {
+        res += r_max - height[right];
+        right--;
+      }
+    }
+    return res;
+  }
+};
 
 ```
 

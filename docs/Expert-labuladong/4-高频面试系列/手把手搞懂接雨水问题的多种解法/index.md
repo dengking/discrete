@@ -305,11 +305,11 @@ res += min(l_max[i], r_max[i]) - height[i];
 
 
 
-![图片](https://mmbiz.qpic.cn/sz_mmbiz_jpg/gibkIz0MVqdETSibChZ6NaonURayySXExwHfNV1P1kGltmiatQKxBxAFl14XTYy4ChxaDe6KbBCKo9VjvVkXldXXg/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)但是双
+![图片](https://mmbiz.qpic.cn/sz_mmbiz_jpg/gibkIz0MVqdETSibChZ6NaonURayySXExwHfNV1P1kGltmiatQKxBxAFl14XTYy4ChxaDe6KbBCKo9VjvVkXldXXg/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
 #### 双指针解法
 
-指针解法中，`l_max`和`r_max`代表的是`height[0..left]`和`height[right..n-1]`的最高柱子高度。比如这段代码：
+双指针解法中，`l_max`和`r_max`代表的是`height[0..left]`和`height[right..n-1]`的最高柱子高度。比如这段代码：
 
 ```c++
 if (l_max < r_max) {
