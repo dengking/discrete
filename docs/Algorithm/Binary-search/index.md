@@ -55,6 +55,12 @@ LeetCode [1011. 在 D 天内送达包裹的能力](https://leetcode-cn.com/probl
 labuladong [快排亲兄弟：快速选择算法详解](https://mp.weixin.qq.com/s/TRO3FOKT90Mpvn3hQWVBAQ) 	
 
 
+
+### 逼近原理求解最小值
+
+旋转数组最小数字系列
+
+
 ## 习题整理
 
 [随心源](https://leetcode.cn/u/sui-xin-yuan/) # [34. 蓝红二分法单模板秒杀二分查找](https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array/solution/lan-hong-hua-fen-fa-dan-mo-ban-miao-sha-e7r40/) 
