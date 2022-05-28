@@ -1,5 +1,6 @@
 nav:
     - Introduction: index.md
-    - 大数乘法: 大数乘法
-    - 大数加法: 大数加法
+    - LeetCode-43-字符串相乘: LeetCode-43-字符串相乘
+    - LeetCode-415-字符串相加: LeetCode-415-字符串相加
+
         
