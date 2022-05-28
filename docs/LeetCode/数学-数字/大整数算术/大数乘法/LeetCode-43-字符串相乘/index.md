@@ -47,9 +47,9 @@ public:
       {
         int index = first + second + 1; // 注意不要忘记 + 1
         auto product = (num1[first] - '0') * (num2[second] - '0');
-        auto sum = product + num[index];
-        num[index] = sum % 10;
-        num[index - 1] += sum / 10;
+        auto sum = product + num[index]; //一定要累加
+        num[index] = sum % 10;           //处理本位
+        num[index - 1] += sum / 10;      // 处理进位
       }
     }
     int i = 0;
