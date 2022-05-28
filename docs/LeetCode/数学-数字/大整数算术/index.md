@@ -152,12 +152,6 @@ $$
 
 
 
-### 题目
-
-**LeetCode** [43. 字符串相乘](https://leetcode.cn/problems/multiply-strings/)
-
-它的官方解题时比较复杂的。
-
 
 
 ## 大数加法
@@ -174,9 +168,15 @@ cnblogs [大整数加法 面试题](https://www.cnblogs.com/meihao1203/p/8023524
 
 
 
-### 试题
+## 试题
 
-**LeetCode** [415. 字符串相加](https://leetcode.cn/problems/add-strings/)
+**LeetCode** [415. 字符串相加](https://leetcode.cn/problems/add-strings/) 和 **LeetCode** [43. 字符串相乘](https://leetcode.cn/problems/multiply-strings/) 都是采用的大端表示，两者都是从低位到高位。
+
+### **LeetCode** [415. 字符串相加](https://leetcode.cn/problems/add-strings/)
+
+### **LeetCode** [43. 字符串相乘](https://leetcode.cn/problems/multiply-strings/)
+
+它的官方解题时比较复杂的。
 
 
 

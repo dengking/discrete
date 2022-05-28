@@ -1,6 +1,6 @@
 # **LeetCode** [415. 字符串相加](https://leetcode.cn/problems/add-strings/)
 
-
+## 我的解题
 
 ```c++
 // #include <bits/stdc++.h>
@@ -88,3 +88,65 @@ int main()
 
 ```
 
+## 官方解题
+
+```c++
+// #include <bits/stdc++.h>
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <bitset>
+#include <map>
+#include <list>
+#include <stack>
+#include <unordered_map>
+#include <unordered_set>
+#include <queue>
+#include <deque>
+#include <cmath>
+#include <numeric>
+#include <climits>
+#include <random>
+
+// example1.cpp
+// new-delete-type-mismatch error
+#include <memory>
+#include <vector>
+using namespace std;
+
+class Solution
+{
+public:
+  string addStrings(string num1, string num2)
+  {
+    int i = num1.length() - 1, j = num2.length() - 1, add = 0;
+    string ans = "";
+    while (i >= 0 || j >= 0 || add != 0)
+    {
+      int x = i >= 0 ? num1[i] - '0' : 0;
+      int y = j >= 0 ? num2[j] - '0' : 0;
+      int result = x + y + add;
+      ans.push_back('0' + result % 10);
+      add = result / 10;
+      i -= 1;
+      j -= 1;
+    }
+    // 计算完以后的答案需要翻转过来
+    reverse(ans.begin(), ans.end());
+    return ans;
+  }
+};
+
+int main()
+{
+  string num1 = "6";
+  string num2 = "507";
+  Solution s;
+  s.addStrings(num1, num2);
+}
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra
+
+```
+
+上述写法比我的写法要简洁很多。
