@@ -52,7 +52,7 @@ public:
       {
         ++zeros;
       }
-      while (zeros > K)
+      while (zeros > K) // 这个while循环一定要放在后面的打擂台择优之前，它保证窗口内最多有K个0
       {
         if (A[left++] == 0) // 需要注意的是: A[left++] 相对于 A[left]; left = left + 1
         {                   // 它相当于将A[left]移出区间，显然之后left就需要自增1
