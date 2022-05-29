@@ -1,6 +1,6 @@
 # Reverse-linked-list
 
-素材：
+## 素材
 
 一、labuladong
 
@@ -10,14 +10,39 @@
 
 
 
-题目：
-
-反转整个linked list
+## algorithm
 
 
 
-反转部分linked list
+### 递归
+
+这两种递归写法都属于dfs+return-value，dfs linked list的实际执行过程其实相当于从head到tail(从左到右)，再从tail到head(从右到左)绕了一圈，有两种写法:
+
+一、pre-order-从左到右
+
+这种写法是比较容易理解的，因为它符合"prev-cur-next"，递归体内每次对cur进行修改: 将cur的next替换位`pre`，这样就完成了反转。
 
 
 
-k个一组反转
+二、post-order-从右到左
+
+初次阅读它的代码是不容易理解的，它本质上也是符合"prev-cur-next"，递归体内每次对next进行修改: 将`next->next` 替换为`cur`，这样就完成了反转。它的运行过程有些类似于: append-to-tail。
+
+
+
+### 迭代
+
+迭代的代码是基于"prev-cur-next" + one-by-one + move-next。
+
+
+
+## 题目
+
+花样还是不少的: 
+
+一、反转整个linked list
+
+二、反转部分linked list
+
+三、k个一组反转
+

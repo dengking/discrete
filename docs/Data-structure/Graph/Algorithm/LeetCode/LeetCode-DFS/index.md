@@ -1,20 +1,40 @@
 # DFS
 
-## tags
+## 分类
+
+有种多种分类方式:
+
+一、根据次序
+
+pre-order
+
+in-order
+
+post-order
+
+二、根据数据结构
+
+dfs-graph
+
+dfs-linked-list
+
+三、根据问题类别
 
 1、dfs解计数问题
 
-2、dfs-graph
+2、dfs-subset-tree
 
-3、dfs-subset-tree
+3、 dfs-解最优值问题
 
-4、dfs-解最优值问题
 
-5、dfs-return-value
 
-6、prunc
+### 一些特殊类型的问题
 
-7、dfs-last
+一、dfs-return-value
+
+二、prunc
+
+三、dfs-last
 
 ## dfs生成tree
 
