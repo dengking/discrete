@@ -103,7 +103,49 @@ if (need == window)
 
 ## LeetCode例题
 
-最好的滑动窗口例题：[剑指 Offer 57 - II. 和为s的连续正数序列](https://leetcode-cn.com/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/)
+
+
+最好的滑动窗口例题：[剑指 Offer 57 - II. 和为s的连续正数序列](https://leetcode-cn.com/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/) 
+
+
+
+```c++
+
+class Solution
+{
+public:
+  vector<vector<int>> findContinuousSequence(int target)
+  {
+    vector<vector<int>> res;
+    vector<int> v;
+    for (int l = 1, r = 2; l < r;)
+    {
+      int sum = (l + r) * (r - l + 1) / 2;
+      if (sum == target)
+      {
+        v.clear();
+        for (int i = l; i <= r; ++i)
+        {
+          v.push_back(i);
+        }
+        res.push_back(v);
+        ++l; // 此处千万不要忘记
+      }
+      else if (sum < target)
+      {
+        ++r;
+      }
+      else
+      {
+        ++l;
+      }
+    }
+    return res;
+  }
+};
+
+
+```
 
 
 
@@ -116,6 +158,44 @@ LeetCode [76. 最小覆盖子串](https://leetcode-cn.com/problems/minimum-windo
 LeetCode [567. 字符串的排列](https://leetcode-cn.com/problems/permutation-in-string/) 中等
 
 LeetCode [1839. 所有元音按顺序排布的最长子字符串](https://leetcode-cn.com/problems/longest-substring-of-all-vowels-in-order/) 中等
+
+LeetCode [1004. 最大连续1的个数 III](https://leetcode-cn.com/problems/max-consecutive-ones-iii/)
+
+> 「找出一个最长的子数组，该子数组内最多允许有 K 个 0 」
+
+```c++
+
+class Solution
+{
+public:
+  int longestOnes(vector<int> &A, int K)
+  {
+    int res = 0,   // 结果
+        zeros = 0, // 区间中0的个数
+        left = 0;
+    for (int right = 0; right < A.size(); ++right) //将元素移入区间
+    {
+      if (A[right] == 0)
+      {
+        ++zeros;
+      }
+      while (zeros > K) // 这个while循环一定要放在后面的打擂台择优之前，它保证窗口内最多有K个0
+      {
+        if (A[left++] == 0) // 需要注意的是: A[left++] 相对于 A[left]; left = left + 1
+        {                   // 它相当于将A[left]移出区间，显然之后left就需要自增1
+          --zeros;
+        }
+      }
+      res = max(res, right - left + 1); // 打擂台择优
+    }
+    return res;
+  }
+};
+
+
+```
+
+
 
 ## 素材
 
