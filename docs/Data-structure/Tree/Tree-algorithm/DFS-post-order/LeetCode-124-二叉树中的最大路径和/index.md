@@ -1,5 +1,7 @@
 # leetcode [124. 二叉树中的最大路径和](https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/)
 
+这是在阅读 labuladong [数据结构和算法学习指南](https://mp.weixin.qq.com/s/ZYaXOSVM3YBIeRWm7E_jcQ) 时发现的。
+
 ## 如何罗列出所有的可能的path？
 
 由于是path，而traverse就是沿着path进行的，因此可以尝试和traverse相关联。

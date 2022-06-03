@@ -152,6 +152,20 @@ $$
 
 
 
+### 试题
+
+**LeetCode** [415. 字符串相加](https://leetcode.cn/problems/add-strings/) 和 **LeetCode** [43. 字符串相乘](https://leetcode.cn/problems/multiply-strings/) 都是采用的大端表示，两者都是从低位到高位。
+
+#### **LeetCode** [415. 字符串相加](https://leetcode.cn/problems/add-strings/)
+
+#### **LeetCode** [43. 字符串相乘](https://leetcode.cn/problems/multiply-strings/)
+
+它的官方解题时比较复杂的。
+
+
+
+
+
 
 
 ## 大数加法
@@ -168,17 +182,13 @@ cnblogs [大整数加法 面试题](https://www.cnblogs.com/meihao1203/p/8023524
 
 
 
-## 试题
+### 试题
 
-**LeetCode** [415. 字符串相加](https://leetcode.cn/problems/add-strings/) 和 **LeetCode** [43. 字符串相乘](https://leetcode.cn/problems/multiply-strings/) 都是采用的大端表示，两者都是从低位到高位。
+### 链表大数加法系列
 
-### **LeetCode** [415. 字符串相加](https://leetcode.cn/problems/add-strings/)
+leetcode [2. 两数相加](https://leetcode-cn.com/problems/add-two-numbers/)
 
-### **LeetCode** [43. 字符串相乘](https://leetcode.cn/problems/multiply-strings/)
+leetcode [445. 两数相加 II](https://leetcode-cn.com/problems/add-two-numbers-ii/)
 
-它的官方解题时比较复杂的。
-
-
-
-
+leetcode [面试题 02.05. 链表求和](https://leetcode-cn.com/problems/sum-lists-lcci/)
 
