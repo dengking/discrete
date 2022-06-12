@@ -46,3 +46,70 @@
 
 ## [Krahets](https://leetcode.cn/u/jyd/) # [分发糖果 （贪心思想，线性复杂度，清晰图解）](https://leetcode.cn/problems/candy/solution/candy-cong-zuo-zhi-you-cong-you-zhi-zuo-qu-zui-da-/)
 
+
+
+## 两次遍历
+
+
+
+```c++
+#include <iostream>
+#include <string>
+#include <unordered_map>
+#include <array>
+#include <vector>
+#include <string>
+#include <iostream>
+#include <variant>
+#include <typeinfo>
+#include <limits>
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <iterator>
+using namespace std;
+
+class Solution
+{
+public:
+    int candy(vector<int> &ratings)
+    {
+        int len = ratings.size();
+        vector<int> left(len);
+        for (int i = 0; i < len; ++i)
+        {
+            if (i - 1 >= 0 && ratings[i] > ratings[i - 1])
+            {
+                left[i] = left[i - 1] + 1;
+            }
+            else
+            {
+                left[i] = 1;
+            }
+        }
+        int ret = 0;
+        int right = 0;
+        for (int i = len - 1; i >= 0; --i)
+        {
+            if (i + 1 < len && ratings[i] > ratings[i + 1])
+            {
+                ++right;
+            }
+            else
+            {
+                right = 1;
+            }
+            ret += max(left[i], right);
+        }
+        return ret;
+    }
+};
+
+int main()
+{
+}
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra
+
+```
+
