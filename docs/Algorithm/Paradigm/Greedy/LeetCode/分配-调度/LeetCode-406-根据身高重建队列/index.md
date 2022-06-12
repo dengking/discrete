@@ -33,3 +33,58 @@
 > 一、选择身高降序排列的原因是: 题目要求 "前面 **正好** 有 `ki` 个身高大于或等于 `hi` 的人"，因此先进入 `result` 中的是大元素，后入的是小元素，后入的可以根据 `result` 中元素的个数来决定插入的位置，因为先入的肯定比它大
 >
 > 二、通过上述图是能够掌握这个算法的
+
+
+
+## 我的解题
+
+```C++
+#include <iostream>
+#include <string>
+#include <unordered_map>
+#include <array>
+#include <vector>
+#include <string>
+#include <iostream>
+#include <variant>
+#include <typeinfo>
+#include <limits>
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <iterator>
+using namespace std;
+
+class Solution
+{
+public:
+    vector<vector<int>> reconstructQueue(vector<vector<int>> &people)
+    {
+        std::sort(people.begin(), people.end(), [](const vector<int> &left, const vector<int> &right) -> bool
+                  {
+            if(left[0] == right[0])
+            {
+                return left[1] < right[1];
+            }
+            else
+            {
+                return left[0] > right[0];
+            } });
+        vector<vector<int>> res;
+        res.reserve(people.size());
+        for (auto &&p : people)
+        {
+            res.insert(res.begin() + p[1], p);
+        }
+        return res;
+    }
+};
+
+int main()
+{
+}
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra
+
+```
+
