@@ -1,4 +1,4 @@
-# [1057. 校园自行车分配](https://leetcode-cn.com/problems/campus-bikes/) 中等
+# LeetCode [1057. 校园自行车分配](https://leetcode.cn/problems/campus-bikes/) 中等
 
 在 X-Y 平面上表示的校园中，有 `n` 名工人和 `m` 辆自行车，其中 `n <= m` 。
 

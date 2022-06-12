@@ -38,22 +38,30 @@
 
 ## 我的解题
 
-```C++
-#include <iostream>
-#include <string>
-#include <unordered_map>
-#include <array>
-#include <vector>
-#include <string>
-#include <iostream>
-#include <variant>
-#include <typeinfo>
-#include <limits>
 
+```C++
+// #include <bits/stdc++.h>
 #include <iostream>
-#include <vector>
+#include <string>
 #include <algorithm>
-#include <iterator>
+#include <vector>
+#include <bitset>
+#include <map>
+#include <list>
+#include <stack>
+#include <unordered_map>
+#include <unordered_set>
+#include <queue>
+#include <deque>
+#include <cmath>
+#include <numeric>
+#include <climits>
+#include <random>
+// example1.cpp
+// new-delete-type-mismatch error
+#include <memory>
+#include <vector>
+
 using namespace std;
 
 class Solution
@@ -79,6 +87,7 @@ public:
         }
         return res;
     }
+
 };
 
 int main()
