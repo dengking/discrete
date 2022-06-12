@@ -109,13 +109,37 @@ if (need == window)
 
 
 
-## LeetCode例题
+## 子串、子数组 LeetCode例题
+
+素材:
+
+1、LeetCode [1004. 最大连续1的个数 III](https://leetcode.cn/problems/max-consecutive-ones-iii/) # [一个模板解决最大滑动窗口问题（同类型题目收集）](https://leetcode.cn/problems/max-consecutive-ones-iii/solution/jidao-by-iamysw-bs2s/)
 
 
 
-最好的滑动窗口例题：[剑指 Offer 57 - II. 和为s的连续正数序列](https://leetcode-cn.com/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/) 
+### 习题分类
+
+一、简单:
+
+1、LeetCode [剑指 Offer 57 - II. 和为s的连续正数序列](https://leetcode.cn/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/) 
+
+最好的滑动窗口例题
+
+二、修改K次
+
+LeetCode [1004. 最大连续1的个数 III](https://leetcode.cn/problems/max-consecutive-ones-iii/) 中等
+
+LeetCode [424. 替换后的最长重复字符](https://leetcode.cn/problems/longest-repeating-character-replacement/) 中等
+
+LeetCode [1493. 删掉一个元素以后全为 1 的最长子数组](https://leetcode.cn/problems/longest-subarray-of-1s-after-deleting-one-element/) 
+
+K为1
 
 
+
+### LeetCode [剑指 Offer 57 - II. 和为s的连续正数序列](https://leetcode.cn/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/) 简单
+
+穷举: "输出所有和为 `target` 的连续正整数序列（至少含有两个数）"
 
 ```c++
 
@@ -157,22 +181,129 @@ public:
 
 
 
-LeetCode [3. 无重复字符的最长子串](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/) 中等
+### LeetCode [3. 无重复字符的最长子串](https://leetcode.cn/problems/longest-substring-without-repeating-characters/) 中等
 
-LeetCode [438. 找到字符串中所有字母异位词](https://leetcode-cn.com/problems/find-all-anagrams-in-a-string/) 中等
+最优值: 寻找 "不含有重复字符的 **最长子串** 的长度"
 
-LeetCode [76. 最小覆盖子串](https://leetcode-cn.com/problems/minimum-window-substring/) 困难
+```C++
+#include <iostream>
+#include <string>
+#include <unordered_map>
+#include <array>
+#include <vector>
+#include <string>
+#include <iostream>
+#include <variant>
+#include <typeinfo>
+#include <limits>
 
-LeetCode [567. 字符串的排列](https://leetcode-cn.com/problems/permutation-in-string/) 中等
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <iterator>
+using namespace std;
 
-LeetCode [1839. 所有元音按顺序排布的最长子字符串](https://leetcode-cn.com/problems/longest-substring-of-all-vowels-in-order/) 中等
+class Solution
+{
+public:
+    int lengthOfLongestSubstring(string s)
+    {
+        std::unordered_map<char, int> window;
+        using pair_type = decltype(window)::value_type;
+        // https://stackoverflow.com/a/9371137/10173843
+        auto has_repeat = [&]() -> bool
+        {
+            return std::any_of(window.begin(), window.end(), [](const pair_type &left)
+                               { return left.second > 1; });
+        };
+        int ret = 0;
+        int len = s.size();
+        for (int left = 0, right = 0; right < len; ++right)
+        {
+            window[s[right]]++;
+            // int window_size = right - left + 1;
+            while (has_repeat())
+            {
+                window[s[left++]]--;
+            }
+            ret = max(ret, right - left + 1);
+        }
+        return ret;
+    }
+};
 
-LeetCode [1004. 最大连续1的个数 III](https://leetcode-cn.com/problems/max-consecutive-ones-iii/)
+int main()
+{
+    auto s = "abcabcbb";
+    Solution solu;
+    solu.lengthOfLongestSubstring(s);
+}
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra
 
-> 「找出一个最长的子数组，该子数组内最多允许有 K 个 0 」
+```
+
+
+
+### LeetCode [76. 最小覆盖子串](https://leetcode.cn/problems/minimum-window-substring/) 困难
+
+
+
+### LeetCode [424. 替换后的最长重复字符](https://leetcode.cn/problems/longest-repeating-character-replacement/) 中等
+
+修改K次: 最多翻转K次，"返回包含相同字母的最长子字符串的长度"。
+
+```C++
+
+class Solution
+{
+public:
+    int characterReplacement(string s, int k)
+    {
+        std::unordered_map<char, int> cnt;
+        using pair_type = decltype(cnt)::value_type;
+        // https://stackoverflow.com/a/9371137/10173843
+        auto max_of_cnt_func = [&]() -> int
+        {
+            return std::max_element(cnt.begin(), cnt.end(), [](const pair_type &left, const pair_type &right)
+                                    { return left.second < right.second; })
+                ->second;
+        };
+        int ret = 0;
+        int len = s.size();
+        for (int left = 0, right = 0; right < len; ++right)
+        {
+            cnt[s[right]]++;
+            // int window_size = right - left + 1;
+            while (right - left + 1 - max_of_cnt_func() > k)
+            {
+                cnt[s[left++]]--;
+            }
+            ret = max(ret, right - left + 1);
+        }
+        return ret;
+    }
+};
+```
+
+上述code非常简介，是典型的模板。
+
+### LeetCode [438. 找到字符串中所有字母异位词](https://leetcode.cn/problems/find-all-anagrams-in-a-string/) 中等
+
+
+
+
+
+### LeetCode [567. 字符串的排列](https://leetcode.cn/problems/permutation-in-string/) 中等
+
+
+
+
+
+### LeetCode [1004. 最大连续1的个数 III](https://leetcode.cn/problems/max-consecutive-ones-iii/) 中等
+
+修改K次: "「找出一个最长的子数组，该子数组内最多允许有 K 个 0 」"
 
 ```c++
-
 class Solution
 {
 public:
@@ -203,4 +334,51 @@ public:
 
 ```
 
+
+
+### LeetCode [1493. 删掉一个元素以后全为 1 的最长子数组](https://leetcode.cn/problems/longest-subarray-of-1s-after-deleting-one-element/) 
+
+
+
+```C++
+
+class Solution
+{
+public:
+  /**
+   * @brief 窗口中，最多K个0
+   *
+   * @param nums
+   * @return int
+   */
+  int longestSubarray(vector<int> &nums)
+  {
+    int zeroCnt = 0; // 窗口中0的个数
+    int res = 0;
+    for (int fast = 0, slow = 0; fast < nums.size(); ++fast)
+    {
+      if (nums[fast] == 0)
+      {
+        ++zeroCnt;
+      }
+      while (zeroCnt > 1)
+      {
+        if (nums[slow++] == 0)
+        {
+          --zeroCnt;
+        }
+      }
+      res = max(res, fast - slow); //由于必须要从窗口中删除掉一个元素，因此长度的计算方式为: fast - slow
+    }
+    return res;
+  }
+};
+
+```
+
+
+
+
+
+### LeetCode [1839. 所有元音按顺序排布的最长子字符串](https://leetcode.cn/problems/longest-substring-of-all-vowels-in-order/) 中等
 

@@ -5,49 +5,59 @@
 ## 我的解题
 
 ```C++
-#include <bits/stdc++.h>
+#include <iostream>
+#include <string>
+#include <unordered_map>
+#include <array>
+#include <vector>
+#include <string>
+#include <iostream>
+#include <variant>
+#include <typeinfo>
+#include <limits>
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <iterator>
 using namespace std;
+
 class Solution
 {
 public:
-	int lengthOfLongestSubstring(string s)
-	{
-
-		unordered_map<char, int> window;
-		int str_len = s.size();
-
-		int left = 0, right = 0;
-		int valid = 0; //window中，有效字符的个数
-		int len = 0; //
-		int start = 0;
-		while (right < str_len)
-		{
-			char c = s[right]; // 新进入的字符
-			++right;
-			++window[c];
-
-			while (window[c] > 1) // 包含了重复字符
-			{
-				char d = s[left];
-				++left;
-				if (window[d] > 0) // c是目标字符
-				{
-					--window[d];
-				}
-			}
-			// 在这里更新答案
-			len = max(len, right - left);
-		}
-		return len;
-	}
+    int lengthOfLongestSubstring(string s)
+    {
+        std::unordered_map<char, int> window;
+        using pair_type = decltype(window)::value_type;
+        // https://stackoverflow.com/a/9371137/10173843
+        auto has_repeat = [&]() -> bool
+        {
+            return std::any_of(window.begin(), window.end(), [](const pair_type &left)
+                               { return left.second > 1; });
+        };
+        int ret = 0;
+        int len = s.size();
+        for (int left = 0, right = 0; right < len; ++right)
+        {
+            window[s[right]]++;
+            // int window_size = right - left + 1;
+            while (has_repeat())
+            {
+                window[s[left++]]--;
+            }
+            ret = max(ret, right - left + 1);
+        }
+        return ret;
+    }
 };
+
 int main()
 {
-	std::string s { "abcabcbb" };
-	Solution solu;
-	cout << solu.lengthOfLongestSubstring(s) << endl;
+    auto s = "abcabcbb";
+    Solution solu;
+    solu.lengthOfLongestSubstring(s);
 }
-// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -g
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra
 
 ```
 
