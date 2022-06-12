@@ -1,5 +1,13 @@
 # 滑动窗口解子串、子序列问题
 
+
+
+## 素材
+
+一、labuladong [我写了套框架，把滑动窗口算法变成了默写题](https://mp.weixin.qq.com/s/ioKXTMZufDECBUwRRp3zaA) 
+
+
+
 ## 前提条件
 
 使用滑动窗口的前提是: "向右滑动的时候，是寻找一个可行解，向左滑动是优化解"
@@ -195,9 +203,4 @@ public:
 
 ```
 
-
-
-## 素材
-
-一、labuladong [我写了套框架，把滑动窗口算法变成了默写题](https://mp.weixin.qq.com/s/ioKXTMZufDECBUwRRp3zaA) 
 
