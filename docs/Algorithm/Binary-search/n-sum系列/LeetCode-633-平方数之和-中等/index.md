@@ -13,7 +13,7 @@ public:
   bool judgeSquareSum(int c)
   {
     long left = 0, right = sqrt(c);
-    while (left <= right)
+    while (left <= right) // 允许两个相同数平方和，因此加上等号
     {
       auto sum = left * left + right * right;
       if (sum == c)

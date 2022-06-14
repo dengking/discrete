@@ -1,5 +1,7 @@
 nav:
     - Introduction: index.md
+    - 二数之和-two-sum系列: 二数之和-two-sum系列
     - LeetCode-633-平方数之和-中等: LeetCode-633-平方数之和-中等
+    - LeetCode-1711-大餐计数: LeetCode-1711-大餐计数
     
     
