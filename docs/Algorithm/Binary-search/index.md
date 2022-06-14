@@ -34,7 +34,7 @@ leetcode [300. 最长递增子序列](https://leetcode-cn.com/problems/longest-i
 
 ### n-sum
 
-labuladong [一个函数秒杀 2Sum 3Sum 4Sum 问题](https://mp.weixin.qq.com/s/fSyJVvggxHq28a0SdmZm6Q)
+参见 `n-sum系列` 章节。
 
 
 
