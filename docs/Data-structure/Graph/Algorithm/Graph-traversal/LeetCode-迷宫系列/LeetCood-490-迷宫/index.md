@@ -1,8 +1,26 @@
-# [490. 迷宫](https://leetcode-cn.com/problems/the-maze/) 中等
+# LeetCode [490. 迷宫](https://leetcode-cn.com/problems/the-maze/) 中等
 
 
 
 ## 我的解题
+
+一、如何模拟**移动**？
+
+"one-by-one"，即一次移动一格，这可以以循环的方式来实现，当遇到墙（边界墙和内部墙）的时候就需要停止移动，因此实现的方式有两种:
+
+1、在移到目的地之前先判断目的地是不是墙，如果是墙，则不移动，如果不是，则移动
+
+2、当移到墙上后再回退一步 ，下面的代码使用的是这种方式
+
+二、回溯如何避免死循环？
+
+将**到达的节点**标记为visited，每次在移动之前先判断**到达的节点**是否已经访问过了，如果已经访问过了，那么就不需要再次重复访问。
+
+那对源点这个特殊节点如何处理呢？首先第一次运行的时候，源点不是**到达节点**，因此需要对源点按照一个活节点进行处理。一个特殊的情况是: 以题目给出的**示例 1**来说，从**源点**向下移动后，由于无法上移动，因此到达的节点就是源点本身，按照算法的，它是会首先将到达的节点即源点标记为visited然后继续从该点出发。
+
+**示例 1：**
+
+![img](https://assets.leetcode.com/uploads/2021/03/31/maze1-1-grid.jpg)
 
 ### 第一次解题
 
@@ -19,47 +37,68 @@ using namespace std;
 
 class Solution
 {
-  vector<vector<int> > moves_{{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
-  int col_{0};
-  int row_{0};
-  bool res_{false};
-  vector<vector<int> > visited_;
+  // 迷宫大小
+  int m_{0};
+  int n_{0};
 
+  // 移动
+  vector<vector<int>> moves_{
+      {0, -1}, // 上
+      {0, 1},  // 下
+      {-1, 0}, //左
+      {1, 0}   // 右
+  };
+  // 目标位置
+  int des_x_{0};
+  int des_y_{0};
+
+  vector<vector<int>> visted_; // flag
 public:
-  bool hasPath(vector<vector<int> > &maze, vector<int> &start, vector<int> &destination)
+  bool hasPath(vector<vector<int>> &maze, vector<int> &start, vector<int> &destination)
   {
-    row_ = maze.size();
-    col_ = maze[0].size();
-    visited_ = vector<vector<int> >(row_, vector<int>(col_, false));
-    dfs(maze, destination, start[0], start[1]);
-    return res_;
+    m_ = maze.size();
+    n_ = maze[0].size();
+
+    visted_ = vector<vector<int>>(m_, vector<int>(n_, false));
+    //
+    des_x_ = destination[0];
+    des_y_ = destination[1];
+    return dfs(maze, start[0], start[1]);
   }
-  void dfs(vector<vector<int> > &maze, vector<int> &destination, int x, int y)
+
+  bool dfs(vector<vector<int>> &maze, int x, int y)
   {
-    if (x == destination[0] && y == destination[1])
+    if (x == des_x_ && y == des_y_)
     {
-      res_ = true;
-      return;
+      return true;
     }
-    for (auto &&m : moves_)
+    else
     {
-      int next_x = x + m[0];
-      int next_y = y + m[1];
-      while (next_x >= 0 && next_x < row_ &&
-             next_y >= 0 && next_y < col_ &&
-             maze[next_x][next_y] != 1)
+      for (auto &&m : moves_)
       {
-        next_x += m[0];
-        next_y += m[1];
+        // 到达的节点
+        auto next_x = x;
+        auto next_y = y;
+        while (
+            next_x >= 0 && next_x < m_ && //
+            next_y >= 0 && next_y < n_ && //
+            maze[next_x][next_y] != 1     // 注意: 必须要放到这里，不能够放到前面，否则有越界风险
+        )
+        {
+          next_x += m[0];
+          next_y += m[1];
+        }
+        // 必须要退回到正确位置
+        next_x -= m[0];
+        next_y -= m[1];
+        if (!visted_[next_x][next_y]) // 剪枝
+        {
+          visted_[next_x][next_y] = true; // 将到达的节点进行标记
+          dfs(maze, next_x, next_y);
+          visted_[next_x][next_y] = false; // 回溯
+        }
       }
-      next_x -= m[0];
-      next_y -= m[1];
-      if (!visited_[next_x][next_y]) // 剪枝
-      {
-        visited_[next_x][next_y] = true;
-        dfs(maze, destination, next_x, next_y);
-        visited_[next_x][next_y] = false;
-      }
+      return false;
     }
   }
 };
@@ -94,54 +133,75 @@ using namespace std;
 
 class Solution
 {
-  vector<vector<int> > moves_{{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
-  int col_{0};
-  int row_{0};
-  bool res_{false};
-  vector<vector<int> > visited_;
+  // 迷宫大小
+  int m_{0};
+  int n_{0};
 
+  // 移动
+  vector<vector<int>> moves_{
+      {0, -1}, // 上
+      {0, 1},  // 下
+      {-1, 0}, //左
+      {1, 0}   // 右
+  };
+  // 目标位置
+  int des_x_{0};
+  int des_y_{0};
+
+  vector<vector<int>> visted_; // flag
 public:
-  bool hasPath(vector<vector<int> > &maze, vector<int> &start, vector<int> &destination)
+  bool hasPath(vector<vector<int>> &maze, vector<int> &start, vector<int> &destination)
   {
-    row_ = maze.size();
-    col_ = maze[0].size();
-    visited_ = vector<vector<int> >(row_, vector<int>(col_, false));
-    dfs(maze, destination, start[0], start[1]);
-    return res_;
+    m_ = maze.size();
+    n_ = maze[0].size();
+
+    visted_ = vector<vector<int>>(m_, vector<int>(n_, false));
+    //
+    des_x_ = destination[0];
+    des_y_ = destination[1];
+    return dfs(maze, start[0], start[1]);
   }
-  bool dfs(vector<vector<int> > &maze, vector<int> &destination, int x, int y)
+
+  bool dfs(vector<vector<int>> &maze, int x, int y)
   {
-    if (x == destination[0] && y == destination[1])
+    if (x == des_x_ && y == des_y_)
     {
-      res_ = true;
       return true;
     }
-    for (auto &&m : moves_)
+    else
     {
-      int next_x = x + m[0];
-      int next_y = y + m[1];
-      while (next_x >= 0 && next_x < row_ &&
-             next_y >= 0 && next_y < col_ &&
-             maze[next_x][next_y] != 1)
+      for (auto &&m : moves_)
       {
-        next_x += m[0];
-        next_y += m[1];
-      }
-      next_x -= m[0];
-      next_y -= m[1];
-      if (!visited_[next_x][next_y]) // 剪枝
-      {
-        visited_[next_x][next_y] = true;
-        if (dfs(maze, destination, next_x, next_y))
+        // 到达的节点
+        auto next_x = x;
+        auto next_y = y;
+        while (
+            next_x >= 0 && next_x < m_ && //
+            next_y >= 0 && next_y < n_ && //
+            maze[next_x][next_y] != 1     // 注意: 必须要放到这里，不能够放到前面，否则有越界风险
+        )
         {
-          return true;
+          next_x += m[0];
+          next_y += m[1];
         }
-        visited_[next_x][next_y] = false;
+        // 必须要退回到正确位置
+        next_x -= m[0];
+        next_y -= m[1];
+        if (!visted_[next_x][next_y]) // 剪枝
+        {
+          visted_[next_x][next_y] = true; // 将到达的节点进行标记
+          if (dfs(maze, next_x, next_y))
+          {
+            return true;
+          }
+          visted_[next_x][next_y] = false; // 回溯
+        }
       }
+      return false;
     }
-    return false;
   }
 };
+
 
 int main()
 {
@@ -167,52 +227,73 @@ using namespace std;
 
 class Solution
 {
-  vector<vector<int> > moves_{{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
-  int col_{0};
-  int row_{0};
-  bool res_{false};
-  vector<vector<int> > visited_;
+  // 迷宫大小
+  int m_{0};
+  int n_{0};
 
+  // 移动
+  vector<vector<int>> moves_{
+      {0, -1}, // 上
+      {0, 1},  // 下
+      {-1, 0}, //左
+      {1, 0}   // 右
+  };
+  // 目标位置
+  int des_x_{0};
+  int des_y_{0};
+
+  vector<vector<int>> visted_; // flag
 public:
-  bool hasPath(vector<vector<int> > &maze, vector<int> &start, vector<int> &destination)
+  bool hasPath(vector<vector<int>> &maze, vector<int> &start, vector<int> &destination)
   {
-    row_ = maze.size();
-    col_ = maze[0].size();
-    visited_ = vector<vector<int> >(row_, vector<int>(col_, false));
-    dfs(maze, destination, start[0], start[1]);
-    return res_;
+    m_ = maze.size();
+    n_ = maze[0].size();
+
+    visted_ = vector<vector<int>>(m_, vector<int>(n_, false));
+    //
+    des_x_ = destination[0];
+    des_y_ = destination[1];
+    return dfs(maze, start[0], start[1]);
   }
-  bool dfs(vector<vector<int> > &maze, vector<int> &destination, int x, int y)
+
+  bool dfs(vector<vector<int>> &maze, int x, int y)
   {
-    if (x == destination[0] && y == destination[1])
+    if (x == des_x_ && y == des_y_)
     {
-      res_ = true;
       return true;
     }
-    for (auto &&m : moves_)
+    else
     {
-      int next_x = x + m[0];
-      int next_y = y + m[1];
-      while (next_x >= 0 && next_x < row_ &&
-             next_y >= 0 && next_y < col_ &&
-             maze[next_x][next_y] != 1)
+      for (auto &&m : moves_)
       {
-        next_x += m[0];
-        next_y += m[1];
-      }
-      next_x -= m[0];
-      next_y -= m[1];
-      if (!visited_[next_x][next_y]) // 剪枝
-      {
-        visited_[next_x][next_y] = true;
-        if (dfs(maze, destination, next_x, next_y))
+        // 到达的节点
+        auto next_x = x;
+        auto next_y = y;
+        while (
+            next_x >= 0 && next_x < m_ && //
+            next_y >= 0 && next_y < n_ && //
+            maze[next_x][next_y] != 1     // 注意: 必须要放到这里，不能够放到前面，否则有越界风险
+        )
         {
-          return true;
+          next_x += m[0];
+          next_y += m[1];
         }
-        // visited_[next_x][next_y] = false;
+        // 必须要退回到正确位置
+        next_x -= m[0];
+        next_y -= m[1];
+        if (!visted_[next_x][next_y]) // 剪枝
+        {
+          visted_[next_x][next_y] = true; // 将到达的节点进行标记
+          if (dfs(maze, next_x, next_y))
+          {
+            return true;
+          }
+          // 不回溯的原因是: 如果执行到这里，说明dfs的返回值是false，说明[next_x][next_y]这个点是无法到达目标节点的，那么就可以直接将[next_x][next_y]标记为死节点
+          // visted_[next_x][next_y] = false; // 回溯
+        }
       }
+      return false;
     }
-    return false;
   }
 };
 
