@@ -99,7 +99,7 @@ dfs解计数问题
 
 ## 回溯法剪枝典型题目
 
-leetcode [698. 划分为k个相等的子集](https://leetcode-cn.com/problems/partition-to-k-equal-sum-subsets/)
+### LeetCode [698. 划分为k个相等的子集](https://leetcode-cn.com/problems/partition-to-k-equal-sum-subsets/)
 
 dfs解存在性问题，典型写法如下：
 
@@ -174,15 +174,37 @@ LeetCode [491. 递增子序列](https://leetcode-cn.com/problems/increasing-subs
 
 dfs-last
 
+## dfs pre-order:
 
+base case
 
-## post order
+prune 剪枝
+
+## dfs post order
+
+post-action
+
+bottum-up
+
+### 例题:
 
 leetcode [剑指 Offer 06. 从尾到头打印链表](https://leetcode-cn.com/problems/cong-wei-dao-tou-da-yin-lian-biao-lcof/)
 
 labuladong [用 Git 来讲讲二叉树最近公共祖先](https://mp.weixin.qq.com/s/9RKzBcr3I592spAsuMH45g) 
 
+labuladong [美团面试官：你对二叉树后续遍历一无所知](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247490891&idx=1&sn=677a7e887fa551e994ba73bcb2538cea&scene=21#wechat_redirect)
+
+其中使用的技巧和打家劫舍三非常类似。
+
 
 
 ## dfs linked-list
 
+
+
+## 迷宫系列
+
+[490. 迷宫](https://leetcode.cn/problems/the-maze/)
+
+
+dfs存在性问题，dfs return value，dfs 不回溯
