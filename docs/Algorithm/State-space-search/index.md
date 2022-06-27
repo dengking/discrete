@@ -8,6 +8,10 @@
 
 3、wikipedia [Search algorithm](https://en.wikipedia.org/wiki/Search_algorithm)
 
+4、`计算机算法设计与分析-5-回溯法`
+
+其中也有关于"state space search"的内容。
+
 ## 前言
 
 通过wikipedia [Search algorithm](https://en.wikipedia.org/wiki/Search_algorithm)，我们可以看到：“search”是一个非常宏大的主题，有时候有这样的感觉：computer science解决很多问题的解法最终都可以归入search的范轴。
@@ -94,6 +98,6 @@ complete n-ary tree、subset tree子集树、permutation tree排列树、combina
 
 ## Search strategy
 
-在`Relation-structure-computation\Structure\Data-structure\Graph\Search-algorithm\Methods`中进行了描述。
+在`strategy` 章节中进行了描述。
 
 

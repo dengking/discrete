@@ -1,0 +1,6 @@
+nav:
+    - Introduction: index.md
+    - Brute-force-search: Brute-force-search
+    - DFS-backtracking: DFS-backtracking
+    - BFS-branch-and-bound: BFS-branch-and-bound    
+    

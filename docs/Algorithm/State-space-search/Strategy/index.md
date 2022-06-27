@@ -1,4 +1,4 @@
-# state space、solution space的算法
+# state space、solution space的strategy、算法
 
 ## 穷举是解决一切问题的基础
 
@@ -26,23 +26,31 @@
 
 
 
-## 穷举的算法
-
-### for、brute-force
+### 穷举的算法
 
 
 
-### 回溯法
+#### for、brute-force
+
+这种是最最简单的。
+
+#### DFS-backtracking回溯法
 
 1、LeetCode [491. 递增子序列](https://leetcode-cn.com/problems/increasing-subsequences/) 中等
 
 2、
 
-### 二进制枚举
+
+
+#### BFS-branch-and-bound
 
 
 
-### 双指针、滑动窗口
+#### 二进制枚举
+
+
+
+#### 双指针、滑动窗口
 
 
 
@@ -88,14 +96,6 @@ DP的选择；
 通过与brute-force search来进行对比能够更加深入地理解backtracing、Branch-and-bound的思想：
 
 总的来说，无论是backtracing还是branch-and-bound，都是充分运用已知信息来进行剪枝、进行优化、加速搜索，进而避免像暴力搜索那样搜索完整的解空间。
-
-
-
-### 如何避免回溯
-
-如何避免回溯？下面结合了例子进行了说明：
-
-- KMP算法: https://www.cnblogs.com/dusf/p/kmp.html
 
 
 

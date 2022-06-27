@@ -1,5 +1,0 @@
-nav:
-    - Introduction: index.md
-    - Brute-force: Brute-force
-    - Backtracking: Backtracking
-    - Branch-and-Bound: Branch-and-Bound    
