@@ -1,11 +1,10 @@
 nav:
     - Introduction: index.md
+    - 算法思维: 算法思维    
     - State-space-search: State-space-search # 可以看做是search       
-    - 算法思维: 算法思维
     - Paradigm: Paradigm
     - Randomized-algorithm: Randomized-algorithm
     - Analysis: Analysis
-    - Search: Search
     - Binary-search: Binary-search # 可以看做是search       
     - Sorting: Sorting  
     - Merge-algorithm: Merge-algorithm

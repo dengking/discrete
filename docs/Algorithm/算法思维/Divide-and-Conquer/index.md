@@ -1,12 +1,10 @@
 # Divide-and-conquer algorithm
 
-
-
-## 非常重要的计算思想
-
-"divide-and-conquer" 简单然而强大: 
+"divide-and-conquer"是非常重要的计算思想，它简单然而强大: 
 
 一、one-by-one的典范
+
+显然，它的计算方式是one-by-one。
 
 二、思考原问题 和 子问题(原问题 和 子问题 之间的关系)；尤其是对于大型的问题，这是非常重要的一种解决问题的思路，典型的例子: [external sorting](https://en.wanweibaike.com/wiki-External%20sorting)。
 

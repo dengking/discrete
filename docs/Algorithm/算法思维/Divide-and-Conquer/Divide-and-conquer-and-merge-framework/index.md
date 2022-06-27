@@ -1,6 +1,10 @@
-# divide-and-conquer 算法的框架
+# divide-and-conquer-and-merge 算法的框架
 
-来源：《计算机算法设计与分析》第四版王晓东编著
+一些总结:
+
+1、一般采用二分，在下面的"二分算法"章节有着很好的总结。
+
+## 《计算机算法设计与分析》第四版王晓东编著
 
 **分治法**的基本思想是将一个规模为`n`的问题分解为`k`个规模较小的**子问题**，这些**子问题**互相独立切与原问题相同。**递归**的解这些**子问题**，然后将各子问题的解**合并**得到原问题的解；它的一般算法设计模式如下：
 
@@ -35,11 +39,11 @@ $$
 
 上述所给出的是分治法的通用的**算法复杂度公式**，下面列举一些比较常见的使用分治法的算法的复杂度：
 
-## 二分算法
+### 二分算法
 
 下面是一些典型的二分算法，即取k=2。
 
-### [二分搜索](https://en.wikipedia.org/wiki/Binary_search_algorithm)
+#### [二分搜索](https://en.wikipedia.org/wiki/Binary_search_algorithm)
 
 $$
 T(n) = 2T(n/2) = \log_2 n
@@ -51,7 +55,7 @@ wikipedia [二分搜索](https://en.wikipedia.org/wiki/Binary_search_algorithm)
 
 参见《`algorithm-analysis-binary-search.md`》
 
-### [合并排序](https://en.wikipedia.org/wiki/Merge_sort)
+#### [合并排序](https://en.wikipedia.org/wiki/Merge_sort)
 
 $$
 T(n) =
@@ -71,7 +75,7 @@ $$
 wikipedia [合并排序](https://en.wikipedia.org/wiki/Merge_sort)
 
 
-### [快速排序](https://en.wikipedia.org/wiki/Quicksort)
+#### [快速排序](https://en.wikipedia.org/wiki/Quicksort)
 
 $$
 T(n) =
@@ -88,7 +92,7 @@ $$
 
 wikipedia [快速排序](https://en.wikipedia.org/wiki/Quicksort)
 
-### 补充: 使用二分思想的算法
+#### 补充: 使用二分思想的算法
 
 1、leetcode [23. 合并K个升序链表](https://leetcode-cn.com/problems/merge-k-sorted-lists/)  # 方法三：分治合并
 

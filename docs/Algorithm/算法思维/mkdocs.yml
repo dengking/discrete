@@ -1,6 +1,5 @@
 nav:
     - Introduction: index.md
-    - 穷举State-solution-space: 穷举State-solution-space
     - Divide-and-Conquer: Divide-and-Conquer
     - Recurrence-relation: Recurrence-relation    
     - Overlapping-subproblem: Overlapping-subproblem
