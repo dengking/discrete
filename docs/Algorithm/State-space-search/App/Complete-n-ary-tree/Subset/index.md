@@ -16,7 +16,7 @@ LeetCode [491. 递增子序列](https://leetcode-cn.com/problems/increasing-subs
 
 ## 去重
 
-在使用DFS的时候，有两种情况是需要考虑去重的
+在使用DFS的时候，有如下情况是需要考虑去重:
 
 
 

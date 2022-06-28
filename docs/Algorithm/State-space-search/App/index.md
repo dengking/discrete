@@ -1,103 +1,10 @@
 # Application
 
-## 回溯法
+需要注意的是分类的维度非常多（解空间形状、搜索策略、搜索目标等等），本章的内容是根据解空间的形状来对问题进行分类的。
 
-一、[37. 解数独](https://leetcode-cn.com/problems/sudoku-solver/)
-
-还未完成
+## LeetCode习题汇总
 
 
-
-二、N-皇后
-
-LeetCode-51-N-皇后-Hard
-
-LeetCode-52-N-皇后-II-Hard
-
-LeetCode-面试题-08.12-八皇后
-
-
-
-三、LeetCode [698-划分为k个相等的子集](https://leetcode-cn.com/problems/partition-to-k-equal-sum-subsets/)
-
-```C++
-class Solution
-{
-	int m_k { 0 }; // 桶的个数
-	vector<int> m_buckets; // 所有的桶
-	int m_target { 0 }; // 每个桶的目标装载量
-public:
-	bool canPartitionKSubsets(vector<int> &nums, int k)
-	{
-		int len = nums.size();
-		m_k = k;
-		if (m_k > len)
-		{
-			return false;
-		}
-		int sum = accumulate(nums.begin(), nums.end(), 0);
-
-		if (sum % m_k != 0) // 无法均匀分配
-			return false;
-		m_target = sum / m_k;
-		m_buckets.resize(k, 0); // 桶
-		sort(nums.begin(), nums.end(), greater<int>()); // 降序
-		return DFS(0, nums);
-	}
-	bool DFS(int index, vector<int> &nums)
-	{
-		if (index == nums.size()) // 所有的数都放完了
-		{
-			for (auto &&i : m_buckets)
-			{
-				if (i != m_target)
-				{
-					return false;
-				}
-			}
-			return true;
-		}
-		for (int j = 0; j < m_k; ++j)
-		{
-			if (nums[index] + m_buckets[j] > m_target) // 第i个数，不应当放入 m_buckets[j] 中
-				continue;
-			m_buckets[j] += nums[index];
-			if (DFS(index + 1, nums))
-			{
-				return true;
-			}
-			m_buckets[j] -= nums[index];
-		}
-		return false;
-	}
-};
-```
-
-
-
-四、 子集
-
-[78. 子集](https://leetcode-cn.com/problems/subsets/) 中等
-
-
-
-[90. 子集 II](https://leetcode-cn.com/problems/subsets-ii/) 中等
-
-
-
-五、排列
-
-[46. 全排列](https://leetcode-cn.com/problems/permutations/) 中等
-
-
-
-### 查找、穷举所有的可能性
-
-这类题目，章节要求查找所有的可能性，最直接的方法就是回溯法；
-
-1、LeetCode [39. 组合总和](https://leetcode-cn.com/problems/combination-sum/) 中等
-
-2、LeetCode [491. 递增子序列](https://leetcode-cn.com/problems/increasing-subsequences/) 中等
 
 
 

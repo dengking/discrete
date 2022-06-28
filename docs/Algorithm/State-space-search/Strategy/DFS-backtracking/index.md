@@ -8,6 +8,119 @@
 
 上面这段话其实总结得不错，回溯法就是树的 "深度优先遍历+先序+后序"
 
+先序: 
+
+1、判断是否搜索到了一个解
+
+2、有借
+
+后序:
+
+1、有还
+
+## LeetCode习题汇总
+
+### 解数独系列
+
+[LeetCode-37-解数独](https://leetcode-cn.com/problems/sudoku-solver/)
+
+
+
+
+
+### N-皇后系列
+
+LeetCode-51-N-皇后-Hard
+
+LeetCode-52-N-皇后-II-Hard
+
+LeetCode-面试题-08.12-八皇后
+
+
+
+### 子集划分系列
+
+[LeetCode-698-划分为k个相等的子集](https://leetcode-cn.com/problems/partition-to-k-equal-sum-subsets/)
+
+```C++
+class Solution
+{
+	int m_k { 0 }; // 桶的个数
+	vector<int> m_buckets; // 所有的桶
+	int m_target { 0 }; // 每个桶的目标装载量
+public:
+	bool canPartitionKSubsets(vector<int> &nums, int k)
+	{
+		int len = nums.size();
+		m_k = k;
+		if (m_k > len)
+		{
+			return false;
+		}
+		int sum = accumulate(nums.begin(), nums.end(), 0);
+
+		if (sum % m_k != 0) // 无法均匀分配
+			return false;
+		m_target = sum / m_k;
+		m_buckets.resize(k, 0); // 桶
+		sort(nums.begin(), nums.end(), greater<int>()); // 降序
+		return DFS(0, nums);
+	}
+	bool DFS(int index, vector<int> &nums)
+	{
+		if (index == nums.size()) // 所有的数都放完了
+		{
+			for (auto &&i : m_buckets)
+			{
+				if (i != m_target)
+				{
+					return false;
+				}
+			}
+			return true;
+		}
+		for (int j = 0; j < m_k; ++j)
+		{
+			if (nums[index] + m_buckets[j] > m_target) // 第i个数，不应当放入 m_buckets[j] 中
+				continue;
+			m_buckets[j] += nums[index];
+			if (DFS(index + 1, nums))
+			{
+				return true;
+			}
+			m_buckets[j] -= nums[index];
+		}
+		return false;
+	}
+};
+```
+
+
+
+### 子集系列
+
+[LeetCode-78-子集-中等](https://leetcode-cn.com/problems/subsets/)
+
+[LeetCode-90-子集-II-中等](https://leetcode-cn.com/problems/subsets-ii/) 
+
+
+
+### 排列系列
+
+[46. 全排列](https://leetcode-cn.com/problems/permutations/) 中等
+
+
+
+### 查找、穷举所有的可能性
+
+这类题目，章节要求查找所有的可能性，最直接的方法就是回溯法；
+
+1、LeetCode [39. 组合总和](https://leetcode-cn.com/problems/combination-sum/) 中等
+
+2、LeetCode [491. 递增子序列](https://leetcode-cn.com/problems/increasing-subsequences/) 中等
+
+
+
 
 
 ## 如何避免回溯
@@ -18,9 +131,9 @@
 
 
 
-## TODO
 
-https://www.geeksforgeeks.org/top-20-backtracking-algorithm-interview-questions/
+
+## geeksforgeeks [top-20-backtracking-algorithm-interview-questions](https://www.geeksforgeeks.org/top-20-backtracking-algorithm-interview-questions/)
 
 
 
@@ -50,10 +163,11 @@ https://www.geeksforgeeks.org/top-20-backtracking-algorithm-interview-questions/
 
 ### [Parsing](https://en.wikipedia.org/wiki/Parsing) 
 
-参见[*Compilers: Principles, Techniques, and Tools*](https://en.wikipedia.org/wiki/Compilers:_Principles,_Techniques,_and_Tools)的4.4 Top-Down Parsing，其中介绍了使用backtrack来实现parsing。
+> NOTE:
+>
+> 参见[*Compilers: Principles, Techniques, and Tools*](https://en.wikipedia.org/wiki/Compilers:_Principles,_Techniques,_and_Tools)的4.4 Top-Down Parsing，其中介绍了使用backtrack来实现parsing。
+>
+> 在GitHub中，可以检索非常多的这种项目：
+>
+> https://github.com/search?utf8=%E2%9C%93&q=backtrack+parse&type=
 
-
-
-在GitHub中，可以检索非常多的这种项目：
-
-https://github.com/search?utf8=%E2%9C%93&q=backtrack+parse&type=
