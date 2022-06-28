@@ -3,4 +3,5 @@ nav:
     - Permutation: Permutation # 排列
     - Combination: Combination # 组合
     - Complete-n-ary-tree: Complete-n-ary-tree # 完全n叉树
+    - Topological-tree: Topological-tree
     
