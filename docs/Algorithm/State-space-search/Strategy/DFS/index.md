@@ -200,11 +200,15 @@ labuladong [美团面试官：你对二叉树后续遍历一无所知](https://m
 
 
 
-## dfs linked-list
+## dfs data structure
+
+### dfs linked-list
 
 
 
-## 迷宫系列
+### dfs graph
+
+### 迷宫系列
 
 [490. 迷宫](https://leetcode.cn/problems/the-maze/)
 

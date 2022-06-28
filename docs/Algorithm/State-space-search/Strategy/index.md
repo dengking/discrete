@@ -1,8 +1,10 @@
 # state space、solution space的strategy、算法
 
+
+
 ## 穷举是解决一切问题的基础
 
-正如：
+素材：
 
 1、在discrete book中所说的：
 
@@ -48,24 +50,17 @@
 
 #### 二进制枚举
 
+参见 `二进制枚举` 章节。
+
 
 
 #### 双指针、滑动窗口
 
 
 
-## Algorithm paradigm
-
-本章描述实现search algorithm的常见Paradigm：
-
-| algorithm paradigm | search strategy                               |
-| ------------------ | --------------------------------------------- |
-| Backtracking       | - Depth-first search                          |
-| Branch-and-Bound   | - Breadth-first search<br>- Best-first search |
 
 
-
-## 高效的穷举
+### 高效的穷举
 
 很多高效的algorithm在于它比较好地罗列了问题的所有可能性，相比与暴力搜索，它高效的多，它们的一般思路为: 
 
@@ -77,7 +72,7 @@
 
 二、`Algorithm\State-space-search`
 
-选择
+
 
 三、滑动窗口
 
@@ -91,11 +86,24 @@ labuladong [我写了套框架，把滑动窗口算法变成了默写题](https:
 
 DP的选择；
 
-### Compared with brute-force search
+#### Compared with brute-force search
 
 通过与brute-force search来进行对比能够更加深入地理解backtracing、Branch-and-bound的思想：
 
 总的来说，无论是backtracing还是branch-and-bound，都是充分运用已知信息来进行剪枝、进行优化、加速搜索，进而避免像暴力搜索那样搜索完整的解空间。
+
+
+
+
+
+## Algorithm paradigm
+
+本章描述实现search algorithm的常见Paradigm：
+
+| algorithm paradigm | search strategy                               |
+| ------------------ | --------------------------------------------- |
+| Backtracking       | - Depth-first search                          |
+| Branch-and-Bound   | - Breadth-first search<br>- Best-first search |
 
 
 

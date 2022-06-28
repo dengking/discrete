@@ -5,4 +5,6 @@ nav:
     - DFS-backtracking: DFS-backtracking
     - BFS: BFS
     - BFS-branch-and-bound: BFS-branch-and-bound    
+    - 二进制枚举: 二进制枚举    
+    - 去重: 去重
     
