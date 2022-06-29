@@ -190,12 +190,47 @@ $$
 
 > NOTE: 
 >
-> 1、递归关系$b[j] = b[j-1] + a[j]$与最长公共子序列的非常类似；$b[j]$的计算仅仅依赖于$b[j-1]$，就如  [Fibonacci sequence](https://en.wikipedia.org/wiki/Fibonacci_sequence) 的计算仅仅依赖于前两项一样；
+> 一、递归关系$b[j] = b[j-1] + a[j]$与最长公共子序列的非常类似；$b[j]$的计算仅仅依赖于$b[j-1]$，就如  [Fibonacci sequence](https://en.wikipedia.org/wiki/Fibonacci_sequence) 的计算仅仅依赖于前两项一样；
 >
-> 2、: 正如在 [画解算法：53. 最大子序和](https://leetcode-cn.com/problems/maximum-subarray/solution/hua-jie-suan-fa-53-zui-da-zi-xu-he-by-guanpengchn/) 中所说的：
+> 二、正如在 [画解算法：53. 最大子序和](https://leetcode-cn.com/problems/maximum-subarray/solution/hua-jie-suan-fa-53-zui-da-zi-xu-he-by-guanpengchn/) 中所说的：
 >
-> - $b[j-1] \gt 0 $ 说明 $b[j-1]$对结果有增益效果，则 $b[j-1]$保留并加上当前遍历数字 
-> - 如果$b[j-1] \le 0$则说明它对结果并没有增益，需要舍弃， 则 $b[j]$ 直接更新为当前遍历数字 
+> 1、$b[j-1] \gt 0 $ 说明 $b[j-1]$对结果有增益效果，则 $b[j-1]$保留并加上当前遍历数字 
+>
+> 2、如果$b[j-1] \le 0$则说明它对结果并没有增益，需要舍弃， 则 $b[j]$ 直接更新为当前遍历数字 
+>
+> 三、它的非压缩版本的写法如下:
+>
+> ```c++
+> class Solution
+> {
+> public:
+> /**
+>    * @brief 整体思路是穷举以nums[i]结尾的最大子数组和然后将这些子数组和打擂台选择出最优值
+>    *
+>    * @param nums
+>    * @return int
+>    */
+>   int maxSubArray(vector<int> &nums)
+>   {
+>     vector<int> dp(nums.size()); //以nums[i]结尾的最大子数组和
+>     dp[0] = nums[0];             // base case
+>     for (int i = 1; i < nums.size(); ++i)
+>     {
+>       if (dp[i - 1] + nums[i] > nums[i]) // 有增益则与前面的相连
+>       {
+>         dp[i] = nums[i] + dp[i - 1];
+>       }
+>       else
+>       {
+>         dp[i] = nums[i]; // 自成一家
+>       }
+>     }
+>     return *std::max_element(dp.begin(), dp.end()); // 取出最大值
+>   }
+> };
+> ```
+>
+> 
 
 据此，可设计出求最大子段和的动态规划算法如下：
 
@@ -250,42 +285,9 @@ int main()
 
 这种实现和上面的那种实现是完全不同的；
 
-> NOTE:
->
-> 上述代码是经过状态压缩的DP写法，它的非压缩版本的写法如下:
->
-> ```c++
-> 
-> class Solution
-> {
-> public:
->   /**
->    * @brief 整体思路是穷举以nums[i]结尾的最大子数组和然后将这些子数组和打擂台选择出最优值
->    *
->    * @param nums
->    * @return int
->    */
->   int maxSubArray(vector<int> &nums)
->   {
->     vector<int> dp(nums.size()); //以nums[i]结尾的最大子数组和
->     dp[0] = nums[0];             // base case
->     for (int i = 1; i < nums.size(); ++i)
->     {
->       if (dp[i - 1] + nums[i] > nums[i]) // 有增益则与前面的相连
->       {
->         dp[i] = nums[i] + dp[i - 1];
->       }
->       else
->       {
->         dp[i] = nums[i]; // 自成一家
->       }
->     }
->     return *std::max_element(dp.begin(), dp.end()); // 取出最大值
->   }
-> };
-> ```
->
-> 
+
+
+
 
 
 

@@ -80,6 +80,8 @@ complete n-ary tree、subset tree子集树、permutation tree排列树、combina
 
 2、`Expert-labuladong\3.1-回溯算法(DFS算法)系列\回溯算法团灭排列-组合-子集问题`
 
+
+
 ### `Permutation-and-combination`
 
 由于问题的解空间，往往对应的是permutation 和 combination，因此，将它们也放在了本章节。
@@ -88,7 +90,7 @@ complete n-ary tree、subset tree子集树、permutation tree排列树、combina
 
 ## [Graph](https://en.wikipedia.org/wiki/Graph_traversal) **and** [tree search algorithms](https://en.wikipedia.org/wiki/Tree_traversal)
 
-这部分内容`Relation-structure-computation\Structure\Data-structure\Graph\Search-algorithm`章节进行了描述。
+这部分内容`Data-structure\Graph\Search-algorithm`章节进行了描述。
 
 
 

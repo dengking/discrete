@@ -4,10 +4,8 @@ LeetCode [413. 等差数列划分](https://leetcode-cn.com/problems/arithmetic-s
 
 | 题目                                                         |                      | 类比                                                         |                       |
 | ------------------------------------------------------------ | -------------------- | ------------------------------------------------------------ | --------------------- |
-| LeetCode [413. 等差数列划分](https://leetcode-cn.com/problems/arithmetic-slices/) 中等 | 连续、subarray       | 最大子数组和，这道题和最大子数组和其实是方非常类似，背后的思想是相同的， 甚至连算法的优化过程都相同。 | $dp[i] = dp[i-1] + 1$ |
-| LeetCode [446. 等差数列划分 II - 子序列](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/) 困难 | 非连续、sub sequence | 最长递增子序列                                               | $dp[i] = dp[j] + 1$   |
-|                                                              |                      |                                                              |                       |
-|                                                              |                      |                                                              |                       |
+| [LeetCode-413-等差数列划分-中等](https://leetcode.cn/problems/arithmetic-slices/) | 连续、subarray       | 最大子数组和，这道题和最大子数组和其实是方非常类似，背后的思想是相同的， 甚至连算法的优化过程都相同。 | $dp[i] = dp[i-1] + 1$ |
+| [LeetCode-446-等差数列划分-II-子序列](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/) 困难 | 非连续、sub sequence | 最长递增子序列                                               | $dp[i] = dp[j] + 1$   |
 
 上述两道题，非常的典型，可以基本上相同的DP来进行解决，并且它们的状态方程的定义是相同的：
 

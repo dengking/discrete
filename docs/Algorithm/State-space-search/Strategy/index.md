@@ -38,15 +38,13 @@
 
 #### DFS-backtracking回溯法
 
-1、LeetCode [491. 递增子序列](https://leetcode-cn.com/problems/increasing-subsequences/) 中等
-
-2、
+参见 `DFS-backtracking` 章节。
 
 
 
 #### BFS-branch-and-bound
 
-
+参见 `BFS-branch-and-bound` 章节。
 
 #### 二进制枚举
 
@@ -105,9 +103,4 @@ DP的选择；
 | Backtracking       | - Depth-first search                          |
 | Branch-and-Bound   | - Breadth-first search<br>- Best-first search |
 
-
-
-## Example
-
-LeetCode [413. 等差数列划分](https://leetcode-cn.com/problems/arithmetic-slices/) 中等
 
