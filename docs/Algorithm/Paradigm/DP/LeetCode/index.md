@@ -54,7 +54,7 @@ public:
 
 三、计数问题，本质上是罗列所有的可能性、穷举，因此对于这种问题，基本上是都可以通过回溯法来解决的，一个典型的案例就是在 LeetCode [1155. 掷骰子的N种方法](https://leetcode-cn.com/problems/number-of-dice-rolls-with-target-sum/) # [Java题解 动态规划法](https://leetcode-cn.com/problems/number-of-dice-rolls-with-target-sum/solution/javati-jie-cong-jian-dan-di-gui-dao-ya-s-3jg7/) 中所总结的，它首先使用回溯法，然后使用DP。
 
-#### LeetCode [70. 爬楼梯](https://leetcode-cn.com/problems/climbing-stairs/) 
+#### [LeetCode-70-爬楼梯](https://leetcode-cn.com/problems/climbing-stairs/) 
 
 ##### 核心code
 
@@ -86,7 +86,7 @@ public:
 
 
 
-#### leetcode [91. 解码方法](https://leetcode-cn.com/problems/decode-ways/) 中等
+#### [LeetCode-91-解码方法-中等](https://leetcode-cn.com/problems/decode-ways/) 
 
 ##### 核心code
 
@@ -142,11 +142,7 @@ public:
 
 
 
-
-
-
-
-#### LeetCode [62. 不同路径](https://leetcode-cn.com/problems/unique-paths/) 中等
+#### [LeetCode-62-不同路径](https://leetcode-cn.com/problems/unique-paths/) 
 
 ##### 核心code
 
@@ -225,77 +221,13 @@ public:
 
 
 
-#### LeetCode [64. 最小路径和](https://leetcode-cn.com/problems/minimum-path-sum/) 中等
+#### [LeetCode-64-最小路径和-中等](https://leetcode-cn.com/problems/minimum-path-sum/) 
 
 
 
-## 子序列、子串、子数组
+## Subsequence-Subarray-Substring-DP
 
-### DP 子序列 VS DP 子数组
-
-两者的相同点: **DP方程**的定义都是以`nums[i]` 结尾的，算法过程都是 `nums[i]` 和它前面的**子序列**/**子数组**进行**连接**，所不同的是**子序列**不要求连续，但是**子数组**要求连续，因此子序列会遍历它前面的所有的元素，而子数组只需要考虑它紧邻的一个元素，其实这就决定了两者的复杂度: $O(N^2)$ VS $O(N)$。
-
-关于两者对比的最最经典的例子就是:
-
-一、**LIS** 和 **最大子数组和**
-
-在下面的文章中进行了非常好的描述：
-
-1、[446. 等差数列划分 II - 子序列](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/) # [【负雪明烛】揭秘子序列动态规划的套路](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/solution/fu-xue-ming-zhu-jie-mi-zi-xu-lie-dong-ta-gepk/)
-
-2、[446. 等差数列划分 II - 子序列](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/) # [动态规划（Java）](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/solution/dong-tai-gui-hua-java-by-liweiwei1419-jc84/)
-
-二、LeetCode [413. 等差数列划分](https://leetcode-cn.com/problems/arithmetic-slices/) 中等、LeetCode [446. 等差数列划分 II - 子序列](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/) 困难
-
-#### complexity: $O(N^2)$ VS $O(N)$
-
-对于子序列问题，追求 $O(N^2)$ 的复杂度；
-
-对于子数组问题，追求 $O(N)$ 的复杂度； 
-
-### 最优值问题
-
-#### LIS、最长递增子序列
-
-LeetCode [300. 最长递增子序列](https://leetcode-cn.com/problems/longest-increasing-subsequence/) 
-
-```c++
-class Solution
-{
-public:
-	int lengthOfLIS(vector<int> &nums)
-	{
-		int n = nums.size();
-		vector<int> dp(n, 1);
-		for (int i = 1; i < n; ++i)
-		{
-			for (int j = 0; j < i; ++j)
-			{
-				if (nums[j] < nums[i])
-				{
-					dp[i] = max(dp[i], dp[j] + 1);
-				}
-			}
-		}
-		int res = *max_element(dp.begin(), dp.end());
-		return res;
-	}
-};
-```
-
-一、`dp[i]` 表示 以 `nums[i]` 结尾的最长递增子序列长度。
-
-二、上述算法是典型的穷举求解最值的算法。
-
-#### 最大子数组和
-
-参见对应章节。
-
-### 计数问题
-
-#### LeetCode [446. 等差数列划分 II - 子序列](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/) 困难
-
-
+参见 `Subsequence-Subarray-Substring-DP` 章节。
 
 
 
