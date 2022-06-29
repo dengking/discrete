@@ -24,9 +24,11 @@
 
 对于子数组问题，追求 $O(N)$ 的复杂度； 
 
+## 分类方式一
 
 
-## 最优值问题
+
+### 最优值问题
 
 #### LIS、最长递增子序列
 
@@ -66,7 +68,11 @@ public:
 
 
 
-## 计数问题
+### 计数问题
 
 #### LeetCode [446. 等差数列划分 II - 子序列](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/) 困难
+
+
+
+## 分类方式二
 
