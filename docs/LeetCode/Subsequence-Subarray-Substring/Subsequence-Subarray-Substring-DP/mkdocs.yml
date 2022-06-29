@@ -1,6 +1,6 @@
 nav:
     - Introduction: index.md
-    - Subsequenc序列DP: Subsequenc序列DP    
+    - Subsequenc子序列DP: Subsequenc子序列DP    
     - LeetCode-等差数列系列: LeetCode-等差数列系列
     
     
