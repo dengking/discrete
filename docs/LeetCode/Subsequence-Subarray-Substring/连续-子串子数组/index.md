@@ -126,3 +126,14 @@ LeetCode [413. 等差数列划分](https://leetcode-cn.com/problems/arithmetic-s
 动态规划 $O(N)$
 
 
+
+## KMP、LIS、重复的子串
+
+LIS和KMP算法的next，fail函数类似: 
+
+1、都是单个序列
+
+2、两者的过程是比较类似的
+
+关于"重复的子串"，参见 "重复的子字符串系列" 章节。
+

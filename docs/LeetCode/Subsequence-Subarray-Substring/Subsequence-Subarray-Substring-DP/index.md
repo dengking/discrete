@@ -72,32 +72,32 @@ public:
 
 ### 计数问题
 
-#### LeetCode [446. 等差数列划分 II - 子序列](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/) 困难
+例题: 
+
+[LeetCode-446. 等差数列划分 II - 子序列-困难](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/) 
 
 
 
 ## 分类方式二
 
-### 一个字符串
+### 一个序列
 
 这种典型的left-right-double-pointer。
 
-#### LIS和KMP算法的next，fail函数类似
 
-都是单个序列
 
-两者的过程是比较类似的
+#### 例题
 
-## 1062. 最长重复子串
+[LeetCode-1062-最长重复子串](https://leetcode.cn/problems/longest-repeating-substring/solution/dpdong-tai-gui-hua-by-johnkle-zyw8/)
 
-https://leetcode-cn.com/problems/longest-repeating-substring/solution/dpdong-tai-gui-hua-by-johnkle-zyw8/
+labuladong [子序列解题模板：最长回文子序列](https://mp.weixin.qq.com/s/zNai1pzXHeB2tQE6AdOXTA)
 
-## labuladong [子序列解题模板：最长回文子序列](https://mp.weixin.qq.com/s/zNai1pzXHeB2tQE6AdOXTA)
 
-# 两个字符串
+
+### 两个序列
 
 1、labuladong [经动态规划：编辑距离](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247484731&idx=3&sn=aa642cbf670feee73e20428775dff0b5&scene=21#wechat_redirect)
 
 2、labuladong [详解最长公共子序列问题，秒杀三道动态规划题目](https://mp.weixin.qq.com/s/ZhPEchewfc03xWv9VP3msg)
 
-3、[1055. 形成字符串的最短路径](https://leetcode-cn.com/problems/shortest-way-to-form-string/)
+3、[LeetCode-1055. 形成字符串的最短路径](https://leetcode.cn/problems/shortest-way-to-form-string/)
