@@ -1,4 +1,6 @@
-# leetcode [115. 不同的子序列](https://leetcode-cn.com/problems/distinct-subsequences/)
+# LeetCode [115. 不同的子序列](https://leetcode.cn/problems/distinct-subsequences/)
+
+给定一个字符串 `s` 和一个字符串 `t` ，计算在 `s` 的子序列中 `t` 出现的个数。
 
 
 
@@ -19,9 +21,11 @@
 
 三、如何理解上述递归方程呢？
 
-1、`baba*`、 `ba*`，当添加`g`，则新序列的的个数有如下决定: 
+1、`baba*`、 `ba*`，当添加`g`，则新序列的的个数由如下决定: 
 
 a、子序列: `baba` 、`ba`
 
 b、子序列
+
+四、这是一个计数问题
 

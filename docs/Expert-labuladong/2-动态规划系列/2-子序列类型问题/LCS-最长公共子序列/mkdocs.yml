@@ -1,4 +1,3 @@
 nav:
-    - Introduction: index.md
     - 详解最长公共子序列问题: 详解最长公共子序列问题
-    - LeetCode-115-不同的子序列-困难: LeetCode-115-不同的子序列-困难
+    
