@@ -2,4 +2,4 @@ nav:
     - Introduction: index.md
     - LIS-最长递增子序列: LIS-最长递增子序列
     - LCS-最长公共子序列: LCS-最长公共子序列
-        
+    - LPS-最长回文子序列: LPS-最长回文子序列    
