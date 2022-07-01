@@ -1,5 +1,5 @@
 nav:
     - Introduction: index.md
     - C++source-code: C++source-code.md
-    - leetcode-72-编辑距离: leetcode-72-编辑距离
+    - LeetCode-72-编辑距离-困难: LeetCode-72-编辑距离-困难
     
