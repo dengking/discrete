@@ -34,23 +34,3 @@ Thus, Turing machines prove **fundamental limitations** on the power of **mechan
 
 > Classes of automata
 
-## Overview
-
-A Turing machine is a general example of a [central processing unit](https://en.wikipedia.org/wiki/Central_processing_unit) (CPU) that controls all data manipulation done by a computer, with the canonical machine using sequential memory to store data. More specifically, it is a machine ([automaton](https://en.wikipedia.org/wiki/Automaton)) capable of [enumerating](https://en.wikipedia.org/wiki/Enumeration) some arbitrary subset of valid strings of an [alphabet](https://en.wikipedia.org/wiki/Alphabet_(formal_languages)); these strings are part of a [recursively enumerable set](https://en.wikipedia.org/wiki/Recursively_enumerable_set). A Turing machine has a tape of infinite length on which it can perform read and write operations.
-
-Assuming a [black box](https://en.wikipedia.org/wiki/Black_box), the Turing machine cannot know whether it will eventually enumerate any one specific string of the subset with a given program. This is due to the fact that the [halting problem](https://en.wikipedia.org/wiki/Halting_problem) is unsolvable, which has major implications for the theoretical limits of computing.
-
-The Turing machine is capable of processing an [unrestricted grammar](https://en.wikipedia.org/wiki/Unrestricted_grammar), which further implies that it is capable of robustly evaluating first-order logic in an infinite number of ways. This is famously demonstrated through [lambda calculus](https://en.wikipedia.org/wiki/Lambda_calculus).
-
-A Turing machine that is able to simulate any other Turing machine is called a [universal Turing machine](https://en.wikipedia.org/wiki/Universal_Turing_machine) (UTM, or simply a universal machine). A more mathematically oriented definition with a similar "universal" nature was introduced by [Alonzo Church](https://en.wikipedia.org/wiki/Alonzo_Church), whose work on lambda calculus intertwined with Turing's in a formal theory of [computation](https://en.wikipedia.org/wiki/Computation) known as the [Church–Turing thesis](https://en.wikipedia.org/wiki/Church–Turing_thesis). The thesis states that Turing machines indeed capture the informal notion of [effective methods](https://en.wikipedia.org/wiki/Effective_method) in [logic](https://en.wikipedia.org/wiki/Logic) and [mathematics](https://en.wikipedia.org/wiki/Mathematics), and provide a precise definition of an [algorithm](https://en.wikipedia.org/wiki/Algorithm) or "mechanical procedure". Studying their [abstract properties](https://en.wikipedia.org/wiki/Abstract_machine) yields many insights into [computer science](https://en.wikipedia.org/wiki/Computer_science) and [complexity theory](https://en.wikipedia.org/wiki/Computational_complexity_theory).
-
-> NOTE:  [lambda calculus](https://en.wikipedia.org/wiki/Lambda_calculus) 不理解
-
-## visualizations of Turing machines
-
-see [Turing machine gallery](https://en.wikipedia.org/wiki/Turing_machine_gallery).
-
-
-
-## Description
-

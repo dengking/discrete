@@ -1,6 +1,6 @@
 # Dijkstra's algorithm
 
-## 参考
+## 素材
 
 一、wikipedia [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra's_algorithm) 
 
@@ -11,6 +11,10 @@
 ## 使用条件
 
 非负数边
+
+## 概括
+
+dijkstra=BFS+greedy-algorithm贪心算法+dynamic-programming动态规划
 
 ## wikipedia [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra's_algorithm) 
 
