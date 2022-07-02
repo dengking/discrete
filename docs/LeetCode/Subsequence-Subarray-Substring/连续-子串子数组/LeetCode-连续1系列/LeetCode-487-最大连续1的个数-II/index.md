@@ -1,4 +1,4 @@
-# LeetCode [487. 最大连续1的个数 II](https://leetcode.cn/problems/max-consecutive-ones-ii/) 
+# [LeetCode-487. 最大连续1的个数 II](https://leetcode.cn/problems/max-consecutive-ones-ii/) 
 
 给定一个二进制数组 `nums` ，如果最多可以翻转一个 `0` ，则返回数组中连续 `1` 的最大个数。
 
