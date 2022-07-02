@@ -1,4 +1,4 @@
-# [1100. 长度为 K 的无重复字符子串](https://leetcode-cn.com/problems/find-k-length-substrings-with-no-repeated-characters/) 中等
+# [1100. 长度为 K 的无重复字符子串](https://leetcode.cn/problems/find-k-length-substrings-with-no-repeated-characters/) 中等
 
 
 
@@ -462,7 +462,7 @@ int main()
 
 ## 二刷
 
-这是典型的定长窗口，和leetcode  [567. 字符串的排列](https://leetcode-cn.com/problems/permutation-in-string/) 类似。
+这是典型的定长窗口，和leetcode  [567. 字符串的排列](https://leetcode.cn/problems/permutation-in-string/) 类似。
 
 ```c++
 #include <iostream>

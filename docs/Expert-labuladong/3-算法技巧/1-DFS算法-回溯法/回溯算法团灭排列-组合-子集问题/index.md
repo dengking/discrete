@@ -4,17 +4,17 @@
 >
 > 组合: 
 >
-> LeetCode [77. 组合](https://leetcode-cn.com/problems/combinations/) 中等
+> LeetCode [77. 组合](https://leetcode.cn/problems/combinations/) 中等
 >
 > 子集:
 >
-> LeetCode [78. 子集](https://leetcode-cn.com/problems/subsets/) 中等
+> LeetCode [78. 子集](https://leetcode.cn/problems/subsets/) 中等
 >
-> LeetCode [90. 子集 II](https://leetcode-cn.com/problems/subsets-ii/) 中等
+> LeetCode [90. 子集 II](https://leetcode.cn/problems/subsets-ii/) 中等
 >
 > 排列:
 >
-> LeetCode [46. 全排列](https://leetcode-cn.com/problems/permutations/) 中等
+> LeetCode [46. 全排列](https://leetcode.cn/problems/permutations/) 中等
 
 
 
@@ -163,7 +163,7 @@ void backtrack(vector<int>& nums, int start, vector<int>& track) {
 >
 > 没有理解上述code；
 >
-> 我觉得比较简单的写法是: 每个元素都有两个选择: 0-不选、1-选，在"leetcode [78. 子集](https://leetcode-cn.com/problems/subsets/) 中等"中，就是使用的这种写法:
+> 我觉得比较简单的写法是: 每个元素都有两个选择: 0-不选、1-选，在"leetcode [78. 子集](https://leetcode.cn/problems/subsets/) 中等"中，就是使用的这种写法:
 >
 > ````C++
 > class Solution {

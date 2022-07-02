@@ -1,8 +1,8 @@
-# leetcode [460. LFU 缓存](https://leetcode-cn.com/problems/lfu-cache/)
+# leetcode [460. LFU 缓存](https://leetcode.cn/problems/lfu-cache/)
 
 
 
-## [官方解题](https://leetcode-cn.com/problems/lfu-cache/solution/lfuhuan-cun-by-leetcode-solution/)
+## [官方解题](https://leetcode.cn/problems/lfu-cache/solution/lfuhuan-cun-by-leetcode-solution/)
 
 ### 方法一：哈希表 + 平衡二叉树
 

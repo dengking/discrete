@@ -1,8 +1,8 @@
-# LeetCode [313. 超级丑数](https://leetcode-cn.com/problems/super-ugly-number/) 中等
+# LeetCode [313. 超级丑数](https://leetcode.cn/problems/super-ugly-number/) 中等
 
 
 
-## [官方解题](https://leetcode-cn.com/problems/super-ugly-number/solution/chao-ji-chou-shu-by-leetcode-solution-uzff/)
+## [官方解题](https://leetcode.cn/problems/super-ugly-number/solution/chao-ji-chou-shu-by-leetcode-solution-uzff/)
 
 ### 方法一：最小堆
 

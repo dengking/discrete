@@ -28,7 +28,7 @@
 
 三、求解最大的 TopN 个，用小顶堆；求解最小的 TopN 个，用大顶堆。
 
-## LeetCode [海量数据处理方法](https://leetcode-cn.com/circle/article/qlkHuN/) # 海量数据求TopK
+## LeetCode [海量数据处理方法](https://leetcode.cn/circle/article/qlkHuN/) # 海量数据求TopK
 
 ### 题目描述：
 

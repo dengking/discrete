@@ -1,14 +1,14 @@
-# LeetCode [233. 数字 1 的个数](https://leetcode-cn.com/problems/number-of-digit-one/) 困难
+# LeetCode [233. 数字 1 的个数](https://leetcode.cn/problems/number-of-digit-one/) 困难
 
 
 
-## [【宫水三叶】将数位 DP 问题转化为计数类模拟题](https://leetcode-cn.com/problems/number-of-digit-one/solution/gong-shui-san-xie-jiang-shu-wei-dp-wen-t-c9oi/)
+## [【宫水三叶】将数位 DP 问题转化为计数类模拟题](https://leetcode.cn/problems/number-of-digit-one/solution/gong-shui-san-xie-jiang-shu-wei-dp-wen-t-c9oi/)
 
 > NOTE:
 >
-> 相比于[官方解题](https://leetcode-cn.com/problems/number-of-digit-one/solution/shu-zi-1-de-ge-shu-by-leetcode-solution-zopq/)而言，[【宫水三叶】将数位 DP 问题转化为计数类模拟题](https://leetcode-cn.com/problems/number-of-digit-one/solution/gong-shui-san-xie-jiang-shu-wei-dp-wen-t-c9oi/)的更加容易理解，两者本质上是类似的，都是按照数位来进行统计。
+> 相比于[官方解题](https://leetcode.cn/problems/number-of-digit-one/solution/shu-zi-1-de-ge-shu-by-leetcode-solution-zopq/)而言，[【宫水三叶】将数位 DP 问题转化为计数类模拟题](https://leetcode.cn/problems/number-of-digit-one/solution/gong-shui-san-xie-jiang-shu-wei-dp-wen-t-c9oi/)的更加容易理解，两者本质上是类似的，都是按照数位来进行统计。
 
-这是一道经典的「数位 DP」模板题的简化版，原题在 [这里](https://leetcode-cn.com/link/?target=https%3A%2F%2Fwww.luogu.com.cn%2Fproblem%2FP1980) 。
+这是一道经典的「数位 DP」模板题的简化版，原题在 [这里](https://leetcode.cn/link/?target=https%3A%2F%2Fwww.luogu.com.cn%2Fproblem%2FP1980) 。
 
 ### 计数类模拟
 
@@ -24,9 +24,9 @@
 
 > NOTE:
 >
-> 如何求得 $ab$ 的值呢？除以 1000 即可，这在 [官方解题](https://leetcode-cn.com/problems/number-of-digit-one/solution/shu-zi-1-de-ge-shu-by-leetcode-solution-zopq/) 中进行了很好的验证。
+> 如何求得 $ab$ 的值呢？除以 1000 即可，这在 [官方解题](https://leetcode.cn/problems/number-of-digit-one/solution/shu-zi-1-de-ge-shu-by-leetcode-solution-zopq/) 中进行了很好的验证。
 
-## [官方解题](https://leetcode-cn.com/problems/number-of-digit-one/solution/shu-zi-1-de-ge-shu-by-leetcode-solution-zopq/) 
+## [官方解题](https://leetcode.cn/problems/number-of-digit-one/solution/shu-zi-1-de-ge-shu-by-leetcode-solution-zopq/) 
 
 ### 方法一：枚举每一数位上 1 的个数
 
@@ -52,7 +52,7 @@
 > **1**
 > ```
 >
-> 其实，[【宫水三叶】将数位 DP 问题转化为计数类模拟题](https://leetcode-cn.com/problems/number-of-digit-one/solution/gong-shui-san-xie-jiang-shu-wei-dp-wen-t-c9oi/) 中的讲解方式上更好的，更加容易理解，结合来看是更好的。下面的例子来进行理解:
+> 其实，[【宫水三叶】将数位 DP 问题转化为计数类模拟题](https://leetcode.cn/problems/number-of-digit-one/solution/gong-shui-san-xie-jiang-shu-wei-dp-wen-t-c9oi/) 中的讲解方式上更好的，更加容易理解，结合来看是更好的。下面的例子来进行理解:
 >
 > |        | 范围        |
 > | ------ | ----------- |

@@ -132,7 +132,7 @@ b、之前写的DFS的存在性问题：当使用DFS解存在性问题的时候�
 >
 > 子数组问题的理想复杂度就是$O(N)$
 
-2、LeetCode [413. 等差数列划分](https://leetcode-cn.com/problems/arithmetic-slices/) 中等
+2、LeetCode [413. 等差数列划分](https://leetcode.cn/problems/arithmetic-slices/) 中等
 
 等差子数组的个数
 
@@ -142,7 +142,7 @@ b、之前写的DFS的存在性问题：当使用DFS解存在性问题的时候�
 
 一、很多**子序列**问题，复杂度都为$O(N^2)$​​​ 复杂度
 
-关于这一点，是我在阅读 LeetCode [446. 等差数列划分 II - 子序列](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/) 困难 # [【负雪明烛】揭秘子序列动态规划的套路](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/solution/fu-xue-ming-zhu-jie-mi-zi-xu-lie-dong-ta-gepk/) 时，想到的。
+关于这一点，是我在阅读 LeetCode [446. 等差数列划分 II - 子序列](https://leetcode.cn/problems/arithmetic-slices-ii-subsequence/) 困难 # [【负雪明烛】揭秘子序列动态规划的套路](https://leetcode.cn/problems/arithmetic-slices-ii-subsequence/solution/fu-xue-ming-zhu-jie-mi-zi-xu-lie-dong-ta-gepk/) 时，想到的。
 
 
 

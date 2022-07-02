@@ -1,10 +1,10 @@
-# LeetCode [57. 插入区间](https://leetcode-cn.com/problems/insert-interval/) 中等
+# LeetCode [57. 插入区间](https://leetcode.cn/problems/insert-interval/) 中等
 
 ## 我的解题
 
 ### 思路：找到插入位置
 
-其实思路和按照 [56. 合并区间](https://leetcode-cn.com/problems/merge-intervals/) 的思路一样，非常简单，先找到 `newInterval` 的插入位置，然后按照 LeetCode [56. 合并区间](https://leetcode-cn.com/problems/merge-intervals/) 中的解法进行求解，其实最最简单的方式如下:
+其实思路和按照 [56. 合并区间](https://leetcode.cn/problems/merge-intervals/) 的思路一样，非常简单，先找到 `newInterval` 的插入位置，然后按照 LeetCode [56. 合并区间](https://leetcode.cn/problems/merge-intervals/) 中的解法进行求解，其实最最简单的方式如下:
 
 #### 插入+sort+merge
 

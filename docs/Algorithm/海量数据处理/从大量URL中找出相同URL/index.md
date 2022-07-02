@@ -4,7 +4,7 @@
 
 ## 参考文章
 
-1、LeetCode [海量数据处理方法](https://leetcode-cn.com/circle/article/qlkHuN/) 
+1、LeetCode [海量数据处理方法](https://leetcode.cn/circle/article/qlkHuN/) 
 
 2、csdn [【海量数据处理】如何从大量的 URL 中找出相同的 URL？](https://blog.csdn.net/hehuanchun0311/article/details/106000809)
 
@@ -20,7 +20,7 @@
 
 > NOTE: 
 >
-> 按照 LeetCode [海量数据处理方法](https://leetcode-cn.com/circle/article/qlkHuN/) 中给出的分类方法，这属于求交集。
+> 按照 LeetCode [海量数据处理方法](https://leetcode.cn/circle/article/qlkHuN/) 中给出的分类方法，这属于求交集。
 >
 > 
 

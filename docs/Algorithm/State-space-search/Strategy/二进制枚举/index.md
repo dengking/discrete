@@ -2,15 +2,15 @@
 
 下面是使用了二进制枚举的题目。
 
-LeetCode [51. N 皇后](https://leetcode-cn.com/problems/n-queens/)
+LeetCode [51. N 皇后](https://leetcode.cn/problems/n-queens/)
 
-LeetCode [52. N皇后 II](https://leetcode-cn.com/problems/n-queens-ii/)
+LeetCode [52. N皇后 II](https://leetcode.cn/problems/n-queens-ii/)
 
-LeetCode [37. 解数独](https://leetcode-cn.com/problems/sudoku-solver/)
+LeetCode [37. 解数独](https://leetcode.cn/problems/sudoku-solver/)
 
 
 
-#### LeetCode [77. 组合](https://leetcode-cn.com/problems/combinations/)
+#### LeetCode [77. 组合](https://leetcode.cn/problems/combinations/)
 
 非递归（字典序法）实现组合型枚举
 
@@ -20,7 +20,7 @@ LeetCode [37. 解数独](https://leetcode-cn.com/problems/sudoku-solver/)
 
 
 
-#### LeetCode [78. 子集](https://leetcode-cn.com/problems/subsets/)
+#### LeetCode [78. 子集](https://leetcode.cn/problems/subsets/)
 
 > NOTE: 
 >
@@ -28,9 +28,9 @@ LeetCode [37. 解数独](https://leetcode-cn.com/problems/sudoku-solver/)
 
 
 
-#### LeetCode [90. 子集 II](https://leetcode-cn.com/problems/subsets-ii/)
+#### LeetCode [90. 子集 II](https://leetcode.cn/problems/subsets-ii/)
 
-回答: [【宫水三叶】一题双解：「回溯」&「状态压缩」解法](https://leetcode-cn.com/problems/subsets-ii/solution/gong-shui-san-xie-yi-ti-shuang-jie-hui-s-g77q/)
+回答: [【宫水三叶】一题双解：「回溯」&「状态压缩」解法](https://leetcode.cn/problems/subsets-ii/solution/gong-shui-san-xie-yi-ti-shuang-jie-hui-s-g77q/)
 
 值得一读
 

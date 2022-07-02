@@ -38,7 +38,7 @@
 
 #### 找数算法、hash map以空间换时间
 
-##### LeetCode [1711. 大餐计数](https://leetcode-cn.com/problems/count-good-meals/)
+##### LeetCode [1711. 大餐计数](https://leetcode.cn/problems/count-good-meals/)
 
 使用hash map保持数字出现的次数。
 
@@ -48,7 +48,7 @@
 >
 > 1、滑动窗口
 
-##### LeetCode  [1. 两数之和](https://leetcode-cn.com/problems/two-sum/)
+##### LeetCode  [1. 两数之和](https://leetcode.cn/problems/two-sum/)
 
 以空间换时间
 
@@ -60,7 +60,7 @@
 
 上面对它进行了详细的描述。
 
-2、LeetCode [413. 等差数列划分](https://leetcode-cn.com/problems/arithmetic-slices/) 中等
+2、LeetCode [413. 等差数列划分](https://leetcode.cn/problems/arithmetic-slices/) 中等
 
 
 
@@ -112,7 +112,7 @@ void slidingWindow(string s, string t) {
 
 labuladong [二分查找的妙用：判定子序列](https://mp.weixin.qq.com/s/hWi2hTrQewL_YKioGkXQJg)
 
-LeetCode [392. 判断子序列](https://leetcode-cn.com/problems/is-subsequence/) 简单
+LeetCode [392. 判断子序列](https://leetcode.cn/problems/is-subsequence/) 简单
 
 
 
@@ -124,7 +124,7 @@ LeetCode [392. 判断子序列](https://leetcode-cn.com/problems/is-subsequence/
 
 
 
-### LeetCode [解数独](https://leetcode-cn.com/problems/sudoku-solver/solution/jie-shu-du-by-leetcode-solution/)
+### LeetCode [解数独](https://leetcode.cn/problems/sudoku-solver/solution/jie-shu-du-by-leetcode-solution/)
 
 其中就用"以空间换时间"来进行优化。
 

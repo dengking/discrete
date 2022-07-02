@@ -1,14 +1,14 @@
-# leetcode [1155. 掷骰子的N种方法](https://leetcode-cn.com/problems/number-of-dice-rolls-with-target-sum/)
+# leetcode [1155. 掷骰子的N种方法](https://leetcode.cn/problems/number-of-dice-rolls-with-target-sum/)
 
-## leetcode [宫水三叶](https://leetcode-cn.com/u/ac_oier/) # [【动态规划/背包问题】运用分组背包进行求解](https://leetcode-cn.com/problems/number-of-dice-rolls-with-target-sum/solution/dong-tai-gui-hua-bei-bao-wen-ti-yun-yong-axtf/)
+## leetcode [宫水三叶](https://leetcode.cn/u/ac_oier/) # [【动态规划/背包问题】运用分组背包进行求解](https://leetcode.cn/problems/number-of-dice-rolls-with-target-sum/solution/dong-tai-gui-hua-bei-bao-wen-ti-yun-yong-axtf/)
 
 > NOTE:
 >
-> 按照 [宫水三叶](https://leetcode-cn.com/u/ac_oier/) 的分析，这个题目应该属于分组背包问题。
+> 按照 [宫水三叶](https://leetcode.cn/u/ac_oier/) 的分析，这个题目应该属于分组背包问题。
 
 ### 分组背包
 
-在 [分组背包问题](https://leetcode-cn.com/link/?target=https%3A%2F%2Fmp.weixin.qq.com%2Fs%3F__biz%3DMzU4NDE3MTEyMA%3D%3D%26mid%3D2247487504%26idx%3D1%26sn%3D9ac523ec0ac14c8634a229f8c3f919d7%26chksm%3Dfd9cbb0fcaeb32196b80a40e4408f6a7e2651167e0b9e31aa6d7c6109fbc2117340a59db12a1%26token%3D1936267333%26lang%3Dzh_CN%23rd) 中我们提到，**分组背包**不仅仅有「组内物品最多选择一个」的情况，还存在「组内物品必须选择一个」的情况。
+在 [分组背包问题](https://leetcode.cn/link/?target=https%3A%2F%2Fmp.weixin.qq.com%2Fs%3F__biz%3DMzU4NDE3MTEyMA%3D%3D%26mid%3D2247487504%26idx%3D1%26sn%3D9ac523ec0ac14c8634a229f8c3f919d7%26chksm%3Dfd9cbb0fcaeb32196b80a40e4408f6a7e2651167e0b9e31aa6d7c6109fbc2117340a59db12a1%26token%3D1936267333%26lang%3Dzh_CN%23rd) 中我们提到，**分组背包**不仅仅有「组内物品最多选择一个」的情况，还存在「组内物品必须选择一个」的情况。
 
 对于本题，可以将每个**骰子**看作一个**物品组**，且每次 **必须** 从物品组中选择一个物品（所掷得的数值大小视作具体物品）。
 
@@ -98,7 +98,7 @@ int main()
 
 
 
-## leetcode [MaughamL3](https://leetcode-cn.com/u/maugahm-4/) # [Java题解 动态规划法](https://leetcode-cn.com/problems/number-of-dice-rolls-with-target-sum/solution/javati-jie-cong-jian-dan-di-gui-dao-ya-s-3jg7/)
+## leetcode [MaughamL3](https://leetcode.cn/u/maugahm-4/) # [Java题解 动态规划法](https://leetcode.cn/problems/number-of-dice-rolls-with-target-sum/solution/javati-jie-cong-jian-dan-di-gui-dao-ya-s-3jg7/)
 
 ### 思路一：简单递归
 

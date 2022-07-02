@@ -1,10 +1,10 @@
-# LeetCode [552. 学生出勤记录 II](https://leetcode-cn.com/problems/student-attendance-record-ii/) 困难
+# LeetCode [552. 学生出勤记录 II](https://leetcode.cn/problems/student-attendance-record-ii/) 困难
 
 
 
 
 
-## [官方解题](https://leetcode-cn.com/problems/student-attendance-record-ii/solution/xue-sheng-chu-qin-ji-lu-ii-by-leetcode/)
+## [官方解题](https://leetcode.cn/problems/student-attendance-record-ii/solution/xue-sheng-chu-qin-ji-lu-ii-by-leetcode/)
 
 > NOTE: 
 >
@@ -14,7 +14,7 @@
 >
 > "backtrack回溯-DFS state space-complete n-ary treeN叉树遍历-枚举穷举"
 >
-> 这种方式显然是会导致超时的，在 [【彤哥来刷题啦】一题六解：DFS -> 记忆化 -> DP -> 降维 -> 降维 -> 滚动数组](https://leetcode-cn.com/problems/student-attendance-record-ii/solution/tong-ge-lai-shua-ti-la-yi-ti-liu-jie-dfs-s5fa/) 中，演示了解法。
+> 这种方式显然是会导致超时的，在 [【彤哥来刷题啦】一题六解：DFS -> 记忆化 -> DP -> 降维 -> 降维 -> 滚动数组](https://leetcode.cn/problems/student-attendance-record-ii/solution/tong-ge-lai-shua-ti-la-yi-ti-liu-jie-dfs-s5fa/) 中，演示了解法。
 >
 > 
 >
@@ -169,4 +169,4 @@ int main()
 
 
 
-## [【彤哥来刷题啦】一题六解：DFS -> 记忆化 -> DP -> 降维 -> 降维 -> 滚动数组](https://leetcode-cn.com/problems/student-attendance-record-ii/solution/tong-ge-lai-shua-ti-la-yi-ti-liu-jie-dfs-s5fa/)
+## [【彤哥来刷题啦】一题六解：DFS -> 记忆化 -> DP -> 降维 -> 降维 -> 滚动数组](https://leetcode.cn/problems/student-attendance-record-ii/solution/tong-ge-lai-shua-ti-la-yi-ti-liu-jie-dfs-s5fa/)

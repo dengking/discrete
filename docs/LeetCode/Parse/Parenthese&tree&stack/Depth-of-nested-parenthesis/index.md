@@ -64,4 +64,4 @@ int main()
 
 
 
-# [LeetCode 32. 最长有效括号](https://leetcode-cn.com/problems/longest-valid-parentheses/)
+# [LeetCode 32. 最长有效括号](https://leetcode.cn/problems/longest-valid-parentheses/)

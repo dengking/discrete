@@ -1,4 +1,4 @@
-# leetcode [344. 反转字符串](https://leetcode-cn.com/problems/reverse-string/)
+# leetcode [344. 反转字符串](https://leetcode.cn/problems/reverse-string/)
 
 
 
@@ -42,7 +42,7 @@ int main()
 
 
 
-## [官方解答](https://leetcode-cn.com/problems/reverse-string/solution/)
+## [官方解答](https://leetcode.cn/problems/reverse-string/solution/)
 
 
 
@@ -53,7 +53,7 @@ using namespace std;
 /**
  * @brief
  * 作者：LeetCode-Solution
- 链接：https://leetcode-cn.com/problems/reverse-string/solution/fan-zhuan-zi-fu-chuan-by-leetcode-solution/
+ 链接：https://leetcode.cn/problems/reverse-string/solution/fan-zhuan-zi-fu-chuan-by-leetcode-solution/
  来源：力扣（LeetCode）
  著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
  *

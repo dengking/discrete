@@ -1,16 +1,16 @@
 # DFA parse
 
-在 LeetCode [8. 字符串转换整数 (atoi)](https://leetcode-cn.com/problems/string-to-integer-atoi/)  # [官方解题](https://leetcode-cn.com/problems/string-to-integer-atoi/solution/zi-fu-chuan-zhuan-huan-zheng-shu-atoi-by-leetcode-/) 中，[Edward Elric](https://leetcode-cn.com/u/zdxiq125/) 有如下评论:
+在 LeetCode [8. 字符串转换整数 (atoi)](https://leetcode.cn/problems/string-to-integer-atoi/)  # [官方解题](https://leetcode.cn/problems/string-to-integer-atoi/solution/zi-fu-chuan-zhuan-huan-zheng-shu-atoi-by-leetcode-/) 中，[Edward Elric](https://leetcode.cn/u/zdxiq125/) 有如下评论:
 
-> 准确地说，这是确定有限状态机（deterministic finite automaton, DFA）。其实这题已经不算是容易写“出臃肿代码”的了。考虑清楚边界（主要是溢出处理）和输入种类（+, -, 0-9以及其他），大概在20行内完成代码不难。说实话LC官方题解里很少见给出标准DFA解法的，点个赞。另外看到评论区乌烟瘴气的，真让人唏嘘（没有一点基本的敬畏心、浮躁功利、认为题目边界太复杂导致自己不能AC，那是何其自负）。给两个更加需要DFA的题目吧：[utf-8-validation](https://leetcode-cn.com/problems/utf-8-validation/) ( [附dfa解法](https://leetcode-cn.com/problems/utf-8-validation/solution/java-dfa-by-zdxiq125/) ) 以及 [valid-number](https://leetcode-cn.com/problems/valid-number/)
+> 准确地说，这是确定有限状态机（deterministic finite automaton, DFA）。其实这题已经不算是容易写“出臃肿代码”的了。考虑清楚边界（主要是溢出处理）和输入种类（+, -, 0-9以及其他），大概在20行内完成代码不难。说实话LC官方题解里很少见给出标准DFA解法的，点个赞。另外看到评论区乌烟瘴气的，真让人唏嘘（没有一点基本的敬畏心、浮躁功利、认为题目边界太复杂导致自己不能AC，那是何其自负）。给两个更加需要DFA的题目吧：[utf-8-validation](https://leetcode.cn/problems/utf-8-validation/) ( [附dfa解法](https://leetcode.cn/problems/utf-8-validation/solution/java-dfa-by-zdxiq125/) ) 以及 [valid-number](https://leetcode.cn/problems/valid-number/)
 
  这让我发现了DFA在LeetCode中的应用，下面是相关试题:
 
-1、LeetCode [8. 字符串转换整数 (atoi)](https://leetcode-cn.com/problems/string-to-integer-atoi/)  中等
+1、LeetCode [8. 字符串转换整数 (atoi)](https://leetcode.cn/problems/string-to-integer-atoi/)  中等
 
-2、LeetCode [393. UTF-8 编码验证](https://leetcode-cn.com/problems/utf-8-validation/) 中等
+2、LeetCode [393. UTF-8 编码验证](https://leetcode.cn/problems/utf-8-validation/) 中等
 
-3、LeetCode [65. 有效数字](https://leetcode-cn.com/problems/valid-number/) 困难
+3、LeetCode [65. 有效数字](https://leetcode.cn/problems/valid-number/) 困难
 
 
 
@@ -60,7 +60,7 @@ DFA是一个graph，DFA的构成:
 
 ### 结果判断
 
-1、最终状态是**接受状态**，需要注意的是，**接受状态**可以有多个，有的状态是既可以作为**接受状态**也可以作为**非接受状态**，典型的例子就是leetcode [65. 有效数字](https://leetcode-cn.com/problems/valid-number/) 。
+1、最终状态是**接受状态**，需要注意的是，**接受状态**可以有多个，有的状态是既可以作为**接受状态**也可以作为**非接受状态**，典型的例子就是leetcode [65. 有效数字](https://leetcode.cn/problems/valid-number/) 。
 
 2、输入数据被消耗完了，如果数据没有消耗完，则显然是不符合格式要求的。
 
@@ -70,7 +70,7 @@ DFA是一个graph，DFA的构成:
 
 基于DFA的parse的implementation就是table-driven parse，这在下面的文章中描述了：
 
-1、LeetCode [65. 有效数字](https://leetcode-cn.com/problems/valid-number/) # [表驱动法](https://leetcode-cn.com/problems/valid-number/solution/biao-qu-dong-fa-by-user8973/) 
+1、LeetCode [65. 有效数字](https://leetcode.cn/problems/valid-number/) # [表驱动法](https://leetcode.cn/problems/valid-number/solution/biao-qu-dong-fa-by-user8973/) 
 
 
 
@@ -78,7 +78,7 @@ DFA是一个graph，DFA的构成:
 
 DFA对应的是regex，它是线性的，它无法处理带括号的nesting关系，典型例子：
 
-1、 [leetcode 字符串转换整数 (atoi) # 官方解题](https://leetcode-cn.com/problems/string-to-integer-atoi/solution/zi-fu-chuan-zhuan-huan-zheng-shu-atoi-by-leetcode-/) ，其实题目中情况是可以使用regex进行描述的:
+1、 [leetcode 字符串转换整数 (atoi) # 官方解题](https://leetcode.cn/problems/string-to-integer-atoi/solution/zi-fu-chuan-zhuan-huan-zheng-shu-atoi-by-leetcode-/) ，其实题目中情况是可以使用regex进行描述的:
 
 ```
 [ ]*[-+]?[0-9]*
@@ -92,17 +92,17 @@ DFA对应的是regex，它是线性的，它无法处理带括号的nesting关�
 
 |                                                              |          |      |      |      |
 | ------------------------------------------------------------ | -------- | ---- | ---- | ---- |
-| [LeetCode 8 字符串转换整数 (atoi) # 官方解题](https://leetcode-cn.com/problems/string-to-integer-atoi/solution/zi-fu-chuan-zhuan-huan-zheng-shu-atoi-by-leetcode-/) |          |      |      |      |
-| [LeetCode 393. UTF-8 编码验证](https://leetcode-cn.com/problems/utf-8-validation/) # [Edward Elric](https://leetcode-cn.com/u/zdxiq125/) # [[Java] DFA](https://leetcode-cn.com/problems/utf-8-validation/solution/java-dfa-by-zdxiq125/) | 判断类型 |      |      |      |
-| LeetCode [65. 有效数字](https://leetcode-cn.com/problems/valid-number/) # [官方解题](https://leetcode-cn.com/problems/valid-number/solution/you-xiao-shu-zi-by-leetcode-solution-298l/) | 判断类型 |      |      |      |
+| [LeetCode 8 字符串转换整数 (atoi) # 官方解题](https://leetcode.cn/problems/string-to-integer-atoi/solution/zi-fu-chuan-zhuan-huan-zheng-shu-atoi-by-leetcode-/) |          |      |      |      |
+| [LeetCode 393. UTF-8 编码验证](https://leetcode.cn/problems/utf-8-validation/) # [Edward Elric](https://leetcode.cn/u/zdxiq125/) # [[Java] DFA](https://leetcode.cn/problems/utf-8-validation/solution/java-dfa-by-zdxiq125/) | 判断类型 |      |      |      |
+| LeetCode [65. 有效数字](https://leetcode.cn/problems/valid-number/) # [官方解题](https://leetcode.cn/problems/valid-number/solution/you-xiao-shu-zi-by-leetcode-solution-298l/) | 判断类型 |      |      |      |
 
 
 
-### [LeetCode 8 字符串转换整数 (atoi) # 官方解题](https://leetcode-cn.com/problems/string-to-integer-atoi/solution/zi-fu-chuan-zhuan-huan-zheng-shu-atoi-by-leetcode-/)
+### [LeetCode 8 字符串转换整数 (atoi) # 官方解题](https://leetcode.cn/problems/string-to-integer-atoi/solution/zi-fu-chuan-zhuan-huan-zheng-shu-atoi-by-leetcode-/)
 
 本题可以建立如下图所示的自动机：
 
-![fig1](https://assets.leetcode-cn.com/solution-static/8/fig1.png)
+![fig1](https://assets.leetcode.cn/solution-static/8/fig1.png)
 
 > NOTE:
 >
@@ -218,11 +218,11 @@ int main()
 
 
 
-### LeetCode [393. UTF-8 编码验证](https://leetcode-cn.com/problems/utf-8-validation/) # [Edward Elric](https://leetcode-cn.com/u/zdxiq125/) # [[Java] DFA](https://leetcode-cn.com/problems/utf-8-validation/solution/java-dfa-by-zdxiq125/) 
+### LeetCode [393. UTF-8 编码验证](https://leetcode.cn/problems/utf-8-validation/) # [Edward Elric](https://leetcode.cn/u/zdxiq125/) # [[Java] DFA](https://leetcode.cn/problems/utf-8-validation/solution/java-dfa-by-zdxiq125/) 
 
 
 
-![image_1580299754.png](https://pic.leetcode-cn.com/c10666acd2caef8235c204a12941fd74d87fd4ffb39ed747d35eaaf1f69772f6-image_1580299754.png)
+![image_1580299754.png](https://pic.leetcode.cn/c10666acd2caef8235c204a12941fd74d87fd4ffb39ed747d35eaaf1f69772f6-image_1580299754.png)
 
 
 
@@ -238,5 +238,5 @@ int main()
 
 
 
-### LeetCode [65. 有效数字](https://leetcode-cn.com/problems/valid-number/) # [官方解题](https://leetcode-cn.com/problems/valid-number/solution/you-xiao-shu-zi-by-leetcode-solution-298l/)
+### LeetCode [65. 有效数字](https://leetcode.cn/problems/valid-number/) # [官方解题](https://leetcode.cn/problems/valid-number/solution/you-xiao-shu-zi-by-leetcode-solution-298l/)
 

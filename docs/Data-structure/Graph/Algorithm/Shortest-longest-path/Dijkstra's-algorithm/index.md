@@ -4,7 +4,7 @@
 
 一、wikipedia [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra's_algorithm) 
 
-二、LeetCode [743. 网络延迟时间](https://leetcode-cn.com/problems/network-delay-time/) # [官方解题](https://leetcode-cn.com/problems/network-delay-time/solution/wang-luo-yan-chi-shi-jian-by-leetcode-so-6phc/) 
+二、LeetCode [743. 网络延迟时间](https://leetcode.cn/problems/network-delay-time/) # [官方解题](https://leetcode.cn/problems/network-delay-time/solution/wang-luo-yan-chi-shi-jian-by-leetcode-so-6phc/) 
 
 
 
@@ -175,7 +175,7 @@ Unlike Dijkstra's algorithm, the [Bellman–Ford algorithm](https://en.wanweibai
 
 ## LeetCode 
 
-LeetCode [743. 网络延迟时间](https://leetcode-cn.com/problems/network-delay-time/) 中等
+LeetCode [743. 网络延迟时间](https://leetcode.cn/problems/network-delay-time/) 中等
 
-LeetCode [787. K 站中转内最便宜的航班](https://leetcode-cn.com/problems/cheapest-flights-within-k-stops/) 中等
+LeetCode [787. K 站中转内最便宜的航班](https://leetcode.cn/problems/cheapest-flights-within-k-stops/) 中等
 

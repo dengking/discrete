@@ -12,7 +12,7 @@
 
 1、完全背包不需要考虑物品，只需要考虑背包容量，因此它是**一维**的；
 
-需要注意的是：在完全背包问题中，我们一次只取一个物品，下次循环的时候，还是从第一个物品开始，因此这样就能够实现重复取同一个物品了，典型的例子就是**零钱兑换问题**，比如 leetcode [322. 零钱兑换](https://leetcode-cn.com/problems/coin-change/) ：
+需要注意的是：在完全背包问题中，我们一次只取一个物品，下次循环的时候，还是从第一个物品开始，因此这样就能够实现重复取同一个物品了，典型的例子就是**零钱兑换问题**，比如 leetcode [322. 零钱兑换](https://leetcode.cn/problems/coin-change/) ：
 
 ```c++
 class Solution
@@ -104,7 +104,7 @@ public:
 
 在下面的文章中，有描述:
 
-1、LeetCode [518. 零钱兑换 II](https://leetcode-cn.com/problems/coin-change-2/) 中等
+1、LeetCode [518. 零钱兑换 II](https://leetcode.cn/problems/coin-change-2/) 中等
 
 三、典型例题:
 
@@ -112,7 +112,7 @@ public:
 
 
 
-| LeetCode [518. 零钱兑换 II](https://leetcode-cn.com/problems/coin-change-2/) 中等 | LeetCode [377. 组合总和 Ⅳ](https://leetcode-cn.com/problems/combination-sum-iv/) |
+| LeetCode [518. 零钱兑换 II](https://leetcode.cn/problems/coin-change-2/) 中等 | LeetCode [377. 组合总和 Ⅳ](https://leetcode.cn/problems/combination-sum-iv/) |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 |                                                              |                                                              |
 | 与顺序无关的计数，通过排序来去重。                           | 与顺序有关的计数                                             |
@@ -153,9 +153,9 @@ public:
 
 在LeetCode上有两道题目非常类似，分别是
 
-1、[70.爬楼梯](https://leetcode-cn.com/problems/climbing-stairs/)
+1、[70.爬楼梯](https://leetcode.cn/problems/climbing-stairs/)
 
-2、[518. 零钱兑换 II](https://leetcode-cn.com/problems/coin-change-2/)
+2、[518. 零钱兑换 II](https://leetcode.cn/problems/coin-change-2/)
 
 如果我们把每次可走步数/零钱面额限制为 `[1,2]`，把楼梯高度/总金额限制为 `3`，那么这两道题目就可以抽象成 "给定 `[1,2]`，求组合成3的**组合数**和**排列数**"。
 
@@ -217,9 +217,9 @@ public:
 > 3 = 2 + 1
 > ```
 >
-> 其实这就说明 [70.爬楼梯](https://leetcode-cn.com/problems/climbing-stairs/) 是排列数问题，而不是组合数问题。
+> 其实这就说明 [70.爬楼梯](https://leetcode.cn/problems/climbing-stairs/) 是排列数问题，而不是组合数问题。
 >
-> 二、现在想来， [70.爬楼梯](https://leetcode-cn.com/problems/climbing-stairs/) 其实可以归入完全背包问题，它和 LeetCode [322. 零钱兑换](https://leetcode-cn.com/problems/coin-change/) 非常类似
+> 二、现在想来， [70.爬楼梯](https://leetcode.cn/problems/climbing-stairs/) 其实可以归入完全背包问题，它和 LeetCode [322. 零钱兑换](https://leetcode.cn/problems/coin-change/) 非常类似
 >
 > 三、下面的"泛化问题"章节给出的source code是和上面的分析一致的，我们是可以将上述数据代入下面source code的for循环的，这样说能够看出这个source code的本质
 
@@ -421,15 +421,15 @@ public:
 
 ## 资源
 
-1、leetcode [一篇文章吃透背包问题！（细致引入+解题模板+例题分析+代码呈现](https://leetcode-cn.com/problems/partition-equal-subset-sum/solution/yi-pian-wen-zhang-chi-tou-bei-bao-wen-ti-a7dd/) 
+1、leetcode [一篇文章吃透背包问题！（细致引入+解题模板+例题分析+代码呈现](https://leetcode.cn/problems/partition-equal-subset-sum/solution/yi-pian-wen-zhang-chi-tou-bei-bao-wen-ti-a7dd/) 
 
-2、leetcode [希望用一种规律搞定背包问题](https://leetcode-cn.com/problems/combination-sum-iv/solution/xi-wang-yong-yi-chong-gui-lu-gao-ding-bei-bao-wen-/)
+2、leetcode [希望用一种规律搞定背包问题](https://leetcode.cn/problems/combination-sum-iv/solution/xi-wang-yong-yi-chong-gui-lu-gao-ding-bei-bao-wen-/)
 
 
 
 资源：
 
-1、[宫水三叶](https://leetcode-cn.com/u/ac_oier/) # [【动态规划/背包问题】运用分组背包进行求解](https://leetcode-cn.com/problems/number-of-dice-rolls-with-target-sum/solution/dong-tai-gui-hua-bei-bao-wen-ti-yun-yong-axtf/)
+1、[宫水三叶](https://leetcode.cn/u/ac_oier/) # [【动态规划/背包问题】运用分组背包进行求解](https://leetcode.cn/problems/number-of-dice-rolls-with-target-sum/solution/dong-tai-gui-hua-bei-bao-wen-ti-yun-yong-axtf/)
 
 
 
@@ -437,7 +437,7 @@ public:
 
 
 
-leetcode [322. 零钱兑换](https://leetcode-cn.com/problems/coin-change/) :
+leetcode [322. 零钱兑换](https://leetcode.cn/problems/coin-change/) :
 
 
 

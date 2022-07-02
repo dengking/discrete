@@ -94,8 +94,8 @@ Parallel computing、distributed computing能够加速divide-and-conquer的性�
 
 | 题目                                                         | 核心思想                                                     |      |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ---- |
-| leetcode [213. 打家劫舍 II](https://leetcode-cn.com/problems/house-robber-ii/) 中等 | 题目要求不能抢相邻的，并且题目给出的环形数组，所以就可以分为三种情况:<br>1、`[1, n-2]`<br>2、`[0, n-2]`<br>3、`[1, n-1]`<br>然后从上述三种情况中进行择优录取。 |      |
-| leetcode [321. 拼接最大数](https://leetcode-cn.com/problems/create-maximum-number/) 困难 | 题目要求从两个数组中共取出k个数，找出最大的数，该算法依次取出所有的k个数，并进行择优录取。 |      |
+| leetcode [213. 打家劫舍 II](https://leetcode.cn/problems/house-robber-ii/) 中等 | 题目要求不能抢相邻的，并且题目给出的环形数组，所以就可以分为三种情况:<br>1、`[1, n-2]`<br>2、`[0, n-2]`<br>3、`[1, n-1]`<br>然后从上述三种情况中进行择优录取。 |      |
+| leetcode [321. 拼接最大数](https://leetcode.cn/problems/create-maximum-number/) 困难 | 题目要求从两个数组中共取出k个数，找出最大的数，该算法依次取出所有的k个数，并进行择优录取。 |      |
 |                                                              |                                                              |      |
 
 

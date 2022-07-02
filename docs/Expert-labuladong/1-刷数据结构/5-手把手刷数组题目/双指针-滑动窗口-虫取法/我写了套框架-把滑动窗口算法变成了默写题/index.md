@@ -32,7 +32,7 @@
 
 > NOTE: 
 >
-> 1、参见 leetcode [Sliding Window](https://leetcode-cn.com/tag/sliding-window/)
+> 1、参见 leetcode [Sliding Window](https://leetcode.cn/tag/sliding-window/)
 
 ## 大致逻辑
 
@@ -132,7 +132,7 @@ void slidingWindow(string s, string t) {
 >
 > 1、典型的需要找到最优解，而不是一个解，因此需要罗列所有的可能性
 >
-> 2、LeetCode [76. 最小覆盖子串](https://leetcode-cn.com/problems/minimum-window-substring/) 困难
+> 2、LeetCode [76. 最小覆盖子串](https://leetcode.cn/problems/minimum-window-substring/) 困难
 >
 > 包含覆盖的含义是: 不要求连续、保持相对顺序
 
@@ -494,7 +494,7 @@ string minWindow(string s, string t) {
 
 > NOTE: 
 >
-> 一、LeetCode [567. 字符串的排列](https://leetcode-cn.com/problems/permutation-in-string/) 中等
+> 一、LeetCode [567. 字符串的排列](https://leetcode.cn/problems/permutation-in-string/) 中等
 >
 > 1、典型的判断是否存在，不需要罗列所有的可能性
 >
@@ -552,9 +552,9 @@ bool checkInclusion(string t, string s) {
 
 > NOTE: 
 >
-> 一、上述code 和 LeetCode [76. 最小覆盖子串](https://leetcode-cn.com/problems/minimum-window-substring/) 中的code其实差异还是比较大的:
+> 一、上述code 和 LeetCode [76. 最小覆盖子串](https://leetcode.cn/problems/minimum-window-substring/) 中的code其实差异还是比较大的:
 >
-> 1、在 LeetCode [76. 最小覆盖子串](https://leetcode-cn.com/problems/minimum-window-substring/) 中，shrink的条件是: `valid == need.size()`，上述code中，shrink的条件是 `right - left >= t.size()`，这样，运行的时候，一旦`right - left == t.size()`，即window的长度和目标字符串的长度相同，它就会执行匹配；它的匹配是非常简单的: 
+> 1、在 LeetCode [76. 最小覆盖子串](https://leetcode.cn/problems/minimum-window-substring/) 中，shrink的条件是: `valid == need.size()`，上述code中，shrink的条件是 `right - left >= t.size()`，这样，运行的时候，一旦`right - left == t.size()`，即window的长度和目标字符串的长度相同，它就会执行匹配；它的匹配是非常简单的: 
 >
 > `valid == need.size()`
 >
@@ -583,7 +583,7 @@ bool checkInclusion(string t, string s) {
 >
 > 1、和前面的字符串排列基本相同
 >
-> 2、LeetCode [438. 找到字符串中所有字母异位词](https://leetcode-cn.com/problems/find-all-anagrams-in-a-string/) 中等
+> 2、LeetCode [438. 找到字符串中所有字母异位词](https://leetcode.cn/problems/find-all-anagrams-in-a-string/) 中等
 
 这是 LeetCode 第 438 题，Find All Anagrams in a String，难度 Medium：
 
@@ -641,7 +641,7 @@ vector<int> findAnagrams(string s, string t) {
 >
 > 看了下面的实现，它使用的是字符个数大于0，显然它是充分利用`window`--关于窗口内情况的统计。
 >
-> 3、leetcode [3. 无重复字符的最长子串](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/) 中等
+> 3、leetcode [3. 无重复字符的最长子串](https://leetcode.cn/problems/longest-substring-without-repeating-characters/) 中等
 
 这是 LeetCode 第 3 题，Longest Substring Without Repeating Characters，难度 Medium：
 

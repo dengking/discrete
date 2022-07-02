@@ -54,4 +54,4 @@ Sharir and Agarwal report connections between the worst-case behavior of disjoin
 
 ## LeetCode
 
-https://leetcode-cn.com/tag/union-find/problemset/
+https://leetcode.cn/tag/union-find/problemset/

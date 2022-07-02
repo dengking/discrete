@@ -1,4 +1,4 @@
-# leetcode [19. 删除链表的倒数第 N 个结点](https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/)
+# leetcode [19. 删除链表的倒数第 N 个结点](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/)
 
 
 
@@ -14,7 +14,7 @@
 
 ### "dummy node"技巧
 
-后来看了 [删除链表的倒数第N个节点 # 官方解题](https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/solution/shan-chu-lian-biao-de-dao-shu-di-nge-jie-dian-b-61/) 后，发现，采用"dummy node"技巧，它使得每个node都有前驱node，这样，对于一些没有前驱节点的情况:
+后来看了 [删除链表的倒数第N个节点 # 官方解题](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/solution/shan-chu-lian-biao-de-dao-shu-di-nge-jie-dian-b-61/) 后，发现，采用"dummy node"技巧，它使得每个node都有前驱node，这样，对于一些没有前驱节点的情况:
 
 1、长度为1的linked list
 
@@ -100,4 +100,4 @@ int main()
 
 
 
-## [删除链表的倒数第N个节点 # 官方解题](https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/solution/shan-chu-lian-biao-de-dao-shu-di-nge-jie-dian-b-61/)
+## [删除链表的倒数第N个节点 # 官方解题](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/solution/shan-chu-lian-biao-de-dao-shu-di-nge-jie-dian-b-61/)

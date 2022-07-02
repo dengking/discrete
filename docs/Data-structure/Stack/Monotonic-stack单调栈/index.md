@@ -12,7 +12,7 @@
 
 三、monotonic stack的优势:
 
-1、能够保证相对顺序，比如"All-nearest-smaller-values"、"[下一个更大元素-Next Greater Number](https://leetcode-cn.com/problems/next-greater-element-i/)"
+1、能够保证相对顺序，比如"All-nearest-smaller-values"、"[下一个更大元素-Next Greater Number](https://leetcode.cn/problems/next-greater-element-i/)"
 
 2、能够保存过去的状态
 

@@ -2,9 +2,9 @@
 
 > NOTE: 
 >
-> 原题是 [LeetCode-240-丑数-II](https://leetcode-cn.com/problems/ugly-number-ii/)
+> 原题是 [LeetCode-240-丑数-II](https://leetcode.cn/problems/ugly-number-ii/)
 
-## [LeetCode-240-丑数-II](https://leetcode-cn.com/problems/ugly-number-ii/)
+## [LeetCode-240-丑数-II](https://leetcode.cn/problems/ugly-number-ii/)
 
 > NOTE: 
 >

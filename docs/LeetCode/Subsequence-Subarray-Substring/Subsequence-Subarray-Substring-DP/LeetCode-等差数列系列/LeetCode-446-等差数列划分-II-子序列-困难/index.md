@@ -1,6 +1,6 @@
-# LeetCode [446. 等差数列划分 II - 子序列](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/) 困难
+# LeetCode [446. 等差数列划分 II - 子序列](https://leetcode.cn/problems/arithmetic-slices-ii-subsequence/) 困难
 
-这道题的解法是比较难以理解的，在阅读各种解法中，我觉得 [【负雪明烛】揭秘子序列动态规划的套路](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/solution/fu-xue-ming-zhu-jie-mi-zi-xu-lie-dong-ta-gepk/) 是相对比较容易理解的，它从 LIS 的角度进行类比；因此如果有 LIS 基础的话，推荐优先阅读 [【负雪明烛】揭秘子序列动态规划的套路](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/solution/fu-xue-ming-zhu-jie-mi-zi-xu-lie-dong-ta-gepk/) ，然后阅读 [官方解题](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/solution/deng-chai-shu-lie-hua-fen-ii-zi-xu-lie-b-77pl/)  。 
+这道题的解法是比较难以理解的，在阅读各种解法中，我觉得 [【负雪明烛】揭秘子序列动态规划的套路](https://leetcode.cn/problems/arithmetic-slices-ii-subsequence/solution/fu-xue-ming-zhu-jie-mi-zi-xu-lie-dong-ta-gepk/) 是相对比较容易理解的，它从 LIS 的角度进行类比；因此如果有 LIS 基础的话，推荐优先阅读 [【负雪明烛】揭秘子序列动态规划的套路](https://leetcode.cn/problems/arithmetic-slices-ii-subsequence/solution/fu-xue-ming-zhu-jie-mi-zi-xu-lie-dong-ta-gepk/) ，然后阅读 [官方解题](https://leetcode.cn/problems/arithmetic-slices-ii-subsequence/solution/deng-chai-shu-lie-hua-fen-ii-zi-xu-lie-b-77pl/)  。 
 
 
 
@@ -101,7 +101,7 @@ int main()
 
 |                                                              | 用例                                                    |
 | ------------------------------------------------------------ | ------------------------------------------------------- |
-| [超出时间限制](https://leetcode-cn.com/submissions/detail/205600008/) | `[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]` |
+| [超出时间限制](https://leetcode.cn/submissions/detail/205600008/) | `[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]` |
 |                                                              |                                                         |
 |                                                              |                                                         |
 
@@ -123,13 +123,13 @@ int main()
 
 在下面的文章中进行了非常好的阐述：
 
-1、[官方解题](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/solution/deng-chai-shu-lie-hua-fen-ii-zi-xu-lie-b-77pl/) 的讲解是把这个算法的细节讲的最好的，其中使用了 **弱等差子序列** 的概念，这个概念是理解这个问题的核心所在。
+1、[官方解题](https://leetcode.cn/problems/arithmetic-slices-ii-subsequence/solution/deng-chai-shu-lie-hua-fen-ii-zi-xu-lie-b-77pl/) 的讲解是把这个算法的细节讲的最好的，其中使用了 **弱等差子序列** 的概念，这个概念是理解这个问题的核心所在。
 
-2、[liweiwei1419](https://leetcode-cn.com/u/liweiwei1419/) # [动态规划（Java）](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/solution/dong-tai-gui-hua-java-by-liweiwei1419-jc84/)
+2、[liweiwei1419](https://leetcode.cn/u/liweiwei1419/) # [动态规划（Java）](https://leetcode.cn/problems/arithmetic-slices-ii-subsequence/solution/dong-tai-gui-hua-java-by-liweiwei1419-jc84/)
 
 这篇文章中，结合了具体的例子来进行说明，可以作为1的补充
 
-3、[[负雪明烛]揭秘子序列动态规划的套路](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/solution/fu-xue-ming-zhu-jie-mi-zi-xu-lie-dong-ta-gepk/) 
+3、[[负雪明烛]揭秘子序列动态规划的套路](https://leetcode.cn/problems/arithmetic-slices-ii-subsequence/solution/fu-xue-ming-zhu-jie-mi-zi-xu-lie-dong-ta-gepk/) 
 
 这篇文章是讲解整体思路最好的。
 
@@ -141,11 +141,11 @@ int main()
 
 
 
-需要结合具体的例子来理解算法的运行过程，这个以 [liweiwei1419](https://leetcode-cn.com/u/liweiwei1419/) # [动态规划（Java）](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/solution/dong-tai-gui-hua-java-by-liweiwei1419-jc84/) 中的内容为参考。
+需要结合具体的例子来理解算法的运行过程，这个以 [liweiwei1419](https://leetcode.cn/u/liweiwei1419/) # [动态规划（Java）](https://leetcode.cn/problems/arithmetic-slices-ii-subsequence/solution/dong-tai-gui-hua-java-by-liweiwei1419-jc84/) 中的内容为参考。
 
 
 
-## [官方解题](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/solution/deng-chai-shu-lie-hua-fen-ii-zi-xu-lie-b-77pl/) 
+## [官方解题](https://leetcode.cn/problems/arithmetic-slices-ii-subsequence/solution/deng-chai-shu-lie-hua-fen-ii-zi-xu-lie-b-77pl/) 
 
 我们首先考虑至少有两个元素的**等差子序列**，下文将其称作**弱等差子序列**。
 
@@ -163,9 +163,9 @@ $$
 
 > NOTE: 
 >
-> 一、上述思路，在 [【负雪明烛】揭秘子序列动态规划的套路](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/solution/fu-xue-ming-zhu-jie-mi-zi-xu-lie-dong-ta-gepk/) 中，有着更好的描述
+> 一、上述思路，在 [【负雪明烛】揭秘子序列动态规划的套路](https://leetcode.cn/problems/arithmetic-slices-ii-subsequence/solution/fu-xue-ming-zhu-jie-mi-zi-xu-lie-dong-ta-gepk/) 中，有着更好的描述
 >
-> 在 [【负雪明烛】揭秘子序列动态规划的套路](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/solution/fu-xue-ming-zhu-jie-mi-zi-xu-lie-dong-ta-gepk/) 中，对二重循环有着非常好的论述
+> 在 [【负雪明烛】揭秘子序列动态规划的套路](https://leetcode.cn/problems/arithmetic-slices-ii-subsequence/solution/fu-xue-ming-zhu-jie-mi-zi-xu-lie-dong-ta-gepk/) 中，对二重循环有着非常好的论述
 >
 > 二、需要注意的是， $f[i][d]$​​ 所记录的并不是问题的解，它所记录的是 "**弱等差子序列**的个数"，而最终的答案是"**等差子序列**"
 >
@@ -277,15 +277,15 @@ int main()
 
 > NOTE: 
 >
-> 关于上述嵌套for循环，在 [【负雪明烛】揭秘子序列动态规划的套路](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/solution/fu-xue-ming-zhu-jie-mi-zi-xu-lie-dong-ta-gepk/) 中，有着非常好的描述；
+> 关于上述嵌套for循环，在 [【负雪明烛】揭秘子序列动态规划的套路](https://leetcode.cn/problems/arithmetic-slices-ii-subsequence/solution/fu-xue-ming-zhu-jie-mi-zi-xu-lie-dong-ta-gepk/) 中，有着非常好的描述；
 >
 > 
 
 
 
-## [liweiwei1419](https://leetcode-cn.com/u/liweiwei1419/) # [动态规划（Java）](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/solution/dong-tai-gui-hua-java-by-liweiwei1419-jc84/)
+## [liweiwei1419](https://leetcode.cn/u/liweiwei1419/) # [动态规划（Java）](https://leetcode.cn/problems/arithmetic-slices-ii-subsequence/solution/dong-tai-gui-hua-java-by-liweiwei1419-jc84/)
 
-本题与 [413. 等差数列划分](https://leetcode-cn.com/problems/arithmetic-slices/) 唯一不同的是：题目要求的等差数列在输入数组上 **可以不连续**，所以「滑动窗口」用不上，但是「动态规划」多半可以。
+本题与 [413. 等差数列划分](https://leetcode.cn/problems/arithmetic-slices/) 唯一不同的是：题目要求的等差数列在输入数组上 **可以不连续**，所以「滑动窗口」用不上，但是「动态规划」多半可以。
 
 ### 状态定义
 
@@ -315,13 +315,13 @@ int main()
 
 整个过程形成的键值对如下：
 
-![image.png](https://pic.leetcode-cn.com/1628618290-XVlBzg-image.png)
+![image.png](https://pic.leetcode.cn/1628618290-XVlBzg-image.png)
 
 
 
-## [[负雪明烛]揭秘子序列动态规划的套路](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/solution/fu-xue-ming-zhu-jie-mi-zi-xu-lie-dong-ta-gepk/) 
+## [[负雪明烛]揭秘子序列动态规划的套路](https://leetcode.cn/problems/arithmetic-slices-ii-subsequence/solution/fu-xue-ming-zhu-jie-mi-zi-xu-lie-dong-ta-gepk/) 
 
-我见到**子序列问题**，就想到了经典的题目：[300. 最长递增子序列](https://leetcode-cn.com/problems/longest-increasing-subsequence/)。也就是想起来了动态规划，本题和 300 题的动态规划的思路是相通的。
+我见到**子序列问题**，就想到了经典的题目：[300. 最长递增子序列](https://leetcode.cn/problems/longest-increasing-subsequence/)。也就是想起来了动态规划，本题和 300 题的动态规划的思路是相通的。
 
 先从整体思路说起。
 
@@ -367,7 +367,7 @@ int main()
 
 三、**状态定义？**
 
-在上面的分析中，我们看到对于 $j$ 位置会有多个 $diff$，所以一维的状态转移方程已经不够用了。必须定义两维的状态 $dp[i][diff]$，但是由于 $diff$ 的取值范围很大，所以不能用二维数组。最终定义两位的状态是 $ dp[i]−>dict $，其含义是在 $i$ 位置，以 $diff$ 为公差的、且以 $nums[i]$ 为结尾元素的等差数列的个数为 $dp[i][diff] - 1$。为什么要减一，见[李威威的题解](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/solution/dong-tai-gui-hua-java-by-liweiwei1419-jc84/)。
+在上面的分析中，我们看到对于 $j$ 位置会有多个 $diff$，所以一维的状态转移方程已经不够用了。必须定义两维的状态 $dp[i][diff]$，但是由于 $diff$ 的取值范围很大，所以不能用二维数组。最终定义两位的状态是 $ dp[i]−>dict $，其含义是在 $i$ 位置，以 $diff$ 为公差的、且以 $nums[i]$ 为结尾元素的等差数列的个数为 $dp[i][diff] - 1$。为什么要减一，见[李威威的题解](https://leetcode.cn/problems/arithmetic-slices-ii-subsequence/solution/dong-tai-gui-hua-java-by-liweiwei1419-jc84/)。
 
 > NOTE:
 >
@@ -405,7 +405,7 @@ class Solution(object):
 
 
 
-## [【宫水三叶】详解如何分析「序列 DP」问题（附序列 DP 问题目录）](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/solution/gong-shui-san-xie-xiang-jie-ru-he-fen-xi-ykvk/)
+## [【宫水三叶】详解如何分析「序列 DP」问题（附序列 DP 问题目录）](https://leetcode.cn/problems/arithmetic-slices-ii-subsequence/solution/gong-shui-san-xie-xiang-jie-ru-he-fen-xi-ykvk/)
 
 动态规划 + 容斥原理
 
@@ -415,12 +415,12 @@ class Solution(object):
 
 | 题目                                                         | 题解                                                         | 难度 | 推荐指数 |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ---- | -------- |
-| [354. 俄罗斯套娃信封问题](https://leetcode-cn.com/problems/russian-doll-envelopes/) | [LeetCode 题解链接](https://leetcode-cn.com/problems/russian-doll-envelopes/solution/zui-chang-shang-sheng-zi-xu-lie-bian-xin-6s8d/) | 困难 | 🤩🤩🤩🤩🤩    |
-| [368. 最大整除子集](https://leetcode-cn.com/problems/largest-divisible-subset/) | [LeetCode 题解链接](https://leetcode-cn.com/problems/largest-divisible-subset/solution/gong-shui-san-xie-noxiang-xin-ke-xue-xi-0a3jc/) | 中等 | 🤩🤩🤩🤩     |
-| [446. 等差数列划分 II - 子序列](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/) | [LeetCode 题解链接](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/solution/gong-shui-san-xie-xiang-jie-ru-he-fen-xi-ykvk/) | 困难 | 🤩🤩🤩🤩🤩    |
-| [740. 删除并获得点数](https://leetcode-cn.com/problems/delete-and-earn/) | [LeetCode 题解链接](https://leetcode-cn.com/problems/delete-and-earn/solution/gong-shui-san-xie-zhuan-huan-wei-xu-lie-6c9t0/) | 中等 | 🤩🤩🤩🤩🤩    |
-| [978. 最长湍流子数组](https://leetcode-cn.com/problems/longest-turbulent-subarray/) | [LeetCode 题解链接](https://leetcode-cn.com/problems/longest-turbulent-subarray/solution/xiang-jie-dong-tai-gui-hua-ru-he-cai-dp-3spgj/) | 中等 | 🤩🤩🤩      |
-| [1035. 不相交的线](https://leetcode-cn.com/problems/uncrossed-lines/) | [LeetCode 题解链接](https://leetcode-cn.com/problems/uncrossed-lines/solution/gong-shui-san-xie-noxiang-xin-ke-xue-xi-bkaas/) | 中等 | 🤩🤩🤩🤩     |
-| [1143. 最长公共子序列](https://leetcode-cn.com/problems/longest-common-subsequence/) | [LeetCode 题解链接](https://leetcode-cn.com/problems/longest-common-subsequence/solution/gong-shui-san-xie-zui-chang-gong-gong-zi-xq0h/) | 中等 | 🤩🤩🤩🤩     |
-| [1713. 得到子序列的最少操作次数](https://leetcode-cn.com/problems/minimum-operations-to-make-a-subsequence/) | [LeetCode 题解链接](https://leetcode-cn.com/problems/minimum-operations-to-make-a-subsequence/solution/gong-shui-san-xie-noxiang-xin-ke-xue-xi-oj7yu/) | 困难 | 🤩🤩🤩🤩🤩    |
+| [354. 俄罗斯套娃信封问题](https://leetcode.cn/problems/russian-doll-envelopes/) | [LeetCode 题解链接](https://leetcode.cn/problems/russian-doll-envelopes/solution/zui-chang-shang-sheng-zi-xu-lie-bian-xin-6s8d/) | 困难 | 🤩🤩🤩🤩🤩    |
+| [368. 最大整除子集](https://leetcode.cn/problems/largest-divisible-subset/) | [LeetCode 题解链接](https://leetcode.cn/problems/largest-divisible-subset/solution/gong-shui-san-xie-noxiang-xin-ke-xue-xi-0a3jc/) | 中等 | 🤩🤩🤩🤩     |
+| [446. 等差数列划分 II - 子序列](https://leetcode.cn/problems/arithmetic-slices-ii-subsequence/) | [LeetCode 题解链接](https://leetcode.cn/problems/arithmetic-slices-ii-subsequence/solution/gong-shui-san-xie-xiang-jie-ru-he-fen-xi-ykvk/) | 困难 | 🤩🤩🤩🤩🤩    |
+| [740. 删除并获得点数](https://leetcode.cn/problems/delete-and-earn/) | [LeetCode 题解链接](https://leetcode.cn/problems/delete-and-earn/solution/gong-shui-san-xie-zhuan-huan-wei-xu-lie-6c9t0/) | 中等 | 🤩🤩🤩🤩🤩    |
+| [978. 最长湍流子数组](https://leetcode.cn/problems/longest-turbulent-subarray/) | [LeetCode 题解链接](https://leetcode.cn/problems/longest-turbulent-subarray/solution/xiang-jie-dong-tai-gui-hua-ru-he-cai-dp-3spgj/) | 中等 | 🤩🤩🤩      |
+| [1035. 不相交的线](https://leetcode.cn/problems/uncrossed-lines/) | [LeetCode 题解链接](https://leetcode.cn/problems/uncrossed-lines/solution/gong-shui-san-xie-noxiang-xin-ke-xue-xi-bkaas/) | 中等 | 🤩🤩🤩🤩     |
+| [1143. 最长公共子序列](https://leetcode.cn/problems/longest-common-subsequence/) | [LeetCode 题解链接](https://leetcode.cn/problems/longest-common-subsequence/solution/gong-shui-san-xie-zui-chang-gong-gong-zi-xq0h/) | 中等 | 🤩🤩🤩🤩     |
+| [1713. 得到子序列的最少操作次数](https://leetcode.cn/problems/minimum-operations-to-make-a-subsequence/) | [LeetCode 题解链接](https://leetcode.cn/problems/minimum-operations-to-make-a-subsequence/solution/gong-shui-san-xie-noxiang-xin-ke-xue-xi-oj7yu/) | 困难 | 🤩🤩🤩🤩🤩    |
 

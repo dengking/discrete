@@ -1,4 +1,4 @@
-# leetcode [20. 有效的括号](https://leetcode-cn.com/problems/valid-parentheses/)
+# leetcode [20. 有效的括号](https://leetcode.cn/problems/valid-parentheses/)
 
 
 
@@ -93,7 +93,7 @@ int main()
 
 
 
-## [官方解题](https://leetcode-cn.com/problems/valid-parentheses/solution/you-xiao-de-gua-hao-by-leetcode-solution/)
+## [官方解题](https://leetcode.cn/problems/valid-parentheses/solution/you-xiao-de-gua-hao-by-leetcode-solution/)
 
 ```c++
 class Solution {

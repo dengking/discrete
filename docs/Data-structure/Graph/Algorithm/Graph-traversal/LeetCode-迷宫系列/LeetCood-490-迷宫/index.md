@@ -1,4 +1,4 @@
-# LeetCode [490. 迷宫](https://leetcode-cn.com/problems/the-maze/) 中等
+# LeetCode [490. 迷宫](https://leetcode.cn/problems/the-maze/) 中等
 
 
 
@@ -112,13 +112,13 @@ int main()
 
 上述程序会在如下用例超出时间限制：
 
-https://leetcode-cn.com/submissions/detail/282258497/testcase/
+https://leetcode.cn/submissions/detail/282258497/testcase/
 
 ### 第二次解题
 
 由于是存在性问题，因此只要到达了目标，就可以直接提出递归了，所以改写为dfs  + return value的方式，这种方式的优势的能够及时地终止回溯，但是这种方式仍然会在如下用例超出时间限制：
 
-https://leetcode-cn.com/submissions/detail/282258497/testcase/
+https://leetcode.cn/submissions/detail/282258497/testcase/
 
 ```c++
 #include <iostream>
@@ -312,7 +312,7 @@ int main()
 
 即它取消了回溯，那这样做正确吗？
 
-这是我看[Hanxin](https://leetcode-cn.com/u/code_learner/) [c++/python3 法1：BFS 法2：回溯 法3：DFS](https://leetcode-cn.com/problems/the-maze/solution/c-python3-fa-1bfs-fa-2hui-su-fa-3dfs-by-ibtg5/) 时，其中介绍的写法：
+这是我看[Hanxin](https://leetcode.cn/u/code_learner/) [c++/python3 法1：BFS 法2：回溯 法3：DFS](https://leetcode.cn/problems/the-maze/solution/c-python3-fa-1bfs-fa-2hui-su-fa-3dfs-by-ibtg5/) 时，其中介绍的写法：
 
 > 这个题只用一个visited数组，还不回溯，只dfs
 > 从这个点作为起点，已经搜索过了，是不行的。其他的路径到了这里，再从这里出发二次，是没有意义的。无畏的循环。

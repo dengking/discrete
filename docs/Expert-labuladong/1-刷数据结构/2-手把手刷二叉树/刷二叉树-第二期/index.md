@@ -4,11 +4,11 @@
 >
 > 一、原题
 >
-> LeetCode [654. 最大二叉树](https://leetcode-cn.com/problems/maximum-binary-tree/) 中等
+> LeetCode [654. 最大二叉树](https://leetcode.cn/problems/maximum-binary-tree/) 中等
 >
-> LeetCode [105. 从前序与中序遍历序列构造二叉树](https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) 中等
+> LeetCode [105. 从前序与中序遍历序列构造二叉树](https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) 中等
 >
-> LeetCode [106. 从中序与后序遍历序列构造二叉树](https://leetcode-cn.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/) 中等
+> LeetCode [106. 从中序与后序遍历序列构造二叉树](https://leetcode.cn/problems/construct-binary-tree-from-inorder-and-postorder-traversal/) 中等
 >
 > 二、
 >
@@ -26,7 +26,7 @@
 
 > NOTE:
 >
-> LeetCode [654. 最大二叉树](https://leetcode-cn.com/problems/maximum-binary-tree/) 中等
+> LeetCode [654. 最大二叉树](https://leetcode.cn/problems/maximum-binary-tree/) 中等
 
 
 
@@ -36,7 +36,7 @@
 
 > NOTE:
 >
-> LeetCode [105. 从前序与中序遍历序列构造二叉树](https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) 中等
+> LeetCode [105. 从前序与中序遍历序列构造二叉树](https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) 中等
 
 经典问题了，面试/笔试中常考，力扣第 105 题就是这个问题：
 
@@ -183,5 +183,5 @@ TreeNode build(int[] preorder, int preStart, int preEnd,
 
 > NOTE: 
 >
-> LeetCode [106. 从中序与后序遍历序列构造二叉树](https://leetcode-cn.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/) 中等
+> LeetCode [106. 从中序与后序遍历序列构造二叉树](https://leetcode.cn/problems/construct-binary-tree-from-inorder-and-postorder-traversal/) 中等
 

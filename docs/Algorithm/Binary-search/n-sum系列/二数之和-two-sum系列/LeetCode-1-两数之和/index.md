@@ -1,4 +1,4 @@
-# LeetCode [1. 两数之和](https://leetcode-cn.com/problems/two-sum/)
+# LeetCode [1. 两数之和](https://leetcode.cn/problems/two-sum/)
 
 
 
@@ -112,7 +112,7 @@ int main()
 > You may assume that each input would have exactly one solution, and you may not use the same element twice.
 >
 > 来源：力扣（LeetCode）
-> 链接：https://leetcode-cn.com/problems/two-sum
+> 链接：https://leetcode.cn/problems/two-sum
 > 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 
 通过上述程序可以看出，它并没有按照 labuladong [Two Sum 问题的核心思想](https://mp.weixin.qq.com/s/3CMQaY1mO1Iqt4j30bUVcA) 中的作为，提前index，而是在`for`中，对于已经access过的element才添加到hash map中

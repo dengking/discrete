@@ -14,7 +14,7 @@ int longestCommonSubsequence(String s1, String s2);
 
 > NOTE: 
 >
-> 原题: [1143. 最长公共子序列](https://leetcode-cn.com/problems/longest-common-subsequence/)
+> 原题: [1143. 最长公共子序列](https://leetcode.cn/problems/longest-common-subsequence/)
 
 比如说输入`s1 = "zabcde", s2 = "acez"`，它俩的最长公共子序列是`lcs = "ace"`，长度为 3，所以算法返回 3。
 
@@ -205,7 +205,7 @@ int longestCommonSubsequence(String s1, String s2) {
 
 > NOTE: 
 >
-> leetcode [583. 两个字符串的删除操作](https://leetcode-cn.com/problems/delete-operation-for-two-strings/)
+> leetcode [583. 两个字符串的删除操作](https://leetcode.cn/problems/delete-operation-for-two-strings/)
 
 这是力扣第 583 题「两个字符串的删除操作」，看下题目：
 

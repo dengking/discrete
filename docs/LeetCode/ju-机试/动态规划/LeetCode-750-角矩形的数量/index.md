@@ -1,4 +1,4 @@
-# LeetCode [750. 角矩形的数量](https://leetcode-cn.com/problems/number-of-corner-rectangles/) 中等
+# LeetCode [750. 角矩形的数量](https://leetcode.cn/problems/number-of-corner-rectangles/) 中等
 
 给定一个只包含 `0` 和 `1` 的 `m x n` 整数矩阵 `grid` ，返回 *其中 「**角矩形 」**的数量* 。
 
@@ -36,11 +36,11 @@
 解释：矩形必须有 4 个不同的角。
 ```
 
-## [盛夏与微风](https://leetcode-cn.com/u/mmmmmjcy/) # [Java](https://leetcode-cn.com/problems/number-of-corner-rectangles/solution/java-by-zxy0917-16/)
+## [盛夏与微风](https://leetcode.cn/u/mmmmmjcy/) # [Java](https://leetcode.cn/problems/number-of-corner-rectangles/solution/java-by-zxy0917-16/)
 
 > NOTE:
 >
-> 在 [【恰当的遍历方式可以带来优化】【C++】](https://leetcode-cn.com/problems/number-of-corner-rectangles/solution/qia-dang-de-bian-li-fang-shi-ke-yi-dai-l-svse/) 中也是使用的这种方法。
+> 在 [【恰当的遍历方式可以带来优化】【C++】](https://leetcode.cn/problems/number-of-corner-rectangles/solution/qia-dang-de-bian-li-fang-shi-ke-yi-dai-l-svse/) 中也是使用的这种方法。
 
 ```c++
 #include <iostream>
@@ -98,7 +98,7 @@ int main()
 
 
 
-## [peteyuan](https://leetcode-cn.com/u/peteyuan/) # [C++ 动态规划](https://leetcode-cn.com/problems/number-of-corner-rectangles/solution/c-dong-tai-gui-hua-by-peteyuan/)
+## [peteyuan](https://leetcode.cn/u/peteyuan/) # [C++ 动态规划](https://leetcode.cn/problems/number-of-corner-rectangles/solution/c-dong-tai-gui-hua-by-peteyuan/)
 
 
 

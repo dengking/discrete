@@ -1,4 +1,4 @@
-# LeetCode [90. 子集 II](https://leetcode-cn.com/problems/subsets-ii/)
+# LeetCode [90. 子集 II](https://leetcode.cn/problems/subsets-ii/)
 
 需要理解题意，题目中的"解集 **不能** 包含重复的子集"不是指"子集"中，不包含重复元素，而是指不能包含重复的子集，比如: `nums = [1,2,2]`
 
@@ -10,7 +10,7 @@
 
 
 
-## [官方解题](https://leetcode-cn.com/problems/subsets-ii/solution/zi-ji-ii-by-leetcode-solution-7inq/)
+## [官方解题](https://leetcode.cn/problems/subsets-ii/solution/zi-ji-ii-by-leetcode-solution-7inq/)
 
 ### 方法一：迭代法实现子集枚举
 
@@ -56,7 +56,7 @@ using namespace std;
 
 /**
  * @brief 作者：LeetCode-Solution
- 链接：https://leetcode-cn.com/problems/subsets-ii/solution/zi-ji-ii-by-leetcode-solution-7inq/
+ 链接：https://leetcode.cn/problems/subsets-ii/solution/zi-ji-ii-by-leetcode-solution-7inq/
  来源：力扣（LeetCode）
  著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
  *
@@ -143,7 +143,7 @@ using namespace std;
 
 /**
  * @brief 作者：LeetCode-Solution
- 链接：https://leetcode-cn.com/problems/subsets-ii/solution/zi-ji-ii-by-leetcode-solution-7inq/
+ 链接：https://leetcode.cn/problems/subsets-ii/solution/zi-ji-ii-by-leetcode-solution-7inq/
  来源：力扣（LeetCode）
  著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
  *
@@ -223,7 +223,7 @@ using namespace std;
 
 /**
  * @brief 作者：LeetCode-Solution
- 链接：https://leetcode-cn.com/problems/subsets-ii/solution/zi-ji-ii-by-leetcode-solution-7inq/
+ 链接：https://leetcode.cn/problems/subsets-ii/solution/zi-ji-ii-by-leetcode-solution-7inq/
  来源：力扣（LeetCode）
  著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
  *

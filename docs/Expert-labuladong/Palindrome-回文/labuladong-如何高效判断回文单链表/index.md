@@ -4,7 +4,7 @@
 
 > NOTE: 
 >
-> LeetCode [234. 回文链表](https://leetcode-cn.com/problems/palindrome-linked-list/) 简单
+> LeetCode [234. 回文链表](https://leetcode.cn/problems/palindrome-linked-list/) 简单
 
 输入一个单链表的头结点，判断这个链表中的数字是不是回文：
 
@@ -66,7 +66,7 @@ void traverse(ListNode head) {
 
 > NOTE: 
 >
-> 参见LeetCode [剑指 Offer 06. 从尾到头打印链表](https://leetcode-cn.com/problems/cong-wei-dao-tou-da-yin-lian-biao-lcof/)
+> 参见LeetCode [剑指 Offer 06. 从尾到头打印链表](https://leetcode.cn/problems/cong-wei-dao-tou-da-yin-lian-biao-lcof/)
 
 ### 完整代码
 

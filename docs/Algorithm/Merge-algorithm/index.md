@@ -63,7 +63,7 @@ algorithm merge(A, B) is
 
 > NOTE: 
 >
-> 1、leetcode [21. 合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists/)
+> 1、leetcode [21. 合并两个有序链表](https://leetcode.cn/problems/merge-two-sorted-lists/)
 >
 > 
 
@@ -99,7 +99,7 @@ In the merge sort algorithm, this [subroutine](https://en.wikipedia.org/wiki/Sub
 
 下面总结一些归并的试题。
 
-https://leetcode-cn.com/problemset/all/?search=%E5%90%88%E5%B9%B6%20
+https://leetcode.cn/problemset/all/?search=%E5%90%88%E5%B9%B6%20
 
 ### Merge sequence
 
@@ -107,23 +107,23 @@ https://leetcode-cn.com/problemset/all/?search=%E5%90%88%E5%B9%B6%20
 
 
 
-leetcode [912. 排序数组](https://leetcode-cn.com/problems/sort-an-array/) (merge sort) 和 leetcode [21. 合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists/) 
+leetcode [912. 排序数组](https://leetcode.cn/problems/sort-an-array/) (merge sort) 和 leetcode [21. 合并两个有序链表](https://leetcode.cn/problems/merge-two-sorted-lists/) 
 
-merge sortmerge的部分，和 leetcode [21. 合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists/) 的逻辑是非常类似的。
+merge sortmerge的部分，和 leetcode [21. 合并两个有序链表](https://leetcode.cn/problems/merge-two-sorted-lists/) 的逻辑是非常类似的。
 
 下面的是合并两个序列的题目:
 
-1、leetcode [88. 合并两个有序数组](https://leetcode-cn.com/problems/merge-sorted-array/)
+1、leetcode [88. 合并两个有序数组](https://leetcode.cn/problems/merge-sorted-array/)
 
 2、
 
 #### 二、merge multiple sequence
 
-leetcode [23. 合并K个升序链表](https://leetcode-cn.com/problems/merge-k-sorted-lists/)
+leetcode [23. 合并K个升序链表](https://leetcode.cn/problems/merge-k-sorted-lists/)
 
 **两两合并**
 
-leetcode [23. 合并K个升序链表](https://leetcode-cn.com/problems/merge-k-sorted-lists/) 中，给出了递归写法和迭代写法；
+leetcode [23. 合并K个升序链表](https://leetcode.cn/problems/merge-k-sorted-lists/) 中，给出了递归写法和迭代写法；
 
 
 
@@ -147,27 +147,27 @@ leetcode [23. 合并K个升序链表](https://leetcode-cn.com/problems/merge-k-s
 
 ### Merge interval 合并区间
 
-leetcode [56. 合并区间](https://leetcode-cn.com/problems/merge-intervals/)
+leetcode [56. 合并区间](https://leetcode.cn/problems/merge-intervals/)
 
 
 
 #### 区间合并
 
-LeetCode [56. 合并区间](https://leetcode-cn.com/problems/merge-intervals) 中等
+LeetCode [56. 合并区间](https://leetcode.cn/problems/merge-intervals) 中等
 
 
 
 ### 合并二叉树
 
-#### LeetCode [617. 合并二叉树](https://leetcode-cn.com/problems/merge-two-binary-trees/)
+#### LeetCode [617. 合并二叉树](https://leetcode.cn/problems/merge-two-binary-trees/)
 
 
 
 ### merge + top K
 
-#### LeetCode [373. 查找和最小的 K 对数字](https://leetcode-cn.com/problems/find-k-pairs-with-smallest-sums/) 中等
+#### LeetCode [373. 查找和最小的 K 对数字](https://leetcode.cn/problems/find-k-pairs-with-smallest-sums/) 中等
 
-#### LeetCode [786. 第 K 个最小的素数分数](https://leetcode-cn.com/problems/k-th-smallest-prime-fraction/) 困难
+#### LeetCode [786. 第 K 个最小的素数分数](https://leetcode.cn/problems/k-th-smallest-prime-fraction/) 困难
 
-#### LeetCode [378. 有序矩阵中第 K 小的元素](https://leetcode-cn.com/problems/kth-smallest-element-in-a-sorted-matrix/) 中等
+#### LeetCode [378. 有序矩阵中第 K 小的元素](https://leetcode.cn/problems/kth-smallest-element-in-a-sorted-matrix/) 中等
 

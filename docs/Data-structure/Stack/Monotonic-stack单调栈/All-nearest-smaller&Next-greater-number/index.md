@@ -164,7 +164,7 @@ for i from 1 to n:
 >
 > 三、下面是完整的code
 >
-> LeetCode [496. 下一个更大元素 I](https://leetcode-cn.com/problems/next-greater-element-i/) 中等
+> LeetCode [496. 下一个更大元素 I](https://leetcode.cn/problems/next-greater-element-i/) 中等
 >
 > ```C++
 > class Solution
@@ -197,7 +197,7 @@ for i from 1 to n:
 >
 > 四、上述版本是更加适合于处理circular array的，比如：
 >
-> leetcode [503. 下一个更大元素 II](https://leetcode-cn.com/problems/next-greater-element-ii/) 
+> leetcode [503. 下一个更大元素 II](https://leetcode.cn/problems/next-greater-element-ii/) 
 >
 > 
 

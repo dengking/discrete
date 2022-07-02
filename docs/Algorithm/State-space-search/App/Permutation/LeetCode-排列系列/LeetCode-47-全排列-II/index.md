@@ -1,4 +1,4 @@
-# LeetCode [47. 全排列 II](https://leetcode-cn.com/problems/permutations-ii/)
+# LeetCode [47. 全排列 II](https://leetcode.cn/problems/permutations-ii/)
 
 
 
@@ -43,9 +43,9 @@
 
 观察上面的"重复的情况"，自然而然的思路是: 在所有的情况中选择一个，将其他重复的情况剪枝掉；那问题是: 如何来进行有效的甄别？
 
-下面是我根据LeetCode [[HOT 100]47.全排列II Python3 回溯 考虑重复 --> 46.全排列](https://leetcode-cn.com/problems/permutations-ii/solution/hot-100-47quan-pai-lie-ii-python3-hui-su-kao-lu-zh/) 、LeetCode [官方解题](https://leetcode-cn.com/problems/permutations-ii/solution/quan-pai-lie-ii-by-leetcode-solution/) 、LeetCode [90. 子集 II](https://leetcode-cn.com/problems/subsets-ii/) 中的思路所总结的: 
+下面是我根据LeetCode [[HOT 100]47.全排列II Python3 回溯 考虑重复 --> 46.全排列](https://leetcode.cn/problems/permutations-ii/solution/hot-100-47quan-pai-lie-ii-python3-hui-su-kao-lu-zh/) 、LeetCode [官方解题](https://leetcode.cn/problems/permutations-ii/solution/quan-pai-lie-ii-by-leetcode-solution/) 、LeetCode [90. 子集 II](https://leetcode.cn/problems/subsets-ii/) 中的思路所总结的: 
 
-一、LeetCode [[HOT 100]47.全排列II Python3 回溯 考虑重复 --> 46.全排列](https://leetcode-cn.com/problems/permutations-ii/solution/hot-100-47quan-pai-lie-ii-python3-hui-su-kao-lu-zh/) 和 LeetCode [官方解题](https://leetcode-cn.com/problems/permutations-ii/solution/quan-pai-lie-ii-by-leetcode-solution/) 中，给出的去重的思路其实和 LeetCode [90. 子集 II](https://leetcode-cn.com/problems/subsets-ii/) 中的思路是非常类似的:
+一、LeetCode [[HOT 100]47.全排列II Python3 回溯 考虑重复 --> 46.全排列](https://leetcode.cn/problems/permutations-ii/solution/hot-100-47quan-pai-lie-ii-python3-hui-su-kao-lu-zh/) 和 LeetCode [官方解题](https://leetcode.cn/problems/permutations-ii/solution/quan-pai-lie-ii-by-leetcode-solution/) 中，给出的去重的思路其实和 LeetCode [90. 子集 II](https://leetcode.cn/problems/subsets-ii/) 中的思路是非常类似的:
 
 > 选择 `10` 模式，剪枝 `01` 模式(即当前元素和上一个元素相同，并且上一个元素没有被选中)
 
@@ -55,13 +55,13 @@
 
 三、只选择 "情况一"，即 `122'` 、`212'` 、`122'2''`  
 
-在 LeetCode [[HOT 100]47.全排列II Python3 回溯 考虑重复 --> 46.全排列](https://leetcode-cn.com/problems/permutations-ii/solution/hot-100-47quan-pai-lie-ii-python3-hui-su-kao-lu-zh/) 中，对此有着非常好的总结:
+在 LeetCode [[HOT 100]47.全排列II Python3 回溯 考虑重复 --> 46.全排列](https://leetcode.cn/problems/permutations-ii/solution/hot-100-47quan-pai-lie-ii-python3-hui-su-kao-lu-zh/) 中，对此有着非常好的总结:
 
 > 首先我们得使用**第一个元素**，因为这时候是第一次使用，还没有重复，并且所有情况都回溯搜索答案，除了用过的元素不再使用，其余不做剪枝，直到我们遇到第一个重复元素，我们才要考虑剪枝，但是考虑剪枝的时候还要考虑跟它重复的元素有没有被用过
 
 
 
-## [官方解题](https://leetcode-cn.com/problems/permutations-ii/solution/quan-pai-lie-ii-by-leetcode-solution/)
+## [官方解题](https://leetcode.cn/problems/permutations-ii/solution/quan-pai-lie-ii-by-leetcode-solution/)
 
 > NOTE: 
 >
@@ -120,7 +120,7 @@ int main()
 
 
 
-## LeetCode [[HOT 100]47.全排列II Python3 回溯 考虑重复 --> 46.全排列](https://leetcode-cn.com/problems/permutations-ii/solution/hot-100-47quan-pai-lie-ii-python3-hui-su-kao-lu-zh/)
+## LeetCode [[HOT 100]47.全排列II Python3 回溯 考虑重复 --> 46.全排列](https://leetcode.cn/problems/permutations-ii/solution/hot-100-47quan-pai-lie-ii-python3-hui-su-kao-lu-zh/)
 
 > NOTE: 
 >
@@ -130,11 +130,11 @@ int main()
 
 我们希望的是，如果发现数字重复了，当前的就不考虑了，比如 [1,2,2'] 存在之后，当遇到 [1] 遇到 2'，发现和 2 重复了，我就直接剪枝，不考虑之后的所有的情况，因为：
 
-![image.png](https://pic.leetcode-cn.com/b99f92354583b0dbf289b180da5527ea5d71b26ca81f83229d7d96ab96c8b6ff-image.png)
+![image.png](https://pic.leetcode.cn/b99f92354583b0dbf289b180da5527ea5d71b26ca81f83229d7d96ab96c8b6ff-image.png)
 
 > NOTE: 
 >
-> 上述红线圈出来的就是 `10` 和 `01` 模式，它的去重思路和 LeetCode [90. 子集 II](https://leetcode-cn.com/problems/subsets-ii/) 中的思路是非常类似的:
+> 上述红线圈出来的就是 `10` 和 `01` 模式，它的去重思路和 LeetCode [90. 子集 II](https://leetcode.cn/problems/subsets-ii/) 中的思路是非常类似的:
 >
 > > 选择 `10` 模式，剪枝 `01` 模式(即当前元素和上一个元素相同，并且上一个元素没有被选中)
 >
@@ -158,7 +158,7 @@ int main()
 
 首先我们得使用**第一个元素**，因为这时候是第一次使用，还没有重复，并且所有情况都回溯搜索答案，除了用过的元素不再使用，其余不做剪枝，直到我们遇到第一个重复元素，我们才要考虑剪枝，但是考虑剪枝的时候还要考虑跟它重复的元素有没有被用过：
 
-![image.png](https://pic.leetcode-cn.com/411c88e56c5538a787b4bd4c86d433f00a461d93c0af8ca3a74d7bed41055c34-image.png)
+![image.png](https://pic.leetcode.cn/411c88e56c5538a787b4bd4c86d433f00a461d93c0af8ca3a74d7bed41055c34-image.png)
 
 如果前一个重复元素没有使用过，那么在当前重复元素下一层的可选项中一定会存在，也就是绿色部分
 那么一定会重复，即出现 2 X = X 2' 的情况（X为不选）

@@ -1,4 +1,4 @@
-# LeetCode [370. 区间加法](https://leetcode-cn.com/problems/range-addition/) 中等
+# LeetCode [370. 区间加法](https://leetcode.cn/problems/range-addition/) 中等
 
 假设你有一个长度为 `n` 的数组，初始情况下所有的数字均为 0，你将会被给出 `k` 个更新的操作。
 
@@ -69,7 +69,7 @@ int main()
 [[1,59999,2], [1,59999,2], ......]
 ```
 
-## [官方解题](https://leetcode-cn.com/problems/range-addition/solution/qu-jian-jia-fa-by-leetcode/)
+## [官方解题](https://leetcode.cn/problems/range-addition/solution/qu-jian-jia-fa-by-leetcode/)
 
 ### 方法 1：简单的暴力
 
@@ -120,7 +120,7 @@ int main()
 >
 > 一、其实就是差分数组，关于分析，我觉得 labuladong [论那些小而美的算法技巧：差分数组/前缀和](https://mp.weixin.qq.com/s/9L6lz0XDZ9gi-d_iPrSs8Q) 讲解得不错
 >
-> 二、官方解题 [区间加法](https://leetcode-cn.com/problems/range-addition/solution/qu-jian-jia-fa-by-leetcode-solution/) 中讲解的也是差分数组
+> 二、官方解题 [区间加法](https://leetcode.cn/problems/range-addition/solution/qu-jian-jia-fa-by-leetcode-solution/) 中讲解的也是差分数组
 
 
 

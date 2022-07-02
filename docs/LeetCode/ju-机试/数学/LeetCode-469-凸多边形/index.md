@@ -1,4 +1,4 @@
-# [469. 凸多边形](https://leetcode-cn.com/problems/convex-polygon/) 中等
+# [469. 凸多边形](https://leetcode.cn/problems/convex-polygon/) 中等
 
 给定 **X-Y** 平面上的一组点 `points` ，其中 `points[i] = [xi, yi]`。这些点按顺序连成一个多边形。
 
@@ -28,9 +28,9 @@
 
 如下内容中讲述了原理：
 
-1、[凸多边形](https://leetcode-cn.com/problems/convex-polygon/solution/tu-duo-bian-xing-by-617076674/)
+1、[凸多边形](https://leetcode.cn/problems/convex-polygon/solution/tu-duo-bian-xing-by-617076674/)
 
-2、[严谨点 不是斜率 不是内积 而是叉乘](https://leetcode-cn.com/problems/convex-polygon/solution/yan-jin-dian-bu-shi-xie-lu-bu-shi-nei-ji-er-shi-ch/)
+2、[严谨点 不是斜率 不是内积 而是叉乘](https://leetcode.cn/problems/convex-polygon/solution/yan-jin-dian-bu-shi-xie-lu-bu-shi-nei-ji-er-shi-ch/)
 
 ### baike [凸多边形](https://baike.baidu.com/item/%E5%87%B8%E5%A4%9A%E8%BE%B9%E5%BD%A2/6608474)
 
@@ -78,7 +78,7 @@
 
 两个向量的[叉乘](https://so.csdn.net/so/search?q=叉乘&spm=1001.2101.3001.7020)，又叫向量积、外积、叉积，叉乘的运算结果是一个向量而不是一个标量。并且两个向量的叉积与这两个向量组成的坐标平面垂直。
 
-## [powcai](https://leetcode-cn.com/u/powcai/) [叉乘](https://leetcode-cn.com/problems/convex-polygon/solution/cha-cheng-by-powcai/)
+## [powcai](https://leetcode.cn/u/powcai/) [叉乘](https://leetcode.cn/problems/convex-polygon/solution/cha-cheng-by-powcai/)
 
 叉乘判断
 
@@ -123,7 +123,7 @@ class Solution:
 
 ## 我的解题
 
-参考的：[powcai](https://leetcode-cn.com/u/powcai/) [叉乘](https://leetcode-cn.com/problems/convex-polygon/solution/cha-cheng-by-powcai/)
+参考的：[powcai](https://leetcode.cn/u/powcai/) [叉乘](https://leetcode.cn/problems/convex-polygon/solution/cha-cheng-by-powcai/)
 
 ```c++
 #include <iostream>

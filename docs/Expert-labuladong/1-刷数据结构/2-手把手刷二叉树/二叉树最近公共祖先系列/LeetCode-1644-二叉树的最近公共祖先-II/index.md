@@ -1,4 +1,4 @@
-# [1644. 二叉树的最近公共祖先 II](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree-ii/) 中等
+# [1644. 二叉树的最近公共祖先 II](https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree-ii/) 中等
 
 给定一棵二叉树的根节点 `root`，返回给定节点 `p` 和 `q` 的最近公共祖先（LCA）节点。如果 `p` 或 `q` 之一不存在于该二叉树中，返回 null。树中的每个节点值都是互不相同的。
 
@@ -6,7 +6,7 @@
 
 > NOTE: 
 >
-> 这道题和 [236. 二叉树的最近公共祖先](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/) 相比，多了一个限制条件:
+> 这道题和 [236. 二叉树的最近公共祖先](https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/) 相比，多了一个限制条件:
 >
 > "如果 `p` 或 `q` 之一不存在于该二叉树中，返回 null"
 >

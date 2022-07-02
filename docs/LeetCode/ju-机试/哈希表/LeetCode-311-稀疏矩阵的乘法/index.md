@@ -1,4 +1,4 @@
-# [311. 稀疏矩阵的乘法](https://leetcode-cn.com/problems/sparse-matrix-multiplication/) 中等
+# [311. 稀疏矩阵的乘法](https://leetcode.cn/problems/sparse-matrix-multiplication/) 中等
 
 给定两个 [稀疏矩阵](https://baike.baidu.com/item/稀疏矩阵) : 大小为 `m x k` 的稀疏矩阵 `mat1` 和大小为 `k x n` 的稀疏矩阵 `mat2`，大小为 `m x k` 的稀疏矩阵 `mat1` 和大小为 `k x n` 的稀疏矩阵 `mat2`。你可以假设乘法总是可能的。
 
@@ -153,13 +153,13 @@ int main()
 
 在如下文章中给出了稀疏矩阵的三元组表示例子：
 
-1、[先生成稀疏的三元组表示，再逐对运算](https://leetcode-cn.com/problems/sparse-matrix-multiplication/solution/xian-sheng-cheng-xi-shu-de-san-yuan-zu-biao-shi-za/)
+1、[先生成稀疏的三元组表示，再逐对运算](https://leetcode.cn/problems/sparse-matrix-multiplication/solution/xian-sheng-cheng-xi-shu-de-san-yuan-zu-biao-shi-za/)
 
-2、[Java 哈希表解法详细题解](https://leetcode-cn.com/problems/sparse-matrix-multiplication/solution/java-ha-xi-biao-jie-fa-xiang-xi-ti-jie-b-jtie/)
+2、[Java 哈希表解法详细题解](https://leetcode.cn/problems/sparse-matrix-multiplication/solution/java-ha-xi-biao-jie-fa-xiang-xi-ti-jie-b-jtie/)
 
-相比之下，我觉得 [先生成稀疏的三元组表示，再逐对运算](https://leetcode-cn.com/problems/sparse-matrix-multiplication/solution/xian-sheng-cheng-xi-shu-de-san-yuan-zu-biao-shi-za/) 中的解法更优。
+相比之下，我觉得 [先生成稀疏的三元组表示，再逐对运算](https://leetcode.cn/problems/sparse-matrix-multiplication/solution/xian-sheng-cheng-xi-shu-de-san-yuan-zu-biao-shi-za/) 中的解法更优。
 
-## [Java 哈希表解法详细题解](https://leetcode-cn.com/problems/sparse-matrix-multiplication/solution/java-ha-xi-biao-jie-fa-xiang-xi-ti-jie-b-jtie/)
+## [Java 哈希表解法详细题解](https://leetcode.cn/problems/sparse-matrix-multiplication/solution/java-ha-xi-biao-jie-fa-xiang-xi-ti-jie-b-jtie/)
 
 1、什么是稀疏矩阵？
 
@@ -223,7 +223,7 @@ class Solution {
 
 
 
-## [先生成稀疏的三元组表示，再逐对运算](https://leetcode-cn.com/problems/sparse-matrix-multiplication/solution/xian-sheng-cheng-xi-shu-de-san-yuan-zu-biao-shi-za/)
+## [先生成稀疏的三元组表示，再逐对运算](https://leetcode.cn/problems/sparse-matrix-multiplication/solution/xian-sheng-cheng-xi-shu-de-san-yuan-zu-biao-shi-za/)
 
 ```c++
 class Solution(object):
@@ -262,9 +262,9 @@ class Solution(object):
 
 
 
-## [两种方法，一种直接实现矩阵乘法，一种基于稀疏矩阵实现](https://leetcode-cn.com/problems/sparse-matrix-multiplication/solution/liang-chong-fang-fa-yi-chong-zhi-jie-shi-xian-ju-z/)
+## [两种方法，一种直接实现矩阵乘法，一种基于稀疏矩阵实现](https://leetcode.cn/problems/sparse-matrix-multiplication/solution/liang-chong-fang-fa-yi-chong-zhi-jie-shi-xian-ju-z/)
 
-[https://blog.csdn.net/weixin_44171872/article/details/108670985](https://leetcode-cn.com/link/?target=https://blog.csdn.net/weixin_44171872/article/details/108670985)
+[https://blog.csdn.net/weixin_44171872/article/details/108670985](https://leetcode.cn/link/?target=https://blog.csdn.net/weixin_44171872/article/details/108670985)
 
 ### 方法1：
 

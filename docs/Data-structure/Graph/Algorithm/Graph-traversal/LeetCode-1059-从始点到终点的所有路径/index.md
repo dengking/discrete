@@ -1,4 +1,4 @@
-# LeetCode [1059. 从始点到终点的所有路径](https://leetcode-cn.com/problems/all-paths-from-source-lead-to-destination/)
+# LeetCode [1059. 从始点到终点的所有路径](https://leetcode.cn/problems/all-paths-from-source-lead-to-destination/)
 
 ## 我的解题
 
@@ -410,7 +410,7 @@ int main()
 
 ## 更优秀的解法
 
-### [c++/python3 回溯+记忆化 判断图中有没有环 判断叶节点](https://leetcode-cn.com/problems/all-paths-from-source-lead-to-destination/solution/cpython3-hui-su-ji-yi-hua-pan-duan-tu-zh-qmqx/)
+### [c++/python3 回溯+记忆化 判断图中有没有环 判断叶节点](https://leetcode.cn/problems/all-paths-from-source-lead-to-destination/solution/cpython3-hui-su-ji-yi-hua-pan-duan-tu-zh-qmqx/)
 
 ```c++
 class Solution 
@@ -452,11 +452,11 @@ public:
 
 ## 拓扑排序
 
-### [灵剑2012](https://leetcode-cn.com/u/ling-jian-2012/) [标准的拓扑排序应用](https://leetcode-cn.com/problems/all-paths-from-source-lead-to-destination/solution/biao-zhun-de-tuo-bu-pai-xu-ying-yong-by-jy6wb/)
+### [灵剑2012](https://leetcode.cn/u/ling-jian-2012/) [标准的拓扑排序应用](https://leetcode.cn/problems/all-paths-from-source-lead-to-destination/solution/biao-zhun-de-tuo-bu-pai-xu-ying-yong-by-jy6wb/)
 
 
 
-### [梦璃夜·天星![img](https://assets.leetcode-cn.com/contest/level/Guardian_sm.png)](https://leetcode-cn.com/u/muriyatensei/) [【C++】普通拓扑排序](https://leetcode-cn.com/problems/all-paths-from-source-lead-to-destination/solution/c-pu-tong-tuo-bu-pai-xu-by-muriyatensei-zo9z/)
+### [梦璃夜·天星![img](https://assets.leetcode.cn/contest/level/Guardian_sm.png)](https://leetcode.cn/u/muriyatensei/) [【C++】普通拓扑排序](https://leetcode.cn/problems/all-paths-from-source-lead-to-destination/solution/c-pu-tong-tuo-bu-pai-xu-by-muriyatensei-zo9z/)
 
 从结尾向起点找，能到起点就证明可以
 

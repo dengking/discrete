@@ -1,4 +1,4 @@
-# leetcode [146. LRU 缓存机制](https://leetcode-cn.com/problems/lru-cache/)
+# leetcode [146. LRU 缓存机制](https://leetcode.cn/problems/lru-cache/)
 
 
 
@@ -423,7 +423,7 @@ int main()
 
 
 
-## [朱雀](https://leetcode-cn.com/u/zhu-que-3/) # [c++双向链表和哈希表](https://leetcode-cn.com/problems/lru-cache/solution/cshuang-xiang-lian-biao-he-ha-xi-biao-by-l476/)
+## [朱雀](https://leetcode.cn/u/zhu-que-3/) # [c++双向链表和哈希表](https://leetcode.cn/problems/lru-cache/solution/cshuang-xiang-lian-biao-he-ha-xi-biao-by-l476/)
 
 
 

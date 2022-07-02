@@ -1,4 +1,4 @@
-# LeetCode [875. 爱吃香蕉的珂珂](https://leetcode-cn.com/problems/koko-eating-bananas/) 中等
+# LeetCode [875. 爱吃香蕉的珂珂](https://leetcode.cn/problems/koko-eating-bananas/) 中等
 
 
 
@@ -69,7 +69,7 @@ int main()
 
 
 
-## [官方解题](https://leetcode-cn.com/problems/koko-eating-bananas/solution/ai-chi-xiang-jiao-de-ke-ke-by-leetcode/)
+## [官方解题](https://leetcode.cn/problems/koko-eating-bananas/solution/ai-chi-xiang-jiao-de-ke-ke-by-leetcode/)
 
 ```C++
 #include <bits/stdc++.h>

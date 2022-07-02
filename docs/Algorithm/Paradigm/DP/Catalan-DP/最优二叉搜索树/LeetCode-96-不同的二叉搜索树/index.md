@@ -1,2 +1,2 @@
-# leetcode [96. 不同的二叉搜索树](https://leetcode-cn.com/problems/unique-binary-search-trees/)
+# leetcode [96. 不同的二叉搜索树](https://leetcode.cn/problems/unique-binary-search-trees/)
 

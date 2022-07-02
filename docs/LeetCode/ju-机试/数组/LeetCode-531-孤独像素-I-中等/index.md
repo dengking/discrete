@@ -1,4 +1,4 @@
-# [531. 孤独像素 I](https://leetcode-cn.com/problems/lonely-pixel-i/) 中等
+# [531. 孤独像素 I](https://leetcode.cn/problems/lonely-pixel-i/) 中等
 
 给你一个大小为 m x n 的图像 picture ，图像由黑白像素组成，'B' 表示黑色像素，'W' 表示白色像素，请你统计并返回图像中 黑色 孤独像素的数量。
 
@@ -84,7 +84,7 @@ int main()
 
 
 
-## [官方解题 # 方法二：预处理](https://leetcode-cn.com/problems/lonely-pixel-i/solution/gu-du-xiang-su-i-by-leetcode-solution/)
+## [官方解题 # 方法二：预处理](https://leetcode.cn/problems/lonely-pixel-i/solution/gu-du-xiang-su-i-by-leetcode-solution/)
 
 对于方法一中检查每个黑色元素是否满足条件我们可以再优化。我们可以发现按上述方法判断，每一行和每一列的黑色像素数量我们都重复统计了，所以我们可以提前预处理出第 ii 行的黑色像素数量 `row[i]`和第 `j` 列的黑色像素数量 `col[j]` ，这样判断一个黑色像素是否满足条件就由原来 `O(n+m)` 时间复杂度降为 `O(1)`，每次只要看一下 `row[i]` 和 `col[j]` 是否都为 1 即可。
 

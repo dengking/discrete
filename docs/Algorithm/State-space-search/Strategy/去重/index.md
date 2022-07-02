@@ -14,19 +14,19 @@ TODO: 需要补充例子
 
 在进行枚举的时候，如果包含重复的元素，则需要考虑去重，典型的例子就是 
 
-一、[LeetCode-491-递增子序列](https://leetcode-cn.com/problems/increasing-subsequences/) # [官方解题](https://leetcode-cn.com/problems/increasing-subsequences/solution/di-zeng-zi-xu-lie-by-leetcode-solution/) # 方法二：递归枚举 + 减枝
+一、[LeetCode-491-递增子序列](https://leetcode.cn/problems/increasing-subsequences/) # [官方解题](https://leetcode.cn/problems/increasing-subsequences/solution/di-zeng-zi-xu-lie-by-leetcode-solution/) # 方法二：递归枚举 + 减枝
 
 1、无需进行排序，它只选择01模式，剪掉了所有的10模式
 
 2、它对应的是子序列，因为它没有让所有的相同元素处在一起，通过last记录已经选择的元素的末尾元素，通过与last进行对比，从而判断是否重复
 
-二、[LeetCode-90-子集-II](https://leetcode-cn.com/problems/subsets-ii/)
+二、[LeetCode-90-子集-II](https://leetcode.cn/problems/subsets-ii/)
 
 1、需要进行排序，它只选择10模式，剪掉了所有的01模式
 
 2、对应的子数组，因为它通过排序让所有的相同元素处在一起
 
-三、[LeetCode-47-全排列-II](https://leetcode-cn.com/problems/permutations-ii/)
+三、[LeetCode-47-全排列-II](https://leetcode.cn/problems/permutations-ii/)
 
 处理方法:
 
@@ -46,15 +46,15 @@ TODO: 需要补充例子
 
 下面题目都是与重复元素有关的:
 
-[LeetCode-47-全排列-II](https://leetcode-cn.com/problems/permutations-ii/)
+[LeetCode-47-全排列-II](https://leetcode.cn/problems/permutations-ii/)
 
 
 
-[LeetCode-90-子集-II](https://leetcode-cn.com/problems/subsets-ii/)
+[LeetCode-90-子集-II](https://leetcode.cn/problems/subsets-ii/)
 
 需要考虑去重
 
-[LeetCode-491-递增子序列](https://leetcode-cn.com/problems/increasing-subsequences/) 中等
+[LeetCode-491-递增子序列](https://leetcode.cn/problems/increasing-subsequences/) 中等
 
 需要考虑去重
 

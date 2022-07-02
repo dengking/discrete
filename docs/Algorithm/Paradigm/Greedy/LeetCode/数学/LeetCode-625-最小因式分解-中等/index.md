@@ -1,8 +1,8 @@
-# LeetCode [625. 最小因式分解](https://leetcode-cn.com/problems/minimum-factorization/) 中等
+# LeetCode [625. 最小因式分解](https://leetcode.cn/problems/minimum-factorization/) 中等
 
 
 
-## [官方解题 方法三：因式分解](https://leetcode-cn.com/problems/minimum-factorization/solution/zui-xiao-yin-shi-fen-jie-by-leetcode/)
+## [官方解题 方法三：因式分解](https://leetcode.cn/problems/minimum-factorization/solution/zui-xiao-yin-shi-fen-jie-by-leetcode/)
 
 > NOTE: 
 >

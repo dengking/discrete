@@ -32,7 +32,7 @@
 
 而对于这道题目，你想想，当窗口扩大的时候可能遇到负数，窗口中的值也就可能增加也可能减少，这种情况下不知道什么时机去收缩左侧窗口，也就无法求出「最大子数组和」。
 
-三、leetcode [560. 和为 K 的子数组](https://leetcode-cn.com/problems/subarray-sum-equals-k/)
+三、leetcode [560. 和为 K 的子数组](https://leetcode.cn/problems/subarray-sum-equals-k/)
 
 这个问题就是典型的不能够使用滑动窗口的
 
@@ -66,13 +66,13 @@
 
 二、使用lambda来表示窗口的比较
 
-比如 Leetcode [1100. 长度为 K 的无重复字符子串](https://leetcode-cn.com/problems/find-k-length-substrings-with-no-repeated-characters/) 
+比如 Leetcode [1100. 长度为 K 的无重复字符子串](https://leetcode.cn/problems/find-k-length-substrings-with-no-repeated-characters/) 
 
 ### 窗口的表示
 
 一、对于字符串相关的问题
 
-1、Leetcode [567. 字符串的排列](https://leetcode-cn.com/problems/permutation-in-string/) # [官方解题](https://leetcode-cn.com/problems/permutation-in-string/solution/zi-fu-chuan-de-pai-lie-by-leetcode-solut-7k7u/)
+1、Leetcode [567. 字符串的排列](https://leetcode.cn/problems/permutation-in-string/) # [官方解题](https://leetcode.cn/problems/permutation-in-string/solution/zi-fu-chuan-de-pai-lie-by-leetcode-solut-7k7u/)
 
 ```c++
 vector<int> cnt1(26), cnt2(26);
@@ -86,7 +86,7 @@ if (need == window)
 
 上述直接使用vector来表示need和window。
 
-2、Leetcode [1100. 长度为 K 的无重复字符子串](https://leetcode-cn.com/problems/find-k-length-substrings-with-no-repeated-characters/)
+2、Leetcode [1100. 长度为 K 的无重复字符子串](https://leetcode.cn/problems/find-k-length-substrings-with-no-repeated-characters/)
 
 ```c++
     unordered_map<char, int> window;

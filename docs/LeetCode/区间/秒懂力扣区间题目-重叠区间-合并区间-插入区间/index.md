@@ -4,7 +4,7 @@
 
 > NOTE:
 >
-> leetcode [252. 会议室](https://leetcode-cn.com/problems/meeting-rooms/)
+> leetcode [252. 会议室](https://leetcode.cn/problems/meeting-rooms/)
 
 
 
@@ -14,7 +14,7 @@
 
 > NOTE:
 >
-> leetcode [56. 合并区间](https://leetcode-cn.com/problems/merge-intervals/)
+> leetcode [56. 合并区间](https://leetcode.cn/problems/merge-intervals/)
 >
 > 
 
@@ -24,7 +24,7 @@
 
 > NOTE:
 >
-> leetcode [57. 插入区间](https://leetcode-cn.com/problems/insert-interval/)
+> leetcode [57. 插入区间](https://leetcode.cn/problems/insert-interval/)
 >
 > 
 

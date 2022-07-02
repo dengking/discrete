@@ -536,7 +536,7 @@ int main()
 
 ### `randomized_partition` 避免退化
 
-当原数组本身是有序的时候，如果每次都选择第一个元素作为pivot，那么将导致quick sort退化，下面是源自: https://leetcode-cn.com/submissions/detail/194476777/testcase/ 
+当原数组本身是有序的时候，如果每次都选择第一个元素作为pivot，那么将导致quick sort退化，下面是源自: https://leetcode.cn/submissions/detail/194476777/testcase/ 
 
 ```C++
 [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52, ......50000]
@@ -546,7 +546,7 @@ int main()
 
 
 
-源自: LeetCode [912. 排序数组](https://leetcode-cn.com/problems/sort-an-array/) # [官方解题](https://leetcode-cn.com/problems/sort-an-array/solution/pai-xu-shu-zu-by-leetcode-solution/)
+源自: LeetCode [912. 排序数组](https://leetcode.cn/problems/sort-an-array/) # [官方解题](https://leetcode.cn/problems/sort-an-array/solution/pai-xu-shu-zu-by-leetcode-solution/)
 
 ```C++
 class Solution {

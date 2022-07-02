@@ -1,4 +1,4 @@
-# [303. 区域和检索 - 数组不可变](https://leetcode-cn.com/problems/range-sum-query-immutable/) 简单
+# [303. 区域和检索 - 数组不可变](https://leetcode.cn/problems/range-sum-query-immutable/) 简单
 
 ## 使用左闭右闭的方式来定义prefix sum 
 

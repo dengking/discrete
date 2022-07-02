@@ -1019,9 +1019,9 @@ def kmp_search(pattern, text):
 
 http://www.voidcn.com/article/p-uuefgkai-bnw.html
 
-leetcode [28. 实现 strStr()](https://leetcode-cn.com/problems/implement-strstr/)
+leetcode [28. 实现 strStr()](https://leetcode.cn/problems/implement-strstr/)
 
-leetcode [214. 最短回文串](https://leetcode-cn.com/problems/shortest-palindrome/)
+leetcode [214. 最短回文串](https://leetcode.cn/problems/shortest-palindrome/)
 
 https://leetcode.com/problems/shortest-palindrome/discuss/60113/clean-kmp-solution-with-super-detailed-explanation
 

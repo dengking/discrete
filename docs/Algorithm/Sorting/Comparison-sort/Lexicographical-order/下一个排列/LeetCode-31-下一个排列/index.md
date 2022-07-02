@@ -1,8 +1,8 @@
-# LeetCode [31. 下一个排列](https://leetcode-cn.com/problems/next-permutation/)
+# LeetCode [31. 下一个排列](https://leetcode.cn/problems/next-permutation/)
 
 cppreference [std::next_permutation](https://en.cppreference.com/w/cpp/algorithm/next_permutation)
 
-## [官方解题](https://leetcode-cn.com/problems/next-permutation/solution/xia-yi-ge-pai-lie-by-leetcode-solution/)
+## [官方解题](https://leetcode.cn/problems/next-permutation/solution/xia-yi-ge-pai-lie-by-leetcode-solution/)
 
 以数字序列 `[1,2,3] `为例，其排列按照字典序依次为：
 
@@ -17,7 +17,7 @@ cppreference [std::next_permutation](https://en.cppreference.com/w/cpp/algorithm
 
 ### 方法一：两遍扫描
 
-![fig1](https://assets.leetcode-cn.com/solution-static/31/31.gif)
+![fig1](https://assets.leetcode.cn/solution-static/31/31.gif)
 
 
 
@@ -44,7 +44,7 @@ public:
 
 
 
-## LeetCode [下一个排列算法详解：思路+推导+步骤，看不懂算我输！](https://leetcode-cn.com/problems/next-permutation/solution/xia-yi-ge-pai-lie-suan-fa-xiang-jie-si-lu-tui-dao-/)
+## LeetCode [下一个排列算法详解：思路+推导+步骤，看不懂算我输！](https://leetcode.cn/problems/next-permutation/solution/xia-yi-ge-pai-lie-suan-fa-xiang-jie-si-lu-tui-dao-/)
 
 > NOTE: 
 >

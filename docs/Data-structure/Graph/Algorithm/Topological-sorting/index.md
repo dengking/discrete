@@ -38,7 +38,7 @@ DFS其实是**逆向排序**，再借助stack进行逆向，从而可以得到�
 
 则说明在dependency graph中，存在从bi->ai的边，也就说明ai位于bi的adjacency list中
 
-## LeetCode [207. 课程表](https://leetcode-cn.com/problems/course-schedule/) # [力扣官方题解](https://leetcode-cn.com/problems/course-schedule/solution/ke-cheng-biao-by-leetcode-solution/)
+## LeetCode [207. 课程表](https://leetcode.cn/problems/course-schedule/) # [力扣官方题解](https://leetcode.cn/problems/course-schedule/solution/ke-cheng-biao-by-leetcode-solution/)
 
 > NOTE: 
 >
@@ -282,10 +282,10 @@ github [Algo-Tree](https://github.com/Algo-Phantoms/Algo-Tree)/[Code](https://gi
 
 
 ## LeetCode 课程表
-https://leetcode-cn.com/problems/course-schedule/solution/ke-cheng-biao-by-leetcode-solution/
+https://leetcode.cn/problems/course-schedule/solution/ke-cheng-biao-by-leetcode-solution/
 
-https://leetcode-cn.com/problems/course-schedule-ii/solution/ke-cheng-biao-ii-by-leetcode-solution/
+https://leetcode.cn/problems/course-schedule-ii/solution/ke-cheng-biao-ii-by-leetcode-solution/
 
 
-https://leetcode-cn.com/problems/course-schedule-iv/
+https://leetcode.cn/problems/course-schedule-iv/
 

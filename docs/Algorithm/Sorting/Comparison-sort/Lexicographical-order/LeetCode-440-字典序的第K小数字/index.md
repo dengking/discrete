@@ -1,20 +1,20 @@
-# [440. 字典序的第K小数字](https://leetcode-cn.com/problems/k-th-smallest-in-lexicographical-order/)
+# [440. 字典序的第K小数字](https://leetcode.cn/problems/k-th-smallest-in-lexicographical-order/)
 
 
 
 ## 我的解题
 
-由于之前做过 LeetCode [386. 字典序排数](https://leetcode-cn.com/problems/lexicographical-numbers/) ，因此我知道如何生成字典序数组，因此我第一次的解法就是仿照 LeetCode [386. 字典序排数](https://leetcode-cn.com/problems/lexicographical-numbers/) 中的解法写的，但是超时了。后来看了如下几篇：
+由于之前做过 LeetCode [386. 字典序排数](https://leetcode.cn/problems/lexicographical-numbers/) ，因此我知道如何生成字典序数组，因此我第一次的解法就是仿照 LeetCode [386. 字典序排数](https://leetcode.cn/problems/lexicographical-numbers/) 中的解法写的，但是超时了。后来看了如下几篇：
 
-1、[杨兴元](https://leetcode-cn.com/u/user7056k/) # [[字节跳动最常考题之一]本题史上最完整具体的手摸手解答，时间效率超越100%用户](https://leetcode-cn.com/problems/k-th-smallest-in-lexicographical-order/solution/ben-ti-shi-shang-zui-wan-zheng-ju-ti-de-shou-mo-sh/)
+1、[杨兴元](https://leetcode.cn/u/user7056k/) # [[字节跳动最常考题之一]本题史上最完整具体的手摸手解答，时间效率超越100%用户](https://leetcode.cn/problems/k-th-smallest-in-lexicographical-order/solution/ben-ti-shi-shang-zui-wan-zheng-ju-ti-de-shou-mo-sh/)
 
-2、[梦溪](https://leetcode-cn.com/u/meng_xi/) # [偷了两位大佬的图和题解，记录一下本题](https://leetcode-cn.com/problems/k-th-smallest-in-lexicographical-order/solution/tou-liao-liang-wei-da-lao-de-tu-he-ti-ji-fs9r/) 
+2、[梦溪](https://leetcode.cn/u/meng_xi/) # [偷了两位大佬的图和题解，记录一下本题](https://leetcode.cn/problems/k-th-smallest-in-lexicographical-order/solution/tou-liao-liang-wei-da-lao-de-tu-he-ti-ji-fs9r/) 
 
-3、[官方解题](https://leetcode-cn.com/problems/k-th-smallest-in-lexicographical-order/solution/zi-dian-xu-de-di-kxiao-shu-zi-by-leetcod-bfy0/)
+3、[官方解题](https://leetcode.cn/problems/k-th-smallest-in-lexicographical-order/solution/zi-dian-xu-de-di-kxiao-shu-zi-by-leetcod-bfy0/)
 
-4、[jason](https://leetcode-cn.com/u/jason-2/) # [字典序的第K小数字](https://leetcode-cn.com/problems/k-th-smallest-in-lexicographical-order/solution/wu-xu-jie-zhu-shi-cha-shu-ye-neng-rong-yi-li-jie-b/)
+4、[jason](https://leetcode.cn/u/jason-2/) # [字典序的第K小数字](https://leetcode.cn/problems/k-th-smallest-in-lexicographical-order/solution/wu-xu-jie-zhu-shi-cha-shu-ye-neng-rong-yi-li-jie-b/)
 
-发现把思路讲的最最清晰的是 [梦溪](https://leetcode-cn.com/u/meng_xi/) # [偷了两位大佬的图和题解，记录一下本题](https://leetcode-cn.com/problems/k-th-smallest-in-lexicographical-order/solution/tou-liao-liang-wei-da-lao-de-tu-he-ti-ji-fs9r/) ：
+发现把思路讲的最最清晰的是 [梦溪](https://leetcode.cn/u/meng_xi/) # [偷了两位大佬的图和题解，记录一下本题](https://leetcode.cn/problems/k-th-smallest-in-lexicographical-order/solution/tou-liao-liang-wei-da-lao-de-tu-he-ti-ji-fs9r/) ：
 
 一、他的这种思路非常类似于quick select、二分查找，由于lexicographical-order-tree已经是有序的了，正如quick select、二分查找的使用前提一样。
 
@@ -26,9 +26,9 @@
 
 
 
-## [梦溪](https://leetcode-cn.com/u/meng_xi/) # [偷了两位大佬的图和题解，记录一下本题](https://leetcode-cn.com/problems/k-th-smallest-in-lexicographical-order/solution/tou-liao-liang-wei-da-lao-de-tu-he-ti-ji-fs9r/) 
+## [梦溪](https://leetcode.cn/u/meng_xi/) # [偷了两位大佬的图和题解，记录一下本题](https://leetcode.cn/problems/k-th-smallest-in-lexicographical-order/solution/tou-liao-liang-wei-da-lao-de-tu-he-ti-ji-fs9r/) 
 
-![image.png](https://pic.leetcode-cn.com/1633397054-NgEVkv-image.png)
+![image.png](https://pic.leetcode.cn/1633397054-NgEVkv-image.png)
 
 1.初始化前缀为1，计算以1开头的节点树的所有子树结点个数:
 
@@ -116,7 +116,7 @@ int main()
 
 ## 参考的代码
 
-一、[杨兴元](https://leetcode-cn.com/u/user7056k/) # [[字节跳动最常考题之一]本题史上最完整具体的手摸手解答，时间效率超越100%用户](https://leetcode-cn.com/problems/k-th-smallest-in-lexicographical-order/solution/ben-ti-shi-shang-zui-wan-zheng-ju-ti-de-shou-mo-sh/)
+一、[杨兴元](https://leetcode.cn/u/user7056k/) # [[字节跳动最常考题之一]本题史上最完整具体的手摸手解答，时间效率超越100%用户](https://leetcode.cn/problems/k-th-smallest-in-lexicographical-order/solution/ben-ti-shi-shang-zui-wan-zheng-ju-ti-de-shou-mo-sh/)
 
 
 

@@ -1,4 +1,4 @@
-# leetcode [321. 拼接最大数](https://leetcode-cn.com/problems/create-maximum-number/) 困难
+# leetcode [321. 拼接最大数](https://leetcode.cn/problems/create-maximum-number/) 困难
 
 现在从这两个数组中选出 `k (k <= m + n)` 个数字拼接成一个新的数。
 
@@ -6,7 +6,7 @@
 >
 > `k (k <= m + n)` 这个条件比较重要
 
-## [官方解题](https://leetcode-cn.com/problems/create-maximum-number/solution/pin-jie-zui-da-shu-by-leetcode-solution/)
+## [官方解题](https://leetcode.cn/problems/create-maximum-number/solution/pin-jie-zui-da-shu-by-leetcode-solution/)
 
 
 
@@ -142,11 +142,11 @@ int main()
 
 ​	
 
-## [力扣加加](https://leetcode-cn.com/u/fe-lucifer/) # [一招吃遍力扣四道题，妈妈再也不用担心我被套路啦～](https://leetcode-cn.com/problems/create-maximum-number/solution/yi-zhao-chi-bian-li-kou-si-dao-ti-ma-ma-zai-ye-b-7/) 
+## [力扣加加](https://leetcode.cn/u/fe-lucifer/) # [一招吃遍力扣四道题，妈妈再也不用担心我被套路啦～](https://leetcode.cn/problems/create-maximum-number/solution/yi-zhao-chi-bian-li-kou-si-dao-ti-ma-ma-zai-ye-b-7/) 
 
 > NOTE: 
 >
-> 一、这个解题是非常好的，它是"divide-and-conquer-and-merge"非常经典的例题，它的base就是 leetcode [402. 移掉K位数字](https://leetcode-cn.com/problems/remove-k-digits/) 
+> 一、这个解题是非常好的，它是"divide-and-conquer-and-merge"非常经典的例题，它的base就是 leetcode [402. 移掉K位数字](https://leetcode.cn/problems/remove-k-digits/) 
 >
 > 
 
@@ -166,7 +166,7 @@ int main()
 
 实际上这个过程有点类似`归并排序`中的**治**，而上面我们分别计算 num1 和 num2 的最大数的过程类似`归并排序`中的**分**。
 
-![img](https://pic.leetcode-cn.com/276105e4f130a04413b466232b0a79537902b2d6e8bf016f2c84e6ff8e3af3de.jpg)
+![img](https://pic.leetcode.cn/276105e4f130a04413b466232b0a79537902b2d6e8bf016f2c84e6ff8e3af3de.jpg)
 
 代码：
 
@@ -192,7 +192,7 @@ def merge(A, B):
 
 以合并 [6] 和 [9,5,8,3] 为例，图解过程如下：
 
-![img](https://pic.leetcode-cn.com/dcae5d6f7feb6e8adb14ad15292f052771d6dfdf1e682d6e657f69b6a404479e.jpg)
+![img](https://pic.leetcode.cn/dcae5d6f7feb6e8adb14ad15292f052771d6dfdf1e682d6e657f69b6a404479e.jpg)
 
 ### 具体算法：
 
@@ -227,7 +227,7 @@ class Solution:
 
 > NOTE:
 >
-> 一、通过上述code可以看出，它是典型的divide-and-conqure-merge+打擂台取最优值，它的base是 leetcode [402. 移掉K位数字](https://leetcode-cn.com/problems/remove-k-digits/) 。
+> 一、通过上述code可以看出，它是典型的divide-and-conqure-merge+打擂台取最优值，它的base是 leetcode [402. 移掉K位数字](https://leetcode.cn/problems/remove-k-digits/) 。
 >
 > 二、它的merge算法：每次从字典序更大的array中取出一个元素。
 
@@ -375,7 +375,7 @@ int main()
 [6,7,6,0,4]
 ```
 
-我的merge函数是按照merge sort的写法写的，通过上述例子可以看出，它是不符合这道题的要求的，那以什么样的算法来实现呢？在 [力扣加加](https://leetcode-cn.com/u/fe-lucifer/) # [一招吃遍力扣四道题，妈妈再也不用担心我被套路啦～](https://leetcode-cn.com/problems/create-maximum-number/solution/yi-zhao-chi-bian-li-kou-si-dao-ti-ma-ma-zai-ye-b-7/) 中，给出了算法：
+我的merge函数是按照merge sort的写法写的，通过上述例子可以看出，它是不符合这道题的要求的，那以什么样的算法来实现呢？在 [力扣加加](https://leetcode.cn/u/fe-lucifer/) # [一招吃遍力扣四道题，妈妈再也不用担心我被套路啦～](https://leetcode.cn/problems/create-maximum-number/solution/yi-zhao-chi-bian-li-kou-si-dao-ti-ma-ma-zai-ye-b-7/) 中，给出了算法：
 
 ```c++s
 class Solution:
@@ -407,7 +407,7 @@ class Solution:
 
 ## 我的解题
 
-一、一开始想仿照[力扣加加](https://leetcode-cn.com/u/fe-lucifer/) # [一招吃遍力扣四道题，妈妈再也不用担心我被套路啦～](https://leetcode-cn.com/problems/create-maximum-number/solution/yi-zhao-chi-bian-li-kou-si-dao-ti-ma-ma-zai-ye-b-7/) 中merge函数的写法
+一、一开始想仿照[力扣加加](https://leetcode.cn/u/fe-lucifer/) # [一招吃遍力扣四道题，妈妈再也不用担心我被套路啦～](https://leetcode.cn/problems/create-maximum-number/solution/yi-zhao-chi-bian-li-kou-si-dao-ti-ma-ma-zai-ye-b-7/) 中merge函数的写法
 
 ```c++
   vector<int> merge(vector<int> &nums1, vector<int> &nums2)
@@ -430,7 +430,7 @@ class Solution:
   }
 ```
 
-但是C++中，`std::vector`不支持`pop_front`。所以上述写法是无效的，因此还是需要像 [官方解题](https://leetcode-cn.com/problems/create-maximum-number/solution/pin-jie-zui-da-shu-by-leetcode-solution/) 中的实现一个`compare` 函数。
+但是C++中，`std::vector`不支持`pop_front`。所以上述写法是无效的，因此还是需要像 [官方解题](https://leetcode.cn/problems/create-maximum-number/solution/pin-jie-zui-da-shu-by-leetcode-solution/) 中的实现一个`compare` 函数。
 
 
 

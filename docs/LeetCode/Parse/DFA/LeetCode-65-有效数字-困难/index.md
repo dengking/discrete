@@ -1,4 +1,4 @@
-# LeetCode [65. 有效数字](https://leetcode-cn.com/problems/valid-number/) 
+# LeetCode [65. 有效数字](https://leetcode.cn/problems/valid-number/) 
 
 ## 我的解题
 
@@ -16,9 +16,9 @@
 
 
 
-## LeetCode [65. 有效数字](https://leetcode-cn.com/problems/valid-number/) # [官方解题](https://leetcode-cn.com/problems/valid-number/solution/you-xiao-shu-zi-by-leetcode-solution-298l/)
+## LeetCode [65. 有效数字](https://leetcode.cn/problems/valid-number/) # [官方解题](https://leetcode.cn/problems/valid-number/solution/you-xiao-shu-zi-by-leetcode-solution-298l/)
 
-![fig1](https://assets.leetcode-cn.com/solution-static/65/1.png)
+![fig1](https://assets.leetcode.cn/solution-static/65/1.png)
 
 > NOTE:
 >
@@ -171,13 +171,13 @@ int main()
 
 
 
-## LeetCode [65. 有效数字](https://leetcode-cn.com/problems/valid-number/) # [表驱动法](https://leetcode-cn.com/problems/valid-number/solution/biao-qu-dong-fa-by-user8973/)
+## LeetCode [65. 有效数字](https://leetcode.cn/problems/valid-number/) # [表驱动法](https://leetcode.cn/problems/valid-number/solution/biao-qu-dong-fa-by-user8973/)
 
 > NOTE:
 >
 > 其中给出的DFA都是使用的数字来作为状态标号，不容易理解。
 
-![DFA.jpg](https://pic.leetcode-cn.com/0683d701f2948a2bd8c235867c21a3aed5977691f129ecf34d681d43d57e339c-DFA.jpg)
+![DFA.jpg](https://pic.leetcode.cn/0683d701f2948a2bd8c235867c21a3aed5977691f129ecf34d681d43d57e339c-DFA.jpg)
 
 ```c++
 // #include <bits/stdc++.h>

@@ -26,6 +26,6 @@ We will introduce [Staircase](https://emre.me/coding-patterns/staircase) pattern
 
 > NOTE:
 >
-> leetcode 1155应该归入"分组背包问题"，关于此，参见[宫水三叶](https://leetcode-cn.com/u/ac_oier/) # [【动态规划/背包问题】运用分组背包进行求解](https://leetcode-cn.com/problems/number-of-dice-rolls-with-target-sum/solution/dong-tai-gui-hua-bei-bao-wen-ti-yun-yong-axtf/)
+> leetcode 1155应该归入"分组背包问题"，关于此，参见[宫水三叶](https://leetcode.cn/u/ac_oier/) # [【动态规划/背包问题】运用分组背包进行求解](https://leetcode.cn/problems/number-of-dice-rolls-with-target-sum/solution/dong-tai-gui-hua-bei-bao-wen-ti-yun-yong-axtf/)
 >
 > 

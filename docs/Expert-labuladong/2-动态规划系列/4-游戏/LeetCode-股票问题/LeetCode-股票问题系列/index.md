@@ -2,13 +2,13 @@
 
 ## 买卖一次 k = 1
 
-#### LeetCode [剑指 Offer 63. 股票的最大利润](https://leetcode-cn.com/problems/gu-piao-de-zui-da-li-run-lcof/) 中等
+#### LeetCode [剑指 Offer 63. 股票的最大利润](https://leetcode.cn/problems/gu-piao-de-zui-da-li-run-lcof/) 中等
 
 假设把某股票的价格按照时间先后顺序存储在数组中，请问买卖该股票一次可能获得的最大利润是多少？
 
 
 
-#### LeetCode [121. 买卖股票的最佳时机](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/) 简单
+#### LeetCode [121. 买卖股票的最佳时机](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/) 简单
 
 
 
@@ -20,7 +20,7 @@
 
 ## 不限买卖次数 k=infinity
 
-#### LeetCode [122. 买卖股票的最佳时机 II](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/) 简单
+#### LeetCode [122. 买卖股票的最佳时机 II](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-ii/) 简单
 
 给定一个数组 prices ，其中 prices[i] 是一支给定股票第 i 天的价格。
 
@@ -32,19 +32,19 @@
 
 ## 买卖两次 k = 2
 
-#### LeetCode [123. 买卖股票的最佳时机 III](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/) 困难
+#### LeetCode [123. 买卖股票的最佳时机 III](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iii/) 困难
 
 
 
 ## 买卖 k 次
 
-#### LeetCode [188. 买卖股票的最佳时机 IV](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iv/) 困难 
+#### LeetCode [188. 买卖股票的最佳时机 IV](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iv/) 困难 
 
 
 
 ## 不限买卖次数 + 冷冻期
 
-#### LeetCode [309. 最佳买卖股票时机含冷冻期](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/) 中等
+#### LeetCode [309. 最佳买卖股票时机含冷冻期](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-with-cooldown/) 中等
 
 给定一个整数数组，其中第 i 个元素代表了第 i 天的股票价格 。
 
@@ -58,7 +58,7 @@
 
 ## 不限买卖次数 + 手续费
 
-#### LeetCode [714. 买卖股票的最佳时机含手续费](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/) 中等
+#### LeetCode [714. 买卖股票的最佳时机含手续费](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/) 中等
 
 给定一个整数数组 prices，其中第 i 个元素代表了第 i 天的股票价格 ；非负整数 fee 代表了交易股票的手续费用。
 
@@ -68,7 +68,7 @@
 
 
 
-## leetcode [『 动态规划 』 DP模板解决一众买卖股票问题](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iv/solution/by-flix-us00/)
+## leetcode [『 动态规划 』 DP模板解决一众买卖股票问题](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iv/solution/by-flix-us00/)
 
 
 

@@ -113,7 +113,7 @@ Suppose one wanted to draw *k* random cards from a deck of playing cards (i.e., 
 
 > NOTE: 
 >
-> LeetCode [382. c++简单易懂的蓄水池解法](https://leetcode-cn.com/problems/linked-list-random-node/solution/382-cjian-dan-yi-dong-de-xu-shui-chi-jie-222u/)
+> LeetCode [382. c++简单易懂的蓄水池解法](https://leetcode.cn/problems/linked-list-random-node/solution/382-cjian-dan-yi-dong-de-xu-shui-chi-jie-222u/)
 
 ### iteye [java-蓄水池抽样-要求从N个元素中随机的抽取k个元素，其中N无法确定](https://www.iteye.com/blog/bylijinnan-1468985)
 
@@ -170,7 +170,7 @@ public class ReservoirSampling {
 
 
 
-### LeetCode [蓄水池抽样算法](https://leetcode-cn.com/problems/linked-list-random-node/solution/xu-shui-chi-chou-yang-suan-fa-by-jackwener/) Python
+### LeetCode [蓄水池抽样算法](https://leetcode.cn/problems/linked-list-random-node/solution/xu-shui-chi-chou-yang-suan-fa-by-jackwener/) Python
 
 ```python
 import random
@@ -205,7 +205,7 @@ class Solution:
 >
 > 
 
-### LeetCode [382. c++简单易懂的蓄水池解法](https://leetcode-cn.com/problems/linked-list-random-node/solution/382-cjian-dan-yi-dong-de-xu-shui-chi-jie-222u/)
+### LeetCode [382. c++简单易懂的蓄水池解法](https://leetcode.cn/problems/linked-list-random-node/solution/382-cjian-dan-yi-dong-de-xu-shui-chi-jie-222u/)
 
 蓄水池算法，核心就是
 
@@ -336,7 +336,7 @@ int getRandom(ListNode head) {
 
 ## LeetCode 习题
 
-LeetCode [382. 链表随机节点](https://leetcode-cn.com/problems/linked-list-random-node/) 中等
+LeetCode [382. 链表随机节点](https://leetcode.cn/problems/linked-list-random-node/) 中等
 
 
 

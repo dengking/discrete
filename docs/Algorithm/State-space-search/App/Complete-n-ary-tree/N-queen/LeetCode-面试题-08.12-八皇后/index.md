@@ -1,5 +1,5 @@
-# leetcode [面试题 08.12. 八皇后](https://leetcode-cn.com/problems/eight-queens-lcci/) 困难
+# leetcode [面试题 08.12. 八皇后](https://leetcode.cn/problems/eight-queens-lcci/) 困难
 
 
 
-和 leetcode [51. N 皇后](https://leetcode-cn.com/problems/n-queens/) 困难 如出一辙。
+和 leetcode [51. N 皇后](https://leetcode.cn/problems/n-queens/) 困难 如出一辙。

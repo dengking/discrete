@@ -6,7 +6,7 @@
 
 
 
-2、LeetCode [海量数据处理方法](https://leetcode-cn.com/circle/article/qlkHuN/)
+2、LeetCode [海量数据处理方法](https://leetcode.cn/circle/article/qlkHuN/)
 
 
 
@@ -22,7 +22,7 @@
 
 > NOTE: 
 >
-> 这是按照 LeetCode [海量数据处理方法](https://leetcode-cn.com/circle/article/qlkHuN/) 中给出的分类方法进行的分类
+> 这是按照 LeetCode [海量数据处理方法](https://leetcode.cn/circle/article/qlkHuN/) 中给出的分类方法进行的分类
 >
 > 
 
@@ -124,5 +124,5 @@
 
 
 
-## LeetCode [海量数据处理方法](https://leetcode-cn.com/circle/article/qlkHuN/)
+## LeetCode [海量数据处理方法](https://leetcode.cn/circle/article/qlkHuN/)
 

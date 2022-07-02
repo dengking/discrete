@@ -127,7 +127,7 @@ TODO
 
 ## leetcode
 
-https://leetcode-cn.com/problemset/all/?search=%E6%8B%AC%E5%8F%B7
+https://leetcode.cn/problemset/all/?search=%E6%8B%AC%E5%8F%B7
 
 ### 资源
 

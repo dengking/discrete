@@ -1,4 +1,4 @@
-# LeetCode [393. UTF-8 编码验证](https://leetcode-cn.com/problems/utf-8-validation/)
+# LeetCode [393. UTF-8 编码验证](https://leetcode.cn/problems/utf-8-validation/)
 
 
 
@@ -6,11 +6,11 @@
 
 ![](./DFA-LeetCode-393-small.jpg)
 
-## [Edward Elric](https://leetcode-cn.com/u/zdxiq125/) # [[Java] DFA](https://leetcode-cn.com/problems/utf-8-validation/solution/java-dfa-by-zdxiq125/) 
+## [Edward Elric](https://leetcode.cn/u/zdxiq125/) # [[Java] DFA](https://leetcode.cn/problems/utf-8-validation/solution/java-dfa-by-zdxiq125/) 
 
 > NOTE: 
 >
-> [Edward ElricL3](https://leetcode-cn.com/u/zdxiq125/) 给出的 DFA 是我觉得最最好的
+> [Edward ElricL3](https://leetcode.cn/u/zdxiq125/) 给出的 DFA 是我觉得最最好的
 
 这显然是一题和**位操作**有关的题目。并且，这其中有非常多的状态需要考虑。UTF-8编码的字符可以是由1到4个字节来表示，并且从第1个字节我们就可以看出该UTF-8字符一共由几个字节组成。所以，当我们接收到第一个字节，后续的0到3个字节必须符合所有题设限制（字节数目限制、每个字节的前导比特限制）。这内部其实是一个很完整的确定有限状态机（DFA）。这里，我们选择直接建立这个**自动机**。
 
@@ -118,11 +118,11 @@ class Solution {
 
 参考
 
-1、 [Edward Elric](https://leetcode-cn.com/u/zdxiq125/) # [[Java] DFA](https://leetcode-cn.com/problems/utf-8-validation/solution/java-dfa-by-zdxiq125/) ，使用C++实现。
+1、 [Edward Elric](https://leetcode.cn/u/zdxiq125/) # [[Java] DFA](https://leetcode.cn/problems/utf-8-validation/solution/java-dfa-by-zdxiq125/) ，使用C++实现。
 
-2、[leetcode 8 字符串转换整数 (atoi) # 官方解题](https://leetcode-cn.com/problems/string-to-integer-atoi/solution/zi-fu-chuan-zhuan-huan-zheng-shu-atoi-by-leetcode-/) 
+2、[leetcode 8 字符串转换整数 (atoi) # 官方解题](https://leetcode.cn/problems/string-to-integer-atoi/solution/zi-fu-chuan-zhuan-huan-zheng-shu-atoi-by-leetcode-/) 
 
-相比之下，[leetcode 8 字符串转换整数 (atoi) # 官方解题](https://leetcode-cn.com/problems/string-to-integer-atoi/solution/zi-fu-chuan-zhuan-huan-zheng-shu-atoi-by-leetcode-/) 中对DFA的实现是更加容易理解的
+相比之下，[leetcode 8 字符串转换整数 (atoi) # 官方解题](https://leetcode.cn/problems/string-to-integer-atoi/solution/zi-fu-chuan-zhuan-huan-zheng-shu-atoi-by-leetcode-/) 中对DFA的实现是更加容易理解的
 
 1、如果能够正常完成解析，则消耗的数字等于入参的长度。
 
@@ -239,7 +239,7 @@ int main()
 
 
 
-## LeetCode [C++优美代码](https://leetcode-cn.com/problems/utf-8-validation/solution/cjing-jian-ma-by-xiaohu9527-om7b/)
+## LeetCode [C++优美代码](https://leetcode.cn/problems/utf-8-validation/solution/cjing-jian-ma-by-xiaohu9527-om7b/)
 
 ```C++
 #include <bits/stdc++.h>

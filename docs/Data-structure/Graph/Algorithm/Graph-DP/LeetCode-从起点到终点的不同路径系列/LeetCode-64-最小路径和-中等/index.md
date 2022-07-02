@@ -1,10 +1,10 @@
-# LeetCode [64. 最小路径和](https://leetcode-cn.com/problems/minimum-path-sum/) 中等
+# LeetCode [64. 最小路径和](https://leetcode.cn/problems/minimum-path-sum/) 中等
 
 
 
 ## 我的解题
 
-这道题其实和 [62. 不同路径](https://leetcode-cn.com/problems/unique-paths/) 非常类似，属于fibonacci dp求解最优值，它和leetcode [746. 使用最小花费爬楼梯](https://leetcode-cn.com/problems/min-cost-climbing-stairs/) 简单如出一辙。
+这道题其实和 [62. 不同路径](https://leetcode.cn/problems/unique-paths/) 非常类似，属于fibonacci dp求解最优值，它和leetcode [746. 使用最小花费爬楼梯](https://leetcode.cn/problems/min-cost-climbing-stairs/) 简单如出一辙。
 
 
 

@@ -1,4 +1,4 @@
-# leetcode [142. 环形链表 II](https://leetcode-cn.com/problems/linked-list-cycle-ii/)
+# leetcode [142. 环形链表 II](https://leetcode.cn/problems/linked-list-cycle-ii/)
 
 
 
@@ -88,5 +88,5 @@ int main()
 
 
 
-## [环形链表 II](https://leetcode-cn.com/problems/linked-list-cycle-ii/solution/huan-xing-lian-biao-ii-by-leetcode-solution/) # 官方解题
+## [环形链表 II](https://leetcode.cn/problems/linked-list-cycle-ii/solution/huan-xing-lian-biao-ii-by-leetcode-solution/) # 官方解题
 

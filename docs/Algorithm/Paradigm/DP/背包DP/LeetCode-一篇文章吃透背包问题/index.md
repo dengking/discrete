@@ -1,4 +1,4 @@
-# leetcode [一篇文章吃透背包问题！（细致引入+解题模板+例题分析+代码呈现](https://leetcode-cn.com/problems/partition-equal-subset-sum/solution/yi-pian-wen-zhang-chi-tou-bei-bao-wen-ti-a7dd/) 
+# leetcode [一篇文章吃透背包问题！（细致引入+解题模板+例题分析+代码呈现](https://leetcode.cn/problems/partition-equal-subset-sum/solution/yi-pian-wen-zhang-chi-tou-bei-bao-wen-ti-a7dd/) 
 
 > NOTE:
 >
@@ -26,9 +26,9 @@
 >
 > 关于这种情况的典型例子：
 >
-> 1、leetcode [416. 分割等和子集](https://leetcode-cn.com/problems/partition-equal-subset-sum/)
+> 1、leetcode [416. 分割等和子集](https://leetcode.cn/problems/partition-equal-subset-sum/)
 >
-> 2、leetcode [494. 目标和](https://leetcode-cn.com/problems/target-sum/)
+> 2、leetcode [494. 目标和](https://leetcode.cn/problems/target-sum/)
 
 3、选取方式有常见的一下几种：每个元素选一次/每个元素选多次/选元素进行排列组合
 
@@ -132,13 +132,13 @@ void bags()
 > vector<vector<int>> dp(N + 1, vector<int>(W + 1, 0));
 > ```
 >
-> leetcode [一篇文章吃透背包问题！（细致引入+解题模板+例题分析+代码呈现](https://leetcode-cn.com/problems/partition-equal-subset-sum/solution/yi-pian-wen-zhang-chi-tou-bei-bao-wen-ti-a7dd/) 
+> leetcode [一篇文章吃透背包问题！（细致引入+解题模板+例题分析+代码呈现](https://leetcode.cn/problems/partition-equal-subset-sum/solution/yi-pian-wen-zhang-chi-tou-bei-bao-wen-ti-a7dd/) 
 >
 > ```c++
 > vector<vector<int>> dp(weight.size() + 1, vector<int>(bagWeight + 1, 0));
 > ```
 >
-> 即它们都考虑了空问题，但是 leetcode [一篇文章吃透背包问题！（细致引入+解题模板+例题分析+代码呈现](https://leetcode-cn.com/problems/partition-equal-subset-sum/solution/yi-pian-wen-zhang-chi-tou-bei-bao-wen-ti-a7dd/) 其实并没有考虑没有物品的情况。
+> 即它们都考虑了空问题，但是 leetcode [一篇文章吃透背包问题！（细致引入+解题模板+例题分析+代码呈现](https://leetcode.cn/problems/partition-equal-subset-sum/solution/yi-pian-wen-zhang-chi-tou-bei-bao-wen-ti-a7dd/) 其实并没有考虑没有物品的情况。
 >
 > 我更加倾向于 labuladong [经典动态规划：0-1 背包问题](https://mp.weixin.qq.com/s/RXfnhSpVBmVneQjDSUSAVQ) 中的写法。
 >
@@ -211,7 +211,7 @@ void test_1_wei_bag_problem()
 
 下面看一下具体的题目分析：
 
-## [322. 零钱兑换](https://leetcode-cn.com/problems/coin-change/) - 最优值
+## [322. 零钱兑换](https://leetcode.cn/problems/coin-change/) - 最优值
 
 // 零钱兑换：给定amount,求用任意数量不同面值的零钱换到amount所用的最少数量
 // 完全背包最值问题：外循环coins,内循环amount正序,应用状态方程1
@@ -267,7 +267,7 @@ int coinChange(vector<int> &coins, int amount)
 >
 >   
 
-## [416. 分割等和子集](https://leetcode-cn.com/problems/partition-equal-subset-sum/) - 存在性
+## [416. 分割等和子集](https://leetcode.cn/problems/partition-equal-subset-sum/) - 存在性
 
 // 分割等和子集：判断是否能将一个数组分割为两个子集,其和相等
 // 0-1背包存在性问题：是否存在一个子集,其和为target=sum/2,外循环nums,内循环target倒序,应用状态方程2
@@ -294,7 +294,7 @@ bool canPartition(vector<int> &nums)
 
 
 
-## [494. 目标和](https://leetcode-cn.com/problems/target-sum/) - 计数
+## [494. 目标和](https://leetcode.cn/problems/target-sum/) - 计数
 
 // 目标和：给数组里的每个数字添加正负号得到target
 // 数组和sum,目标和s, 正数和x,负数和y,则x+y=sum,x-y=s,那么x=(s+sum)/2=target
@@ -320,11 +320,11 @@ int findTargetSumWays(vector<int> &nums, int s)
 >
 > 一、凑出0就一种方案：什么都不选，关于此，在 labuladong [经典动态规划：完全背包问题](https://mp.weixin.qq.com/s/zGJZpsGVMlk-Vc2PEY4RPw) 中有专门的介绍
 >
-> 二、上面使用的是压缩版本的代码，在 [leetcode 官方解题](https://leetcode-cn.com/problems/target-sum/solution/mu-biao-he-by-leetcode-solution-o0cp/) 中给出了二维数组的版本的代码
+> 二、上面使用的是压缩版本的代码，在 [leetcode 官方解题](https://leetcode.cn/problems/target-sum/solution/mu-biao-he-by-leetcode-solution-o0cp/) 中给出了二维数组的版本的代码
 
 
 
-## [279. 完全平方数](https://leetcode-cn.com/problems/perfect-squares/) - 最优值
+## [279. 完全平方数](https://leetcode.cn/problems/perfect-squares/) - 最优值
 
 // 完全平方数：对于一个正整数n,找出若干个完全平方数使其和为n,返回完全平方数最少数量
 // 完全背包的最值问题：完全平方数最小为1,最大为sqrt(n),故题目转换为在nums=[1,2.....sqrt(n)]中选任意数平方和为target=n
@@ -349,9 +349,9 @@ int numSquares(int n)
 
 > NOTE: 
 >
-> 这道题和 [322. 零钱兑换](https://leetcode-cn.com/problems/coin-change/) 一模一样
+> 这道题和 [322. 零钱兑换](https://leetcode.cn/problems/coin-change/) 一模一样
 
-## [377. 组合总和 Ⅳ](https://leetcode-cn.com/problems/combination-sum-iv/)
+## [377. 组合总和 Ⅳ](https://leetcode.cn/problems/combination-sum-iv/)
 
 //组合总和IV：在nums中任选一些数,和为target
 // 考虑顺序的组合问题：外循环target,内循环nums,应用状态方程3
@@ -375,11 +375,11 @@ int combinationSum4(vector<int> &nums, int target)
 
 > NOTE:
 >
-> 一、在leetcode [377. 组合总和 Ⅳ](https://leetcode-cn.com/problems/combination-sum-iv/) # [官方解题](https://leetcode-cn.com/problems/combination-sum-iv/solution/zu-he-zong-he-iv-by-leetcode-solution-q8zv/) 中给出了上述代码的解释。
+> 一、在leetcode [377. 组合总和 Ⅳ](https://leetcode.cn/problems/combination-sum-iv/) # [官方解题](https://leetcode.cn/problems/combination-sum-iv/solution/zu-he-zong-he-iv-by-leetcode-solution-q8zv/) 中给出了上述代码的解释。
 >
 > 需要注意的是，上述代码是无法通过的。
 
-## [518. 零钱兑换 II](https://leetcode-cn.com/problems/coin-change-2/)
+## [518. 零钱兑换 II](https://leetcode.cn/problems/coin-change-2/)
 
 // 零钱兑换2：任选硬币凑成指定金额,求组合总数
 // 完全背包不考虑顺序的组合问题：外循环coins,内循环target正序,应用转移方程3
@@ -401,9 +401,9 @@ int change(int amount, vector<int> &coins)
 >
 > 一、需要注意的是，上述使用的是加法。
 >
-> 二、上述leetcode [377. 组合总和 Ⅳ](https://leetcode-cn.com/problems/combination-sum-iv/) 和 leetcode [518. 零钱兑换 II](https://leetcode-cn.com/problems/coin-change-2/) 的解法有什么差异？
+> 二、上述leetcode [377. 组合总和 Ⅳ](https://leetcode.cn/problems/combination-sum-iv/) 和 leetcode [518. 零钱兑换 II](https://leetcode.cn/problems/coin-change-2/) 的解法有什么差异？
 >
-> leetcode [【宫水三叶】本题与「完全背包」问题的主要区别，以及「溢出处理」说明](https://leetcode-cn.com/problems/combination-sum-iv/solution/gong-shui-san-xie-yu-wan-quan-bei-bao-we-x0kn/)
+> leetcode [【宫水三叶】本题与「完全背包」问题的主要区别，以及「溢出处理」说明](https://leetcode.cn/problems/combination-sum-iv/solution/gong-shui-san-xie-yu-wan-quan-bei-bao-we-x0kn/)
 >
 > 
 >
@@ -483,14 +483,14 @@ int change(int amount, vector<int> &coins)
 >
 > 显然，对于求解组合总数的问题，是需要考虑是否考虑顺序的。
 >
-> 在leetcode [零钱兑换 II](https://leetcode-cn.com/problems/coin-change-2/solution/ling-qian-dui-huan-ii-by-leetcode-soluti-f7uh/) 中，介绍了：
+> 在leetcode [零钱兑换 II](https://leetcode.cn/problems/coin-change-2/solution/ling-qian-dui-huan-ii-by-leetcode-soluti-f7uh/) 中，介绍了：
 >
 > > 上述做法不会重复计算不同的排列。因为外层循环是遍历数组 $\textit{coins}$ 的值，内层循环是遍历不同的金额之和，在计算 $\textit{dp}[i]$ 的值时，可以确保金额之和等于 $i$ 的硬币面额的顺序，由于顺序确定，因此不会重复计算不同的排列。
 > >
 >
 > 
 
-## [1049. 最后一块石头的重量 II](https://leetcode-cn.com/problems/last-stone-weight-ii/)
+## [1049. 最后一块石头的重量 II](https://leetcode.cn/problems/last-stone-weight-ii/)
 
 这道题看出是背包问题比较有难度
 
@@ -519,7 +519,7 @@ int lastStoneWeightII(vector<int> &stones)
 
 
 
-## [1155. 掷骰子的N种方法](https://leetcode-cn.com/problems/number-of-dice-rolls-with-target-sum/)
+## [1155. 掷骰子的N种方法](https://leetcode.cn/problems/number-of-dice-rolls-with-target-sum/)
 
 投掷骰子的方法数：d个骰子,每个有f个面(点数为1,2,...f),求骰子点数和为target的方法
 分组背包的组合问题：dp[i][j]表示投掷i个骰子点数和为j的方法数;三层循环：最外层为背包d,然后先遍历target后遍历点数f

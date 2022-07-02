@@ -2,11 +2,11 @@
 
 > NOTE: 
 >
-> LeetCode [226. 翻转二叉树](https://leetcode-cn.com/problems/invert-binary-tree/) 简单
+> LeetCode [226. 翻转二叉树](https://leetcode.cn/problems/invert-binary-tree/) 简单
 >
-> LeetCode [114. 二叉树展开为链表](https://leetcode-cn.com/problems/flatten-binary-tree-to-linked-list/) 中等
+> LeetCode [114. 二叉树展开为链表](https://leetcode.cn/problems/flatten-binary-tree-to-linked-list/) 中等
 >
-> LeetCode [116. 填充每个节点的下一个右侧节点指针](https://leetcode-cn.com/problems/populating-next-right-pointers-in-each-node/) 中等
+> LeetCode [116. 填充每个节点的下一个右侧节点指针](https://leetcode.cn/problems/populating-next-right-pointers-in-each-node/) 中等
 >
 > 
 
@@ -90,7 +90,7 @@ void sort(int[] nums, int lo, int hi) {
 
 > NOTE: 
 >
-> LeetCode [222. 完全二叉树的节点个数](https://leetcode-cn.com/problems/count-complete-tree-nodes/) 中等
+> LeetCode [222. 完全二叉树的节点个数](https://leetcode.cn/problems/count-complete-tree-nodes/) 中等
 
 怎么理解呢，我们用一个具体的例子来说，比如说让你计算一棵二叉树共有几个节点：
 
@@ -118,7 +118,7 @@ int count(TreeNode root) {
 
 > NOTE: 
 >
-> leetcode [226. 翻转二叉树](https://leetcode-cn.com/problems/invert-binary-tree/)
+> leetcode [226. 翻转二叉树](https://leetcode.cn/problems/invert-binary-tree/)
 >
 > 
 
@@ -180,7 +180,7 @@ TreeNode invertTree(TreeNode root) {
 
 > NOTE: 
 >
-> LeetCode [116. 填充每个节点的下一个右侧节点指针](https://leetcode-cn.com/problems/populating-next-right-pointers-in-each-node/) 中等
+> LeetCode [116. 填充每个节点的下一个右侧节点指针](https://leetcode.cn/problems/populating-next-right-pointers-in-each-node/) 中等
 >
 > 
 

@@ -1,14 +1,14 @@
-# leetcode [402. 移掉K位数字](https://leetcode-cn.com/problems/remove-k-digits/) 
+# leetcode [402. 移掉K位数字](https://leetcode.cn/problems/remove-k-digits/) 
 
 给你一个以字符串表示的非负整数 `num` 和一个整数 `k` ，移除这个数中的 `k` 位数字，使得剩下的数字最小。
 
 ## 素材
 
-1、[力扣加加](https://leetcode-cn.com/u/fe-lucifer/) # [一招吃遍力扣四道题，妈妈再也不用担心我被套路啦～](https://leetcode-cn.com/problems/remove-k-digits/solution/yi-zhao-chi-bian-li-kou-si-dao-ti-ma-ma-zai-ye-b-5/)
+1、[力扣加加](https://leetcode.cn/u/fe-lucifer/) # [一招吃遍力扣四道题，妈妈再也不用担心我被套路啦～](https://leetcode.cn/problems/remove-k-digits/solution/yi-zhao-chi-bian-li-kou-si-dao-ti-ma-ma-zai-ye-b-5/)
 
 这个解答是非常好的。
 
-2、[官方解题](https://leetcode-cn.com/problems/remove-k-digits/solution/yi-diao-kwei-shu-zi-by-leetcode-solution/)
+2、[官方解题](https://leetcode.cn/problems/remove-k-digits/solution/yi-diao-kwei-shu-zi-by-leetcode-solution/)
 
 
 

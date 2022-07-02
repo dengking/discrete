@@ -1,4 +1,4 @@
-# leetcode [752. 打开转盘锁](https://leetcode-cn.com/problems/open-the-lock/) 中等
+# leetcode [752. 打开转盘锁](https://leetcode.cn/problems/open-the-lock/) 中等
 
 ## 我的解题
 
@@ -100,7 +100,7 @@ int main()
 
 
 
-## leetcode[【中规中矩】752. 打开转盘锁（宽度优先搜索）](https://leetcode-cn.com/problems/open-the-lock/solution/zhong-gui-zhong-ju-kuan-du-you-xian-sou-suo-by-jyj/)
+## leetcode[【中规中矩】752. 打开转盘锁（宽度优先搜索）](https://leetcode.cn/problems/open-the-lock/solution/zhong-gui-zhong-ju-kuan-du-you-xian-sou-suo-by-jyj/)
 
 
 
@@ -158,7 +158,7 @@ private:
 
 
 
-## leetcode [C++ BFS 转动开锁](https://leetcode-cn.com/problems/open-the-lock/solution/c-bfs-jie-jue-zhuan-dong-kai-suo-by-bei-lpvye/)
+## leetcode [C++ BFS 转动开锁](https://leetcode.cn/problems/open-the-lock/solution/c-bfs-jie-jue-zhuan-dong-kai-suo-by-bei-lpvye/)
 
 ```C++
 class Solution {
@@ -215,11 +215,11 @@ public:
 
 1、先判断是否visited，如果是，则不入queue
 
-"leetcode [752. 打开转盘锁](https://leetcode-cn.com/problems/open-the-lock/) 中等 # 我的解"题中，就是采用的这种方式
+"leetcode [752. 打开转盘锁](https://leetcode.cn/problems/open-the-lock/) 中等 # 我的解"题中，就是采用的这种方式
 
 2、先入queue，然后再入visited
 
-"leetcode[【中规中矩】752. 打开转盘锁（宽度优先搜索）](https://leetcode-cn.com/problems/open-the-lock/solution/zhong-gui-zhong-ju-kuan-du-you-xian-sou-suo-by-jyj/) "中，就是使用的这种方式
+"leetcode[【中规中矩】752. 打开转盘锁（宽度优先搜索）](https://leetcode.cn/problems/open-the-lock/solution/zhong-gui-zhong-ju-kuan-du-you-xian-sou-suo-by-jyj/) "中，就是使用的这种方式
 
 
 

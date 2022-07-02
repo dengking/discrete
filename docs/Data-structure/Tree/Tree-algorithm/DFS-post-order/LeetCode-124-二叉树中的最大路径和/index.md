@@ -1,4 +1,4 @@
-# leetcode [124. 二叉树中的最大路径和](https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/)
+# leetcode [124. 二叉树中的最大路径和](https://leetcode.cn/problems/binary-tree-maximum-path-sum/)
 
 这是在阅读 labuladong [数据结构和算法学习指南](https://mp.weixin.qq.com/s/ZYaXOSVM3YBIeRWm7E_jcQ) 时发现的。
 
@@ -8,7 +8,7 @@
 
 ## 从最小的单位开始分析
 
-1、这是divide-and-conquer的思想，这一点在 leetcode [124. 二叉树中的最大路径和](https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/) 中，有着非常好的体现
+1、这是divide-and-conquer的思想，这一点在 leetcode [124. 二叉树中的最大路径和](https://leetcode.cn/problems/binary-tree-maximum-path-sum/) 中，有着非常好的体现
 
 2、一个子节点将自己的值告诉parent node，parent node可以将它的值和另外一个node进行比较，然后选择和谁结合。由于parent node知道它的left child node 和 right child node，因此，它可以进行决定是和left child node还是和right child node进行结合，这就是解题视频中所述的:
 

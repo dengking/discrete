@@ -44,7 +44,7 @@
 
 二、反转部分linked list
 
-LeetCode [92. 反转链表 II](https://leetcode-cn.com/problems/reverse-linked-list-ii/)
+LeetCode [92. 反转链表 II](https://leetcode.cn/problems/reverse-linked-list-ii/)
 
 
 
@@ -58,7 +58,7 @@ LeetCode [25. K 个一组翻转链表](https://leetcode.cn/problems/reverse-node
 
 对于反转这个linked list，不需要考虑这个问题，但是对于反转linked list中的一部分，则需要考虑这个问题，在下面的题目中都涉及这个问题:
 
-1、LeetCode [92. 反转链表 II](https://leetcode-cn.com/problems/reverse-linked-list-ii/)
+1、LeetCode [92. 反转链表 II](https://leetcode.cn/problems/reverse-linked-list-ii/)
 
 2、LeetCode [25. K 个一组翻转链表](https://leetcode.cn/problems/reverse-nodes-in-k-group/)
 

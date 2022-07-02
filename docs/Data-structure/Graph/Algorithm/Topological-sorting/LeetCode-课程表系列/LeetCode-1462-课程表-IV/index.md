@@ -1,1 +1,1 @@
-# leetcode [1462. 课程表 IV](https://leetcode-cn.com/problems/course-schedule-iv/)
+# leetcode [1462. 课程表 IV](https://leetcode.cn/problems/course-schedule-iv/)

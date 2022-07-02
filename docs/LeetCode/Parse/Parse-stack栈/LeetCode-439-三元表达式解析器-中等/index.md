@@ -1,4 +1,4 @@
-# [439. 三元表达式解析器](https://leetcode-cn.com/problems/ternary-expression-parser/) 中等
+# [439. 三元表达式解析器](https://leetcode.cn/problems/ternary-expression-parser/) 中等
 
 给定一个表示任意嵌套三元表达式的字符串 `expression` ，求值并返回其结果。
 
@@ -142,7 +142,7 @@ int main()
 
 上述解法是基于recursion的，它需要处理嵌套关系。
 
-## [见习魔法师~](https://leetcode-cn.com/u/jian-xi-mo-fa-shi-2/) #  [非常简单清晰的非递归O(n)解法](https://leetcode-cn.com/problems/ternary-expression-parser/solution/python-fei-chang-jian-dan-qing-xi-de-fei-di-gui-on/)
+## [见习魔法师~](https://leetcode.cn/u/jian-xi-mo-fa-shi-2/) #  [非常简单清晰的非递归O(n)解法](https://leetcode.cn/problems/ternary-expression-parser/solution/python-fei-chang-jian-dan-qing-xi-de-fei-di-gui-on/)
 
 因为三元表达式是**从右向左**结合的, 如果**从左向右**扫描表达式, 则需要根据'`?`'和'`:`'来分离出每一个表达式, 比较复杂.
 

@@ -10,7 +10,7 @@
 >
 > 二、原题
 >
-> leetcode [92. 反转链表 II](https://leetcode-cn.com/problems/reverse-linked-list-ii/) 中等
+> leetcode [92. 反转链表 II](https://leetcode.cn/problems/reverse-linked-list-ii/) 中等
 
 
 

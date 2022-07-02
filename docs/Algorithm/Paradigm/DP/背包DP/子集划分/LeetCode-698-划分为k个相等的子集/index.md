@@ -1,4 +1,4 @@
-# leetcode [698. 划分为k个相等的子集](https://leetcode-cn.com/problems/partition-to-k-equal-sum-subsets/)
+# leetcode [698. 划分为k个相等的子集](https://leetcode.cn/problems/partition-to-k-equal-sum-subsets/)
 
 ## 我的解题-回溯法
 
@@ -57,11 +57,11 @@
 >
 > 由于 Java 的语言特性，这段代码通过先升序排序再反转，达到降序排列的目的。
 
-这个做法 [随机过程随机过](https://leetcode-cn.com/u/sui-ji-guo-cheng-sui-ji-guo/) # [划分为k个相等的子集（Day17）](https://leetcode-cn.com/problems/partition-to-k-equal-sum-subsets/solution/hua-fen-wei-kge-by-sui-ji-guo-cheng-sui-jfaao/) 中有着更好的总结：
+这个做法 [随机过程随机过](https://leetcode.cn/u/sui-ji-guo-cheng-sui-ji-guo/) # [划分为k个相等的子集（Day17）](https://leetcode.cn/problems/partition-to-k-equal-sum-subsets/solution/hua-fen-wei-kge-by-sui-ji-guo-cheng-sui-jfaao/) 中有着更好的总结：
 
 > **如果首先将数组降序排序，能够实现更早地剪枝，提高效率**
 
-四、现在按照三中labuladong 的解法依然会超时，如果继续采用回溯法，那么就需要考虑增加**剪枝条件**，看了一下其他人的答案，在 [随机过程随机过](https://leetcode-cn.com/u/sui-ji-guo-cheng-sui-ji-guo/) # [划分为k个相等的子集（Day17）](https://leetcode-cn.com/problems/partition-to-k-equal-sum-subsets/solution/hua-fen-wei-kge-by-sui-ji-guo-cheng-sui-jfaao/) 中给出了非常好的解答：
+四、现在按照三中labuladong 的解法依然会超时，如果继续采用回溯法，那么就需要考虑增加**剪枝条件**，看了一下其他人的答案，在 [随机过程随机过](https://leetcode.cn/u/sui-ji-guo-cheng-sui-ji-guo/) # [划分为k个相等的子集（Day17）](https://leetcode.cn/problems/partition-to-k-equal-sum-subsets/solution/hua-fen-wei-kge-by-sui-ji-guo-cheng-sui-jfaao/) 中给出了非常好的解答：
 
 > 还有一个关键是剪枝，尤其是 `if (bucket[i] == 0)` 这一个剪枝条件的理解
 > 因为不断的把数字放入子集（bucket[i] += nums[index]）中，然后再从子集中拿出来（撤销操作，bucket[i] -= nums[index]）。如果出现把这个桶（子集）中所有的数字都拿出来，即 bucket[i] == 0 的情况，证明这个数循环了一圈都没有找到合适的数去配队凑成 target ，所以后面的都不用在看了，必定凑不成题目说的那种。直接 break 操作。
@@ -240,7 +240,7 @@ int main()
 
 ### 回溯法-先排序预处理 + 剪枝
 
-这是看了在 [随机过程随机过](https://leetcode-cn.com/u/sui-ji-guo-cheng-sui-ji-guo/) # [划分为k个相等的子集（Day17）](https://leetcode-cn.com/problems/partition-to-k-equal-sum-subsets/solution/hua-fen-wei-kge-by-sui-ji-guo-cheng-sui-jfaao/) 中的代码写的：
+这是看了在 [随机过程随机过](https://leetcode.cn/u/sui-ji-guo-cheng-sui-ji-guo/) # [划分为k个相等的子集（Day17）](https://leetcode.cn/problems/partition-to-k-equal-sum-subsets/solution/hua-fen-wei-kge-by-sui-ji-guo-cheng-sui-jfaao/) 中的代码写的：
 
 ```c++
 // #include <bits/stdc++.h>
@@ -333,18 +333,18 @@ int main()
 
 
 
-## 回溯法: [LFool](https://leetcode-cn.com/u/lfool/) # [经典回溯算法：集合划分问题](https://leetcode-cn.com/problems/partition-to-k-equal-sum-subsets/solution/by-lfool-d9o7/)
+## 回溯法: [LFool](https://leetcode.cn/u/lfool/) # [经典回溯算法：集合划分问题](https://leetcode.cn/problems/partition-to-k-equal-sum-subsets/solution/by-lfool-d9o7/)
 
 
 
 
 
-## [官方解题](https://leetcode-cn.com/problems/partition-to-k-equal-sum-subsets/solution/hua-fen-wei-kge-xiang-deng-de-zi-ji-by-leetcode/)
+## [官方解题](https://leetcode.cn/problems/partition-to-k-equal-sum-subsets/solution/hua-fen-wei-kge-xiang-deng-de-zi-ji-by-leetcode/)
 
 
 
-## [小火柴🥰](https://leetcode-cn.com/u/smallmatch/) # [集合类状态压缩解法](https://leetcode-cn.com/problems/partition-to-k-equal-sum-subsets/solution/ji-he-lei-zhuang-tai-ya-suo-jie-fa-by-sm-dg7m/)
+## [小火柴🥰](https://leetcode.cn/u/smallmatch/) # [集合类状态压缩解法](https://leetcode.cn/problems/partition-to-k-equal-sum-subsets/solution/ji-he-lei-zhuang-tai-ya-suo-jie-fa-by-sm-dg7m/)
 
 
 
-## [琴棋书画](https://leetcode-cn.com/u/qin-qi-shu-hua-2/) # [状压dfs](https://leetcode-cn.com/problems/partition-to-k-equal-sum-subsets/solution/zhuang-ya-dfs-by-qin-qi-shu-hua-2-xxfz/)
+## [琴棋书画](https://leetcode.cn/u/qin-qi-shu-hua-2/) # [状压dfs](https://leetcode.cn/problems/partition-to-k-equal-sum-subsets/solution/zhuang-ya-dfs-by-qin-qi-shu-hua-2-xxfz/)

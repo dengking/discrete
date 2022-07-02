@@ -8,7 +8,7 @@
 
 ### BFS
 
-leetcode [111. 二叉树的最小深度](https://leetcode-cn.com/problems/minimum-depth-of-binary-tree/)
+leetcode [111. 二叉树的最小深度](https://leetcode.cn/problems/minimum-depth-of-binary-tree/)
 
 ```C++
     int minDepth(TreeNode *root)
@@ -51,7 +51,7 @@ leetcode [111. 二叉树的最小深度](https://leetcode-cn.com/problems/minimu
 
 ## 二叉树最大数深度
 
-leetcode [剑指 Offer 55 - I. 二叉树的深度](https://leetcode-cn.com/problems/er-cha-shu-de-shen-du-lcof/)
+leetcode [剑指 Offer 55 - I. 二叉树的深度](https://leetcode.cn/problems/er-cha-shu-de-shen-du-lcof/)
 
 ### DFS
 
@@ -72,9 +72,9 @@ public:
 
 ### BFS
 
-#### [104. 二叉树的最大深度](https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/) # 官方解题
+#### [104. 二叉树的最大深度](https://leetcode.cn/problems/maximum-depth-of-binary-tree/) # 官方解题
 
-下面的解法需要和 leetcode [111. 二叉树的最小深度](https://leetcode-cn.com/problems/minimum-depth-of-binary-tree/) 中的BFS解法进行对比。
+下面的解法需要和 leetcode [111. 二叉树的最小深度](https://leetcode.cn/problems/minimum-depth-of-binary-tree/) 中的BFS解法进行对比。
 
 ```C++
 class Solution {
@@ -106,7 +106,7 @@ public:
 
 
 
-leetcode [559. N 叉树的最大深度](https://leetcode-cn.com/problems/maximum-depth-of-n-ary-tree/)
+leetcode [559. N 叉树的最大深度](https://leetcode.cn/problems/maximum-depth-of-n-ary-tree/)
 
 ```C++
 /*

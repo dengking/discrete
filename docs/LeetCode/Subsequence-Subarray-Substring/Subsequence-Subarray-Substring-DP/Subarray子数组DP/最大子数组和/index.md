@@ -158,7 +158,7 @@ int main()
 > 
 > ```
 >
-> 这是在做 LeetCode [560. 和为 K 的子数组](https://leetcode-cn.com/problems/subarray-sum-equals-k/) 的时候，我写的一个非常典型的错误的代码，上述程序预期的输出应该是1，但是实际的输出是0。
+> 这是在做 LeetCode [560. 和为 K 的子数组](https://leetcode.cn/problems/subarray-sum-equals-k/) 的时候，我写的一个非常典型的错误的代码，上述程序预期的输出应该是1，但是实际的输出是0。
 >
 > 上述程序实际执行的是:
 >
@@ -192,7 +192,7 @@ $$
 >
 > 一、递归关系$b[j] = b[j-1] + a[j]$与最长公共子序列的非常类似；$b[j]$的计算仅仅依赖于$b[j-1]$，就如  [Fibonacci sequence](https://en.wikipedia.org/wiki/Fibonacci_sequence) 的计算仅仅依赖于前两项一样；
 >
-> 二、正如在 [画解算法：53. 最大子序和](https://leetcode-cn.com/problems/maximum-subarray/solution/hua-jie-suan-fa-53-zui-da-zi-xu-he-by-guanpengchn/) 中所说的：
+> 二、正如在 [画解算法：53. 最大子序和](https://leetcode.cn/problems/maximum-subarray/solution/hua-jie-suan-fa-53-zui-da-zi-xu-he-by-guanpengchn/) 中所说的：
 >
 > 1、$b[j-1] \gt 0 $ 说明 $b[j-1]$对结果有增益效果，则 $b[j-1]$保留并加上当前遍历数字 
 >

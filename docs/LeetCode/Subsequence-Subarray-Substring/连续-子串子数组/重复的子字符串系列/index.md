@@ -8,7 +8,7 @@
 
 
 
-## [LeetCode-1062-最长重复子串-中等](https://leetcode-cn.com/problems/longest-repeating-substring/) 
+## [LeetCode-1062-最长重复子串-中等](https://leetcode.cn/problems/longest-repeating-substring/) 
 
 给定字符串 `S`，找出最长重复子串的长度。
 

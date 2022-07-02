@@ -18,7 +18,7 @@ leetcode [732. 我的日程安排表 III](https://leetcode.cn/problems/my-calend
 
 ### 一、[731. 我的日程安排表 II](https://leetcode.cn/problems/my-calendar-ii/) # [Laugh](https://leetcode.cn/u/laughhhh/) # [[ 一法解N题] ✔](https://leetcode.cn/problems/my-calendar-ii/solution/yi-fa-jie-nti-by-laughhhh-pll7/) 
 
-今天介绍的方法叫**插旗法**，其实我最早是在[253. 会议室Ⅱ](https://leetcode-cn.com/problems/meeting-rooms-ii/)中介绍过，但是由于很多同学不是会员，刚好今天又看到这种类型的题，所以想着再次介绍一下。
+今天介绍的方法叫**插旗法**，其实我最早是在[253. 会议室Ⅱ](https://leetcode.cn/problems/meeting-rooms-ii/)中介绍过，但是由于很多同学不是会员，刚好今天又看到这种类型的题，所以想着再次介绍一下。
 
 先来介绍一下**插旗法**：进入一个区间的时候将该点坐标对应的值+1，代表插上一面进入的🚩，离开时将该点坐标值-1，代表插上一面离开的🚩，在同一个点可以同时插进入的旗或离开的旗，因为这样并不形成区间重叠。
 
@@ -46,7 +46,7 @@ int maxConcurrent (vecotr<vecotr<int>>& time){
 >
 > 
 
-那对于[我的日程安排表Ⅰ](https://leetcode-cn.com/problems/my-calendar-i/) 和 [我的日程安排表Ⅱ](https://leetcode-cn.com/problems/my-calendar-ii/) 的代码，无非就是并行数量的修改：
+那对于[我的日程安排表Ⅰ](https://leetcode.cn/problems/my-calendar-i/) 和 [我的日程安排表Ⅱ](https://leetcode.cn/problems/my-calendar-ii/) 的代码，无非就是并行数量的修改：
 
 ```c++
 class MyCalendar {

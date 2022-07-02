@@ -40,7 +40,7 @@ dfs-linked-list
 
 ## dfs生成tree
 
-LeetCode [386. 字典序排数](https://leetcode-cn.com/problems/lexicographical-numbers/)
+LeetCode [386. 字典序排数](https://leetcode.cn/problems/lexicographical-numbers/)
 
 剪枝n-ary-tree来生成字典树，对字典树进行pre-order traversal
 
@@ -48,11 +48,11 @@ LeetCode [386. 字典序排数](https://leetcode-cn.com/problems/lexicographical
 
 ## dfs 解最优值问题
 
-### LeetCode [337. 打家劫舍 III](https://leetcode-cn.com/problems/house-robber-iii/) 中等
+### LeetCode [337. 打家劫舍 III](https://leetcode.cn/problems/house-robber-iii/) 中等
 
 这道题的两种写法方程值得学习，是写tree的DFS的典范，
 
-### LeetCode [787. K 站中转内最便宜的航班](https://leetcode-cn.com/problems/cheapest-flights-within-k-stops/) 中等
+### LeetCode [787. K 站中转内最便宜的航班](https://leetcode.cn/problems/cheapest-flights-within-k-stops/) 中等
 
 dfs-return-value-counter
 
@@ -70,7 +70,7 @@ dfs-graph
 
 subset-tree其实是一种n-ary-tree。
 
-leetcode [698. 划分为k个相等的子集](https://leetcode-cn.com/problems/partition-to-k-equal-sum-subsets/)
+leetcode [698. 划分为k个相等的子集](https://leetcode.cn/problems/partition-to-k-equal-sum-subsets/)
 
 
 
@@ -78,14 +78,14 @@ leetcode [698. 划分为k个相等的子集](https://leetcode-cn.com/problems/pa
 
 有一些subset-tree的DFS，需要保存子集中的元素，然后进行判断，这种题目，后续，我们统一使用 `std::vector<int> track` 来表示子集，下面是例子:
 
-1、LeetCode [491. 递增子序列](https://leetcode-cn.com/problems/increasing-subsequences/) 中等
+1、LeetCode [491. 递增子序列](https://leetcode.cn/problems/increasing-subsequences/) 中等
 
 dfs-last
 
 
-2、LeetCode [446. 等差数列划分 II - 子序列](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/) 困难
+2、LeetCode [446. 等差数列划分 II - 子序列](https://leetcode.cn/problems/arithmetic-slices-ii-subsequence/) 困难
 
-dfs解计数问题，这道题计数的方式和 LeetCode [787. K 站中转内最便宜的航班](https://leetcode-cn.com/problems/cheapest-flights-within-k-stops/)  中的不同。
+dfs解计数问题，这道题计数的方式和 LeetCode [787. K 站中转内最便宜的航班](https://leetcode.cn/problems/cheapest-flights-within-k-stops/)  中的不同。
 
 dfs-subset-tree
 
@@ -94,14 +94,14 @@ dfs解计数问题
 3、菊厂机试的第三道题
 
 
-4、leetcode [698. 划分为k个相等的子集](https://leetcode-cn.com/problems/partition-to-k-equal-sum-subsets/)
+4、leetcode [698. 划分为k个相等的子集](https://leetcode.cn/problems/partition-to-k-equal-sum-subsets/)
 
 这道题是n-ary-tree，它使用bucket将每个子集都保存了下来。
 
 
 ## 回溯法剪枝典型题目
 
-### LeetCode [698. 划分为k个相等的子集](https://leetcode-cn.com/problems/partition-to-k-equal-sum-subsets/)
+### LeetCode [698. 划分为k个相等的子集](https://leetcode.cn/problems/partition-to-k-equal-sum-subsets/)
 
 dfs解存在性问题，典型写法如下：
 
@@ -172,7 +172,7 @@ labuladong [递归反转链表：如何拆解复杂问题](https://mp.weixin.qq.
 
 dfs-last
 
-LeetCode [491. 递增子序列](https://leetcode-cn.com/problems/increasing-subsequences/) 中等
+LeetCode [491. 递增子序列](https://leetcode.cn/problems/increasing-subsequences/) 中等
 
 dfs-last
 
@@ -190,7 +190,7 @@ bottum-up
 
 ### 例题:
 
-leetcode [剑指 Offer 06. 从尾到头打印链表](https://leetcode-cn.com/problems/cong-wei-dao-tou-da-yin-lian-biao-lcof/)
+leetcode [剑指 Offer 06. 从尾到头打印链表](https://leetcode.cn/problems/cong-wei-dao-tou-da-yin-lian-biao-lcof/)
 
 labuladong [用 Git 来讲讲二叉树最近公共祖先](https://mp.weixin.qq.com/s/9RKzBcr3I592spAsuMH45g) 
 

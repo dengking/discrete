@@ -1,4 +1,4 @@
-# [360. 有序转化数组](https://leetcode-cn.com/problems/sort-transformed-array/) 中等
+# [360. 有序转化数组](https://leetcode.cn/problems/sort-transformed-array/) 中等
 
 
 
@@ -99,7 +99,7 @@ int main()
 
 
 
-## [卖码翁](https://leetcode-cn.com/u/jyj407/) [【中规中矩】又是面试官装B的一题（两种解法）](https://leetcode-cn.com/problems/sort-transformed-array/solution/zhong-gui-zhong-ju-you-shi-mian-shi-guan-awen/)
+## [卖码翁](https://leetcode.cn/u/jyj407/) [【中规中矩】又是面试官装B的一题（两种解法）](https://leetcode.cn/problems/sort-transformed-array/solution/zhong-gui-zhong-ju-you-shi-mian-shi-guan-awen/)
 
 解法1：先计算再暴力排序
 

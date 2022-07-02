@@ -1,4 +1,4 @@
-# leetcode [283. 移动零](https://leetcode-cn.com/problems/move-zeroes/)
+# leetcode [283. 移动零](https://leetcode.cn/problems/move-zeroes/)
 
 
 
@@ -51,7 +51,7 @@ int main()
 
 
 
-## [官方解题](https://leetcode-cn.com/problems/move-zeroes/solution/yi-dong-ling-by-leetcode-solution/)
+## [官方解题](https://leetcode.cn/problems/move-zeroes/solution/yi-dong-ling-by-leetcode-solution/)
 
 > NOTE: 
 >

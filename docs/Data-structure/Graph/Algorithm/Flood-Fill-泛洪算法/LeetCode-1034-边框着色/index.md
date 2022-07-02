@@ -1,4 +1,4 @@
-# leetcode [1034. 边框着色](https://leetcode-cn.com/problems/coloring-a-border/)
+# leetcode [1034. 边框着色](https://leetcode.cn/problems/coloring-a-border/)
 
 
 

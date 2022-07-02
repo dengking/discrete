@@ -1,4 +1,4 @@
-# LeetCode [剑指 Offer 57 - II. 和为s的连续正数序列](https://leetcode-cn.com/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/) 
+# LeetCode [剑指 Offer 57 - II. 和为s的连续正数序列](https://leetcode.cn/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/) 
 
 输入一个正整数 `target` ，输出所有和为 `target` 的连续正整数序列（至少含有两个数）。
 
@@ -58,7 +58,7 @@ int main()
 
 
 
-## [官方解题 # 滑动窗口](https://leetcode-cn.com/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/solution/mian-shi-ti-57-ii-he-wei-sde-lian-xu-zheng-shu-x-2/)
+## [官方解题 # 滑动窗口](https://leetcode.cn/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/solution/mian-shi-ti-57-ii-he-wei-sde-lian-xu-zheng-shu-x-2/)
 
 ```c++
 #include <iostream>

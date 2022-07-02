@@ -4,9 +4,9 @@
 
 ## 加权最短路径
 
-LeetCode [743. 网络延迟时间](https://leetcode-cn.com/problems/network-delay-time/) 中等
+LeetCode [743. 网络延迟时间](https://leetcode.cn/problems/network-delay-time/) 中等
 
-LeetCode [787. K 站中转内最便宜的航班](https://leetcode-cn.com/problems/cheapest-flights-within-k-stops/) 中等
+LeetCode [787. K 站中转内最便宜的航班](https://leetcode.cn/problems/cheapest-flights-within-k-stops/) 中等
 
 
 
@@ -30,8 +30,8 @@ LeetCode [787. K 站中转内最便宜的航班](https://leetcode-cn.com/problem
 
 | 题目                                                         | 算法         | 简介           |
 | ------------------------------------------------------------ | ------------ | -------------- |
-| leetcode [62. 不同路径](https://leetcode-cn.com/problems/unique-paths/) | fibonacci DP |                |
-| leetcode [63. 不同路径 II](https://leetcode-cn.com/problems/unique-paths-ii/) | fibonacci DP | 从 62 转换而来 |
+| leetcode [62. 不同路径](https://leetcode.cn/problems/unique-paths/) | fibonacci DP |                |
+| leetcode [63. 不同路径 II](https://leetcode.cn/problems/unique-paths-ii/) | fibonacci DP | 从 62 转换而来 |
 |                                                              |              |                |
 
 

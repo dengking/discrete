@@ -36,7 +36,7 @@
 
 ### 1、`std::map` of `std::vector`
 
-在阅读了 [C++计算所有{worker, bike}距离存到map（自动排序）](https://leetcode-cn.com/problems/campus-bikes/solution/cji-suan-suo-you-worker-bikeju-chi-cun-dao-mapzi-d/) 后，我发现这道题其实本质上是按照多个维度的排序：首先按照距离，然后按照索引，其实这就考察了我们对数据结构的使用，如何使用数据结构来存储，与这个题目比较类似的是 LRU 这种纯数据结构设计问题，其实这个题目也比较偏向这个方向。
+在阅读了 [C++计算所有{worker, bike}距离存到map（自动排序）](https://leetcode.cn/problems/campus-bikes/solution/cji-suan-suo-you-worker-bikeju-chi-cun-dao-mapzi-d/) 后，我发现这道题其实本质上是按照多个维度的排序：首先按照距离，然后按照索引，其实这就考察了我们对数据结构的使用，如何使用数据结构来存储，与这个题目比较类似的是 LRU 这种纯数据结构设计问题，其实这个题目也比较偏向这个方向。
 
 ```c++
 #include <iostream>
@@ -87,7 +87,7 @@ int main()
 
 ### 2、custom sort
 
-这是 [C语言 结构体排序](https://leetcode-cn.com/problems/campus-bikes/solution/cyu-yan-jie-gou-ti-pai-xu-by-amboyna-52lf/) 中使用的算法，我觉得还可以。
+这是 [C语言 结构体排序](https://leetcode.cn/problems/campus-bikes/solution/cyu-yan-jie-gou-ti-pai-xu-by-amboyna-52lf/) 中使用的算法，我觉得还可以。
 
 ```c++
 #include <iostream>
@@ -160,7 +160,7 @@ int main()
 
 
 
-## [C++计算所有{worker, bike}距离存到map（自动排序）](https://leetcode-cn.com/problems/campus-bikes/solution/cji-suan-suo-you-worker-bikeju-chi-cun-dao-mapzi-d/)
+## [C++计算所有{worker, bike}距离存到map（自动排序）](https://leetcode.cn/problems/campus-bikes/solution/cji-suan-suo-you-worker-bikeju-chi-cun-dao-mapzi-d/)
 
 > NOTE:
 >
@@ -205,4 +205,4 @@ int main()
 >
 > 上述算法是比较奇妙的
 
-## [C语言 结构体排序](https://leetcode-cn.com/problems/campus-bikes/solution/cyu-yan-jie-gou-ti-pai-xu-by-amboyna-52lf/)
+## [C语言 结构体排序](https://leetcode.cn/problems/campus-bikes/solution/cyu-yan-jie-gou-ti-pai-xu-by-amboyna-52lf/)

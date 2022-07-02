@@ -1,4 +1,4 @@
-# leetcode [921. 使括号有效的最少添加](https://leetcode-cn.com/problems/minimum-add-to-make-parentheses-valid/)
+# leetcode [921. 使括号有效的最少添加](https://leetcode.cn/problems/minimum-add-to-make-parentheses-valid/)
 
 
 
@@ -71,7 +71,7 @@ int main()
 >
 > 上述算法是借助栈实现的
 
-## [官方解题](https://leetcode-cn.com/problems/minimum-add-to-make-parentheses-valid/solution/shi-gua-hao-you-xiao-de-zui-shao-tian-jia-by-leetc/)
+## [官方解题](https://leetcode.cn/problems/minimum-add-to-make-parentheses-valid/solution/shi-gua-hao-you-xiao-de-zui-shao-tian-jia-by-leetc/)
 
 ```python
 class Solution(object):

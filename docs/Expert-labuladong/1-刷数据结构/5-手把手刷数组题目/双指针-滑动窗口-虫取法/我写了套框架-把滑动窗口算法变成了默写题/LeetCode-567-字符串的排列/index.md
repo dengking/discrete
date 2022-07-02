@@ -1,4 +1,4 @@
-# leetcode [567. 字符串的排列](https://leetcode-cn.com/problems/permutation-in-string/) 中等
+# leetcode [567. 字符串的排列](https://leetcode.cn/problems/permutation-in-string/) 中等
 
 ## 我的解题
 
@@ -77,7 +77,7 @@ int main()
 
 ```
 
-labuladong 给出的解法是比较复杂的，它没有应用题目的条件排列，这要求字符串连续，但是并不需要保持相对顺序，其实说白了就是: 窗口的大小是固定的，因此这个问题可以使用更加简单的滑动窗口写法，这种写法其实可以叫做"尺取法"，参见 LeetCode [567. 字符串的排列](https://leetcode-cn.com/problems/permutation-in-string/)  的官方解题。
+labuladong 给出的解法是比较复杂的，它没有应用题目的条件排列，这要求字符串连续，但是并不需要保持相对顺序，其实说白了就是: 窗口的大小是固定的，因此这个问题可以使用更加简单的滑动窗口写法，这种写法其实可以叫做"尺取法"，参见 LeetCode [567. 字符串的排列](https://leetcode.cn/problems/permutation-in-string/)  的官方解题。
 
 
 
@@ -133,11 +133,11 @@ int main()
 
 ```
 
-上述解法三参考 官方解题 # [滑动窗口](https://leetcode-cn.com/problems/permutation-in-string/solution/zi-fu-chuan-de-pai-lie-by-leetcode-solut-7k7u/) 写的。
+上述解法三参考 官方解题 # [滑动窗口](https://leetcode.cn/problems/permutation-in-string/solution/zi-fu-chuan-de-pai-lie-by-leetcode-solut-7k7u/) 写的。
 
 
 
-## 官方解题 # [滑动窗口](https://leetcode-cn.com/problems/permutation-in-string/solution/zi-fu-chuan-de-pai-lie-by-leetcode-solut-7k7u/)
+## 官方解题 # [滑动窗口](https://leetcode.cn/problems/permutation-in-string/solution/zi-fu-chuan-de-pai-lie-by-leetcode-solut-7k7u/)
 
 
 

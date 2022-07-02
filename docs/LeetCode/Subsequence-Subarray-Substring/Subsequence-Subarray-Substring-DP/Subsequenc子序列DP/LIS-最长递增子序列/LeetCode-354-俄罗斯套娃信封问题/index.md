@@ -1,4 +1,4 @@
-# leetcode [354. 俄罗斯套娃信封问题](https://leetcode-cn.com/problems/russian-doll-envelopes/) 困难
+# leetcode [354. 俄罗斯套娃信封问题](https://leetcode.cn/problems/russian-doll-envelopes/) 困难
 
 
 
@@ -58,7 +58,7 @@ int main()
 
 上述程序在如下测试用例会超时：
 
-https://leetcode-cn.com/submissions/detail/284398236/testcase/
+https://leetcode.cn/submissions/detail/284398236/testcase/
 
 ### 二分查找LIS
 

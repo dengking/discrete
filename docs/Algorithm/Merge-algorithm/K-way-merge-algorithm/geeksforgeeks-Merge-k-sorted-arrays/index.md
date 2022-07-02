@@ -6,7 +6,7 @@
 
 > NOTE: 
 >
-> 1、其实和 leetcode [23. 合并K个升序链表](https://leetcode-cn.com/problems/merge-k-sorted-lists/) 官方解题中给出的各种思路是一致的
+> 1、其实和 leetcode [23. 合并K个升序链表](https://leetcode.cn/problems/merge-k-sorted-lists/) 官方解题中给出的各种思路是一致的
 
 ### Naive Approach: 暴力解法 
 

@@ -2,9 +2,9 @@
 
 > NOTE: 
 >
-> leetcode [26. 删除有序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/)
+> leetcode [26. 删除有序数组中的重复项](https://leetcode.cn/problems/remove-duplicates-from-sorted-array/)
 >
-> leetcode [83. 删除排序链表中的重复元素](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/) 
+> leetcode [83. 删除排序链表中的重复元素](https://leetcode.cn/problems/remove-duplicates-from-sorted-list/) 
 >
 > 在 labuladong [如何高效对有序数组/链表去重？](https://mp.weixin.qq.com/s/6Eb7gKqNqXH9B0hSZvMs5A) 中已经介绍了
 
@@ -26,7 +26,7 @@
 >
 > 1、其实它的实现思路是非常简单的: 将所有不等于待删除值的元素(需要保留的元素)都移到`[0, slow]`内
 
-### leetcode [27. 移除元素](https://leetcode-cn.com/problems/remove-element/)
+### leetcode [27. 移除元素](https://leetcode.cn/problems/remove-element/)
 
 
 
@@ -52,7 +52,7 @@ int removeElement(int[] nums, int val) {
 
 ## 移动零
 
-### leetcode [283. 移动零](https://leetcode-cn.com/problems/move-zeroes/)
+### leetcode [283. 移动零](https://leetcode.cn/problems/move-zeroes/)
 
 这是力扣第 283 题，我来描述下题目：
 
@@ -89,11 +89,11 @@ int removeElement(int[] nums, int val);
 
 
 
-#### [官方解题](https://leetcode-cn.com/problems/move-zeroes/solution/yi-dong-ling-by-leetcode-solution/)
+#### [官方解题](https://leetcode.cn/problems/move-zeroes/solution/yi-dong-ling-by-leetcode-solution/)
 
 > NOTE: 
 >
-> 相比于 labuladong  [双指针技巧秒杀四道数组/链表题目](https://mp.weixin.qq.com/s/55UPwGL0-Vgdh8wUEPXpMQ) 中给出的答案，官方的显然更优，在 `LeetCode-283-移动零` 章节中，对 [官方解题](https://leetcode-cn.com/problems/move-zeroes/solution/yi-dong-ling-by-leetcode-solution/) 进行了说明。
+> 相比于 labuladong  [双指针技巧秒杀四道数组/链表题目](https://mp.weixin.qq.com/s/55UPwGL0-Vgdh8wUEPXpMQ) 中给出的答案，官方的显然更优，在 `LeetCode-283-移动零` 章节中，对 [官方解题](https://leetcode.cn/problems/move-zeroes/solution/yi-dong-ling-by-leetcode-solution/) 进行了说明。
 >
 > ```C++
 > class Solution {

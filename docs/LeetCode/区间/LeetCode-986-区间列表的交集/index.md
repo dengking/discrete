@@ -1,4 +1,4 @@
-# LeetCode [986. 区间列表的交集](https://leetcode-cn.com/problems/interval-list-intersections/) 中等
+# LeetCode [986. 区间列表的交集](https://leetcode.cn/problems/interval-list-intersections/) 中等
 
 
 
@@ -59,7 +59,7 @@ public:
 
 相比于官方解题而言，我的解法非常暴力，更好的解法是使用"merge-append-double-pointer-first-second"。
 
-## [区间列表的交集 # 官方解题](https://leetcode-cn.com/problems/interval-list-intersections/solution/qu-jian-lie-biao-de-jiao-ji-by-leetcode/)
+## [区间列表的交集 # 官方解题](https://leetcode.cn/problems/interval-list-intersections/solution/qu-jian-lie-biao-de-jiao-ji-by-leetcode/)
 
 > NOTE: 
 >

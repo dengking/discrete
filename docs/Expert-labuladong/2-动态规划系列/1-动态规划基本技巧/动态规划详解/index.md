@@ -146,11 +146,11 @@ int fib(int n) {
 >
 > 一、这段关于"状态、选择、base case"的描述是非常好的，能够帮助我们快速地写出状态转移方程
 >
-> 二、原题 leetcode [322. 零钱兑换](https://leetcode-cn.com/problems/coin-change/) 中等
+> 二、原题 leetcode [322. 零钱兑换](https://leetcode.cn/problems/coin-change/) 中等
 >
 > 三、凑零钱问题是典型的完全背包问题，这在下面的文章中进行了介绍：
 >
-> 1、[一篇文章吃透背包问题！（细致引入+解题模板+例题分析+代码呈现）](https://leetcode-cn.com/problems/partition-equal-subset-sum/solution/yi-pian-wen-zhang-chi-tou-bei-bao-wen-ti-a7dd/)
+> 1、[一篇文章吃透背包问题！（细致引入+解题模板+例题分析+代码呈现）](https://leetcode.cn/problems/partition-equal-subset-sum/solution/yi-pian-wen-zhang-chi-tou-bei-bao-wen-ti-a7dd/)
 >
 > 
 
@@ -183,7 +183,7 @@ int coinChange(int[] coins, int amount);
 >
 > 需要注意的是: "子问题相互独立"是使用"divide conquer-problem原问题subproblem子问题"的一个前提；
 >
-> 对于 LeetCode [322. 零钱兑换](https://leetcode-cn.com/problems/coin-change/) 、LeetCode [518. 零钱兑换 II](https://leetcode-cn.com/problems/coin-change-2/) ，它们的题目要求中，都给出了硬币个数是无限的，这就保证了"子问题相互独立"。是采用DP进行解决的前提条件。
+> 对于 LeetCode [322. 零钱兑换](https://leetcode.cn/problems/coin-change/) 、LeetCode [518. 零钱兑换 II](https://leetcode.cn/problems/coin-change-2/) ，它们的题目要求中，都给出了硬币个数是无限的，这就保证了"子问题相互独立"。是采用DP进行解决的前提条件。
 
 #### 写出状态转移方程
 

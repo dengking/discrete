@@ -1,6 +1,6 @@
 # Sort a stack
 
-使用 leetcode [面试题 03.05. 栈排序](https://leetcode-cn.com/problems/sort-of-stacks-lcci/) 来进行联系。
+使用 leetcode [面试题 03.05. 栈排序](https://leetcode.cn/problems/sort-of-stacks-lcci/) 来进行联系。
 
 
 

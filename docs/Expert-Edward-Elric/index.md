@@ -1,6 +1,6 @@
 # LeetCode Edward Elric
 
-https://leetcode-cn.com/u/zdxiq125/
+https://leetcode.cn/u/zdxiq125/
 
 
 

@@ -1,4 +1,4 @@
-# [573. 松鼠模拟](https://leetcode-cn.com/problems/squirrel-simulation/) 中等
+# [573. 松鼠模拟](https://leetcode.cn/problems/squirrel-simulation/) 中等
 
 现在有一棵树，一只松鼠和一些坚果。位置由二维网格的单元格表示。你的目标是找到松鼠收集所有坚果的**最小路程**，且坚果是一颗接一颗地被放在树下。松鼠一次最多只能携带**一颗**坚果，松鼠可以向上，向下，向左和向右四个方向移动到相邻的单元格。移动次数表示路程。
 

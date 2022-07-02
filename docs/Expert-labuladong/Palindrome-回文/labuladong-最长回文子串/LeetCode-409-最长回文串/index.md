@@ -1,4 +1,4 @@
-# leetcode [409. 最长回文串](https://leetcode-cn.com/problems/longest-palindrome/)
+# leetcode [409. 最长回文串](https://leetcode.cn/problems/longest-palindrome/)
 
 ## 我的解题
 
@@ -6,7 +6,7 @@
 
 需要注意的是，对于数量为奇数的字符，也是可以加入的，可以选取其中的部分加入。
 
-## [官方解题](https://leetcode-cn.com/problems/longest-palindrome/solution/zui-chang-hui-wen-chuan-by-leetcode-solution/)
+## [官方解题](https://leetcode.cn/problems/longest-palindrome/solution/zui-chang-hui-wen-chuan-by-leetcode-solution/)
 
 ```C++
 #include <bits/stdc++.h>

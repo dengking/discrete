@@ -135,11 +135,11 @@ N 叉树的遍历又可以扩展为图的遍历，因为图就是好几 N 叉棵
 
 > NOTE: 
 >
-> LeetCode [124. 二叉树中的最大路径和](https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/) 困难
+> LeetCode [124. 二叉树中的最大路径和](https://leetcode.cn/problems/binary-tree-maximum-path-sum/) 困难
 >
-> LeetCode [105. 从前序与中序遍历序列构造二叉树](https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)
+> LeetCode [105. 从前序与中序遍历序列构造二叉树](https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)
 >
-> LeetCode [99. 恢复二叉搜索树](https://leetcode-cn.com/problems/recover-binary-search-tree/) 困难
+> LeetCode [99. 恢复二叉搜索树](https://leetcode.cn/problems/recover-binary-search-tree/) 困难
 
 
 

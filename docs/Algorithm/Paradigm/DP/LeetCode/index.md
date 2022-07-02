@@ -16,7 +16,7 @@
 
 ### 原问题
 
-#### leetcode [509. 斐波那契数](https://leetcode-cn.com/problems/fibonacci-number/) 简单 
+#### leetcode [509. 斐波那契数](https://leetcode.cn/problems/fibonacci-number/) 简单 
 
 ##### 核心code
 
@@ -50,11 +50,11 @@ public:
 
 一、加法法则
 
-二、LeetCode [62. 不同路径](https://leetcode-cn.com/problems/unique-paths/) 和 LeetCode [1155. 掷骰子的N种方法](https://leetcode-cn.com/problems/number-of-dice-rolls-with-target-sum/) 比较类似。
+二、LeetCode [62. 不同路径](https://leetcode.cn/problems/unique-paths/) 和 LeetCode [1155. 掷骰子的N种方法](https://leetcode.cn/problems/number-of-dice-rolls-with-target-sum/) 比较类似。
 
-三、计数问题，本质上是罗列所有的可能性、穷举，因此对于这种问题，基本上是都可以通过回溯法来解决的，一个典型的案例就是在 LeetCode [1155. 掷骰子的N种方法](https://leetcode-cn.com/problems/number-of-dice-rolls-with-target-sum/) # [Java题解 动态规划法](https://leetcode-cn.com/problems/number-of-dice-rolls-with-target-sum/solution/javati-jie-cong-jian-dan-di-gui-dao-ya-s-3jg7/) 中所总结的，它首先使用回溯法，然后使用DP。
+三、计数问题，本质上是罗列所有的可能性、穷举，因此对于这种问题，基本上是都可以通过回溯法来解决的，一个典型的案例就是在 LeetCode [1155. 掷骰子的N种方法](https://leetcode.cn/problems/number-of-dice-rolls-with-target-sum/) # [Java题解 动态规划法](https://leetcode.cn/problems/number-of-dice-rolls-with-target-sum/solution/javati-jie-cong-jian-dan-di-gui-dao-ya-s-3jg7/) 中所总结的，它首先使用回溯法，然后使用DP。
 
-#### [LeetCode-70-爬楼梯](https://leetcode-cn.com/problems/climbing-stairs/) 
+#### [LeetCode-70-爬楼梯](https://leetcode.cn/problems/climbing-stairs/) 
 
 ##### 核心code
 
@@ -86,7 +86,7 @@ public:
 
 
 
-#### [LeetCode-91-解码方法-中等](https://leetcode-cn.com/problems/decode-ways/) 
+#### [LeetCode-91-解码方法-中等](https://leetcode.cn/problems/decode-ways/) 
 
 ##### 核心code
 
@@ -142,7 +142,7 @@ public:
 
 
 
-#### [LeetCode-62-不同路径](https://leetcode-cn.com/problems/unique-paths/) 
+#### [LeetCode-62-不同路径](https://leetcode.cn/problems/unique-paths/) 
 
 ##### 核心code
 
@@ -183,17 +183,17 @@ public:
 
 ### 最优值问题
 
-leetcode [746. 使用最小花费爬楼梯](https://leetcode-cn.com/problems/min-cost-climbing-stairs/) 和 leetcode [198. 打家劫舍](https://leetcode-cn.com/problems/house-robber/) 非常类似: 
+leetcode [746. 使用最小花费爬楼梯](https://leetcode.cn/problems/min-cost-climbing-stairs/) 和 leetcode [198. 打家劫舍](https://leetcode.cn/problems/house-robber/) 非常类似: 
 
 | 题目                                                         | 核心的思想                                                   | 核心code                                                     |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| leetcode [746. 使用最小花费爬楼梯](https://leetcode-cn.com/problems/min-cost-climbing-stairs/) | 两个选择: <br>1、从前一个台阶跨过来<br>2、从前两个台阶跨过来 | `dp[i] = min(dp[i - 1] + cost[i - 1], dp[i - 2] + cost[i - 2]);` |
-| leetcode [198. 打家劫舍](https://leetcode-cn.com/problems/house-robber/) | 两个选择:<br>1、抢: 从前两个跨过来<br>2、不抢: 从前一个跨过来 | `dp[dp_index] = max(dp[dp_index - 1], dp[dp_index - 2] + nums[i]);` |
+| leetcode [746. 使用最小花费爬楼梯](https://leetcode.cn/problems/min-cost-climbing-stairs/) | 两个选择: <br>1、从前一个台阶跨过来<br>2、从前两个台阶跨过来 | `dp[i] = min(dp[i - 1] + cost[i - 1], dp[i - 2] + cost[i - 2]);` |
+| leetcode [198. 打家劫舍](https://leetcode.cn/problems/house-robber/) | 两个选择:<br>1、抢: 从前两个跨过来<br>2、不抢: 从前一个跨过来 | `dp[dp_index] = max(dp[dp_index - 1], dp[dp_index - 2] + nums[i]);` |
 |                                                              |                                                              |                                                              |
 
 
 
-#### leetcode [746. 使用最小花费爬楼梯](https://leetcode-cn.com/problems/min-cost-climbing-stairs/) 
+#### leetcode [746. 使用最小花费爬楼梯](https://leetcode.cn/problems/min-cost-climbing-stairs/) 
 
 ```c++
 
@@ -221,7 +221,7 @@ public:
 
 
 
-#### [LeetCode-64-最小路径和-中等](https://leetcode-cn.com/problems/minimum-path-sum/) 
+#### [LeetCode-64-最小路径和-中等](https://leetcode.cn/problems/minimum-path-sum/) 
 
 
 
@@ -235,7 +235,7 @@ public:
 
 ### 最优值问题
 
-#### LeetCode [787. K 站中转内最便宜的航班](https://leetcode-cn.com/problems/cheapest-flights-within-k-stops/) 
+#### LeetCode [787. K 站中转内最便宜的航班](https://leetcode.cn/problems/cheapest-flights-within-k-stops/) 
 
 ```c++
 m(v, k) 表示从source节点到v节点，中转k次的最便宜的价格
@@ -296,7 +296,7 @@ public:
 
 ```
 
-可以看到，上述求解最优值的过程，其实和前面的LeetCode [746. 使用最小花费爬楼梯](https://leetcode-cn.com/problems/min-cost-climbing-stairs/) 、LeetCode [300. 最长递增子序列](https://leetcode-cn.com/problems/longest-increasing-subsequence/) 非常类似。
+可以看到，上述求解最优值的过程，其实和前面的LeetCode [746. 使用最小花费爬楼梯](https://leetcode.cn/problems/min-cost-climbing-stairs/) 、LeetCode [300. 最长递增子序列](https://leetcode.cn/problems/longest-increasing-subsequence/) 非常类似。
 
 
 
@@ -304,9 +304,9 @@ public:
 
 ### 零钱兑换
 
-LeetCode [322. 零钱兑换](https://leetcode-cn.com/problems/coin-change/)
+LeetCode [322. 零钱兑换](https://leetcode.cn/problems/coin-change/)
 
-LeetCode [518. 零钱兑换 II](https://leetcode-cn.com/problems/coin-change-2/)
+LeetCode [518. 零钱兑换 II](https://leetcode.cn/problems/coin-change-2/)
 
 
 
@@ -328,15 +328,15 @@ LeetCode [518. 零钱兑换 II](https://leetcode-cn.com/problems/coin-change-2/)
 
 DP解计数问题的base case对于empty problem，它一般会初始化为1，下面是例子：
 
-1、leetcode [91. 解码方法](https://leetcode-cn.com/problems/decode-ways/) 中等
+1、leetcode [91. 解码方法](https://leetcode.cn/problems/decode-ways/) 中等
 
-2、LeetCode [62. 不同路径](https://leetcode-cn.com/problems/unique-paths/) 中等
+2、LeetCode [62. 不同路径](https://leetcode.cn/problems/unique-paths/) 中等
 
-3、leetcode [416. 分割等和子集](https://leetcode-cn.com/problems/partition-equal-subset-sum/) # [星晴pro](https://leetcode-cn.com/u/eh-xing-qing/) # [一篇文章吃透背包问题！（细致引入+解题模板+例题分析+代码呈现](https://leetcode-cn.com/problems/partition-equal-subset-sum/solution/yi-pian-wen-zhang-chi-tou-bei-bao-wen-ti-a7dd/) 
+3、leetcode [416. 分割等和子集](https://leetcode.cn/problems/partition-equal-subset-sum/) # [星晴pro](https://leetcode.cn/u/eh-xing-qing/) # [一篇文章吃透背包问题！（细致引入+解题模板+例题分析+代码呈现](https://leetcode.cn/problems/partition-equal-subset-sum/solution/yi-pian-wen-zhang-chi-tou-bei-bao-wen-ti-a7dd/) 
 
 
 
-LeetCode [552. 学生出勤记录 II](https://leetcode-cn.com/problems/student-attendance-record-ii/) 困难
+LeetCode [552. 学生出勤记录 II](https://leetcode.cn/problems/student-attendance-record-ii/) 困难
 
 ### Fibonacci DP
 
@@ -348,7 +348,7 @@ Fibonacci DP的计数问题是典型的使用加分原理的。
 
 ### DP
 
-1、LeetCode [787. K 站中转内最便宜的航班](https://leetcode-cn.com/problems/cheapest-flights-within-k-stops/) 
+1、LeetCode [787. K 站中转内最便宜的航班](https://leetcode.cn/problems/cheapest-flights-within-k-stops/) 
 
 2、股票买卖
 
@@ -356,11 +356,11 @@ labuladong [团灭 LeetCode 股票买卖问题](https://mp.weixin.qq.com/s?__biz
 
 最多允许交易k次
 
-3、leetcode [651. 4键键盘](https://leetcode-cn.com/problems/4-keys-keyboard/)
+3、leetcode [651. 4键键盘](https://leetcode.cn/problems/4-keys-keyboard/)
 
 最多允许按n次键盘
 
-4、leetcode [1155. 掷骰子的N种方法](https://leetcode-cn.com/problems/number-of-dice-rolls-with-target-sum/)
+4、leetcode [1155. 掷骰子的N种方法](https://leetcode.cn/problems/number-of-dice-rolls-with-target-sum/)
 
 
 
@@ -372,7 +372,7 @@ labuladong [团灭 LeetCode 股票买卖问题](https://mp.weixin.qq.com/s?__biz
 
 一、Dijkstra algorithm 增加 k 次限制 
 
-LeetCode [787. K 站中转内最便宜的航班](https://leetcode-cn.com/problems/cheapest-flights-within-k-stops/) 
+LeetCode [787. K 站中转内最便宜的航班](https://leetcode.cn/problems/cheapest-flights-within-k-stops/) 
 
 二、monolithic algorithm增加 k 次限制
 
@@ -384,19 +384,19 @@ LeetCode [787. K 站中转内最便宜的航班](https://leetcode-cn.com/problem
 
 DP数组记录的是子问题的解，而不一定是最优解，有的用DP来求解的问题，它的最优解需要另外来进行计算，下面是典型的例子：
 
-1、LeetCode [53. 最大子数组和](https://leetcode-cn.com/problems/maximum-subarray/)
+1、LeetCode [53. 最大子数组和](https://leetcode.cn/problems/maximum-subarray/)
 
-2、LeetCode [446. 等差数列划分 II - 子序列](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/) 困难
+2、LeetCode [446. 等差数列划分 II - 子序列](https://leetcode.cn/problems/arithmetic-slices-ii-subsequence/) 困难
 
-3、LeetCode [最大连续1的个数 II](https://leetcode-cn.com/problems/max-consecutive-ones-ii/solution/zui-da-lian-xu-1de-ge-shu-ii-by-leetcode-solution/)
+3、LeetCode [最大连续1的个数 II](https://leetcode.cn/problems/max-consecutive-ones-ii/solution/zui-da-lian-xu-1de-ge-shu-ii-by-leetcode-solution/)
 
 题目要求的是最大的连续1的个数，dp table记录的是以`nums[i]`结尾的连续1的个数
 
 ## DP继承上一个状态
 
-1、LeetCode [787. K 站中转内最便宜的航班](https://leetcode-cn.com/problems/cheapest-flights-within-k-stops/) 
+1、LeetCode [787. K 站中转内最便宜的航班](https://leetcode.cn/problems/cheapest-flights-within-k-stops/) 
 
-2、LeetCode [198. 打家劫舍](https://leetcode-cn.com/problems/house-robber/)
+2、LeetCode [198. 打家劫舍](https://leetcode.cn/problems/house-robber/)
 
 3、labuladong [团灭 LeetCode 股票买卖问题](https://mp.weixin.qq.com/s/lQEj_K1lUY83QtIzqTikGA) 
 
@@ -420,9 +420,9 @@ DP数组记录的是子问题的解，而不一定是最优解，有的用DP来�
 
 可以选择rest、buy
 
-### LeetCode [487. 最大连续1的个数 II](https://leetcode-cn.com/problems/max-consecutive-ones-ii/) 
+### LeetCode [487. 最大连续1的个数 II](https://leetcode.cn/problems/max-consecutive-ones-ii/) 
 
-[官方解题](https://leetcode-cn.com/problems/max-consecutive-ones-ii/solution/zui-da-lian-xu-1de-ge-shu-ii-by-leetcode-solution/)
+[官方解题](https://leetcode.cn/problems/max-consecutive-ones-ii/solution/zui-da-lian-xu-1de-ge-shu-ii-by-leetcode-solution/)
 
 定义 `dp[i][0]` 为考虑到以 `i` 为结尾未使用操作将 `[0,i]` 某个 `0` 变成 `1` 的最大的连续 `1` 的个数，`dp[i][1]` 为考虑到以 `i` 为结尾使用操作将 `[0,i]` 某个 `0` 变成 `1` 的最大的连续 `1` 的个数。则我们可以列出转移式：
 $$

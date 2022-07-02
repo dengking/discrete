@@ -530,7 +530,7 @@ int main()
 
 ```
 
-### 不记录具体操作的、[标准答案](https://leetcode-cn.com/problems/edit-distance/solution/bian-ji-ju-chi-by-leetcode-solution/)
+### 不记录具体操作的、[标准答案](https://leetcode.cn/problems/edit-distance/solution/bian-ji-ju-chi-by-leetcode-solution/)
 
 ```C++
 #include <string>

@@ -12,7 +12,7 @@ subsequence的特征：
 
 对于子序列问题，穷举是不可行的，因为它的复杂度是非常高的，在下面文章中，有着非常好的论述:
 
-一、LeetCode [446. 等差数列划分 II - 子序列](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/) 困难
+一、LeetCode [446. 等差数列划分 II - 子序列](https://leetcode.cn/problems/arithmetic-slices-ii-subsequence/) 困难
 
 这道题，我一开始就是使用的穷举的方法，在较大输入下，直接超时
 
@@ -26,9 +26,9 @@ subsequence的特征：
 
 ### 回溯法
 
-一、LeetCode [491. 递增子序列](https://leetcode-cn.com/problems/increasing-subsequences/) 中等，这是典型例子，它通过剪枝来选择符合条件的、去重
+一、LeetCode [491. 递增子序列](https://leetcode.cn/problems/increasing-subsequences/) 中等，这是典型例子，它通过剪枝来选择符合条件的、去重
 
-二、LeetCode [446. 等差数列划分 II - 子序列](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/) 困难，在这道题中，我刚开始使用回溯法进行穷举，结果超时。
+二、LeetCode [446. 等差数列划分 II - 子序列](https://leetcode.cn/problems/arithmetic-slices-ii-subsequence/) 困难，在这道题中，我刚开始使用回溯法进行穷举，结果超时。
 
 三、这个问题在 labuladong [子序列解题模板：最长回文子序列](https://mp.weixin.qq.com/s/zNai1pzXHeB2tQE6AdOXTA) 有着总结
 
@@ -38,7 +38,7 @@ subsequence的特征：
 
 需要注意，滑动窗口是不能够用来解子序列问题的，这在下面的文章中进行了说明：
 
-1、[446. 等差数列划分 II - 子序列](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/) # [liweiwei1419](https://leetcode-cn.com/u/liweiwei1419/) # [动态规划（Java）](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/solution/dong-tai-gui-hua-java-by-liweiwei1419-jc84/)
+1、[446. 等差数列划分 II - 子序列](https://leetcode.cn/problems/arithmetic-slices-ii-subsequence/) # [liweiwei1419](https://leetcode.cn/u/liweiwei1419/) # [动态规划（Java）](https://leetcode.cn/problems/arithmetic-slices-ii-subsequence/solution/dong-tai-gui-hua-java-by-liweiwei1419-jc84/)
 
 
 
@@ -84,5 +84,5 @@ subsequence的特征：
 
 ## LeetCode 子序列类问题
 
-https://leetcode-cn.com/problemset/all/?search=%E5%AD%90%E5%BA%8F%E5%88%97
+https://leetcode.cn/problemset/all/?search=%E5%AD%90%E5%BA%8F%E5%88%97
 

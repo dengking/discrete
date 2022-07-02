@@ -1,4 +1,4 @@
-# leetcode [733. 图像渲染](https://leetcode-cn.com/problems/flood-fill/) 简单
+# leetcode [733. 图像渲染](https://leetcode.cn/problems/flood-fill/) 简单
 
 
 

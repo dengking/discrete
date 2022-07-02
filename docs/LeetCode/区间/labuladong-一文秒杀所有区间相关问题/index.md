@@ -12,7 +12,7 @@
 
 > NOTE: 
 >
-> leetcode [1288. 删除被覆盖区间](https://leetcode-cn.com/problems/remove-covered-intervals/) 中等
+> leetcode [1288. 删除被覆盖区间](https://leetcode.cn/problems/remove-covered-intervals/) 中等
 
 
 
@@ -20,7 +20,7 @@
 
 > NOTE: 
 >
-> leetcode [56. 合并区间](https://leetcode-cn.com/problems/merge-intervals/) 中等
+> leetcode [56. 合并区间](https://leetcode.cn/problems/merge-intervals/) 中等
 
 
 
@@ -28,5 +28,5 @@
 
 > NOTE: 
 >
-> LeetCode [986. 区间列表的交集](https://leetcode-cn.com/problems/interval-list-intersections/) 中等
+> LeetCode [986. 区间列表的交集](https://leetcode.cn/problems/interval-list-intersections/) 中等
 

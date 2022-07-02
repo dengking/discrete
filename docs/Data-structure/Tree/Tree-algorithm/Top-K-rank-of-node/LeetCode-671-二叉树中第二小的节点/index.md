@@ -1,4 +1,4 @@
-# LeetCode [671. 二叉树中第二小的节点](https://leetcode-cn.com/problems/second-minimum-node-in-a-binary-tree/)
+# LeetCode [671. 二叉树中第二小的节点](https://leetcode.cn/problems/second-minimum-node-in-a-binary-tree/)
 
 
 
@@ -348,7 +348,7 @@ int main()
 
 
 
-## [官方解题](https://leetcode-cn.com/problems/second-minimum-node-in-a-binary-tree/solution/er-cha-shu-zhong-di-er-xiao-de-jie-dian-bhxiw/)
+## [官方解题](https://leetcode.cn/problems/second-minimum-node-in-a-binary-tree/solution/er-cha-shu-zhong-di-er-xiao-de-jie-dian-bhxiw/)
 
 因此，我们可以对整棵二叉树进行一次遍历。设根节点的值为 $\textit{rootvalue}$，我们只需要通过遍历，找出严格大于 $\textit{rootvalue}$ 的最小值，即为「所有节点中的第二小的值」。
 

@@ -1,4 +1,4 @@
-# leetcode [141. 环形链表](https://leetcode-cn.com/problems/linked-list-cycle/)
+# leetcode [141. 环形链表](https://leetcode.cn/problems/linked-list-cycle/)
 
 
 

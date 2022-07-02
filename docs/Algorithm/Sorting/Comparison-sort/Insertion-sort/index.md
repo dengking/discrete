@@ -4,7 +4,7 @@
 
 对于insertion sort而言，寻找"插入点"是关键。
 
-## LeetCode 147 [对链表进行插入排序](https://leetcode-cn.com/problems/insertion-sort-list/solution/dui-lian-biao-jin-xing-cha-ru-pai-xu-by-leetcode-s/)
+## LeetCode 147 [对链表进行插入排序](https://leetcode.cn/problems/insertion-sort-list/solution/dui-lian-biao-jin-xing-cha-ru-pai-xu-by-leetcode-s/)
 
 插入排序的基本思想是，维护一个有序序列，初始时有序序列只有一个元素，每次将一个新的元素插入到有序序列中，将有序序列的长度增加 11，直到全部元素都加入到有序序列中。
 
@@ -38,7 +38,7 @@
 
 ## Source code
 
-### LeetCode [复习基础排序算法（Java）](https://leetcode-cn.com/problems/sort-an-array/solution/fu-xi-ji-chu-pai-xu-suan-fa-java-by-liweiwei1419/)
+### LeetCode [复习基础排序算法（Java）](https://leetcode.cn/problems/sort-an-array/solution/fu-xi-ji-chu-pai-xu-suan-fa-java-by-liweiwei1419/)
 
 #### Java
 

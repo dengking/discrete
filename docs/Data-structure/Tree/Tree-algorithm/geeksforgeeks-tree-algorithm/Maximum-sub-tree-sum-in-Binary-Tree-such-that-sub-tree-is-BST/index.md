@@ -2,7 +2,7 @@
 
 > #### NOTE: 
 >
-> LeetCode [333. 最大 BST 子树](https://leetcode-cn.com/problems/largest-bst-subtree/)
+> LeetCode [333. 最大 BST 子树](https://leetcode.cn/problems/largest-bst-subtree/)
 >
 > 
 

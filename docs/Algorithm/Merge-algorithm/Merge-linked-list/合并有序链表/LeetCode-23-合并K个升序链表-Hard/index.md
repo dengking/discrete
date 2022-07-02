@@ -1,4 +1,4 @@
-# leetcode [23. 合并K个升序链表](https://leetcode-cn.com/problems/merge-k-sorted-lists/)
+# leetcode [23. 合并K个升序链表](https://leetcode.cn/problems/merge-k-sorted-lists/)
 
 1、假设`k`个linked list共有`n`个元素
 
@@ -8,7 +8,7 @@
 
 4、显然上述过程需要执行n次
 
-## [官方解题](https://leetcode-cn.com/problems/merge-k-sorted-lists/solution/he-bing-kge-pai-xu-lian-biao-by-leetcode-solutio-2/)
+## [官方解题](https://leetcode.cn/problems/merge-k-sorted-lists/solution/he-bing-kge-pai-xu-lian-biao-by-leetcode-solutio-2/)
 
 > NOTE: 
 >

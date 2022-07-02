@@ -1,4 +1,4 @@
-# leetcode [剑指 Offer 18. 删除链表的节点](https://leetcode-cn.com/problems/shan-chu-lian-biao-de-jie-dian-lcof/)
+# leetcode [剑指 Offer 18. 删除链表的节点](https://leetcode.cn/problems/shan-chu-lian-biao-de-jie-dian-lcof/)
 
 
 
@@ -80,5 +80,5 @@ int main()
 
 
 
-## 官方解题: [面试题18. 删除链表的节点（双指针，清晰图解）](https://leetcode-cn.com/problems/shan-chu-lian-biao-de-jie-dian-lcof/solution/mian-shi-ti-18-shan-chu-lian-biao-de-jie-dian-sh-2/)
+## 官方解题: [面试题18. 删除链表的节点（双指针，清晰图解）](https://leetcode.cn/problems/shan-chu-lian-biao-de-jie-dian-lcof/solution/mian-shi-ti-18-shan-chu-lian-biao-de-jie-dian-sh-2/)
 

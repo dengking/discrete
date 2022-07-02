@@ -1,4 +1,4 @@
-# leetcode [剑指 Offer 14- I. 剪绳子](https://leetcode-cn.com/problems/jian-sheng-zi-lcof/)
+# leetcode [剑指 Offer 14- I. 剪绳子](https://leetcode.cn/problems/jian-sheng-zi-lcof/)
 
 ## 我的解题
 
@@ -119,7 +119,7 @@ int main()
 
 ## 比较好的解释
 
-[【注释型题解】动态规划--剑指14.剪绳子](https://leetcode-cn.com/problems/jian-sheng-zi-lcof/solution/zhu-shi-xing-ti-jie-dong-tai-gui-hua-jia-4xfp/)
+[【注释型题解】动态规划--剑指14.剪绳子](https://leetcode.cn/problems/jian-sheng-zi-lcof/solution/zhu-shi-xing-ti-jie-dong-tai-gui-hua-jia-4xfp/)
 
 ```python
 dp[i] = max(dp[j] * dp[i-j], dp[j] * (i-j), j * dp[i-j], j * (i-j));
@@ -133,5 +133,5 @@ dp[i] = max(dp[j] * dp[i-j], dp[j] * (i-j), j * dp[i-j], j * (i-j));
 
 组合起来，一共就有四种组合；
 
-[剑指 Offer 14- I. 剪绳子，还是动态规划好理解，但是贪心真的快](https://leetcode-cn.com/problems/jian-sheng-zi-lcof/solution/jian-zhi-offer-14-i-jian-sheng-zi-huan-s-xopj/)
+[剑指 Offer 14- I. 剪绳子，还是动态规划好理解，但是贪心真的快](https://leetcode.cn/problems/jian-sheng-zi-lcof/solution/jian-zhi-offer-14-i-jian-sheng-zi-huan-s-xopj/)
 

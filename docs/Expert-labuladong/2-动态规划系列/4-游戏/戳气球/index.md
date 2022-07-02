@@ -2,4 +2,4 @@
 
 > NOTE: 
 >
-> 原题 LeetCode [312. 戳气球](https://leetcode-cn.com/problems/burst-balloons/) 困难
+> 原题 LeetCode [312. 戳气球](https://leetcode.cn/problems/burst-balloons/) 困难

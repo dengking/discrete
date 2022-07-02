@@ -73,7 +73,7 @@ int BFS(Node start, Node target) {
 
 > NOTE: 
 >
-> LeetCode [111. 二叉树的最小深度](https://leetcode-cn.com/problems/minimum-depth-of-binary-tree/) 简单
+> LeetCode [111. 二叉树的最小深度](https://leetcode.cn/problems/minimum-depth-of-binary-tree/) 简单
 
 怎么套到 BFS 的框架里呢？首先明确一下起点`start`和终点`target`是什么，怎么判断到达了终点？
 
@@ -149,7 +149,7 @@ BFS 可以找到最短距离，但是空间复杂度高，而 DFS 的空间复�
 
 > NOTE:
 >
-> leetcode [752. 打开转盘锁](https://leetcode-cn.com/problems/open-the-lock/) 中等
+> leetcode [752. 打开转盘锁](https://leetcode.cn/problems/open-the-lock/) 中等
 >
 > 
 

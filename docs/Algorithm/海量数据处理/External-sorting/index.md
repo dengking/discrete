@@ -16,7 +16,7 @@
 >
 > 2、"K way merge algorithm-多路合并"
 
-### LeetCode [文件中存在亿级数据，按某个字段进行排序，输出前100万数据](https://leetcode-cn.com/circle/discuss/fW1wqB/) 
+### LeetCode [文件中存在亿级数据，按某个字段进行排序，输出前100万数据](https://leetcode.cn/circle/discuss/fW1wqB/) 
 
 文件中存在亿级数据，并且每条数据是多个字段，如何按某个字段进行排序后，输出前100万数据(需要写出代码)
 
@@ -36,11 +36,11 @@ buyer2,item2,13812348765,123,2020-01-01 01:00:00,3…
 3：线程处理
 4：NIO
 
-### LeetCode [这可能不只是一篇面经](https://leetcode-cn.com/circle/discuss/alVTol/)
+### LeetCode [这可能不只是一篇面经](https://leetcode.cn/circle/discuss/alVTol/)
 
 
 
-### LeetCode [海量数据处理方法](https://leetcode-cn.com/circle/article/qlkHuN/)
+### LeetCode [海量数据处理方法](https://leetcode.cn/circle/article/qlkHuN/)
 
 
 

@@ -14,7 +14,7 @@
 
 [![NewPermutation](./NewPermutation.gif)](https://media.geeksforgeeks.org/wp-content/cdn-uploads/NewPermutation.gif)
 
-###  leetcode [斐波那契数](https://leetcode-cn.com/problems/fibonacci-number/) 
+###  leetcode [斐波那契数](https://leetcode.cn/problems/fibonacci-number/) 
 
  ![fibtree](./Fibonacci.jpg) 
 

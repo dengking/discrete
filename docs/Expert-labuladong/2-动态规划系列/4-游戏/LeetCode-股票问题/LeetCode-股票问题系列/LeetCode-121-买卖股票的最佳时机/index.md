@@ -1,4 +1,4 @@
-# LeetCode [121. 买卖股票的最佳时机](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/) 简单
+# LeetCode [121. 买卖股票的最佳时机](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/) 简单
 
 
 
@@ -43,7 +43,7 @@ int main()
 
 ## 解法二: 动态规划
 
-一、这是按照 labuladong [团灭 LeetCode 股票买卖问题](https://mp.weixin.qq.com/s/lQEj_K1lUY83QtIzqTikGA) 中给出的解法写的，不过它的初始化是参考的[Gnakuw](https://leetcode-cn.com/u/nehzil/) # [121. 买卖股票的最佳时机（详细C++代码注释学习代码随想录的风格写的）](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/solution/gu-piao-dong-tai-gui-hua-jie-fa-by-kino-7qh40/)  
+一、这是按照 labuladong [团灭 LeetCode 股票买卖问题](https://mp.weixin.qq.com/s/lQEj_K1lUY83QtIzqTikGA) 中给出的解法写的，不过它的初始化是参考的[Gnakuw](https://leetcode.cn/u/nehzil/) # [121. 买卖股票的最佳时机（详细C++代码注释学习代码随想录的风格写的）](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/solution/gu-piao-dong-tai-gui-hua-jie-fa-by-kino-7qh40/)  
 
 
 
@@ -157,7 +157,7 @@ int main()
 
 
 
-## [文慕阳](https://leetcode-cn.com/u/wen-mu-yang/) # [C++ 利用哨兵👨‍✈️，维护一个单调栈📈(图解，直观掌握)](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/solution/c-li-yong-shao-bing-wei-hu-yi-ge-dan-diao-zhan-tu-/) 
+## [文慕阳](https://leetcode.cn/u/wen-mu-yang/) # [C++ 利用哨兵👨‍✈️，维护一个单调栈📈(图解，直观掌握)](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/solution/c-li-yong-shao-bing-wei-hu-yi-ge-dan-diao-zhan-tu-/) 
 
 > NOTE:
 >
@@ -189,15 +189,15 @@ int main()
 
 第四步，入栈元素为 3，他比栈顶元素 5大，**我们直接弹栈，并拿他减去栈底元素1(这就是最重要的，模拟了买卖，因为 5 遇上了比它小的 3，因此即使后面遇到更大的元素 C，但是存在 C - 3 > C - 5，因此它已经没用了，计算之后弹出它**
 
-![image.png](https://pic.leetcode-cn.com/c6549566891a8a73a2aefc98dd65c71bde518625fe2644a72d8e505bf08e1ebd-image.png)
+![image.png](https://pic.leetcode.cn/c6549566891a8a73a2aefc98dd65c71bde518625fe2644a72d8e505bf08e1ebd-image.png)
 
 第五步，入栈元素为 66，比栈顶元素大，入栈。
 
-![image.png](https://pic.leetcode-cn.com/e762a53fd3eb9e2907aa30554ac083342945bb6f2f9b548fd89c160f2ea08cf8-image.png)
+![image.png](https://pic.leetcode.cn/e762a53fd3eb9e2907aa30554ac083342945bb6f2f9b548fd89c160f2ea08cf8-image.png)
 
 第七步，现在 **哨兵**👨‍✈️的作用就非常清楚啦，假如没有哨兵，我们单调栈中还有残留的元素没有进行判断(比如 prices 数组单调增的情况下，不加哨兵会出现 `max=0` 的情况)，因此 **哨兵**👨‍✈️的作用就是确保单调栈中的每个元素都被进行判定。因此最后的图像应该是这样：
 
-![image.png](https://pic.leetcode-cn.com/018efc54412997315ffda187ddcf98be398489329b0b847055774bb1a56f8cb1-image.png)
+![image.png](https://pic.leetcode.cn/018efc54412997315ffda187ddcf98be398489329b0b847055774bb1a56f8cb1-image.png)
 
 ```c++
 // #include <bits/stdc++.h>

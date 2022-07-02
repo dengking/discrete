@@ -20,7 +20,7 @@
 
 这道题是出自 labuladong [手把手刷二叉搜索树（第一期）](https://mp.weixin.qq.com/s/ioyqagZLYrvdlZyOMDjrPw) 。
 
-4、LeetCode [337. 打家劫舍 III](https://leetcode-cn.com/problems/house-robber-iii/) 中等
+4、LeetCode [337. 打家劫舍 III](https://leetcode.cn/problems/house-robber-iii/) 中等
 
 5、[LeetCode-1373. 二叉搜索子树的最大键值和](https://leetcode.cn/problems/maximum-sum-bst-in-binary-tree/)
 

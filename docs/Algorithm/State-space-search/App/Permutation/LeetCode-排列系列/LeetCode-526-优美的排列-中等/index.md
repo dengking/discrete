@@ -1,4 +1,4 @@
-# LeetCode [526. 优美的排列](https://leetcode-cn.com/problems/beautiful-arrangement/) 中等
+# LeetCode [526. 优美的排列](https://leetcode.cn/problems/beautiful-arrangement/) 中等
 
 
 
@@ -62,7 +62,7 @@ int main()
 
 
 
-## [官方解题](https://leetcode-cn.com/problems/beautiful-arrangement/solution/you-mei-de-pai-lie-by-leetcode-solution-vea2/)
+## [官方解题](https://leetcode.cn/problems/beautiful-arrangement/solution/you-mei-de-pai-lie-by-leetcode-solution-vea2/)
 
 
 

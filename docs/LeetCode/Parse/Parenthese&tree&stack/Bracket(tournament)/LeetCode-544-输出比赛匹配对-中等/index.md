@@ -1,4 +1,4 @@
-# [544. 输出比赛匹配对](https://leetcode-cn.com/problems/output-contest-matches/) 中等
+# [544. 输出比赛匹配对](https://leetcode.cn/problems/output-contest-matches/) 中等
 
 在 NBA 季后赛中，我们总是安排较强的队伍对战较弱的队伍，例如用排名第 1 的队伍和第 n 的队伍对决，这是一个可以让比赛更加有趣的好策略。现在，给你 n 支队伍，你需要以字符串格式输出它们的 最终 比赛配对。
 

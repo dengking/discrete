@@ -1,4 +1,4 @@
-# [536. 从字符串生成二叉树](https://leetcode-cn.com/problems/construct-binary-tree-from-string/) 中等
+# [536. 从字符串生成二叉树](https://leetcode.cn/problems/construct-binary-tree-from-string/) 中等
 
 你需要用一个包括括号和整数的字符串构建一棵二叉树。
 

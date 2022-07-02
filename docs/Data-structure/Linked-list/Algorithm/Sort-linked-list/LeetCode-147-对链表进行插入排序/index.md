@@ -1,8 +1,8 @@
-# LeetCode [147. 对链表进行插入排序](https://leetcode-cn.com/problems/insertion-sort-list/) 中等
+# LeetCode [147. 对链表进行插入排序](https://leetcode.cn/problems/insertion-sort-list/) 中等
 
 
 
-## [官方解题](https://leetcode-cn.com/problems/insertion-sort-list/solution/dui-lian-biao-jin-xing-cha-ru-pai-xu-by-leetcode-s/)
+## [官方解题](https://leetcode.cn/problems/insertion-sort-list/solution/dui-lian-biao-jin-xing-cha-ru-pai-xu-by-leetcode-s/)
 
 **插入排序**的基本思想是，维护一个**有序序列**，初始时有序序列只有一个元素，每次将一个新的元素插入到有序序列中，将有序序列的长度增加 1，直到**全部元素**都加入到**有序序列**中。
 

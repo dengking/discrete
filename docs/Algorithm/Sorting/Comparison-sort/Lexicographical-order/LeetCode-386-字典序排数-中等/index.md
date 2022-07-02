@@ -1,4 +1,4 @@
-# LeetCode [386. 字典序排数](https://leetcode-cn.com/problems/lexicographical-numbers/) 中等
+# LeetCode [386. 字典序排数](https://leetcode.cn/problems/lexicographical-numbers/) 中等
 
 例子:
 
@@ -8,11 +8,11 @@
 
 
 
-## [PPPPjcute](https://leetcode-cn.com/u/ppppjcute/)  # [java 字典序的遍历](https://leetcode-cn.com/problems/lexicographical-numbers/solution/java-zi-dian-xu-de-bian-li-by-ppppjqute/)
+## [PPPPjcute](https://leetcode.cn/u/ppppjcute/)  # [java 字典序的遍历](https://leetcode.cn/problems/lexicographical-numbers/solution/java-zi-dian-xu-de-bian-li-by-ppppjqute/)
 
 字典序可以抽象为一棵树
 
-![QQ20201028-170405@2x.png](https://pic.leetcode-cn.com/1603875858-aRThUF-QQ20201028-170405@2x.png)
+![QQ20201028-170405@2x.png](https://pic.leetcode.cn/1603875858-aRThUF-QQ20201028-170405@2x.png)
 
 所以，有小到大输出其实就是输出他的先序遍历，参考二叉搜索树的先序遍历写法。
 

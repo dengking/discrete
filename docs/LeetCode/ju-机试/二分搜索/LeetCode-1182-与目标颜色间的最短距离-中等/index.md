@@ -1,4 +1,4 @@
-# [1182. 与目标颜色间的最短距离](https://leetcode-cn.com/problems/shortest-distance-to-target-color/) 中等
+# [1182. 与目标颜色间的最短距离](https://leetcode.cn/problems/shortest-distance-to-target-color/) 中等
 
 给你一个数组 `colors`，里面有 `1`、`2`、 `3` 三种颜色。
 

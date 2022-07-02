@@ -1,4 +1,4 @@
-# LeetCode [261. 以图判树](https://leetcode-cn.com/problems/graph-valid-tree/) 中等
+# LeetCode [261. 以图判树](https://leetcode.cn/problems/graph-valid-tree/) 中等
 
 
 

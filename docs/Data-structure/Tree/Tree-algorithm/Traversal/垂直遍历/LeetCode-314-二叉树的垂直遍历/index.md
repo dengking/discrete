@@ -1,4 +1,4 @@
-# [314. 二叉树的垂直遍历](https://leetcode-cn.com/problems/binary-tree-vertical-order-traversal/) 中等
+# [314. 二叉树的垂直遍历](https://leetcode.cn/problems/binary-tree-vertical-order-traversal/) 中等
 
 
 

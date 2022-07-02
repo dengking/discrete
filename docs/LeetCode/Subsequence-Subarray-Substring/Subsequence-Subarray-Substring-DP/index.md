@@ -14,11 +14,11 @@ Subsequenc子序列DP: `Subsequenc子序列DP` 章节
 
 在下面的文章中进行了非常好的描述：
 
-1、[446. 等差数列划分 II - 子序列](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/) # [【负雪明烛】揭秘子序列动态规划的套路](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/solution/fu-xue-ming-zhu-jie-mi-zi-xu-lie-dong-ta-gepk/)
+1、[446. 等差数列划分 II - 子序列](https://leetcode.cn/problems/arithmetic-slices-ii-subsequence/) # [【负雪明烛】揭秘子序列动态规划的套路](https://leetcode.cn/problems/arithmetic-slices-ii-subsequence/solution/fu-xue-ming-zhu-jie-mi-zi-xu-lie-dong-ta-gepk/)
 
-2、[446. 等差数列划分 II - 子序列](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/) # [动态规划（Java）](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/solution/dong-tai-gui-hua-java-by-liweiwei1419-jc84/)
+2、[446. 等差数列划分 II - 子序列](https://leetcode.cn/problems/arithmetic-slices-ii-subsequence/) # [动态规划（Java）](https://leetcode.cn/problems/arithmetic-slices-ii-subsequence/solution/dong-tai-gui-hua-java-by-liweiwei1419-jc84/)
 
-二、[LeetCode-413. 等差数列划分-中等](https://leetcode-cn.com/problems/arithmetic-slices/)、[LeetCode-446. 等差数列划分 II - 子序列-困难](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/)
+二、[LeetCode-413. 等差数列划分-中等](https://leetcode.cn/problems/arithmetic-slices/)、[LeetCode-446. 等差数列划分 II - 子序列-困难](https://leetcode.cn/problems/arithmetic-slices-ii-subsequence/)
 
 ### complexity: $O(N^2)$ VS $O(N)$
 
@@ -34,7 +34,7 @@ Subsequenc子序列DP: `Subsequenc子序列DP` 章节
 
 #### LIS、最长递增子序列
 
-LeetCode [300. 最长递增子序列](https://leetcode-cn.com/problems/longest-increasing-subsequence/) 
+LeetCode [300. 最长递增子序列](https://leetcode.cn/problems/longest-increasing-subsequence/) 
 
 ```c++
 class Solution
@@ -74,7 +74,7 @@ public:
 
 例题: 
 
-[LeetCode-446. 等差数列划分 II - 子序列-困难](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence/) 
+[LeetCode-446. 等差数列划分 II - 子序列-困难](https://leetcode.cn/problems/arithmetic-slices-ii-subsequence/) 
 
 
 

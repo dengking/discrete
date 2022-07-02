@@ -22,7 +22,7 @@
 
 ### 解数独系列
 
-[LeetCode-37-解数独](https://leetcode-cn.com/problems/sudoku-solver/)
+[LeetCode-37-解数独](https://leetcode.cn/problems/sudoku-solver/)
 
 
 
@@ -38,7 +38,7 @@ LeetCode-面试题-08.12-八皇后
 
 ### 子集划分系列
 
-[LeetCode-698-划分为k个相等的子集](https://leetcode-cn.com/problems/partition-to-k-equal-sum-subsets/)
+[LeetCode-698-划分为k个相等的子集](https://leetcode.cn/problems/partition-to-k-equal-sum-subsets/)
 
 ```C++
 class Solution
@@ -97,15 +97,15 @@ public:
 
 ### 子集系列
 
-[LeetCode-78-子集-中等](https://leetcode-cn.com/problems/subsets/)
+[LeetCode-78-子集-中等](https://leetcode.cn/problems/subsets/)
 
-[LeetCode-90-子集-II-中等](https://leetcode-cn.com/problems/subsets-ii/) 
+[LeetCode-90-子集-II-中等](https://leetcode.cn/problems/subsets-ii/) 
 
 
 
 ### 排列系列
 
-[46. 全排列](https://leetcode-cn.com/problems/permutations/) 中等
+[46. 全排列](https://leetcode.cn/problems/permutations/) 中等
 
 
 
@@ -113,9 +113,9 @@ public:
 
 这类题目，章节要求查找所有的可能性，最直接的方法就是回溯法；
 
-1、LeetCode [39. 组合总和](https://leetcode-cn.com/problems/combination-sum/) 中等
+1、LeetCode [39. 组合总和](https://leetcode.cn/problems/combination-sum/) 中等
 
-2、LeetCode [491. 递增子序列](https://leetcode-cn.com/problems/increasing-subsequences/) 中等
+2、LeetCode [491. 递增子序列](https://leetcode.cn/problems/increasing-subsequences/) 中等
 
 
 

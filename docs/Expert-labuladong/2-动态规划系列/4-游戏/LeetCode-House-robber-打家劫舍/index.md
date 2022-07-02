@@ -2,7 +2,7 @@
 
 > NOTE: 
 >
-> LeetCode-House-robber-打家劫舍系列是典型的fibonacci DP，更加准确的说，它和 leetcode [746. 使用最小花费爬楼梯](https://leetcode-cn.com/problems/min-cost-climbing-stairs/) 简单 非常类似。
+> LeetCode-House-robber-打家劫舍系列是典型的fibonacci DP，更加准确的说，它和 leetcode [746. 使用最小花费爬楼梯](https://leetcode.cn/problems/min-cost-climbing-stairs/) 简单 非常类似。
 >
 > 
 
@@ -12,7 +12,7 @@
 
 > NOTE: 
 >
-> leetcode [198. 打家劫舍](https://leetcode-cn.com/problems/house-robber/) 中等
+> leetcode [198. 打家劫舍](https://leetcode.cn/problems/house-robber/) 中等
 
 题目很容易理解，而且动态规划的特征很明显。我们前文 [动态规划详解](http://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247484731&idx=1&sn=f1db6dee2c8e70c42240aead9fd224e6&chksm=9bd7fb33aca07225bee0b23a911c30295e0b90f393af75eca377caa4598ffb203549e1768336&scene=21#wechat_redirect) 做过总结，**解决动态规划问题就是找「状态」和「选择」，仅此而已**。
 
@@ -171,7 +171,7 @@ int rob(int[] nums) {
 
 > NOTE:
 >
-> leetcode [213. 打家劫舍 II](https://leetcode-cn.com/problems/house-robber-ii/) 中等
+> leetcode [213. 打家劫舍 II](https://leetcode.cn/problems/house-robber-ii/) 中等
 >
 > 
 
@@ -183,7 +183,7 @@ int rob(int[] nums) {
 
 > NOTE: 
 >
-> 一、leetcode [337. 打家劫舍 III](https://leetcode-cn.com/problems/house-robber-iii/) 中等
+> 一、leetcode [337. 打家劫舍 III](https://leetcode.cn/problems/house-robber-iii/) 中等
 >
 > 二、这道题是需要枚举所有的可能性大，容易忽视的是：在抢root的情况下，不一定要抢它的left 和 right的，也是可以不抢的。
 

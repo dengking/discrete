@@ -1,4 +1,4 @@
-# LeetCode [560. 和为 K 的子数组](https://leetcode-cn.com/problems/subarray-sum-equals-k/) 中等
+# LeetCode [560. 和为 K 的子数组](https://leetcode.cn/problems/subarray-sum-equals-k/) 中等
 
 ## 我的解题
 
@@ -56,7 +56,7 @@ int main()
 
 上面的这种写法在如下测试用例是会超时的:
 
-https://leetcode-cn.com/submissions/detail/278393448/testcase/
+https://leetcode.cn/submissions/detail/278393448/testcase/
 
 ### 前缀和 + 哈希表优化
 
@@ -186,7 +186,7 @@ int main()
 
 
 
-## [官方解题 # 方法一：枚举](https://leetcode-cn.com/problems/subarray-sum-equals-k/solution/he-wei-kde-zi-shu-zu-by-leetcode-solution/)
+## [官方解题 # 方法一：枚举](https://leetcode.cn/problems/subarray-sum-equals-k/solution/he-wei-kde-zi-shu-zu-by-leetcode-solution/)
 
 > NOTE: 
 >
@@ -194,13 +194,13 @@ int main()
 >
 > 二、这种写法是无法通过的，会在如下测试用例超时:
 >
-> https://leetcode-cn.com/submissions/detail/278393448/testcase/
+> https://leetcode.cn/submissions/detail/278393448/testcase/
 
 考虑以 `i` 结尾和为 `k` 的连续子数组个数，我们需要统计符合条件的下标 `j` 的个数，
 
 
 
-## [官方解题 # 方法二：前缀和 + 哈希表优化](https://leetcode-cn.com/problems/subarray-sum-equals-k/solution/he-wei-kde-zi-shu-zu-by-leetcode-solution/)
+## [官方解题 # 方法二：前缀和 + 哈希表优化](https://leetcode.cn/problems/subarray-sum-equals-k/solution/he-wei-kde-zi-shu-zu-by-leetcode-solution/)
 
 我们可以基于方法一利用数据结构进行进一步的优化，我们知道方法一的瓶颈在于对每个 `i`，我们需要枚举所有的 `j` 来判断是否符合条件，这一步是否可以优化呢？答案是可以的。
 

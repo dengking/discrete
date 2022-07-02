@@ -1,10 +1,10 @@
-# LeetCode [491. 递增子序列](https://leetcode-cn.com/problems/increasing-subsequences/) 中等
+# LeetCode [491. 递增子序列](https://leetcode.cn/problems/increasing-subsequences/) 中等
 
 
 
 ## 我的解题-一次错误的解题记录
 
-这道题其实和 LeetCode [90. 子集 II](https://leetcode-cn.com/problems/subsets-ii/) 非常类似，它在那道题的基础上增加了一个递增子序列而已。
+这道题其实和 LeetCode [90. 子集 II](https://leetcode.cn/problems/subsets-ii/) 非常类似，它在那道题的基础上增加了一个递增子序列而已。
 
 
 
@@ -59,7 +59,7 @@ public:
 
 ```
 
-上述算法是仿照 LeetCode [90. 子集 II](https://leetcode-cn.com/problems/subsets-ii/) 写的，它在如下用例执行失败：
+上述算法是仿照 LeetCode [90. 子集 II](https://leetcode.cn/problems/subsets-ii/) 写的，它在如下用例执行失败：
 
 ```c++
 输入：
@@ -72,7 +72,7 @@ public:
 
 
 
-## LeetCode [官方解题](https://leetcode-cn.com/problems/increasing-subsequences/solution/di-zeng-zi-xu-lie-by-leetcode-solution/)
+## LeetCode [官方解题](https://leetcode.cn/problems/increasing-subsequences/solution/di-zeng-zi-xu-lie-by-leetcode-solution/)
 
 > NOTE:
 >
@@ -82,7 +82,7 @@ public:
 
 > NOTE:
 >
-> 由于这道题的结果是顺序相关的，因此不能够先排序然后将重复的元素放到一起然后使用类似于 LeetCode [90. 子集 II](https://leetcode-cn.com/problems/subsets-ii/) 的方法，所以需要该换另外一种去重的方法，这种方法使用的是Rabin-Karp hash来快速去重
+> 由于这道题的结果是顺序相关的，因此不能够先排序然后将重复的元素放到一起然后使用类似于 LeetCode [90. 子集 II](https://leetcode.cn/problems/subsets-ii/) 的方法，所以需要该换另外一种去重的方法，这种方法使用的是Rabin-Karp hash来快速去重
 
 ### 方法二：递归枚举 + 减枝
 
@@ -222,7 +222,7 @@ int main()
 
 > NOTE:
 >
-> 一、相比于 LeetCode [90. 子集 II](https://leetcode-cn.com/problems/subsets-ii/) ，上述算法并不要求重复元素在一起，上述算法中的`last`为上一个选中的元素，这是一种子序列的做法，它并不要求元素是相邻的
+> 一、相比于 LeetCode [90. 子集 II](https://leetcode.cn/problems/subsets-ii/) ，上述算法并不要求重复元素在一起，上述算法中的`last`为上一个选中的元素，这是一种子序列的做法，它并不要求元素是相邻的
 >
 > 二、上面展示了DFS的一个技巧: last + prev，它通过这个技巧来实现对上一个选取的元素和当前元素的比较
 >

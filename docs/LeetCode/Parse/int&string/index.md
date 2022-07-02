@@ -2,7 +2,7 @@
 
 atoi:
 
-LeetCode [8. 字符串转换整数 (atoi)](https://leetcode-cn.com/problems/string-to-integer-atoi/) 困难
+LeetCode [8. 字符串转换整数 (atoi)](https://leetcode.cn/problems/string-to-integer-atoi/) 困难
 
 itoa:
 
@@ -10,7 +10,7 @@ itoa:
 
 综合类型的题目: 
 
-LeetCode [556. 下一个更大元素 III](https://leetcode-cn.com/problems/next-greater-element-iii/) 中等
+LeetCode [556. 下一个更大元素 III](https://leetcode.cn/problems/next-greater-element-iii/) 中等
 
 
 

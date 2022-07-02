@@ -1,4 +1,4 @@
-# leetcode [1201. 丑数 III](https://leetcode-cn.com/problems/ugly-number-iii/)
+# leetcode [1201. 丑数 III](https://leetcode.cn/problems/ugly-number-iii/)
 
 
 
@@ -40,7 +40,7 @@ num/a + num/b + num/c - num/lcm(ab) - num/lcm(ac) -  num/lcm(bc) + num/lcm(abc)
 
 具体为啥是这个公式，咱们看下面的图就懂了
 
-![image.png](https://pic.leetcode-cn.com/c3aad0c521cefbf9c8d40c93c58b51f27108939637dc4ca97dfce415270c105b-image.png)
+![image.png](https://pic.leetcode.cn/c3aad0c521cefbf9c8d40c93c58b51f27108939637dc4ca97dfce415270c105b-image.png)
 
 
 

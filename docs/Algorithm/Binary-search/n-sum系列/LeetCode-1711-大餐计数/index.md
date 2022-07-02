@@ -1,8 +1,8 @@
-# leetcode [1711. 大餐计数](https://leetcode-cn.com/problems/count-good-meals/)
+# leetcode [1711. 大餐计数](https://leetcode.cn/problems/count-good-meals/)
 
 
 
-## [官方解题](https://leetcode-cn.com/problems/count-good-meals/solution/da-can-ji-shu-by-leetcode-solution-fvg9/)
+## [官方解题](https://leetcode.cn/problems/count-good-meals/solution/da-can-ji-shu-by-leetcode-solution-fvg9/)
 
 > NOTE: 
 >

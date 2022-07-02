@@ -1,8 +1,8 @@
-# leetcode [99. 恢复二叉搜索树](https://leetcode-cn.com/problems/recover-binary-search-tree/)
+# leetcode [99. 恢复二叉搜索树](https://leetcode.cn/problems/recover-binary-search-tree/)
 
 
 
-## [官方解题](https://leetcode-cn.com/problems/recover-binary-search-tree/solution/hui-fu-er-cha-sou-suo-shu-by-leetcode-solution/)
+## [官方解题](https://leetcode.cn/problems/recover-binary-search-tree/solution/hui-fu-er-cha-sou-suo-shu-by-leetcode-solution/)
 
 我们来看下如果在一个递增的序列中交换两个值会造成什么影响。假设有一个递增序列 $a=[1,2,3,4,5,6,7]$。
 

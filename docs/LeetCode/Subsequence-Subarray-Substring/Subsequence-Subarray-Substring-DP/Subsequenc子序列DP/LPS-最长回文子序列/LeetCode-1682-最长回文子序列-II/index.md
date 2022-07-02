@@ -1,4 +1,4 @@
-# LeetCode [1682. 最长回文子序列 II](https://leetcode-cn.com/problems/longest-palindromic-subsequence-ii/) 中等
+# LeetCode [1682. 最长回文子序列 II](https://leetcode.cn/problems/longest-palindromic-subsequence-ii/) 中等
 
 
 
@@ -78,7 +78,7 @@ int main()
 
 
 
-## LeetCode [动态规划](https://leetcode-cn.com/problems/longest-palindromic-subsequence-ii/solution/dong-tai-gui-hua-by-jason-2-9z6w/)
+## LeetCode [动态规划](https://leetcode.cn/problems/longest-palindromic-subsequence-ii/solution/dong-tai-gui-hua-by-jason-2-9z6w/)
 
 > NOTE: 
 >
@@ -120,7 +120,7 @@ for(c in ['a','z']){
 
 
 
-## LeetCode [O(n^2)复杂度dp](https://leetcode-cn.com/problems/longest-palindromic-subsequence-ii/solution/on2fu-za-de-dp-by-xhzhang-l83r/)
+## LeetCode [O(n^2)复杂度dp](https://leetcode.cn/problems/longest-palindromic-subsequence-ii/solution/on2fu-za-de-dp-by-xhzhang-l83r/)
 
 下面是可以AC的代码:
 

@@ -1,6 +1,6 @@
-# leetcode [316. 去除重复字母](https://leetcode-cn.com/problems/remove-duplicate-letters/)
+# leetcode [316. 去除重复字母](https://leetcode.cn/problems/remove-duplicate-letters/)
 
-一、这道题的  "**返回结果的字典序最小**" 的要求，和 leetcode [402. 移掉K位数字](https://leetcode-cn.com/problems/remove-k-digits/) 中的"剩下的数字最小"，本质上是相同的，继续使用 "monotonic-stack+greedy" 策略。
+一、这道题的  "**返回结果的字典序最小**" 的要求，和 leetcode [402. 移掉K位数字](https://leetcode.cn/problems/remove-k-digits/) 中的"剩下的数字最小"，本质上是相同的，继续使用 "monotonic-stack+greedy" 策略。
 
 1、两道题的非常类似，一个是去除k个字符，一个是去除重复字符
 
@@ -40,14 +40,14 @@
 
 
 
-## [标准答案](https://leetcode-cn.com/problems/remove-duplicate-letters/solution/qu-chu-zhong-fu-zi-mu-by-leetcode-soluti-vuso/)
+## [标准答案](https://leetcode.cn/problems/remove-duplicate-letters/solution/qu-chu-zhong-fu-zi-mu-by-leetcode-soluti-vuso/)
 
 ```C++
 #include <bits/stdc++.h>
 using namespace std;
 /**
  * 作者：LeetCode-Solution
- 链接：https://leetcode-cn.com/problems/remove-duplicate-letters/solution/qu-chu-zhong-fu-zi-mu-by-leetcode-soluti-vuso/
+ 链接：https://leetcode.cn/problems/remove-duplicate-letters/solution/qu-chu-zhong-fu-zi-mu-by-leetcode-soluti-vuso/
  来源：力扣（LeetCode）
  著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
  *
@@ -98,7 +98,7 @@ public:
 
 ## 我的解题
 
-正如 [力扣加加](https://leetcode-cn.com/u/fe-lucifer/) # [一招吃遍力扣四道题，妈妈再也不用担心我被套路啦～](https://leetcode-cn.com/problems/remove-duplicate-letters/solution/yi-zhao-chi-bian-li-kou-si-dao-ti-ma-ma-zai-ye-b-4/) 所言，`in_stack` 是典型的以空间换时间，便于快速判断当前字符是否已经位于栈中了。
+正如 [力扣加加](https://leetcode.cn/u/fe-lucifer/) # [一招吃遍力扣四道题，妈妈再也不用担心我被套路啦～](https://leetcode.cn/problems/remove-duplicate-letters/solution/yi-zhao-chi-bian-li-kou-si-dao-ti-ma-ma-zai-ye-b-4/) 所言，`in_stack` 是典型的以空间换时间，便于快速判断当前字符是否已经位于栈中了。
 
 ```C++
 #include <bits/stdc++.h>

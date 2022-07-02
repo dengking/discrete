@@ -1,6 +1,6 @@
 # 区间问题
 
-一、区间问题其实也是可以使用left- right double pointer来进行解释的，关于这一点，是在leetcode [Ikaruga](https://leetcode-cn.com/u/ikaruga/) [【合并区间】排序 + 双指针](https://leetcode-cn.com/problems/merge-intervals/solution/merge-intervals-by-ikaruga/) 上提出的
+一、区间问题其实也是可以使用left- right double pointer来进行解释的，关于这一点，是在leetcode [Ikaruga](https://leetcode.cn/u/ikaruga/) [【合并区间】排序 + 双指针](https://leetcode.cn/problems/merge-intervals/solution/merge-intervals-by-ikaruga/) 上提出的
 
 
 

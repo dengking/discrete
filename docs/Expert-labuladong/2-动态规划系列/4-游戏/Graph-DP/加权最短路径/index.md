@@ -2,7 +2,7 @@
 
 > NOTE:
 >
-> 一、leetcode [787. K 站中转内最便宜的航班](https://leetcode-cn.com/problems/cheapest-flights-within-k-stops/)
+> 一、leetcode [787. K 站中转内最便宜的航班](https://leetcode.cn/problems/cheapest-flights-within-k-stops/)
 >
 > 二、这道题展示了使用自顶向下的方式解决图加权最短路径问题，正如作者所言：
 >

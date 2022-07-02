@@ -128,7 +128,7 @@ The above procedure only performs *exact* matches, finding the position of a tar
 >
 > 一、例子
 >
-> LeetCode [35. 搜索插入位置](https://leetcode-cn.com/problems/search-insert-position/) 
+> LeetCode [35. 搜索插入位置](https://leetcode.cn/problems/search-insert-position/) 
 
 2、predecessor (next-smallest element),
 
@@ -142,7 +142,7 @@ The above procedure only performs *exact* matches, finding the position of a tar
 >
 > 一、例子
 >
-> LeetCode [34. 在排序数组中查找元素的第一个和最后一个位置](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/)
+> LeetCode [34. 在排序数组中查找元素的第一个和最后一个位置](https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array/)
 
 
 

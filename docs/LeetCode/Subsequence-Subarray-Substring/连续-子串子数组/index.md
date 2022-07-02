@@ -51,7 +51,7 @@
 >
 > 
 
-二、LeetCode [487. 最大连续1的个数 II](https://leetcode-cn.com/problems/max-consecutive-ones-ii/) # [力扣官方题解](https://leetcode-cn.com/u/leetcode-solution/) # [方法二：动态规划](https://leetcode-cn.com/problems/max-consecutive-ones-ii/solution/zui-da-lian-xu-1de-ge-shu-ii-by-leetcode-solution/) 
+二、LeetCode [487. 最大连续1的个数 II](https://leetcode.cn/problems/max-consecutive-ones-ii/) # [力扣官方题解](https://leetcode.cn/u/leetcode-solution/) # [方法二：动态规划](https://leetcode.cn/problems/max-consecutive-ones-ii/solution/zui-da-lian-xu-1de-ge-shu-ii-by-leetcode-solution/) 
 
 > 1、 `dp[i][0]` 为考虑到以 `i` 为结尾未使用操作将 `[0,i]`某个 `0` 变成 `1` 的最大的连续 `1` 的个数
 >
@@ -117,11 +117,11 @@ labuladong [前缀和技巧：解决子数组问题](https://mp.weixin.qq.com/s/
 
 ## 例题
 
-一、LeetCode [560. 和为K的子数组](https://leetcode-cn.com/problems/subarray-sum-equals-k/)
+一、LeetCode [560. 和为K的子数组](https://leetcode.cn/problems/subarray-sum-equals-k/)
 
 ### 等差子数组
 
-LeetCode [413. 等差数列划分](https://leetcode-cn.com/problems/arithmetic-slices/) 中等
+LeetCode [413. 等差数列划分](https://leetcode.cn/problems/arithmetic-slices/) 中等
 
 动态规划 $O(N)$
 

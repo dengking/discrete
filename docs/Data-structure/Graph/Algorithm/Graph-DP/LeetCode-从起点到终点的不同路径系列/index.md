@@ -2,13 +2,13 @@
 
 题目:
 
-leetcode [62. 不同路径](https://leetcode-cn.com/problems/unique-paths/) 中等
+leetcode [62. 不同路径](https://leetcode.cn/problems/unique-paths/) 中等
 
-leetcode [63. 不同路径 II](https://leetcode-cn.com/problems/unique-paths-ii/) 中等
+leetcode [63. 不同路径 II](https://leetcode.cn/problems/unique-paths-ii/) 中等
 
-LeetCode [64. 最小路径和](https://leetcode-cn.com/problems/minimum-path-sum/) 中等
+LeetCode [64. 最小路径和](https://leetcode.cn/problems/minimum-path-sum/) 中等
 
-leetcode [980. 不同路径 III](https://leetcode-cn.com/problems/unique-paths-iii/) 困难
+leetcode [980. 不同路径 III](https://leetcode.cn/problems/unique-paths-iii/) 困难
 
 算法分析：
 

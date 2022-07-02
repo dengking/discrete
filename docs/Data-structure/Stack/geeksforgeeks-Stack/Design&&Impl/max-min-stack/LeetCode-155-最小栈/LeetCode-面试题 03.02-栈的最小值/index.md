@@ -1,1 +1,1 @@
-# LeetCode [面试题 03.02. 栈的最小值](https://leetcode-cn.com/problems/min-stack-lcci/)
+# LeetCode [面试题 03.02. 栈的最小值](https://leetcode.cn/problems/min-stack-lcci/)

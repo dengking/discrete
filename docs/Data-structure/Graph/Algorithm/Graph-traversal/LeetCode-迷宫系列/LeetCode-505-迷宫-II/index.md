@@ -1,4 +1,4 @@
-# leetcode [505. 迷宫 II](https://leetcode-cn.com/problems/the-maze-ii/) 中等
+# leetcode [505. 迷宫 II](https://leetcode.cn/problems/the-maze-ii/) 中等
 
 一、思路非常简单：在每个位置尝试上下左右四个方向。如果当前位置四个方向都无法移动，则表示进入了死胡同。
 
@@ -918,7 +918,7 @@ int main()
 ```
 上述解法在如下用例中会超过时间限制：
 
-https://leetcode-cn.com/submissions/detail/280379831/testcase/
+https://leetcode.cn/submissions/detail/280379831/testcase/
 
 ## 第七次解题
 
@@ -999,5 +999,5 @@ int main()
 }
 ```
 
-它能够通过所有的测试用例，它是我参考[官方解题](https://leetcode-cn.com/problems/the-maze-ii/solution/mi-gong-ii-by-leetcode/)写的，上述写法相比于我的写法的优势在于它积极进行剪纸。
+它能够通过所有的测试用例，它是我参考[官方解题](https://leetcode.cn/problems/the-maze-ii/solution/mi-gong-ii-by-leetcode/)写的，上述写法相比于我的写法的优势在于它积极进行剪纸。
 

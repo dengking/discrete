@@ -1,8 +1,8 @@
-# leetcode [剑指 Offer 41. 数据流中的中位数](https://leetcode-cn.com/problems/shu-ju-liu-zhong-de-zhong-wei-shu-lcof/) 、[295. 数据流的中位数](https://leetcode-cn.com/problems/find-median-from-data-stream/)
+# leetcode [剑指 Offer 41. 数据流中的中位数](https://leetcode.cn/problems/shu-ju-liu-zhong-de-zhong-wei-shu-lcof/) 、[295. 数据流的中位数](https://leetcode.cn/problems/find-median-from-data-stream/)
 
 > NOTE: 
 >
-> [295. 数据流的中位数](https://leetcode-cn.com/problems/find-median-from-data-stream/) 中给出的官方解题是更加详细的
+> [295. 数据流的中位数](https://leetcode.cn/problems/find-median-from-data-stream/) 中给出的官方解题是更加详细的
 
 ## 我的解题
 
@@ -68,4 +68,4 @@ int main()
 
 ```
 
-## [295. 数据流的中位数](https://leetcode-cn.com/problems/find-median-from-data-stream/) # [官方解题](https://leetcode-cn.com/problems/find-median-from-data-stream/solution/shu-ju-liu-de-zhong-wei-shu-by-leetcode/)
+## [295. 数据流的中位数](https://leetcode.cn/problems/find-median-from-data-stream/) # [官方解题](https://leetcode.cn/problems/find-median-from-data-stream/solution/shu-ju-liu-de-zhong-wei-shu-by-leetcode/)

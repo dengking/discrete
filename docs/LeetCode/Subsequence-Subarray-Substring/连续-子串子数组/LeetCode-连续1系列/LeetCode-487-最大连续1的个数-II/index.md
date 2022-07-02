@@ -1,4 +1,4 @@
-# LeetCode [487. 最大连续1的个数 II](https://leetcode-cn.com/problems/max-consecutive-ones-ii/) 
+# LeetCode [487. 最大连续1的个数 II](https://leetcode.cn/problems/max-consecutive-ones-ii/) 
 
 给定一个二进制数组 `nums` ，如果最多可以翻转一个 `0` ，则返回数组中连续 `1` 的最大个数。
 
@@ -28,7 +28,7 @@
 
 一、思路比较简单，碰到0，就把它调整为1，然后left、right双指针向两边扩展统计相邻1的个数。
 
-二、这道题是前面题 [485. 最大连续 1 的个数](https://leetcode-cn.com/problems/max-consecutive-ones/) 的扩展，它包含前面题的代码，为什么这样说呢？下面的用例就是典型的情况:
+二、这道题是前面题 [485. 最大连续 1 的个数](https://leetcode.cn/problems/max-consecutive-ones/) 的扩展，它包含前面题的代码，为什么这样说呢？下面的用例就是典型的情况:
 
 ```C++
 1
@@ -97,13 +97,13 @@ int main()
 
 ```
 
-## [力扣官方题解](https://leetcode-cn.com/u/leetcode-solution/) # [方法一：预处理 + 枚举](https://leetcode-cn.com/problems/max-consecutive-ones-ii/solution/zui-da-lian-xu-1de-ge-shu-ii-by-leetcode-solution/)
+## [力扣官方题解](https://leetcode.cn/u/leetcode-solution/) # [方法一：预处理 + 枚举](https://leetcode.cn/problems/max-consecutive-ones-ii/solution/zui-da-lian-xu-1de-ge-shu-ii-by-leetcode-solution/)
 
 
 
 
 
-## [力扣官方题解](https://leetcode-cn.com/u/leetcode-solution/) # [方法二：动态规划](https://leetcode-cn.com/problems/max-consecutive-ones-ii/solution/zui-da-lian-xu-1de-ge-shu-ii-by-leetcode-solution/) 
+## [力扣官方题解](https://leetcode.cn/u/leetcode-solution/) # [方法二：动态规划](https://leetcode.cn/problems/max-consecutive-ones-ii/solution/zui-da-lian-xu-1de-ge-shu-ii-by-leetcode-solution/) 
 
 方法一其实没有办法解决进阶问题：**如果输入的数字是作为无限流逐个输入如何处理？换句话说，内存不能存储下所有从流中输入的数字。您可以有效地解决吗？** 因为它需要预先知道所有的数，而我们如果用**动态规划**则可以有效解决进阶问题。
 
@@ -178,7 +178,7 @@ int main()
 
 ```
 
-## [【python3】动态规划](https://leetcode-cn.com/problems/max-consecutive-ones-ii/solution/python3-dong-tai-gui-hua-by-caiji-ud-awny/)
+## [【python3】动态规划](https://leetcode.cn/problems/max-consecutive-ones-ii/solution/python3-dong-tai-gui-hua-by-caiji-ud-awny/)
 
 
 

@@ -1,4 +1,4 @@
-# LeetCode [273. 整数转换英文表示](https://leetcode-cn.com/problems/integer-to-english-words/)
+# LeetCode [273. 整数转换英文表示](https://leetcode.cn/problems/integer-to-english-words/)
 
 
 

@@ -58,13 +58,13 @@ void fill(int x, int y) {
 
 
 
-#### LeetCode [733. 图像渲染](https://leetcode-cn.com/problems/flood-fill/) 简单
+#### LeetCode [733. 图像渲染](https://leetcode.cn/problems/flood-fill/) 简单
 
 下面看一道 LeetCode 题目，其实就是让我们来实现**「颜色填充」**功能。
 
 > NOTE: 
 >
-> 一、LeetCode [733. 图像渲染](https://leetcode-cn.com/problems/flood-fill/) 简单
+> 一、LeetCode [733. 图像渲染](https://leetcode.cn/problems/flood-fill/) 简单
 >
 > 二、这道题，其实也是可以使用BFS来解决的，但是BFS需要queue，空间复杂的更高
 
@@ -107,7 +107,7 @@ void fill(int x, int y) {
 
 > NOTE: 
 >
-> 一、如果newColor 和 origColor相同，不执行算法就可以了，可以在调用fill前做一下判断，leetcode [图像渲染](https://leetcode-cn.com/problems/flood-fill/solution/tu-xiang-xuan-ran-by-leetcode-solution/) 官方解题中给出的就是这种方法。
+> 一、如果newColor 和 origColor相同，不执行算法就可以了，可以在调用fill前做一下判断，leetcode [图像渲染](https://leetcode.cn/problems/flood-fill/solution/tu-xiang-xuan-ran-by-leetcode-solution/) 官方解题中给出的就是这种方法。
 >
 > 二、作者提出的是一些其他的避免"死循环、无限递归"的方式、技巧
 
