@@ -48,9 +48,3 @@ Breadth-first search can be used to solve many problems in graph theory, for exa
 ## geeksforgeeks [Depth First Search or DFS for a Graph](https://www.geeksforgeeks.org/depth-first-search-or-dfs-for-a-graph/)
 
 
-
-
-
-## Dijkstra's algorithm and breadth-first search
-
-Dijkstra's algorithm和breadth-first search非常类似

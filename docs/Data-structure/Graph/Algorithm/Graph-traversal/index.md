@@ -56,17 +56,37 @@ Several special cases of graphs imply(蕴含) the visitation of other vertices i
 
 
 
+## Graph traversal VS tree traversal
+
+1、
+
+graph的结构是比tree要复杂的，所以相比于tree它能够表达更多的relation；
+
+2、
+
+graph是可能存在circle，因此在各种algorithm中，需要对circle进行特殊处理。
+
+tree   是不可能存在circle，因此在各种algorithm中，不需要考虑circle。
+
+3、
+
+graph是可能存在disconnect。
+
+tree   是不可能存在disconnect。
+
+### Depth first traversal
+
+DFS Tree分为preorder、inorder、postorder；
+
+DFS Graph采用的是类似于preorder的策略；
+
+可以看到，graph的depth-first traversal和tree的preorder traversal是非常类似的。
+
+
+
 ## Graph traversal and circle
 
-1、graph的结构是比tree要复杂的，所以相比于tree它能够表达更多的relation；
-
-2、graph是允许circle，因此在各种algorithm中，需要对circle进行特殊处理。
-
-3、graph是运行disconnect。
-
-
-
-## Visited array
+### Visited array
 
 1、在graph traversal中，为了避免由于circle而导致的dead loop，graph traversal algorithm普遍采用的是“标记已经visit过的vertex，对于已经visit过的vertex，再次遇到的时候，直接pass掉”。
 
@@ -78,13 +98,13 @@ Several special cases of graphs imply(蕴含) the visitation of other vertices i
 
 3、采用哪种标注策略呢？
 
-对于采用recursive implementation，由于它本身就是深度优先的，因此，它的标准策略是非常简单的；
+对于采用recursive implementation，由于它本身就是深度优先的，因此，它的标注策略是非常简单的；
 
 对于采用iterative implementation，因此，需要由programmer进行控制:
 
-a、对于depth-first: 如果current node没有被标注，则将它的所有的descendant全部都push到explicit stack中后，才算这个node被visit了
+a、对于DFS: 如果current node没有被标注，则将它的所有的descendant全部都push到explicit stack中后，才算这个node被visit了
 
-b、对于breadth-first: 对于current node的所有的descendant，只要没有被标准，就enqueue。
+b、对于BFS: 对于current node的所有的descendant，只要没有被标准，就enqueue。
 
 4、将它标注为visited，就相当于在tree traversal中，调用了visit function。
 
@@ -99,18 +119,6 @@ b、对于breadth-first: 对于current node的所有的descendant，只要没有
 2、先入queue，然后再入visited
 
 "leetcode[【中规中矩】752. 打开转盘锁（宽度优先搜索）](https://leetcode.cn/problems/open-the-lock/solution/zhong-gui-zhong-ju-kuan-du-you-xian-sou-suo-by-jyj/) "中，就是使用的这种方式
-
-## Graph traversal VS tree traversal
-
-
-
-### Depth first traversal
-
-Tree的depth first traversal是较复杂的，它分为preorder、inorder、postorder；
-
-Graph的depth first traversal是非常简单的，它采用的是类似于preorder的策略；
-
-可以看到，graph的depth-first traversal和tree的preorder traversal是非常类似的。
 
 
 

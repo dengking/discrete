@@ -1,4 +1,5 @@
 nav:
     - Introduction: index.md
+    - Prim's-algorithm: Prim's-algorithm
     - Borůvka's-algorithm: Borůvka's-algorithm
     

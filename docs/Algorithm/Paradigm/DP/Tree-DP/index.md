@@ -1,4 +1,12 @@
-# geeksforgeeks tree DP
+# Tree DP
+
+参考文章:
+
+1、CSDN [树形dp+树形结构总结](https://blog.csdn.net/dcx2001/article/details/78269908)
+
+2、CSDN [ZeroClock](https://blog.csdn.net/woshi250hua) [【DP_树形DP专辑】【9月9最新更新】](https://blog.csdn.net/woshi250hua/article/details/7644959)
+
+3、codeforces [DP on Trees Tutorial](https://codeforces.com/blog/entry/20935)
 
 
 
@@ -19,7 +27,7 @@ Given a tree with N nodes and N-1 edges, calculate the maximum sum of the node v
 Given above is a diagram of a tree with **N=14** nodes and **N-1=13** edges. The values at node being **3, 2, 1, 10, 1, 3, 9, 1, 5, 3, 4, 5, 9 and 8 respectively for nodes 1, 2, 3, 4….14.** 
 
 The diagram below shows all the paths from root to leaves : 
- 
+
 
 ![img](https://media.geeksforgeeks.org/wp-content/uploads/Screen-Shot-2018-02-26-at-11.05.45-PM-e1519666718500.png)
 

@@ -7,5 +7,6 @@ nav:
     - Fibonacci-DP: Fibonacci-DP
     - 背包DP: 背包DP
     - 区间DP: 区间DP
+    - Tree-DP: Tree-DP
     - LeetCode: LeetCode
     
