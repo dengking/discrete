@@ -1,2 +1,6 @@
 nav:
     - Introduction: index.md
+    - LeetCode-32-最长有效括号-困难: LeetCode-32-最长有效括号-困难
+    - LeetCode-1111-有效括号的嵌套深度: LeetCode-1111-有效括号的嵌套深度
+    - LeetCode-1614-括号的最大嵌套深度: LeetCode-1614-括号的最大嵌套深度
+    

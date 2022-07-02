@@ -1,14 +1,18 @@
-# [Find maximum depth of nested parenthesis in a string](https://www.geeksforgeeks.org/find-maximum-depth-nested-parenthesis-string/)
+# Depth-of-nested-parenthesis
 
 
 
-## algorithm
-
-### Method 1 (Uses Stack) 
+## geeksforgeeks [Find maximum depth of nested parenthesis in a string](https://www.geeksforgeeks.org/find-maximum-depth-nested-parenthesis-string/)
 
 
 
-### Method 2 ( O(1) auxiliary space ) 
+### algorithm
+
+#### Method 1 (Uses Stack) 
+
+
+
+#### Method 2 ( O(1) auxiliary space ) 
 
 
 ```c++
@@ -63,5 +67,3 @@ int main()
 ```
 
 
-
-# [LeetCode 32. 最长有效括号](https://leetcode.cn/problems/longest-valid-parentheses/)

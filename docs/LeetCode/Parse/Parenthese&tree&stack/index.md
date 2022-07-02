@@ -129,7 +129,7 @@ TODO
 
 https://leetcode.cn/problemset/all/?search=%E6%8B%AC%E5%8F%B7
 
-### 资源
+## 资源
 
 labuladong [3 分钟看懂如何判断括号的合法性](https://mp.weixin.qq.com/s/o2MjTSIC4FkPscF5MnLXMQ)
 
@@ -139,7 +139,7 @@ labuladong [回溯算法最佳实践：合法括号生成](https://mp.weixin.qq.
 
 
 
-### TODO
+## TODO
 
 geeksforgeeks [Binary tree to string with brackets](https://www.geeksforgeeks.org/binary-tree-string-brackets/)
 
