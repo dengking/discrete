@@ -14,8 +14,8 @@ https://leetcode.cn/problemset/all/?search=%E6%B5%81
 |                                                              |      |      |
 | [LeetCode-703. 数据流中的第 K 大元素](https://leetcode.cn/problems/kth-largest-element-in-a-stream/) |      |      |
 | [LeetCode-487. 最大连续1的个数 II](https://leetcode.cn/problems/max-consecutive-ones-ii/) | DP   |      |
-|                                                              |      |      |
-|                                                              |      |      |
+| [LeetCode-295. 数据流的中位数-中等](https://leetcode-cn.com/problems/find-median-from-data-stream/) |      |      |
+| Reservoir Sampling(水塘抽样)                                 |      |      |
 |                                                              |      |      |
 |                                                              |      |      |
 |                                                              |      |      |
