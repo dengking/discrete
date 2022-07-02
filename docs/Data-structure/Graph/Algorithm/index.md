@@ -1,4 +1,6 @@
-# Computational problems and algorithm in graph theory
+# Graph algorithm
+
+
 
 ## wikipedia [Computational problems in graph theory](https://en.wikipedia.org/wiki/Category:Computational_problems_in_graph_theory)
 
@@ -8,11 +10,11 @@
 
 ### [Topological sorting](https://en.wikipedia.org/wiki/Topological_sorting)
 
-#### [Pre-topological order](https://en.wikipedia.org/wiki/Pre-topological_order)
+[Pre-topological order](https://en.wikipedia.org/wiki/Pre-topological_order)
 
 
 
-#### [C3 linearization](https://en.wikipedia.org/wiki/C3_linearization)
+[C3 linearization](https://en.wikipedia.org/wiki/C3_linearization)
 
 
 

@@ -1,5 +1,7 @@
 # Shortest and longest path 
 
+## Single source shortest path(SSSP)
+
 最短路径问题的算法:
 
 一、Dijkstra's algorithm
@@ -14,9 +16,23 @@
 
 参见 `DP解路径问题` 章节
 
+四、BFS
 
 
-# Max path in a graph
+
+### LeetCode
+
+| LeetCode                                                     | 算法 |      |
+| ------------------------------------------------------------ | ---- | ---- |
+| [LeetCode-120. 三角形最小路径和](https://leetcode.cn/problems/triangle/) | DP   |      |
+|                                                              |      |      |
+|                                                              |      |      |
+
+
+
+
+
+## Max path in a graph
 
 参见: 
 
