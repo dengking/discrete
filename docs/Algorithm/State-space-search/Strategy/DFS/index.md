@@ -176,13 +176,13 @@ LeetCode [491. 递增子序列](https://leetcode.cn/problems/increasing-subseque
 
 dfs-last
 
-## dfs pre-order:
+## DFS pre-order:
 
 base case
 
 prune 剪枝
 
-## dfs post order
+## DFS post order
 
 post-action
 
@@ -200,13 +200,13 @@ labuladong [美团面试官：你对二叉树后续遍历一无所知](https://m
 
 
 
-## dfs data structure
+## DFS data structure
 
-### dfs linked-list
+### DFS linked-list
 
 
 
-### dfs graph
+### DFS graph
 
 ### 迷宫系列
 

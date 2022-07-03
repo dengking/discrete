@@ -109,7 +109,7 @@ public class MaxPQ < Key extends Comparable < Key >> {
 
 
 
-## infogalactic [Heap (data structure)](https://infogalactic.com/info/Heap_(data_structure))
+## wikipedia [Heap (data structure)](https://en.wikipedia.org/wiki/Heap_(data_structure))
 
 
 
