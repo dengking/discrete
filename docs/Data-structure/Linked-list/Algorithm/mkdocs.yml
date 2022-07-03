@@ -1,4 +1,5 @@
 nav:
+    - Introduction: index.md
     - Traverse-linked-list: Traverse-linked-list
     - DFS-linked-list: DFS-linked-list
     - Previous-current-next-pointer-三指针: Previous-current-next-pointer-三指针

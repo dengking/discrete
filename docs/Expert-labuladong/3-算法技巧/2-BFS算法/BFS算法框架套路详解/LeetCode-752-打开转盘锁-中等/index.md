@@ -1,4 +1,4 @@
-# leetcode [752. 打开转盘锁](https://leetcode.cn/problems/open-the-lock/) 中等
+# [LeetCode-752. 打开转盘锁-中等](https://leetcode.cn/problems/open-the-lock/) 
 
 ## 我的解题
 
