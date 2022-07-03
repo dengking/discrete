@@ -1,10 +1,7 @@
 nav:
     - Introduction: index.md
     - Brute-force-search: Brute-force-search
-    - DFS: DFS
-    - DFS-backtracking: DFS-backtracking
-    - BFS: BFS
-    - BFS-branch-and-bound: BFS-branch-and-bound    
+    - Traverse-structure: Traverse-structure   
     - 二进制枚举: 二进制枚举    
     - 去重: 去重
     

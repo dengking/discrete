@@ -1,0 +1,8 @@
+nav:
+    - Introduction: index.md
+    - DFS: DFS
+    - DFS-backtracking: DFS-backtracking
+    - BFS: BFS
+    - BFS-branch-and-bound: BFS-branch-and-bound    
+
+    

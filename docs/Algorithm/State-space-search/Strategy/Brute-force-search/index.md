@@ -1,5 +1,7 @@
 # Brute-force search
 
+这种是最最简单的，显然，简单也意味着它的复杂度较高。
+
 ## wikipedia [Brute-force search](https://en.wikipedia.org/wiki/Brute-force_search)
 
 

@@ -1,10 +1,10 @@
-# state space、solution space的strategy、算法
+# 搜索state space、solution space的strategy、算法
 
 
 
 ## 穷举是解决一切问题的基础
 
-素材：
+参考素材：
 
 1、在discrete book中所说的：
 
@@ -18,6 +18,8 @@
 
 > First talk about the brute force solution, then think about better approaches.
 
+我的总结:
+
 一、这是一种systematic method
 
 二、问题的解空间、可能的组合、罗列所有的可能性、问题的解空间、组合分析
@@ -28,23 +30,15 @@
 
 
 
-### 穷举的算法
+## 穷举的算法
 
+### Brute-force
 
+参见 `Brute-force-search` 章节。
 
-#### for、brute-force
+### Traverse-structure
 
-这种是最最简单的。
-
-#### DFS-backtracking回溯法
-
-参见 `DFS-backtracking` 章节。
-
-
-
-#### BFS-branch-and-bound
-
-参见 `BFS-branch-and-bound` 章节。
+参见
 
 #### 二进制枚举
 
@@ -58,7 +52,7 @@
 
 
 
-### 高效的穷举
+## 高效的穷举
 
 很多高效的algorithm在于它比较好地罗列了问题的所有可能性，相比与暴力搜索，它高效的多，它们的一般思路为: 
 
@@ -91,16 +85,5 @@ DP的选择；
 总的来说，无论是backtracing还是branch-and-bound，都是充分运用已知信息来进行剪枝、进行优化、加速搜索，进而避免像暴力搜索那样搜索完整的解空间。
 
 
-
-
-
-## Algorithm paradigm
-
-本章描述实现search algorithm的常见Paradigm：
-
-| algorithm paradigm | search strategy                               |
-| ------------------ | --------------------------------------------- |
-| Backtracking       | - Depth-first search                          |
-| Branch-and-Bound   | - Breadth-first search<br>- Best-first search |
 
 

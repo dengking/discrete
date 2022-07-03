@@ -48,7 +48,15 @@ Visitor pattern: 参见工程programming-language的`Theory\Programming-paradigm
 
 [Database](https://infogalactic.com/info/Database) [Cursor](https://infogalactic.com/info/Cursor_(databases)): 参见工程DB
 
+#### 相关章节
 
+1、`Algorithm\State-space-search\Strategy\Traverse-structure`
+
+2、`Traverse-graph`
+
+3、`Traverse-tree`
+
+4、`Traverse-linked-list`
 
 
 
