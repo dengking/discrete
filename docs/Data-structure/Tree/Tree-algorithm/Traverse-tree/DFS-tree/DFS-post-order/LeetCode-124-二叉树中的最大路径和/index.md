@@ -1,4 +1,4 @@
-# leetcode [124. 二叉树中的最大路径和](https://leetcode.cn/problems/binary-tree-maximum-path-sum/)
+# [LeetCode-124. 二叉树中的最大路径和](https://leetcode.cn/problems/binary-tree-maximum-path-sum/)
 
 这是在阅读 labuladong [数据结构和算法学习指南](https://mp.weixin.qq.com/s/ZYaXOSVM3YBIeRWm7E_jcQ) 时发现的。
 
@@ -193,5 +193,15 @@ public:
 		}
 	}
 };
+```
+
+
+
+## highlight
+
+```
+tag-DFS-post-order-binary-tree-return-value-bottom-up-二叉树的最大路径和
+tag-base case-叶子节点的value为它本身
+tag-recurrence relation递归状态转移方程-current node=max(left child, right child)
 ```
 

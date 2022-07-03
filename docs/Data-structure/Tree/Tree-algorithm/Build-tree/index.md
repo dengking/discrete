@@ -12,7 +12,7 @@
 
 关于parsing，可以参见：
 
-1、维基百科[Parsing](https://en.wikipedia.org/wiki/Parsing)
+1、[wikipedia-Parsing](https://en.wikipedia.org/wiki/Parsing)
 
 2、工程[compiler-principle](https://dengking.github.io/compiler-principle/)的[Chapter-4-Syntax-Analysis](https://dengking.github.io/compiler-principle/Chapter-4-Syntax-Analysis/)
 

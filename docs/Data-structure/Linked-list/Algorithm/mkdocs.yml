@@ -1,4 +1,5 @@
 nav:
+    - DFS-linked-list: DFS-linked-list
     - Previous-current-next-pointer-三指针: Previous-current-next-pointer-三指针
     - Fast-slow-double-pointer-快慢双指针: Fast-slow-double-pointer-快慢双指针
     - 去重: 去重

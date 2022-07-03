@@ -1,24 +1,30 @@
-# DFS
+# DFS Guide
 
-## 分类
+DFS是一个非常繁杂的主题，涉及到的内容非常多，本文对DFS的内容进行梳理概括。
 
-有种多种分类方式:
+下面提供了分析DFS算法的几种方式:
 
-一、根据次序
+一、structure
 
-pre-order
+第一种方式是根据structure来进行划分，需要注意的是，此处的structure包括concrete structure也包括abstract structure。
 
-in-order
+| 分类            | 章节        |      |
+| --------------- | ----------- | ---- |
+| DFS-linked-list |             |      |
+| DFS-tree        |             |      |
+| DFS-graph       | `DFS-graph` |      |
 
-post-order
 
-二、根据数据结构
 
-dfs-graph
+二、处理节点次序
 
-dfs-tree
+|            |      |      |
+| ---------- | ---- | ---- |
+| pre-order  |      |      |
+| in-order   |      |      |
+| post-order |      |      |
 
-dfs-linked-list
+
 
 三、根据问题类别
 

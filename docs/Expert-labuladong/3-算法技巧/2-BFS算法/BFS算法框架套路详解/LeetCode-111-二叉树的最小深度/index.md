@@ -330,3 +330,16 @@ int main()
 }
 ```
 
+
+
+## highlight
+
+
+
+```
+tag-DFS-post-order-binary-tree-return-value-bottom-up-二叉树的最小高度
+tag-base case-叶子节点的高度为1
+tag-recurrence relation递归状态转移方程-当前节点的最小深度=min(left child, right child)+1
+tag-return value为当前节点的最小高度
+```
+
