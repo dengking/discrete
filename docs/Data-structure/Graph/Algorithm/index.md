@@ -60,6 +60,18 @@
 
 
 
+
+
+## 算法总结
+
+|                                                              |                  |                                                              | data structure   |
+| ------------------------------------------------------------ | ---------------- | ------------------------------------------------------------ | ---------------- |
+|                                                              |                  |                                                              |                  |
+| [Prim算法](https://leetcode.cn/problems/min-cost-to-connect-all-points/solution/prim-and-kruskal-by-yexiso-c500/) | 以**顶点**为基础 | 和Dijkstra's algorithm非常类似，以greedy的方式不断地扩展，并且它也可以使用`priority_queue`来进行优化。 | `priority_queue` |
+| [Kruskal](https://leetcode.cn/problems/min-cost-to-connect-all-points/solution/prim-and-kruskal-by-yexiso-c500/) | 以**边**为基础   |                                                              | union-find-set   |
+
+Algorithm is like a machine .
+
 ## TODO
 
 [Directed graph traversal, orderings and applications to data-flow analysis](https://eli.thegreenplace.net/2015/directed-graph-traversal-orderings-and-applications-to-data-flow-analysis/)
@@ -67,5 +79,3 @@
 [Control-flow graph](https://en.wikipedia.org/wiki/Control-flow_graph)
 
 
-
-如何判断一个graph是否是tree？

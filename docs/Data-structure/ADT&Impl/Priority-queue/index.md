@@ -84,3 +84,5 @@ leetcode [295. 数据流的中位数](https://leetcode.cn/problems/find-median-f
 
 使用两个heap
 
+4、[Prim算法](https://leetcode.cn/problems/min-cost-to-connect-all-points/solution/prim-and-kruskal-by-yexiso-c500/)
+
