@@ -1,4 +1,4 @@
-# LeetCode [743. 网络延迟时间](https://leetcode.cn/problems/network-delay-time/) 中等
+# [LeetCode-743. 网络延迟时间-中等](https://leetcode.cn/problems/network-delay-time/) 
 
 这个题目有一个特别需要注意的地方：
 
