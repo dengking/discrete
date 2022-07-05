@@ -18,5 +18,161 @@ The Floyd–Warshall algorithm is an example of [dynamic programming](https://en
 
 ## LeetCode
 
-[LeetCode-743. 网络延迟时间-中等](https://leetcode.cn/problems/network-delay-time/) 
+### [LeetCode-743. 网络延迟时间-中等](https://leetcode.cn/problems/network-delay-time/) 
+
+
+
+```c++
+// #include <bits/stdc++.h>
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <bitset>
+#include <map>
+#include <set>
+#include <list>
+#include <stack>
+#include <unordered_map>
+#include <unordered_set>
+#include <queue>
+#include <deque>
+#include <cmath>
+#include <numeric>
+#include <climits>
+#include <random>
+// example1.cpp
+// new-delete-type-mismatch error
+#include <memory>
+#include <vector>
+
+using namespace std;
+
+class Solution
+{
+public:
+  int networkDelayTime(vector<vector<int>> &times, int n, int k)
+  {
+    vector<vector<int>> dp(n + 1, vector<int>(n + 1, INT_MAX / 2)); // 节点的标号是从1开始的，所以使用n+1
+    for (auto &it : times)
+      dp[it[0]][it[1]] = it[2];
+    for (int i = 1; i <= n; i++)
+      dp[i][i] = 0;              //自己到自己为0
+    for (int k = 1; k <= n; k++) // 中转节点
+    {
+      for (int i = 1; i <= n; i++) // 节点的标号是从1开始的
+      {
+        for (int j = 1; j <= n; j++)
+        {
+          dp[i][j] = min(dp[i][j], dp[i][k] + dp[k][j]);
+        }
+      }
+    }
+    int ret = 0;
+    for (int i = 1; i <= n; i++)
+      ret = max(ret, dp[k][i]);
+    return ret == INT_MAX / 2 ? -1 : ret;
+  }
+};
+
+// Driver code
+int main()
+{
+}
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra
+
+```
+
+
+
+```
+k=1:
+dp[1][1]=dp[]
+dp[1][2]
+dp[1][3]
+dp[1][4]
+
+k=2:
+dp[1][1]=dp[]
+dp[1][2]
+dp[1][3]
+dp[1][4]
+
+
+
+```
+
+
+
+上述代码能够正常工作，下面代码则无法正常工作:
+
+
+
+```c++
+// #include <bits/stdc++.h>
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <bitset>
+#include <map>
+#include <set>
+#include <list>
+#include <stack>
+#include <unordered_map>
+#include <unordered_set>
+#include <queue>
+#include <deque>
+#include <cmath>
+#include <numeric>
+#include <climits>
+#include <random>
+// example1.cpp
+// new-delete-type-mismatch error
+#include <memory>
+#include <vector>
+
+using namespace std;
+
+class Solution
+{
+public:
+  int networkDelayTime(vector<vector<int>> &times, int n, int k)
+  {
+    vector<vector<int>> dp(n + 1, vector<int>(n + 1, INT_MAX / 2)); // 节点的标号是从1开始的，所以使用n+1
+    for (auto &it : times)
+      dp[it[0]][it[1]] = it[2];
+    for (int i = 1; i <= n; i++)
+      dp[i][i] = 0; //自己到自己为0
+
+    for (int i = 1; i <= n; i++) // 节点的标号是从1开始的
+    {
+      for (int j = 1; j <= n; j++)
+      {
+        for (int k = 1; k <= n; k++) // 中转节点
+        {
+          dp[i][j] = min(dp[i][j], dp[i][k] + dp[k][j]);
+        }
+      }
+    }
+    int ret = 0;
+    for (int i = 1; i <= n; i++)
+      ret = max(ret, dp[k][i]);
+    return ret == INT_MAX / 2 ? -1 : ret;
+  }
+};
+
+// Driver code
+int main()
+{
+}
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra
+
+```
+
+
+
+
+
+
 
