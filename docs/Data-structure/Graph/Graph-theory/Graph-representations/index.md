@@ -2,11 +2,19 @@
 
 
 
-## 维基百科[Graph (abstract data type)#Representations](https://en.wikipedia.org/wiki/Graph_(abstract_data_type))
+## wikipedia [Graph (abstract data type)#Representations](https://en.wikipedia.org/wiki/Graph_(abstract_data_type))
+
+| 表示方式                                                     | example                                                      | representation              |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | --------------------------- |
+| [Adjacency list](https://en.wikipedia.org/wiki/Adjacency_list) （邻接链表） | ![](./weight01.gif)                                          | ![](./adjacency-list.gif)   |
+| [Adjacency matrix](https://en.wikipedia.org/wiki/Adjacency_matrix) （邻接矩阵） | ![](./weight01.gif)                                          | ![](./adjacent-matrix.jpg)  |
+| [Incidence matrix](https://en.wikipedia.org/wiki/Incidence_matrix) （关联矩阵） | [![img](https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Weighted_undirected_graph.svg/220px-Weighted_undirected_graph.svg.png)](https://en.wikipedia.org/wiki/File:Weighted_undirected_graph.svg) | ![](./incidence-matrix.jpg) |
+
+> NOTE: 上述三种方式都能够表示weighed graph和unweighted graph。
 
 
 
-## [Representing weighted graphs](http://www.mathcs.emory.edu/~cheung/Courses/171/Syllabus/11-Graph/weighted.html)
+## mathcs.emory [Representing weighted graphs](http://www.mathcs.emory.edu/~cheung/Courses/171/Syllabus/11-Graph/weighted.html)
 
 > NOTE: 如何来表示一个weighted graph？正如在Summary章节所述，即需要考虑structure也需要考虑property（也就是这里说的weight）
 
@@ -23,7 +31,7 @@ The **weight** of an **edge** can **represent**:
 - **Cost or distance**
 - **Capacity** = the **maximim amount of flow** that can be **transported** from one place to another
 
-#### Representing weighted graphs using an adjacency list
+#### Adjacency list
 
 Each **node** in the **adjacency graph** will **contain:**
 
@@ -34,11 +42,11 @@ Each **node** in the **adjacency graph** will **contain:**
 
 **Graph:**
 
-![](./weight01 (1).gif)
+![](./weight01.gif)
 
 **Representation:**
 
-![](./weight02.gif)
+![](./adjacency-list.gif)
 
 
 
@@ -72,7 +80,9 @@ Class used to represent (define) a graph:
    }
 ```
 
-#### Representing weighted graphs using an adjacency array
+#### Adjacency matrix
+
+> NOTE: 原文称之为 "Adjacency array"
 
 Representing a weighted graph using an adjacency array:
 
@@ -82,7 +92,7 @@ Representing a weighted graph using an adjacency array:
 
 Example:
 
-![](./weight01 (2).gif)
+![](./weight01.gif)
 
 Representation:
 
@@ -129,9 +139,19 @@ Class used to represent a graph using an adjacency matrix:
 
 ## Summary
 
-正如一个web page涉及structure和是type，一个graph涉及到structure和property（edge的property和vertex的property），所以graph representation就涉及两者。
+### Weighted graph 如何表示两点不相连？
 
-关于graph representation，可以阅读boost graph library。
+1、Incidence-matrix、
+
+通过特殊值来标记不相连，一般有如下选择
+
+
+
+2、Adjacency-list
+
+这种表示方式相对比较简单: 如果"adjacent vertices" 或者 "terminal vertices" 中不包含目标节点，那么就不相连。
+
+
 
 ### 从relation的角度来分析graph representation
 
