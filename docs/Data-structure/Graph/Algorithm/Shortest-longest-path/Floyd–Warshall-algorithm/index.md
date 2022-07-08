@@ -10,9 +10,37 @@
 
 ## wikipedia [Floyd–Warshall algorithm](https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm)
 
+In [computer science](https://en.wikipedia.org/wiki/Computer_science), the **Floyd–Warshall algorithm** (also known as **Floyd's algorithm**, the **Roy–Warshall algorithm**, the **Roy–Floyd algorithm**, or the **WFI algorithm**) ...
+
+> NOTE: 
+>
+> 一、要理解上面这段话，其实是需要了解"History and naming"节的内容，从这个算法的命名来看，它其实就涉及多位计算机科学家，下面是一个简单的梳理
+>
+> | 时间 | 计算机科学家                                                 | application        |
+> | ---- | ------------------------------------------------------------ | ------------------ |
+> | 1959 | [Bernard Roy](https://en.wikipedia.org/wiki/Bernard_Roy)     |                    |
+> | 1962 | [Robert Floyd](https://en.wikipedia.org/wiki/Robert_Floyd)   | shortest-path      |
+> | 1962 | [Stephen Warshall](https://en.wikipedia.org/wiki/Stephen_Warshall) | transitive closure |
+>
+> 不过，一般采用如下叫法:
+>
+> | application                                                  | 叫法                 |
+> | ------------------------------------------------------------ | -------------------- |
+> | Shortest paths in directed graphs                            | Floyd's algorithm    |
+> | [Transitive closure](https://en.wikipedia.org/wiki/Transitive_closure) of directed graphs | Warshall's algorithm |
+> |                                                              |                      |
+>
+> 二、
+
+### History and naming
+
 
 
 The Floyd–Warshall algorithm is an example of [dynamic programming](https://en.wikipedia.org/wiki/Dynamic_programming), and was published in its currently recognized form by [Robert Floyd](https://en.wikipedia.org/wiki/Robert_Floyd) in 1962.[[3\]](https://en.wikipedia.org/wiki/Floyd–Warshall_algorithm#cite_note-3) However, it is essentially the same as algorithms previously published by [Bernard Roy](https://en.wikipedia.org/wiki/Bernard_Roy) in 1959[[4\]](https://en.wikipedia.org/wiki/Floyd–Warshall_algorithm#cite_note-4) and also by [Stephen Warshall](https://en.wikipedia.org/wiki/Stephen_Warshall) in 1962[[5\]](https://en.wikipedia.org/wiki/Floyd–Warshall_algorithm#cite_note-5) for finding the **transitive closure** of a graph,[[6\]](https://en.wikipedia.org/wiki/Floyd–Warshall_algorithm#cite_note-6) and is closely related to [Kleene's algorithm](https://en.wikipedia.org/wiki/Kleene's_algorithm) (published in 1956) for converting a [deterministic finite automaton](https://en.wikipedia.org/wiki/Deterministic_finite_automaton) into a [regular expression](https://en.wikipedia.org/wiki/Regular_expression).[[7\]](https://en.wikipedia.org/wiki/Floyd–Warshall_algorithm#cite_note-7) The modern formulation of the algorithm as three nested for-loops was first described by Peter Ingerman, also in 1962.[[8\]](https://en.wikipedia.org/wiki/Floyd–Warshall_algorithm#cite_note-8)
+
+
+
+### Applications and generalizations
 
 
 
@@ -67,7 +95,9 @@ for ( int k = 0; k < 节点个数; ++k )// k代表的是i和j之间的中间结�
 
  
 
-  如何填充Path的值呢？很简单，当我们发现Dis(AX) + Dis(XB) < Dis(AB)成立时，就要把最短路径改为A->...->X->...->B，而此时，Path(XB)的值是已知的，所以，Path(AB) = Path(XB)。
+如何填充Path的值呢？很简单，当我们发现Dis(AX) + Dis(XB) < Dis(AB)成立时，就要把最短路径改为A->...->X->...->B，而此时，Path(XB)的值是已知的，所以，Path(AB) = Path(XB)。
+
+
 
 ### [LeetCode-743. 网络延迟时间-中等](https://leetcode.cn/problems/network-delay-time/) 
 
@@ -297,3 +327,6 @@ dp[3][3]=min(dp[3][3], dp[3][3]+dp[3][3])
 
 两者写法，填值顺序完全不同。
 
+### Graph representation and DP table
+
+[Floyd–Warshall algorithm](https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm) 的精妙之处在于它graph representation就是DP table，它的graph representation是adjacency matrix，显然这是正好可以作为DP table的，这其实是这个算法简单的来源。

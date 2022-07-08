@@ -2,7 +2,8 @@ nav:
     - Introduction: index.md
     - Graph-theory: Graph-theory
     - Graph-Model: Graph-Model
-    - Graph-operation: Graph-operation
+    # graph的计算机表示    
+    - Graph-representations: Graph-representations
     - Implementation: Implementation
     - Algorithm: Algorithm
    

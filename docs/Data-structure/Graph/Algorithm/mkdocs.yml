@@ -1,6 +1,7 @@
 nav:
     - Introduction: index.md
     - Traverse-graph: Traverse-graph
+    - Search-graph: Search-graph
     - Shortest-longest-path: Shortest-longest-path
     - Topological-sorting: Topological-sorting
     - Spanning-tree: Spanning-tree    
