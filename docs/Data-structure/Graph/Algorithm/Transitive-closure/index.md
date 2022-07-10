@@ -20,7 +20,7 @@ A [set](https://en.wikipedia.org/wiki/Set_(mathematics)) is **closed** under an 
 
 
 
-## Transitive_closure
+## Transitive closure
 
 wikipedia [Transitive_closure](https://en.wikipedia.org/wiki/Transitive_closure)
 
@@ -36,7 +36,7 @@ wikipedia [Transitive_closure](https://en.wikipedia.org/wiki/Transitive_closure)
 
 [**TensorFlow: Large-Scale Machine Learning on Heterogeneous Distributed Systems**](http://download.tensorflow.org/paper/whitepaper2015.pdf) 
 
-the TensorFlow implementation can compute the **transitive closure** of all nodes that must be executed in order to compute the outputs that were requested
+> the TensorFlow implementation can compute the **transitive closure** of all nodes that must be executed in order to compute the outputs that were requested
 
 ### Draft 2
 

@@ -4,7 +4,13 @@
 
 1、wikipedia [Floyd–Warshall algorithm](https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm)
 
-2、geeksforgeeks [Floyd Warshall Algorithm | DP-16](https://www.geeksforgeeks.org/floyd-warshall-algorithm-dp-16/)
+2、geeksforgeeks [Floyd Warshall Algorithm | DP-16](https://www.geeksforgeeks.org/floyd-warshall-algorithm-dp-16/) 
+
+
+
+## Computation complexity
+
+Floyd–Warshall algorithm的思想非常简单: 穷举，对于包含N个节点的graph，显然穷举/遍历需要 $O(N^3)$ 。
 
 
 

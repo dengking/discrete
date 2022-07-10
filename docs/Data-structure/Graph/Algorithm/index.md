@@ -40,11 +40,9 @@ Binary operations create a new graph from two initial ones *G*1 = (*V*1, *E*1) a
 
 
 
-
-
-
-
 ## wikipedia [Computational problems in graph theory](https://en.wikipedia.org/wiki/Category:Computational_problems_in_graph_theory)
+
+
 
 ### [Spanning tree](https://en.wikipedia.org/wiki/Spanning_tree)
 
@@ -104,15 +102,11 @@ Binary operations create a new graph from two initial ones *G*1 = (*V*1, *E*1) a
 
 
 
-## 算法总结
+## Graph algorithm paradigm
 
-|                                                              |                  |                                                              | data structure   |
-| ------------------------------------------------------------ | ---------------- | ------------------------------------------------------------ | ---------------- |
-|                                                              |                  |                                                              |                  |
-| [Prim算法](https://leetcode.cn/problems/min-cost-to-connect-all-points/solution/prim-and-kruskal-by-yexiso-c500/) | 以**顶点**为基础 | 和Dijkstra's algorithm非常类似，以greedy的方式不断地扩展，并且它也可以使用`priority_queue`来进行优化。 | `priority_queue` |
-| [Kruskal](https://leetcode.cn/problems/min-cost-to-connect-all-points/solution/prim-and-kruskal-by-yexiso-c500/) | 以**边**为基础   |                                                              | union-find-set   |
+参见 `Graph-algorithm-paradigm` 章节。
 
-Algorithm is like a machine .
+
 
 ## TODO
 
