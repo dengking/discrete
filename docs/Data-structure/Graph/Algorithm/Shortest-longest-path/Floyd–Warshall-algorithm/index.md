@@ -10,7 +10,7 @@
 
 ## Computation complexity
 
-Floyd–Warshall algorithm的思想非常简单: 穷举，对于包含N个节点的graph，显然穷举/遍历需要 $O(N^3)$ 。
+Floyd–Warshall algorithm的思想非常简单: **穷举**，对于包含N个节点的graph，显然穷举/遍历需要 $O(N^3)$ 。
 
 
 
@@ -34,9 +34,8 @@ In [computer science](https://en.wikipedia.org/wiki/Computer_science), the **Flo
 > | ------------------------------------------------------------ | -------------------- |
 > | Shortest paths in directed graphs                            | Floyd's algorithm    |
 > | [Transitive closure](https://en.wikipedia.org/wiki/Transitive_closure) of directed graphs | Warshall's algorithm |
-> |                                                              |                      |
 >
-> 二、
+> 
 
 ### History and naming
 
@@ -48,7 +47,13 @@ The Floyd–Warshall algorithm is an example of [dynamic programming](https://en
 
 ### Applications and generalizations
 
+1、Shortest paths in directed graphs (Floyd's algorithm).
 
+2、[Transitive closure](https://en.wikipedia.org/wiki/Transitive_closure) of directed graphs (Warshall's algorithm). In Warshall's original formulation of the algorithm, the graph is unweighted and represented by a Boolean [adjacency matrix](https://en.wikipedia.org/wiki/Adjacency_matrix). Then the addition operation is replaced by [logical conjunction](https://en.wikipedia.org/wiki/Logical_conjunction) (AND) and the minimum operation by [logical disjunction](https://en.wikipedia.org/wiki/Logical_disjunction) (OR).
+
+3、Finding a [regular expression](https://en.wikipedia.org/wiki/Regular_expression) denoting the [regular language](https://en.wikipedia.org/wiki/Regular_language) accepted by a [finite automaton](https://en.wikipedia.org/wiki/Finite_automaton) ([Kleene's algorithm](https://en.wikipedia.org/wiki/Kleene's_algorithm), a closely related generalization of the Floyd–Warshall algorithm)
+
+4、[Widest paths/Maximum bandwidth paths](https://en.wikipedia.org/wiki/Widest_path_problem)
 
 ## Implementation
 
