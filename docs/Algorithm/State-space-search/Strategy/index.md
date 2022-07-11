@@ -38,7 +38,7 @@
 
 ### Traverse-structure
 
-参见
+参见 `Traverse-structure` 章节。
 
 #### 二进制枚举
 
