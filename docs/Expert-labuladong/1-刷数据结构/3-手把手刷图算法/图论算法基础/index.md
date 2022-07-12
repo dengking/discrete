@@ -41,3 +41,11 @@ void traverse(Graph graph, int s) {
     onPath[s] = false;
 }
 ```
+
+> NOTE: 上述是DFS
+
+注意`visited`数组和`onPath`数组的区别，因为二叉树算是特殊的图，所以用遍历二叉树的过程来理解下这两个数组的区别：
+
+![图片](https://mmbiz.qpic.cn/sz_mmbiz_gif/gibkIz0MVqdFam5oRSu0VjicmiahDJShicYw30YXQRIjUWgfbQH308jiaq84ZAAqc9gOZe8VLudqr4HaqmPiaf0coJpA/640?wx_fmt=gif&wxfrom=5&wx_lazy=1&wx_co=1)
+
+**上述 GIF 描述了递归遍历二叉树的过程，在`visited`中被标记为 true 的节点用灰色表示，在`onPath`中被标记为 true 的节点用绿色表示**，这下你可以理解它们二者的区别了吧。
