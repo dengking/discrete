@@ -1,4 +1,4 @@
-# Backtracking 回溯法
+# Backtrack 回溯法
 
 书写思路：
 

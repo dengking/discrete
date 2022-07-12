@@ -52,3 +52,6 @@ In the application of [dynamic programming](https://en.wikipedia.org/wiki/Dynami
 
 
 
+## Example
+
+理解  [optimal substructure](https://en.wikipedia.org/wiki/Optimal_substructure) 的最好的例子是 graph shortest path，在wikipedia [Floyd–Warshall algorithm](https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm) 中就提及了此。
