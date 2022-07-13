@@ -1,6 +1,7 @@
 nav:
     - Introduction: index.md
     - 图论算法基础: 图论算法基础
+    - Dijkstra: Dijkstra
     - 拓扑排序: 拓扑排序
     - union-find: union-find
     

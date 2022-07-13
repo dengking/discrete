@@ -1,14 +1,31 @@
 # [LeetCode-797-所有可能的路径](https://leetcode.cn/problems/all-paths-from-source-to-target/)
 
-是在阅读labuladong [图论算法基础（修订版）](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247494624&idx=1&sn=29b84ce2a1ba8115922179e207281e27&scene=21#wechat_redirect) 时发现的。
+是在阅读 labuladong [图论算法基础（修订版）](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247494624&idx=1&sn=29b84ce2a1ba8115922179e207281e27&scene=21#wechat_redirect) 时发现的。
 
 ## 我的解题
 
-它的stop condition是遇到了目标节点。
+1、它的stop condition是遇到了目标节点。
 
-它需要保存path。
+2、它需要保存path。
 
-由于是无环的，因此它不需要visited array。
+3、由于是无环的，因此它不需要visited array。
+
+4、下面的写法是符合 labuladong [图论算法基础（修订版）](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247494624&idx=1&sn=29b84ce2a1ba8115922179e207281e27&scene=21#wechat_redirect)  中的这个版本的代码的:
+
+```java
+void traverse(TreeNode root) {
+    if (root == null) return;
+    System.out.println("enter: " + root.val);
+    for (TreeNode child : root.children) {
+        traverse(child);
+    }
+    System.out.println("leave: " + root.val);
+}
+```
+
+显然，它所处理的是node。
+
+### 完整代码
 
 ```c++
 // #include <bits/ne_stdc++.h>
@@ -46,21 +63,19 @@ public:
   }
   void dfs(int node, vector<vector<int>> &graph)
   {
+    path_.push_back(node);
     if (node == graph.size() - 1)
     {
-      path_.push_back(node);
       res_.push_back(path_);
-      path_.pop_back();
     }
     else
     {
-      path_.push_back(node);
       for (auto &&next : graph[node])
       {
         dfs(next, graph);
       }
-      path_.pop_back();
     }
+    path_.pop_back();
   }
 };
 

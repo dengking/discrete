@@ -131,3 +131,43 @@ void traverse(int[][] graph, int s, LinkedList<Integer> path) {
 }
 ```
 
+
+
+> NOTE:
+>
+> 上述写法是不及下面写法的:
+>
+> ```c++
+> 
+> class Solution
+> {
+>   vector<int> path_;
+>   vector<vector<int>> res_;
+> 
+> public:
+>   vector<vector<int>> allPathsSourceTarget(vector<vector<int>> &graph)
+>   {
+>     dfs(0, graph);
+>     return res_;
+>   }
+>   void dfs(int node, vector<vector<int>> &graph)
+>   {
+>     path_.push_back(node);
+> 
+>     if (node == graph.size() - 1)
+>     {
+>       res_.push_back(path_);
+>     }
+>     else
+>     {
+>       for (auto &&next : graph[node])
+>       {
+>         dfs(next, graph);
+>       }
+>     }
+>     path_.pop_back();
+>   }
+> };
+> ```
+>
+> 
