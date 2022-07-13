@@ -1,5 +1,7 @@
 # labuladong [我写了一个模板，把 Dijkstra 算法变成了默写题](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247492167&idx=1&sn=bc96c8f97252afdb3973c7d760edb9c0&scene=21#wechat_redirect)
 
+> NOTE: 这篇文章非常好，它循序渐进、由容易到难地进行介绍。
+
 Dijkstra 算法（一般音译成迪杰斯特拉算法）无非就是一个 BFS 算法的加强版，它们都是从二叉树的层序遍历衍生出来的。
 
 
@@ -123,7 +125,9 @@ int BFS(Node start) {
 
 > NOTE:
 >
-> visited set 
+> 一、visited set 
+>
+> 二、需要注意的是 `step++` 的位置
 
 
 
@@ -133,7 +137,9 @@ int BFS(Node start) {
 
 为什么这样呢？
 
-所谓「无权图」，与其说每条「边」没有权重，不如说每条「边」的权重都是 1，从起点`start`到任意一个节点之间的路径权重就是它们之间「边」的条数，那可不就是`step`变量记录的值么？
+所谓「无权图」，与其说每条「边」没有权重，不如说每条「边」的权重都是 1，从起点 `start` 到任意一个节点之间的路径权重就是它们之间「边」的条数，那可不就是`step`变量记录的值么？
+
+再加上 BFS 算法利用`for`循环一层一层向外扩散的逻辑和`visited`集合防止走回头路的逻辑，当你每次从队列中拿出节点`cur`的时候，从`start`到`cur`的最短权重就是`step`记录的步数。
 
 > NOTE: 这个观点在 baeldung [Difference Between BFS and Dijkstra’s Algorithms](https://www.baeldung.com/cs/graph-algorithms-bfs-dijkstra)  中也是有说明的，简而言之:可以使用BFS来实现unweighted graph的shortest-path
 
