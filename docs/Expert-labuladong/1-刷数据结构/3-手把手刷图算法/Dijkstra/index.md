@@ -120,3 +120,20 @@ int BFS(Node start) {
     }
 }
 ```
+
+> NOTE:
+>
+> visited set 
+
+
+
+如果对 BFS 算法不熟悉，可以看前文 [BFS 算法框架](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247485134&idx=1&sn=fd345f8a93dc4444bcc65c57bb46fc35&scene=21#wechat_redirect)，这里只是为了让你做个对比，所谓 BFS 算法，就是把算法问题抽象成一幅「无权图」，然后继续玩二叉树层级遍历那一套罢了。
+
+**注意，我们的 BFS 算法框架也是`while`循环嵌套`for`循环的形式，也用了一个`step`变量记录`for`循环执行的次数，无非就是多用了一个`visited`集合记录走过的节点，防止走回头路罢了**。
+
+为什么这样呢？
+
+所谓「无权图」，与其说每条「边」没有权重，不如说每条「边」的权重都是 1，从起点`start`到任意一个节点之间的路径权重就是它们之间「边」的条数，那可不就是`step`变量记录的值么？
+
+> NOTE: 这个观点在 baeldung [Difference Between BFS and Dijkstra’s Algorithms](https://www.baeldung.com/cs/graph-algorithms-bfs-dijkstra)  中也是有说明的，简而言之:可以使用BFS来实现unweighted graph的shortest-path
+

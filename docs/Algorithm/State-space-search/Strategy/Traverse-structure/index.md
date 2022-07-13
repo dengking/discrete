@@ -28,13 +28,31 @@ Branch-and-Bound 对应的是 width-first ；
 
 ## BFS VS DFS
 
-### What are the advantages of breadth-first search (BFS) over depth-first search (DFS)? 
+### 例题
+
+能够同时使用 BFS 和 DFS 解决的题目:
+
+| 题目                          |      |
+| ----------------------------- | ---- |
+| LeetCode-104-二叉树的最大深度 |      |
+| LeetCode-111-二叉树的最小深度 |      |
+| topological-sorting-拓扑排序  |      |
+
+
+
+### labuladong [BFS 算法框架套路详解](https://mp.weixin.qq.com/s/WH_XGm1-w5882PnenymZ7g)
+
+> DFS是线-VS-BFS是面-DFS是单打独斗-VS-BFS是集体行动
+
+### cs.ubc.ca [CPSC 322, Practice Exercise Solutions to Uninformed Search](https://www.cs.ubc.ca/~hutter/teaching/cpsc322/practice_exercises/1_ex_search_uninformed_sol.pdf)
+
+一、What are the advantages of breadth-first search (BFS) over depth-first search (DFS)? 
 
 Answer: BFS is complete and optimal, while DFS is not guaranteed to halt when there are loops. 
 
 > NOTE: DFS的loop问题是可以避免的
 
-### What is the advantage of DFS over BFS?
+二、What is the advantage of DFS over BFS?
 
  Answer: If `m` is the maximum path length and `b` is the branching factor, the space complexity for DFS is `mb` while for BFS it is $b^m$.
 
