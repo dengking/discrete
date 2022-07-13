@@ -1,4 +1,4 @@
-# LeetCode [111. 二叉树的最小深度](https://leetcode.cn/problems/minimum-depth-of-binary-tree/) 简单
+# [LeetCode-111. 二叉树的最小深度-简单](https://leetcode.cn/problems/minimum-depth-of-binary-tree/) 
 
 
 
@@ -71,13 +71,10 @@ public:
 				if (n->right)
 				{
 					q.push(n->right);
-
 				}
-
 			}
 			++depth;
 		}
-
 		return depth;
 	}
 };
