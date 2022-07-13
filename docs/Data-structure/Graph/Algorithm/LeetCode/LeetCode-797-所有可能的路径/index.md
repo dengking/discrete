@@ -4,6 +4,12 @@
 
 ## 我的解题
 
+它的stop condition是遇到了目标节点。
+
+它需要保存path。
+
+由于是无环的，因此它不需要visited array。
+
 ```c++
 // #include <bits/ne_stdc++.h>
 #include <iostream>
