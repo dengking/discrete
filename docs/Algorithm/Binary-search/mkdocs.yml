@@ -3,8 +3,5 @@ nav:
     - wikipedia-Binary-search-algorithm: wikipedia-Binary-search-algorithm
     - Complexity-analysis: Complexity-analysis
     - src: src
-    - LeetCode-35-搜索插入位置-简单: LeetCode-35-搜索插入位置-简单
-    - LeetCode-34-在排序数组中查找元素的第一个和最后一个位置-中等: LeetCode-34-在排序数组中查找元素的第一个和最后一个位置-中等
-    - 旋转数组最小数字系列: 旋转数组最小数字系列
-    - n-sum系列: n-sum系列
+    - LeetCode: LeetCode
     

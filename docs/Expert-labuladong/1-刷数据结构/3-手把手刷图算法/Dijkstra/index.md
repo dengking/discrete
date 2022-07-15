@@ -143,3 +143,129 @@ int BFS(Node start) {
 
 > NOTE: 这个观点在 baeldung [Difference Between BFS and Dijkstra’s Algorithms](https://www.baeldung.com/cs/graph-algorithms-bfs-dijkstra)  中也是有说明的，简而言之:可以使用BFS来实现unweighted graph的shortest-path
 
+## Dijkstra 算法框架
+
+
+
+```java
+// 输入一幅图和一个起点 start，计算 start 到其他节点的最短距离
+int[] dijkstra(int start, List<Integer>[] graph);
+```
+
+
+
+```Java
+class State {
+    // 图节点的 id
+    int id;
+    // 从 start 节点到当前节点的距离
+    int distFromStart;
+
+    State(int id, int distFromStart) {
+        this.id = id;
+        this.distFromStart = distFromStart;
+    }
+}
+```
+
+
+
+刚才说普通 BFS 算法中，根据 BFS 的逻辑和无权图的特点，第一次遇到某个节点所走的步数就是最短距离，所以用一个`visited`数组防止走回头路，每个节点只会经过一次。
+
+> NOTE: 
+>
+> 两个作用:
+>
+> 1、防止走回头路，即可能第二次经过这个节点
+>
+> 2、防止dead loop，这其实是由1包装的
+>
+> 
+
+
+
+![图片](https://mmbiz.qpic.cn/sz_mmbiz_jpg/gibkIz0MVqdGiaE70bfibhZwtP90zPlWicsgkjn8sGlD4nKzl7KqzETcYbB2d1OEzak3KEOf7nS14EvMrKkxuR8MDw/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1)
+
+
+
+
+
+```Java
+// 返回节点 from 到节点 to 之间的边的权重
+int weight(int from, int to);
+
+// 输入节点 s 返回 s 的相邻节点
+List<Integer> adj(int s);
+
+// 输入一幅图和一个起点 start，计算 start 到其他节点的最短距离
+int[] dijkstra(int start, List<Integer>[] graph) {
+    // 图中节点的个数
+    int V = graph.length;
+    // 记录最短路径的权重，你可以理解为 dp table
+    // 定义：distTo[i] 的值就是节点 start 到达节点 i 的最短路径权重
+    int[] distTo = new int[V];
+    // 求最小值，所以 dp table 初始化为正无穷
+    Arrays.fill(distTo, Integer.MAX_VALUE);
+    // base case，start 到 start 的最短距离就是 0
+    distTo[start] = 0;
+
+    // 优先级队列，distFromStart 较小的排在前面
+    Queue<State> pq = new PriorityQueue<>((a, b) -> {
+        return a.distFromStart - b.distFromStart;
+    });
+
+    // 从起点 start 开始进行 BFS
+    pq.offer(new State(start, 0));
+
+    while (!pq.isEmpty()) {
+        State curState = pq.poll();
+        int curNodeID = curState.id;
+        int curDistFromStart = curState.distFromStart;
+
+        if (curDistFromStart > distTo[curNodeID]) {
+            // 已经有一条更短的路径到达 curNode 节点了
+            continue;
+        }
+        // 将 curNode 的相邻节点装入队列
+        for (int nextNodeID : adj(curNodeID)) {
+            // 看看从 curNode 达到 nextNode 的距离是否会更短
+            int distToNextNode = distTo[curNodeID] + weight(curNodeID, nextNodeID);
+            if (distTo[nextNodeID] > distToNextNode) {
+                // 更新 dp table
+                distTo[nextNodeID] = distToNextNode;
+                // 将这个节点以及距离放入队列
+                pq.offer(new State(nextNodeID, distToNextNode));
+            }
+        }
+    }
+    return distTo;
+}
+```
+
+
+
+### 为什么不用`visited`集合也不会死循环？
+
+我们先回答第一个问题，为什么这个算法不用`visited`集合也不会**死循环**。
+
+对于这类问题，我教你一个思考方法：
+
+循环结束的条件是**队列**为空，那么你就要注意看什么时候往队列里放元素（调用`offer`）方法，再注意看什么时候从队列往外拿元素（调用`poll`方法）。
+
+`while`循环每执行一次，都会往外拿一个元素，但想往队列里放元素，可就有很多限制了，必须满足下面这个条件：
+
+```Java
+// 看看从 curNode 达到 nextNode 的距离是否会更短
+if (distTo[nextNodeID] > distToNextNode) {
+    // 更新 dp table
+    distTo[nextNodeID] = distToNextNode;
+    pq.offer(new State(nextNodeID, distToNextNode));
+}
+```
+
+这也是为什么我说`distTo`数组可以理解成我们熟悉的 dp table，因为这个算法逻辑就是在不断的最小化`distTo`数组中的元素：
+
+如果你能让到达`nextNodeID`的距离更短，那就更新`distTo[nextNodeID]`的值，让你入队，否则的话对不起，不让入队。
+
+**因为两个节点之间的最短距离（路径权重）肯定是一个确定的值，不可能无限减小下去，所以队列一定会空，队列空了之后，`distTo`数组中记录的就是从`start`到其他节点的最短距离**。
+
