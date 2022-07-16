@@ -152,7 +152,9 @@ int BFS(Node start) {
 int[] dijkstra(int start, List<Integer>[] graph);
 ```
 
+输入是一幅图`graph`和一个起点`start`，返回是一个记录最短路径权重的数组。
 
+**我们也需要一个`State`类来辅助算法的运行**：
 
 ```Java
 class State {
@@ -176,19 +178,25 @@ class State {
 >
 > 两个作用:
 >
-> 1、防止走回头路，即可能第二次经过这个节点
+> 1、防止走回头路，即可能第二次遇到这个节点
 >
-> 2、防止dead loop，这其实是由1包装的
->
-> 
+> 2、防止dead loop，这其实是由1保证的
+
+加权图中的 Dijkstra 算法和无权图中的普通 BFS 算法不同，在 Dijkstra 算法中，你第一次经过某个节点时的路径权重，不见得就是最小的，所以对于同一个节点，我们可能会经过多次，而且每次的`distFromStart`可能都不一样，比如下图：
 
 
 
 ![图片](https://mmbiz.qpic.cn/sz_mmbiz_jpg/gibkIz0MVqdGiaE70bfibhZwtP90zPlWicsgkjn8sGlD4nKzl7KqzETcYbB2d1OEzak3KEOf7nS14EvMrKkxuR8MDw/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1)
 
+> NOTE: 
+>
+> 需要结合下面的算法来运行上述例子。
+>
+> 
 
+我会经过节点`5`三次，每次的`distFromStart`值都不一样，那我取`distFromStart`最小的那次，不就是从起点`start`到节点`5`的最短路径权重了么？
 
-
+**其实，Dijkstra 可以理解成一个带 dp table（或者说备忘录）的 BFS 算法，伪码如下**：
 
 ```Java
 // 返回节点 from 到节点 to 之间的边的权重
@@ -269,3 +277,48 @@ if (distTo[nextNodeID] > distToNextNode) {
 
 **因为两个节点之间的最短距离（路径权重）肯定是一个确定的值，不可能无限减小下去，所以队列一定会空，队列空了之后，`distTo`数组中记录的就是从`start`到其他节点的最短距离**。
 
+> NOTE: 这这个的前提条件是图中不存在负数weight
+
+### 为什么要用`PriorityQueue`而不是`LinkedList`实现的普通队列？
+
+> NOTE: 简而言之: greedy algorithm
+
+
+
+### 如果只关心起点`start`到某一个终点`end`的最短路径，是否可以修改代码提升算法效率。
+
+肯定可以的，因为我们标准 Dijkstra 算法会算出`start`到所有其他节点的最短路径，你只想计算到`end`的最短路径，相当于减少计算量，当然可以提升效率。
+
+需要在代码中做的修改也非常少，只要改改函数签名，再加个 if 判断就行了：
+
+```Java
+// 输入起点 start 和终点 end，计算起点到终点的最短距离
+int dijkstra(int start, int end, List<Integer>[] graph) {
+
+    // ...
+
+    while (!pq.isEmpty()) {
+        State curState = pq.poll();
+        int curNodeID = curState.id;
+        int curDistFromStart = curState.distFromStart;
+
+        // 在这里加一个判断就行了，其他代码不用改
+        if (curNodeID == end) {
+            return curDistFromStart;
+        }
+
+        if (curDistFromStart > distTo[curNodeID]) {
+            continue;
+        }
+
+        // ...
+    }
+
+    // 如果运行到这里，说明从 start 无法走到 end
+    return Integer.MAX_VALUE;
+}
+```
+
+因为优先级队列自动排序的性质，**每次**从队列里面拿出来的都是`distFromStart`值最小的，所以当你从队头拿出一个节点，如果发现这个节点就是终点`end`，那么`distFromStart`对应的值就是从`start`到`end`的最短距离。
+
+这个算法较之前的实现提前 return 了，所以效率有一定的提高。
