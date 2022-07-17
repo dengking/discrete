@@ -269,7 +269,8 @@ int[] dijkstra(int start, List<Integer>[] graph) {
 >             continue;
 >         }
 > ```
->
+> 需要注意的是: 由于使用的是`priority_queue`，因此权重更小的总是会更早出队，即使可能更先进队。由于存在上述逻辑，那么当它第二次出队的时候，显然会被抛弃掉。
+> 需要注意的是: 上述判定条件是不能够包含等号的，这是我在做[LeetCode-1631-最小体力消耗路径](https://leetcode.cn/problems/path-with-minimum-effort/) 时发现的，这是因为对于initial node，它的dp中的值和它的state的值是相同的，如果上述带上"=="，那么就造成queue machine无法启动。
 > 三、每次更新了dp table后，都会将该节点加入到`priority_queue`中
 >
 > 四、Dijkstra的 `priority_queue` 是 **严进必出** 的，因此它是不会陷入dead loop的，因此它不需要 `visited` set
