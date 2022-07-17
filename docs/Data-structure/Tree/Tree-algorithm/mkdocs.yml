@@ -4,7 +4,7 @@ nav:
     - Traverse-tree: Traverse-tree
     - Rank-of-node: Rank-of-node
     - Merge-tree: Merge-tree
-    - Depth: Depth
+    - Depth-height-width: Depth-height-width
     - Serialization-deserialization: Serialization-deserialization
     - geeksforgeeks-tree-algorithm: geeksforgeeks-tree-algorithm
     - LeetCode-431-将N叉树编码为二叉树: LeetCode-431-将N叉树编码为二叉树    

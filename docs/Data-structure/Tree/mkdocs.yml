@@ -1,10 +1,10 @@
 nav:
     - Introduction: index.md
     - Tree-structure: Tree-structure
-    - Represent-tree: Represent-tree    
+    - Tree-representation: Tree-representation    
     - Tree-data-structure: Tree-data-structure
-    - Tree-algorithm: Tree-algorithm
     - Search-tree: Search-tree
     - Disjoint-set: Disjoint-set
     - Implementation: Impl
+    - Tree-algorithm: Tree-algorithm
     - Application: Application    
