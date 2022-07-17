@@ -175,7 +175,131 @@ procedure uniform_cost_search(Graph, start, goal) is
 
 Unlike Dijkstra's algorithm, the [Bellman–Ford algorithm](https://en.wanweibaike.com/wiki-Bellman–Ford_algorithm) can be used on graphs with negative edge weights, as long as the graph contains no [negative cycle](https://en.wanweibaike.com/wiki-Negative_cycle) reachable from the source vertex *s*. The presence of such cycles means there is no shortest path, since the total weight becomes lower each time the cycle is traversed. (This statement assumes that a "path" is allowed to repeat vertices. In [graph theory](https://en.wanweibaike.com/wiki-Graph_theory) that is normally not allowed. In [theoretical computer science](https://en.wanweibaike.com/wiki-Theoretical_computer_science) it often is allowed.) It is possible to adapt Dijkstra's algorithm to handle negative weight edges by combining it with the Bellman-Ford algorithm (to remove negative edges and detect negative cycles), such an algorithm is called [Johnson's algorithm](https://en.wanweibaike.com/wiki-Johnson's_algorithm).
 
+## Implementation
 
+写法有多种版本:
+
+
+wikipedia [Dijkstra's algorithm # Pseudocode](https://en.wikipedia.org/wiki/Dijkstra's_algorithm#Pseudocode)
+
+```pseudocode
+1  function Dijkstra(Graph, source):
+2      dist[source] ← 0                           // Initialization
+3
+4      create vertex priority queue Q
+5      Q.add_with_priority(source, dist[source])
+6
+7      for each vertex v in Graph.Vertices:
+8          if v ≠ source
+9              dist[v] ← INFINITY                 // Unknown distance from source to v
+10              prev[v] ← UNDEFINED                // Predecessor of v
+11
+12         Q.add_with_priority(v, dist[v])
+13
+14
+15     while Q is not empty:                      // The main loop
+16         u ← Q.extract_min()                    // Remove and return best vertex
+17         for each neighbor v of u:              // only v that are still in Q
+18             alt ← dist[u] + Graph.Edges(u, v)
+19             if alt < dist[v] and dist[u] is not INFINITY:
+20                 dist[v] ← alt
+21                 prev[v] ← u
+22                 Q.decrease_priority(v, alt)
+23
+24     return dist, prev
+```
+
+
+labuladong [我写了一个模板，把 Dijkstra 算法变成了默写题](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247492167&idx=1&sn=bc96c8f97252afdb3973c7d760edb9c0&scene=21#wechat_redirect)
+```Java
+// 返回节点 from 到节点 to 之间的边的权重
+int weight(int from, int to);
+
+// 输入节点 s 返回 s 的相邻节点
+List<Integer> adj(int s);
+
+// 输入一幅图和一个起点 start，计算 start 到其他节点的最短距离
+int[] dijkstra(int start, List<Integer>[] graph) {
+    // 图中节点的个数
+    int V = graph.length;
+    // 记录最短路径的权重，你可以理解为 dp table
+    // 定义：distTo[i] 的值就是节点 start 到达节点 i 的最短路径权重
+    int[] distTo = new int[V];
+    // 求最小值，所以 dp table 初始化为正无穷
+    Arrays.fill(distTo, Integer.MAX_VALUE);
+    // base case，start 到 start 的最短距离就是 0
+    distTo[start] = 0;
+
+    // 优先级队列，distFromStart 较小的排在前面
+    Queue<State> pq = new PriorityQueue<>((a, b) -> {
+        return a.distFromStart - b.distFromStart;
+    });
+
+    // 从起点 start 开始进行 BFS
+    pq.offer(new State(start, 0));
+
+    while (!pq.isEmpty()) {
+        State curState = pq.poll();
+        int curNodeID = curState.id;
+        int curDistFromStart = curState.distFromStart;
+
+        if (curDistFromStart > distTo[curNodeID]) {
+            // 已经有一条更短的路径到达 curNode 节点了
+            continue;
+        }
+        // 将 curNode 的相邻节点装入队列
+        for (int nextNodeID : adj(curNodeID)) {
+            // 看看从 curNode 达到 nextNode 的距离是否会更短
+            int distToNextNode = distTo[curNodeID] + weight(curNodeID, nextNodeID);
+            if (distTo[nextNodeID] > distToNextNode) {
+                // 更新 dp table
+                distTo[nextNodeID] = distToNextNode;
+                // 将这个节点以及距离放入队列
+                pq.offer(new State(nextNodeID, distToNextNode));
+            }
+        }
+    }
+    return distTo;
+}
+```
+
+两者之间的差别:
+
+1、labuladong [我写了一个模板，把 Dijkstra 算法变成了默写题](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247492167&idx=1&sn=bc96c8f97252afdb3973c7d760edb9c0&scene=21#wechat_redirect) 中多了如下逻辑:
+
+```Java
+    if (curDistFromStart > distTo[curNodeID]) {
+        // 已经有一条更短的路径到达 curNode 节点了
+        continue;
+    }
+```
+那这个逻辑是否是必须要的呢？是有必要的，在笔记中进行了说明。
+
+2、wikipedia [Dijkstra's algorithm # Pseudocode](https://en.wikipedia.org/wiki/Dijkstra's_algorithm#Pseudocode) 一次性将所有等node都加入到queue中，labuladong [我写了一个模板，把 Dijkstra 算法变成了默写题](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247492167&idx=1&sn=bc96c8f97252afdb3973c7d760edb9c0&scene=21#wechat_redirect) 中是动态加入。如果 queue不支持 `decrease_priority` 接口，那么就无法按照 wikipedia [Dijkstra's algorithm # Pseudocode](https://en.wikipedia.org/wiki/Dijkstra's_algorithm#Pseudocode) 中的写法写。
+
+
+3、在具体的实现上，需要将distance/weight和node一起放到`priority_queue`中，不能够只放node或者只放distance/weight，因为这样是会导致无法对node进行排序、无法取出node等。wikipedia [Dijkstra's algorithm # Pseudocode](https://en.wikipedia.org/wiki/Dijkstra's_algorithm#Pseudocode) 中是通过如下方式实现的:
+
+```Java
+Q.add_with_priority(source, dist[source])
+Q.decrease_priority(v, alt)
+```
+
+在labuladong [我写了一个模板，把 Dijkstra 算法变成了默写题](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247492167&idx=1&sn=bc96c8f97252afdb3973c7d760edb9c0&scene=21#wechat_redirect)中是通过如下方式实现的:
+
+```Java
+class State {
+    // 图节点的 id
+    int id;
+    // 从 start 节点到当前节点的距离
+    int distFromStart;
+
+    State(int id, int distFromStart) {
+        this.id = id;
+        this.distFromStart = distFromStart;
+    }
+}
+```
 
 ## LeetCode 
 
