@@ -1,6 +1,5 @@
 nav:
     - Introduction: index.md
     - 背包DP: 背包DP
-    - Graph-DP: Graph-DP 
     - K-way-merge-多路归并: K-way-merge-多路归并
     

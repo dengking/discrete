@@ -2,7 +2,5 @@ nav:
     - Introduction: index.md
     
     - Directed-graph: Directed-graph
-# graph的计算机表示    
-    - Graph-representations: Graph-representations
-    
-    - Connectivity(graph theory): Connectivity(graph theory)
+
+    - Graph-connectivity: Graph-connectivity
