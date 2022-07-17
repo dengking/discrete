@@ -4,9 +4,9 @@
 
 一、wikipedia [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra's_algorithm) 
 
-二、LeetCode [743. 网络延迟时间](https://leetcode.cn/problems/network-delay-time/) # [官方解题](https://leetcode.cn/problems/network-delay-time/solution/wang-luo-yan-chi-shi-jian-by-leetcode-so-6phc/) 
+二、labuladong [我写了一个模板，把 Dijkstra 算法变成了默写题](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247492167&idx=1&sn=bc96c8f97252afdb3973c7d760edb9c0&scene=21#wechat_redirect) 
 
-
+这篇文章非常好。
 
 ## 使用条件
 
@@ -179,7 +179,15 @@ Unlike Dijkstra's algorithm, the [Bellman–Ford algorithm](https://en.wanweibai
 
 ## LeetCode 
 
-LeetCode [743. 网络延迟时间](https://leetcode.cn/problems/network-delay-time/) 中等
 
-LeetCode [787. K 站中转内最便宜的航班](https://leetcode.cn/problems/cheapest-flights-within-k-stops/) 中等
+
+[LeetCode-743. 网络延迟时间](https://leetcode.cn/problems/network-delay-time/) 
+
+[LeetCode-1631. 最小体力消耗路径](https://leetcode.cn/problems/path-with-minimum-effort/)
+
+[LeetCode-1514. 概率最大的路径](https://leetcode.cn/problems/path-with-maximum-probability/)
+
+[LeetCode-787. K 站中转内最便宜的航班-中等](https://leetcode.cn/problems/cheapest-flights-within-k-stops/) 
+
+
 

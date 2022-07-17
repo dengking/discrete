@@ -264,16 +264,22 @@ int[] dijkstra(int start, List<Integer>[] graph) {
 > 二、通过上述运行过程可知: 节点5多次进入了`priority_queue`，因此需要加入如下逻辑:
 >
 > ```java
->         if (curDistFromStart > distTo[curNodeID]) {
->             // 已经有一条更短的路径到达 curNode 节点了
->             continue;
->         }
+>      if (curDistFromStart > distTo[curNodeID]) {
+>          // 已经有一条更短的路径到达 curNode 节点了
+>          continue;
+>      }
 > ```
 > 需要注意的是: 由于使用的是`priority_queue`，因此权重更小的总是会更早出队，即使可能更先进队。由于存在上述逻辑，那么当它第二次出队的时候，显然会被抛弃掉。
 > 需要注意的是: 上述判定条件是不能够包含等号的，这是我在做[LeetCode-1631-最小体力消耗路径](https://leetcode.cn/problems/path-with-minimum-effort/) 时发现的，这是因为对于initial node，它的dp中的值和它的state的值是相同的，如果上述带上"=="，那么就造成queue machine无法启动。
 > 三、每次更新了dp table后，都会将该节点加入到`priority_queue`中
 >
-> 四、Dijkstra的 `priority_queue` 是 **严进必出** 的，因此它是不会陷入dead loop的，因此它不需要 `visited` set
+> 四、为什么不用`visited`集合也不会死循环？从下面的两个层面来进行分析:
+>
+> 一、queue machine的main loop条件是`while (!pq.isEmpty())`，Dijkstra的 `priority_queue` 是 **严进必出** 的，因此最终队列肯定为空，它是不会陷入dead loop的，因此它不需要 `visited` set
+>
+> 二、这是在做 [LeetCode-1631. 最小体力消耗路径](https://leetcode.cn/problems/path-with-minimum-effort/) 时总结出来的:
+>
+> "一个节点有多重方式可以到达，这一点是和dijkstra一样的，并且由于有四个方向移动，因此第一次思考这个问题的时候，我担心可能是会出现饶了一圈又回到原点从而成环而导致dead loop，当时我考虑使用visited set。实际上: 这个题是不需要visited array的，虽然一个节点是可以多次被访问的，但是我们要取多次的最小值，对于dijkstra算法，由于它的贪心选择特性，显然当一个节点绕过一周再次回到原处的时候，这条路径肯定不是更好的，所以此时它是不会有机会再次进入queue的，因此就不会出现成环的情况，所以就不需要visited array。"
 
 ### 为什么不用`visited`集合也不会死循环？
 
