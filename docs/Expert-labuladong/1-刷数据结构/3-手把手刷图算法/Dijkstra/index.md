@@ -1,4 +1,4 @@
-# labuladong [我写了一个模板，把 Dijkstra 算法变成了默写题](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247492167&idx=1&sn=bc96c8f97252afdb3973c7d760edb9c0&scene=21#wechat_redirect)
+# labuladong [我写了一个模板，把 Dijkstra 算法变成了默写题](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247492167&idx=1&sn=bc96c8f97252afdb3973c7d760edb9c0&scene=21#wechat_redirect) 
 
 > NOTE: 这篇文章非常好，它循序渐进、由容易到难地进行介绍。
 
@@ -188,11 +188,7 @@ class State {
 
 ![图片](https://mmbiz.qpic.cn/sz_mmbiz_jpg/gibkIz0MVqdGiaE70bfibhZwtP90zPlWicsgkjn8sGlD4nKzl7KqzETcYbB2d1OEzak3KEOf7nS14EvMrKkxuR8MDw/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1)
 
-> NOTE: 
->
-> 需要结合下面的算法来运行上述例子。
->
-> 
+
 
 我会经过节点`5`三次，每次的`distFromStart`值都不一样，那我取`distFromStart`最小的那次，不就是从起点`start`到节点`5`的最短路径权重了么？
 
@@ -250,9 +246,37 @@ int[] dijkstra(int start, List<Integer>[] graph) {
 }
 ```
 
-
+> NOTE: 
+>
+> 一、需要结合前面的例子图来运行这个算法: 
+>
+> |                | pop  | `priority_queue`    |
+> | -------------- | ---- | ------------------- |
+> | initialization |      | 0(0)                |
+> | iteration-1    | 0    | 4(5)、3(8)、1(9)    |
+> | iteration-2    | 4    | 3(8)、1(9)、5(11)   |
+> | iteration-3    | 3    | 1(9)、5(10)、5(11)  |
+> | iteration-4    | 1    | 5(10)、5(11)、2(11) |
+> |                | 5    | 5(11)、2(11)        |
+> |                | 5    | 2(11)               |
+> |                | 2    |                     |
+>
+> 二、通过上述运行过程可知: 节点5多次进入了`priority_queue`，因此需要加入如下逻辑:
+>
+> ```java
+>         if (curDistFromStart > distTo[curNodeID]) {
+>             // 已经有一条更短的路径到达 curNode 节点了
+>             continue;
+>         }
+> ```
+>
+> 三、每次更新了dp table后，都会将该节点加入到`priority_queue`中
+>
+> 四、Dijkstra的 `priority_queue` 是 **严进必出** 的，因此它是不会陷入dead loop的，因此它不需要 `visited` set
 
 ### 为什么不用`visited`集合也不会死循环？
+
+> NOTE: 这个问题在前面已经分析了
 
 我们先回答第一个问题，为什么这个算法不用`visited`集合也不会**死循环**。
 
@@ -277,7 +301,11 @@ if (distTo[nextNodeID] > distToNextNode) {
 
 **因为两个节点之间的最短距离（路径权重）肯定是一个确定的值，不可能无限减小下去，所以队列一定会空，队列空了之后，`distTo`数组中记录的就是从`start`到其他节点的最短距离**。
 
-> NOTE: 这这个的前提条件是图中不存在负数weight
+> NOTE: 
+>
+> 一、这个的前提条件是图中不存在负数weight
+>
+> 二、Dijkstra逼近最优值，这和binary-search逼近非常类似
 
 ### 为什么要用`PriorityQueue`而不是`LinkedList`实现的普通队列？
 
@@ -322,3 +350,6 @@ int dijkstra(int start, int end, List<Integer>[] graph) {
 因为优先级队列自动排序的性质，**每次**从队列里面拿出来的都是`distFromStart`值最小的，所以当你从队头拿出一个节点，如果发现这个节点就是终点`end`，那么`distFromStart`对应的值就是从`start`到`end`的最短距离。
 
 这个算法较之前的实现提前 return 了，所以效率有一定的提高。
+
+## 时间复杂度分析
+
