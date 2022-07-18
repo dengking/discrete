@@ -23,69 +23,6 @@ DFS是一个非常繁杂的主题，涉及到的内容非常多，本文对DFS�
 
 上述结构从上到下逐步复杂。
 
-### DFS-linked-list VS DFS-tree VS DFS-graph VS DFS-state/solution space
-
-素材:
-
-一、
-1、labuladong [图论算法基础（修订版）](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247494624&idx=1&sn=29b84ce2a1ba8115922179e207281e27&scene=21#wechat_redirect) 
-
-这篇文章非常好，其实也探讨了这个topic，我就是通过这篇文章有感而发的。
-
-
-二、tree and stack
-
-1、龙书 4.6 Introduction to LR Parsing: Simple LR 
-
-2、计算机算法设计与分析-5-回溯法
-
-3、`Function-recursion-tree-stack` 章节的内容，尤其是 `Analysis-and-representation-of-recursion` 章节的内容
-
-
----
-
-我的总结:
-
-一、linked-list有tail-node、tree 有 leaf node，方便判断stop condition。
-
-二、graph 没有leaf node，且可能存在环，因此无法通过像tree那样的结构特性来判断stop condition，因此需要借助额外的visited array来帮助判断，它是在所有的节点都access后才能够结束。
-
-三、state/solution space是virtual structure，它没有类似于tree那样的leaf node的概念，它的stop condition会更加复杂，它的stop condition由程序员通过分析问题而得出
-
-
-四、tree和graph都是concrete strucutre，而state/solution space是virtual structure，它是靠backtrack、recursion、function activation frame对应node、选择对应边来生成的，在实际运行过程中，通过一条path来保存状态。
-
-## path VS node
-
-1、n个node，有n-1条path
-
-2、在 《计算机算法设计与分析-5-回溯法》中的一张图非常能够说明path和node之间的对应关系。
-
-3、在dfs graph、dfs tree中，处理的是具体的node，而在dfs state/solution space中并不存在node，当然也存在path，但是它所处理的更加类似于是path。
-
-4、在 labuladong [图论算法基础](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247494624&idx=1&sn=29b84ce2a1ba8115922179e207281e27&scene=21#wechat_redirect) 中有这样的code，非常值得了解:
-
-```
-void traverse(TreeNode root) {
-    if (root == null) return;
-    System.out.println("enter: " + root.val);
-    for (TreeNode child : root.children) {
-        traverse(child);
-    }
-    System.out.println("leave: " + root.val);
-}
-
-void traverse(TreeNode root) {
-    if (root == null) return;
-    for (TreeNode child : root.children) {
-        System.out.println("enter: " + child.val);
-        traverse(child);
-        System.out.println("leave: " + child.val);
-    }
-}
-```
-第一个处理的是node，第二个处理的是path。
-
 
 
 ## 处理节点次序
