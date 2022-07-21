@@ -2,21 +2,9 @@
 
 
 
-## Traverse 
-
-linked list的结构非常简单，并且linked list只支持[sequential access](https://en.wikipedia.org/wiki/Sequential_access)，因此它的很多算法都是基于traverse的，所以本节首先介绍linked list的traverse的技巧。
-
-一、traverse by iteration
-
-二、traverse by recursion
-
-三、其它技巧
-
-fast-slow-double-pointer。
-
-
-
 ## Algorithm总结
+
+创建
 
 增
 
@@ -25,4 +13,24 @@ fast-slow-double-pointer。
 改
 
 查
+
+反转
+
+排序
+
+## Techniques
+
+### 边走边算
+
+linked list只支持sequential access，它的很多algorithm都是基于traverse，一边进行traverse一边进行计算。
+
+
+
+Fast-slow-double-pointer-快慢双指针
+
+Previous-current-next-pointer-三指针
+
+Dummy-node
+
+Sentinel-node
 

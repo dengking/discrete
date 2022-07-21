@@ -2,6 +2,5 @@ nav:
     - Introduction: index.md
     - Unrolled-linked-list: Unrolled-linked-list
     - Double-linked-list: Double-linked-list        
-    - Sentinel-node: Sentinel-node
-    - Dummy-node: Dummy-node
+
     - Algorithm: Algorithm

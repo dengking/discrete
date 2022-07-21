@@ -14,12 +14,12 @@ DFS是一个非常繁杂的主题，涉及到的内容非常多，本文对DFS�
 
 第一种方式是根据structure来进行划分，需要注意的是，此处的structure包括concrete structure也包括abstract structure。
 
-| 分类                     | 章节        |
-| ------------------------ | ----------- |
-| DFS-linked-list          |             |
-| DFS-tree                 |             |
-| DFS-graph                | `DFS-graph` |
-| DFS-state-solution-space |             |
+| 分类                     | 章节              |
+| ------------------------ | ----------------- |
+| DFS-linked-list          | `DFS-linked-list` |
+| DFS-tree                 | `DFS-tree`        |
+| DFS-graph                | `DFS-graph`       |
+| DFS-state-solution-space |                   |
 
 上述结构从上到下逐步复杂。
 

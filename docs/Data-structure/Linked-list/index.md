@@ -1,4 +1,4 @@
-# List
+# Linked list
 
 
 

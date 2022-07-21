@@ -61,9 +61,9 @@ ListNode findFromEnd(ListNode head, int k) {
 
 在下面的题中，使用到了这种技巧:
 
-1、leetcode [21. 合并两个有序链表](https://leetcode.cn/problems/merge-two-sorted-lists/)
+1、[LeetCode-21. 合并两个有序链表](https://leetcode.cn/problems/merge-two-sorted-lists/)
 
-2、leetcode [114. 二叉树展开为链表](https://leetcode.cn/problems/flatten-binary-tree-to-linked-list/)
+2、[LeetCode-114. 二叉树展开为链表](https://leetcode.cn/problems/flatten-binary-tree-to-linked-list/)
 
-3、leetcode [23. 合并K个升序链表](https://leetcode.cn/problems/merge-k-sorted-lists/)
+3、[LeetCode-23. 合并K个升序链表](https://leetcode.cn/problems/merge-k-sorted-lists/)
 
