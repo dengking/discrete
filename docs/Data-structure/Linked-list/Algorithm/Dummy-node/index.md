@@ -1,14 +1,36 @@
 # Dummy node技巧
 
-这是一种在linked list中，删除node时，常用的一种technique。
+这是一种在linked list algorithm实现中，常用的一种technique，按照字面意思"dummy"的意思是"假的"，其实本质上来说，"dummy node"的确是"假的头节点"，它相当于一个**占位符**，包装总是有这样的一个节点在（最最典型的就是 [LeetCode-19. 删除链表的倒数第 N 个结点](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/) ），这样就避免了在进行链表进行**修改**的时候对空指针进行讨论而增加代码的复杂度，在 labuladong [单链表的六大解题套路，你都见过么？](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247492022&idx=1&sn=35f6cb8ab60794f8f52338fab3e5cda5&scene=21#wechat_redirect)  中，将其称之为"虚拟头节点"，这个翻译更加准确。在对链表的如下修改中，可以使用这个technique:
+
+1、create linked list
+
+采用的是"append to tail"的模式。
+
+2、delete node
+
+
 
 素材:
 
-1、LeetCode [19. 删除链表的倒数第 N 个结点](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/) # [官方解题](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/solution/shan-chu-lian-biao-de-dao-shu-di-nge-jie-dian-b-61/) 
+1、[LeetCode-19. 删除链表的倒数第 N 个结点](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/) # [官方解题](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/solution/shan-chu-lian-biao-de-dao-shu-di-nge-jie-dian-b-61/) 
 
 2、 labuladong [单链表的六大解题套路，你都见过么？](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247492022&idx=1&sn=35f6cb8ab60794f8f52338fab3e5cda5&scene=21#wechat_redirect) 
 
-## LeetCode [19. 删除链表的倒数第 N 个结点](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/) # [官方解题](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/solution/shan-chu-lian-biao-de-dao-shu-di-nge-jie-dian-b-61/) 
+
+
+> **代码中还用到一个链表的算法题中是很常见的「虚拟头节点」技巧，也就是`dummy`节点**。你可以试试，如果不使用`dummy`虚拟节点，代码会复杂很多，而有了`dummy`节点这个**占位符**，可以避免处理空指针的情况，降低代码的复杂性。
+
+
+
+> 不过注意我们又使用了虚拟头结点的技巧，也是为了防止出现空指针的情况，比如说链表总共有 5 个节点，题目就让你删除倒数第 5 个节点，也就是第一个节点，那按照算法逻辑，应该首先找到倒数第 6 个节点。但第一个节点前面已经没有节点了，这就会出错。
+>
+> 但有了我们虚拟节点`dummy`的存在，就避免了这个问题，能够对这种情况进行正确的删除。
+
+
+
+其中将"dummy node"翻译为"虚拟头节点"。
+
+## [LeetCode-19. 删除链表的倒数第 N 个结点](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/) # [官方解题](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/solution/shan-chu-lian-biao-de-dao-shu-di-nge-jie-dian-b-61/) 
 
 > NOTE:
 >

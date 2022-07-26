@@ -1,16 +1,34 @@
-# floyd判环(圈)算法
+# Circle-detection
+
+linked-list中存在环说明这个linked-list没有tail-node，也就是说没有stop-condition。
+
+## [LeetCode-141. 环形链表](https://leetcode.cn/problems/linked-list-cycle/) # [官方解题](https://leetcode.cn/problems/linked-list-cycle/solution/huan-xing-lian-biao-by-leetcode-solution/ )
+
+
+
+### 方法一：哈希表
+
+> NOTE: 这种方式其实就是visited-set，这是非常常见的一种方法。
+
+### 方法二：快慢指针
+
+> NOTE: 后面会进行介绍
+
+
+
+## floyd判环(圈)算法
 
 1、在阅读 [labuladong](javascript:void(0);) [双指针技巧汇总](https://mp.weixin.qq.com/s/yLc7-CZdti8gEMGWhd0JTg) 时，其中提及了快慢指针，其实它就是"floyd判环(圈)算法"
 
-2、在 https://leetcode.cn/problems/linked-list-cycle/solution/huan-xing-lian-biao-by-leetcode-solution/ 
+2、在 
 
 中，对它也有介绍。
 
-## csdn [算法-floyd判环(圈)算法](https://blog.csdn.net/u012534831/article/details/74231581)
+### csdn [算法-floyd判环(圈)算法](https://blog.csdn.net/u012534831/article/details/74231581)
 
 
 
-## 思考: 快慢指针是否一定会相遇？
+### 思考: 快慢指针是否一定会相遇？
 
 ![](./labuladong-list-with-circle.jpg)
 
