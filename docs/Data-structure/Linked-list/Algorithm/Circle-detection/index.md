@@ -8,7 +8,7 @@ linked-list中存在环说明这个linked-list没有tail-node，也就是说没�
 
 ### 方法一：哈希表
 
-> NOTE: 这种方式其实就是visited-set，这是非常常见的一种方法。
+> NOTE: 这种方式其实就是visited-set，这是非常常见的一种方法。这是在graph中常用的一种technique。
 
 ### 方法二：快慢指针
 
