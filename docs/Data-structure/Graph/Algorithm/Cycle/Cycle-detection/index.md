@@ -60,11 +60,25 @@ If the input is given as a subroutine for calculating *f*, the cycle detection p
 
 #### Floyd's tortoise and hare
 
+The key insight in the algorithm is as follows. If there is a cycle, then, for any integers *i* ≥ *μ* and *k* ≥ 0, 
+$$
+x_i = x_i + k \times \lambda
+$$
+where $\lambda$ is the length of the loop to be found, $\mu$ is the index of the first element of the cycle, and *k* is a whole integer representing the number of loops.
+
+> NOTE: 上述是使用数学语言来进行描述，非常的简洁
+
+
+
+
+
 > NOTE:
 >
 > 一、这个算法的原理可以简单的按照如下思路进行理解:
 >
 > 如何如果存在环，那么tortoise走一圈的时候，hare肯定走了两圈，此时两者肯定能够相遇。
+>
+> 二、"period λ"
 
 
 
@@ -110,7 +124,33 @@ def floyd(f, x0):
     return lam, mu
 ```
 
-
+> NOTE:
+>
+> 一、上述:
+>
+>  `mu` 表示的是 $\mu$
+>
+> `lam` 表示的是 $\lambda$ 
+>
+> 二、通过上述python code可以看出，它能够求解出  $\mu$、 $\lambda$ 
+>
+> 三、需要注意的是: 上述算法的运行前提是: cycle是存在的，如果这个前提不满足，那么上述算法是会陷入deadloop的:
+>
+> ```python
+>     tortoise = f(x0) # f(x0) is the element/node next to x0.
+>     hare = f(f(x0))
+>     while tortoise != hare:
+>         tortoise = f(tortoise)
+>         hare = f(f(hare))
+> ```
+>
+> 它的stop condition是 `tortoise == hare`，但是如果不存在circle，那么上述code就会陷入deadloop。
+>
+> 在 [LeetCode-141. 环形链表](https://leetcode.cn/problems/linked-list-cycle/) 中，展示了检测是否存在环的code，它检测的concrete data structure，可以使用它的结构特性tail node来作为stop condition。
+>
+> 那对于abstract structure，如果要判定是否存在loop，要如何来实现呢？它的stop condition要如何来设计呢？
+>
+> 
 
 ## floyd判环(圈)算法
 

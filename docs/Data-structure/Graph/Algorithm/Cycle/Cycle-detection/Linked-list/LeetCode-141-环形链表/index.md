@@ -1,4 +1,4 @@
-# leetcode [141. 环形链表](https://leetcode.cn/problems/linked-list-cycle/)
+# [LeetCode-141. 环形链表](https://leetcode.cn/problems/linked-list-cycle/)
 
 
 
@@ -6,11 +6,23 @@
 
 参见 `List\Circle-detection` 章节。
 
-![](./labuladong-list-with-circle.jpg)
+![](./labuladong-list-with-cycle.jpg)
 
 
 
 ## 我的解答
+
+这是一个判断问题，需要注意的是: 可能存在环也可能不存在环，因此算法需要能够cover这两种情况，所以比较重要的是stop condition的设置，它使用的stop condition是:
+
+```c++
+while (fast != NULL && fast->next != NULL)
+```
+
+简而言之: 它的stop condition是linked list的tail node，一旦fast达到了tail node，那么就应该停止算法。
+
+### 完整代码
+
+
 
 ```C++
 /* Program to implement a stack
