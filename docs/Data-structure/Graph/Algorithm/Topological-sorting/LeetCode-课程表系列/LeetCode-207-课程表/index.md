@@ -1,4 +1,4 @@
-# leetcode [207. 课程表](https://leetcode.cn/problems/course-schedule/)[207. 课程表](https://leetcode.cn/problems/course-schedule/)
+# [LeetCode-207. 课程表](https://leetcode.cn/problems/course-schedule/)[207. 课程表](https://leetcode.cn/problems/course-schedule/)
 
 1、一旦成环，则一定存在节点的入度无法为0
 
@@ -15,3 +15,4 @@
 
 
 ### 方法二：深度优先遍历
+
