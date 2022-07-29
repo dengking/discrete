@@ -12,13 +12,26 @@
 
 ## 我的解答
 
-这是一个判断问题，需要注意的是: 可能存在环也可能不存在环，因此算法需要能够cover这两种情况，所以比较重要的是stop condition的设置，它使用的stop condition是:
+这是一个判断问题，需要注意的是: 可能存在环也可能不存在环，因此算法需要能够cover这两种情况，所以比较重要的是stop condition的设置，它使用的stop condition包括如下两个
+
+一、tail node
 
 ```c++
 while (fast != NULL && fast->next != NULL)
 ```
 
-简而言之: 它的stop condition是linked list的tail node，一旦fast达到了tail node，那么就应该停止算法。
+简而言之: 它的stop condition是linked list的tail node，一旦fast达到了tail node，那么就应该停止算法。如果linked list中包含cycle，那么上述stop condition就永远无法满足，所以就需要第二个stop condition:
+
+二、
+
+```c++
+if (fast == slow) // 两者相遇
+{
+    return true;
+}
+```
+
+如果linked list中存在cycle，那么上述stop condition最终肯定会满足。
 
 ### 完整代码
 
