@@ -75,7 +75,7 @@ void Floyd(int arrDis[][], Vertex arrPath[][])const;
 What does **relaxation of an edge** mean in the context of graph theory ? 
 
 ### [A](https://stackoverflow.com/a/12782683)
-Here's a nice description of the Algorithm that also explains the notion of relaxation.
+[Here's](http://web.cs.unlv.edu/larmore/Courses/CSC269/pathing) a nice description of the Algorithm that also explains the notion of relaxation.
 
 > The notion of "relaxation" comes from an analogy between the estimate of the shortest path and the length of a **helical tension spring**(螺旋拉升的弹簧), which is not designed for compression. Initially, the cost of the shortest path is an overestimate, likened to a stretched out spring. As shorter paths are found, the estimated cost is lowered, and the spring is relaxed. Eventually, the shortest path, if one exists, is found and the spring has been relaxed to its resting(静止) length.
 

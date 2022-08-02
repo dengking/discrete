@@ -2,6 +2,7 @@ nav:
     - Introduction: index.md
     - Dijkstra's-algorithm: Dijkstra's-algorithm
     - Bellman–Ford-algorithm: Bellman–Ford-algorithm
+    - Edge-relaxation: Edge-relaxation
     - SPFA-Shortest-Path-Faster-Algorithm: SPFA-Shortest-Path-Faster-Algorithm
     - Floyd–Warshall-algorithm: Floyd–Warshall-algorithm
     - LeetCode-787-K站中转内最便宜的航班: LeetCode-787-K站中转内最便宜的航班

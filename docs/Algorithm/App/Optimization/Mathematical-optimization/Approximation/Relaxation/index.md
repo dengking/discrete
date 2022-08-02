@@ -4,7 +4,9 @@
 
 > Like [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra's_algorithm), Bellman–Ford proceeds by [relaxation](https://en.wikipedia.org/wiki/Relaxation_(approximation)), in which approximations to the correct distance are replaced by better ones until they eventually reach the solution. In both algorithms, the approximate distance to each vertex is always an overestimate of the true distance, and is replaced by the minimum of its old value and the length of a newly found path. 
 
-跟随链接，发现了这个词。
+跟随链接，发现了这个词。那"relaxation"要如何理解呢？stackoverflow [Relaxation of an edge in Dijkstra's algorithm](https://stackoverflow.com/questions/12782431/relaxation-of-an-edge-in-dijkstras-algorithm) 中有着很好的解答:
+
+What does **relaxation of an edge** mean in the context of graph theory ? 
 
 
 
