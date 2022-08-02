@@ -22,23 +22,23 @@
 
 
 
-### Dijkstra VS Floyd
+## Dijkstra VS Floyd
 
 
 
-#### 1. 所属种类
+### 1. 所属种类
 
 Dijkstra算法是典型的贪心算法
 
 Floyd算法是动态规划算法
 
-#### 2. 所解决的问题
+### 2. 所解决的问题
 
 Dijkstra算法所解决的问题是图的单源最短路径问题，也就是对于一个给定的图，我们首先指定该图中的一个点作为源点，然后求出从源点到图中其它结点的最短距离。
 
 Floyd算法所解决的问题是图中任意两个结点之间的最短路径。显然，运用Floyd算法是无需指定源点的
 
-#### 3.解的表达方式
+### 3.解的表达方式
 
 ```C++
 void Dijkstra(Vertex source,Weight dist[], Vertex prev[])const; 
@@ -62,9 +62,43 @@ void Floyd(int arrDis[][], Vertex arrPath[][])const;
 
 
 
-​		                        
 
- 
+
+### Edge relaxation
+
+"edge relaxation"这个词我是在阅读 
+
+两者都属于求解最优值问题，它们两个提供了求解最优值问题的非常好的范式。
+
+#### stackoverflow [Relaxation of an edge in Dijkstra's algorithm](https://stackoverflow.com/questions/12782431/relaxation-of-an-edge-in-dijkstras-algorithm)
+
+What does **relaxation of an edge** mean in the context of graph theory ? 
+
+### [A](https://stackoverflow.com/a/12782683)
+Here's a nice description of the Algorithm that also explains the notion of relaxation.
+
+> The notion of "relaxation" comes from an analogy between the estimate of the shortest path and the length of a **helical tension spring**(螺旋拉升的弹簧), which is not designed for compression. Initially, the cost of the shortest path is an overestimate, likened to a stretched out spring. As shorter paths are found, the estimated cost is lowered, and the spring is relaxed. Eventually, the shortest path, if one exists, is found and the spring has been relaxed to its resting(静止) length.
+
+> NOTE: 
+> 一、
+> "likened"的意思是类比、比照
+> "helical tension spring"的意思是"螺旋拉升的弹簧"
+> 二、上面这段话中使用了"estimate"、"overestimate"
+> 三、"stretched out"的意思是"伸展"、"拉伸"
+> 简而言之:弹簧一开始被拉伸地很长，后来不断释放而越来越短最终恢复到弹簧的静止最短长度。在弹簧的语境中，"relax"的意思是"放松"、"释放"
+
+### [A](https://stackoverflow.com/a/12782820)
+
+```
+if directly_connected(v, u)
+    if est(S, v) > est(S, u) + dist(u,v)
+       est(S, v) = est(S, u) + dist(u, v)
+```
+
+
+towardsdatascience [Understanding Edge Relaxation for Dijkstra’s Algorithm and Bellman-Ford Algorithm](https://towardsdatascience.com/algorithm-shortest-paths-1d8fa3f50769)
+
+baeldung [Edge Relaxation in Dijkstra’s Algorithm](https://www.baeldung.com/cs/dijkstra-edge-relaxation)
 
 ## Single source shortest path(SSSP)
 
@@ -92,4 +126,4 @@ void Floyd(int arrDis[][], Vertex arrPath[][])const;
 
 参见: 
 
-- wikipedia [Longest path problem](https://en.wikipedia.org/wiki/Longest_path_problem)
+1、wikipedia [Longest path problem](https://en.wikipedia.org/wiki/Longest_path_problem)
