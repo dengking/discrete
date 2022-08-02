@@ -78,7 +78,7 @@
 >
 > 一、这是难以理解的地方，为什么呢？首先画个带环的图看看: 
 >
-> ![](./graph-with-circle.jpg)
+> ![](./graph-with-cycle.jpg)
 >
 > 其中 简单理解是: 如果graph中存在circle，那么再DFS circle的时候，一定会回到原点，这种情况就是2中描述的情形。这是DFS graph中常用的通过`visited` array来判断是否存在环的方法。
 >
@@ -265,17 +265,17 @@ csdn [拓扑排序判断有向图是否成环](https://blog.csdn.net/qq_40642465
 
 
 
-## Implementation
-
-github [Algo-Tree](https://github.com/Algo-Phantoms/Algo-Tree)/[Code](https://github.com/Algo-Phantoms/Algo-Tree/tree/main/Code)/[C++](https://github.com/Algo-Phantoms/Algo-Tree/tree/main/Code/C%2B%2B)/[Topological_sort.cpp](https://github.com/Algo-Phantoms/Algo-Tree/blob/main/Code/C%2B%2B/Topological_sort.cpp)
-
-
-
-## LeetCode 课程表
+## LeetCode 课程表系列
 https://leetcode.cn/problems/course-schedule/solution/ke-cheng-biao-by-leetcode-solution/
 
 https://leetcode.cn/problems/course-schedule-ii/solution/ke-cheng-biao-ii-by-leetcode-solution/
 
 
 https://leetcode.cn/problems/course-schedule-iv/
+
+
+
+## Implementation
+
+github [Algo-Tree](https://github.com/Algo-Phantoms/Algo-Tree)/[Code](https://github.com/Algo-Phantoms/Algo-Tree/tree/main/Code)/[C++](https://github.com/Algo-Phantoms/Algo-Tree/tree/main/Code/C%2B%2B)/[Topological_sort.cpp](https://github.com/Algo-Phantoms/Algo-Tree/blob/main/Code/C%2B%2B/Topological_sort.cpp)
 
