@@ -1,5 +1,6 @@
 nav:
-    - Loss-function-or-Objective-function: Loss-function-or-Objective-function.md
-    - Iterative-optimization-algorithm: iterative-optimization-algorithm.md
-    - Iterative-method: Iterative-method.md
+    - Iterative-optimization-algorithm: iterative-optimization-algorithm
+    - Iterative-method: Iterative-method
+    - Approximation: Approximation
     - Hill-climbing: Hill-climbing.md
+    
