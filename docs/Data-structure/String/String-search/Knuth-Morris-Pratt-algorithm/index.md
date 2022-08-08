@@ -2,6 +2,107 @@
 
 It takes me some effort to master KMP algorithm. Here are three articles that helped me solve the mystery as I learned. 
 
+一、这个算法的思想在 cnblogs [详解KMP算法](https://www.cnblogs.com/yjiyjige/p/3263858.html) 中有着很好的描述:
+
+> “**利用已经部分匹配这个有效信息，保持`i`指针不回溯，通过修改`j`指针，让模式串尽量地移动到有效的位置**。”
+
+指针i不回溯，意味着它是一直增大的。
+
+二、可以从double pointer的角度来看这个算法，这是涉及两个字符串问题常用的套路。
+
+三、分情况讨论:
+
+1、部分匹配
+
+2、完全匹配
+
+## KMP实现分析
+
+通过上述三篇文章，能够知道KMP算法的原理，现在需要考虑的是如何来进行实现。
+
+### KMP failure/next function
+
+使用数学语言来进行描述，使用 cnblogs [详解KMP算法](https://www.cnblogs.com/yjiyjige/p/3263858.html) 中的定义:
+
+`k`表示的是长度
+
+`next[i]` 表示的是:
+
+1、长度
+
+2、移动的位置
+
+在  cnblogs [详解KMP算法](https://www.cnblogs.com/yjiyjige/p/3263858.html) 中，使用的2 。
+
+算法思想:
+
+1、double pointer
+
+2、dynamic programming、recursion
+
+需要根据目的来进行代码编写。
+
+当`pattern[j]`与`pattern[f[j-1]]`不相等的时候，这个递归公式中涉及到了不断地循环递归，使用数学公式不方便描述，下面的python程序是非常简洁易懂的，并且是非常接近数学公式的，所以这里就省略掉递归公式。
+
+### 计算KMP failure function的python实现
+
+failure function `f(j)`表示的是从`pattern[0]`到`pattern[j]`的序列（显然这个序列的长度是`j+1`）的最长公共前缀后缀的**长度**，即`f(j)`所表示的是长度为`j+1`的序列的最长公共前缀后缀的长度。显然`f[0]==0`，因为长度为1的序列的最长前缀后缀的长度为0。所以，当已知序列的长度为`i`，来查询其最长公共前缀后缀的时候，使用的是`f(i-1)`。因为`i`表示的是长度，所以`pattern[i]`引用的是数组的第`i+1`个元素。
+
+```python
+def get_failure_array(pattern):
+    failure = [0] # 初始条件
+    i = 0 # f(j-1)的值，是已知的，需要注意的是，它的含义是长度
+    j = 1 # f(j)是未知的，j表示的是index
+    while j < len(pattern):
+        if pattern[i] == pattern[j]:
+            i += 1
+        elif i > 0:
+            i = failure[i - 1]
+            continue
+        j += 1
+        failure.append(i)
+    return failure
+```
+
+
+
+### 计算KMP failure function 和 dynamic programming
+
+KMP的failure function的求解过程在计算`f(k+1)`的时所依赖的`f(0),f(1)...,f(k)`都是通过查failure table而获得的，而不是重新计算，这其实就是动态规划算法的思想。在上述代码中，`i`就表示计算`f(k+1)`所依赖的数据，它的实现方式是非常类似于迭代版的斐波那契数列。
+
+
+
+### KMP的实现
+
+```python
+def kmp_search(pattern, text):
+    """
+
+    :param pattern:
+    :param text:
+    :return:
+    """
+    # 1) Construct the failure array
+    failure = get_failure_array(pattern)
+
+    # 2) Step through text searching for pattern
+    i, j = 0, 0  # index into text, pattern
+    while i < len(text):
+        if pattern[j] == text[i]:
+            if j == (len(pattern) - 1):
+                return True
+            j += 1
+        elif j > 0:
+            # if this is a prefix in our pattern
+            # just go back far enough to continue
+            j = failure[j - 1]
+            continue
+        i += 1
+    return False
+```
+
+思考：为什么`j = failure[j - 1]`？其实结合前面的例子就可以知道了，这里不再赘述。
+
 
 
 ## wikipedia [Knuth–Morris–Pratt algorithm](https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm)
@@ -12,7 +113,7 @@ The [algorithm](https://en.wikipedia.org/wiki/Algorithm) was conceived by [James
 
 
 
-## cnblogs [详解KMP算法](https://www.cnblogs.com/yjiyjige/p/3263858.html)
+## cnblogs [详解KMP算法](https://www.cnblogs.com/yjiyjige/p/3263858.html) 
 
 KMP算法要解决的问题就是在字符串（也叫主串）中的模式（pattern）定位问题。说简单点就是我们平时常说的关键字搜索。模式串就是关键字（接下来称它为`P`），如果它在一个主串（接下来称为`T`）中出现，就返回它的具体位置，否则返回`-1`（常用手段）。
 
@@ -209,7 +310,7 @@ public static int[] getNext(String ps) {
 >
 > 二、上述算法是典型的fast-slow double pointer，k就是slow pointer，j就是fast pointer。
 >
-> 于此类似的使用fast-slow double pointer来处理array的algorithm，在下面的文章中有介绍：
+> 与此类似的使用fast-slow double pointer来处理array的algorithm，在下面的文章中有介绍：
 >
 > 1、labuladong [如何高效对有序数组/链表去重？](https://mp.weixin.qq.com/s/6Eb7gKqNqXH9B0hSZvMs5A)
 >
@@ -219,7 +320,7 @@ public static int[] getNext(String ps) {
 >
 > 三、初始值说明
 >
-> ```
+> ```c++
 > next[0] == -1
 > next[1] == 0
 > ```
@@ -948,72 +1049,7 @@ public class ComputeF
 
 
 
-## KMP实现分析
 
-通过上述三篇文章，能够知道KMP算法的原理，现在需要考虑的是如何来进行实现。
-
-### 计算KMP failure function的递归公式
-
-当`pattern[j]`与`pattern[f[j-1]]`不相等的时候，这个递归公式中涉及到了不断地循环递归，使用数学公式不方便描述，下面的python程序是非常简洁易懂的，并且是非常接近数学公式的，所以这里就省略掉递归公式。
-
-### 计算KMP failure function的python实现
-
-failure function `f(j)`表示的是从`pattern[0]`到`pattern[j]`的序列（显然这个序列的长度是`j+1`）的最长公共前缀后缀的**长度**，即`f(j)`所表示的是长度为`j+1`的序列的最长公共前缀后缀的长度。显然`f[0]==0`，因为长度为1的序列的最长前缀后缀的长度为0。所以，当已知序列的长度为`i`，来查询其最长公共前缀后缀的时候，使用的是`f(i-1)`。因为`i`表示的是长度，所以`pattern[i]`引用的是数组的第`i+1`个元素。
-
-```python
-def get_failure_array(pattern):
-    failure = [0] # 初始条件
-    i = 0 # f(j-1)的值，是已知的，需要注意的是，它的含义是长度
-    j = 1 # f(j)是未知的，j表示的是index
-    while j < len(pattern):
-        if pattern[i] == pattern[j]:
-            i += 1
-        elif i > 0:
-            i = failure[i - 1]
-            continue
-        j += 1
-        failure.append(i)
-    return failure
-```
-
-
-
-### 计算KMP failure function 和 dynamic programming
-
-KMP的failure function的求解过程在计算`f(k+1)`的时所依赖的`f(0),f(1)...,f(k)`都是通过查failure table而获得的，而不是重新计算，这其实就是动态规划算法的思想。在上述代码中，`i`就表示计算`f(k+1)`所依赖的数据，它的实现方式是非常类似于迭代版的斐波那契数列。
-
-
-
-### KMP的实现
-
-```python
-def kmp_search(pattern, text):
-    """
-
-    :param pattern:
-    :param text:
-    :return:
-    """
-    # 1) Construct the failure array
-    failure = get_failure_array(pattern)
-
-    # 2) Step through text searching for pattern
-    i, j = 0, 0  # index into text, pattern
-    while i < len(text):
-        if pattern[j] == text[i]:
-            if j == (len(pattern) - 1):
-                return True
-            j += 1
-        elif j > 0:
-            # if this is a prefix in our pattern
-            # just go back far enough to continue
-            j = failure[j - 1]
-            continue
-        i += 1
-    return False
-```
-
-思考：为什么`j = failure[j - 1]`？其实结合前面的例子就可以知道了，这里不再赘述。
 
 ## KMP in leetcode
 
