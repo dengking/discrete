@@ -8,7 +8,7 @@ It takes me some effort to master KMP algorithm. Here are three articles that he
 
 指针i不回溯，意味着它是一直增大的。
 
-二、可以从double pointer的角度来看这个算法，这是涉及两个字符串问题常用的套路。
+二、KMP算法设计两个字符串: `pattern`、`txt`，它本身也使用了double pointer: first、second ，这是涉及两个字符串问题常用的套路。
 
 三、分情况讨论:
 
@@ -16,13 +16,24 @@ It takes me some effort to master KMP algorithm. Here are three articles that he
 
 2、完全匹配
 
-四、计算next/failure array的过程其实和匹配的过程非常类似: 寻找最长公共前缀、后缀其实和寻找字符串的过程非常类似，两种本质上都是匹配、
+
+
+四、结合图来进行理解
+
 
 ## KMP实现分析
 
 通过上述三篇文章，能够知道KMP算法的原理，现在需要考虑的是如何来进行实现。
 
 ### KMP failure/next function
+计算next/failure array的过程其实和匹配的过程非常类似: 寻找最长公共前缀、后缀其实和寻找字符串的过程非常类似，两种本质上都是匹配、
+
+
+这是KMP算法的精妙之处，它涉及:
+
+1、向前
+
+2、向后
 
 使用数学语言来进行描述，使用 cnblogs [详解KMP算法](https://www.cnblogs.com/yjiyjige/p/3263858.html) 中的定义:
 
@@ -46,7 +57,7 @@ It takes me some effort to master KMP algorithm. Here are three articles that he
 
 当`pattern[j]`与`pattern[f[j-1]]`不相等的时候，这个递归公式中涉及到了不断地循环递归，使用数学公式不方便描述，下面的python程序是非常简洁易懂的，并且是非常接近数学公式的，所以这里就省略掉递归公式。
 
-### 计算KMP failure function的python实现
+#### python实现
 
 failure function `f(j)`表示的是从`pattern[0]`到`pattern[j]`的序列（显然这个序列的长度是`j+1`）的最长公共前缀后缀的**长度**，即`f(j)`所表示的是长度为`j+1`的序列的最长公共前缀后缀的长度。显然`f[0]==0`，因为长度为1的序列的最长前缀后缀的长度为0。所以，当已知序列的长度为`i`，来查询其最长公共前缀后缀的时候，使用的是`f(i-1)`。因为`i`表示的是长度，所以`pattern[i]`引用的是数组的第`i+1`个元素。
 
