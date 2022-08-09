@@ -16,6 +16,8 @@ It takes me some effort to master KMP algorithm. Here are three articles that he
 
 2、完全匹配
 
+四、计算next/failure array的过程其实和匹配的过程非常类似: 寻找最长公共前缀、后缀其实和寻找字符串的过程非常类似，两种本质上都是匹配、
+
 ## KMP实现分析
 
 通过上述三篇文章，能够知道KMP算法的原理，现在需要考虑的是如何来进行实现。
