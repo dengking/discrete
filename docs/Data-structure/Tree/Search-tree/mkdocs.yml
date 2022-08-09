@@ -3,5 +3,5 @@ nav:
     - Binary-search-tree: Binary-search-tree
     - Self-balancing-binary-search-tree: Self-balancing-binary-search-tree
     - Red-black-tree: Red-black-tree
-    - B-tree&&B+tree: B-tree&&B+tree
+    - B-tree&B+tree: B-tree&B+tree
     - Trie: Trie

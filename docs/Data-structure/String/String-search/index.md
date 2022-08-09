@@ -1,12 +1,22 @@
-# [String-searching algorithm](https://en.wikipedia.org/wiki/String-searching_algorithm)
+# String-searching algorithm
+
+一、概念：
+
+wikipedia [String-searching algorithm](https://en.wikipedia.org/wiki/String-searching_algorithm)
+
+> Let *m* be the length of the pattern, *n* be the length of the searchable text and *k* = |Σ| be the size of the alphabet.
+
+## wikipedia [String-searching algorithm](https://en.wikipedia.org/wiki/String-searching_algorithm)
 
 
 
-## Basic classification of search algorithms
+### Basic classification of search algorithms
 
 The various [algorithms](https://en.wikipedia.org/wiki/Algorithm) can be classified by the number of patterns each uses.
 
-### Single-pattern algorithms
+> NOTE: 这种分类方式是根据pattern的个数作为标准
+
+#### Single-pattern algorithms
 
 Let *m* be the length of the pattern, *n* be the length of the searchable text and *k* = |Σ| be the size of the alphabet.
 
@@ -25,20 +35,23 @@ Let *m* be the length of the pattern, *n* be the length of the searchable text a
 
 The **[Boyer–Moore string-search algorithm](https://en.wikipedia.org/wiki/Boyer–Moore_string-search_algorithm)** has been the standard benchmark for the practical string-search literature.[[6\]](https://en.wikipedia.org/wiki/String-searching_algorithm#cite_note-:0-6)
 
-### Algorithms using a finite set of patterns
+#### Algorithms using a finite set of patterns
 
-- [Aho–Corasick string matching algorithm](https://en.wikipedia.org/wiki/Aho–Corasick_string_matching_algorithm) (extension of Knuth-Morris-Pratt)
-- [Commentz-Walter algorithm](https://en.wikipedia.org/wiki/Commentz-Walter_algorithm) (extension of Boyer-Moore)
-- Set-BOM (extension of Backward Oracle Matching)
-- [Rabin–Karp string search algorithm](https://en.wikipedia.org/wiki/Rabin–Karp_string_search_algorithm)
+1、[Aho–Corasick string matching algorithm](https://en.wikipedia.org/wiki/Aho–Corasick_string_matching_algorithm) (extension of Knuth-Morris-Pratt)
 
-### Algorithms using an infinite number of patterns
+2、[Commentz-Walter algorithm](https://en.wikipedia.org/wiki/Commentz-Walter_algorithm) (extension of Boyer-Moore)
+
+3、Set-BOM (extension of Backward Oracle Matching)
+
+4、[Rabin–Karp string search algorithm](https://en.wikipedia.org/wiki/Rabin–Karp_string_search_algorithm)
+
+#### Algorithms using an infinite number of patterns
 
 Naturally, the patterns can not be enumerated finitely in this case. They are represented usually by a [regular grammar](https://en.wikipedia.org/wiki/Regular_grammar) or [regular expression](https://en.wikipedia.org/wiki/Regular_expression).
 
 
 
-## Other classification
+### Other classification
 
 Other classification approaches are possible. One of the most common uses preprocessing as main criteria.
 
@@ -87,3 +100,19 @@ Faster search algorithms preprocess the text. After building a [substring index]
 ### Other variants
 
 Some search methods, for instance [trigram search](https://en.wikipedia.org/wiki/Trigram_search), are intended to find a "closeness" score between the search string and the text rather than a "match/non-match". These are sometimes called ["fuzzy" searches](https://en.wikipedia.org/wiki/Approximate_string_matching).
+
+
+
+## Preprocess Pattern or Preoprocess Text?
+
+本节标题源自geeksforgeeks [Pattern Searching using Suffix Tree](https://www.geeksforgeeks.org/pattern-searching-using-suffix-tree/) 
+
+> We have discussed the following algorithms in the previous posts:
+>
+> [KMP Algorithm](https://www.geeksforgeeks.org/kmp-algorithm-for-pattern-searching/)
+> [Rabin Karp Algorithm](https://www.geeksforgeeks.org/rabin-karp-algorithm-for-pattern-searching/)
+> [Finite Automata based Algorithm](https://www.geeksforgeeks.org/finite-automata-algorithm-for-pattern-searching/)
+> [Boyer Moore Algorithm](https://www.geeksforgeeks.org/pattern-searching-set-7-boyer-moore-algorithm-bad-character-heuristic/)
+>
+> All of the above algorithms preprocess the **pattern** to make the pattern searching faster. The best time complexity that we could get by preprocessing pattern is `O(n)` where `n` is length of the text. In this post, we will discuss an approach that preprocesses the **text**. A **suffix tree** is built of the text. After preprocessing text (building suffix tree of text), we can search any pattern in `O(m)` time where `m` is length of the pattern.
+
