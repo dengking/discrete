@@ -33,6 +33,24 @@ if directly_connected(v, u)
 ```
 
 
-towardsdatascience [Understanding Edge Relaxation for Dijkstra’s Algorithm and Bellman-Ford Algorithm](https://towardsdatascience.com/algorithm-shortest-paths-1d8fa3f50769)
+
+## towardsdatascience [Understanding Edge Relaxation for Dijkstra’s Algorithm and Bellman-Ford Algorithm](https://towardsdatascience.com/algorithm-shortest-paths-1d8fa3f50769)
+
+> NOTE: 这篇文章不错
+
+By understanding the key notion, “***edge relaxation\***”, it is really easier to understand the concrete algorithms, say Dijsktra’s algorithm or Bellman-Ford algorithm. In other words, it might be difficult to make these algorithms your own without understanding edge relaxation. In this post, I focus on edge relaxation and explain the general structure to solve the shortest paths problem. Also, we’ll go through the easy algorithm and its implementation for better understanding. I use Python for the implementation. This post is structured as follows:
+
+1. What is the shortest paths problem?
+2. What is edge relaxation?
+3. The order of the relaxation
+4. The shortest path on DAG and its implementation
+
+Please note that we don’t treat Dijkstra’s algorithm or Bellman-ford algorithm.
+
+
+
+## 素材
+
+
 
 baeldung [Edge Relaxation in Dijkstra’s Algorithm](https://www.baeldung.com/cs/dijkstra-edge-relaxation)
