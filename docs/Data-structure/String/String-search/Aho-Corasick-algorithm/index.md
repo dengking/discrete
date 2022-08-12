@@ -1,5 +1,31 @@
 # Aho-Corasick-algorithm
 
+## 素材
+
+### zhihu [Aho-Corasick算法纵览（AC自动机）](https://zhuanlan.zhihu.com/p/368184958)
+
+![img](https://pic4.zhimg.com/80/v2-94518a2b306d9b8f1d10e4b49911e567_1440w.jpg)
+
+#### 什么是字典树（Trie）？
+
+
+
+![img](https://pic1.zhimg.com/80/v2-a9081d3eff0ca0f0b06c8736a246eaa4_1440w.jpg)
+
+而字典树又分为压缩字典树、非压缩字典树等，我们的AC自动机算法就是一棵典型的非压缩字典树。
+
+AC自动机是一种典型的前缀搜索算法：
+
+![img](https://pic3.zhimg.com/80/v2-6fc59897b84332efb8f05997ca41cb5e_1440w.jpg)
+
+#### 那么什么是AC自动机呢？
+
+AC自动机应当属于基于**前缀搜索**的**非压缩字典树**。
+
+![img](https://pic2.zhimg.com/80/v2-4662e74f81c5c39547e6f4b689efca0d_1440w.jpg)
+
+#### AC自动机的原理如下：
+
 
 
 ## wikipedia [Aho–Corasick algorithm](https://en.wikipedia.org/wiki/Aho%E2%80%93Corasick_algorithm)

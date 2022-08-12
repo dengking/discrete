@@ -1,6 +1,6 @@
-# leetcode [733. 图像渲染](https://leetcode.cn/problems/flood-fill/) 简单
+# [LeetCode-733. 图像渲染-简单](https://leetcode.cn/problems/flood-fill/) 
 
-
+英文原题: [LeetCode-733. Flood Fill](https://leetcode.com/problems/flood-fill/)
 
 ## 我的解题
 

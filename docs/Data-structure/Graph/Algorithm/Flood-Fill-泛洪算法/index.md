@@ -334,5 +334,5 @@ if (Math.abs(image[x][y] - origColor) > threshold)
 
 
 
-## wanweibaike [Flood fill](https://en.wanweibaike.com/wiki-Flood%20fill%20algorithm)
+## wikipedia [Flood fill](https://en.wikipedia.org/wiki/Flood_fill)
 
