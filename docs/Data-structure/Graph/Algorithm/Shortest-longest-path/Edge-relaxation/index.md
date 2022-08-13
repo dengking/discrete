@@ -1,16 +1,24 @@
 # Edge relaxation
 
-"edge relaxation"这个词我是在阅读wikipedia  [Bellman–Ford algorithm](https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm) 、wikipedia [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm) 时，发现的，在 wikipedia  [Bellman–Ford algorithm](https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm) 中有这样的描述:
+
+
+## What is edge relaxation?
+
+一、"edge relaxation"这个词我是在阅读wikipedia  [Bellman–Ford algorithm](https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm) 、wikipedia [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm) 时，发现的，在 wikipedia  [Bellman–Ford algorithm](https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm) 中有这样的描述:
 
 > Like [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra's_algorithm), Bellman–Ford proceeds by [relaxation](https://en.wikipedia.org/wiki/Relaxation_(approximation)), in which approximations to the correct distance are replaced by better ones until they eventually reach the solution. In both algorithms, the approximate distance to each vertex is always an overestimate of the true distance, and is replaced by the minimum of its old value and the length of a newly found path. 
 
 两者都属于求解最优值问题，它们两个提供了求解最优值问题的非常好的范式。
 
-## stackoverflow [Relaxation of an edge in Dijkstra's algorithm](https://stackoverflow.com/questions/12782431/relaxation-of-an-edge-in-dijkstras-algorithm)
+二、Iterative-optimization-algorithm
+
+"edge relaxation"可以归入到"Iterative-optimization-algorithm"的范畴。
+
+### stackoverflow [Relaxation of an edge in Dijkstra's algorithm](https://stackoverflow.com/questions/12782431/relaxation-of-an-edge-in-dijkstras-algorithm)
 
 What does **relaxation of an edge** mean in the context of graph theory ? 
 
-### [A](https://stackoverflow.com/a/12782683)
+#### [A](https://stackoverflow.com/a/12782683)
 
 [Here's](http://web.cs.unlv.edu/larmore/Courses/CSC269/pathing) a nice description of the Algorithm that also explains the notion of relaxation.
 
@@ -24,7 +32,7 @@ What does **relaxation of an edge** mean in the context of graph theory ?
 > 三、"stretched out"的意思是"伸展"、"拉伸"
 > 简而言之:弹簧一开始被拉伸地很长，后来不断释放而越来越短最终恢复到弹簧的静止最短长度。在弹簧的语境中，"relax"的意思是"放松"、"释放"
 
-### [A](https://stackoverflow.com/a/12782820)
+#### [A](https://stackoverflow.com/a/12782820)
 
 ```
 if directly_connected(v, u)
@@ -34,7 +42,7 @@ if directly_connected(v, u)
 
 
 
-## towardsdatascience [Understanding Edge Relaxation for Dijkstra’s Algorithm and Bellman-Ford Algorithm](https://towardsdatascience.com/algorithm-shortest-paths-1d8fa3f50769)
+### towardsdatascience [Understanding Edge Relaxation for Dijkstra’s Algorithm and Bellman-Ford Algorithm](https://towardsdatascience.com/algorithm-shortest-paths-1d8fa3f50769)
 
 > NOTE: 这篇文章不错
 
@@ -46,6 +54,14 @@ By understanding the key notion, “***edge relaxation\***”, it is really easi
 4. The shortest path on DAG and its implementation
 
 Please note that we don’t treat Dijkstra’s algorithm or Bellman-ford algorithm.
+
+
+
+## Example code
+
+1、stackoverflow [Negative weights using Dijkstra's Algorithm](https://stackoverflow.com/questions/6799172/negative-weights-using-dijkstras-algorithm)
+
+2、[LeetCode-1514. 概率最大的路径](https://leetcode.cn/problems/path-with-maximum-probability/)
 
 
 
