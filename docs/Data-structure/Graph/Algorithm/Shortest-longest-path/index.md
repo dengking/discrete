@@ -20,6 +20,13 @@
 
 2、[五种最短路径算法总结](https://leetcode.cn/problems/network-delay-time/solution/dirkdtra-by-happysnaker-vjii/)
 
+| Algorithm                                                    | weighted/unweighted | 问题类型                                                     | 算法思想    | Computation complexity |
+| ------------------------------------------------------------ | ------------------- | ------------------------------------------------------------ | ----------- | ---------------------- |
+| [Floyd–Warshall algorithm](https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm) | weighted            | "A single execution of the algorithm will find the lengths (summed weights) of shortest paths between all pairs of vertices" | **穷举+DP** | $O(V*E)$               |
+| [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra's_algorithm) | weighted            | Single source shortest path(SSSP)                            | greedy      |                        |
+| [Bellman–Ford algorithm](https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm) | weighted            | Single source shortest path(SSSP)                            | **穷举+DP** | $O(V^3)$               |
+| BFS                                                          | unweighted          |                                                              |             |                        |
+
 
 
 ## Dijkstra VS Floyd

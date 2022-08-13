@@ -61,7 +61,69 @@ Please note that we don’t treat Dijkstra’s algorithm or Bellman-ford algorit
 
 1、stackoverflow [Negative weights using Dijkstra's Algorithm](https://stackoverflow.com/questions/6799172/negative-weights-using-dijkstras-algorithm)
 
+```pseudocode
+Dijkstra(G, w, s)  {
+   Initialize-Single-Source(G, s)
+   S ← Ø
+   Q ← V[G]//priority queue by d[v]
+   while Q ≠ Ø do
+      u ← Extract-Min(Q)
+      S ← S U {u}
+      for each vertex v in Adj[u] do
+         Relax(u, v)
+}
+
+Initialize-Single-Source(G, s) {
+   for each vertex v  V(G)
+      d[v] ← ∞
+      π[v] ← NIL
+   d[s] ← 0
+}
+
+Relax(u, v) {
+   //update only if we found a strictly shortest path
+   if d[v] > d[u] + w(u,v) 
+      d[v] ← d[u] + w(u,v)
+      π[v] ← u
+      Update(Q, v)
+}
+```
+
+
+
 2、[LeetCode-1514. 概率最大的路径](https://leetcode.cn/problems/path-with-maximum-probability/)
+
+
+
+3、wikipedia  [Bellman–Ford algorithm](https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm) 
+
+```pseudocode
+function BellmanFord(list vertices, list edges, vertex source) is
+
+    // This implementation takes in a graph, represented as
+    // lists of vertices (represented as integers [0..n-1]) and edges,
+    // and fills two arrays (distance and predecessor) holding
+    // the shortest path from the source to each vertex
+
+    distance := list of size n
+    predecessor := list of size n
+
+    // Step 1: initialize graph
+    for each vertex v in vertices do
+
+        distance[v] := inf             // Initialize the distance to all vertices to infinity
+        predecessor[v] := null         // And having a null predecessor
+    
+    distance[source] := 0              // The distance from the source to itself is, of course, zero
+
+    // Step 2: relax edges repeatedly
+    
+    repeat |V|−1 times:
+         for each edge (u, v) with weight w in edges do
+             if distance[u] + w < distance[v] then
+                 distance[v] := distance[u] + w
+                 predecessor[v] := u
+```
 
 
 

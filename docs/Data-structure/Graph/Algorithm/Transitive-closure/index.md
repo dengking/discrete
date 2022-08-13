@@ -6,12 +6,17 @@
 
 ## Closure (mathematics)
 
-- 在龙书中有关于闭包的描述
-- 在离散数学的关系章节中有闭包的描述
-- [Kleene star](https://en.wikipedia.org/wiki/Kleene_star)
-- [Context-free grammar](https://en.wikipedia.org/wiki/Context-free_grammar#Closure_properties)中也有关于closure的描述
-- 从[Formation rule](https://en.wikipedia.org/wiki/Formation_rule)/[Production rule](https://en.wikipedia.org/wiki/Production_(computer_science))的角度来看待闭包
-- 从逻辑学推导的角度来看待闭包
+1、在龙书中有关于闭包的描述
+
+2、在离散数学的关系章节中有闭包的描述
+
+3、[Kleene star](https://en.wikipedia.org/wiki/Kleene_star)
+
+4、[Context-free grammar](https://en.wikipedia.org/wiki/Context-free_grammar#Closure_properties)中也有关于closure的描述
+
+5、从[Formation rule](https://en.wikipedia.org/wiki/Formation_rule)/[Production rule](https://en.wikipedia.org/wiki/Production_(computer_science))的角度来看待闭包
+
+6、从逻辑学推导的角度来看待闭包
 
 我一直想要搞清楚的closure就是基于逻辑推导和集合论的。
 
@@ -47,7 +52,11 @@ A [set](https://en.wikipedia.org/wiki/Set_(mathematics)) is **closed** under an 
 
 二、在 https://cwiki.apache.org/confluence/display/ZOOKEEPER/PoweredBy 中也是用了transitive closure这个词语
 
+三、Closures of Relations(从relation-structure的角度来进行分析)
 
+1、沿着relation不断地进行expand
+
+2、one-by-one
 
 ### wikipedia [Transitive_closure](https://en.wikipedia.org/wiki/Transitive_closure)
 
