@@ -52,7 +52,33 @@ int BFS(Node start) {
 
 ## Bidirectional BFS
 
-这是在 labuladong [BFS 算法框架套路详解](https://mp.weixin.qq.com/s/WH_XGm1-w5882PnenymZ7g) 中发现的，BFS-shortest-path中经常使用的一种technique。
+一、这是在 labuladong [BFS 算法框架套路详解](https://mp.weixin.qq.com/s/WH_XGm1-w5882PnenymZ7g) 中发现的，BFS-shortest-path中经常使用的一种technique。
+
+二、Google "bidirectional bfs - leetcode"-LeetCode [Problems on Leetcode that uses Bidirectional BFS](https://leetcode.com/discuss/general-discussion/1170553/problems-on-leetcode-that-uses-bidirectional-bfs)
+
+1、[LeetCode-752. 打开转盘锁-中等](https://leetcode.cn/problems/open-the-lock/) 
+
+https://leetcode.com/problems/open-the-lock/discuss/908020/java-4ms-beats-100-bidirectional-bfs-with-explanation
+
+2、[LeetCode-127. 单词接龙-困难](https://leetcode.cn/problems/word-ladder/) 
+
+https://leetcode.com/problems/word-ladder/discuss/180745/Java-Bidirectional-BFS-in-21-ms
+
+https://leetcode.com/problems/word-ladder/discuss/650367/python-bidirectional-bfs
+
+https://leetcode.com/problems/word-ladder/discuss/729726/c-bidirectional-bfs
+
+3、[LeetCode-1345. Jump Game IV-困难](https://leetcode.com/problems/jump-game-iv/)
+
+https://leetcode.com/problems/jump-game-iv/discuss/507950/java-bidirectional-bfs
+
+4、[LeetCode-1197. 进击的骑士-困难](https://leetcode.cn/problems/minimum-knight-moves/)
+
+https://leetcode.com/discuss/explore/graph/1531509/Bidirectional-BFS
+
+5、[LeetCode-279. Perfect Squares-中等](https://leetcode.com/problems/perfect-squares/)
+
+https://leetcode.com/problems/perfect-squares/discuss/1736365/C%2B%2B-Bidirectional-BFS
 
 
 
@@ -62,8 +88,13 @@ int BFS(Node start) {
 | ------------------------------------------------------------ | ---- | ------------------------------------------------------------ |
 | [LeetCode -111. 二叉树的最小深度-简单](https://leetcode.cn/problems/minimum-depth-of-binary-tree/) |      | labuladong [BFS 算法框架套路详解](https://mp.weixin.qq.com/s/WH_XGm1-w5882PnenymZ7g) |
 | [LeetCode-127. 单词接龙-困难](https://leetcode.cn/problems/word-ladder/) |      | Google "bidirectional bfs - leetcode"                        |
+| [LeetCode-279. Perfect Squares-中等](https://leetcode.com/problems/perfect-squares/) |      |                                                              |
 | [LeetCode-752. 打开转盘锁-中等](https://leetcode.cn/problems/open-the-lock/) |      | labuladong [BFS 算法框架套路详解](https://mp.weixin.qq.com/s/WH_XGm1-w5882PnenymZ7g) |
 | [LeetCode-773. 滑动谜题-困难](https://leetcode.cn/problems/sliding-puzzle/) |      | labuladong [益智游戏克星：BFS暴力搜索算法](https://mp.weixin.qq.com/s/Xn-oW7QRu8spYzL3B6zLxw) |
+| [LeetCode-1197. 进击的骑士-困难](https://leetcode.cn/problems/minimum-knight-moves/) |      |                                                              |
+| [LeetCode-1345. Jump Game IV-困难](https://leetcode.com/problems/jump-game-iv/) |      |                                                              |
+|                                                              |      |                                                              |
+|                                                              |      |                                                              |
 |                                                              |      |                                                              |
 
 
