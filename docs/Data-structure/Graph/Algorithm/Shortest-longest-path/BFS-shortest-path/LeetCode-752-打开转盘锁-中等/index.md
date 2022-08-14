@@ -1,5 +1,7 @@
 # [LeetCode-752. 打开转盘锁-中等](https://leetcode.cn/problems/open-the-lock/) 
 
+这道题是在阅读 labuladong [BFS 算法框架套路详解](https://mp.weixin.qq.com/s/WH_XGm1-w5882PnenymZ7g) 时发现的
+
 ## 我的解题
 
 ```C++

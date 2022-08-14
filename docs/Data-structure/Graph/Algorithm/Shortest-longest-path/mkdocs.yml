@@ -1,5 +1,6 @@
 nav:
     - Introduction: index.md
+    - BFS-shortest-path: BFS-shortest-path    
     - Dijkstra's-algorithm: Dijkstra's-algorithm
     - Dijkstra's-algorithm-VS-BFS: Dijkstra's-algorithm-VS-BFS
     - Bellman–Ford-algorithm: Bellman–Ford-algorithm

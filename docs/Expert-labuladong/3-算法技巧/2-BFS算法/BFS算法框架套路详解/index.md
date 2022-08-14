@@ -9,6 +9,8 @@ BFS 相对 DFS 的最主要的区别是：**BFS 找到的路径一定是最短�
 > 一、在 cs.ubc.ca [CPSC 322, Practice Exercise Solutions to Uninformed Search](https://www.cs.ubc.ca/~hutter/teaching/cpsc322/practice_exercises/1_ex_search_uninformed_sol.pdf) 中有这样的总结:
 >
 > > BFS is complete and optimal
+>
+> 二、这篇文章所讲述的其实就是BFS-shortest-path
 
 本文就由浅入深写两道 BFS 的典型题目，分别是「二叉树的最小高度」和「打开密码锁的最少步数」，手把手教你怎么写 BFS 算法
 
@@ -83,7 +85,7 @@ int BFS(Node start, Node target) {
 
 > NOTE: 
 >
-> [LeetCode -111. 二叉树的最小深度](https://leetcode.cn/problems/minimum-depth-of-binary-tree/) 简单
+> [LeetCode -111. 二叉树的最小深度-简单](https://leetcode.cn/problems/minimum-depth-of-binary-tree/) 
 
 
 
