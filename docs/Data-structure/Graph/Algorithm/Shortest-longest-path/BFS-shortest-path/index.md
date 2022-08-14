@@ -52,7 +52,7 @@ int BFS(Node start) {
 
 ## Bidirectional BFS
 
-这是BFS-shortest-path中经常使用的一种technique。
+这是在 labuladong [BFS 算法框架套路详解](https://mp.weixin.qq.com/s/WH_XGm1-w5882PnenymZ7g) 中发现的，BFS-shortest-path中经常使用的一种technique。
 
 
 
