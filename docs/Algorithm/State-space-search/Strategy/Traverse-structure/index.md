@@ -1,7 +1,5 @@
 # Traverse-structure
 
-## Structure
-
 本章描述的structure包括: 
 
 一、concrete structure
@@ -10,9 +8,15 @@
 
 二、abstract structure
 
+Linked-list 、tree和graph都是concrete strucutre，而state/solution space是virtual structure，它通常是：
+
+1、backtrack过程中生成
+
+2、recursion、function activation frame对应node、选择对应边来生成的，在实际运行过程中，通过一条path来保存状态。
 
 
-### Linked-list VS Tree VS Graph VS State/Solution space
+
+## Linked-list VS Tree VS Graph VS State/Solution space
 
 素材:
 
@@ -30,22 +34,57 @@
 
 3、`Function-recursion-tree-stack` 章节的内容，尤其是 `Analysis-and-representation-of-recursion` 章节的内容
 
+三、`Graph&tree&list` 章节
+
 
 ---
 
 我的总结:
 
-一、linked-list有tail-node、tree 有 leaf node，方便判断stop condition。
+一、stop condition
 
-二、graph 没有leaf node，且可能存在环，因此无法通过像tree那样的结构特性来判断stop condition，因此需要借助额外的visited array来帮助判断，它是在所有的节点都access后才能够结束。
+| structure            | stop condition |
+| -------------------- | -------------- |
+| linked-list          | tail-node      |
+| tree                 | leaf node      |
+| graph                | 没有           |
+| state/solution space | 没有           |
 
-三、state/solution space是virtual structure，它没有类似于tree那样的leaf node的概念，它的stop condition会更加复杂，它的stop condition由程序员通过分析问题而得出
+graph 没有leaf node，且可能存在环，因此无法通过像tree那样的结构特性来判断stop condition，因此需要借助额外的**visited array**来帮助判断，它是在所有的节点都access后才能够结束。
 
-四、tree和graph都是concrete strucutre，而state/solution space是virtual structure，它通常是：
+state/solution space是virtual structure，它没有类似于tree那样的leaf node的概念，它的stop condition会更加复杂，它的stop condition由程序员通过分析问题而得出。
 
-1、backtrack过程中生成
+二、circle
 
-2、recursion、function activation frame对应node、选择对应边来生成的，在实际运行过程中，通过一条path来保存状态。
+graph是可能存在circle，因此在各种algorithm中，需要对circle进行特殊处理。
+
+tree   是不可能存在circle，因此在各种algorithm中，不需要考虑circle。
+
+三、disconnect
+
+graph是可能存在disconnect。
+
+tree   是不可能存在disconnect。
+
+四、DFS
+
+DFS Tree分为preorder、inorder、postorder；
+
+DFS Graph采用的是类似于preorder的策略；
+
+可以看到，graph的DFS和tree的preorder traversal是非常类似的。
+
+
+
+### 章节
+
+|                      | 章节                   |      |
+| -------------------- | ---------------------- | ---- |
+| Traverse-linked-list | `Traverse-linked-list` |      |
+| Traverse-tree        | `Traverse-tree`        |      |
+| Traverse-graph       | `Traverse-graph`       |      |
+
+
 
 ## Concrete structure VS virtual state/solution space
 
@@ -63,7 +102,7 @@ backtrack中path=solution
 
 4、在 labuladong [图论算法基础](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247494624&idx=1&sn=29b84ce2a1ba8115922179e207281e27&scene=21#wechat_redirect) 中有这样的code，非常值得了解:
 
-```
+```Java
 void traverse(TreeNode root) {
     if (root == null) return;
     System.out.println("enter: " + root.val);
@@ -180,3 +219,6 @@ Answer: BFS is complete and optimal, while DFS is not guaranteed to halt when th
 概括来说就是"stop when target"，"stop when target"的意思是: "当达到目标后，就停止traverse"，stop-condition:
 
 1、到达了目标节点
+
+
+

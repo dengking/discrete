@@ -21,7 +21,9 @@
 
 ### Common issue
 
+good resource:
 
+1、wikipedia [Bellman–Ford algorithm](https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm) 
 
 #### 解的表达方式
 
@@ -53,13 +55,45 @@ void Floyd(int arrDis[][], Vertex arrPath[][])const;
 
 #### Edge relaxation
 
-两种都属于optimization algorithm，都使用了edge relaxation，关于此，参见 `Edge-relaxation` ，在wikipedia [Bellman–Ford algorithm](https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm) 中，关于两者的对比有着非常好的总结。
+1、2、3都属于DP optimization algorithm，都使用了edge relaxation，关于此，参见 `Edge-relaxation` ，在wikipedia [Bellman–Ford algorithm](https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm) 中，关于两者的对比有着非常好的总结:
+
+> Like [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra's_algorithm), Bellman–Ford proceeds by [relaxation](https://en.wikipedia.org/wiki/Relaxation_(approximation)), in which approximations to the correct distance are replaced by better ones until they eventually reach the solution.
+
+上述三个algorithm都是"proceed by [relaxation](https://en.wikipedia.org/wiki/Relaxation_(approximation))" ，它们所不懂的是执行relaxation的次数、时机。
+
+
+
+### 对比
+
+素材:
+
+stackexchange [Am I right about the differences between Floyd-Warshall, Dijkstra's and Bellman-Ford algorithms?](https://softwareengineering.stackexchange.com/questions/158613/am-i-right-about-the-differences-between-floyd-warshall-dijkstras-and-bellman)
+
+
+
+一、Dijkstra's-algorithm-VS-Bellman–Ford-algorithm
+
+素材、章节: wikipedia [Bellman–Ford algorithm](https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm)
+
+二、Dijkstra's-algorithm-VS-BFS
+
+素材、章节:   `Dijkstra's-algorithm-VS-BFS`
+
+三、Bellman–Ford-algorithm-VS-Floyd-Warshall-algorithm
+
+素材、章节: 
+
+1、stackoverflow [What is the basic difference between Bellman-ford and Floyd warshall algorithm?](https://stackoverflow.com/questions/34461496/what-is-the-basic-difference-between-bellman-ford-and-floyd-warshall-algorithm) 
+
+[A](https://stackoverflow.com/a/34472584/10173843)
+
+> The Bellman–Ford algorithm is an algorithm that computes shortest paths from a **single source vertex** to **all of the other vertices** in a weighted digraph whereas Floyd-Warshall computes shortest paths from **each node** to **every other node**.
 
 
 
 ## Max path in a graph
 
-
+TODO: 需要补充一些例题。
 
 参见: 
 

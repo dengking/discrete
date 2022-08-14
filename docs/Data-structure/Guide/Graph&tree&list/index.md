@@ -1,4 +1,4 @@
-# Graph、tree and list
+# Graph VS tree VS list
 
 进化：从list到tree，从tree到graph；
 
@@ -45,3 +45,8 @@
 > an undirected graph is a tree if and only if there is a unique simple path between any two of its vertices
 
 如果两个点之间有多条path的话，则必然就形成了circuit了
+
+## Traverse
+
+参见 `Traverse-structure` 章节。
+

@@ -1,12 +1,18 @@
 # BFS-VS-Dijkstra
 
-在 baeldung [Difference Between BFS and Dijkstra’s Algorithms](https://www.baeldung.com/cs/graph-algorithms-bfs-dijkstra) 中有着非常好的总结:
+一、在 baeldung [Difference Between BFS and Dijkstra’s Algorithms](https://www.baeldung.com/cs/graph-algorithms-bfs-dijkstra) 中有着非常好的总结:
 
 > BFS calculates the shortest paths in unweighted graphs. 
 >
 > Dijkstra’s algorithm calculates the same thing in weighted graphs.
 
 其实在我的看来，"Dijkstra’s algorithm"其实是属于BFS的。
+
+二、labuladong [我写了一个模板，把 Dijkstra 算法变成了默写题](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247492167&idx=1&sn=bc96c8f97252afdb3973c7d760edb9c0&scene=21#wechat_redirect) 
+
+这篇文章非常好
+
+三、BFS中的step就是目标值，它不需要"edge relaxation"。
 
 ## baeldung [Difference Between BFS and Dijkstra’s Algorithms](https://www.baeldung.com/cs/graph-algorithms-bfs-dijkstra) 
 
@@ -34,7 +40,7 @@ Let’s see a flow chart that better explains the general algorithm:
 
 
 
-## labuladong [我写了一个模板，把 Dijkstra 算法变成了默写题](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247492167&idx=1&sn=bc96c8f97252afdb3973c7d760edb9c0&scene=21#wechat_redirect)
+## labuladong [我写了一个模板，把 Dijkstra 算法变成了默写题](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247492167&idx=1&sn=bc96c8f97252afdb3973c7d760edb9c0&scene=21#wechat_redirect) 
 
 > NOTE: 这篇文章中给出来具体的code
 
