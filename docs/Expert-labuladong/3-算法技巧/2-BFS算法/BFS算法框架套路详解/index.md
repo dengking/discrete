@@ -83,7 +83,7 @@ int BFS(Node start, Node target) {
 
 > NOTE: 
 >
-> LeetCode [111. 二叉树的最小深度](https://leetcode.cn/problems/minimum-depth-of-binary-tree/) 简单
+> [LeetCode -111. 二叉树的最小深度](https://leetcode.cn/problems/minimum-depth-of-binary-tree/) 简单
 
 
 

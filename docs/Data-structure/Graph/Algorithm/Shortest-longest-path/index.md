@@ -15,7 +15,7 @@
 | 1    | [Floyd–Warshall algorithm](https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm) | weighted            | "A single execution of the algorithm will find the lengths (summed weights) of shortest paths between all pairs of vertices" | **穷举+DP**   | $O(V*E)$               |
 | 2    | [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra's_algorithm) | weighted            | Single source shortest path(SSSP)                            | **greedy+dp** |                        |
 | 3    | [Bellman–Ford algorithm](https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm) | weighted            | Single source shortest path(SSSP)                            | **穷举+DP**   | $O(V^3)$               |
-| 4    | BFS                                                          | unweighted          |                                                              |               |                        |
+| 4    | BFS                                                          | unweighted          | 比较常见的是src-dest                                         |               |                        |
 
 
 

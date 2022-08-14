@@ -38,7 +38,13 @@ int BFS(Node start) {
 
 再加上 BFS 算法利用`for`循环一层一层向外扩散的逻辑和`visited`集合防止走回头路的逻辑，当你每次从队列中拿出节点`cur`的时候，从`start`到`cur`的最短权重就是`step`记录的步数。
 
-2、
+2、labuladong [BFS 算法框架套路详解](https://mp.weixin.qq.com/s/WH_XGm1-w5882PnenymZ7g) 
+
+3、labuladong [益智游戏克星：BFS暴力搜索算法](https://mp.weixin.qq.com/s/Xn-oW7QRu8spYzL3B6zLxw)
+
+二、geeksforgeeks [Depth First Search or DFS for a Graph](https://www.geeksforgeeks.org/depth-first-search-or-dfs-for-a-graph/)
+
+
 
 ## wikipedia [Breadth-first search](https://en.wikipedia.org/wiki/Breadth-first_search)
 
@@ -82,6 +88,10 @@ Breadth-first search can be used to solve many problems in graph theory, for exa
 > NOTE: 
 >
 > 一、BFS-VS-DFS
+>
+> 二、关于此，参见:
+>
+> 1、
 
 3、[(Reverse) Cuthill–McKee](https://en.wikipedia.org/wiki/Cuthill–McKee_algorithm) mesh numbering
 
@@ -93,6 +103,24 @@ Breadth-first search can be used to solve many problems in graph theory, for exa
 
 7、Testing [bipartiteness of a graph](https://en.wikipedia.org/wiki/Bipartite_graph#Testing_bipartiteness).
 
-## geeksforgeeks [Depth First Search or DFS for a Graph](https://www.geeksforgeeks.org/depth-first-search-or-dfs-for-a-graph/)
 
 
+## Queue machine
+
+使用BFS的算法其实非常类似于queue machine，这是和[stack machine](https://en.wikipedia.org/wiki/Stack_machine)相对应的。在 baeldung [Difference Between BFS and Dijkstra’s Algorithms](https://www.baeldung.com/cs/graph-algorithms-bfs-dijkstra) 中，对queue machine的流程图有着非常好的描述:
+
+
+
+> ![img](./SSSP-Algorithm-1024x339.png)
+
+
+
+### 使用BFS的图类算法
+
+使用BFS的图类算法:
+
+1、[Topological sorting](https://en.wikipedia.org/wiki/Topological_sorting)
+
+2、[Dijkstra’s algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)
+
+算法都非常类似于一个机器，加入一点原料后，开始运转。

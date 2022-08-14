@@ -16,7 +16,7 @@ Linked-list 、tree和graph都是concrete strucutre，而state/solution space是
 
 
 
-## Linked-list VS Tree VS Graph VS State/Solution space
+## Traverse Linked-list VS Tree VS Graph VS State/Solution space
 
 素材:
 
@@ -130,12 +130,12 @@ void traverse(TreeNode root) {
 
 "traverse"其实也可以看做是一种"穷举"，它是系统地解决很多问题的基础，比如对state/solution  space进行traverse是解决问题的一种通用方式，它涉及了多种algorithm。在 `Relation-structure-computation\Computation\Computation-on-structure` 中提出了 **Traverse** 的计算方式，本章基于这个思路进行梳理。
 
-| strategy             |        | 章节                               |
-| -------------------- | ------ | ---------------------------------- |
-| DFS                  |        |                                    |
-| DFS-backtracking     | 回溯法 | 参见 `DFS-backtrack` 章节。        |
-| BFS                  |        |                                    |
-| BFS-branch-and-bound |        | 参见 `BFS-branch-and-bound` 章节。 |
+| strategy             |        | 章节                   |
+| -------------------- | ------ | ---------------------- |
+| DFS                  |        | `DFS`                  |
+| DFS-backtracking     | 回溯法 | `DFS-backtrack`        |
+| BFS                  |        | `BFS`                  |
+| BFS-branch-and-bound |        | `BFS-branch-and-bound` |
 
 
 
@@ -146,9 +146,9 @@ void traverse(TreeNode root) {
 
 简而言之: 
 
-Backtrace 对应的是 depth-first ；
+Backtrace 对应的是 DFS；
 
-Branch-and-Bound 对应的是 width-first ；
+Branch-and-Bound 对应的是 BFS；
 
 
 
