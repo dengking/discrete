@@ -156,18 +156,6 @@ Branch-and-Bound 对应的是 width-first ；
 
 
 
-#### 例题
-
-本节总结能够同时使用 BFS 和 DFS 解决的题目、算法:
-
-| 题目                          |      |
-| ----------------------------- | ---- |
-| LeetCode-104-二叉树的最大深度 |      |
-| LeetCode-111-二叉树的最小深度 |      |
-| topological-sorting-拓扑排序  |      |
-
-
-
 #### labuladong [BFS 算法框架套路详解](https://mp.weixin.qq.com/s/WH_XGm1-w5882PnenymZ7g) 
 
 在这篇文章中进行了非常好的描述，下面是其中的观点:
@@ -201,6 +189,24 @@ Answer: BFS is complete and optimal, while DFS is not guaranteed to halt when th
  Answer: If `m` is the maximum path length and `b` is the branching factor, the **space complexity** for DFS is `mb` while for BFS it is $b^m$.
 
 > NOTE: 关于**space complexity** ，在 labuladong [BFS 算法框架套路详解](https://mp.weixin.qq.com/s/WH_XGm1-w5882PnenymZ7g) 中有着很好的解释。
+
+#### wikipedia [Breadth-first search](https://en.wikipedia.org/wiki/Breadth-first_search)
+
+Finding the [shortest path](https://en.wikipedia.org/wiki/Shortest_path) between two nodes *u* and *v*, with path length measured by number of edges (an advantage over [depth-first search](https://en.wikipedia.org/wiki/Depth-first_search))[[12\]](https://en.wikipedia.org/wiki/Breadth-first_search#cite_note-12)
+
+
+
+#### 例题
+
+本节总结能够同时使用 BFS 和 DFS 解决的题目、算法:
+
+| 题目                          |      |
+| ----------------------------- | ---- |
+| LeetCode-104-二叉树的最大深度 |      |
+| LeetCode-111-二叉树的最小深度 |      |
+| topological-sorting-拓扑排序  |      |
+
+
 
 ### Track current path
 
