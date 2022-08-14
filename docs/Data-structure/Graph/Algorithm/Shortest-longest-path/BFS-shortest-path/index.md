@@ -52,6 +52,10 @@ int BFS(Node start) {
 
 ## Bidirectional BFS
 
+这是BFS-shortest-path中经常使用的一种technique。
+
+
+
 ## LeetCode
 
 | 题目                                                         |      | 来源                                                         |
