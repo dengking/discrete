@@ -80,6 +80,12 @@ https://leetcode.com/discuss/explore/graph/1531509/Bidirectional-BFS
 
 https://leetcode.com/problems/perfect-squares/discuss/1736365/C%2B%2B-Bidirectional-BFS
 
+三、geeksforgeeks [Bidirectional Search](https://www.geeksforgeeks.org/bidirectional-search/)
+
+其中给出了bidirectional-BFS的sample code。
+
+四、efficientcodeblog [Bidirectional Search : Two-End BFS](https://efficientcodeblog.wordpress.com/2017/12/13/bidirectional-search-two-end-bfs/)
+
 
 
 ## LeetCode
