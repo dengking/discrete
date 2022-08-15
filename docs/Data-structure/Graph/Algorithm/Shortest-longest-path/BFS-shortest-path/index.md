@@ -107,5 +107,27 @@ https://leetcode.com/problems/perfect-squares/discuss/1736365/C%2B%2B-Bidirectio
 
 
 
+## LeetCode [【宫水三叶】一题三解：「双向 BFS」& 「AStar 算法」&「IDA* 算法」](https://leetcode.cn/problems/open-the-lock/solution/gong-shui-san-xie-yi-ti-shuang-jie-shuan-wyr9/)
 
+> NOTE: 这篇文章非常好。
+
+回到本题，根据题意，可以确定这是一个「最短路/最小步数」问题。
+
+此类问题，通常我们会使用「BFS」求解，但朴素的 BFS 通常会带来搜索空间爆炸问题。
+
+> NOTE: 
+>
+> 朴素BFS的缺陷: 空间爆炸。
+
+我们知道，递归树的展开形式是一棵多阶树。
+
+使用朴素 BFS 进行求解时，队列中最多会存在“两层”的搜索节点。
+
+因此搜索空间的上界取决于 目标节点所在的搜索层次的深度所对应的宽度。
+
+下图展示了朴素 BFS 可能面临的搜索空间爆炸问题：
+
+
+
+在朴素的 BFS 实现中，空间的瓶颈主要取决于搜索空间中的最大宽度。
 

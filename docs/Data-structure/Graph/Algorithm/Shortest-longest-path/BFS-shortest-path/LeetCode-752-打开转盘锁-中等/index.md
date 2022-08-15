@@ -1,8 +1,22 @@
 # [LeetCode-752. 打开转盘锁-中等](https://leetcode.cn/problems/open-the-lock/) 
 
-这道题是在阅读 labuladong [BFS 算法框架套路详解](https://mp.weixin.qq.com/s/WH_XGm1-w5882PnenymZ7g) 时发现的
+
 
 ## 我的解题
+
+这道题是在阅读 labuladong [BFS 算法框架套路详解](https://mp.weixin.qq.com/s/WH_XGm1-w5882PnenymZ7g) 时发现的，它的典型的state- space-search，"每次旋转都只能旋转一个拨轮的一位数字"，在每个拨轮有如下两个选择:
+
+1、上拨
+
+2、下拨
+
+它的state-space如下: 
+
+![](./751660574877_.pic.jpg)
+
+可以看到，它是一棵"八叉树"，上述state-space罗列了它的所有的可能state，这些state之间的转换是按照题目要求的"每次旋转都只能旋转一个拨轮的一位数字"而生成的，显然实际的旋转也是需要按照这个规则进行，所以上述state-space是正确的，题目要求的最短路径其实就是从source到goal的最短路径，显然这是可以通过BFS实现的。
+
+
 
 ```C++
 #include <bits/stdc++.h>
