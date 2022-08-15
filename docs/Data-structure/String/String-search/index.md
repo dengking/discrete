@@ -57,10 +57,10 @@ Other classification approaches are possible. One of the most common uses prepro
 
 **Classes of string searching algorithms**[[7\]](https://en.wikipedia.org/wiki/String-searching_algorithm#cite_note-7)
 
-|                           |   Text not preprocessed    |                      Text preprocessed                       |
-| :-----------------------: | :------------------------: | :----------------------------------------------------------: |
-| Patterns not preprocessed |   Elementary algorithms    |                        Index methods                         |
-|   Patterns preprocessed   | Constructed search engines | Signature methods :[[8\]](https://en.wikipedia.org/wiki/String-searching_algorithm#cite_note-8) |
+|                               |   Text not preprocessed    |                      Text preprocessed                       |
+| :---------------------------: | :------------------------: | :----------------------------------------------------------: |
+| **Patterns not preprocessed** |   Elementary algorithms    |                        Index methods                         |
+|   **Patterns preprocessed**   | Constructed search engines | Signature methods :[[8\]](https://en.wikipedia.org/wiki/String-searching_algorithm#cite_note-8) |
 
 Another one classifies the algorithms by their matching strategy:[[9\]](https://en.wikipedia.org/wiki/String-searching_algorithm#cite_note-9)
 
