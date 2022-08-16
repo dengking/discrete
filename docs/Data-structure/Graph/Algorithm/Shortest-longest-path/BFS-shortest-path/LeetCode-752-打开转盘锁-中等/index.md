@@ -116,7 +116,7 @@ int main()
 
 
 
-## leetcode[【中规中矩】752. 打开转盘锁（宽度优先搜索）](https://leetcode.cn/problems/open-the-lock/solution/zhong-gui-zhong-ju-kuan-du-you-xian-sou-suo-by-jyj/)
+## [LeetCode-【中规中矩】752. 打开转盘锁（宽度优先搜索）](https://leetcode.cn/problems/open-the-lock/solution/zhong-gui-zhong-ju-kuan-du-you-xian-sou-suo-by-jyj/)
 
 
 
@@ -174,7 +174,7 @@ private:
 
 
 
-## leetcode [C++ BFS 转动开锁](https://leetcode.cn/problems/open-the-lock/solution/c-bfs-jie-jue-zhuan-dong-kai-suo-by-bei-lpvye/)
+## [LeetCode-C++ BFS 转动开锁](https://leetcode.cn/problems/open-the-lock/solution/c-bfs-jie-jue-zhuan-dong-kai-suo-by-bei-lpvye/)
 
 ```C++
 class Solution {
@@ -231,11 +231,137 @@ public:
 
 1、先判断是否visited，如果是，则不入queue
 
-"leetcode [752. 打开转盘锁](https://leetcode.cn/problems/open-the-lock/) 中等 # 我的解"题中，就是采用的这种方式
+" [LeetCode-752. 打开转盘锁-中等](https://leetcode.cn/problems/open-the-lock/) # 我的解"题中，就是采用的这种方式
 
 2、先入queue，然后再入visited
 
-"leetcode[【中规中矩】752. 打开转盘锁（宽度优先搜索）](https://leetcode.cn/problems/open-the-lock/solution/zhong-gui-zhong-ju-kuan-du-you-xian-sou-suo-by-jyj/) "中，就是使用的这种方式
+"[LeetCode【中规中矩】752. 打开转盘锁（宽度优先搜索）](https://leetcode.cn/problems/open-the-lock/solution/zhong-gui-zhong-ju-kuan-du-you-xian-sou-suo-by-jyj/) "中，就是使用的这种方式
 
 
+
+
+
+## [LeetCode【宫水三叶】一题三解：「双向 BFS」& 「AStar 算法」&「IDA* 算法」](https://leetcode.cn/problems/open-the-lock/solution/gong-shui-san-xie-yi-ti-shuang-jie-shuan-wyr9/)
+
+```c++
+// #include <bits/ne_stdc++.h>
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <bitset>
+#include <map>
+#include <set>
+#include <list>
+#include <stack>
+#include <unordered_map>
+#include <unordered_set>
+#include <queue>
+#include <deque>
+#include <cmath>
+#include <numeric>
+#include <climits>
+#include <random>
+#include <memory>
+
+using namespace std;
+
+class Solution
+{
+public:
+  string s, t;
+  unordered_set<string> st;
+  int openLock(vector<string> &deadends, string target)
+  {
+    s = "0000";
+    t = target;
+    if (s == t)
+    {
+      return 0;
+    }
+    for (const auto &d : deadends)
+    {
+      st.insert(d);
+    }
+    if (st.count(s))
+    {
+      return -1;
+    }
+    int ans = bfs();
+    return ans;
+  }
+  int bfs()
+  {
+    queue<string> d1, d2;
+    unordered_map<string, int> m1, m2;
+    d1.push(s);
+    m1[s] = 0;
+    d2.push(t);
+    m2[t] = 0;
+    while (d1.size() and d2.size())
+    {
+      int t = -1;
+      if (d1.size() <= d2.size())
+      {
+        t = update(d1, m1, m2);
+      }
+      else
+      {
+        t = update(d2, m2, m1);
+      }
+      if (t != -1)
+        return t;
+    }
+    return -1;
+  }
+  int update(queue<string> &q, unordered_map<string, int> &cur, unordered_map<string, int> &other)
+  {
+    int m = q.size();
+    while (m-- > 0)
+    {
+      string t = q.front();
+      q.pop();
+      int step = cur[t];
+      for (int i = 0; i < 4; i++)
+      {
+        for (int j = -1; j <= 1; j++)
+        {
+          if (j == 0)
+          {
+            continue;
+          }
+          int origin = t[i] - '0';
+          int next = (origin + j) % 10;
+          if (next == -1)
+          {
+            next = 9;
+          }
+          string copy = t;
+          copy[i] = '0' + next;
+          if (st.count(copy) or cur.count(copy))
+          {
+            continue;
+          }
+          if (other.count(copy))
+          {
+            return step + 1 + other[copy];
+          }
+          else
+          {
+            q.push(copy);
+            cur[copy] = step + 1;
+          }
+        }
+      }
+    }
+    return -1;
+  }
+};
+
+int main()
+{
+}
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra
+
+```
 
