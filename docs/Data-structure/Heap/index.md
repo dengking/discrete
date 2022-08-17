@@ -6,6 +6,8 @@
 
 2、labuladong [图文详解二叉堆，实现优先级队列](https://mp.weixin.qq.com/s/o7tdyLiYm668dpUWd-x7Lg)
 
+3、堆基础 [堆数据结构 - 最小堆、最大堆](https://www.scaler.com/topics/data-structures/heap-data-structure/)
+
 其中对heap的实现，进行了非常好的描述，完整的Java代码如下:
 
 ```Java
