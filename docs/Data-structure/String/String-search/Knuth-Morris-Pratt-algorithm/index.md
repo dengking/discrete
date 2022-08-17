@@ -2,13 +2,25 @@
 
 It takes me some effort to master KMP algorithm. Here are three articles that helped me solve the mystery as I learned. 
 
+## Q&A
+
+### 核心思想
+
 一、这个算法的思想在 cnblogs [详解KMP算法](https://www.cnblogs.com/yjiyjige/p/3263858.html) 中有着很好的描述:
 
 > “**利用已经部分匹配这个有效信息，保持`i`指针不回溯，通过修改`j`指针，让模式串尽量地移动到有效的位置**。”
 
 指针i不回溯，意味着它是一直增大的。
 
-思考: 为什么**`i`指针**不回溯依然内容保证找到正确的解？需要结合具体的例子来进行理解:
+这样的做法能够保证跳过无意义的匹配过程。
+
+二、KMP算法设计两个字符串: `pattern`、`txt`，它本身也使用了double pointer: first、second ，这是涉及两个字符串问题常用的套路。
+
+
+
+### 思考: 为什么**`i`指针**不回溯依然内容保证找到正确的解？
+
+需要结合具体的例子来进行理解:
 
 1、cnblogs [详解KMP算法](https://www.cnblogs.com/yjiyjige/p/3263858.html) 
 
@@ -16,7 +28,11 @@ It takes me some effort to master KMP algorithm. Here are three articles that he
 >
 >  ![img](https://images0.cnblogs.com/blog/416010/201308/17083828-cdb207f5460f4645982171e58571a741.png)
 
-二、KMP算法设计两个字符串: `pattern`、`txt`，它本身也使用了double pointer: first、second ，这是涉及两个字符串问题常用的套路。
+pattern和txt中已经匹配的内容其实就是pattern的一部分，"**因为主串匹配失败的位置前面除了第一个`A`之外再也没有`A`**了" 这是可以通过预处理pattern来实现的，简而言之，仅仅根据已经匹配的部分就能够知道 `j` 指针的转移。
+
+失配位置。
+
+二、
 
 三、分情况讨论:
 
@@ -93,10 +109,28 @@ KMP的failure function的求解过程在计算`f(k+1)`的时所依赖的`f(0),f(
 
 
 
-### KMP的实现
+### Source code
+
+#### Python
 
 ```python
-def kmp_search(pattern, text):
+
+def get_failure_array(pattern: str):
+    failure = [0]  # 初始条件
+    i = 0  # f(j-1)的值，是已知的，需要注意的是，它的含义是长度
+    j = 1  # f(j)是未知的，j表示的是index
+    while j < len(pattern):
+        if pattern[i] == pattern[j]:
+            i += 1
+        elif i > 0:
+            i = failure[i - 1]
+            continue
+        j += 1
+        failure.append(i)
+    return failure
+
+
+def kmp_search(pattern: str, text: str):
     """
 
     :param pattern:
@@ -120,6 +154,11 @@ def kmp_search(pattern, text):
             continue
         i += 1
     return False
+
+
+if __name__ == "__main__":
+    pass
+
 ```
 
 思考：为什么`j = failure[j - 1]`？其实结合前面的例子就可以知道了，这里不再赘述。
@@ -196,11 +235,17 @@ public static int bf(String ts, String ps) {
 
  ![img](https://images0.cnblogs.com/blog/416010/201308/17083828-cdb207f5460f4645982171e58571a741.png)
 
-> NOTE: 这个就是一个典型的说明i指针不需要回溯的例子
+> NOTE: 
+>
+> 这个就是一个典型的说明i指针不需要回溯的例子，当失配的时候，`i` 指针是不需要移动的，仅仅移动 `j` 指针即可。
 
 上面的这种情况还是比较理想的情况，我们最多也就多比较了两次。但假如是在主串`SSSSSSSSSSSSSA`中查找`SSSSB`，比较到最后一个才知道不匹配，然后`i`**回溯**，这个的效率是显然是最低的。
 
-> NOTE: 关于回溯，参见[Backtracking](https://en.wikipedia.org/wiki/Backtracking)
+> NOTE: 
+>
+> 一、关于回溯，参见[Backtracking](https://en.wikipedia.org/wiki/Backtracking)
+
+### KMP算法
 
 大牛们是无法忍受“暴力破解”这种低效的手段的，于是他们三个研究出了KMP算法。其思想就如同我们上边所看到的一样：“**利用已经部分匹配这个有效信息，保持`i`指针不回溯，通过修改`j`指针，让模式串尽量地移动到有效的位置**。”
 
