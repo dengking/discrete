@@ -132,7 +132,7 @@ def get_failure_array(pattern):
     while j < len(pattern):
         if pattern[i] == pattern[j]:
             i += 1
-        elif i > 0:
+        elif i > 0: # 此时的公共前后缀的长度为i
             i = failure[i - 1]
             continue
         j += 1
