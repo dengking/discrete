@@ -6,13 +6,23 @@ It takes me some effort to master KMP algorithm. Here are three articles that he
 
 ### 核心思想
 
-一、这个算法的思想在 cnblogs [详解KMP算法](https://www.cnblogs.com/yjiyjige/p/3263858.html) 中有着很好的描述:
+一、这个算法的思想在:
+
+1、cnblogs [详解KMP算法](https://www.cnblogs.com/yjiyjige/p/3263858.html) 中有着很好的描述:
 
 > “**利用已经部分匹配这个有效信息，保持`i`指针不回溯，通过修改`j`指针，让模式串尽量地移动到有效的位置**。”
 
 指针i不回溯，意味着它是一直增大的。
 
 这样的做法能够保证跳过无意义的匹配过程。
+
+2、百度百科[kmp算法](https://baike.baidu.com/item/kmp%E7%AE%97%E6%B3%95/10951804?fr=aladdin)中的总结：
+
+> 用暴力算法匹配字符串过程中，我们会把`T[0]` 跟 `W[0]` 匹配，如果相同则匹配下一个字符，直到出现不相同的情况，此时我们会丢弃前面的匹配信息，然后把`T[1]` 跟 `W[0]`匹配，循环进行，直到主串结束，或者出现匹配成功的情况。这种丢弃前面的匹配信息的方法，极大地降低了匹配效率。
+>
+> 而在KMP算法中，对于每一个模式串我们会事先计算出模式串的内部匹配信息，在匹配失败时最大的移动模式串，以减少匹配次数。
+>
+> 比如，在简单的一次匹配失败后，我们会想将模式串尽量的右移和主串进行匹配。右移的距离在KMP算法中是如此计算的：在**已经匹配的模式串子串**中，找出最长的相同的[前缀](https://baike.baidu.com/item/前缀)和[后缀](https://baike.baidu.com/item/后缀)，然后移动使它们重叠。
 
 二、KMP算法设计两个字符串: `pattern`、`txt`，它本身也使用了double pointer: first、second ，这是涉及两个字符串问题常用的套路。
 
@@ -22,15 +32,15 @@ It takes me some effort to master KMP algorithm. Here are three articles that he
 
 需要结合具体的例子来进行理解:
 
-1、cnblogs [详解KMP算法](https://www.cnblogs.com/yjiyjige/p/3263858.html) 
+example、cnblogs [详解KMP算法](https://www.cnblogs.com/yjiyjige/p/3263858.html) 
 
 > 如果是人为来寻找的话，肯定不会再把`i`移动回第1位，**因为主串匹配失败的位置前面除了第一个`A`之外再也没有`A`**了，我们为什么能知道主串前面只有一个`A`？**因为我们已经知道前面三个字符都是匹配的！（这很重要）**。移动过去肯定也是不匹配的！有一个想法，`i`可以不动，我们只需要移动`j`即可，如下图：
 >
 >  ![img](https://images0.cnblogs.com/blog/416010/201308/17083828-cdb207f5460f4645982171e58571a741.png)
 
-pattern和txt中已经匹配的内容其实就是pattern的一部分，"**因为主串匹配失败的位置前面除了第一个`A`之外再也没有`A`**了" 这是可以通过预处理pattern来实现的，简而言之，仅仅根据已经匹配的部分就能够知道 `j` 指针的转移。
+pattern和txt中已经匹配的内容其实就是pattern的一部分，"**因为主串匹配失败的位置前面除了第一个`A`之外再也没有`A`**了" 这是可以通过预处理pattern来实现的，简而言之，仅仅根据已经匹配的部分就能够知道 `j` 指针的转移，从而避免很多无效的匹配。
 
-失配位置。
+
 
 二、
 
@@ -40,9 +50,31 @@ pattern和txt中已经匹配的内容其实就是pattern的一部分，"**因为
 
 2、完全匹配
 
+### 如何理解公共前缀后缀
+
+如何一个字符，它没有公共前缀，那么说明它在这个字符串中仅仅出现了一次。
+
+### 当pattern的最后一个字符失配时如何处理？
+
+```
+aaacaaab
+aaab
+```
 
 
-四、结合图来进行理解
+
+```
+ABCDABE
+ABCDABF
+```
+
+
+
+### Failure array and DFA
+
+Failure array以array的方式非常紧凑地存储来DFA，它的DFA的完整形式在 zhihu [KMP 算法详解](https://zhuanlan.zhihu.com/p/83334559) 中有展示。
+
+
 
 
 ## KMP实现分析
@@ -165,11 +197,47 @@ if __name__ == "__main__":
 
 
 
+#### Java
+
+```Java
+public static int KMP(String ts, String ps) {
+ char[] t = ts.toCharArray();
+ char[] p = ps.toCharArray();
+
+ int i = 0; // 主串的位置
+ int j = 0; // 模式串的位置
+
+ int[] next = getNext(ps);
+ while (i < t.length && j < p.length) {
+    if (j == -1 || t[i] == p[j]) { // 当j为-1时，要移动的是i，当然j也要归0
+        i++;
+        j++;
+    } else {
+        // i不需要回溯了
+        // i = i - j + 1;
+        j = next[j]; // j回到指定位置
+    }
+ }
+ if (j == p.length) {
+    return i - j;
+ } else {
+    return -1;
+ }
+
+}
+```
+
+
+
 ## cnblogs [详解KMP算法](https://www.cnblogs.com/yjiyjige/p/3263858.html) 
 
 KMP算法要解决的问题就是在字符串（也叫主串）中的模式（pattern）定位问题。说简单点就是我们平时常说的关键字搜索。模式串就是关键字（接下来称它为`P`），如果它在一个主串（接下来称为`T`）中出现，就返回它的具体位置，否则返回`-1`（常用手段）。
 
  ![img](https://images0.cnblogs.com/blog/416010/201308/17083616-9b40c67ea22e449f813fb38fcfd3a4fb.png)
+
+
+
+### Native algorithm
 
 首先，对于这个问题有一个很单纯的想法：从左到右一个个匹配，如果这个过程中有某个字符不匹配，就跳回去，将模式串向右移动一位。这有什么难的？
 
@@ -225,9 +293,9 @@ public static int bf(String ts, String ps) {
 
 > NOTE: 
 >
-> 一、geeksforgeeks的文章[Naive algorithm for Pattern Searching](https://www.geeksforgeeks.org/naive-algorithm-for-pattern-searching/)中给出的代码是比上述代码更加容易理解的。 
+> 一、geeksforgeeks [Naive algorithm for Pattern Searching](https://www.geeksforgeeks.org/naive-algorithm-for-pattern-searching/) 中给出的代码是比上述代码更加容易理解的。 
 >
-> 二、上述程序是典型的double pointer
+> 二、上述程序是典型的double pointer: first+second
 
 
 
@@ -237,7 +305,9 @@ public static int bf(String ts, String ps) {
 
 > NOTE: 
 >
-> 这个就是一个典型的说明i指针不需要回溯的例子，当失配的时候，`i` 指针是不需要移动的，仅仅移动 `j` 指针即可。
+> 一、显然上面这种匹配方式能够跳过很多的无意义的匹配，因为 `txt` 匹配失败的部分没有A，最为对比，可以可以尝试使用native算法进行匹配，可以发现是会进行很多无意义的匹配。
+>
+> 二、这个就是一个典型的说明i指针不需要回溯的例子，当失配的时候，`i` 指针是不需要移动的，仅仅移动 `j` 指针即可。
 
 上面的这种情况还是比较理想的情况，我们最多也就多比较了两次。但假如是在主串`SSSSSSSSSSSSSA`中查找`SSSSB`，比较到最后一个才知道不匹配，然后`i`**回溯**，这个的效率是显然是最低的。
 
@@ -249,9 +319,15 @@ public static int bf(String ts, String ps) {
 
 大牛们是无法忍受“暴力破解”这种低效的手段的，于是他们三个研究出了KMP算法。其思想就如同我们上边所看到的一样：“**利用已经部分匹配这个有效信息，保持`i`指针不回溯，通过修改`j`指针，让模式串尽量地移动到有效的位置**。”
 
-> NOTE: 提醒你注意**尽量地**这个修饰语，等你完全理解了KMP算法，你就幡然醒悟这个修饰语是非常妙的。其实在这里，我是可以向你提前透露的，既然说是尽量，那么也就是说移动到的位置不一定是最最有效的位置，而是一个相对有效的位置，可能需要经过多次移动才能够到达正确的位置，毕竟计算机不是像我们人这样的智能。
+> NOTE: 
+>
+> 一、上面这段话使用了 "**尽量地**" 修饰语，等你完全理解了KMP算法，你就幡然醒悟这个修饰语是非常妙的: 既然说是尽量，那么也就是说移动到的位置不一定是最最有效的位置，而是一个相对有效的位置，可能需要经过多次移动才能够到达正确的位置，毕竟计算机不是像我们人这样的智能。
 
 所以，整个KMP的重点就在于**当某一个字符与主串不匹配时，我们应该知道`j`指针要移动到哪**？
+
+
+
+#### Example 1
 
 接下来我们自己来发现`j`的移动规律：
 
@@ -261,7 +337,13 @@ public static int bf(String ts, String ps) {
 
 ![img](https://images0.cnblogs.com/blog/416010/201308/17083929-a9ccfb08833e4cf1a42c30f05608f8f5.png)
 
-如下图也是一样的情况：
+> NOTE:
+>
+> 一、作为对比，可以尝试使用native算法进行匹配，显然 `txt[1]` 和 `pattern[0]` 是不匹配的，显然这是无意义的匹配；根据公共前缀后缀信息，我们可知: `txt[2]` 和 `pattern[0]` 是匹配的，所以我们据此可以将j指针移到1处。
+
+#### Example 2
+
+如下图也是一样的情况： 
 
 ![img](https://images0.cnblogs.com/blog/416010/201308/17084030-82e4b71b85a440c5a636d57503931415.png)
 
@@ -269,11 +351,56 @@ public static int bf(String ts, String ps) {
 
  ![img](https://images0.cnblogs.com/blog/416010/201308/17084037-cc3c34200809414e9421c316ceba2cda.png)
 
+
+
+#### Example 3
+
+```
+ABCAD
+ABCAE
+```
+
+显然当`j=4,i=4`时两者失配，那此事`j`转移到哪里呢？显然要转移到`1`。这是和下面的结论有出入的。
+
+```
+ABCDABE
+ABCDABF
+```
+
+#### Example 4
+
+```
+aaacaaab
+aaab
+```
+
+
+
+#### 结论
+
+> NOTE:
+>
+> 一、需要注意的是: 原文的例子背景特殊，都是公共前缀和公共后缀之间仅仅相隔一个字符，但是需要注意的是，它是允许相隔多个字符的，作者的表述其实是比较精准的，不过初次接触的时候，可能会被图所迷惑。
+>
+> 二、`k`如何理解呢？
+>
+> 1、表示的是公共前缀公共后缀的长度
+>
+> 2、`j` 移动的位置
+>
+> 
+
 至此我们可以大概看出一点端倪，当匹配失败时，`j`要移动的下一个位置`k`。存在着这样的性质：**最前面的`k`字符和`j`之前的最后`k`个字符是一样的**。
 
 如果用数学公式来表示是这样的
 
 `P[0 ~ k-1] == P[j-k ~ j-1]`
+
+> NOTE: 
+>
+> 一、上面是使用数学语言来描述公共前缀和公共后缀
+>
+> 二、`j-1` 表示的就是上述自然语言中的 "**`j`之前的**"
 
 这个相当重要，如果觉得不好记的话，可以通过下图来理解：
 
@@ -294,16 +421,6 @@ public static int bf(String ts, String ps) {
 > NOTE: 上述公式其实就是a==b, b==c,则a==c
 
 公式很无聊，能看明白就行了，不需要记住。
-
-> NOTE: 作者这里的总结不够直接，下面是摘自百度百科[kmp算法](https://baike.baidu.com/item/kmp%E7%AE%97%E6%B3%95/10951804?fr=aladdin)中对这个结论的总结，它非常直接：
->
-> 用暴力算法匹配字符串过程中，我们会把`T[0]` 跟 `W[0]` 匹配，如果相同则匹配下一个字符，直到出现不相同的情况，此时我们会丢弃前面的匹配信息，然后把`T[1]` 跟 `W[0]`匹配，循环进行，直到主串结束，或者出现匹配成功的情况。这种丢弃前面的匹配信息的方法，极大地降低了匹配效率。
->
-> 而在KMP算法中，对于每一个模式串我们会事先计算出模式串的内部匹配信息，在匹配失败时最大的移动模式串，以减少匹配次数。
->
-> 比如，在简单的一次匹配失败后，我们会想将模式串尽量的右移和主串进行匹配。右移的距离在KMP算法中是如此计算的：在**已经匹配的模式串子串**中，找出最长的相同的[前缀](https://baike.baidu.com/item/前缀)和[后缀](https://baike.baidu.com/item/后缀)，然后移动使它们重叠。
-
-
 
 这一段只是为了证明我们为什么可以直接将`j`移动到`k`而无须再比较前面的`k`个字符。
 
@@ -334,58 +451,28 @@ public static int[] getNext(String ps) {
 
 > NOTE:
 >
-> 一、根据后面的KMP算法的implementation：
->
-> ```c++
-> public static int KMP(String ts, String ps) {
->     char[] t = ts.toCharArray();
->     char[] p = ps.toCharArray();
->   
->     int i = 0; // 主串的位置
->     int j = 0; // 模式串的位置
-> 
->     int[] next = getNext(ps);
->     while (i < t.length && j < p.length) {
->        if (j == -1 || t[i] == p[j]) { // 当j为-1时，要移动的是i，当然j也要归0
->            i++;
->            j++;
->        } else {
->            // i不需要回溯了
->            // i = i - j + 1;
->            j = next[j]; // j回到指定位置
->        }
->     }
->     if (j == p.length) {
->        return i - j;
->     } else {
->        return -1;
->     }
-> 
-> }
-> ```
->
-> `next[j]` 表示的是 `[0:j-1]` 的公共前后缀的长度，因为当`p[j]`和`t[i]`不相等的时候，显然需要充分利用研究匹配部分的信息，对于公共前后缀部分，是不需要再次进行匹配的，而是可以直接利用的。
+> 一、`next[j]` 表示的是 `[0:j-1]` 的公共前后缀的长度，因为当`p[j]`和`t[i]`不相等的时候，显然需要充分利用研究匹配部分的信息，对于公共前后缀部分，是不需要再次进行匹配的，而是可以直接利用的。
 >
 > 另外需要注意的一点是，`next[j]`保存的是长度，根据长度和下标的映射关系，如果使用此长度作为下标，显然会匹配到公共前后缀的后一个元素，这是非常符合KMP算法的，因为它就是需要从这个开始匹配。
->
-> 二、上述算法是典型的fast-slow double pointer，k就是slow pointer，j就是fast pointer。
->
-> 与此类似的使用fast-slow double pointer来处理array的algorithm，在下面的文章中有介绍：
->
-> 1、labuladong [如何高效对有序数组/链表去重？](https://mp.weixin.qq.com/s/6Eb7gKqNqXH9B0hSZvMs5A)
->
-> 2、labuladong  [双指针技巧秒杀四道数组/链表题目](https://mp.weixin.qq.com/s/55UPwGL0-Vgdh8wUEPXpMQ)
->
-> 另外需要注意对特殊情况的处理，当只有一个元素的还是，它有公共前缀吗？该算法是假定有的
->
-> 三、初始值说明
->
-> ```c++
-> next[0] == -1
-> next[1] == 0
-> ```
->
 > 
+>    二、上述算法是典型的fast-slow double pointer，k就是slow pointer，j就是fast pointer。
+>    
+>   与此类似的使用fast-slow double pointer来处理array的algorithm，在下面的文章中有介绍：
+>    
+>    1、labuladong [如何高效对有序数组/链表去重？](https://mp.weixin.qq.com/s/6Eb7gKqNqXH9B0hSZvMs5A)
+> 
+>    2、labuladong  [双指针技巧秒杀四道数组/链表题目](https://mp.weixin.qq.com/s/55UPwGL0-Vgdh8wUEPXpMQ)
+>    
+>    另外需要注意对特殊情况的处理，当只有一个元素的还是，它有公共前缀吗？该算法是假定有的
+>    
+>    三、初始值说明
+>    
+>    ```c++
+>    next[0] == -1
+>    next[1] == 0
+>    ```
+>    
+>    
 
 这个版本的求`next`数组的算法应该是流传最广泛的，代码是很简洁。可是真的很让人摸不到头脑，它这样计算的依据到底是什么？
 
