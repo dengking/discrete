@@ -16,6 +16,8 @@ It takes me some effort to master KMP algorithm. Here are three articles that he
 
 这样的做法能够保证跳过无意义的匹配过程。
 
+
+
 2、百度百科[kmp算法](https://baike.baidu.com/item/kmp%E7%AE%97%E6%B3%95/10951804?fr=aladdin)中的总结：
 
 > 用暴力算法匹配字符串过程中，我们会把`T[0]` 跟 `W[0]` 匹配，如果相同则匹配下一个字符，直到出现不相同的情况，此时我们会丢弃前面的匹配信息，然后把`T[1]` 跟 `W[0]`匹配，循环进行，直到主串结束，或者出现匹配成功的情况。这种丢弃前面的匹配信息的方法，极大地降低了匹配效率。
@@ -24,15 +26,17 @@ It takes me some effort to master KMP algorithm. Here are three articles that he
 >
 > 比如，在简单的一次匹配失败后，我们会想将模式串尽量的右移和主串进行匹配。右移的距离在KMP算法中是如此计算的：在**已经匹配的模式串子串**中，找出最长的相同的[前缀](https://baike.baidu.com/item/前缀)和[后缀](https://baike.baidu.com/item/后缀)，然后移动使它们重叠。
 
-二、KMP算法设计两个字符串: `pattern`、`txt`，它本身也使用了double pointer: first、second ，这是涉及两个字符串问题常用的套路。
+
+
+二、KMP算法涉及两个字符串: `pattern`、`txt`，它本身也使用了double pointer: first、second ，这是涉及两个字符串问题常用的套路。
 
 
 
-### 思考: 为什么**`i`指针**不回溯依然内容保证找到正确的解？
+### 思考: 为什么**`i`指针**不回溯依然能够保证找到正确的解？
 
 需要结合具体的例子来进行理解:
 
-example、cnblogs [详解KMP算法](https://www.cnblogs.com/yjiyjige/p/3263858.html) 
+一、example1 cnblogs [详解KMP算法](https://www.cnblogs.com/yjiyjige/p/3263858.html) 
 
 > 如果是人为来寻找的话，肯定不会再把`i`移动回第1位，**因为主串匹配失败的位置前面除了第一个`A`之外再也没有`A`**了，我们为什么能知道主串前面只有一个`A`？**因为我们已经知道前面三个字符都是匹配的！（这很重要）**。移动过去肯定也是不匹配的！有一个想法，`i`可以不动，我们只需要移动`j`即可，如下图：
 >
@@ -42,17 +46,11 @@ pattern和txt中已经匹配的内容其实就是pattern的一部分，"**因为
 
 
 
-二、
-
-三、分情况讨论:
-
-1、部分匹配
-
-2、完全匹配
-
 ### 如何理解公共前缀后缀
 
 如何一个字符，它没有公共前缀，那么说明它在这个字符串中仅仅出现了一次。
+
+
 
 ### 当pattern的最后一个字符失配时如何处理？
 
@@ -72,19 +70,23 @@ ABCDABF
 
 ### KMP failure/next function/array and DFA
 
-一、Failure array以array的方式非常紧凑地存储来DFA，它的DFA的完整形式在 zhihu [KMP 算法详解](https://zhuanlan.zhihu.com/p/83334559) 中有展示。
+一、Failure array以array的方式非常紧凑地来存储DFA，它的DFA的完整形式在 zhihu [KMP 算法详解](https://zhuanlan.zhihu.com/p/83334559) 中有展示。
 
-二、数组的定义:
+
+
+二、明确数组的定义:
 
 `next[i]` 表示的是:
 
-1、长度,`k`表示的是长度
+1、最长公共前缀后缀的长度( `k` )
 
 2、移动的位置
 
-因此在计算failure array的时候，是涉及到长度和下标的转换的。
+因此在计算failure array的时候是涉及到长度和下标的转换的。
 
-三、计算next/failure array的过程其实与匹配txt和pattern的过程非常类似: 寻找最长公共前缀、后缀其实就是匹配字符串，两种本质上都是匹配，都存在失配时的状态转移，这其实暗示了我们在计算next/failure array的时候，是可以使用kmp的思想来进行实现的，而实际上它确实使用了，比如当 `pattern[k]` 和 `pattern[j]` 不相等的时候:
+
+
+三、计算 next/failure array 的过程其实与匹配 `txt` 和 `pattern` 的过程非常类似: 寻找最长公共前缀后缀其实就是匹配字符串，两者本质上都是匹配，都存在失配时的状态转移，这其实暗示了我们在计算 next/failure array 的时候，是可以使用kmp的思想来进行实现的，并且实际上它确实使用了，比如当 `pattern[k]` 和 `pattern[j]` 不相等的时候:
 
 > 当`P[k] != P[j]`时，如下图所示：
 >
@@ -98,31 +100,44 @@ ABCDABF
 >
 > 现在你应该知道为什么要`k = next[k]`了吧！像上边的例子，我们已经不可能找到`[ A，B，A，B ]`这个最长的后缀串了，但我们还是可能找到`[ A，B ]`、`[ B ]`这样的前缀串的。所以这个过程像不像在定位`[ A，B，A，C ]`这个串，当`C`和主串不一样了（也就是`k`位置不一样了），那当然是把指针移动到`next[k]`啦。
 
-上述第二行的图，就是以使用pattern来匹配txt的过程来展示计算next/failure array的过程，此时 `P[k] != P[j]`，显然就是失配了，因此 `[ A，B，A，B ]` 不可能是最长的后缀串，那下次从上面地方开始匹配呢？即如何进行转移呢？显然我们要充分运用KMP的思想: 此时`[0-k-1]`的部分是一件匹配的，为了充分运用已经匹配的信息，我们应该转移到 `next[k]` 处进行匹配，就是上述第三张图所展示的。上述过程其实使用了KMP的思想，也就是说，在计算next/failure array的时候，其实也使用了KMP的思想。
+
+
+上述第二行的图，就是以"使用 pattern 来匹配 txt" 的过程来展示计算 next/failure array 的过程，此时 `P[k] != P[j]`，显然就是失配了，因此 `[ A，B，A，B ]` 不可能是最长的后缀串，那下次从什么地方开始匹配呢？即如何进行转移呢？显然这个匹配过程是可以转换为"使用 pattern 来匹配 txt"，正如上述第二行的图所展示的，显然我们要充分运用KMP的思想: 此时 `[0-k-1]`部分 和 `[j-k, j]`部分是已经匹配的，为了充分运用已经匹配的信息，我们应该转移到 `next[k]` 处进行匹配，就是上述第三张图所展示的。上述过程其实使用了KMP的思想，也就是说，在计算next/failure array的时候，其实也使用了KMP的思想。
 
 
 
-#### python实现
+#### Python实现
 
-当`pattern[j]`与`pattern[f[j-1]]`不相等的时候，这个递归公式中涉及到了不断地循环递归，使用数学公式不方便描述，下面的python程序是非常简洁易懂的，并且是非常接近数学公式的，所以这里就省略掉递归公式。
+当 `pattern[j]` 与 `pattern[f[j-1]]` 不相等的时候，这个递归公式中涉及到了不断地循环递归，使用数学公式不方便描述，下面的python程序是非常简洁易懂的，并且是非常接近数学公式的，所以这里就省略掉递归公式。
 
 failure function `f(j)`表示的是从`pattern[0]`到`pattern[j]`的序列（显然这个序列的长度是`j+1`）的最长公共前缀后缀的**长度**，即`f(j)`所表示的是长度为`j+1`的序列的最长公共前缀后缀的长度。显然`f[0]==0`，因为长度为1的序列的最长前缀后缀的长度为0。所以，当已知序列的长度为`i`，来查询其最长公共前缀后缀的时候，使用的是`f(i-1)`。因为`i`表示的是长度，所以`pattern[i]`引用的是数组的第`i+1`个元素。
 
+
+
 ```python
-def get_failure_array(pattern):
-    failure = [0] # 初始条件
-    i = 0 # f(j-1)的值，是已知的，需要注意的是，它的含义是长度
-    j = 1 # f(j)是未知的，j表示的是index
+
+def get_failure_array(pattern: str):
+    """
+
+    """
+    failure_array = [0]  # failure array，f[0]已知
+    i = 0  # i表示的是当前的公共前后缀的长度，当前j为0，所以它的初始值是0
+    j = 1  # j表示的是index，因为f[0]已知，所以j从1开始
     while j < len(pattern):
         if pattern[i] == pattern[j]:
             i += 1
-        elif i > 0: # 此时的公共前后缀的长度为i
-            i = failure[i - 1]
+        elif i > 0:  # 此时的公共前后缀的长度为i
+            i = failure_array[i - 1]
             continue
         j += 1
-        failure.append(i)
-    return failure
+        failure_array.append(i)
+    return failure_array
+
 ```
+
+
+
+#### Examples
 
 
 
@@ -141,8 +156,6 @@ P:           abacab
 
 Example2
 
-
-
 ```
 Position:    012345678
 P:           ababcabab
@@ -156,8 +169,6 @@ P:           ababcabab
 
 Example3
 
-
-
 ```
 Position:    012345678
 P:           ababcabab
@@ -166,6 +177,12 @@ P:           ababcabab
 | 0    | 1    | 2    | 3    | 4    | 5    | 6    | 7    | 8    |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
 | 0    | 0    | 1    | 2    | 0    | 1    | 2    | 3    | 4    |
+
+
+
+
+
+
 
 #### 总结
 
