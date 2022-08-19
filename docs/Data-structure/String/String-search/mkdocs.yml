@@ -2,4 +2,5 @@ nav:
     - Introduction: index.md
     - Knuth-Morris-Pratt-algorithm: Knuth-Morris-Pratt-algorithm
     - Rabin-Karp-algorithm: Rabin-Karp-algorithm
+    - LeetCode-28-实现strStr: LeetCode-28-实现strStr
     
