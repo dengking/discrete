@@ -70,57 +70,41 @@ ABCDABF
 
 
 
-### Failure array and DFA
+### KMP failure/next function/array and DFA
 
-Failure array以array的方式非常紧凑地存储来DFA，它的DFA的完整形式在 zhihu [KMP 算法详解](https://zhuanlan.zhihu.com/p/83334559) 中有展示。
+一、Failure array以array的方式非常紧凑地存储来DFA，它的DFA的完整形式在 zhihu [KMP 算法详解](https://zhuanlan.zhihu.com/p/83334559) 中有展示。
 
-
-
-
-## KMP实现分析
-
-通过上述三篇文章，能够知道KMP算法的原理，现在需要考虑的是如何来进行实现。
-
-### KMP failure/next function/array
-
-
-
-
-
-涉及到长度和下标的转换
-
-计算next/failure array的过程其实和匹配的过程非常类似: 寻找最长公共前缀、后缀其实和匹配字符串的过程非常类似，两种本质上都是匹配，都存在失配时的状态转移。
-
-
-这是KMP算法的精妙之处，它涉及:
-
-1、向前
-
-2、向后
-
-使用数学语言来进行描述，使用 cnblogs [详解KMP算法](https://www.cnblogs.com/yjiyjige/p/3263858.html) 中的定义:
-
-`k`表示的是长度
+二、数组的定义:
 
 `next[i]` 表示的是:
 
-1、长度
+1、长度,`k`表示的是长度
 
 2、移动的位置
 
-在  cnblogs [详解KMP算法](https://www.cnblogs.com/yjiyjige/p/3263858.html) 中，使用的2 。
+因此在计算failure array的时候，是涉及到长度和下标的转换的。
 
-算法思想:
+三、计算next/failure array的过程其实与匹配txt和pattern的过程非常类似: 寻找最长公共前缀、后缀其实就是匹配字符串，两种本质上都是匹配，都存在失配时的状态转移，这其实暗示了我们在计算next/failure array的时候，是可以使用kmp的思想来进行实现的，而实际上它确实使用了，比如当 `pattern[k]` 和 `pattern[j]` 不相等的时候:
 
-1、double pointer
+> 当`P[k] != P[j]`时，如下图所示：
+>
+> ![img](./17122358-fd7e52dd382c4268a8ff52b85bff465d.png) 
+>
+> 
+>
+> 像这种情况，如果你从代码上看应该是这一句：`k = next[k];`为什么是这样子？你看下面应该就明白了。
+>
+>  ![img](./17122439-e349fed25e974e7886a27d18871ae48a.png)
+>
+> 现在你应该知道为什么要`k = next[k]`了吧！像上边的例子，我们已经不可能找到`[ A，B，A，B ]`这个最长的后缀串了，但我们还是可能找到`[ A，B ]`、`[ B ]`这样的前缀串的。所以这个过程像不像在定位`[ A，B，A，C ]`这个串，当`C`和主串不一样了（也就是`k`位置不一样了），那当然是把指针移动到`next[k]`啦。
 
-2、dynamic programming、recursion
+上述第二行的图，就是以使用pattern来匹配txt的过程来展示计算next/failure array的过程，此时 `P[k] != P[j]`，显然就是失配了，因此 `[ A，B，A，B ]` 不可能是最长的后缀串，那下次从上面地方开始匹配呢？即如何进行转移呢？显然我们要充分运用KMP的思想: 此时`[0-k-1]`的部分是一件匹配的，为了充分运用已经匹配的信息，我们应该转移到 `next[k]` 处进行匹配，就是上述第三张图所展示的。上述过程其实使用了KMP的思想，也就是说，在计算next/failure array的时候，其实也使用了KMP的思想。
 
-需要根据目的来进行代码编写。
 
-当`pattern[j]`与`pattern[f[j-1]]`不相等的时候，这个递归公式中涉及到了不断地循环递归，使用数学公式不方便描述，下面的python程序是非常简洁易懂的，并且是非常接近数学公式的，所以这里就省略掉递归公式。
 
 #### python实现
+
+当`pattern[j]`与`pattern[f[j-1]]`不相等的时候，这个递归公式中涉及到了不断地循环递归，使用数学公式不方便描述，下面的python程序是非常简洁易懂的，并且是非常接近数学公式的，所以这里就省略掉递归公式。
 
 failure function `f(j)`表示的是从`pattern[0]`到`pattern[j]`的序列（显然这个序列的长度是`j+1`）的最长公共前缀后缀的**长度**，即`f(j)`所表示的是长度为`j+1`的序列的最长公共前缀后缀的长度。显然`f[0]==0`，因为长度为1的序列的最长前缀后缀的长度为0。所以，当已知序列的长度为`i`，来查询其最长公共前缀后缀的时候，使用的是`f(i-1)`。因为`i`表示的是长度，所以`pattern[i]`引用的是数组的第`i+1`个元素。
 
@@ -182,6 +166,26 @@ P:           ababcabab
 | 0    | 1    | 2    | 3    | 4    | 5    | 6    | 7    | 8    |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
 | 0    | 0    | 1    | 2    | 0    | 1    | 2    | 3    | 4    |
+
+#### 总结
+
+这是KMP算法的精妙之处，它涉及:
+
+1、向前
+
+2、向后
+
+使用数学语言来进行描述，使用 cnblogs [详解KMP算法](https://www.cnblogs.com/yjiyjige/p/3263858.html) 中的定义:
+
+
+
+在  cnblogs [详解KMP算法](https://www.cnblogs.com/yjiyjige/p/3263858.html) 中，使用的2 。
+
+算法思想:
+
+1、double pointer
+
+2、dynamic programming、recursion
 
 
 
