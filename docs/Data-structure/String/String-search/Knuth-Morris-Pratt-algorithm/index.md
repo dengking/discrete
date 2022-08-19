@@ -48,7 +48,7 @@ pattern和txt中已经匹配的内容其实就是pattern的一部分，"**因为
 
 ### 如何理解公共前缀后缀
 
-如何一个字符，它没有公共前缀，那么说明它在这个字符串中仅仅出现了一次。
+如果一个字符，它没有公共前缀，那么说明它在前面就没有出现过。
 
 
 
@@ -76,17 +76,19 @@ ABCDABF
 
 二、明确数组的定义:
 
-`next[i]` 表示的是:
-
-1、最长公共前缀后缀的长度( `k` )
-
-2、移动的位置
-
-因此在计算failure array的时候是涉及到长度和下标的转换的。
+`next[i]` 表示的是: 最长公共前缀后缀的长度( `k` )，因此在计算failure array的时候是涉及到长度和下标的转换的。
 
 
 
-三、计算 next/failure array 的过程其实与匹配 `txt` 和 `pattern` 的过程非常类似: 寻找最长公共前缀后缀其实就是匹配字符串，两者本质上都是匹配，都存在失配时的状态转移，这其实暗示了我们在计算 next/failure array 的时候，是可以使用kmp的思想来进行实现的，并且实际上它确实使用了，比如当 `pattern[k]` 和 `pattern[j]` 不相等的时候:
+三、计算 next/failure array 的过程其实与匹配 `txt` 和 `pattern` 的过程非常类似: 寻找最长公共**前缀**和**后缀**其实就是匹配**前缀子字符串** 和 **后缀子字符串**，**前缀子字符串**相当于`pattern`，**后缀子字符串** 相当于 `txt`，下面的图就非常形象地展示了这个过程，这就告诉我们在计算 next/failure array 的时候，是可以使用kmp的思想来进行实现的:
+
+1、当 `pattern[k]` 和 `pattern[j]` 相等的时候:
+
+> 这种情况是非常容易理解的
+
+
+
+2、当 `pattern[k]` 和 `pattern[j]` 不相等的时候:
 
 > 当`P[k] != P[j]`时，如下图所示：
 >
@@ -98,21 +100,51 @@ ABCDABF
 >
 >  ![img](./17122439-e349fed25e974e7886a27d18871ae48a.png)
 >
-> 现在你应该知道为什么要`k = next[k]`了吧！像上边的例子，我们已经不可能找到`[ A，B，A，B ]`这个最长的后缀串了，但我们还是可能找到`[ A，B ]`、`[ B ]`这样的前缀串的。所以这个过程像不像在定位`[ A，B，A，C ]`这个串，当`C`和主串不一样了（也就是`k`位置不一样了），那当然是把指针移动到`next[k]`啦。
+> 现在你应该知道为什么要`k = next[k]`了吧！像上边的例子，我们已经不可能找到`[ A，B，A，B ]`这个最长的后缀串了，但我们还是可能找到`[ A，B ]`、`[ A ]`这样的前缀串的。所以这个过程像不像在定位`[ A，B，A，C ]`这个串，当`C`和主串不一样了（也就是`k`位置不一样了），那当然是把指针移动到`next[k]`啦。
 
 
 
-上述第二行的图，就是以"使用 pattern 来匹配 txt" 的过程来展示计算 next/failure array 的过程，此时 `P[k] != P[j]`，显然就是失配了，因此 `[ A，B，A，B ]` 不可能是最长的后缀串，那下次从什么地方开始匹配呢？即如何进行转移呢？显然这个匹配过程是可以转换为"使用 pattern 来匹配 txt"，正如上述第二行的图所展示的，显然我们要充分运用KMP的思想: 此时 `[0-k-1]`部分 和 `[j-k, j]`部分是已经匹配的，为了充分运用已经匹配的信息，我们应该转移到 `next[k]` 处进行匹配，就是上述第三张图所展示的。上述过程其实使用了KMP的思想，也就是说，在计算next/failure array的时候，其实也使用了KMP的思想。
+上述第二行的图，就是以"KMP匹配" 的过程来展示计算 next/failure array 的过程: 
+
+当  `P[k] != P[j]`，显然就是失配了，因此 `[ A，B，A，B ]` 不可能是最长的后缀串，那下次从什么地方开始匹配呢？即如何进行转移呢？显然这个匹配过程是可以转换为"KMP匹配"过程，正如上述第二行的图所展示的，显然我们要充分运用KMP的思想: 此时 `[0-k-1]`部分 和 `[j-k, j-1]`部分是已经匹配的，为了充分运用已经匹配的信息，我们应该转移到 `next[k]` 处进行匹配，就是上述第三张图所展示的。上述过程其实使用了KMP的思想，也就是说，在计算next/failure array的时候，其实也使用了KMP的思想。
 
 
+
+关于这一点，另外一种验证方式是通过代码来进行验证，阅读完整的KMP算法可知: `get_failure_array` 和 `kmp_search` 在失配时的处理逻辑一模一样。
+
+
+
+四、计算failure array的过程是KMP算法的精妙之处，它涉及:
+
+1、当 **匹配** 的时候: 向前、expand
+
+2、当 **失配** 的时候: 向后、reduce
+
+五、在 cnblogs [详解KMP算法](https://www.cnblogs.com/yjiyjige/p/3263858.html) 中使用数学语言来进行定义。
+
+
+
+六、算法思想:
+
+1、double pointer
+
+2、dynamic programming、recursion
+
+KMP的failure function的求解过程在计算`f(k+1)`的时所依赖的`f(0),f(1)...,f(k)`都是通过查failure table而获得的，而不是重新计算，这其实就是动态规划算法的思想。在上述代码中，`i`就表示计算`f(k+1)`所依赖的数据，它的实现方式是非常类似于迭代版的斐波那契数列。
 
 #### Python实现
 
-当 `pattern[j]` 与 `pattern[f[j-1]]` 不相等的时候，这个递归公式中涉及到了不断地循环递归，使用数学公式不方便描述，下面的python程序是非常简洁易懂的，并且是非常接近数学公式的，所以这里就省略掉递归公式。
+一、failure function `f(j)`表示的是从 `pattern[0-j]` 的序列（显然这个序列的长度是`j+1`）的**最长公共前缀后缀**的**长度**，即`f(j)`所表示的是长度为`j+1`的序列的最长公共前缀后缀的长度。
 
-failure function `f(j)`表示的是从`pattern[0]`到`pattern[j]`的序列（显然这个序列的长度是`j+1`）的最长公共前缀后缀的**长度**，即`f(j)`所表示的是长度为`j+1`的序列的最长公共前缀后缀的长度。显然`f[0]==0`，因为长度为1的序列的最长前缀后缀的长度为0。所以，当已知序列的长度为`i`，来查询其最长公共前缀后缀的时候，使用的是`f(i-1)`。因为`i`表示的是长度，所以`pattern[i]`引用的是数组的第`i+1`个元素。
+base case: `f[0]==0`，因为长度为1的序列的最长前缀后缀的长度为0。
 
+二、在这个程序中，`i`表示"公共前缀子字符串的长度"，根据长度和下标的对应关系可知，`i`始终指向的是 **下一个待匹配的字符** 。
 
+三、该算法是典型的fast-slow double pointer，`i` 是 slow pointer，`j` 是 fast pointer，与此类似的使用fast-slow double pointer来处理array的algorithm，在下面的文章中有介绍：
+
+1、labuladong [如何高效对有序数组/链表去重？](https://mp.weixin.qq.com/s/6Eb7gKqNqXH9B0hSZvMs5A)
+
+2、labuladong  [双指针技巧秒杀四道数组/链表题目](https://mp.weixin.qq.com/s/55UPwGL0-Vgdh8wUEPXpMQ)
 
 ```python
 
@@ -126,14 +158,16 @@ def get_failure_array(pattern: str):
     while j < len(pattern):
         if pattern[i] == pattern[j]:
             i += 1
-        elif i > 0:  # 此时的公共前后缀的长度为i
-            i = failure_array[i - 1]
+        elif i > 0:  # 失配
+            i = failure_array[i - 1] # 拿到已经匹配部分[0~i-1]的公共前缀后缀的长度
             continue
         j += 1
         failure_array.append(i)
     return failure_array
 
 ```
+
+
 
 
 
@@ -180,37 +214,18 @@ P:           ababcabab
 
 
 
+Example3
 
+```
+Position:    0123456789
+P:           ABACDABABC
+```
 
+| 0    | 1    | 2    | 3        | 4    | 5    | 6    | 7    | 8    | 9    |
+| ---- | ---- | ---- | -------- | ---- | ---- | ---- | ---- | ---- | ---- |
+| 0    | 0    | 1    | f(1)=0;0 | 0    | 1    | 2    | 3    | 2    | 0    |
 
-
-#### 总结
-
-这是KMP算法的精妙之处，它涉及:
-
-1、向前
-
-2、向后
-
-使用数学语言来进行描述，使用 cnblogs [详解KMP算法](https://www.cnblogs.com/yjiyjige/p/3263858.html) 中的定义:
-
-
-
-在  cnblogs [详解KMP算法](https://www.cnblogs.com/yjiyjige/p/3263858.html) 中，使用的2 。
-
-算法思想:
-
-1、double pointer
-
-2、dynamic programming、recursion
-
-
-
-### 计算KMP failure function 和 dynamic programming
-
-KMP的failure function的求解过程在计算`f(k+1)`的时所依赖的`f(0),f(1)...,f(k)`都是通过查failure table而获得的，而不是重新计算，这其实就是动态规划算法的思想。在上述代码中，`i`就表示计算`f(k+1)`所依赖的数据，它的实现方式是非常类似于迭代版的斐波那契数列。
-
-
+这个例子非常好。
 
 ### Source code
 
@@ -220,8 +235,8 @@ KMP的failure function的求解过程在计算`f(k+1)`的时所依赖的`f(0),f(
 
 def get_failure_array(pattern: str):
     failure = [0]  # 初始条件
-    i = 0  # f(j-1)的值，是已知的，需要注意的是，它的含义是长度
-    j = 1  # f(j)是未知的，j表示的是index
+    i = 0  
+    j = 1  
     while j < len(pattern):
         if pattern[i] == pattern[j]:
             i += 1
@@ -264,38 +279,20 @@ if __name__ == "__main__":
 
 ```
 
-思考：为什么`j = failure[j - 1]`？其实结合前面的例子就可以知道了，这里不再赘述。
+
+
+#### C++
+
+```
+
+```
 
 
 
 #### Java
 
 ```Java
-public static int KMP(String ts, String ps) {
- char[] t = ts.toCharArray();
- char[] p = ps.toCharArray();
 
- int i = 0; // 主串的位置
- int j = 0; // 模式串的位置
-
- int[] next = getNext(ps);
- while (i < t.length && j < p.length) {
-    if (j == -1 || t[i] == p[j]) { // 当j为-1时，要移动的是i，当然j也要归0
-        i++;
-        j++;
-    } else {
-        // i不需要回溯了
-        // i = i - j + 1;
-        j = next[j]; // j回到指定位置
-    }
- }
- if (j == p.length) {
-    return i - j;
- } else {
-    return -1;
- }
-
-}
 ```
 
 
@@ -747,547 +744,31 @@ The [algorithm](https://en.wikipedia.org/wiki/Algorithm) was conceived by [James
 
 
 
-## emory [Computing the KMP failure function (f(k))](http://www.mathcs.emory.edu/~cheung/Courses/323/Syllabus/Text/Matching-KMP2.html)
-
-### definition of `f(k)`
-
-```
-   f(k) = MaxOverlap ( "p0 p1 ... pk" )
-
-   where:
-
-      "p0 p1 ... pk" = the prefix of length k+1 of pattern P
-```
-
-**Graphically:**
-
-![img](http://www.mathcs.emory.edu/~cheung/Courses/323/Syllabus/Text/FIGS/KMP/KMP22.gif)
-
-
-
-### Naive way to find ***f(k)***:
-
-```
-   Given P = "p0 p1 ... pm-1"
-
-   Given k = 1, 2, ..., m-1   (k = 0 ==> f(0) = 0)
-
-         1. Extract the sub-pattern:   "p0 p1 ... pk"
-
-         2. Find the first (= largest) overlap:
-
-             Try: (p0) p1 p2 ... pk-1
-                       p0 p1 ... pk-1 pk
-
-            If (no match)
-             Try: (p0) p1 p2 ... pk-1
-                          p0 p1 ... pk-1 pk
-
-            And so on... The first overlap is the longest ! 
-```
-
-
-
-> NOTE: 上述算法是一个循环算法，即`for k in range(1, m)`，下面是上述算法的python实现：
->
-> ```python
-> def build_failure_table(p):
->  """
->  构建字符串p的最长公共前缀后缀数组
->  :param p:
->  :return:
->  """
->  failure_table = list()
->  len_of_p = len(p)
->  for len_of_sub_str in range(1, len_of_p + 1):
->      max_len_of_overlap = int(len_of_sub_str / 2)  # 最大重叠前缀后缀的长度
->      print("子串长度:{},最大重叠前缀后缀长度:{}".format(len_of_sub_str, max_len_of_overlap))
->      if max_len_of_overlap == 0:
->          # 长度为1的串，是没有重叠前缀后缀的
->          failure_table.append(0)
->      else:
->          found = False  # 是否找到重叠前缀后缀
->          for len_of_overlap in range(max_len_of_overlap, 0, -1):
->              print("重叠前缀后缀长度:{}".format(len_of_overlap))
->              # len_of_overlap 重叠前缀后缀的长度
->              for prefix_index in range(len_of_overlap):
->                  suffix_index = prefix_index + (len_of_sub_str - len_of_overlap)
->                  print("前缀起始位置:{},后缀起始位置:{}".format(prefix_index, suffix_index))
->                  if p[prefix_index] == p[suffix_index]:
->                      if suffix_index == len_of_sub_str - 1:
->                          # 找到了重叠部分
->                          failure_table.append(len_of_overlap)
->                          found = True
->                          break
->                  else:
->                      break
->              if found:
->                  break
->          if not found:
->              failure_table.append(0)
->  return failure_table
-> ```
-
-
-
-### Relating `f(k)` to `f(k−1)`
-
-The values `f(k)` are computed easily using **existing prefix overlap information**:
-
-- `f(0) = 0` (`f(0)` is always 0)
-- `f(1)` is computing using (already computed) value `f(0)`
-- `f(2)` is computing using (already computed) value `f(0)`, `f(1)`
-- `f(3)` is computing using (already computed) value `f(0)`, `f(1)`, `f(2)`
-  And so on
-
-
-
-According to the definition of `f(k)`:
-
-![img](http://www.mathcs.emory.edu/~cheung/Courses/323/Syllabus/Text/FIGS/KMP/KMP23.gif)
-
-> NOTE: 上面这种表示问题的方式是比较容易理解的，即在原问题的基础上添加一个新元素从而构成了一个规模更大的问题。
-
-Suppose that we know that: `f(k−1) = x`
-
-In other words: the **longest overlapping suffix and prefix** in "`p0 p1 ... pk-1`" has `x` characters:
-
-```
-                     f(k-1) = x characters               
-                  <----------------------->
-      p1 p2 p3 ... pk-x-2 pk-x-3 pk-x-4 .... pk-1 
-                       ^     ^     ^         ^
-                       |     |     |  equal  |
-                       v     v     v         v
-                       p0    p1    p2 ....    px-1   px ... pk-1 
-```
-
-**question:**
-
-Can we use the fact that f(k−1) = x to compute f(k) ?
-
-**answer:**
-
-Yes, because f(k) is computed using a similar prefix as f(k−1):
-
-```
-    prefix used to compute f(k-1)
-  +--------------------------------+
-  |                                |
-   p0   p1   p2 ....    px-1 ... pk-1  pk    
-  |                                    |
-  +------------------------------------+
-      prefix used to compute f(k)
-```
-
-We will next learn how to exploit the similarity to compute f(k)
-
-#### Fact between `f(k)` and `f(k−1)`
-
-**Fact:** f(k)   ≤   f(k−1) + 1
-
-#### Computation trick 1
-
-Let use denote: `f(k−1) = x`
-
-(Note: **`f(k−1)`** is **equal** to *some* value. The **above assumption** simply gave a more convenient ***notation*** for this value).
-
-If `px == pk`, then:
-
-```
-   f(k) = x+1 
-
-   (i.e., the maximum overlap of the prefix
-
-                 p0   p1   p2 .... pk-1  pk    
-
-     has x+1 characters 
-```
-
-**Proof:**
-
-```
-
-                   These x+1 characters match IF pk == px!               
-                  <---------------------------->
-      p1 p2 p3 ... pk-x-2 pk-x-3 pk-x-4 .... pk-1   pk
-                   ^     ^     ^         ^     ^
-                   |     |     |  equal  |     |equal
-                   v     v     v         v     v
-                   p0    p1    p2 .... 		 px-1   px ... pk-1  pk     
-                  |                          |
-	          +--------------------------+
-                   These characters matches
-		   because f(k-1) = x
-```
-
-
-
-#### Prelude to computation trick 2
-
-Consider the prefix `ababyabab` where f(8) = 4:
-
-```
-
-             012345678
-    prefix = ababyabab
-
-    f(8) = 4
-
-    because:
-               ababyabab
-                    ababyabab                
-                    <-->
-                  4 characters overlap
-```
-
-We want to compute f(9) using f(8) , but now the next character does not match(that is the next char is not equal to y):
-
-
-
-```
-             0123456789
-    prefix = ababyababa
-
-             ababyababa
-		  ababyababa  
-
-    Conclusion:
-
-       *** We CANNOT use f(8) to compute f(9) ***  
-```
-
-**question:**
-
-- What should we try next to find the maximum overlap for the prefix "ababyababa"
-
-
-
-**answer:**
-
-To find the maximum overlap, we must slide the prefix down and look for matching letters !!!
-
-> NOTE: 思路是使用已经匹配的字符串来尽可能减少匹配次数并且寻找第一个最可能的位置。
-
-Now, let us use only the matching prefix information:
-
-```
-      ababyababa
-           ababyababa  
-
-
- Look only at these characters:               
-
-      ?????abab?
-           abab??????
-```
-
-We can know for sure that the overlap cannot be found starting at these positions:
-
-```
-
-      ?????abab?
-            abab??????   
-```
-
-> NOTE: 因为我们知道串`abab`的最长公共前缀后缀的长度是2，即`f(3)`，所以它的前两个元素可以匹配上的，所以第一个可能位置是如下图所示的，这就是对已经匹配信息的充分运用。至于第三个元素是否能够匹配上，就要比较的结果了。
-
-The first possible way that overlap can be found is starting here:
-
-```
-
-      ?????abab?
-             abab??????   
-```
-
-In other words: we can compute `f(9)` using `f(3)` :
-
-```
-             0123
-    prefix = abab
-
-             abab
-	       abab         
-
-    f(3) = 2
-```
-
-Notice that: 3 = 4−1 and f(8) = 4
-
-Worked out further:
-
-```
-             0123456789
-    prefix = ababyababa
-
-             ababyababa
-		    		ababyababa  
-                      ^
-		      		  |
-          compare the character at position 2 (f(3) = 2)     
-
-    Note:
-
-       The prefix abab is hightlighted in yellow 
-```
-
-Because the characters are equal, we have found the maximum overlap:
-
-```
-
-     f(9) = f(3) + 1 
-          =  2   + 1 
-	  =  3           !!!  
-```
-
-> NOTE:  这里可以假设，如果`p[3]`和`p[9]`并不相等，则上述流程需要继续下去，至于终止条件，显然是直至比较到第一个元素都不相等。
-
-#### Computation trick #2
-
-Let: f(k−1) = x
-
-(Note: **`f(k−1)`** is **equal** to *some* value. The **above assumption** simply gave a more convenient ***notation*** for this value).
-
-If `px ≠ pk`, then:
-
-The next prefix that can be used to compute f(k) is:
-
-```
-p0 p1 .... px-1
-```
-
-In pseudo code:
-
-```
-    i = k-1;       // Try to use f(k-1) to compute f(k)
-    x = f(i);	   // x = character position to match against pk    
-
-    if  ( P[k] == P[x] )  then     
-
-        f(k) = f(x−1) + 1
-
-    else
-
-        Use:  p0 p1 .... px-1 to compute f(k)
-
-        What that means in terms of program statements:
-
-	   i = x-1;    // Try to use f(x-1) to compute f(k) 
-	   x = f(i);   // x = character position to match against pk
-```
-
-**Note:** We must repeat trick #2 as long as i ≥ 0, In other words: use a `while` loop instead of an `if` statement !
-
-
-
-
-
-### Algorithm to compute KMP failure function
-
-**Java code:**
-
-```java
-   public static int[] KMP_failure_function(String P)
-   {
-      int k, i, x, m;
-      int f[] = new int[P.length()];
-
-      m = P.length();
-
-      f[0] = 0;            // f(0) is always 0
-
-      for ( k = 1; k < m; k++ )
-      {
-         // Compute f[k]
-
-         i = k-1;           // First try to use f(k-1) to compute f(k)
-         x = f[i];
-
-         while ( P.charAt(x) != P.charAt(k) )
-         {
-            i = x-1;        // Try the next candidate f(.) to compute f(k)     
-
-            if ( i < 0 )    // Make sure x is valid
-               break;       // STOP the search !!!
-
-            x = f[i];
-         }
-
-
-         if ( i < 0  )
-            f[k] = 0;          // No overlap at all: max overlap = 0 characters
-         else
-            f[k] = f[i] + 1;   // We can compute f(k) using f(i)
-      }
-
-      return(f);
-   }
-```
-
-
-
-完整测试程序
-
-```java
-/* ----------------------------------
-   My own KMP Failure function alg
-
-     S.Y. Cheung - 3/3/2013
-   ---------------------------------- */
-
-import java.util.*;
-
-public class ComputeF
-{
-   public static int[] KMP_failure_function(String P)
-   {
-      int k, i, x, m;
-      int f[] = new int[P.length()];
-
-      String s;
-   
-      m = P.length();
-   
-      f[0] = 0;
-
-      for ( k = 1; k < m; k++ )
-      {
-         // Compute f[k]
-
-         s = P.substring(0,k+1);
-         System.out.println("-----------------------------------------------");
-         System.out.println("Prefix = " + s + " --- Computing f("+k+"):");
-
-         i = k-1;           // First try to use f(k-1) to compute f(k)
-         x = f[i];
-   
-         System.out.println("===================================");
-         System.out.println("Try using: f(" + i + ") = " + x );
-         printState(s, s, k, x);
-
-         while ( P.charAt(x) != P.charAt(k) )
-         {
-	    i = f[i]-1;     // Try the next candidate f(.) to compute f(k)
-
-	    if ( i < 0 )    // Search ended in failure....
-	       break;
-
-            x = f[i];
-
-            System.out.println("===================================");
-            System.out.println("Try using: f(" + i + ") = " + x );
-            printState(s, s, k, x);
-         }
-
-         if ( i < 0 )
-         {
-            System.out.println("No overlap possible... --> f["+k+"] = 0");
-            f[k] = 0;          // No overlap possible
-         }
-         else
-         {
-            f[k] = f[i] + 1;   // Compute f(k) using f(i)
-
-            System.out.println("Overlap found ... --> f["+k+"] = "+f[k]);
-         }
-      }
-
-      return(f);
-   }
-
-
-   public static void main(String[] args)
-   {
-      String P;
-      Scanner in;
-      int[] f;
-
-
-      in = new Scanner( System.in );
-
-      System.out.print("P = ");
-      P = in.nextLine();
-      System.out.println();
-
-      f = KMP_failure_function(P);
-
-      for (int i = 0; i < P.length(); i++ )
-      {
-         System.out.println("f("+i+") = " + f[i]);
-      }
-
-      System.out.println();
-   }
-
-
-
-   /* =====================================================
-      Variables and Methods to make the algorithm visual
-      ===================================================== */
-   public static String T_ruler, P_ruler;
-
-   public static String ruler(int n)
-   {
-      String out = "";
-      char   x = '0';
-
-      for ( int i = 0; i < n; i++ )
-      {
-         out = out + x;
-	 x++;
-	 if ( x > '9' )
-	    x = '0';
-      }
-
-      return out;
-   }
-
-   public static void printState(String T, String P, int i, int j)
-   {
-      T_ruler = ruler( T.length() );
-
-      P_ruler = ruler( P.length() );
-
-      System.out.println("=====================================");
-      System.out.println("Matching: i = " + i + ", j = " + j);
-
-      System.out.println("   " + T_ruler );
-      System.out.println("   " + T);
-      System.out.print("   ");
-      for ( int k = 0; k < i-j; k++)
-         System.out.print(" ");
-      System.out.println(P);
-
-      System.out.print("   ");
-      for ( int k = 0; k < i-j; k++)
-         System.out.print(" ");
-      System.out.println( P_ruler );
-
-      System.out.print("   ");
-      for ( int k = 0; k < i; k++)
-         System.out.print(" ");
-      System.out.println("^");
-
-      System.out.print("   ");
-      for ( int k = 0; k < i; k++)
-         System.out.print(" ");
-      System.out.println("|");
-      System.out.println();
-   }
-}
-```
-
-
-
-
-
 ## KMP in leetcode
 
-http://www.voidcn.com/article/p-uuefgkai-bnw.html
 
-leetcode [28. 实现 strStr()](https://leetcode.cn/problems/implement-strstr/)
 
-leetcode [214. 最短回文串](https://leetcode.cn/problems/shortest-palindrome/)
+### [LeetCode-28. 实现 strStr()-简单](https://leetcode.cn/problems/implement-strstr/)
+
+
+
+### [LeetCode-214. 最短回文串-困难](https://leetcode.cn/problems/shortest-palindrome/)
+
+
 
 https://leetcode.com/problems/shortest-palindrome/discuss/60113/clean-kmp-solution-with-super-detailed-explanation
+
+
+
+### [LeetCode-1392. 最长快乐前缀](https://leetcode.cn/problems/longest-happy-prefix/)
+
+[LeetCode-『 字符串哈希、KMP 』掌握模板，快乐其实很简单 🤣](https://leetcode.cn/problems/longest-happy-prefix/solution/by-flix-k4p3/)
+
+https://leetcode.com/problems/longest-happy-prefix/discuss/549465/kmp-algorithm
+
+
+
+### [LeetCode-1910. 删除一个字符串中所有出现的给定子字符串](https://leetcode.cn/problems/remove-all-occurrences-of-a-substring/)
+
+https://leetcode.com/problems/remove-all-occurrences-of-a-substring/discuss/1299275/True-O(n-%2B-m)-KMP/989600/
 
