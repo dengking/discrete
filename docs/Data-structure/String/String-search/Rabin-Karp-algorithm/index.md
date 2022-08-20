@@ -118,13 +118,14 @@ $$
 > $$
 > \textit{encrypt} = \sum_{i=0}^{|s|-1} s[i] * \textit{base}^{|s|-i-1}
 > $$
+> 在 [LeetCode-『 字符串哈希、KMP 』掌握模板，快乐其实很简单 🤣](https://leetcode.cn/problems/longest-happy-prefix/solution/by-flix-k4p3/) 中，也是使用的上述表达
 
 
 
 
 这样做的好处是什么？我们可以发现一个结论：
 
-> 两个字符串 $s$ 和 $t$ 相等，当且仅当它们的长度相等且编码值相等。
+> 两个字符串 $s$ 和 $t$ 相等，当且仅当它们的**长度相等**且**编码值**相等。
 
 对于长度为 $k$ 的所有字符串，我们会将它们编码成位数为 $k$（包含前导零）的 $base$ 进制数，这是一个**单射**，因此结论成立。这样一来，我们就可以通过比较两个字符串的编码值判断它们是否相等了。
 
@@ -159,28 +160,61 @@ $$
 > 一、上面这段话描述的是rolling hash的优势
 
 ```c++
-class Solution {
+#include <iostream>
+#include <string>
+#include <unordered_map>
+#include <array>
+#include <vector>
+#include <queue>
+#include <algorithm>
+#include <iterator>
+#include <cstdlib>
+
+using namespace std;
+
+class Solution
+{
 public:
-    string longestPrefix(string s) {
+    string longestPrefix(string s)
+    {
         int n = s.size();
         int prefix = 0, suffix = 0;
         int base = 31, mod = 1000000007, mul = 1;
         int happy = 0;
-        for (int i = 1; i < n; ++i) {
+        for (int i = 1; i < n; ++i) // i 表示的是长度
+        {
             prefix = ((long long)prefix * base + (s[i - 1] - 97)) % mod;
             suffix = (suffix + (long long)(s[n - i] - 97) * mul) % mod;
-            if (prefix == suffix) {
+            if (prefix == suffix)
+            {
                 happy = i;
             }
+            // else // 对于用例 "ababab" ，它是无法通过的
+            // {
+            //     break;
+            // }
             mul = (long long)mul * base % mod;
         }
         return s.substr(0, happy);
     }
 };
 
+// Driver program to test above functions
+int main()
+{
+}
+
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra
+
 ```
 
-
+> NOTE:
+>
+> 一、在阅读上述code的时候，我的疑问:
+>
+> 1、为什么 `(long long)mul * base % mod` 需要 `% mode` ？
+>
+> 首先是因为 $1 <= s.length <= 10^5$ ，显然会导致 $mul * base$ 的值非常大
 
 ### wikipedia [Rabin fingerprint](https://en.wikipedia.org/wiki/Rabin_fingerprint)
 
@@ -201,3 +235,9 @@ We then pick a random [irreducible polynomial](https://en.wikipedia.org/wiki/Irr
 ## Rabin–Karp algorithm in LeetCode
 
 [LeetCode-1392. 最长快乐前缀](https://leetcode.cn/problems/longest-happy-prefix/) 
+
+[LeetCode-28. Implement strStr()](https://leetcode.com/problems/implement-strstr/) # [Rabin-Karp with comments](https://leetcode.com/problems/implement-strstr/discuss/279941/rabin-karp-with-comments)
+
+
+
+[LeetCode-『 字符串哈希、KMP 』掌握模板，快乐其实很简单 🤣](https://leetcode.cn/problems/longest-happy-prefix/solution/by-flix-k4p3/)
