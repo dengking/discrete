@@ -116,3 +116,15 @@ Some search methods, for instance [trigram search](https://en.wikipedia.org/wiki
 >
 > All of the above algorithms preprocess the **pattern** to make the pattern searching faster. The best time complexity that we could get by preprocessing pattern is `O(n)` where `n` is length of the text. In this post, we will discuss an approach that preprocesses the **text**. A **suffix tree** is built of the text. After preprocessing text (building suffix tree of text), we can search any pattern in `O(m)` time where `m` is length of the pattern.
 
+
+
+## Sliding window and string search
+
+1、[Rabin–Karp algorithm](https://en.wikipedia.org/wiki/Rabin%E2%80%93Karp_algorithm) 的  [rolling hash](https://en.wikipedia.org/wiki/Rolling_hash) 可以看做是一种sliding window algorithm
+
+2、stackoverflow [Are KMP and Rabin-Karp Sliding window algorithms for pattern match?](https://stackoverflow.com/questions/72157919/are-kmp-and-rabin-karp-sliding-window-algorithms-for-pattern-match)
+
+3、naive string search其实可以看做是将pattern沿着txt进行slide从而寻找匹配的字符串，关于这一点，参见:
+
+[LeetCode-Pattern Recognition: Knuth Morris Pratt Algorithm & (Time Complexity Comparison with sliding window)](https://leetcode.com/problems/implement-strstr/discuss/1020967/pattern-recognition-knuth-morris-pratt-algorithm-time-complexity-comparison-with-sliding-window)
+

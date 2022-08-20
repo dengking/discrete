@@ -4,5 +4,7 @@ nav:
     - Hash-table: Hash-table
     - Merkle-tree: Merkle-tree
     - Checksum: Checksum
+    - Fingerprint: Fingerprint
     - Application: Application
     - Error-detection-and-correction: Error-detection-and-correction
+    

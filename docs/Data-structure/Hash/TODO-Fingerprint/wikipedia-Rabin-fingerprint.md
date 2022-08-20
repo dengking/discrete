@@ -1,1 +1,0 @@
-# [Rabin fingerprint](https://en.wikipedia.org/wiki/Rabin_fingerprint)

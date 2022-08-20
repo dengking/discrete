@@ -3,4 +3,5 @@ nav:
     - Knuth-Morris-Pratt-algorithm: Knuth-Morris-Pratt-algorithm
     - Rabin-Karp-algorithm: Rabin-Karp-algorithm
     - LeetCode-28-实现strStr: LeetCode-28-实现strStr
+    - LeetCode-1392-最长快乐前缀-困难: LeetCode-1392-最长快乐前缀-困难
     
