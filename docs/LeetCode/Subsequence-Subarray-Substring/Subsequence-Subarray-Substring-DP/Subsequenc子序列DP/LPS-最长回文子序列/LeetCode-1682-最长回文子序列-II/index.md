@@ -1,4 +1,4 @@
-# LeetCode [1682. 最长回文子序列 II](https://leetcode.cn/problems/longest-palindromic-subsequence-ii/) 中等
+# [LeetCode-1682. 最长回文子序列-II-中等](https://leetcode.cn/problems/longest-palindromic-subsequence-ii/) 
 
 
 

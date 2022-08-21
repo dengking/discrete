@@ -16,7 +16,7 @@
 
 > NOTE: 
 >
-> 1、LeetCode [5. 最长回文子串](https://leetcode.cn/problems/longest-palindromic-substring/)
+> 1、[LeetCode-5. 最长回文子串-中等](https://leetcode.cn/problems/longest-palindromic-substring/)
 
 
 

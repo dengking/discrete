@@ -93,7 +93,7 @@ for (int i = 0; i < n; i++) {
 
 > NOTE: 
 >
-> 一、原题: LeetCode [516. 最长回文子序列](https://leetcode.cn/problems/longest-palindromic-subsequence/) 中等
+> 一、原题: [LeetCode -516. 最长回文子序列-中等](https://leetcode.cn/problems/longest-palindromic-subsequence/) 
 >
 > 
 

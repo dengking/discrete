@@ -1,6 +1,6 @@
-# LeetCode [516. 最长回文子序列](https://leetcode.cn/problems/longest-palindromic-subsequence/) 中等
+# [LeetCode-516. 最长回文子序列-中等](https://leetcode.cn/problems/longest-palindromic-subsequence/) 
 
-
+labuladong [子序列解题模板：最长回文子序列](https://mp.weixin.qq.com/s/zNai1pzXHeB2tQE6AdOXTA) 
 
 ## 我的解题
 
