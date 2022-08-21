@@ -1,4 +1,4 @@
-# LeetCode [647. 回文子串](https://leetcode.cn/problems/palindromic-substrings/) 中等
+# [LeetCode-647. 回文子串-中等](https://leetcode.cn/problems/palindromic-substrings/) 
 
 
 
