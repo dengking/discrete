@@ -348,7 +348,14 @@ public:
 
 ### [LeetCode-1392. 最长快乐前缀-困难](https://leetcode.cn/problems/longest-happy-prefix/)
 
-这道题就是纯粹的使用KMP failure array。
+一、这道题就是纯粹的使用KMP failure array。
+
+二、这道题给我的一新认知是: KMP求解的最长公共前缀后缀是可以相交的，下面是一个典型的例子: 
+
+```
+输入：s = "ababab"
+输出："abab"
+```
 
 
 
