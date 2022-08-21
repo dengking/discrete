@@ -6,6 +6,8 @@ subsequence的特征：
 
 2、相对位置是保持不变的
 
+## wikipedia [Subsequence](https://en.wikipedia.org/wiki/Subsequence)
+
 
 
 ## 穷举
