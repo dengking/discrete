@@ -4,7 +4,7 @@
 
 > NOTE: 
 >
-> LeetCode [234. 回文链表](https://leetcode.cn/problems/palindrome-linked-list/) 简单
+> [LeetCode-234. 回文链表-简单](https://leetcode.cn/problems/palindrome-linked-list/) 
 
 输入一个单链表的头结点，判断这个链表中的数字是不是回文：
 

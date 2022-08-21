@@ -10,7 +10,7 @@
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ---- |
 | labuladong [经典面试题：最长回文子串](http://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247484471&idx=1&sn=7c26d04a1f035770920d31377a1ebd42&chksm=9bd7fa3faca07329189e9e8b51e1a665166946b66b8e8978299ba96d5f2c0d3eafa7db08b681&scene=21#wechat_redirect) | [LeetCode-5. 最长回文子串-中等](https://leetcode.cn/problems/longest-palindromic-substring/) |      |
 | labuladong [子序列解题模板：最长回文子序列](http://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247484666&idx=1&sn=e3305be9513eaa16f7f1568c0892a468&chksm=9bd7faf2aca073e4f08332a706b7c10af877fee3993aac4dae86d05783d3d0df31844287104e&scene=21#wechat_redirect) | [LeetCode-516. 最长回文子序列-中等](https://leetcode.cn/problems/longest-palindromic-subsequence/) |      |
-| labuladong [如何高效判断回文单链表？](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247484822&idx=1&sn=44742c9a3557038c8da7150100d94db9&scene=21) |                                                              |      |
+| labuladong [如何高效判断回文单链表？](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247484822&idx=1&sn=44742c9a3557038c8da7150100d94db9&scene=21) | [LeetCode-234. 回文链表-简单](https://leetcode.cn/problems/palindrome-linked-list/) |      |
 | labuladong [构造回文的最小插入次数](https://mp.weixin.qq.com/s/C14WNUpPeBMVSMqh28JdfA) |                                                              |      |
 |                                                              |                                                              |      |
 
@@ -23,8 +23,6 @@ https://leetcode.cn/problemset/all/?search=%E5%9B%9E%E6%96%87
 
 
 ### 回文-string
-
-
 
 
 

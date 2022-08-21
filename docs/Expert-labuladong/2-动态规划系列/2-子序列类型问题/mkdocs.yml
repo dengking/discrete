@@ -2,7 +2,7 @@ nav:
     - Introduction: index.md
     - LPS-最长回文子序列: LPS-最长回文子序列
     - LCS-最长公共子序列: LCS-最长公共子序列
-    - LCS-最长公共子序列: LCS-最长公共子序列
+    - LIS-最长递增子序列: LIS-最长递增子序列
     - 最大子数组和: 最大子数组和
     - Edit-distance-编辑距离: Edit-distance-编辑距离
     
