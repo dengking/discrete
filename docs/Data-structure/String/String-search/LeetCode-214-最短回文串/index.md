@@ -26,5 +26,61 @@
 
 
 
+### 完整代码
 
+
+
+```c++
+#include <iostream>
+#include <string>
+#include <unordered_map>
+#include <array>
+#include <vector>
+#include <queue>
+#include <algorithm>
+#include <iterator>
+#include <cstdlib>
+
+using namespace std;
+
+class Solution
+{
+public:
+    string shortestPalindrome(string s)
+    {
+        auto failureArray = getFailureArray(s);
+        int palindromeSubStrSize = failureArray.back();
+        auto palindromeSubStr = s.substr(palindromeSubStrSize, s.size() - palindromeSubStrSize);
+        std::reverse(palindromeSubStr.begin(), palindromeSubStr.end());
+        return palindromeSubStr + s;
+    }
+    vector<int> getFailureArray(const string &s)
+    {
+        string tmp = s + "#" + string(s.rbegin(), s.rend());
+        vector<int> failureArray(tmp.size(), 0);
+        int i = 0, j = 1;
+        while (j < tmp.size())
+        {
+            if (tmp[i] == tmp[j])
+            {
+                ++i;
+            }
+            else if (i > 0)
+            {
+                i = failureArray[i - 1];
+                continue;
+            }
+            failureArray[j++] = i;
+        }
+        return failureArray;
+    }
+};
+// Driver program to test above functions
+int main()
+{
+}
+
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra
+
+```
 
