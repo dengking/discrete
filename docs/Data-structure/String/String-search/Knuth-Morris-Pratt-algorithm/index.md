@@ -346,6 +346,10 @@ public:
 
 
 
+### [LeetCode-1392. 最长快乐前缀-困难](https://leetcode.cn/problems/longest-happy-prefix/)
+
+这道题就是纯粹的使用KMP failure array。
+
 
 
 ## cnblogs [详解KMP算法](https://www.cnblogs.com/yjiyjige/p/3263858.html) 
@@ -785,8 +789,6 @@ public static int[] getNext(String ps) {
 
 
 
-
-
 ## wikipedia [Knuth–Morris–Pratt algorithm](https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm)
 
 In [computer science](https://en.wikipedia.org/wiki/Computer_science), the **Knuth–Morris–Pratt [string-searching algorithm](https://en.wikipedia.org/wiki/String-searching_algorithm)** (or **KMP algorithm**) searches for occurrences of a "word" `W` within a main "text string" `S` by employing the observation that when a mismatch occurs, the word itself embodies sufficient information to determine where the next match could begin, thus bypassing re-examination of previously matched characters.
@@ -794,17 +796,3 @@ In [computer science](https://en.wikipedia.org/wiki/Computer_science), the **Knu
 The [algorithm](https://en.wikipedia.org/wiki/Algorithm) was conceived by [James H. Morris](https://en.wikipedia.org/wiki/James_H._Morris) and independently discovered by [Donald Knuth](https://en.wikipedia.org/wiki/Donald_Knuth) "a few weeks later" from [automata theory](https://en.wikipedia.org/wiki/Automata_theory).[[1\]](https://en.wikipedia.org/wiki/Knuth–Morris–Pratt_algorithm#cite_note-knuth1977-2)[[2\]](https://en.wikipedia.org/wiki/Knuth–Morris–Pratt_algorithm#cite_note-3) Morris and [Vaughan Pratt](https://en.wikipedia.org/wiki/Vaughan_Pratt) published a technical report in 1970.[[3\]](https://en.wikipedia.org/wiki/Knuth–Morris–Pratt_algorithm#cite_note-4) The three also published the algorithm jointly in 1977.[[1\]](https://en.wikipedia.org/wiki/Knuth–Morris–Pratt_algorithm#cite_note-knuth1977-2) Independently, in 1969, [Matiyasevich](https://en.wikipedia.org/wiki/Yuri_Matiyasevich)[[4\]](https://en.wikipedia.org/wiki/Knuth–Morris–Pratt_algorithm#cite_note-5)[[5\]](https://en.wikipedia.org/wiki/Knuth–Morris–Pratt_algorithm#cite_note-6) discovered a similar algorithm, coded by a two-dimensional Turing machine, while studying a string-pattern-matching recognition problem over a binary alphabet. This was the first linear-time algorithm for string matching.[[6\]](https://en.wikipedia.org/wiki/Knuth–Morris–Pratt_algorithm#cite_note-7)
 
 
-
-## KMP in leetcode
-
-汇总整理素材:
-
-1、[LeetCode-『 字符串哈希、KMP 』掌握模板，快乐其实很简单 🤣](https://leetcode.cn/problems/longest-happy-prefix/solution/by-flix-k4p3/) 
-
-|                                                              |                                                              |      |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ---- |
-| [LeetCode-28. 实现 strStr()-简单](https://leetcode.cn/problems/implement-strstr/) |                                                              |      |
-| [LeetCode-214. 最短回文串-困难](https://leetcode.cn/problems/shortest-palindrome/) | https://leetcode.com/problems/shortest-palindrome/discuss/60113/clean-kmp-solution-with-super-detailed-explanation |      |
-| [LeetCode-1392. 最长快乐前缀](https://leetcode.cn/problems/longest-happy-prefix/) | https://leetcode.com/problems/longest-happy-prefix/discuss/549465/kmp-algorithm |      |
-| [LeetCode-1910. 删除一个字符串中所有出现的给定子字符串](https://leetcode.cn/problems/remove-all-occurrences-of-a-substring/) | https://leetcode.com/problems/remove-all-occurrences-of-a-substring/discuss/1299275/True-O(n-%2B-m)-KMP/989600/ |      |
-|                                                              |                                                              |      |

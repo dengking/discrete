@@ -232,12 +232,3 @@ We then pick a random [irreducible polynomial](https://en.wikipedia.org/wiki/Irr
 >
 > 一、" [irreducible polynomial](https://en.wikipedia.org/wiki/Irreducible_polynomial) "  中 "irreducible" 的意思是"不可约的"，显然它的含义和素数类似
 
-## Rabin–Karp algorithm in LeetCode
-
-[LeetCode-1392. 最长快乐前缀](https://leetcode.cn/problems/longest-happy-prefix/) 
-
-[LeetCode-28. Implement strStr()](https://leetcode.com/problems/implement-strstr/) # [Rabin-Karp with comments](https://leetcode.com/problems/implement-strstr/discuss/279941/rabin-karp-with-comments)
-
-
-
-[LeetCode-『 字符串哈希、KMP 』掌握模板，快乐其实很简单 🤣](https://leetcode.cn/problems/longest-happy-prefix/solution/by-flix-k4p3/)

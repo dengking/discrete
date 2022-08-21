@@ -1,4 +1,10 @@
-# 回文
+# Palindrome-回文
+
+"回文"是非常常见的一种算法题，它能够和各种类型的问题进行结合。
+
+## 素材
+
+### labuladong
 
 labuladong [经典面试题：最长回文子串](http://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247484471&idx=1&sn=7c26d04a1f035770920d31377a1ebd42&chksm=9bd7fa3faca07329189e9e8b51e1a665166946b66b8e8978299ba96d5f2c0d3eafa7db08b681&scene=21#wechat_redirect)
 
@@ -12,6 +18,8 @@ labuladong [如何高效判断回文单链表？](https://mp.weixin.qq.com/s?__b
 >
 > 总结的非常
 
+
+
 ## LeetCode
 
 https://leetcode.cn/problemset/all/?search=%E5%9B%9E%E6%96%87
@@ -20,33 +28,33 @@ https://leetcode.cn/problemset/all/?search=%E5%9B%9E%E6%96%87
 
 ### 回文串
 
-#### leetcode [面试题 01.04. 回文排列](https://leetcode.cn/problems/palindrome-permutation-lcci/) 简单
+[LeetCode-面试题 01.04. 回文排列-简单](https://leetcode.cn/problems/palindrome-permutation-lcci/)
 
 通过判断是否字符的个数为2、有一个字符的个数为1，使用"perfect hash-character-as-key-index-array-counter 数组作为字符串字符计数器"
 
 
 
-leetcode [面试题 01.04. 回文排列##简单代码，简单思路##（100%，89%）](https://leetcode.cn/problems/palindrome-permutation-lcci/solution/mian-shi-ti-0104-hui-wen-pai-lie-jian-da-lxjq/) # 解题思路
+[LeetCode-面试题 01.04. 回文排列##简单代码，简单思路##（100%，89%）](https://leetcode.cn/problems/palindrome-permutation-lcci/solution/mian-shi-ti-0104-hui-wen-pai-lie-jian-da-lxjq/) # 解题思路
 
 主要利用count函数统计出s中所有重复次数为奇数次元素的个数，如果个数为1或0，则该字符串是一个回文串，否则就不是
 
 
 
-#### leetcode [336. 回文对](https://leetcode.cn/problems/palindrome-pairs/) 困难
+[LeetCode-336. 回文对-困难](https://leetcode.cn/problems/palindrome-pairs/)
 
 
 
 
 
-#### leetcode  [1147. 段式回文](https://leetcode.cn/problems/longest-chunked-palindrome-decomposition/) 困难
+[LeetCode-1147. 段式回文-困难](https://leetcode.cn/problems/longest-chunked-palindrome-decomposition/)
 
 
 
-#### leetcode [125. 验证回文串](https://leetcode.cn/problems/valid-palindrome/) 简单
+[LeetCode-125. 验证回文串-简单](https://leetcode.cn/problems/valid-palindrome/)
 
 
 
-#### leetcode [680. 验证回文字符串 Ⅱ](https://leetcode.cn/problems/valid-palindrome-ii/) 简单
+[LeetCode-680. 验证回文字符串 Ⅱ-简单](https://leetcode.cn/problems/valid-palindrome-ii/)
 
 删除一个使之成为回文字符串，我的第一想法是双指针。
 
@@ -54,21 +62,21 @@ leetcode [面试题 01.04. 回文排列##简单代码，简单思路##（100%，
 
 
 
-#### leetcode [1328. 破坏回文串](https://leetcode.cn/problems/break-a-palindrome/) 中等
+[LeetCode-1328. 破坏回文串-中等](https://leetcode.cn/problems/break-a-palindrome/)
 
 
 
-#### leetcode  [1400. 构造 K 个回文字符串](https://leetcode.cn/problems/construct-k-palindrome-strings/) 中等
+[LeetCode-1400. 构造 K 个回文字符串-中等](https://leetcode.cn/problems/construct-k-palindrome-strings/)
 
-#### leetcode [1616. 分割两个字符串得到回文串](https://leetcode.cn/problems/split-two-strings-to-make-palindrome/) 中等
+[LeetCode-1616. 分割两个字符串得到回文串-中等](https://leetcode.cn/problems/split-two-strings-to-make-palindrome/)
 
 #### 分割回文串
 
-leetcode [131. 分割回文串](https://leetcode.cn/problems/palindrome-partitioning/) 中等
+[LeetCode-131. 分割回文串-中等](https://leetcode.cn/problems/palindrome-partitioning/)
 
-leetcode [132. 分割回文串 II](https://leetcode.cn/problems/palindrome-partitioning-ii) 困难
+[LeetCode-132. 分割回文串 II-困难](https://leetcode.cn/problems/palindrome-partitioning-ii)
 
-leetcode [1278. 分割回文串 III](https://leetcode.cn/problems/palindrome-partitioning-iii) 困难
+[LeetCode-1278. 分割回文串 III-困难](https://leetcode.cn/problems/palindrome-partitioning-iii)
 
 leetcode [175. 回文串分割 IV](https://leetcode.cn/problems/palindrome-partitioning-iv)  困难
 
@@ -76,53 +84,53 @@ leetcode [175. 回文串分割 IV](https://leetcode.cn/problems/palindrome-parti
 
 #### 子串
 
-leetcode [647. 回文子串](https://leetcode.cn/problems/palindromic-substrings/) 中等
+[LeetCode-647. 回文子串-中等](https://leetcode.cn/problems/palindromic-substrings/)
 
-leetcode [5. 最长回文子串](https://leetcode.cn/problems/longest-palindromic-substring/) 中等
+[LeetCode-5. 最长回文子串-中等](https://leetcode.cn/problems/longest-palindromic-substring/)
 
-leetcode [1542. 找出最长的超赞子字符串](https://leetcode.cn/problems/find-longest-awesome-substring/) 困难
+[LeetCode-1542. 找出最长的超赞子字符串-困难](https://leetcode.cn/problems/find-longest-awesome-substring/)
 
 
 
 #### 子序列
 
-leetcode [516. 最长回文子序列](https://leetcode.cn/problems/longest-palindromic-subsequence/) 中等
+[LeetCode-516. 最长回文子序列-中等](https://leetcode.cn/problems/longest-palindromic-subsequence/)
 
-leetcode [730. 统计不同回文子序列](https://leetcode.cn/problems/count-different-palindromic-subsequences/) 困难
+[LeetCode-730. 统计不同回文子序列-困难](https://leetcode.cn/problems/count-different-palindromic-subsequences/)
 
-leetcode [1771. 由子序列构造的最长回文串的长度](https://leetcode.cn/problems/maximize-palindrome-length-from-subsequences/) 困难
+[LeetCode-1771. 由子序列构造的最长回文串的长度-困难](https://leetcode.cn/problems/maximize-palindrome-length-from-subsequences/)
 
 ### 回文数
 
 
 
-#### leetcode [9. 回文数](https://leetcode.cn/problems/palindrome-number/) 简单
+[LeetCode-9. 回文数-简单](https://leetcode.cn/problems/palindrome-number/)
 
 简单的回文判断，用到了一些整数处理的技巧
 
 
 
-#### leetcode[866. 回文素数](https: //leetcode.cn/problems/prime-palindrome/) 中等
+[LeetCode-866. 回文素数-中等](https: //leetcode.cn/problems/prime-palindrome/)
 
 
 
-#### leetcode [906. 超级回文数](https://leetcode.cn/problems/super-palindromes/) 困难
+[LeetCode-906. 超级回文数-困难](https://leetcode.cn/problems/super-palindromes/)
 
 
 
-#### leetcode [479. 最大回文数乘积](https://leetcode.cn/problems/largest-palindrome-product/) 困难
+[LeetCode-479. 最大回文数乘积-困难](https://leetcode.cn/problems/largest-palindrome-product/)
 
 
 
-#### leetcode [564. 寻找最近的回文数](https://leetcode.cn/problems/find-the-closest-palindrome/) 困难
+[LeetCode-564. 寻找最近的回文数-困难](https://leetcode.cn/problems/find-the-closest-palindrome/)
 
 
 
 ### 回文链表
 
-#### leetcode [234. 回文链表](https://leetcode.cn/problems/palindrome-linked-list/) 简单
+[LeetCode-234. 回文链表-简单](https://leetcode.cn/problems/palindrome-linked-list/)
 
 我的第一想法是fast-slow double pointer。
 
-#### leetcode [面试题 02.06. 回文链表](https://leetcode.cn/problems/palindrome-linked-list-lcci/) 简单
+[LeetCode-面试题 02.06. 回文链表-简单](https://leetcode.cn/problems/palindrome-linked-list-lcci/)
 
