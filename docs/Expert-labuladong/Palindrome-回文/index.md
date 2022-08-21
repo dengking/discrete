@@ -24,49 +24,25 @@ https://leetcode.cn/problemset/all/?search=%E5%9B%9E%E6%96%87
 
 ### 回文-string
 
-[LeetCode-面试题 01.04. 回文排列-简单](https://leetcode.cn/problems/palindrome-permutation-lcci/)
-
-通过判断是否字符的个数为2、有一个字符的个数为1，使用"perfect hash-character-as-key-index-array-counter 数组作为字符串字符计数器"
-
-
-
-[LeetCode-面试题 01.04. 回文排列##简单代码，简单思路##（100%，89%）](https://leetcode.cn/problems/palindrome-permutation-lcci/solution/mian-shi-ti-0104-hui-wen-pai-lie-jian-da-lxjq/) # 解题思路
-
-主要利用count函数统计出s中所有重复次数为奇数次元素的个数，如果个数为1或0，则该字符串是一个回文串，否则就不是
-
-
-
-[LeetCode-336. 回文对-困难](https://leetcode.cn/problems/palindrome-pairs/)
 
 
 
 
-
-[LeetCode-1147. 段式回文-困难](https://leetcode.cn/problems/longest-chunked-palindrome-decomposition/)
-
-
-
-[LeetCode-125. 验证回文串-简单](https://leetcode.cn/problems/valid-palindrome/)
+#### 验证回文string
 
 
 
-[LeetCode-680. 验证回文字符串 Ⅱ-简单](https://leetcode.cn/problems/valid-palindrome-ii/)
-
-删除一个使之成为回文字符串，我的第一想法是双指针。
-
-
-
-
-
-[LeetCode-1328. 破坏回文串-中等](https://leetcode.cn/problems/break-a-palindrome/)
+|                                                              | 题目                                                         |                  |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ---------------- |
+| [LeetCode-125. 验证回文串-简单](https://leetcode.cn/problems/valid-palindrome/) | 给定一个字符串，验证它是否是回文串，只考虑字母和数字字符，可以忽略字母的大小写。 |                  |
+| [LeetCode-680. 验证回文字符串 Ⅱ-简单](https://leetcode.cn/problems/valid-palindrome-ii/) | 给定一个非空字符串 `s`，**最多**删除一个字符。判断是否能成为回文字符串。 | 其实是构建回文串 |
+|                                                              |                                                              |                  |
 
 
 
-[LeetCode-1400. 构造 K 个回文字符串-中等](https://leetcode.cn/problems/construct-k-palindrome-strings/)
+#### 分割回文string
 
-[LeetCode-1616. 分割两个字符串得到回文串-中等](https://leetcode.cn/problems/split-two-strings-to-make-palindrome/)
 
-#### 分割回文串
 
 [LeetCode-131. 分割回文串-中等](https://leetcode.cn/problems/palindrome-partitioning/)
 
@@ -78,7 +54,11 @@ https://leetcode.cn/problemset/all/?search=%E5%9B%9E%E6%96%87
 
 
 
-#### 寻找回文子串
+[LeetCode-1616. 分割两个字符串得到回文串-中等](https://leetcode.cn/problems/split-two-strings-to-make-palindrome/) 
+
+
+
+#### 寻找回文sub-string
 
 |                                                              |                                                              |                                            |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------ |
@@ -94,19 +74,23 @@ https://leetcode.cn/problemset/all/?search=%E5%9B%9E%E6%96%87
 
 
 
-### 构建回文-string
+#### 构建回文-string
 
 
 
-| LeetCode                                                     | 题目                                                         | 算法   | 来源                                                         |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ------ | ------------------------------------------------------------ |
-| [LeetCode-409. 最长回文串-简单](https://leetcode.cn/problems/longest-palindrome/) | 给定一个包含大写字母和小写字母的字符串 `s` ，返回 *通过这些字母构造成的 **最长的回文串*** 。 | greedy |                                                              |
-| [LeetCode-214. 最短回文串-困难](https://leetcode.cn/problems/shortest-palindrome/) | 给定一个字符串 ***s***，你可以通过在字符串前面添加字符将其转换为回文串。找到并返回可以用这种方式转换的最短回文串。 | KMP    | labuladong [构造回文的最小插入次数](https://mp.weixin.qq.com/s/C14WNUpPeBMVSMqh28JdfA) |
-| [LeetCode-1312. 让字符串成为回文串的最少插入次数-困难](https://leetcode.cn/problems/minimum-insertion-steps-to-make-a-string-palindrome/) | 给你一个字符串 `s` ，每一次操作你都可以在字符串的任意位置插入任意字符。请你返回让 `s` 成为回文串的 **最少操作次数** 。 |        |                                                              |
+| LeetCode                                                     | 题目                                                         | 算法                                              | 来源                                                         |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------- | ------------------------------------------------------------ |
+| [LeetCode-409. 最长回文串-简单](https://leetcode.cn/problems/longest-palindrome/) | 给定一个包含大写字母和小写字母的字符串 `s` ，返回 *通过这些字母构造成的 **最长的回文串*** 。 | greedy                                            |                                                              |
+| [LeetCode-214. 最短回文串-困难](https://leetcode.cn/problems/shortest-palindrome/) | 给定一个字符串 ***s***，你可以通过在字符串前面添加字符将其转换为回文串。找到并返回可以用这种方式转换的最短回文串。 | KMP                                               | labuladong [构造回文的最小插入次数](https://mp.weixin.qq.com/s/C14WNUpPeBMVSMqh28JdfA) |
+| [LeetCode-1312. 让字符串成为回文串的最少插入次数-困难](https://leetcode.cn/problems/minimum-insertion-steps-to-make-a-string-palindrome/) | 给你一个字符串 `s` ，每一次操作你都可以在字符串的任意位置插入任意字符。请你返回让 `s` 成为回文串的 **最少操作次数** 。 |                                                   |                                                              |
+| [LeetCode-面试题 01.04. 回文排列-简单](https://leetcode.cn/problems/palindrome-permutation-lcci/) | 给定一个字符串，编写一个函数判定其是否为某个回文串的排列之一。 | perfect hash-character-as-key-index-array-counter |                                                              |
+|                                                              |                                                              |                                                   |                                                              |
+|                                                              |                                                              |                                                   |                                                              |
+|                                                              |                                                              |                                                   |                                                              |
 
 
 
-#### 寻找回文子序列
+#### 寻找回文sub-sequence
 
 [LeetCode-516. 最长回文子序列-中等](https://leetcode.cn/problems/longest-palindromic-subsequence/)
 
@@ -115,6 +99,22 @@ https://leetcode.cn/problemset/all/?search=%E5%9B%9E%E6%96%87
 [LeetCode-1771. 由子序列构造的最长回文串的长度-困难](https://leetcode.cn/problems/maximize-palindrome-length-from-subsequences/)
 
 
+
+#### 其他
+
+[LeetCode-336. 回文对-困难](https://leetcode.cn/problems/palindrome-pairs/)
+
+
+
+[LeetCode-1147. 段式回文-困难](https://leetcode.cn/problems/longest-chunked-palindrome-decomposition/)
+
+
+
+[LeetCode-1328. 破坏回文串-中等](https://leetcode.cn/problems/break-a-palindrome/)
+
+
+
+[LeetCode-1400. 构造 K 个回文字符串-中等](https://leetcode.cn/problems/construct-k-palindrome-strings/) 
 
 
 
