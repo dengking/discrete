@@ -180,3 +180,16 @@ class Solution:
 
 ```
 
+### [LeetCode-【宫水三叶】简单模拟题](https://leetcode.cn/problems/rotate-string/solution/by-ac_oier-bnkx/)
+
+由于每次旋转操作都是将最左侧字符移动到最右侧，因此如果 goal 可由 s 经过多步旋转而来，那么 goal 必然会出现在 s + s 中，即满足 `(s + s).contains(goal)`，同时为了 s 本身过长导致的结果成立，我们需要先确保两字符串长度相等。
+
+```Java
+class Solution {
+    public boolean rotateString(String s, String goal) {
+        return s.length() == goal.length() && (s + s).contains(goal);
+    }
+}
+
+```
+
