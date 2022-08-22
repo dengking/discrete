@@ -149,4 +149,12 @@ Some search methods, for instance [trigram search](https://en.wikipedia.org/wiki
 | [LeetCode-1910. 删除一个字符串中所有出现的给定子字符串](https://leetcode.cn/problems/remove-all-occurrences-of-a-substring/) | https://leetcode.com/problems/remove-all-occurrences-of-a-substring/discuss/1299275/True-O(n-%2B-m)-KMP/989600/ |      |
 |                                                              |                                                              |      |
 
+## KMP vs Rabin-Karp
 
+stackoverflow [When to use Rabin-Karp or KMP algorithms?](https://stackoverflow.com/questions/23336807/when-to-use-rabin-karp-or-kmp-algorithms)
+
+quora [**Which is better and efficient between the KMP algorithm and the Rabin-Karp algorithm?**](https://www.quora.com/Which-is-better-and-efficient-between-the-KMP-algorithm-and-the-Rabin-Karp-algorithm)
+
+
+
+> The most important difference between them is how reliable they are in finding a match. KMP guarantees 100% reliability. You cannot guarantee 100% with Rabin Karp because of a chance of collision during hash table lookup. But with good hash generation algorithms that do exist today, it is possible that Rabin Karp can yield very close to 100% reliability in finding a match. And both have complexity of O(n). Also Rabin Karp is easier to implement than KMP it works based on a rolling hash whereas KMP works based on a failure function.

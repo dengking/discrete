@@ -76,11 +76,11 @@ The problem can also be solved by the [Floyd–Warshall algorithm](https://en.wi
 >
 > 
 
-### winona [CS 440 Theory of Algorithms / CS 468 Algorithms in Bioinformatics](https://cs.winona.edu/lin/cs440/ch08-2.pdf)
+## winona [CS 440 Theory of Algorithms / CS 468 Algorithms in Bioinformatics](https://cs.winona.edu/lin/cs440/ch08-2.pdf)
 
 > NOTE: 在javatpoint [Warshall's Algorithm](https://www.javatpoint.com/warshalls-algorithm) 中，对这个PPT的内容进行了整理
 
-#### What is transitive closure?
+### What is transitive closure?
 
 ![](./winona-Warshall-Algorithm-PPT-1.jpg)
 
@@ -102,7 +102,7 @@ The problem can also be solved by the [Floyd–Warshall algorithm](https://en.wi
 >
 > 
 
-#### Warshall’s Algorithm
+### Warshall’s Algorithm
 
 ![](./winona-Warshall-Algorithm-PPT-3.jpg)
 
@@ -114,11 +114,11 @@ The problem can also be solved by the [Floyd–Warshall algorithm](https://en.wi
 
 ![](./winona-Warshall-Algorithm-PPT-5.jpg)
 
-#### Warshall’s Algorithm (pseudocode and analysis)
+### Warshall’s Algorithm (pseudocode and analysis)
 
 ![](./winona-Warshall-Algorithm-PPT-6.jpg)
 
-### Implementation
+## Implementation
 
 
 
