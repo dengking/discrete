@@ -279,6 +279,12 @@ class Solution {
 
 ```
 
+> NOTE:
+>
+> 一、`Map<String, Integer> m1 = new HashMap<>(), m2 = new HashMap<>();`
+>
+> 上述`m1`、`m2` 就是visited set，它们既起到了去重的作用又起到了记录距离值的作用。
+
 ### C++
 
 ```C++
