@@ -6,16 +6,16 @@
 
 素材:
 
-1、[【宫水三叶】涵盖所有的「存图方式」与「最短路算法（详尽注释）」](https://leetcode.cn/problems/network-delay-time/solution/gong-shui-san-xie-yi-ti-wu-jie-wu-chong-oghpz/)
+1、[LeetCode-【宫水三叶】涵盖所有的「存图方式」与「最短路算法（详尽注释）」](https://leetcode.cn/problems/network-delay-time/solution/gong-shui-san-xie-yi-ti-wu-jie-wu-chong-oghpz/) 
 
-2、[LeetCode-五种最短路径算法总结](https://leetcode.cn/problems/network-delay-time/solution/dirkdtra-by-happysnaker-vjii/)
+2、[LeetCode-五种最短路径算法总结](https://leetcode.cn/problems/network-delay-time/solution/dirkdtra-by-happysnaker-vjii/) 
 
 |      | Algorithm                                                    | weighted/unweighted | 问题类型                                                     | 算法思想      | Computation complexity |
 | ---- | ------------------------------------------------------------ | ------------------- | ------------------------------------------------------------ | ------------- | ---------------------- |
-| 1    | [Floyd–Warshall algorithm](https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm) | weighted            | "A single execution of the algorithm will find the lengths (summed weights) of shortest paths between all pairs of vertices" | **穷举+DP**   | $O(V*E)$               |
+| 1    | [Floyd–Warshall algorithm](https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm) | weighted            | "A single execution of the algorithm will find the lengths (summed weights) of shortest paths between all pairs of vertices" | **穷举+DP**   | $O(V^3)$               |
 | 2    | [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra's_algorithm) | weighted            | Single source shortest path(SSSP)                            | **greedy+dp** |                        |
-| 3    | [Bellman–Ford algorithm](https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm) | weighted            | Single source shortest path(SSSP)                            | **穷举+DP**   | $O(V^3)$               |
-| 4    | BFS                                                          | unweighted          | 比较常见的是src-dest                                         |               |                        |
+| 3    | [Bellman–Ford algorithm](https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm) | weighted            | Single source shortest path(SSSP)                            | **穷举+DP**   | $O(V*E)$               |
+| 4    | BFS                                                          | unweighted          | 比较常见的是src-goal                                         |               |                        |
 
 
 
@@ -55,11 +55,11 @@ void Floyd(int arrDis[][], Vertex arrPath[][])const;
 
 #### Edge relaxation
 
-1、2、3都属于DP optimization algorithm，都使用了edge relaxation，关于此，参见 `Edge-relaxation` ，在wikipedia [Bellman–Ford algorithm](https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm) 中，关于两者的对比有着非常好的总结:
+1、2、3都属于DP optimization algorithm，都使用了edge relaxation，关于此，在wikipedia [Bellman–Ford algorithm](https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm) 中有着非常好的总结:
 
 > Like [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra's_algorithm), Bellman–Ford proceeds by [relaxation](https://en.wikipedia.org/wiki/Relaxation_(approximation)), in which approximations to the correct distance are replaced by better ones until they eventually reach the solution.
 
-上述三个algorithm都是"proceed by [relaxation](https://en.wikipedia.org/wiki/Relaxation_(approximation))" ，它们所不懂的是执行relaxation的次数、时机。
+上述三个algorithm都是"proceed by [relaxation](https://en.wikipedia.org/wiki/Relaxation_(approximation))" ，它们所不同的是执行relaxation的次数、时机。
 
 
 
@@ -67,27 +67,31 @@ void Floyd(int arrDis[][], Vertex arrPath[][])const;
 
 素材:
 
-stackexchange [Am I right about the differences between Floyd-Warshall, Dijkstra's and Bellman-Ford algorithms?](https://softwareengineering.stackexchange.com/questions/158613/am-i-right-about-the-differences-between-floyd-warshall-dijkstras-and-bellman)
+1、stackexchange [Am I right about the differences between Floyd-Warshall, Dijkstra's and Bellman-Ford algorithms?](https://softwareengineering.stackexchange.com/questions/158613/am-i-right-about-the-differences-between-floyd-warshall-dijkstras-and-bellman)
 
 
 
 一、Dijkstra's-algorithm-VS-Bellman–Ford-algorithm
 
-素材、章节: wikipedia [Bellman–Ford algorithm](https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm)
+素材: 
+
+1、wikipedia [Bellman–Ford algorithm](https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm)
 
 二、Dijkstra's-algorithm-VS-BFS
 
-素材、章节:   `Dijkstra's-algorithm-VS-BFS`
+素材:   
+
+1、`Dijkstra's-algorithm-VS-BFS`
 
 三、Bellman–Ford-algorithm-VS-Floyd-Warshall-algorithm
 
-素材、章节: 
+素材: 
 
 1、stackoverflow [What is the basic difference between Bellman-ford and Floyd warshall algorithm?](https://stackoverflow.com/questions/34461496/what-is-the-basic-difference-between-bellman-ford-and-floyd-warshall-algorithm) 
 
 [A](https://stackoverflow.com/a/34472584/10173843)
 
-> The Bellman–Ford algorithm is an algorithm that computes shortest paths from a **single source vertex** to **all of the other vertices** in a weighted digraph whereas Floyd-Warshall computes shortest paths from **each node** to **every other node**.
+> The **Bellman–Ford algorithm** is an algorithm that computes shortest paths from a **single source vertex** to **all of the other vertices** in a weighted digraph whereas **Floyd-Warshall** computes shortest paths from **each node** to **every other node**.
 
 
 
@@ -103,8 +107,8 @@ TODO: 需要补充一些例题。
 
 ## LeetCode
 
-|                                                              |                                                              | 算法 |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ---- |
-| [LeetCode-743. 网络延迟时间](https://leetcode.cn/problems/network-delay-time/) | 单纯的单源最短路径问题，可以使用多种算法求解，非常适合于练手 |      |
-| [LeetCode-120. 三角形最小路径和](https://leetcode.cn/problems/triangle/) |                                                              | DP   |
-|                                                              |                                                              |      |
+|                                                              |      | 点评                                                         | 算法 |
+| ------------------------------------------------------------ | ---- | ------------------------------------------------------------ | ---- |
+| [LeetCode-743. 网络延迟时间](https://leetcode.cn/problems/network-delay-time/) |      | 单纯的单源最短路径问题，可以使用多种算法求解，非常适合于练手 |      |
+| [LeetCode-120. 三角形最小路径和](https://leetcode.cn/problems/triangle/) |      |                                                              | DP   |
+|                                                              |      |                                                              |      |

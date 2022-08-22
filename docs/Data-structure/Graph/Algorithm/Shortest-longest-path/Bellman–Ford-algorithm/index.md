@@ -92,7 +92,11 @@ function BellmanFord(list vertices, list edges, vertex source) is
     return distance, predecessor
 ```
 
-> NOTE: 关于"Step 3: check for negative-weight cycles"，在 geeksforgeeks [Bellman–Ford Algorithm | DP-23](https://www.geeksforgeeks.org/bellman-ford-algorithm-dp-23/)  中有着更好的描述。
+> NOTE: 
+>
+> 一、关于"Step 3: check for negative-weight cycles"，在 geeksforgeeks [Bellman–Ford Algorithm | DP-23](https://www.geeksforgeeks.org/bellman-ford-algorithm-dp-23/)  中有着更好的描述。
+>
+> 二、初次阅读上述code，会疑惑它是否是求解SSSP的，因为在step2中并没有看到对source对处理。这需要结合 geeksforgeeks [Bellman–Ford Algorithm | DP-23](https://www.geeksforgeeks.org/bellman-ford-algorithm-dp-23/)  中的source code来看。 
 
 Simply put, the algorithm initializes the distance to the source to 0 and all other nodes to infinity. Then for all edges, if the distance to the destination can be shortened by taking the edge, the distance is updated to the new lower value.
 
@@ -115,6 +119,8 @@ A final scan of all the edges is performed and if any distance is updated, then 
 > NOTE: 
 >
 > 一、上面这段话结合 geeksforgeeks [Bellman–Ford Algorithm | DP-23](https://www.geeksforgeeks.org/bellman-ford-algorithm-dp-23/) 中的例子会更加容易理解
+
+
 
 ## Source code
 
