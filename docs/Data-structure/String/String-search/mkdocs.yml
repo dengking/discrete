@@ -3,7 +3,9 @@ nav:
     - Knuth-Morris-Pratt-algorithm: Knuth-Morris-Pratt-algorithm
     - Rabin-Karp-algorithm: Rabin-Karp-algorithm
     - LCS-longest-common-substring: LCS-longest-common-substring
-    - LeetCode-28-实现strStr: LeetCode-28-实现strStr
-    - LeetCode-796-旋转字符串: LeetCode-796-旋转字符串
-    - LeetCode-1392-最长快乐前缀-困难: LeetCode-1392-最长快乐前缀-困难
+    - LeetCode-28-Implement-strStr()-Easy: LeetCode-28-Implement-strStr()-Easy
+    - LeetCode-796-Rotate-String-Easy: LeetCode-796-Rotate-String-Easy
+    - LeetCode-1044-Longest-Duplicate-Substring: LeetCode-1044-Longest-Duplicate-Substring
+    - LeetCode-1392-Longest-Happy-Prefix-Hard: LeetCode-1392-Longest-Happy-Prefix-Hard
+    - LeetCode-1910-Remove-All-Occurrences-of-a-Substring-Medium: LeetCode-1910-Remove-All-Occurrences-of-a-Substring-Medium
     
