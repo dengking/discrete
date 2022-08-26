@@ -1,6 +1,6 @@
 # [LeetCode-127. 单词接龙-困难](https://leetcode.cn/problems/word-ladder/)
 
-一、这是在Google "bidirectional bfs - leetcode"时发现的。
+一、这是在Google "bidirectional bfs - leetcode"时发现的，这道题和 [LeetCode-752. 打开转盘锁-中等](https://leetcode.cn/problems/open-the-lock/) 非常类似。
 
 二、这个题中的graph是典型的undirected graph，这样才能够bidirectional-BFS
 
@@ -8,13 +8,9 @@
 
 它使用 `vector<int> dis(nodeNum, INT_MAX);` 而没有使用 `visited`
 
-
+四、将string映射到ID
 
 ## 我的解题
-
-state-space: 需要确定每个单词都next set。
-
-这道题和 [LeetCode-752. 打开转盘锁-中等](https://leetcode.cn/problems/open-the-lock/) 非常类似。
 
 
 
@@ -41,4 +37,125 @@ state-space: 需要确定每个单词都next set。
 > ![](./WechatIMG76.jpeg)
 >
 > 
+
+### BFS
+
+```C++
+// #include <bits/ne_stdc++.h>
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <bitset>
+#include <map>
+#include <set>
+#include <list>
+#include <stack>
+#include <unordered_map>
+#include <unordered_set>
+#include <queue>
+#include <deque>
+#include <cmath>
+#include <numeric>
+#include <climits>
+#include <random>
+#include <memory>
+
+using namespace std;
+
+class Solution
+{
+  unordered_map<string, int> word2id;
+  std::vector<std::vector<int>> edges;
+  int wordCnt = 0;
+
+private:
+  void addNode(const string &word)
+  {
+    if (!word2id.count(word))
+    {
+      word2id[word] = wordCnt++;
+      edges.emplace_back();
+    }
+  }
+  void addWord(string &word)
+  {
+    addNode(word);
+    int id1 = word2id[word];
+    for (auto &&c : word)
+    {
+      auto tmp = c;
+      c = '*';
+      addNode(word);
+      int id2 = word2id[word];
+      edges[id1].push_back(id2);
+      edges[id2].push_back(id1);
+      c = tmp;
+    }
+  }
+
+public:
+  int ladderLength(string beginWord, string endWord, vector<string> &wordList)
+  {
+    // create graph
+    addWord(beginWord);
+    for (auto &&word : wordList)
+    {
+      addWord(word);
+    }
+    if (!word2id.count(endWord))
+    {
+      return 0;
+    }
+    // bfs
+    int steps = bfs(beginWord, endWord) / 2;
+    if (steps)
+    {
+      return steps + 1;
+    }
+    else
+    {
+      return 0;
+    }
+  }
+
+  int bfs(string &beginWord, string &endWord)
+  {
+    vector<int> dis(wordCnt, INT_MAX);
+    queue<int> q;
+    int beginId = word2id[beginWord], endId = word2id[endWord];
+    dis[beginId] = 0;
+    q.push(beginId);
+    while (!q.empty())
+    {
+      auto top = q.front();
+      q.pop();
+      if (top == endId)
+      {
+        return dis[top];
+      }
+      for (auto &&nextNode : edges[top])
+      {
+        if (dis[nextNode] == INT_MAX)
+        {
+          dis[nextNode] = dis[top] + 1;
+          q.push(nextNode);
+        }
+      }
+    }
+    return 0;
+  }
+};
+
+int main()
+{
+  string beginWord = "hit";
+  string endWord = "cog";
+  vector<string> wordList{"hot", "dot", "dog", "lot", "log", "cog"};
+  Solution s;
+  cout << s.ladderLength(beginWord, endWord, wordList) << endl;
+}
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra
+
+```
 
