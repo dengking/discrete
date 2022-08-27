@@ -1,14 +1,14 @@
 nav:
     - Introduction: index.md
     - 数学-数字: 数学-数字
-    - 最优值问题: 最优值问题
+    - Optimization: Optimization
     - Subsequence-Subarray-Substring: Subsequence-Subarray-Substring    
     - 区间: 区间
     - Parse: Parse
-    - Partition-划分: Partition-划分
+    - Partition: Partition
     - 设计数据结构: 设计数据结构
     - 技巧总结: 技巧总结
-    - Tournament-比赛: Tournament-比赛
+    - Tournament: Tournament
     - 模拟: 模拟
     - Huawei-机试: Huawei-机试
     - 无限流-stream: 无限流-stream
