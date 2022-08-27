@@ -5,7 +5,8 @@ nav:
     - LCS-longest-common-substring: LCS-longest-common-substring
     - LeetCode-28-Implement-strStr()-Easy: LeetCode-28-Implement-strStr()-Easy
     - LeetCode-796-Rotate-String-Easy: LeetCode-796-Rotate-String-Easy
-    - LeetCode-1044-Longest-Duplicate-Substring: LeetCode-1044-Longest-Duplicate-Substring
+    - LeetCode-1044-Longest-Duplicate-Substring-Hard: LeetCode-1044-Longest-Duplicate-Substring-Hard
     - LeetCode-1392-Longest-Happy-Prefix-Hard: LeetCode-1392-Longest-Happy-Prefix-Hard
-    - LeetCode-1910-Remove-All-Occurrences-of-a-Substring-Medium: LeetCode-1910-Remove-All-Occurrences-of-a-Substring-Medium
+    - LeetCode-1910-Remove-All-Occurrences-of-a-Substring-Medium: LeetCode-1910-Remove-All-Occurrences-of-a-Substring
+    
     
