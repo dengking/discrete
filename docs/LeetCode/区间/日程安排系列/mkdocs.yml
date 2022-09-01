@@ -1,7 +1,6 @@
 nav:
     - Introduction: index.md
-    - LeetCode-729-我的日程安排-I: LeetCode-729-我的日程安排-I
-    - LeetCode-731-我的日程安排表-II: LeetCode-731-我的日程安排表-II
-    - LeetCode-732-我的日程安排表-III: LeetCode-732-我的日程安排表-III
+    - 我的日程安排系列: 我的日程安排系列
     - 会议室系列: 会议室系列
-        
+    - 最多可以参加的会议数目系列: 最多可以参加的会议数目系列
+    
