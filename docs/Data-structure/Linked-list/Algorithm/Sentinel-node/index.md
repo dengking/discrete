@@ -6,3 +6,7 @@
 
 ## wikipedia [Sentinel node](https://en.wikipedia.org/wiki/Sentinel_node)
 
+
+
+## wikipedia [Sentinel value](https://en.wikipedia.org/wiki/Sentinel_value)
+
