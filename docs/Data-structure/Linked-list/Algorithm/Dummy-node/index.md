@@ -30,6 +30,14 @@
 
 其中将"dummy node"翻译为"虚拟头节点"。
 
+3、stackoverflow [Dummy nodes in linked lists](https://stackoverflow.com/questions/22952882/dummy-nodes-in-linked-lists)
+
+4、[Linked List - 链表](https://algorithm.yuanbin.me/zh-hans/basics_data_structure/linked_list.html#dummy-node)
+
+5、reddit [[C+] In a linked list what is a dummy node?](https://www.reddit.com/r/learnprogramming/comments/20e0yc/c_in_a_linked_list_what_is_a_dummy_node/)
+
+
+
 ## [LeetCode-19. 删除链表的倒数第 N 个结点](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/) # [官方解题](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/solution/shan-chu-lian-biao-de-dao-shu-di-nge-jie-dian-b-61/) 
 
 > NOTE:
