@@ -1,6 +1,10 @@
 # 区间问题
 
-一、区间问题其实也是可以使用left- right double pointer来进行解释的，关于这一点，是在leetcode [Ikaruga](https://leetcode.cn/u/ikaruga/) [【合并区间】排序 + 双指针](https://leetcode.cn/problems/merge-intervals/solution/merge-intervals-by-ikaruga/) 上提出的
+time-based，因此这类问题往往是基于sort的。
+
+## Merge Intervals
+
+一、合并区间问题其实也是可以使用left- right double pointer来进行解释的，关于这一点，是在leetcode [Ikaruga](https://leetcode.cn/u/ikaruga/) [【合并区间】排序 + 双指针](https://leetcode.cn/problems/merge-intervals/solution/merge-intervals-by-ikaruga/) 上提出的
 
 
 
@@ -10,7 +14,15 @@
 
 2、**甜姨的奇妙冒险** [秒懂力扣区间题目：重叠区间、合并区间、插入区间](https://mp.weixin.qq.com/s/ioUlNa4ZToCrun3qb4y4Ow)
 
-二、区间交集个数
+## Insert interval
+
+
+
+
+
+## Intersection count
+
+区间交集个数
 
 
 
