@@ -1,5 +1,6 @@
 nav:
     - Introduction: index.md
+    - LeetCode-128-最长连续序列: LeetCode-128-最长连续序列
     - LeetCode-300-最长递增子序列: LeetCode-300-最长递增子序列
     - LeetCode-491-递增子序列-中等: LeetCode-491-递增子序列-中等
     - LeetCode-673-最长递增子序列的个数: LeetCode-673-最长递增子序列的个数
