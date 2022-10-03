@@ -147,7 +147,7 @@ sweepLineIntersection(Points[0..2n-1]):
 ### Example
 
 Let us consider the following example taken from [here](http://www.eecs.wsu.edu/~cook/aa/lectures/l25/node10.html).  There are 5 line segments 1, 2, 3, 4 and 5.  The dotted green lines show sweep lines. 
- 
+
 
 ![sweepline](https://media.geeksforgeeks.org/wp-content/cdn-uploads/20210407193133/SegmentIntersect-1.jpg)
 
@@ -404,6 +404,10 @@ int main()
 
 
 ## LeetCode
+
+
+
+
 
 
 
