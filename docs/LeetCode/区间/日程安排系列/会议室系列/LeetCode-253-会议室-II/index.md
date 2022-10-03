@@ -10,6 +10,8 @@
 
 
 
+## `std::vector`
+
 
 
 ```c++
@@ -145,6 +147,68 @@ int main()
   vector<vector<int>> intervals{{13, 15}, {1, 13}};
   Solution s;
   s.minMeetingRooms(intervals);
+}
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra
+
+```
+
+
+
+## `std::map`
+
+```c++
+// #include <bits/stdc++.h>
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <bitset>
+#include <map>
+#include <list>
+#include <stack>
+#include <unordered_map>
+#include <unordered_set>
+#include <queue>
+#include <deque>
+#include <cmath>
+#include <numeric>
+#include <climits>
+#include <random>
+// example1.cpp
+// new-delete-type-mismatch error
+#include <memory>
+#include <vector>
+using namespace std;
+class Solution
+{
+public:
+    int minMeetingRooms(vector<vector<int>> &intervals)
+    {
+        if (intervals.size() == 0)
+            return 0;
+
+        std::map<int, int> meetings;
+        for (const vector<int> &interval : intervals)
+        {
+            meetings[interval[0]] += 1;
+            meetings[interval[1]] -= 1;
+        }
+
+        int cnt = 0, maxValue = 0;
+        for (auto &&meeting : meetings)
+        {
+            cnt += meeting.second;
+            maxValue = max(maxValue, cnt);
+        }
+        return maxValue;
+    }
+};
+
+int main()
+{
+    vector<vector<int>> intervals{{13, 15}, {1, 13}};
+    Solution s;
+    s.minMeetingRooms(intervals);
 }
 // g++ test.cpp --std=c++11 -pedantic -Wall -Wextra
 

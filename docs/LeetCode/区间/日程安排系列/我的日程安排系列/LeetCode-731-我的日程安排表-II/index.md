@@ -1,8 +1,12 @@
-# leetcode [731. 我的日程安排表 II](https://leetcode.cn/problems/my-calendar-ii/)
+# [LeetCode-731. 我的日程安排表 II](https://leetcode.cn/problems/my-calendar-ii/)
 
 
 
-## [宫水三叶](https://leetcode.cn/u/ac_oier/) # [【宫水三叶】线段树（动态开点）运用题](https://leetcode.cn/problems/my-calendar-ii/solution/by-ac_oier-okkc/)
+## segment tree
+
+
+
+### [宫水三叶](https://leetcode.cn/u/ac_oier/) # [【宫水三叶】线段树（动态开点）运用题](https://leetcode.cn/problems/my-calendar-ii/solution/by-ac_oier-okkc/)
 
 线段树维护的节点信息包括：
 
@@ -18,7 +22,11 @@
 
 由于存在「懒标记」，**线段树**的插入和查询都是 $logn$ 的，因此我们在单次操作的时候，最多会创建数量级为 $logn$ 的点，因此空间复杂度为$O(mlogn)$ ，而不是 $O(4*n)$，而**开点数**的预估需不能仅仅根据 $logn$来进行，还要对**常数**进行分析，才能得到准确的点数上界。
 
-## [731. 我的日程安排表 II](https://leetcode.cn/problems/my-calendar-ii/) # [Laugh](https://leetcode.cn/u/laughhhh/) # [[ 一法解N题] ✔](https://leetcode.cn/problems/my-calendar-ii/solution/yi-fa-jie-nti-by-laughhhh-pll7/) 
+## sweep-line-algorithm
+
+
+
+### [731. 我的日程安排表 II](https://leetcode.cn/problems/my-calendar-ii/) # [Laugh](https://leetcode.cn/u/laughhhh/) # [[ 一法解N题] ✔](https://leetcode.cn/problems/my-calendar-ii/solution/yi-fa-jie-nti-by-laughhhh-pll7/) 
 
 
 
@@ -68,6 +76,7 @@ public:
       cnt += p.second;
       if (cnt > 2)
       {
+        // rollback  
         cale[start]--;
         cale[end]++;
         return false;

@@ -1,6 +1,18 @@
 # 区间问题
 
-time-based，因此这类问题往往是基于sort的。
+
+
+### Time-based interval
+
+对于time-based interval，由于time是定向的有序的，因此这类问题往往是基于sorted的，因此它往往涉及如下:
+
+1、sorted-ordered-data-structure
+
+2、binary-search
+
+3、sort
+
+
 
 ## Merge Intervals
 
@@ -18,11 +30,21 @@ time-based，因此这类问题往往是基于sort的。
 
 
 
+例题:
+
+[LeetCode-729. 我的日程安排表 I](https://leetcode.cn/problems/my-calendar-i/) 
+
 
 
 ## Intersection count
 
 区间交集个数
+
+
+
+例题:
+
+我的日常安排系列
 
 
 

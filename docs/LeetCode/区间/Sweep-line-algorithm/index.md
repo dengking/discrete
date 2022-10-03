@@ -405,15 +405,101 @@ int main()
 
 ## LeetCode
 
+sweep-line-algorithm可以用于解决诸如"同时进行的会议"、"公交车的人数"等问题，在LeetCode中，它的另外一个名称是"插旗法"。
+
+draft： 边界计数
+
+### 我的日程安排系列
+
+参见对应的章节。
+
+### [LeetCode-253. 会议室 II](https://leetcode.cn/problems/meeting-rooms-ii/) # [muluo](https://leetcode.cn/u/muluo-2/) # [图解转化为上下车问题 O(nlogn)](https://leetcode.cn/problems/meeting-rooms-ii/solution/tu-jie-zhuan-hua-wei-shang-xia-che-wen-t-uy2q/) 
+
+开会也可以理解成坐公交，都是占用某个资源。就拿题目给的第一组数组来分析。
+
+```
+intervals = [[0,30],[5,10],[15,20]]
+```
+
+第一个人从0上车，从30下车；
+第二个人从5上车，10下车。。。
+
+我们的问题转化为最多车上有几个人（也就是最多有多少会议室）。
+
+显然：上车，车上人数+1；下车，车上人数-1
+
+我们把intervals拆解一下
+
+```c++
+上车：[0, 1], [5, 1], [15, 1]
+
+下车：[10, -1], [20, -1], [30, -1]
+```
+
+
+
+然后按照第一个数把上下车排好序
+
+```c++
+人数 1    2     1     2     1      0
+     0----5----10----15----20-----30
+变化 +1   +1    -1    +1    -1    -1
+
+```
+
+
+
+```c++
+class Solution {
+public:
+    int minMeetingRooms(vector<vector<int>>& intervals) {
+ 
+        if (intervals.size() == 0) return 0;
+
+        vector<pair<int, int>> meetings;
+        for (const vector<int>& interval : intervals) {
+            meetings.push_back({interval[0], 1});
+            meetings.push_back({interval[1], -1});
+        }
+        sort(meetings.begin(), meetings.end());
+
+        int cnt = 0, maxValue = 0;
+        for (const pair<int, int>& meeting : meetings) {
+            cnt += meeting.second;
+            maxValue = max(maxValue, cnt);
+        }
+        return maxValue;
+        
+    }
+};
+
+```
 
 
 
 
 
+#### 其它
 
-gitbooks [Sweep Line (Intervals)](https://robinliu.gitbooks.io/leetcode/content/Sweep_Line.html)	
+[253. 会议室 II](https://leetcode.cn/problems/meeting-rooms-ii/) # [loick](https://leetcode.cn/u/loick/) # [统计同时进行的会议](https://leetcode.cn/problems/meeting-rooms-ii/solution/tong-ji-tong-shi-jin-xing-de-hui-yi-by-loick/)
 
 
+
+### 公共问题: 相同时间点的处理
+
+对于同一时间点的处理，在做leetcode [253. 会议室 II](https://leetcode.cn/problems/meeting-rooms-ii/) 时遇到过，原则是先离开后进入，其中使用的是vector。
+
+在 [731. 我的日程安排表 II](https://leetcode.cn/problems/my-calendar-ii/) # [Laugh](https://leetcode.cn/u/laughhhh/) # [[ 一法解N题] ✔](https://leetcode.cn/problems/my-calendar-ii/solution/yi-fa-jie-nti-by-laughhhh-pll7/)  中使用`std::map`，对于同一时间点能够较好的处理。
+
+
+
+### gitbooks [Sweep Line (Intervals)](https://robinliu.gitbooks.io/leetcode/content/Sweep_Line.html)	
+
+
+
+
+
+### 其它素材
 
 csdn [扫描线Sweep Line算法总结](https://blog.csdn.net/u013325815/article/details/103957911)
 

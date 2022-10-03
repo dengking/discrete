@@ -1,12 +1,24 @@
-# [LeetCode-729. 我的日程安排表 I](https://leetcode.cn/problems/my-calendar-i/)
+# [LeetCode-729. 我的日程安排表 I](https://leetcode.cn/problems/my-calendar-i/) 
 
 是在阅读宫水三叶 [【线段树专题】求解常见「值域爆炸，查询有限」区间问题的几种方式](https://mp.weixin.qq.com/s/9Y--nNzFgmGfqD5qtB9Hxw) 时发现的这道题。
 
 
 
-## [liuyvjin](https://leetcode.cn/u/liuyvjin/) # [极简二分查找思路，C++](https://leetcode.cn/problems/my-calendar-i/solution/by-liuyvjin-dsho/)
+## 方法一、二分查找
 
-### map 版本
+这道题本质上是"insert interval"，插入一个interval，直观的思路就是: 
+
+1、首先找到开始时间大于待插入interval的第一个已经插入的interval
+
+2、然后看前一个interval的结束时间是否大于待插入interval的开始时间
+
+如果上述两者都满足，那么这个interval就和当前的所有interval都不冲突，就是可以插入的。
+
+下面的两个版本都是基于这个思路写的。
+
+### [liuyvjin](https://leetcode.cn/u/liuyvjin/) # [极简二分查找思路，C++](https://leetcode.cn/problems/my-calendar-i/solution/by-liuyvjin-dsho/) 
+
+#### map 版本
 
 > NOTE:
 >
@@ -67,7 +79,7 @@ int main()
 
 ```
 
-### vector 版本
+#### vector 版本
 
 ```c++
 // #include <bits/stdc++.h>
@@ -124,5 +136,48 @@ int main()
 }
 // g++ test.cpp --std=c++11 -pedantic -Wall -Wextra
 
+```
+
+
+
+## 方法二: sweep-line-algorithm
+
+这种方法是在  [LeetCode-731. 我的日程安排表 II](https://leetcode.cn/problems/my-calendar-ii/) # [Laugh](https://leetcode.cn/u/laughhhh/) # [[ 一法解N题] ✔](https://leetcode.cn/problems/my-calendar-ii/solution/yi-fa-jie-nti-by-laughhhh-pll7/)  中提出的，写法如下：
+
+```c++
+
+class MyCalendar
+{
+    std::map<int, int> calendar_;
+
+public:
+    MyCalendar()
+    {
+    }
+
+    bool book(int start, int end)
+    {
+        calendar_[start] += 1;
+        calendar_[end] -= 1;
+        int concurrent = 0;
+        for (auto &&[_, cnt] : calendar_)
+        {
+            concurrent += cnt;
+            if (concurrent > 1)
+            {
+                calendar_[start] -= 1;
+                calendar_[end] += 1;
+                return false;
+            }
+        }
+        return true;
+    }
+};
+
+/**
+ * Your MyCalendar object will be instantiated and called as such:
+ * MyCalendar* obj = new MyCalendar();
+ * bool param_1 = obj->book(start,end);
+ */
 ```
 
