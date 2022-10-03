@@ -1,4 +1,4 @@
-# LeetCode [986. 区间列表的交集](https://leetcode.cn/problems/interval-list-intersections/) 中等
+# [LeetCode-986. 区间列表的交集-中等](https://leetcode.cn/problems/interval-list-intersections/) 
 
 
 

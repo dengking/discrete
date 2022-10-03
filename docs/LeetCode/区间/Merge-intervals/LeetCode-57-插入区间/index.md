@@ -71,17 +71,55 @@ public:
 
 
 
+## robinliu.gitbooks [Sweep Line (Intervals)](https://robinliu.gitbooks.io/leetcode/content/Sweep_Line.html)
 
 
-### 使用栈机
 
-使用栈机可以保存活状态，也就是当前区间，因为:
+```c++
+#include <vector>
+#include <algorithm>
+using namespace std;
 
-当下一个区间和当前区间存在交集的时候，它需要进行merge
+class Solution
+{
+public:
+    vector<vector<int>> insert(vector<vector<int>> &intervals, vector<int> &newInterval)
+    {
+        vector<vector<int>> res;
 
-当下一个区间和当前区间不存在交集的时候，它不需要merge，此时它可以将当前区间flush到结果集中
+        size_t i = 0;
+        for (; i < intervals.size(); ++i)
+        {
+            // 比较intervals[i]和newInterval之间的位置关系
+            if (intervals[i][1] < newInterval[0]) // intervals[i]在newInterval的左侧
+            {
+                res.push_back(intervals[i]);
+            }
+            else if (intervals[i][0] <= newInterval[1]) // 相交
+            {
+                newInterval[0] = min(newInterval[0], intervals[i][0]);
+                newInterval[1] = max(newInterval[1], intervals[i][1]);
+            }
+            else // intervals[i][0] > newInterval[1] // intervals[i]在newInterval的右侧，不在相交，此时需要flush
+            {
+                break;
+            }
+        }
+        res.push_back(newInterval);
 
-其实 [LeetCode-56. 合并区间](https://leetcode.cn/problems/merge-intervals/) 和本题都是基于上述思路，由于它仅仅涉及两个区间，因此它不需要显示地使用一个stack。
+        for (; i < intervals.size(); ++i)
+            res.push_back(intervals[i]);
+        return res;
+    }
+};
 
-其实这两道题能够体现append-to-tail&flush和stack machine之间的关联。
+int main()
+{
+}
+```
 
+> NOTE:
+>
+> 一、上述这种写法的优势是充分运用了 intervals 已经sorted的事实。
+>
+> 
