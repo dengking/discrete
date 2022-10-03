@@ -4,7 +4,8 @@ nav:
     - 秒懂力扣区间题目-重叠区间-合并区间-插入区间: 秒懂力扣区间题目-重叠区间-合并区间-插入区间
     - Sweep-line-algorithm: Sweep-line-algorithm
     - Segment-tree: Segment-tree
-    - Merge-interval: Merge-interval
+    - LeetCode-56-合并区间: LeetCode-56-合并区间
+    - LeetCode-57-插入区间: LeetCode-57-插入区间
     - LeetCode-986-区间列表的交集: LeetCode-986-区间列表的交集
     - LeetCode-1893-检查是否区域内所有整数都被覆盖: LeetCode-1893-检查是否区域内所有整数都被覆盖
     - 日程安排系列: 日程安排系列

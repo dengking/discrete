@@ -1,11 +1,11 @@
-# leetcode [56. 合并区间](https://leetcode.cn/problems/merge-intervals/) 中等
+# [LeetCode-56. 合并区间-中等](https://leetcode.cn/problems/merge-intervals/) 
 
 
 
 ## 我的解题
 
 ```c++
-  #include <iostream>
+#include <iostream>
 #include <string>
 #include <algorithm>
 #include <vector>
@@ -40,12 +40,12 @@ public:
     int stop = intervals[0][1];
     for (int i = 1; i < intervals.size(); ++i)
     {
-      if (intervals[i][0] <= stop)
+      if (intervals[i][0] <= stop) // 相交
       {
         start = min(start, intervals[i][0]);
         stop = max(stop, intervals[i][1]);
       }
-      else
+      else // 不相交
       {
         res.push_back({start, stop});
         start = intervals[i][0];

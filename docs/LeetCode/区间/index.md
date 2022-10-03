@@ -6,25 +6,29 @@
 
 对于time-based interval，由于time是定向的有序的，因此这类问题往往是基于sorted的，因此它往往涉及如下:
 
-1、sorted-ordered-data-structure
+一、sorted-ordered-data-structure
 
-2、binary-search
+二、binary-search
 
-3、sort
+三、sort
 
 
 
 ## Merge Intervals
 
-一、合并区间问题其实也是可以使用left- right double pointer来进行解释的，关于这一点，是在leetcode [Ikaruga](https://leetcode.cn/u/ikaruga/) [【合并区间】排序 + 双指针](https://leetcode.cn/problems/merge-intervals/solution/merge-intervals-by-ikaruga/) 上提出的
+一、合并区间问题其实也是可以使用left- right double pointer来进行解释的，关于这一点，是在 [LeetCode-56. 合并区间](https://leetcode.cn/problems/merge-intervals/) # [Ikaruga](https://leetcode.cn/u/ikaruga/) [【合并区间】排序 + 双指针](https://leetcode.cn/problems/merge-intervals/solution/merge-intervals-by-ikaruga/) 中提出的
 
 
 
-素材：
+二、素材：
 
 1、emre [Coding Patterns: Merge Intervals](https://emre.me/coding-patterns/merge-intervals/)
 
 2、**甜姨的奇妙冒险** [秒懂力扣区间题目：重叠区间、合并区间、插入区间](https://mp.weixin.qq.com/s/ioUlNa4ZToCrun3qb4y4Ow)
+
+三、例题
+
+1、[LeetCode-56. 合并区间](https://leetcode.cn/problems/merge-intervals/) 
 
 ## Insert interval
 
