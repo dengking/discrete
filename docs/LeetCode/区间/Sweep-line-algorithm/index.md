@@ -493,13 +493,17 @@ public:
 
 
 
-### gitbooks [Sweep Line (Intervals)](https://robinliu.gitbooks.io/leetcode/content/Sweep_Line.html)	
+### robinliu gitbooks [Sweep Line (Intervals)](https://robinliu.gitbooks.io/leetcode/content/Sweep_Line.html)	
 
 
 
 [LeetCode-56. 合并区间](https://leetcode.cn/problems/merge-intervals/)
 
-[LeetCode-57. 插入区间](https://leetcode.cn/problems/insert-interval/)
+[LeetCode-57. 插入区间](https://leetcode.cn/problems/insert-interval/) 
+
+[LeetCode-128. 最长连续序列-中等](https://leetcode.cn/problems/longest-consecutive-sequence/)
+
+
 
 ### 其它素材
 
