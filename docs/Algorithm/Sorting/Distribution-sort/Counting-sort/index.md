@@ -109,7 +109,10 @@ In [computer science](https://en.wikipedia.org/wiki/Computer_science), **countin
 >
 > 一、在counting sort中，key是关键，它要求key是单调递增的，它会将key作为index，因此key需要是非负数，以labuladong [小而美的算法技巧：前缀和数组](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247494095&idx=2&sn=19a2609f33eadbbda1f6b75e2298d931&scene=21#wechat_redirect)  中的例子来说，key就是分数。
 >
-> 
+
+
+
+
 
 ### Pseudocode
 
