@@ -1,4 +1,4 @@
-# leetcode [698. 划分为k个相等的子集](https://leetcode.cn/problems/partition-to-k-equal-sum-subsets/)
+# [LeetCode-698. 划分为k个相等的子集](https://leetcode.cn/problems/partition-to-k-equal-sum-subsets/)
 
 ## 我的解题-回溯法
 
@@ -12,20 +12,22 @@
 
 三、一般的写法都会超时，看了 labuladong 的解法，其中使用的一个技巧就是先进行**排序**预处理，这样来提高算法的效率。
 
+> NOTE:
+>
 > 有之前的铺垫，相信这段代码是比较容易理解的。这个解法虽然能够通过，但是耗时比较多，其实我们可以再做一个优化。
 >
 > 主要看`backtrack`函数的递归部分：
 >
 > ```java
 > for (int i = 0; i < bucket.length; i++) {
->     // 剪枝
->     if (bucket[i] + nums[index] > target) {
->         continue;
->     }
+>  // 剪枝
+>  if (bucket[i] + nums[index] > target) {
+>      continue;
+>  }
 > 
->     if (backtrack(nums, index + 1, bucket, target)) {
->         return true;
->     }
+>  if (backtrack(nums, index + 1, bucket, target)) {
+>      return true;
+>  }
 > }
 > ```
 >
@@ -39,19 +41,19 @@
 >
 > ```java 
 > public boolean canPartitionKSubsets(int[] nums, int k) {
->     // 其他代码不变
->     // ...
->     /* 降序排序 nums 数组 */
->     Arrays.sort(nums);
->     int i = 0, j = nums.length - 1;
->     for (; i < j; i++, j--) {
->         // 交换 nums[i] 和 nums[j]
->         int temp = nums[i];
->         nums[i] = nums[j];
->         nums[j] = temp;
->     }
->     /*******************/
->     return backtrack(nums, 0, bucket, target);
+>  // 其他代码不变
+>  // ...
+>  /* 降序排序 nums 数组 */
+>  Arrays.sort(nums);
+>  int i = 0, j = nums.length - 1;
+>  for (; i < j; i++, j--) {
+>      // 交换 nums[i] 和 nums[j]
+>      int temp = nums[i];
+>      nums[i] = nums[j];
+>      nums[j] = temp;
+>  }
+>  /*******************/
+>  return backtrack(nums, 0, bucket, target);
 > }
 > ```
 >
