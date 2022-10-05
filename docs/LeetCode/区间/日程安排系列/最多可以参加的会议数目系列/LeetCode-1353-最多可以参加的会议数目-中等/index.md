@@ -154,5 +154,57 @@ public:
 
 
 
-# [扫描算法+贪心](https://leetcode.cn/problems/maximum-number-of-events-that-can-be-attended/solution/sao-miao-suan-fa-tan-xin-by-lucifer1004/)
+## [吴自华](https://leetcode.cn/problems/maximum-number-of-events-that-can-be-attended/solution/sao-miao-suan-fa-tan-xin-by-lucifer1004/) #[扫描算法+贪心](https://leetcode.cn/problems/maximum-number-of-events-that-can-be-attended/solution/sao-miao-suan-fa-tan-xin-by-lucifer1004/)
+
+> NOTE:
+>
+> 一、在今天可以开会的所有的event知乎，选择结束时间最早的先开会
+>
+> 二、每天就是一个slot，每天可以开会的event是动态变化的，这就好比是一个**竖立算盘**（有多个柱子，每个柱子上可以套的环是动态变化的），可以使用一个hybrid-ds来进行实现，这是典型的slot+machine: slot array + priority_queue
+
+
+
+```c++
+#include <queue>
+#include <vector>
+using namespace std;
+
+const int MAX = 1e5 + 1;
+
+class Solution
+{
+public:
+    int maxEvents(vector<vector<int>> &events)
+    {
+        // slots
+        vector<vector<int>> left(MAX);
+        for (int i = 0; i < events.size(); ++i)
+            left[events[i][0]].emplace_back(i);
+
+        int ans = 0;
+        priority_queue<int, vector<int>, greater<>> pq; // min heap
+        for (int i = 1; i < MAX; ++i)
+        {
+            for (int j : left[i]) // 将开始于今天的会议加入到queue中
+            {
+                pq.push(events[j][1]);
+            }
+            while (!pq.empty() && pq.top() < i) // 将过期的剔除
+            {
+                pq.pop();
+            }
+            if (!pq.empty())
+            {
+                pq.pop();
+                ans++;
+            }
+        }
+        return ans;
+    }
+};
+
+int main()
+{
+}
+```
 
