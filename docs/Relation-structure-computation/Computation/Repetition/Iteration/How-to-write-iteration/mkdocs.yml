@@ -1,4 +1,6 @@
 nav:
     - Introduction: index.md
+    - Loop-initialization: Loop-initialization
+    - How-to-write-iteration: How-to-write-iteration
     
     
