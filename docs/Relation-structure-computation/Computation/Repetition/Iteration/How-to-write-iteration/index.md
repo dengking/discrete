@@ -264,7 +264,7 @@ ListNode middleNode(ListNode head) {
 
 
 
-## 循环处理两个序列
+## K-way-traverse-structure
 
 [LeetCode-415 字符串相加 # 官方解题](https://leetcode.cn/problems/multiply-strings/solution/zi-fu-chuan-xiang-cheng-by-leetcode-solution/)
 
