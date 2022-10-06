@@ -1,4 +1,5 @@
 nav:
     - Introduction: index.md
+    - Segment-structure: Segment-structure
     - Slot-machine: Slot-machine
     

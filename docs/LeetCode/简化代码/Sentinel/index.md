@@ -1,5 +1,7 @@
 # Sentinel 
 
+
+
 ## wikipedia [Sentinel value](https://en.wikipedia.org/wiki/Sentinel_value)
 
 
@@ -91,3 +93,10 @@ TODO
 TODO
 
 故意多分配一个来避免越界
+
+
+
+### Stop condition: sentinel value
+
+TODO
+
