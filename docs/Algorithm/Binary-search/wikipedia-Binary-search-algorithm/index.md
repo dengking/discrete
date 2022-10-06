@@ -132,7 +132,7 @@ The above procedure only performs *exact* matches, finding the position of a tar
 
 二、predecessor (next-smallest element),
 
-三、 successor (next-largest element), and 
+三、successor (next-largest element), and 
 
 四、[nearest neighbor](https://en.wikipedia.org/wiki/Nearest_neighbor_search). 
 
