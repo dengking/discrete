@@ -55,6 +55,18 @@ for value in iterable:
 
 > NOTE: 原文这一段总结的非常好。
 
+
+
+## Implementation
+
+不同的programming language，以不同的方式来支持iteration的方式是不同的:
+
+一、c中直接使用裸指针来支持iteration
+
+二、c++中抽象出来iterator（参见[Iterator library](https://en.cppreference.com/w/cpp/iterator)）
+
+三、python中使用magic function来支持iteration。python中并没有显式地定义iterator类型。
+
 ## Iterator VS pointer 
 
 我觉得，最最能够说明iterator VS pointer的是[Iterator pattern](https://en.wikipedia.org/wiki/Iterator_pattern)，在维基百科[Iterator pattern#Overview](https://en.wikipedia.org/wiki/Iterator_pattern#Overview)中说明了我们为什么要使用iterator pattern，其实就是iterator pattern相比于pointer的优势所在，iterator更加地抽象，我们依赖于抽象，而不是依赖于具体。

@@ -1,19 +1,45 @@
-# Recursion and iteration
+# Recursion and loop
 
-Recursion 和 iteration 是两种**实现**方式，recursion本质上来说是自顶向下的使用[递归关系](./Recurrence-relation.md)，iteration本质上来说是自底向上地使用[递归关系](./Recurrence-relation.md)（dynamic programming、greedy algorithm都是基于iteration的）。本文就对两者进行探讨。
+Recursion 和 loop 是两种**实现**方式，recursion本质上来说是自顶向下的使用[递归关系](./Recurrence-relation.md)，loop本质上来说是自底向上地使用[递归关系](./Recurrence-relation.md)（dynamic programming、greedy algorithm都是基于loop的）。本文就对两者进行探讨。
 
-## Recursion VS iteration
+## Recursion VS loop
+
+两种都能够实现repetition。
+
+loop的实现依赖于loop statements
+
+> NOTE: 关于loop statements，参见:
+>
+> 1) C++: cppreference [loop statements](https://en.cppreference.com/w/cpp/language/statements#loop_statements)
+>
+> 2) Python: 
+>
+> 8.3. The `for` statement[¶](https://docs.python.org/3/reference/compound_stmts.html#the-for-statement)
+>
+> 8.2. The `while` statement[¶](https://docs.python.org/3/reference/compound_stmts.html#the-while-statement)
+>
+> 
+
+Recursion的实现依赖于recursive function
+
+当所处的环境无法使用loop statements的时候，则只能够通过Recursion来实现repetition: 
+
+1) 有的programming language并没有提供loop statement，比如Lisp，因此，它们只能使用recursion来实现repetition。
+
+2) C++ TMP
 
 从运行成本比较：参见维基百科[Recursion (computer science)](https://en.wikipedia.org/wiki/Recursion_(computer_science))第三段。
 
 两者的相同点：参见：
 
 - 维基百科[Recursion (computer science)](https://en.wikipedia.org/wiki/Recursion_(computer_science))第二段：都能够实现“repeatedly call code”。
-- 维基百科[Iteration](https://en.wikipedia.org/wiki/Iteration#Computing) ，其中的[Relationship with recursion](https://en.wikipedia.org/wiki/Iteration#Relationship_with_recursion)总结地非常好。
+- 维基百科[loop](https://en.wikipedia.org/wiki/loop#Computing) ，其中的[Relationship with recursion](https://en.wikipedia.org/wiki/loop#Relationship_with_recursion)总结地非常好。
 
 
 
-## Recursin to iteration
+
+
+## Recursin to loop
 
 ### 尾递归消除
 
@@ -41,7 +67,7 @@ preorder(node)
 
 
 
-### iteration的实现
+### loop的实现
 
 ```c
 iterativePreorder(node)
@@ -61,7 +87,7 @@ iterativePreorder(node)
 
 
 
-### recursion的实现 VS iteration的实现
+### recursion的实现 VS loop的实现
 
 正如在《`recursion-analysis-and-representation.md`》中所描述的：
 
@@ -71,7 +97,7 @@ iterativePreorder(node)
 
 >  Traversing a tree involves iterating over all nodes in some manner. Because from a given node there is more than one possible next node (it is not a linear data structure), then, assuming sequential computation (not parallel), some nodes must be deferred—stored in some way for later visiting. This is often done via a [stack](https://en.wikipedia.org/wiki/Stack_(abstract_data_type)) (LIFO) or [queue](https://en.wikipedia.org/wiki/Queue_(abstract_data_type)) (FIFO). As a tree is a self-referential (recursively defined) data structure, traversal can be defined by [recursion](https://en.wikipedia.org/wiki/Recursion) or, more subtly, [corecursion](https://en.wikipedia.org/wiki/Corecursion), in a very natural and clear fashion; in these cases the deferred nodes are stored implicitly in the [call stack](https://en.wikipedia.org/wiki/Call_stack). 
 
-显然，在使用iteration的时候，就需要用户定义一个stack来充当calling stack在recursion中的角色了：在recursion中，`preorder(node.left)`的执行在`preorder(node.right)`之前，这就意味中，优先处理`node.left`，所以在iteration的实现中，要先入栈`node.right`，再入栈`node.left`（因为stack是后进先出），从而模拟了上述系统调用中将`node.right`保存在call stack中。
+显然，在使用loop的时候，就需要用户定义一个stack来充当calling stack在recursion中的角色了：在recursion中，`preorder(node.left)`的执行在`preorder(node.right)`之前，这就意味中，优先处理`node.left`，所以在loop的实现中，要先入栈`node.right`，再入栈`node.left`（因为stack是后进先出），从而模拟了上述系统调用中将`node.right`保存在call stack中。
 
 
 
@@ -102,7 +128,7 @@ iterativeInorder(node)
       node ← node.right
 ```
 
-中序遍历的recursion版本要比先序遍历的复杂地多。其实对他的分析还是要从从call stack到user stack。中序遍历中，当递归函数返回到它的主调函数的时候，还需要访问节点`node`（在call stack中保存了这些信息），但是在先序遍历中，当递归函数返回到它的主调函数的时候，无需在访问节点`node`了；所以在先序遍历的iteration版本中，`node`节点在本轮使用了之后，就无需继续留在user stack中了，所以在每轮的循环开始的时候，就将它从user stack中取出；但是中序遍历的iteration版本中，就不能够这样了，只有当node没有了left node后，才能够将它从user stack中取出；
+中序遍历的recursion版本要比先序遍历的复杂地多。其实对他的分析还是要从从call stack到user stack。中序遍历中，当递归函数返回到它的主调函数的时候，还需要访问节点`node`（在call stack中保存了这些信息），但是在先序遍历中，当递归函数返回到它的主调函数的时候，无需在访问节点`node`了；所以在先序遍历的loop版本中，`node`节点在本轮使用了之后，就无需继续留在user stack中了，所以在每轮的循环开始的时候，就将它从user stack中取出；但是中序遍历的loop版本中，就不能够这样了，只有当node没有了left node后，才能够将它从user stack中取出；
 
 
 

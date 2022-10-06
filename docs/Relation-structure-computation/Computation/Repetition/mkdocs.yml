@@ -1,7 +1,7 @@
 nav:
     - Introduction: index.md
    
-    - Iteration: Iteration
+    - Loop: Loop
     # 归纳与递归
     - Induction-and-Recursion: Induction-and-Recursion 
     
