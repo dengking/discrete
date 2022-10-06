@@ -228,3 +228,13 @@ Finding the [shortest path](https://en.wikipedia.org/wiki/Shortest_path) between
 
 
 
+## K-way-traverse-structure
+
+TODO:
+
+1、k-way-merge
+
+2、[LeetCode-415. 字符串相加](https://leetcode.cn/problems/add-strings/)
+
+
+
