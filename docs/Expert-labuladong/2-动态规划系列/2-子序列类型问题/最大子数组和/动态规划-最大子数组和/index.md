@@ -2,9 +2,9 @@
 
 > NOTE: 
 >
-> 一、原题: leetcode [53. 最大子序和](https://leetcode.cn/problems/maximum-subarray/) 简单
+> 一、原题: [LeetCode-53. 最大子序和](https://leetcode.cn/problems/maximum-subarray/) 简单
 >
-> 二、LeetCode [53. 最大子序和](https://leetcode.cn/problems/maximum-subarray/) 其实和 LeetCode [485. 最大连续 1 的个数](https://leetcode.cn/problems/max-consecutive-ones/) 非常类似
+> 二、[LeetCode-53. 最大子序和](https://leetcode.cn/problems/maximum-subarray/) 其实和 LeetCode [485. 最大连续 1 的个数](https://leetcode.cn/problems/max-consecutive-ones/) 非常类似
 >
 > 三、和背包问题有些像：
 >

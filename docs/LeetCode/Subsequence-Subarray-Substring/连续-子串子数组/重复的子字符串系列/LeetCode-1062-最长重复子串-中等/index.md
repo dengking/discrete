@@ -1,4 +1,4 @@
-# LeetCode [1062. 最长重复子串](https://leetcode.cn/problems/longest-repeating-substring/) 中等
+# [LeetCode-1062. 最长重复子串](https://leetcode.cn/problems/longest-repeating-substring/) 中等
 
 ## [C++ 二分 + Rabin-Karp](https://leetcode.cn/problems/longest-repeating-substring/solution/c-er-fen-rabin-karp-by-sad-swirlesuwf-uspp/)
 

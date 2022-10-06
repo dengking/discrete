@@ -4,7 +4,7 @@
 
 > NOTE:
 >
-> leetcode [20. 有效的括号](https://leetcode.cn/problems/valid-parentheses/)
+> [LeetCode-20. 有效的括号](https://leetcode.cn/problems/valid-parentheses/)
 
 
 
@@ -12,5 +12,5 @@
 
 > NOTE:
 >
-> leetcode [921.使括号有效的最小插入（**Medium**）](https://leetcode.cn/problems/minimum-add-to-make-parentheses-valid/)
+> [LeetCode-921.使括号有效的最小插入（**Medium**）](https://leetcode.cn/problems/minimum-add-to-make-parentheses-valid/)
 

@@ -1,4 +1,4 @@
-# leetcode [46. 全排列](https://leetcode.cn/problems/permutations/)
+# [LeetCode-46. 全排列](https://leetcode.cn/problems/permutations/)
 
 
 

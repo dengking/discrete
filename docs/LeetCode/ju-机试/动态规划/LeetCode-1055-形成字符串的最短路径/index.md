@@ -1,4 +1,4 @@
-# LeetCode [1055. 形成字符串的最短路径](https://leetcode.cn/problems/shortest-way-to-form-string/) 中等
+# [LeetCode-1055. 形成字符串的最短路径](https://leetcode.cn/problems/shortest-way-to-form-string/) 中等
 
 ## [【C++】逐步优化 双指针 / 多指针 / 二分查找 / 动态规划](https://leetcode.cn/problems/shortest-way-to-form-string/solution/c-zhu-bu-you-hua-shuang-zhi-zhen-duo-zhi-1hvh/)
 

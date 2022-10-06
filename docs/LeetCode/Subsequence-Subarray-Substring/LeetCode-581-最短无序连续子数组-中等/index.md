@@ -1,4 +1,4 @@
-# LeetCode [581. 最短无序连续子数组](https://leetcode.cn/problems/shortest-unsorted-continuous-subarray/) 中等
+# [LeetCode-581. 最短无序连续子数组](https://leetcode.cn/problems/shortest-unsorted-continuous-subarray/) 中等
 
 
 

@@ -1,4 +1,4 @@
-# leetcode [1201. 丑数 III](https://leetcode.cn/problems/ugly-number-iii/)
+# [LeetCode-1201. 丑数 III](https://leetcode.cn/problems/ugly-number-iii/)
 
 
 

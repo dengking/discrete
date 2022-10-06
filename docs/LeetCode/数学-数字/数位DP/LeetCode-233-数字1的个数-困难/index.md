@@ -1,4 +1,4 @@
-# LeetCode [233. 数字 1 的个数](https://leetcode.cn/problems/number-of-digit-one/) 困难
+# [LeetCode-233. 数字 1 的个数](https://leetcode.cn/problems/number-of-digit-one/) 困难
 
 
 

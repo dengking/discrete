@@ -1,4 +1,4 @@
-# LeetCode [875. 爱吃香蕉的珂珂](https://leetcode.cn/problems/koko-eating-bananas/) 中等
+# [LeetCode-875. 爱吃香蕉的珂珂](https://leetcode.cn/problems/koko-eating-bananas/) 中等
 
 
 

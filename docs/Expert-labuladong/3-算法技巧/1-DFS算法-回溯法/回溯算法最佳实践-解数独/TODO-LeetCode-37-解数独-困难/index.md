@@ -1,4 +1,4 @@
-# LeetCode [37. 解数独](https://leetcode.cn/problems/sudoku-solver/) 困难
+# [LeetCode-37. 解数独](https://leetcode.cn/problems/sudoku-solver/) 困难
 
 
 

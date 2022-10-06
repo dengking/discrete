@@ -1,6 +1,6 @@
-# leetcode [1155. 掷骰子的N种方法](https://leetcode.cn/problems/number-of-dice-rolls-with-target-sum/)
+# [LeetCode-1155. 掷骰子的N种方法](https://leetcode.cn/problems/number-of-dice-rolls-with-target-sum/)
 
-## leetcode [宫水三叶](https://leetcode.cn/u/ac_oier/) # [【动态规划/背包问题】运用分组背包进行求解](https://leetcode.cn/problems/number-of-dice-rolls-with-target-sum/solution/dong-tai-gui-hua-bei-bao-wen-ti-yun-yong-axtf/)
+## [LeetCode-宫水三叶](https://leetcode.cn/u/ac_oier/) # [【动态规划/背包问题】运用分组背包进行求解](https://leetcode.cn/problems/number-of-dice-rolls-with-target-sum/solution/dong-tai-gui-hua-bei-bao-wen-ti-yun-yong-axtf/)
 
 > NOTE:
 >
@@ -98,7 +98,7 @@ int main()
 
 
 
-## leetcode [MaughamL3](https://leetcode.cn/u/maugahm-4/) # [Java题解 动态规划法](https://leetcode.cn/problems/number-of-dice-rolls-with-target-sum/solution/javati-jie-cong-jian-dan-di-gui-dao-ya-s-3jg7/)
+## [LeetCode-MaughamL3](https://leetcode.cn/u/maugahm-4/) # [Java题解 动态规划法](https://leetcode.cn/problems/number-of-dice-rolls-with-target-sum/solution/javati-jie-cong-jian-dan-di-gui-dao-ya-s-3jg7/)
 
 ### 思路一：简单递归
 

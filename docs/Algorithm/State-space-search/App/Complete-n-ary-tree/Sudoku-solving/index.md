@@ -10,9 +10,9 @@
 
 
 
-### LeetCode [36. 有效的数独](https://leetcode.cn/problems/valid-sudoku/)
+### [LeetCode-36. 有效的数独](https://leetcode.cn/problems/valid-sudoku/)
 
 
 
-### LeetCode [37. 解数独](https://leetcode.cn/problems/sudoku-solver/)
+### [LeetCode-37. 解数独](https://leetcode.cn/problems/sudoku-solver/)
 

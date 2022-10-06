@@ -32,7 +32,7 @@
 
 而对于这道题目，你想想，当窗口扩大的时候可能遇到负数，窗口中的值也就可能增加也可能减少，这种情况下不知道什么时机去收缩左侧窗口，也就无法求出「最大子数组和」。
 
-三、leetcode [560. 和为 K 的子数组](https://leetcode.cn/problems/subarray-sum-equals-k/)
+三、[LeetCode-560. 和为 K 的子数组](https://leetcode.cn/problems/subarray-sum-equals-k/)
 
 这个问题就是典型的不能够使用滑动窗口的
 
@@ -113,7 +113,7 @@ if (need == window)
 
 素材:
 
-1、LeetCode [1004. 最大连续1的个数 III](https://leetcode.cn/problems/max-consecutive-ones-iii/) # [一个模板解决最大滑动窗口问题（同类型题目收集）](https://leetcode.cn/problems/max-consecutive-ones-iii/solution/jidao-by-iamysw-bs2s/)
+1、[LeetCode-1004. 最大连续1的个数 III](https://leetcode.cn/problems/max-consecutive-ones-iii/) # [一个模板解决最大滑动窗口问题（同类型题目收集）](https://leetcode.cn/problems/max-consecutive-ones-iii/solution/jidao-by-iamysw-bs2s/)
 
 
 
@@ -121,23 +121,23 @@ if (need == window)
 
 一、简单:
 
-1、LeetCode [剑指 Offer 57 - II. 和为s的连续正数序列](https://leetcode.cn/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/) 
+1、[LeetCode-剑指 Offer 57 - II. 和为s的连续正数序列](https://leetcode.cn/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/) 
 
 最好的滑动窗口例题
 
 二、修改K次
 
-LeetCode [1004. 最大连续1的个数 III](https://leetcode.cn/problems/max-consecutive-ones-iii/) 中等
+[LeetCode-1004. 最大连续1的个数 III](https://leetcode.cn/problems/max-consecutive-ones-iii/) 中等
 
-LeetCode [424. 替换后的最长重复字符](https://leetcode.cn/problems/longest-repeating-character-replacement/) 中等
+[LeetCode-424. 替换后的最长重复字符](https://leetcode.cn/problems/longest-repeating-character-replacement/) 中等
 
-LeetCode [1493. 删掉一个元素以后全为 1 的最长子数组](https://leetcode.cn/problems/longest-subarray-of-1s-after-deleting-one-element/) 
+[LeetCode-1493. 删掉一个元素以后全为 1 的最长子数组](https://leetcode.cn/problems/longest-subarray-of-1s-after-deleting-one-element/) 
 
 K为1
 
 
 
-### LeetCode [剑指 Offer 57 - II. 和为s的连续正数序列](https://leetcode.cn/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/) 简单
+### [LeetCode-剑指 Offer 57 - II. 和为s的连续正数序列](https://leetcode.cn/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/) 简单
 
 穷举: "输出所有和为 `target` 的连续正整数序列（至少含有两个数）"
 
@@ -181,7 +181,7 @@ public:
 
 
 
-### LeetCode [3. 无重复字符的最长子串](https://leetcode.cn/problems/longest-substring-without-repeating-characters/) 中等
+### [LeetCode-3. 无重复字符的最长子串](https://leetcode.cn/problems/longest-substring-without-repeating-characters/) 中等
 
 最优值: 寻找 "不含有重复字符的 **最长子串** 的长度"
 
@@ -244,11 +244,11 @@ int main()
 
 
 
-### LeetCode [76. 最小覆盖子串](https://leetcode.cn/problems/minimum-window-substring/) 困难
+### [LeetCode-76. 最小覆盖子串](https://leetcode.cn/problems/minimum-window-substring/) 困难
 
 
 
-### LeetCode [424. 替换后的最长重复字符](https://leetcode.cn/problems/longest-repeating-character-replacement/) 中等
+### [LeetCode-424. 替换后的最长重复字符](https://leetcode.cn/problems/longest-repeating-character-replacement/) 中等
 
 修改K次: 最多翻转K次，"返回包含相同字母的最长子字符串的长度"。
 
@@ -287,19 +287,19 @@ public:
 
 上述code非常简介，是典型的模板。
 
-### LeetCode [438. 找到字符串中所有字母异位词](https://leetcode.cn/problems/find-all-anagrams-in-a-string/) 中等
+### [LeetCode-438. 找到字符串中所有字母异位词](https://leetcode.cn/problems/find-all-anagrams-in-a-string/) 中等
 
 
 
 
 
-### LeetCode [567. 字符串的排列](https://leetcode.cn/problems/permutation-in-string/) 中等
+### [LeetCode-567. 字符串的排列](https://leetcode.cn/problems/permutation-in-string/) 中等
 
 
 
 
 
-### LeetCode [1004. 最大连续1的个数 III](https://leetcode.cn/problems/max-consecutive-ones-iii/) 中等
+### [LeetCode-1004. 最大连续1的个数 III](https://leetcode.cn/problems/max-consecutive-ones-iii/) 中等
 
 修改K次: "「找出一个最长的子数组，该子数组内最多允许有 K 个 0 」"
 
@@ -336,7 +336,7 @@ public:
 
 
 
-### LeetCode [1493. 删掉一个元素以后全为 1 的最长子数组](https://leetcode.cn/problems/longest-subarray-of-1s-after-deleting-one-element/) 
+### [LeetCode-1493. 删掉一个元素以后全为 1 的最长子数组](https://leetcode.cn/problems/longest-subarray-of-1s-after-deleting-one-element/) 
 
 
 
@@ -380,5 +380,5 @@ public:
 
 
 
-### LeetCode [1839. 所有元音按顺序排布的最长子字符串](https://leetcode.cn/problems/longest-substring-of-all-vowels-in-order/) 中等
+### [LeetCode-1839. 所有元音按顺序排布的最长子字符串](https://leetcode.cn/problems/longest-substring-of-all-vowels-in-order/) 中等
 

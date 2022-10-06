@@ -52,7 +52,7 @@
 
 二、学生出勤记录问题
 
-LeetCode [552. 学生出勤记录 II](https://leetcode.cn/problems/student-attendance-record-ii/) 困难
+[LeetCode-552. 学生出勤记录 II](https://leetcode.cn/problems/student-attendance-record-ii/) 困难
 
 
 
@@ -64,5 +64,5 @@ LeetCode [552. 学生出勤记录 II](https://leetcode.cn/problems/student-atten
 
 
 
-五、LeetCode [576. 出界的路径数](https://leetcode.cn/problems/out-of-boundary-paths/) 中等
+五、[LeetCode-576. 出界的路径数](https://leetcode.cn/problems/out-of-boundary-paths/) 中等
 

@@ -4,15 +4,15 @@
 
 > #### NOTE: 
 >
-> leetcode [496. 下一个更大元素 I](https://leetcode.cn/problems/next-greater-element-i/) 简单
+> [LeetCode-496. 下一个更大元素 I](https://leetcode.cn/problems/next-greater-element-i/) 简单
 >
-> leetcode [503. 下一个更大元素 II](https://leetcode.cn/problems/next-greater-element-ii/) 中等
+> [LeetCode-503. 下一个更大元素 II](https://leetcode.cn/problems/next-greater-element-ii/) 中等
 >
 > 带循环数组的
 >
-> leetcode [556. 下一个更大元素 III](https://leetcode.cn/problems/next-greater-element-iii/) 中等
+> [LeetCode-556. 下一个更大元素 III](https://leetcode.cn/problems/next-greater-element-iii/) 中等
 >
-> leetcode [739. 每日温度](https://leetcode.cn/problems/daily-temperatures/) 中等
+> [LeetCode-739. 每日温度](https://leetcode.cn/problems/daily-temperatures/) 中等
 
 首先，讲解 Next Greater Number 的原始问题：给你一个数组，返回一个等长的数组，对应索引存储着下一个更大元素，如果没有更大的元素，就存 -1。不好用语言解释清楚，直接上一个例子：
 
@@ -51,7 +51,7 @@ vector<int> nextGreaterElement(vector<int>& nums) {
 
 
 
-## LeetCode [739. 每日温度](https://leetcode.cn/problems/daily-temperatures/) 中等
+## [LeetCode-739. 每日温度](https://leetcode.cn/problems/daily-temperatures/) 中等
 
 现在，你已经掌握了单调栈的使用技巧，来一个简单的变形来加深一下理解。
 
@@ -84,7 +84,7 @@ vector<int> dailyTemperatures(vector<int>& T) {
 }
 ```
 
-## 循环数组、LeetCode [503. 下一个更大元素 II](https://leetcode.cn/problems/next-greater-element-ii/) 中等
+## 循环数组、[LeetCode-503. 下一个更大元素 II](https://leetcode.cn/problems/next-greater-element-ii/) 中等
 
 单调栈讲解完毕。下面开始另一个重点：**如何处理「循环数组」**。
 

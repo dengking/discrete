@@ -34,7 +34,7 @@ Subsequenc子序列DP: `Subsequenc子序列DP` 章节
 
 #### LIS、最长递增子序列
 
-LeetCode [300. 最长递增子序列](https://leetcode.cn/problems/longest-increasing-subsequence/) 
+[LeetCode-300. 最长递增子序列](https://leetcode.cn/problems/longest-increasing-subsequence/) 
 
 ```c++
 class Solution

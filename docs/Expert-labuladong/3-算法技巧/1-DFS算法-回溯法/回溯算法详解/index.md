@@ -39,7 +39,7 @@ def backtrack(路径, 选择列表):
 
 > NOTE: 
 >
-> LeetCode [46. 全排列](https://leetcode.cn/problems/permutations/) 中等
+> [LeetCode-46. 全排列](https://leetcode.cn/problems/permutations/) 中等
 >
 > 
 
@@ -119,7 +119,7 @@ void backtrack(int[] nums, LinkedList<Integer> track) {
 
 > NOTE: 
 >
-> leetcode [51. N 皇后](https://leetcode.cn/problems/n-queens/) 困难
+> [LeetCode-51. N 皇后](https://leetcode.cn/problems/n-queens/) 困难
 >
 > 
 

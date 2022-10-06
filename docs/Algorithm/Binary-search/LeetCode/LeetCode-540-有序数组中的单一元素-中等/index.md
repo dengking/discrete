@@ -1,4 +1,4 @@
-# LeetCode [540. 有序数组中的单一元素](https://leetcode.cn/problems/single-element-in-a-sorted-array/) 中等
+# [LeetCode-540. 有序数组中的单一元素](https://leetcode.cn/problems/single-element-in-a-sorted-array/) 中等
 
 假定target的下标为`x`，
 

@@ -487,7 +487,7 @@ public:
 
 ### 公共问题: 相同时间点的处理
 
-对于同一时间点的处理，在做leetcode [253. 会议室 II](https://leetcode.cn/problems/meeting-rooms-ii/) 时遇到过，原则是先离开后进入，其中使用的是vector。
+对于同一时间点的处理，在做[LeetCode-253. 会议室 II](https://leetcode.cn/problems/meeting-rooms-ii/) 时遇到过，原则是先离开后进入，其中使用的是vector。
 
 在 [731. 我的日程安排表 II](https://leetcode.cn/problems/my-calendar-ii/) # [Laugh](https://leetcode.cn/u/laughhhh/) # [[ 一法解N题] ✔](https://leetcode.cn/problems/my-calendar-ii/solution/yi-fa-jie-nti-by-laughhhh-pll7/)  中使用`std::map`，对于同一时间点能够较好的处理。
 

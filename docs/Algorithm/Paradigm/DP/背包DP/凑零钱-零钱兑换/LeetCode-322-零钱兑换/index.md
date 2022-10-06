@@ -1,4 +1,4 @@
-# leetcode [322. 零钱兑换](https://leetcode.cn/problems/coin-change/)
+# [LeetCode-322. 零钱兑换](https://leetcode.cn/problems/coin-change/)
 
 
 
@@ -49,7 +49,7 @@ int main()
 
 ### 二刷
 
-这是仿照 leetcode [一篇文章吃透背包问题！（细致引入+解题模板+例题分析+代码呈现](https://leetcode.cn/problems/partition-equal-subset-sum/solution/yi-pian-wen-zhang-chi-tou-bei-bao-wen-ti-a7dd/) 写的: 
+这是仿照 [LeetCode-一篇文章吃透背包问题！（细致引入+解题模板+例题分析+代码呈现](https://leetcode.cn/problems/partition-equal-subset-sum/solution/yi-pian-wen-zhang-chi-tou-bei-bao-wen-ti-a7dd/) 写的: 
 
 ```c++
 #include <iostream>

@@ -38,7 +38,7 @@
 
 ## Source code
 
-### LeetCode [复习基础排序算法（Java）](https://leetcode.cn/problems/sort-an-array/solution/fu-xi-ji-chu-pai-xu-suan-fa-java-by-liweiwei1419/)
+### [LeetCode-复习基础排序算法（Java）](https://leetcode.cn/problems/sort-an-array/solution/fu-xi-ji-chu-pai-xu-suan-fa-java-by-liweiwei1419/)
 
 #### Java
 

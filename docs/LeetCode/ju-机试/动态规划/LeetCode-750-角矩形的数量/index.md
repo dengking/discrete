@@ -1,4 +1,4 @@
-# LeetCode [750. 角矩形的数量](https://leetcode.cn/problems/number-of-corner-rectangles/) 中等
+# [LeetCode-750. 角矩形的数量](https://leetcode.cn/problems/number-of-corner-rectangles/) 中等
 
 给定一个只包含 `0` 和 `1` 的 `m x n` 整数矩阵 `grid` ，返回 *其中 「**角矩形 」**的数量* 。
 

@@ -1,4 +1,4 @@
-# leetcode [912. 排序数组](https://leetcode.cn/problems/sort-an-array/)
+# [LeetCode-912. 排序数组](https://leetcode.cn/problems/sort-an-array/)
 
 
 

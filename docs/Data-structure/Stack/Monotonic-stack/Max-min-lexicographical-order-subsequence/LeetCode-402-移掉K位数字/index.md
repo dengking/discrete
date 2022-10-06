@@ -1,4 +1,4 @@
-# leetcode [402. 移掉K位数字](https://leetcode.cn/problems/remove-k-digits/) 
+# [LeetCode-402. 移掉K位数字](https://leetcode.cn/problems/remove-k-digits/) 
 
 给你一个以字符串表示的非负整数 `num` 和一个整数 `k` ，移除这个数中的 `k` 位数字，使得剩下的数字最小。
 

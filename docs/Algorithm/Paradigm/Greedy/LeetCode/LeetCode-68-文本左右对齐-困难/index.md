@@ -1,4 +1,4 @@
-# leetcode [68. 文本左右对齐](https://leetcode.cn/problems/text-justification/) 困难
+# [LeetCode-68. 文本左右对齐](https://leetcode.cn/problems/text-justification/) 困难
 
 
 

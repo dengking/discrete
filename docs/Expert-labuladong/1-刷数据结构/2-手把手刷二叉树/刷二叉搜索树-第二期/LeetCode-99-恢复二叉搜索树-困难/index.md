@@ -1,4 +1,4 @@
-# leetcode [99. 恢复二叉搜索树](https://leetcode.cn/problems/recover-binary-search-tree/)
+# [LeetCode-99. 恢复二叉搜索树](https://leetcode.cn/problems/recover-binary-search-tree/)
 
 
 

@@ -94,7 +94,7 @@ wikipedia [快速排序](https://en.wikipedia.org/wiki/Quicksort)
 
 #### 补充: 使用二分思想的算法
 
-1、leetcode [23. 合并K个升序链表](https://leetcode.cn/problems/merge-k-sorted-lists/)  # 方法三：分治合并
+1、[LeetCode-23. 合并K个升序链表](https://leetcode.cn/problems/merge-k-sorted-lists/)  # 方法三：分治合并
 
 自顶向下
 

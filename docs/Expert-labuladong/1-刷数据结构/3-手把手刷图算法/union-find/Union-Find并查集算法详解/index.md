@@ -149,7 +149,7 @@ public int count() {
 >
 > 一、上述find函数其实准确来说其实是"find root"，通过上述函数其实可以看出root 和 parent之间的差异
 >
-> 二、可以看到，在`union`函数中，当发现`p`和`q`的root相同的时候，说明它们已经属于同一个component了，显然此时直接返回即可；结合一个题目是更加能够理解它的含义的:LeetCode [261. 以图判树](https://leetcode.cn/problems/graph-valid-tree/)
+> 二、可以看到，在`union`函数中，当发现`p`和`q`的root相同的时候，说明它们已经属于同一个component了，显然此时直接返回即可；结合一个题目是更加能够理解它的含义的:[LeetCode-261. 以图判树](https://leetcode.cn/problems/graph-valid-tree/)
 >
 > > 给定编号从 0 到 n - 1 的 n 个结点。给定一个整数 n 和一个 edges 列表，其中 `edges[i] = [ai, bi]` 表示图中节点 `ai` 和 `bi` 之间存在一条无向边。
 > >

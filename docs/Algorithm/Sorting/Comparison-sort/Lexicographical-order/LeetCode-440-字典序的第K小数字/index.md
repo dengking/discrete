@@ -4,7 +4,7 @@
 
 ## 我的解题
 
-由于之前做过 LeetCode [386. 字典序排数](https://leetcode.cn/problems/lexicographical-numbers/) ，因此我知道如何生成字典序数组，因此我第一次的解法就是仿照 LeetCode [386. 字典序排数](https://leetcode.cn/problems/lexicographical-numbers/) 中的解法写的，但是超时了。后来看了如下几篇：
+由于之前做过 [LeetCode-386. 字典序排数](https://leetcode.cn/problems/lexicographical-numbers/) ，因此我知道如何生成字典序数组，因此我第一次的解法就是仿照 LeetCode [386. 字典序排数](https://leetcode.cn/problems/lexicographical-numbers/) 中的解法写的，但是超时了。后来看了如下几篇：
 
 1、[杨兴元](https://leetcode.cn/u/user7056k/) # [[字节跳动最常考题之一]本题史上最完整具体的手摸手解答，时间效率超越100%用户](https://leetcode.cn/problems/k-th-smallest-in-lexicographical-order/solution/ben-ti-shi-shang-zui-wan-zheng-ju-ti-de-shou-mo-sh/)
 

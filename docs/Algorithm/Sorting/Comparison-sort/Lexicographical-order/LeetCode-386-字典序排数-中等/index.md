@@ -1,4 +1,4 @@
-# LeetCode [386. 字典序排数](https://leetcode.cn/problems/lexicographical-numbers/) 中等
+# [LeetCode-386. 字典序排数](https://leetcode.cn/problems/lexicographical-numbers/) 中等
 
 例子:
 

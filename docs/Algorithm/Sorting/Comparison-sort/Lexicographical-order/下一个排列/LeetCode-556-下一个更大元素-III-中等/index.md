@@ -1,8 +1,8 @@
-# LeetCode [556. 下一个更大元素 III](https://leetcode.cn/problems/next-greater-element-iii/) 中等
+# [LeetCode-556. 下一个更大元素 III](https://leetcode.cn/problems/next-greater-element-iii/) 中等
 
 
 
-这个题，和 LeetCode [31. 下一个排列](https://leetcode.cn/problems/next-permutation/) 非常类似；两道题，本质上是类似的；都有着"贪心思想"。
+这个题，和 [LeetCode-31. 下一个排列](https://leetcode.cn/problems/next-permutation/) 非常类似；两道题，本质上是类似的；都有着"贪心思想"。
 
 
 

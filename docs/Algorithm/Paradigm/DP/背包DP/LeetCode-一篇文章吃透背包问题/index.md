@@ -1,4 +1,4 @@
-# leetcode [一篇文章吃透背包问题！（细致引入+解题模板+例题分析+代码呈现](https://leetcode.cn/problems/partition-equal-subset-sum/solution/yi-pian-wen-zhang-chi-tou-bei-bao-wen-ti-a7dd/) 
+# [LeetCode-一篇文章吃透背包问题！（细致引入+解题模板+例题分析+代码呈现](https://leetcode.cn/problems/partition-equal-subset-sum/solution/yi-pian-wen-zhang-chi-tou-bei-bao-wen-ti-a7dd/) 
 
 > NOTE:
 >
@@ -26,9 +26,9 @@
 >
 > 关于这种情况的典型例子：
 >
-> 1、leetcode [416. 分割等和子集](https://leetcode.cn/problems/partition-equal-subset-sum/)
+> 1、[LeetCode-416. 分割等和子集](https://leetcode.cn/problems/partition-equal-subset-sum/)
 >
-> 2、leetcode [494. 目标和](https://leetcode.cn/problems/target-sum/)
+> 2、[LeetCode-494. 目标和](https://leetcode.cn/problems/target-sum/)
 
 3、选取方式有常见的一下几种：每个元素选一次/每个元素选多次/选元素进行排列组合
 
@@ -132,13 +132,13 @@ void bags()
 > vector<vector<int>> dp(N + 1, vector<int>(W + 1, 0));
 > ```
 >
-> leetcode [一篇文章吃透背包问题！（细致引入+解题模板+例题分析+代码呈现](https://leetcode.cn/problems/partition-equal-subset-sum/solution/yi-pian-wen-zhang-chi-tou-bei-bao-wen-ti-a7dd/) 
+> [LeetCode-一篇文章吃透背包问题！（细致引入+解题模板+例题分析+代码呈现](https://leetcode.cn/problems/partition-equal-subset-sum/solution/yi-pian-wen-zhang-chi-tou-bei-bao-wen-ti-a7dd/) 
 >
 > ```c++
 > vector<vector<int>> dp(weight.size() + 1, vector<int>(bagWeight + 1, 0));
 > ```
 >
-> 即它们都考虑了空问题，但是 leetcode [一篇文章吃透背包问题！（细致引入+解题模板+例题分析+代码呈现](https://leetcode.cn/problems/partition-equal-subset-sum/solution/yi-pian-wen-zhang-chi-tou-bei-bao-wen-ti-a7dd/) 其实并没有考虑没有物品的情况。
+> 即它们都考虑了空问题，但是 [LeetCode-一篇文章吃透背包问题！（细致引入+解题模板+例题分析+代码呈现](https://leetcode.cn/problems/partition-equal-subset-sum/solution/yi-pian-wen-zhang-chi-tou-bei-bao-wen-ti-a7dd/) 其实并没有考虑没有物品的情况。
 >
 > 我更加倾向于 labuladong [经典动态规划：0-1 背包问题](https://mp.weixin.qq.com/s/RXfnhSpVBmVneQjDSUSAVQ) 中的写法。
 >
@@ -375,7 +375,7 @@ int combinationSum4(vector<int> &nums, int target)
 
 > NOTE:
 >
-> 一、在leetcode [377. 组合总和 Ⅳ](https://leetcode.cn/problems/combination-sum-iv/) # [官方解题](https://leetcode.cn/problems/combination-sum-iv/solution/zu-he-zong-he-iv-by-leetcode-solution-q8zv/) 中给出了上述代码的解释。
+> 一、在[LeetCode-377. 组合总和 Ⅳ](https://leetcode.cn/problems/combination-sum-iv/) # [官方解题](https://leetcode.cn/problems/combination-sum-iv/solution/zu-he-zong-he-iv-by-leetcode-solution-q8zv/) 中给出了上述代码的解释。
 >
 > 需要注意的是，上述代码是无法通过的。
 
@@ -401,9 +401,9 @@ int change(int amount, vector<int> &coins)
 >
 > 一、需要注意的是，上述使用的是加法。
 >
-> 二、上述leetcode [377. 组合总和 Ⅳ](https://leetcode.cn/problems/combination-sum-iv/) 和 leetcode [518. 零钱兑换 II](https://leetcode.cn/problems/coin-change-2/) 的解法有什么差异？
+> 二、上述[LeetCode-377. 组合总和 Ⅳ](https://leetcode.cn/problems/combination-sum-iv/) 和 leetcode [518. 零钱兑换 II](https://leetcode.cn/problems/coin-change-2/) 的解法有什么差异？
 >
-> leetcode [【宫水三叶】本题与「完全背包」问题的主要区别，以及「溢出处理」说明](https://leetcode.cn/problems/combination-sum-iv/solution/gong-shui-san-xie-yu-wan-quan-bei-bao-we-x0kn/)
+> [LeetCode-【宫水三叶】本题与「完全背包」问题的主要区别，以及「溢出处理」说明](https://leetcode.cn/problems/combination-sum-iv/solution/gong-shui-san-xie-yu-wan-quan-bei-bao-we-x0kn/)
 >
 > 
 >
@@ -483,7 +483,7 @@ int change(int amount, vector<int> &coins)
 >
 > 显然，对于求解组合总数的问题，是需要考虑是否考虑顺序的。
 >
-> 在leetcode [零钱兑换 II](https://leetcode.cn/problems/coin-change-2/solution/ling-qian-dui-huan-ii-by-leetcode-soluti-f7uh/) 中，介绍了：
+> 在[LeetCode-零钱兑换 II](https://leetcode.cn/problems/coin-change-2/solution/ling-qian-dui-huan-ii-by-leetcode-soluti-f7uh/) 中，介绍了：
 >
 > > 上述做法不会重复计算不同的排列。因为外层循环是遍历数组 $\textit{coins}$ 的值，内层循环是遍历不同的金额之和，在计算 $\textit{dp}[i]$ 的值时，可以确保金额之和等于 $i$ 的硬币面额的顺序，由于顺序确定，因此不会重复计算不同的排列。
 > >

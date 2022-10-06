@@ -1,4 +1,4 @@
-# LeetCode [987. 二叉树的垂序遍历](https://leetcode.cn/problems/vertical-order-traversal-of-a-binary-tree/) 困难
+# [LeetCode-987. 二叉树的垂序遍历](https://leetcode.cn/problems/vertical-order-traversal-of-a-binary-tree/) 困难
 
 
 

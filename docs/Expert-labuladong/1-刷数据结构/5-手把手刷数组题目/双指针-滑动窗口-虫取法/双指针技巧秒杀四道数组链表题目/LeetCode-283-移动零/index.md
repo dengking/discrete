@@ -1,4 +1,4 @@
-# leetcode [283. 移动零](https://leetcode.cn/problems/move-zeroes/)
+# [LeetCode-283. 移动零](https://leetcode.cn/problems/move-zeroes/)
 
 
 

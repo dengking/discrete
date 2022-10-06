@@ -4,7 +4,7 @@
 
 > NOTE: 
 >
-> leetcode [416. 分割等和子集](https://leetcode.cn/problems/partition-equal-subset-sum/) 中等
+> [LeetCode-416. 分割等和子集](https://leetcode.cn/problems/partition-equal-subset-sum/) 中等
 >
 > 
 

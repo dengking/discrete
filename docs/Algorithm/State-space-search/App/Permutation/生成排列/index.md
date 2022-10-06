@@ -4,9 +4,9 @@
 
 1、CSDN [全排列—含重复元素](https://blog.csdn.net/drawlessonsfrom/article/details/108936498)
 
-2、LeetCode [46. 全排列](https://leetcode.cn/problems/permutations/) 中等
+2、[LeetCode-46. 全排列](https://leetcode.cn/problems/permutations/) 中等
 
-3、LeetCode [47. 全排列 II](https://leetcode.cn/problems/permutations-ii/) 中等
+3、[LeetCode-47. 全排列 II](https://leetcode.cn/problems/permutations-ii/) 中等
 
 
 
@@ -26,7 +26,7 @@
 
 在下面文章中，描述了这种算法:
 
-1、LeetCode [47. 全排列 II](https://leetcode.cn/problems/permutations-ii/) 中等
+1、[LeetCode-47. 全排列 II](https://leetcode.cn/problems/permutations-ii/) 中等
 
 ```C++
 #include <bits/stdc++.h>
@@ -135,7 +135,7 @@ int main()
 
 在下面文章中，描述了这种算法:
 
-1、LeetCode [46. 全排列](https://leetcode.cn/problems/permutations/)
+1、[LeetCode-46. 全排列](https://leetcode.cn/problems/permutations/)
 
 ```C++
 #include <bits/stdc++.h>

@@ -13,13 +13,13 @@
 >
 > 4、股票买卖问题的选择是buy、sell、rest，这是由programer进行挖掘的；
 >
-> 5、这个题目的K次和 LeetCode [787. K 站中转内最便宜的航班](https://leetcode.cn/problems/cheapest-flights-within-k-stops/) 中的K次非常类似，在LeetCode [787. K 站中转内最便宜的航班](https://leetcode.cn/problems/cheapest-flights-within-k-stops/) 中，每增加一个中转节点，则可供选择的节点就多一些了，其中会穷举从0-K；
+> 5、这个题目的K次和 [LeetCode-787. K 站中转内最便宜的航班](https://leetcode.cn/problems/cheapest-flights-within-k-stops/) 中的K次非常类似，在LeetCode [787. K 站中转内最便宜的航班](https://leetcode.cn/problems/cheapest-flights-within-k-stops/) 中，每增加一个中转节点，则可供选择的节点就多一些了，其中会穷举从0-K；
 >
 > 在本文给出的股票买卖问题的状态转移方程中，每一次买入，则交易次数增加一次，显然根据此就可以控制交易次数了。
 >
-> 这样的类比让我有这样的想法：graph的状态转移可以和节点沿着边进行转移这样的具体过程进行关联，因此便于我们理解抽象的过程；这道题再和 LeetCode [787. K 站中转内最便宜的航班](https://leetcode.cn/problems/cheapest-flights-within-k-stops/) 中的K进行对比，显然是能够帮助理解的。
+> 这样的类比让我有这样的想法：graph的状态转移可以和节点沿着边进行转移这样的具体过程进行关联，因此便于我们理解抽象的过程；这道题再和 [LeetCode-787. K 站中转内最便宜的航班](https://leetcode.cn/problems/cheapest-flights-within-k-stops/) 中的K进行对比，显然是能够帮助理解的。
 >
-> 6、这道题和 LeetCode [487. 最大连续1的个数 II](https://leetcode.cn/problems/max-consecutive-ones-ii/) 有一个相同点就是，需要分情况讨论，列两个状态转移方程，在这里，作者是根据股票持有状况来进行分类的。
+> 6、这道题和 [LeetCode-487. 最大连续1的个数 II](https://leetcode.cn/problems/max-consecutive-ones-ii/) 有一个相同点就是，需要分情况讨论，列两个状态转移方程，在这里，作者是根据股票持有状况来进行分类的。
 >
 > 两个状态转移方程，其实就意味着有两个DP table。
 >
@@ -63,7 +63,7 @@
 >
 > 补充内容
 >
-> leetcode [『 动态规划 』 DP模板解决一众买卖股票问题](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iv/solution/by-flix-us00/)
+> [LeetCode-『 动态规划 』 DP模板解决一众买卖股票问题](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iv/solution/by-flix-us00/)
 
 
 
@@ -201,9 +201,9 @@
 
 > NOTE: 
 >
-> 一、LeetCode [121. 买卖股票的最佳时机](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/) 简单
+> 一、[LeetCode-121. 买卖股票的最佳时机](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/) 简单
 >
-> 二、其实下面的状态转移方程能够cover LeetCode [121. 买卖股票的最佳时机](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/) 简单 所有的可能状态：在第i天，只有两种持有状态：
+> 二、其实下面的状态转移方程能够cover [LeetCode-121. 买卖股票的最佳时机](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/) 简单 所有的可能状态：在第i天，只有两种持有状态：
 >
 > 1、持有股票
 >
@@ -211,7 +211,7 @@
 >
 > 所以，所有可能性的个数为: `n * 2`，再看看dp table，它的大小也是如此。
 >
-> 三、其实初读对于下面的算法能否成功计算出最优值是持怀疑态度的，可以参加 LeetCode [121. 买卖股票的最佳时机](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/) 简单
+> 三、其实初读对于下面的算法能否成功计算出最优值是持怀疑态度的，可以参加 [LeetCode-121. 买卖股票的最佳时机](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/) 简单
 >
 > 中记录的结合具体例子的推演过程，这样才能够完整地理解这个algorithm。
 
@@ -253,7 +253,7 @@
 
 > NOTE:
 >
-> leetcode [121. 买卖股票的最佳时机](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/) # [Gnakuw](https://leetcode.cn/u/nehzil/) # [121. 买卖股票的最佳时机（详细C++代码注释学习代码随想录的风格写的）](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/solution/gu-piao-dong-tai-gui-hua-jie-fa-by-kino-7qh40/)  的初始化过程更加容易理解：
+> [LeetCode-121. 买卖股票的最佳时机](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/) # [Gnakuw](https://leetcode.cn/u/nehzil/) # [121. 买卖股票的最佳时机（详细C++代码注释学习代码随想录的风格写的）](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/solution/gu-piao-dong-tai-gui-hua-jie-fa-by-kino-7qh40/)  的初始化过程更加容易理解：
 >
 > ```c++
 > class Solution {

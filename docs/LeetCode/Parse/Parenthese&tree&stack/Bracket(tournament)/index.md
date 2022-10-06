@@ -16,4 +16,4 @@ A **bracket** or **tournament bracket** is a [tree diagram](https://en.wikipedia
 
 ## leetcode
 
-leetcode [544. 输出比赛匹配对](https://leetcode.cn/problems/output-contest-matches/) 中等
+[LeetCode-544. 输出比赛匹配对](https://leetcode.cn/problems/output-contest-matches/) 中等

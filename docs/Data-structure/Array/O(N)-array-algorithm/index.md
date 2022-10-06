@@ -53,7 +53,7 @@ quick sort的partition遍历数组一轮就可以将数组分为两部分，在q
 >
 > 读者也许会问，这不就是最优解法了吗，时间复杂度只需 O(N)，N 为`t`的长度。
 
-原题是 LeetCode [392. 判断子序列](https://leetcode.cn/problems/is-subsequence/) 简单。上述算法是典型的fast-slow double pointer。
+原题是 [LeetCode-392. 判断子序列](https://leetcode.cn/problems/is-subsequence/) 简单。上述算法是典型的fast-slow double pointer。
 
 在阅读 labuladong  [双指针技巧秒杀四道数组/链表题目](https://mp.weixin.qq.com/s/55UPwGL0-Vgdh8wUEPXpMQ) 时，发现其实此处的双指针更加准确地说是: fast-slow double pointer:
 

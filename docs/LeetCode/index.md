@@ -4,11 +4,11 @@
 
 ## 递归经典例子
 
-1、leetcode [23. 合并K个升序链表](https://leetcode.cn/problems/merge-k-sorted-lists/)  # 方法三：分治合并
+1、[LeetCode-23. 合并K个升序链表](https://leetcode.cn/problems/merge-k-sorted-lists/)  # 方法三：分治合并
 
 非常类似于二分；
 
-2、leetcode [148. 排序链表](https://leetcode.cn/problems/sort-list/)
+2、[LeetCode-148. 排序链表](https://leetcode.cn/problems/sort-list/)
 
 
 
@@ -20,11 +20,11 @@
 
 
 
-### LeetCode [1711. 大餐计数](https://leetcode.cn/problems/count-good-meals/)
+### [LeetCode-1711. 大餐计数](https://leetcode.cn/problems/count-good-meals/)
 
 以空间换时间
 
-### LeetCode [392. 判断子序列](https://leetcode.cn/problems/is-subsequence/)
+### [LeetCode-392. 判断子序列](https://leetcode.cn/problems/is-subsequence/)
 
 参见 labuladong [二分查找的妙用：判定子序列](https://mp.weixin.qq.com/s/hWi2hTrQewL_YKioGkXQJg)
 
@@ -34,7 +34,7 @@
 
 ## 去重
 
-### leetcode [83. 删除排序链表中的重复元素](https://leetcode.cn/problems/remove-duplicates-from-sorted-list/) 
+### [LeetCode-83. 删除排序链表中的重复元素](https://leetcode.cn/problems/remove-duplicates-from-sorted-list/) 
 
 参见: 
 
@@ -72,7 +72,7 @@ labuladong [如何高效对有序数组/链表去重？](https://mp.weixin.qq.co
 
 ### hash map 以空间换时间
 
-#### LeetCode [1711. 大餐计数](https://leetcode.cn/problems/count-good-meals/)
+#### [LeetCode-1711. 大餐计数](https://leetcode.cn/problems/count-good-meals/)
 
 #### LeetCode  [1. 两数之和](https://leetcode.cn/problems/two-sum/)
 
@@ -98,11 +98,11 @@ LeetCode-34-在排序数组中查找元素的第一个和最后一个位置
 
 ### 凑数
 
-LeetCode [39. 组合总和](https://leetcode.cn/problems/combination-sum/) 中等
+[LeetCode-39. 组合总和](https://leetcode.cn/problems/combination-sum/) 中等
 
 找出所有的sum之和为target的组合
 
-LeetCode [322. 零钱兑换](https://leetcode.cn/problems/coin-change/) 中等
+[LeetCode-322. 零钱兑换](https://leetcode.cn/problems/coin-change/) 中等
 
 凑够零钱所需的最少的币数
 
@@ -120,7 +120,7 @@ TODO 需要将相关试题解析总结
 
 ## 两数相加
 
-LeetCode [简单易懂Java/C++ /Python/js【培养算法思维】- 两数相加](https://leetcode.cn/problems/add-two-numbers/solution/jian-dan-yi-dong-javacpythonjs-pei-yang-y2w6g/)
+[LeetCode-简单易懂Java/C++ /Python/js【培养算法思维】- 两数相加](https://leetcode.cn/problems/add-two-numbers/solution/jian-dan-yi-dong-javacpythonjs-pei-yang-y2w6g/)
 
 一个思路轻而易举的解决以下 5 道算法面试题：
 
@@ -136,7 +136,7 @@ LeetCode [简单易懂Java/C++ /Python/js【培养算法思维】- 两数相加]
 
 ## LeetCode 一题多解
 
-LeetCode [787. K 站中转内最便宜的航班](https://leetcode.cn/problems/cheapest-flights-within-k-stops/) 中等
+[LeetCode-787. K 站中转内最便宜的航班](https://leetcode.cn/problems/cheapest-flights-within-k-stops/) 中等
 
 这道题是可以使用多种解法的
 

@@ -28,7 +28,7 @@
 
 则说明在dependency graph中，存在从bi->ai的边，也就说明ai位于bi的adjacency list中
 
-## LeetCode [207. 课程表](https://leetcode.cn/problems/course-schedule/) # [力扣官方题解](https://leetcode.cn/problems/course-schedule/solution/ke-cheng-biao-by-leetcode-solution/)
+## [LeetCode-207. 课程表](https://leetcode.cn/problems/course-schedule/) # [力扣官方题解](https://leetcode.cn/problems/course-schedule/solution/ke-cheng-biao-by-leetcode-solution/)
 
 > NOTE: 
 >

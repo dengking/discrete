@@ -1,4 +1,4 @@
-# LeetCode [413. 等差数列划分](https://leetcode.cn/problems/arithmetic-slices/) 中等
+# [LeetCode-413. 等差数列划分](https://leetcode.cn/problems/arithmetic-slices/) 中等
 
 一、这个问题是典型的存在**重叠子问题**的: 
 
@@ -98,7 +98,7 @@ int main()
 
 ## 动态规划  $O(N)$
 
-这个解法是参考的leetcode [446. 等差数列划分 II - 子序列](https://leetcode.cn/problems/arithmetic-slices-ii-subsequence/) 的写法的：
+这个解法是参考的[LeetCode-446. 等差数列划分 II - 子序列](https://leetcode.cn/problems/arithmetic-slices-ii-subsequence/) 的写法的：
 
 ```c++
 // #include <bits/stdc++.h>
@@ -255,7 +255,7 @@ int main()
 
 > NOTE: 
 >
-> 一、这种思路还是动态规划的思路，需要从"divide-and-conquer-原问题和子问题"的思想来进行思考， $t_i$ 记录的是以第 $i$ 个元素结尾的等差子数组的个数，那如何根据  $t_i$ 推导出 $t_{i+1}$ 呢？其实这个推导过程和 LeetCode [446. 等差数列划分 II - 子序列](https://leetcode.cn/problems/arithmetic-slices-ii-subsequence/) 困难 的推导过程类似。
+> 一、这种思路还是动态规划的思路，需要从"divide-and-conquer-原问题和子问题"的思想来进行思考， $t_i$ 记录的是以第 $i$ 个元素结尾的等差子数组的个数，那如何根据  $t_i$ 推导出 $t_{i+1}$ 呢？其实这个推导过程和 [LeetCode-446. 等差数列划分 II - 子序列](https://leetcode.cn/problems/arithmetic-slices-ii-subsequence/) 困难 的推导过程类似。
 >
 > 二、"要么连在一起，要么自成一派"，这和最大子数组和是类似的，这说明: 子数组的题目，很多都可以基于这个思路来做。这个思路是非常适合于子数组问题的，因为子数组问题要求连续性，显然，一旦与前面相邻的元素无法满足限制条件的时候，那么就可以自成一派，形成以自己打头的子数组，这样说能够降低问题的规模大。
 >

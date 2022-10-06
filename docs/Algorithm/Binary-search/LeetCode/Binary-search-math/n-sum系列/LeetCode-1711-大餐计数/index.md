@@ -1,4 +1,4 @@
-# leetcode [1711. 大餐计数](https://leetcode.cn/problems/count-good-meals/)
+# [LeetCode-1711. 大餐计数](https://leetcode.cn/problems/count-good-meals/)
 
 
 

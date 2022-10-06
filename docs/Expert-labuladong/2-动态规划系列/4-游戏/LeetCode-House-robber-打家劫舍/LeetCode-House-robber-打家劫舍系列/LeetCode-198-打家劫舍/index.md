@@ -1,4 +1,4 @@
-# leetcode [198. 打家劫舍](https://leetcode.cn/problems/house-robber/)
+# [LeetCode-198. 打家劫舍](https://leetcode.cn/problems/house-robber/)
 
 ## 我的解题
 

@@ -1,4 +1,4 @@
-# LeetCode [92. 反转链表 II](https://leetcode.cn/problems/reverse-linked-list-ii/)
+# [LeetCode-92. 反转链表 II](https://leetcode.cn/problems/reverse-linked-list-ii/)
 
 
 
@@ -100,7 +100,7 @@ int main()
 
 
 
-### LeetCode [反转链表 II # 官方解题](https://leetcode.cn/problems/reverse-linked-list-ii/solution/fan-zhuan-lian-biao-ii-by-leetcode-solut-teyq/) # 方法二：一次遍历「穿针引线」反转链表（头插法）
+### [LeetCode-反转链表 II # 官方解题](https://leetcode.cn/problems/reverse-linked-list-ii/solution/fan-zhuan-lian-biao-ii-by-leetcode-solut-teyq/) # 方法二：一次遍历「穿针引线」反转链表（头插法）
 
 
 

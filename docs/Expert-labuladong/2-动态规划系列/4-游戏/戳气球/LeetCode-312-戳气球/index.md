@@ -1,1 +1,1 @@
-#  LeetCode [312. 戳气球](https://leetcode.cn/problems/burst-balloons/) 困难
+#  [LeetCode-312. 戳气球](https://leetcode.cn/problems/burst-balloons/) 困难

@@ -14,7 +14,7 @@
 
 ## See also
 
-LeetCode [1039. 多边形三角剖分的最低得分](https://leetcode.cn/problems/minimum-score-triangulation-of-polygon/) 中等
+[LeetCode-1039. 多边形三角剖分的最低得分](https://leetcode.cn/problems/minimum-score-triangulation-of-polygon/) 中等
 
 wikipedia [All nearest smaller values](https://en.wikipedia.org/wiki/All_nearest_smaller_values) 
 

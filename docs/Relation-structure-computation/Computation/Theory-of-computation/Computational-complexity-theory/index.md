@@ -93,7 +93,7 @@ For more mathematical explanation you can checkout how the time complexity arriv
 
 > NOTE: 
 >
-> LeetCode [134. 加油站](https://leetcode.cn/problems/gas-station/)
+> [LeetCode-134. 加油站](https://leetcode.cn/problems/gas-station/)
 
 ```Java
 int canCompleteCircuit(int[] gas, int[] cost) {

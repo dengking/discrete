@@ -1,4 +1,4 @@
-# LeetCode [76. 最小覆盖子串](https://leetcode.cn/problems/minimum-window-substring/) 困难
+# [LeetCode-76. 最小覆盖子串](https://leetcode.cn/problems/minimum-window-substring/) 困难
 
 
 

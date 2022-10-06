@@ -18,7 +18,7 @@
 
 > NOTE: 
 >
-> 原题: LeetCode [300. 最长递增子序列](https://leetcode.cn/problems/longest-increasing-subsequence/) 中等
+> 原题: [LeetCode-300. 最长递增子序列](https://leetcode.cn/problems/longest-increasing-subsequence/) 中等
 
 先看一下题目，很容易理解：
 

@@ -1,4 +1,4 @@
-# LeetCode [526. 优美的排列](https://leetcode.cn/problems/beautiful-arrangement/) 中等
+# [LeetCode-526. 优美的排列](https://leetcode.cn/problems/beautiful-arrangement/) 中等
 
 
 

@@ -113,9 +113,9 @@ public:
 
 这类题目，章节要求查找所有的可能性，最直接的方法就是回溯法；
 
-1、LeetCode [39. 组合总和](https://leetcode.cn/problems/combination-sum/) 中等
+1、[LeetCode-39. 组合总和](https://leetcode.cn/problems/combination-sum/) 中等
 
-2、LeetCode [491. 递增子序列](https://leetcode.cn/problems/increasing-subsequences/) 中等
+2、[LeetCode-491. 递增子序列](https://leetcode.cn/problems/increasing-subsequences/) 中等
 
 
 

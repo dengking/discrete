@@ -4,13 +4,13 @@ PS：一般语境下，单单前序遍历结果是不能还原二叉树结构的
 
 > NOTE: 
 >
-> 1、参见 leetcode [105. 从前序与中序遍历序列构造二叉树](https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)，其中就是给出了两个不含`null`的前序、中序遍历结果来还原二叉树。
+> 1、参见 [LeetCode-105. 从前序与中序遍历序列构造二叉树](https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)，其中就是给出了两个不含`null`的前序、中序遍历结果来还原二叉树。
 
 ## 一、题目描述
 
 > NOTE: 
 >
-> 原题: LeetCode [297. 二叉树的序列化与反序列化](https://leetcode.cn/problems/serialize-and-deserialize-binary-tree/) 困难
+> 原题: [LeetCode-297. 二叉树的序列化与反序列化](https://leetcode.cn/problems/serialize-and-deserialize-binary-tree/) 困难
 
 力扣第 297 题「二叉树的序列化与反序列化」就是给你输入一棵二叉树的根节点 `root`，要求你实现如下一个类：
 

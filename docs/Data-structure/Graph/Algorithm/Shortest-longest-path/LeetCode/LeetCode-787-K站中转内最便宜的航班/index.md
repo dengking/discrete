@@ -1,4 +1,4 @@
-# LeetCode [787. K 站中转内最便宜的航班](https://leetcode.cn/problems/cheapest-flights-within-k-stops/) 
+# [LeetCode-787. K 站中转内最便宜的航班](https://leetcode.cn/problems/cheapest-flights-within-k-stops/) 
 
 这道题是为在阅读labuladong [毕 业 旅 行](https://mp.weixin.qq.com/s/D-iahj0gSs1UnDv_6KsNWQ) 时发现的，其中中进行了比较好的讲解。
 
@@ -419,7 +419,7 @@ vector<vector<long>> dp(n, vector<long>(col, INT_MAX));
 
 声明为`long`，这样就可以有效避免integer overflow
 
-## leetcode [【中规中矩】Bellman Ford 动态规划两种写法](https://leetcode.cn/problems/cheapest-flights-within-k-stops/solution/zhong-gui-zhong-ju-bellman-ford-dong-tai-gui-hua-l/)
+## [LeetCode-【中规中矩】Bellman Ford 动态规划两种写法](https://leetcode.cn/problems/cheapest-flights-within-k-stops/solution/zhong-gui-zhong-ju-bellman-ford-dong-tai-gui-hua-l/)
 
 ### 动态规划
 

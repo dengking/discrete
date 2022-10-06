@@ -546,7 +546,7 @@ int main()
 
 
 
-源自: LeetCode [912. 排序数组](https://leetcode.cn/problems/sort-an-array/) # [官方解题](https://leetcode.cn/problems/sort-an-array/solution/pai-xu-shu-zu-by-leetcode-solution/)
+源自: [LeetCode-912. 排序数组](https://leetcode.cn/problems/sort-an-array/) # [官方解题](https://leetcode.cn/problems/sort-an-array/solution/pai-xu-shu-zu-by-leetcode-solution/)
 
 ```C++
 class Solution {

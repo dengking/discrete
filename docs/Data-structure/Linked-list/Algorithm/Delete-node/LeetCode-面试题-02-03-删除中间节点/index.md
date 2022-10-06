@@ -1,4 +1,4 @@
-# leetcode [面试题 02.03. 删除中间节点](https://leetcode.cn/problems/delete-middle-node-lcci/)
+# [LeetCode-面试题 02.03. 删除中间节点](https://leetcode.cn/problems/delete-middle-node-lcci/)
 
 ## 我的解题
 

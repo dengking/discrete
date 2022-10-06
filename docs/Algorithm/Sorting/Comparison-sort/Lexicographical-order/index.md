@@ -34,15 +34,15 @@ https://leetcode.cn/problemset/all/?search=%E5%AD%97%E5%85%B8%E5%BA%8F
 
 ### Lexicographical order tree
 
-典型的就是 LeetCode [386. 字典序排数](https://leetcode.cn/problems/lexicographical-numbers/) 中等，理解"Lexicographical order tree"，是解决基于它的问题的基础。
+典型的就是 [LeetCode-386. 字典序排数](https://leetcode.cn/problems/lexicographical-numbers/) 中等，理解"Lexicographical order tree"，是解决基于它的问题的基础。
 
 ### Monotonic-stack解Max-min字典序subsequence(子序列)
 
-LeetCode [316. 去除重复字母](https://leetcode.cn/problems/remove-duplicate-letters/) ( LeetCode [1081. 不同字符的最小子序列](https://leetcode.cn/problems/smallest-subsequence-of-distinct-characters/) )
+[LeetCode-316. 去除重复字母](https://leetcode.cn/problems/remove-duplicate-letters/) ( LeetCode [1081. 不同字符的最小子序列](https://leetcode.cn/problems/smallest-subsequence-of-distinct-characters/) )
 
-LeetCode [402. 移掉K位数字](https://leetcode.cn/problems/remove-k-digits/)
+[LeetCode-402. 移掉K位数字](https://leetcode.cn/problems/remove-k-digits/)
 
-LeetCode [321. 拼接最大数](https://leetcode.cn/problems/create-maximum-number/)
+[LeetCode-321. 拼接最大数](https://leetcode.cn/problems/create-maximum-number/)
 
 
 
@@ -52,7 +52,7 @@ LeetCode [321. 拼接最大数](https://leetcode.cn/problems/create-maximum-numb
 
 2、`Data-structure\Stack\Monotonic-stack单调栈\Monotonic-stack解Max-min-subsequence(子序列)`
 
-3、LeetCode [402. 移掉K位数字](https://leetcode.cn/problems/remove-k-digits/) # [一招吃遍力扣四道题，妈妈再也不用担心我被套路啦～](https://leetcode.cn/problems/remove-k-digits/solution/yi-zhao-chi-bian-li-kou-si-dao-ti-ma-ma-zai-ye-b-5/)
+3、[LeetCode-402. 移掉K位数字](https://leetcode.cn/problems/remove-k-digits/) # [一招吃遍力扣四道题，妈妈再也不用担心我被套路啦～](https://leetcode.cn/problems/remove-k-digits/solution/yi-zhao-chi-bian-li-kou-si-dao-ti-ma-ma-zai-ye-b-5/)
 
 
 
@@ -62,15 +62,15 @@ LeetCode [321. 拼接最大数](https://leetcode.cn/problems/create-maximum-numb
 
 | 题目                                                         |      |
 | ------------------------------------------------------------ | ---- |
-| LeetCode [31. 下一个排列](https://leetcode.cn/problems/next-permutation/) |      |
-| leetcode [556. 下一个更大元素 III](https://leetcode.cn/problems/next-greater-element-iii/) |      |
+| [LeetCode-31. 下一个排列](https://leetcode.cn/problems/next-permutation/) |      |
+| [LeetCode-556. 下一个更大元素 III](https://leetcode.cn/problems/next-greater-element-iii/) |      |
 
 
 
 | 题目                                                         |      |
 | ------------------------------------------------------------ | ---- |
-| LeetCode [386. 字典序排数](https://leetcode.cn/problems/lexicographical-numbers/) |      |
-| leetcode [440. 字典序的第K小数字](https://leetcode.cn/problems/k-th-smallest-in-lexicographical-order/) |      |
+| [LeetCode-386. 字典序排数](https://leetcode.cn/problems/lexicographical-numbers/) |      |
+| [LeetCode-440. 字典序的第K小数字](https://leetcode.cn/problems/k-th-smallest-in-lexicographical-order/) |      |
 |                                                              |      |
 
 

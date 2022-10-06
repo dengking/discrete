@@ -1,4 +1,4 @@
-# leetcode [235. 二叉搜索树的最近公共祖先](https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-search-tree/)
+# [LeetCode-235. 二叉搜索树的最近公共祖先](https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-search-tree/)
 
 
 
@@ -78,7 +78,7 @@ public:
 
 ### 递归DFS
 
-可以使用 leetcode [235. 二叉搜索树的最近公共祖先](https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-search-tree/) 中的递归DFS方法
+可以使用 [LeetCode-235. 二叉搜索树的最近公共祖先](https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-search-tree/) 中的递归DFS方法
 
 
 

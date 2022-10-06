@@ -18,7 +18,7 @@ labuladong 第二章、手把手刷动态规划 # 子序列类型问题：
 
 
 
-#### LeetCode [【宫水三叶】详解如何分析「序列 DP」问题](https://leetcode.cn/problems/arithmetic-slices-ii-subsequence/solution/gong-shui-san-xie-xiang-jie-ru-he-fen-xi-ykvk/)
+#### [LeetCode-【宫水三叶】详解如何分析「序列 DP」问题](https://leetcode.cn/problems/arithmetic-slices-ii-subsequence/solution/gong-shui-san-xie-xiang-jie-ru-he-fen-xi-ykvk/)
 
 
 

@@ -1,4 +1,4 @@
-# LeetCode [1104. 二叉树寻路](https://leetcode.cn/problems/path-in-zigzag-labelled-binary-tree/)
+# [LeetCode-1104. 二叉树寻路](https://leetcode.cn/problems/path-in-zigzag-labelled-binary-tree/)
 
 ![img](https://assets.leetcode.cn/aliyun-lc-upload/uploads/2019/06/28/tree.png)
 

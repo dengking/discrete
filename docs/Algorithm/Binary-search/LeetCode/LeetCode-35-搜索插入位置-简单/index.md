@@ -1,4 +1,4 @@
-# LeetCode [35. 搜索插入位置](https://leetcode.cn/problems/search-insert-position/) 简单
+# [LeetCode-35. 搜索插入位置](https://leetcode.cn/problems/search-insert-position/) 简单
 
 使用binary search left bound，这个程序所要的就是left的值，解法如下:
 

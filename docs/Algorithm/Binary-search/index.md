@@ -20,15 +20,15 @@
 
 二分搜索一种都在找中点，对于有序数组，它的中点就是中位数。
 
-leetcode [4. 寻找两个正序数组的中位数](https://leetcode.cn/problems/median-of-two-sorted-arrays/) hard
+[LeetCode-4. 寻找两个正序数组的中位数-hard](https://leetcode.cn/problems/median-of-two-sorted-arrays/) 
 
 ### labuladong [二分查找的妙用：判定子序列](https://mp.weixin.qq.com/s/hWi2hTrQewL_YKioGkXQJg)
 
-LeetCode [392. 判断子序列](https://leetcode.cn/problems/is-subsequence/) 简单
+[LeetCode-392. 判断子序列](https://leetcode.cn/problems/is-subsequence/) 简单
 
 ### labuladong  [动态规划设计之最长递增子序列 # 二分查找解法](https://mp.weixin.qq.com/s/02o_OPgePjaz3dXnw9TA1w)
 
-leetcode [300. 最长递增子序列](https://leetcode.cn/problems/longest-increasing-subsequence/) 中等
+[LeetCode-300. 最长递增子序列](https://leetcode.cn/problems/longest-increasing-subsequence/) 中等
 
 
 
@@ -44,9 +44,9 @@ leetcode [300. 最长递增子序列](https://leetcode.cn/problems/longest-incre
 
 
 
-LeetCode [875. 爱吃香蕉的珂珂](https://leetcode.cn/problems/koko-eating-bananas/) 中等
+[LeetCode-875. 爱吃香蕉的珂珂](https://leetcode.cn/problems/koko-eating-bananas/) 中等
 
-LeetCode [1011. 在 D 天内送达包裹的能力](https://leetcode.cn/problems/capacity-to-ship-packages-within-d-days/) 中等
+[LeetCode-1011. 在 D 天内送达包裹的能力](https://leetcode.cn/problems/capacity-to-ship-packages-within-d-days/) 中等
 
 
 
@@ -71,6 +71,6 @@ labuladong [快排亲兄弟：快速选择算法详解](https://mp.weixin.qq.com
 
 
 
-LeetCode [875. 爱吃香蕉的珂珂](https://leetcode.cn/problems/koko-eating-bananas/) 中等
+[LeetCode-875. 爱吃香蕉的珂珂](https://leetcode.cn/problems/koko-eating-bananas/) 中等
 
 题目求解 "`H`小时内吃完香蕉的最小速度`k`"，首先思考 `k` 的取值范围

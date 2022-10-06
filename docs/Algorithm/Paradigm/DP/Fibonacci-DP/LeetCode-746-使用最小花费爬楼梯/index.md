@@ -1,4 +1,4 @@
-# leetcode [746. 使用最小花费爬楼梯](https://leetcode.cn/problems/min-cost-climbing-stairs/) 简单
+# [LeetCode-746. 使用最小花费爬楼梯](https://leetcode.cn/problems/min-cost-climbing-stairs/) 简单
 
 
 

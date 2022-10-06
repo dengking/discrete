@@ -12,7 +12,7 @@
 
 1、geeksforgeeks [Design and Implement Special Stack Data Structure | Added Space Optimized Version](https://www.geeksforgeeks.org/design-and-implement-special-stack-data-structure/)
 
-2、LeetCode [155. 最小栈](https://leetcode.cn/problems/min-stack/) 简单
+2、[LeetCode-155. 最小栈](https://leetcode.cn/problems/min-stack/) 简单
 
 ### 巧妙的函数映射
 

@@ -2,11 +2,11 @@
 
 > NOTE: 
 >
-> 一、原题: LeetCode [518. 零钱兑换 II](https://leetcode.cn/problems/coin-change-2/) 中等 
+> 一、原题: [LeetCode-518. 零钱兑换 II](https://leetcode.cn/problems/coin-change-2/) 中等 
 >
-> 二、需要和 LeetCode [322. 零钱兑换](https://leetcode.cn/problems/coin-change/) 进行对比才能够更好地掌握两个问题背后的本质: 
+> 二、需要和 [LeetCode-322. 零钱兑换](https://leetcode.cn/problems/coin-change/) 进行对比才能够更好地掌握两个问题背后的本质: 
 >
-> 1、在 labuladong [动态规划详解](https://mp.weixin.qq.com/s/Cw39C9MY9Wr2JlcvBQZMcA)  中 对  LeetCode [322. 零钱兑换](https://leetcode.cn/problems/coin-change/) 进行了分析。
+> 1、在 labuladong [动态规划详解](https://mp.weixin.qq.com/s/Cw39C9MY9Wr2JlcvBQZMcA)  中 对  [LeetCode-322. 零钱兑换](https://leetcode.cn/problems/coin-change/) 进行了分析。
 >
 > 2、可以看到，两个问题都让硬币个数是无限多个，这就让每个子问题都相互独立了，这是在  labuladong [动态规划详解](https://mp.weixin.qq.com/s/Cw39C9MY9Wr2JlcvBQZMcA)  中分析过的，这是非常重要的一个性质，也是理解后续实现的一个前提。
 >

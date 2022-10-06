@@ -158,7 +158,7 @@ int main()
 > 
 > ```
 >
-> 这是在做 LeetCode [560. 和为 K 的子数组](https://leetcode.cn/problems/subarray-sum-equals-k/) 的时候，我写的一个非常典型的错误的代码，上述程序预期的输出应该是1，但是实际的输出是0。
+> 这是在做 [LeetCode-560. 和为 K 的子数组](https://leetcode.cn/problems/subarray-sum-equals-k/) 的时候，我写的一个非常典型的错误的代码，上述程序预期的输出应该是1，但是实际的输出是0。
 >
 > 上述程序实际执行的是:
 >

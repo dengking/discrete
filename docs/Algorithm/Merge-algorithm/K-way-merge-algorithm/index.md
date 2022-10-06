@@ -12,7 +12,7 @@ In [computer science](https://en.wanweibaike.com/wiki-Computer_science), ***k*-w
 
 > NOTE: 
 >
-> 1、原文都是纯粹的理论分析，需要结合具体的程序来进行理解才能够完全掌握，在 leetcode [23. 合并K个升序链表](https://leetcode.cn/problems/merge-k-sorted-lists/) # [官方解题](https://leetcode.cn/problems/merge-k-sorted-lists/solution/he-bing-kge-pai-xu-lian-biao-by-leetcode-solutio-2/) 中给出了非常好的分析，和下面的内容是有着很好的对应的。
+> 1、原文都是纯粹的理论分析，需要结合具体的程序来进行理解才能够完全掌握，在 [LeetCode-23. 合并K个升序链表](https://leetcode.cn/problems/merge-k-sorted-lists/) # [官方解题](https://leetcode.cn/problems/merge-k-sorted-lists/solution/he-bing-kge-pai-xu-lian-biao-by-leetcode-solutio-2/) 中给出了非常好的分析，和下面的内容是有着很好的对应的。
 
 The *k*-way merge problem consists of merging `k` sorted arrays to produce a single sorted array with the same elements. Denote by `n` the total number of elements. `n` is equal to the size of the output array and the sum of the sizes of the `k` input arrays. 
 
@@ -60,6 +60,6 @@ A straightforward implementation would scan all k arrays to determine the minimu
 
 1、geeksforgeeks [Merge k sorted arrays | Set 1](https://www.geeksforgeeks.org/merge-k-sorted-arrays/)
 
-2、LeetCode [合并K个排序链表](https://leetcode.cn/problems/merge-k-sorted-lists/solution/he-bing-kge-pai-xu-lian-biao-by-leetcode-solutio-2/)
+2、[LeetCode-合并K个排序链表](https://leetcode.cn/problems/merge-k-sorted-lists/solution/he-bing-kge-pai-xu-lian-biao-by-leetcode-solutio-2/)
 
 3、宫水三叶 [【多路归并】从朴素优先队列到多路归并](https://mp.weixin.qq.com/s?__biz=MzU4NDE3MTEyMA==&mid=2247490029&idx=1&sn=bba9ddff88d247db310406ee418d5a15&chksm=fd9cb2f2caeb3be4b1f84962677337dcb5884374e5b6b80340834eaff79298d11151da2dd5f7&token=252055586&lang=zh_CN#rd)

@@ -1,4 +1,4 @@
-# LeetCode [393. UTF-8 编码验证](https://leetcode.cn/problems/utf-8-validation/)
+# [LeetCode-393. UTF-8 编码验证](https://leetcode.cn/problems/utf-8-validation/)
 
 
 
@@ -239,7 +239,7 @@ int main()
 
 
 
-## LeetCode [C++优美代码](https://leetcode.cn/problems/utf-8-validation/solution/cjing-jian-ma-by-xiaohu9527-om7b/)
+## [LeetCode-C++优美代码](https://leetcode.cn/problems/utf-8-validation/solution/cjing-jian-ma-by-xiaohu9527-om7b/)
 
 ```C++
 #include <bits/stdc++.h>

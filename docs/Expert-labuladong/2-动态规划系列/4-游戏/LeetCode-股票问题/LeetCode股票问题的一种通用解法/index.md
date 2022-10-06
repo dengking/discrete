@@ -6,7 +6,7 @@
 
 > NOTE: 
 >
-> 一、leetcode [121. 买卖股票的最佳时机](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/) 简单
+> 一、[LeetCode-121. 买卖股票的最佳时机](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/) 简单
 >
 > 
 
@@ -90,7 +90,7 @@ result = max(所有可能)
 
 > NOTE: 
 >
-> 一、LeetCode [122. 买卖股票的最佳时机 II](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-ii/) 简单
+> 一、[LeetCode-122. 买卖股票的最佳时机 II](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-ii/) 简单
 >
 > 
 

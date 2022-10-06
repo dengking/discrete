@@ -159,7 +159,7 @@ Queue machine算法都非常类似于一个机器，加入一点原料后，开�
 
 ## Space complexity
 
-LeetCode [【宫水三叶】一题三解：「双向 BFS」& 「AStar 算法」&「IDA* 算法」](https://leetcode.cn/problems/open-the-lock/solution/gong-shui-san-xie-yi-ti-shuang-jie-shuan-wyr9/)
+[LeetCode-【宫水三叶】一题三解：「双向 BFS」& 「AStar 算法」&「IDA* 算法」](https://leetcode.cn/problems/open-the-lock/solution/gong-shui-san-xie-yi-ti-shuang-jie-shuan-wyr9/)
 
 > 使用朴素 BFS 进行求解时，队列中最多会存在“两层”的搜索节点。
 >

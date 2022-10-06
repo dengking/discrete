@@ -1,4 +1,4 @@
-# leetcode [263. 丑数](https://leetcode.cn/problems/ugly-number/)
+# [LeetCode-263. 丑数](https://leetcode.cn/problems/ugly-number/)
 
 
 

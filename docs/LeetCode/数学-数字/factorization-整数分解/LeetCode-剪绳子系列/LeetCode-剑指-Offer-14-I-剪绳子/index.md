@@ -1,4 +1,4 @@
-# leetcode [剑指 Offer 14- I. 剪绳子](https://leetcode.cn/problems/jian-sheng-zi-lcof/)
+# [LeetCode-剑指 Offer 14- I. 剪绳子](https://leetcode.cn/problems/jian-sheng-zi-lcof/)
 
 ## 我的解题
 

@@ -1,4 +1,4 @@
-# leetcode [188. 买卖股票的最佳时机 IV](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iv/) 困难
+# [LeetCode-188. 买卖股票的最佳时机 IV](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iv/) 困难
 
 
 
@@ -90,7 +90,7 @@ int main()
 
 上述代码时参考如下内容写的:
 
-1、leetcode [官方解题](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iv/solution/mai-mai-gu-piao-de-zui-jia-shi-ji-iv-by-8xtkp/)
+1、[LeetCode-官方解题](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iv/solution/mai-mai-gu-piao-de-zui-jia-shi-ji-iv-by-8xtkp/)
 
 2、[flix](https://leetcode.cn/u/flix/) # [『 动态规划 』 DP模板解决一众买卖股票问题](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iv/solution/by-flix-us00/)
 

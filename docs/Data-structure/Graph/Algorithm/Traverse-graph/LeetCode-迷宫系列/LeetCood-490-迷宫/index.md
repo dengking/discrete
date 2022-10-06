@@ -1,4 +1,4 @@
-# LeetCode [490. 迷宫](https://leetcode.cn/problems/the-maze/) 中等
+# [LeetCode-490. 迷宫](https://leetcode.cn/problems/the-maze/) 中等
 
 
 

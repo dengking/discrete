@@ -1,4 +1,4 @@
-# LeetCode [333. 最大 BST 子树](https://leetcode.cn/problems/largest-bst-subtree/)
+# [LeetCode-333. 最大 BST 子树](https://leetcode.cn/problems/largest-bst-subtree/)
 
 > NOTE: 
 >

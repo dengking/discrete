@@ -1,1 +1,1 @@
-# leetcode [面试题 10.01. 合并排序的数组](https://leetcode.cn/problems/sorted-merge-lcci/)
+# [LeetCode-面试题 10.01. 合并排序的数组](https://leetcode.cn/problems/sorted-merge-lcci/)

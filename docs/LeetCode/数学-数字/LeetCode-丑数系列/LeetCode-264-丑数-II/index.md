@@ -1,4 +1,4 @@
-# LeetCode [264. 丑数 II](https://leetcode.cn/problems/ugly-number-ii/)
+# [LeetCode-264. 丑数 II](https://leetcode.cn/problems/ugly-number-ii/)
 
 **丑数** 就是只包含质因数 `2`、`3` 和/或 `5` 的正整数。
 

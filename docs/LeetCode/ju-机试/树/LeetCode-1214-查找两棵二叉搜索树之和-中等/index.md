@@ -1,4 +1,4 @@
-# LeetCode [1214. 查找两棵二叉搜索树之和](https://leetcode.cn/problems/two-sum-bsts/) 中等
+# [LeetCode-1214. 查找两棵二叉搜索树之和](https://leetcode.cn/problems/two-sum-bsts/) 中等
 
 ## 我的解题
 

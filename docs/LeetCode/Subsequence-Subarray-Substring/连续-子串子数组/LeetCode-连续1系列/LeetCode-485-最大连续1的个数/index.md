@@ -1,4 +1,4 @@
-# LeetCode [485. 最大连续 1 的个数](https://leetcode.cn/problems/max-consecutive-ones/)
+# [LeetCode-485. 最大连续 1 的个数](https://leetcode.cn/problems/max-consecutive-ones/)
 
 ## 我的解题
 

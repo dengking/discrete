@@ -18,7 +18,7 @@
 >
 > 1、double list能否判断呢？
 >
-> 2、leetcode [141. 环形链表](https://leetcode.cn/problems/linked-list-cycle/)
+> 2、[LeetCode-141. 环形链表](https://leetcode.cn/problems/linked-list-cycle/)
 >
 > 3、其实这就是"「Floyd 判圈算法」（又称龟兔赛跑算法）"
 
@@ -153,7 +153,7 @@ public:
 
 > NOTE: 
 >
-> LeetCode [876. 链表的中间结点](https://leetcode.cn/problems/middle-of-the-linked-list/) 简单
+> [LeetCode-876. 链表的中间结点](https://leetcode.cn/problems/middle-of-the-linked-list/) 简单
 
 类似上面的思路，我们还可以让快指针一次前进两步，慢指针一次前进一步，当快指针到达链表尽头时，慢指针就处于链表的中间位置。
 
@@ -209,9 +209,9 @@ return slow;
 
 
 > NOTE: 
-> 1、leetcode [面试题 02.02. 返回倒数第 k 个节点](https://leetcode.cn/problems/kth-node-from-end-of-list-lcci/)
+> 1、[LeetCode-面试题 02.02. 返回倒数第 k 个节点](https://leetcode.cn/problems/kth-node-from-end-of-list-lcci/)
 >
-> 2、leetcode [剑指 Offer 22. 链表中倒数第k个节点](https://leetcode.cn/problems/lian-biao-zhong-dao-shu-di-kge-jie-dian-lcof/)
+> 2、[LeetCode-剑指 Offer 22. 链表中倒数第k个节点](https://leetcode.cn/problems/lian-biao-zhong-dao-shu-di-kge-jie-dian-lcof/)
 
 
 
@@ -239,7 +239,7 @@ return slow;
 
 > NOTE: 
 >
-> 1、这是典型的n-sum问题，原题: leetcode [剑指 Offer 57. 和为s的两个数字](https://leetcode.cn/problems/he-wei-sde-liang-ge-shu-zi-lcof/)
+> 1、这是典型的n-sum问题，原题: [LeetCode-剑指 Offer 57. 和为s的两个数字](https://leetcode.cn/problems/he-wei-sde-liang-ge-shu-zi-lcof/)
 
 直接看一道 LeetCode 题目吧：
 
@@ -275,7 +275,7 @@ void reverse(int[] nums) {
 
 > NOTE: 
 >
-> 1、leetcode [344. 反转字符串](https://leetcode.cn/problems/reverse-string/)
+> 1、[LeetCode-344. 反转字符串](https://leetcode.cn/problems/reverse-string/)
 
 ### *4*、滑动窗口算法
 

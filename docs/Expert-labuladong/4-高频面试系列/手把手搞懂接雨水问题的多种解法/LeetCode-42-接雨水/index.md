@@ -1,4 +1,4 @@
-# leetcode [42. 接雨水](https://leetcode.cn/problems/trapping-rain-water/)
+# [LeetCode-42. 接雨水](https://leetcode.cn/problems/trapping-rain-water/)
 
 ## 我的解题
 

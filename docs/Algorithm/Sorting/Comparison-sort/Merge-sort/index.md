@@ -37,7 +37,7 @@ void sort(int[] nums, int lo, int hi) {
 
 ### 递归的实现方式
 
-LeetCode [912. 排序数组](https://leetcode.cn/problems/sort-an-array/) # Merge sort
+[LeetCode-912. 排序数组](https://leetcode.cn/problems/sort-an-array/) # Merge sort
 
 ```C++
 #include <bits/stdc++.h>

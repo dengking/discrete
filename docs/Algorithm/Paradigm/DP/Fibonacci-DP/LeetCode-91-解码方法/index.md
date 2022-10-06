@@ -1,4 +1,4 @@
-# leetcode [91. 解码方法](https://leetcode.cn/problems/decode-ways/) 中等
+# [LeetCode-91. 解码方法](https://leetcode.cn/problems/decode-ways/) 中等
 
 ## 我的解题
 

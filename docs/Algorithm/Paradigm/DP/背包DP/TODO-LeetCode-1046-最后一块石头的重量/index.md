@@ -1,1 +1,1 @@
-# LeetCode [1046. 最后一块石头的重量](https://leetcode.cn/problems/last-stone-weight/) 简单
+# [LeetCode-1046. 最后一块石头的重量](https://leetcode.cn/problems/last-stone-weight/) 简单

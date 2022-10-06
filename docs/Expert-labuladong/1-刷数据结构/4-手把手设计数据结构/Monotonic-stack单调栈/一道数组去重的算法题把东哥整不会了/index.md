@@ -10,9 +10,9 @@
 
 
 
-leetcode [316. 去除重复字母](https://leetcode.cn/problems/remove-duplicate-letters/)
+[LeetCode-316. 去除重复字母](https://leetcode.cn/problems/remove-duplicate-letters/)
 
-leetcode [1081. 不同字符的最小子序列](https://leetcode.cn/problems/smallest-subsequence-of-distinct-characters/)
+[LeetCode-1081. 不同字符的最小子序列](https://leetcode.cn/problems/smallest-subsequence-of-distinct-characters/)
 
 > NOTE: 
 >
@@ -22,5 +22,5 @@ leetcode [1081. 不同字符的最小子序列](https://leetcode.cn/problems/sma
 >
 > 1、 `Monotonic-Stack\Max-min-subsequence-子序列` 章节中已经总结了
 >
-> 2、leetcode [402. 移掉K位数字](https://leetcode.cn/problems/remove-k-digits/) # [一招吃遍力扣四道题，妈妈再也不用担心我被套路啦～](https://leetcode.cn/problems/remove-k-digits/solution/yi-zhao-chi-bian-li-kou-si-dao-ti-ma-ma-zai-ye-b-5/)
+> 2、[LeetCode-402. 移掉K位数字](https://leetcode.cn/problems/remove-k-digits/) # [一招吃遍力扣四道题，妈妈再也不用担心我被套路啦～](https://leetcode.cn/problems/remove-k-digits/solution/yi-zhao-chi-bian-li-kou-si-dao-ti-ma-ma-zai-ye-b-5/)
 

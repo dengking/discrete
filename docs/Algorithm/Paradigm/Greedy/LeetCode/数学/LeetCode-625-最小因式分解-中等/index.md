@@ -1,4 +1,4 @@
-# LeetCode [625. 最小因式分解](https://leetcode.cn/problems/minimum-factorization/) 中等
+# [LeetCode-625. 最小因式分解](https://leetcode.cn/problems/minimum-factorization/) 中等
 
 
 

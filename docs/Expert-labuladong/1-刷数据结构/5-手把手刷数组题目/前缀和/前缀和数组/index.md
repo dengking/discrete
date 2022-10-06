@@ -2,7 +2,7 @@
 
 ## 一维数组中的前缀和
 
-### LeetCode [303. 区域和检索 - 数组不可变](https://leetcode.cn/problems/range-sum-query-immutable/)
+### [LeetCode-303. 区域和检索 - 数组不可变](https://leetcode.cn/problems/range-sum-query-immutable/)
 
 
 

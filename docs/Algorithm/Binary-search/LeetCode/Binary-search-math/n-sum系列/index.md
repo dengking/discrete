@@ -34,13 +34,13 @@
 
 
 
-#### LeetCode [167. 两数之和 II - 输入有序数组](https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted/)
+#### [LeetCode-167. 两数之和 II - 输入有序数组](https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted/)
 
 
 
-#### LeetCode [633. 平方数之和](https://leetcode.cn/problems/sum-of-square-numbers/)
+#### [LeetCode-633. 平方数之和](https://leetcode.cn/problems/sum-of-square-numbers/)
 
-这是典型的 LeetCode [167. 两数之和 II - 输入有序数组](https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted/) 的升级版，这道题和LeetCode 167本质上相同，使用双指针。它增加了一个难度系数就是: 需要计算数据区间。
+这是典型的 [LeetCode-167. 两数之和 II - 输入有序数组](https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted/) 的升级版，这道题和LeetCode 167本质上相同，使用双指针。它增加了一个难度系数就是: 需要计算数据区间。
 
 ```c++
 class Solution

@@ -1,4 +1,4 @@
-# LeetCode [313. 超级丑数](https://leetcode.cn/problems/super-ugly-number/) 中等
+# [LeetCode-313. 超级丑数](https://leetcode.cn/problems/super-ugly-number/) 中等
 
 
 

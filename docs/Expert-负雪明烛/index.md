@@ -1,6 +1,6 @@
 # 负雪明烛
 
-## LeetCode [负雪明烛](https://leetcode.cn/u/fuxuemingzhu/)
+## [LeetCode-负雪明烛](https://leetcode.cn/u/fuxuemingzhu/)
 
 
 

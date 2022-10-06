@@ -2,7 +2,7 @@
 
 > NOTE: 
 >
-> LeetCode [134. 加油站](https://leetcode.cn/problems/gas-station/)
+> [LeetCode-134. 加油站](https://leetcode.cn/problems/gas-station/)
 
 ## 暴力解法
 

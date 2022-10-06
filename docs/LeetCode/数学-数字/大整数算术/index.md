@@ -186,9 +186,9 @@ cnblogs [大整数加法 面试题](https://www.cnblogs.com/meihao1203/p/8023524
 
 ### 链表大数加法系列
 
-leetcode [2. 两数相加](https://leetcode.cn/problems/add-two-numbers/)
+[LeetCode-2. 两数相加](https://leetcode.cn/problems/add-two-numbers/)
 
-leetcode [445. 两数相加 II](https://leetcode.cn/problems/add-two-numbers-ii/)
+[LeetCode-445. 两数相加 II](https://leetcode.cn/problems/add-two-numbers-ii/)
 
-leetcode [面试题 02.05. 链表求和](https://leetcode.cn/problems/sum-lists-lcci/)
+[LeetCode-面试题 02.05. 链表求和](https://leetcode.cn/problems/sum-lists-lcci/)
 

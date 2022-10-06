@@ -207,7 +207,7 @@ int longestCommonSubsequence(String s1, String s2) {
 
 > NOTE: 
 >
-> leetcode [583. 两个字符串的删除操作](https://leetcode.cn/problems/delete-operation-for-two-strings/)
+> [LeetCode-583. 两个字符串的删除操作](https://leetcode.cn/problems/delete-operation-for-two-strings/)
 
 这是力扣第 583 题「两个字符串的删除操作」，看下题目：
 

@@ -1,4 +1,4 @@
-# leetcode [321. 拼接最大数](https://leetcode.cn/problems/create-maximum-number/) 困难
+# [LeetCode-321. 拼接最大数](https://leetcode.cn/problems/create-maximum-number/) 困难
 
 现在从这两个数组中选出 `k (k <= m + n)` 个数字拼接成一个新的数。
 
@@ -146,7 +146,7 @@ int main()
 
 > NOTE: 
 >
-> 一、这个解题是非常好的，它是"divide-and-conquer-and-merge"非常经典的例题，它的base就是 leetcode [402. 移掉K位数字](https://leetcode.cn/problems/remove-k-digits/) 
+> 一、这个解题是非常好的，它是"divide-and-conquer-and-merge"非常经典的例题，它的base就是 [LeetCode-402. 移掉K位数字](https://leetcode.cn/problems/remove-k-digits/) 
 >
 > 
 
@@ -227,7 +227,7 @@ class Solution:
 
 > NOTE:
 >
-> 一、通过上述code可以看出，它是典型的divide-and-conqure-merge+打擂台取最优值，它的base是 leetcode [402. 移掉K位数字](https://leetcode.cn/problems/remove-k-digits/) 。
+> 一、通过上述code可以看出，它是典型的divide-and-conqure-merge+打擂台取最优值，它的base是 [LeetCode-402. 移掉K位数字](https://leetcode.cn/problems/remove-k-digits/) 。
 >
 > 二、它的merge算法：每次从字典序更大的array中取出一个元素。
 

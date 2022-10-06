@@ -1,4 +1,4 @@
-# LeetCode [9. 回文数](https://leetcode.cn/problems/palindrome-number/) 简单
+# [LeetCode-9. 回文数](https://leetcode.cn/problems/palindrome-number/) 简单
 
 
 

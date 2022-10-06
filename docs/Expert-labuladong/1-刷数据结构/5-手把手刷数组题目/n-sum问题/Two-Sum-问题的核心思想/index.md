@@ -6,4 +6,4 @@
 
 > NOTE: 
 >
-> 1、原文这一段给出的使用hash table的code是有误的，按照 leetcode [1. Two Sum](https://leetcode.cn/problems/two-sum/) 的要求，对于存在重复元素的用例，它可能错误。
+> 1、原文这一段给出的使用hash table的code是有误的，按照 [LeetCode-1. Two Sum](https://leetcode.cn/problems/two-sum/) 的要求，对于存在重复元素的用例，它可能错误。

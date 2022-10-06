@@ -1,4 +1,4 @@
-# LeetCode [90. 子集 II](https://leetcode.cn/problems/subsets-ii/)
+# [LeetCode-90. 子集 II](https://leetcode.cn/problems/subsets-ii/)
 
 需要理解题意，题目中的"解集 **不能** 包含重复的子集"不是指"子集"中，不包含重复元素，而是指不能包含重复的子集，比如: `nums = [1,2,2]`
 

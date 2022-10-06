@@ -1,4 +1,4 @@
-# LeetCode [370. 区间加法](https://leetcode.cn/problems/range-addition/) 中等
+# [LeetCode-370. 区间加法](https://leetcode.cn/problems/range-addition/) 中等
 
 假设你有一个长度为 `n` 的数组，初始情况下所有的数字均为 0，你将会被给出 `k` 个更新的操作。
 

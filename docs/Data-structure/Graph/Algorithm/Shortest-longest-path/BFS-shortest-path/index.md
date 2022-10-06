@@ -54,7 +54,7 @@ int BFS(Node start) {
 
 一、这是在 labuladong [BFS 算法框架套路详解](https://mp.weixin.qq.com/s/WH_XGm1-w5882PnenymZ7g) 中发现的，BFS-shortest-path中经常使用的一种technique。
 
-二、Google "bidirectional bfs - leetcode"-LeetCode [Problems on Leetcode that uses Bidirectional BFS](https://leetcode.com/discuss/general-discussion/1170553/problems-on-leetcode-that-uses-bidirectional-bfs)
+二、Google "bidirectional bfs - leetcode"-[LeetCode-Problems on Leetcode that uses Bidirectional BFS](https://leetcode.com/discuss/general-discussion/1170553/problems-on-leetcode-that-uses-bidirectional-bfs)
 
 1、[LeetCode-752. 打开转盘锁-中等](https://leetcode.cn/problems/open-the-lock/) 
 

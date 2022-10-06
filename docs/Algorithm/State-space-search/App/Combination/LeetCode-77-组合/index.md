@@ -1,4 +1,4 @@
-# leetcode [77. 组合](https://leetcode.cn/problems/combinations/)
+# [LeetCode-77. 组合](https://leetcode.cn/problems/combinations/)
 
 ## 理解题意
 

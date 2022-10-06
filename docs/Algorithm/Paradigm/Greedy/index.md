@@ -8,7 +8,7 @@
 
 ## 素材
 
-### LeetCode [406. 根据身高重建队列](https://leetcode.cn/problems/queue-reconstruction-by-height/) # [【贪心思想「模拟队列插入图解」】](https://leetcode.cn/problems/queue-reconstruction-by-height/solution/by-nehzil-1z3g/)
+### [LeetCode-406. 根据身高重建队列](https://leetcode.cn/problems/queue-reconstruction-by-height/) # [【贪心思想「模拟队列插入图解」】](https://leetcode.cn/problems/queue-reconstruction-by-height/solution/by-nehzil-1z3g/)
 
 「贪心算法」的问题需要满足的条件：
 
@@ -18,7 +18,7 @@
 
 > NOTE:
 >
-> LeetCode [406. 根据身高重建队列](https://leetcode.cn/problems/queue-reconstruction-by-height/) 就是典型的无后效
+> [LeetCode-406. 根据身高重建队列](https://leetcode.cn/problems/queue-reconstruction-by-height/) 就是典型的无后效
 
 3、**贪心选择性质**: 从**局部最优解**可以得到**全局最优解**。
 

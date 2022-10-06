@@ -2,7 +2,7 @@
 
 > NOTE: 
 >
-> 原题 LeetCode [651. 4键键盘](https://leetcode.cn/problems/4-keys-keyboard/) ，这道题是会员专享
+> 原题 [LeetCode-651. 4键键盘](https://leetcode.cn/problems/4-keys-keyboard/) ，这道题是会员专享
 
 ## 第一种思路
 

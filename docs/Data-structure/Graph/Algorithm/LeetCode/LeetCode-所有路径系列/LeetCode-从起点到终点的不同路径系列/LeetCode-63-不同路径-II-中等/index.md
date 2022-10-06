@@ -1,10 +1,10 @@
-# leetcode [63. 不同路径 II](https://leetcode.cn/problems/unique-paths-ii/) 中等
+# [LeetCode-63. 不同路径 II](https://leetcode.cn/problems/unique-paths-ii/) 中等
 
 
 
 ## 我的解题
 
-在 leetcode [62. 不同路径](https://leetcode.cn/problems/unique-paths/) 的基础上增加了一点难度：增加了障碍物，对 leetcode [62. 不同路径](https://leetcode.cn/problems/unique-paths/) 做一点修改即可解决这道题。
+在 [LeetCode-62. 不同路径](https://leetcode.cn/problems/unique-paths/) 的基础上增加了一点难度：增加了障碍物，对 leetcode [62. 不同路径](https://leetcode.cn/problems/unique-paths/) 做一点修改即可解决这道题。
 
 ### 完整代码如下
 

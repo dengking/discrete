@@ -4,9 +4,9 @@
 
 > NOTE: 
 >
-> 1、原题为: LeetCode [560. 和为K的子数组](https://leetcode.cn/problems/subarray-sum-equals-k/)
+> 1、原题为: [LeetCode-560. 和为K的子数组](https://leetcode.cn/problems/subarray-sum-equals-k/)
 >
-> 显然这种解法就是充分运用prefix sum，其实 LeetCode [560. 和为K的子数组](https://leetcode.cn/problems/subarray-sum-equals-k/) 的官方解题中对这种解法的命名为: "前缀和 + 哈希表优化"，显然它是更加能够反映这种算法的内容的。
+> 显然这种解法就是充分运用prefix sum，其实 [LeetCode-560. 和为K的子数组](https://leetcode.cn/problems/subarray-sum-equals-k/) 的官方解题中对这种解法的命名为: "前缀和 + 哈希表优化"，显然它是更加能够反映这种算法的内容的。
 
 ![图片](./原题.png)
 

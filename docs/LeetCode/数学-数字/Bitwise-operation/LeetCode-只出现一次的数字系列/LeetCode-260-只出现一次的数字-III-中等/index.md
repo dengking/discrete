@@ -1,2 +1,2 @@
-# LeetCode [260. 只出现一次的数字 III](https://leetcode.cn/problems/single-number-iii/) 中等
+# [LeetCode-260. 只出现一次的数字 III](https://leetcode.cn/problems/single-number-iii/) 中等
 

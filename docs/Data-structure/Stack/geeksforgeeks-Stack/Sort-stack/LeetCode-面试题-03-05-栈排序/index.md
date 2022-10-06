@@ -1,4 +1,4 @@
-# leetcode [面试题 03.05. 栈排序](https://leetcode.cn/problems/sort-of-stacks-lcci/)
+# [LeetCode-面试题 03.05. 栈排序](https://leetcode.cn/problems/sort-of-stacks-lcci/)
 
 
 

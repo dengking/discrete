@@ -1,4 +1,4 @@
-# leetcode [460. LFU 缓存](https://leetcode.cn/problems/lfu-cache/)
+# [LeetCode-460. LFU 缓存](https://leetcode.cn/problems/lfu-cache/)
 
 
 

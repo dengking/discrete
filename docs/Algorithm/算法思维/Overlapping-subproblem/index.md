@@ -10,7 +10,7 @@
 
 3、子数组问题: 
 
-一个例子: LeetCode [413. 等差数列划分](https://leetcode.cn/problems/arithmetic-slices/) 
+一个例子: [LeetCode-413. 等差数列划分](https://leetcode.cn/problems/arithmetic-slices/) 
 
 > 给你一个整数数组 `nums` ，返回数组 `nums` 中所有为等差数组的 **子数组** 个数。
 >

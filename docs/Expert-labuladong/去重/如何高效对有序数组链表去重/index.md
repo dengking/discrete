@@ -146,7 +146,7 @@ int main()
 >
 > 1、`LeetCode-83-删除排序链表中的重复元素` 章节
 >
-> 2、leetcode [83. 删除排序链表中的重复元素](https://leetcode.cn/problems/remove-duplicates-from-sorted-list/) 
+> 2、[LeetCode-83. 删除排序链表中的重复元素](https://leetcode.cn/problems/remove-duplicates-from-sorted-list/) 
 >
 > 
 
@@ -156,6 +156,6 @@ int main()
 
 > NOTE: 
 >
-> 1、原题: leetcode [26. 删除有序数组中的重复项](https://leetcode.cn/problems/remove-duplicates-from-sorted-array/)
+> 1、原题: [LeetCode-26. 删除有序数组中的重复项](https://leetcode.cn/problems/remove-duplicates-from-sorted-array/)
 
 ![Image](https://mmbiz.qpic.cn/mmbiz_png/map09icNxZ4kjKDY327Vjgh9xjMKhdRwkpMc8yECrN67efS23St1iabEyH68FCsos3RyrgiaNwfMia6OqqzBxWDNBg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)

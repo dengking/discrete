@@ -1,4 +1,4 @@
-# LeetCode [847. 访问所有节点的最短路径](https://leetcode.cn/problems/shortest-path-visiting-all-nodes/) 困难
+# [LeetCode-847. 访问所有节点的最短路径](https://leetcode.cn/problems/shortest-path-visiting-all-nodes/) 困难
 
 
 

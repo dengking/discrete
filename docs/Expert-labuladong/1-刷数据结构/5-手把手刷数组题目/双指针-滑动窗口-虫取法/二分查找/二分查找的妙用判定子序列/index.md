@@ -34,7 +34,7 @@ s = "axc", t = "ahbgdc", return false.
 
 > NOTE: 
 >
-> LeetCode [392. 判断子序列](https://leetcode.cn/problems/is-subsequence/) 简单
+> [LeetCode-392. 判断子序列](https://leetcode.cn/problems/is-subsequence/) 简单
 
 ### 双指针
 

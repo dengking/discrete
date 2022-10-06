@@ -1,4 +1,4 @@
-# leetcode [505. 迷宫 II](https://leetcode.cn/problems/the-maze-ii/) 中等
+# [LeetCode-505. 迷宫 II](https://leetcode.cn/problems/the-maze-ii/) 中等
 
 一、思路非常简单：在每个位置尝试上下左右四个方向。如果当前位置四个方向都无法移动，则表示进入了死胡同。
 
