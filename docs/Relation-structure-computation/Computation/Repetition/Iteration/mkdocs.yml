@@ -1,4 +1,5 @@
 nav:
     - Introduction: index.md
-    - Iteration: Iteration.md
     - Iterator: Iterator
+    - How-to-write-iteration: How-to-write-iteration
+    

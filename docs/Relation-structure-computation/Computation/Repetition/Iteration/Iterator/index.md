@@ -63,22 +63,6 @@ for value in iterable:
 
 
 
-## Separation of algorithm and structure principle
-
-本节标题的含义是: 容器与算法的分离。iterator是实现它的一种方式，在下面文章中对此进行了描述:
-
-1、wikipedia [Iterator pattern](https://en.wikipedia.org/wiki/Iterator_pattern)
-
-> The iterator pattern decouples [algorithms](https://en.wikipedia.org/wiki/Algorithm) from containers; in some cases, algorithms are necessarily container-specific and thus cannot be decoupled.
-
-2、 wikipedia [Iterator](https://en.wikipedia.org/wiki/Iterator)
-
-> The primary purpose of an iterator is to allow a user to process every element of a container while isolating the user from the internal structure of the container. This allows the container to store elements in any manner it wishes while allowing the user to treat it as if it were a simple sequence or list. An iterator class is usually designed in tight coordination with the corresponding container class. Usually, the container provides the methods for creating iterators.
-
-## iteration and algorithm
-
-在algorithm中，最最常使用的就是iteration了，而iterator pattern正是将两者进行分离。visitor pattern感觉就是运用算法。
-
 ## Application of iterator
 
 ### Generic programming
@@ -87,5 +71,15 @@ for value in iterable:
 
 
 
+### Separation of algorithm and structure principle
 
+本节标题的含义是: algorithm 与 structure 的分离。iterator是实现它的一种方式，在下面文章中对此进行了描述:
+
+1、wikipedia [Iterator pattern](https://en.wikipedia.org/wiki/Iterator_pattern)
+
+> The iterator pattern decouples [algorithms](https://en.wikipedia.org/wiki/Algorithm) from containers; in some cases, algorithms are necessarily container-specific and thus cannot be decoupled.
+
+2、 wikipedia [Iterator](https://en.wikipedia.org/wiki/Iterator)
+
+> The primary purpose of an iterator is to allow a user to process every element of a container while isolating the user from the internal structure of the container. This allows the container to store elements in any manner it wishes while allowing the user to treat it as if it were a simple sequence or list. An iterator class is usually designed in tight coordination with the corresponding container class. Usually, the container provides the methods for creating iterators.
 
