@@ -122,7 +122,7 @@ The procedure may return any index whose element is equal to the target value, e
 
 The above procedure only performs *exact* matches, finding the position of a target value. However, it is trivial to extend binary search to perform approximate matches because binary search operates on sorted arrays. For example, binary search can be used to compute, for a given value, its 
 
-1、rank (the number of smaller elements), 
+一、rank (the number of smaller elements), 
 
 > NOTE: 
 >
@@ -130,13 +130,13 @@ The above procedure only performs *exact* matches, finding the position of a tar
 >
 > [LeetCode-35. 搜索插入位置](https://leetcode.cn/problems/search-insert-position/) 
 
-2、predecessor (next-smallest element),
+二、predecessor (next-smallest element),
 
-3、 successor (next-largest element), and 
+三、 successor (next-largest element), and 
 
-4、[nearest neighbor](https://en.wikipedia.org/wiki/Nearest_neighbor_search). 
+四、[nearest neighbor](https://en.wikipedia.org/wiki/Nearest_neighbor_search). 
 
-5、[Range queries](https://en.wikipedia.org/wiki/Range_query_(data_structures)) seeking the number of elements between two values can be performed with two rank queries.
+五、[Range queries](https://en.wikipedia.org/wiki/Range_query_(data_structures)) seeking the number of elements between two values can be performed with two rank queries.
 
 > NOTE: 
 >
@@ -148,14 +148,20 @@ The above procedure only performs *exact* matches, finding the position of a tar
 
 1、Rank queries can be performed with the [procedure for finding the leftmost element](https://en.wikipedia.org/wiki/Binary_search_algorithm#Procedure_for_finding_the_leftmost_element). The number of elements *less than* the target value is returned by the procedure.
 
-2、Predecessor queries can be performed with rank queries. If the rank of the target value is {\displaystyle r}![r](https://wikimedia.org/api/rest_v1/media/math/render/svg/0d1ecb613aa2984f0576f70f86650b7c2a132538), its predecessor is {\displaystyle r-1}![r-1](https://wikimedia.org/api/rest_v1/media/math/render/svg/1ad04896104e929da32fad148e240b3fd8dfa874).
+2、Predecessor queries can be performed with rank queries. If the rank of the target value is $r$, its predecessor is $r-1$.
 
-3、For successor queries, the [procedure for finding the rightmost element](https://en.wikipedia.org/wiki/Binary_search_algorithm#Procedure_for_finding_the_rightmost_element) can be used. If the result of running the procedure for the target value is *{\displaystyle r}![r](https://wikimedia.org/api/rest_v1/media/math/render/svg/0d1ecb613aa2984f0576f70f86650b7c2a132538)*, then the successor of the target value is {\displaystyle r+1}![r+1](https://wikimedia.org/api/rest_v1/media/math/render/svg/7bf1b7e1e8ed2801660c299494ed10e6f18f790d).
+3、For successor queries, the [procedure for finding the rightmost element](https://en.wikipedia.org/wiki/Binary_search_algorithm#Procedure_for_finding_the_rightmost_element) can be used. If the result of running the procedure for the target value is $ r$, then the successor of the target value is $r+1$.
 
 4、The nearest neighbor of the target value is either its predecessor or successor, whichever is closer.
 
-5、Range queries are also straightforward.[[12\]](https://en.wikipedia.org/wiki/Binary_search_algorithm#cite_note-FOOTNOTEGoldmanGoldman2008461–463-13) Once the ranks of the two values are known, the number of elements greater than or equal to the first value and less than the second is the difference of the two ranks. This count can be adjusted up or down by one according to whether the endpoints of the range should be considered to be part of the range and whether the array contains entries matching those endpoints.
+5、Range queries are also straightforward. Once the ranks of the two values are known, the number of elements greater than or equal to the first value and less than the second is the difference of the two ranks. This count can be adjusted up or down by one according to whether the endpoints of the range should be considered to be part of the range and whether the array contains entries matching those endpoints.
 
 > NOTE: 
 >
 > 总结得非常好
+
+
+
+## Library support
+
+C++'s Standard Template Library provides the functions binary_search(), lower_bound(), upper_bound() and equal_range().
