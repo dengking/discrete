@@ -265,3 +265,23 @@ int binarySearch(vector<int> &nums, int target)
 
 ### 二分查找入门
 
+| 题目                                                         |                          | 是否已做 |
+| ------------------------------------------------------------ | ------------------------ | -------- |
+| [LeetCode-704. 二分查找-简单](https://leetcode.cn/problems/binary-search/) | binary-search            | 是       |
+| [LeetCode-374. 猜数字大小-简单](https://leetcode.cn/problems/guess-number-higher-or-lower/) | binary-search            | 否       |
+| [LeetCode-35. 搜索插入位置-简单](https://leetcode.cn/problems/search-insert-position/) | binary-search-left-bound | 是       |
+|                                                              |                          |          |
+|                                                              |                          |          |
+|                                                              |                          |          |
+|                                                              |                          |          |
+|                                                              |                          |          |
+|                                                              |                          |          |
+|                                                              |                          |          |
+|                                                              |                          |          |
+|                                                              |                          |          |
+|                                                              |                          |          |
+
+
+
+
+
