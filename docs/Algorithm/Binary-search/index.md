@@ -8,6 +8,8 @@
 
 2、[学习计划广场](https://leetcode.cn/study-plan/)→专项突破→[二分查找](https://leetcode.cn/study-plan/binary-search/)
 
+
+
 二、[随心源](https://leetcode.cn/u/sui-xin-yuan/) 
 
 1、[随心源](https://leetcode.cn/u/sui-xin-yuan/) # [34. 蓝红二分法单模板秒杀二分查找](https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array/solution/lan-hong-hua-fen-fa-dan-mo-ban-miao-sha-e7r40/) 
@@ -15,6 +17,8 @@
 2、[随心源](https://leetcode.cn/u/sui-xin-yuan/) # [1201. 蓝红二分法分左右](https://leetcode.cn/problems/ugly-number-iii/solution/by-sui-xin-yuan-o8zd/) 
 
 3、[随心源](https://leetcode.cn/u/sui-xin-yuan/) # [二分查找模块全解](https://leetcode.cn/circle/article/xYBtLt/) 
+
+4、[随心源](https://leetcode.cn/u/sui-xin-yuan/) # [二分查找模块全解](https://leetcode.cn/circle/article/xYBtLt/)
 
 
 
@@ -24,9 +28,13 @@
 
 **labuladong** [我作了首诗，保你闭着眼睛也能写对二分查找](https://mp.weixin.qq.com/s/M1KfTfNlu4OCK8i9PSAmug) 
 
+
+
 四、wikipedia [Binary search algorithm](https://en.wikipedia.org/wiki/Binary_search_algorithm) 
 
 这是权威
+
+
 
 五、programmingpraxis [Binary Search With Duplicates](https://programmingpraxis.com/2017/11/07/binary-search-with-duplicates/)
 

@@ -1,5 +1,6 @@
 nav:
     - Introduction: index.md
+    - 二分查找入门: 二分查找入门
     - Binary-search-math: Binary-search-math
     - LeetCode-35-搜索插入位置-简单: LeetCode-35-搜索插入位置-简单
     - LeetCode-34-在排序数组中查找元素的第一个和最后一个位置-中等: LeetCode-34-在排序数组中查找元素的第一个和最后一个位置-中等

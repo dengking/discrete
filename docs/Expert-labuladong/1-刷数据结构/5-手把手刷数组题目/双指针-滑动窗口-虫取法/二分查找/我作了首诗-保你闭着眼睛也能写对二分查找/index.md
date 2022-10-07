@@ -2,9 +2,9 @@
 
 > 一、为了描述方便，使用range来表示**搜索区间**，原文中始终强调range，因为while的条件是基于range，while循环体也是对range进行操作
 >
-> 二、二分搜索能够保证，`left`、`right`不断地向target靠近，这是binary search的核心特性，后续的三种形式都是以此为前提的。
+> 二、二分搜索能够保证，`left`、`right`不断地向target(**逼近** approximation)，这是binary search的核心特性，后续的三种形式都是以此为前提的。
 >
-> 三、由于是双指针(left、right)，即存在两个元素，因此，最终range的长度，缩减为2，即此时left pointer 和 right pointer相遇，然后缩减为1
+> 三、由于是双指针(left、right)，即存在两个元素，最终range的长度缩减为2，即此时left pointer 和 right pointer**相遇**，然后缩减为1，即此时left pointer 和 right pointer**重叠**。
 >
 > 1、寻找左边界的二分搜索和寻找右边界的二分搜索就是利用的这个特性。
 >
@@ -44,9 +44,9 @@
 >
 > 最终left、right肯定会逼近目标元素，最终的终止条件是left > right，即left ==  right + 1 ，即left在right的右侧；
 >
-> 对于**left bound**: 当命中target的时候，不断地缩小right，最终，right错过target，指向target的左侧，当循环条件不满足，即left ==  right + 1，left指向target，因此最终返回left；由于算法中执行left + 1，因此需要考虑left超过array的范围。
+> 对于**left bound**: 当命中target的时候，不断地缩小right，最终，right错过target，指向target的左侧，当循环条件不满足，即left ==  right + 1，left指向target，因此最终返回left；由于算法最终返回left，并且算法中执行left + 1，当target不存在的时候是可能越界的，因此在返回left之前是需要进行越界保护的，因此需要考虑left超过array的范围（overflow）。
 >
-> 对于**right bound**: 当命中target的时候，不断地增大left，最终，left错过target，指向target的右侧，当循环条件不满足，即left ==  right + 1，right指向target，因此最终返回right；由于算法中执行right - 1，因此需要考虑right超过array的范围。
+> 对于**right bound**: 当命中target的时候，不断地增大left，最终，left错过target，指向target的右侧，当循环条件不满足，即left ==  right + 1，right指向target，因此最终返回right；由于算法最终返回right，并且算法中执行right - 1，当target不存在的时候是可能越界的，因此在返回right之前是需要进行越界保护的，因此需要考虑right超过array的范围（underflow）。
 >
 > 2、要么不存在: 
 >
