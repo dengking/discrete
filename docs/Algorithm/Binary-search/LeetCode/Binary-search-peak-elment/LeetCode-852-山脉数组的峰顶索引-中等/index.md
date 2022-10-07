@@ -47,7 +47,7 @@ public:
             }
             else // arr[mid] >= arr[mid + 1] // 右侧
             {
-                right = mid;
+                right = mid; // 为什么不是 right=mid-1？
             }
         }
         return left;
