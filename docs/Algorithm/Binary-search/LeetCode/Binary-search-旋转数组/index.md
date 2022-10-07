@@ -4,6 +4,7 @@
 
 | 题目                                                         |                                |
 | ------------------------------------------------------------ | ------------------------------ |
+|[LeetCode-33. 搜索旋转排序数组-中等](https://leetcode.cn/problems/search-in-rotated-sorted-array/)||
 | [153. 寻找旋转排序数组中的最小值](https://leetcode.cn/problems/find-minimum-in-rotated-sorted-array/) | 元素值 **互不相同**的数组      |
 | [154. 寻找旋转排序数组中的最小值 II](https://leetcode.cn/problems/find-minimum-in-rotated-sorted-array-ii/) | 可能存在 **重复** 元素值的数组 |
 | [剑指 Offer 11. 旋转数组的最小数字](https://leetcode.cn/problems/xuan-zhuan-shu-zu-de-zui-xiao-shu-zi-lcof/) | 这道题和154一模一样            |
@@ -18,9 +19,27 @@
 
 
 
-这两道题的本质和**二分查找**类似，它利用**前段元素**肯定是大于**后段元素**、最小值肯定位于后段、前段元素和后段元素是单调递增的特性，通过`nums[mid]`和后段元素最大值进行比较，从而可以很快判断`nums[mid]`是位于目标值左边还是右边、**前段**还是位于**后段**，然后决定是否舍弃left或right之外的元素，从而不断地向目标靠近。关于此，在 [寻找旋转排序数组中的最小值 # 官方解题](https://leetcode.cn/problems/find-minimum-in-rotated-sorted-array/solution/xun-zhao-xuan-zhuan-pai-xu-shu-zu-zhong-5irwp/) 中给出了很好的图示。
+## 最小值系列
 
-这个系列其实是可以看作是一种泛化的二分查找。
+### 和寻常binary-search的差异
+
+一、寻常的binary-search的 `target` 是已知的，因此它通过比较 `nums[mid]` 和 `target` 从而不断的逼近 `target`。而这个系列，它的 `target` 即最小值是未知的，那它如何向 `target` **逼近**呢？
+
+二、寻常的binary-search的 `target` 不一定存在于数组中，因此它需要检查最后一个元素是否是 `target`，因此二分查找的经典写法是`while(left <= right)`，而这个系列的题目，它是要寻找最小值，显然这个最小值是肯定存在的，因此它只需要不断地进行逼近，当只剩下一个元素的时候，那这个元素一定是最小值，因此的循环条件是 `while (low < high)`，其实如果从这个角度来看的话，那么这个算法是比较好理解的: 不断的舍弃掉比最小值大的元素，那么剩下的元素肯定是最小值了。
+
+
+
+### 解题思路
+
+它利用:
+
+1、**前段元素**肯定是大于**后段元素**、最小值肯定位于后段
+
+2、前段元素和后段元素是单调递增的特性
+
+通过比较 `nums[mid]` 和后段元素最大值(`nums[right]` 、`nums[high]`)进行，从而可以很快判断`nums[mid]`是位于目标值左边还是右边、**前段**还是位于**后段**，然后决定是否舍弃left或right之外的元素，从而不断地向 `target` 逼近。关于此，在 [寻找旋转排序数组中的最小值 # 官方解题](https://leetcode.cn/problems/find-minimum-in-rotated-sorted-array/solution/xun-zhao-xuan-zhuan-pai-xu-shu-zu-zhong-5irwp/) 中给出了很好的图示。
+
+这个系列其实是可以看作是一种泛化的二分查找或者说是对二分查找思想的灵活运用。
 
 [寻找旋转排序数组中的最小值 # 官方解题](https://leetcode.cn/problems/find-minimum-in-rotated-sorted-array/solution/xun-zhao-xuan-zhuan-pai-xu-shu-zu-zhong-5irwp/) 
 
@@ -48,42 +67,9 @@ public:
 
 > NOTE:
 >
-> 一、上述解法也超越了我对二分查找的认知，下面的写法是基于左闭右闭的，但是它是while条件是`low < high`
+> 一、上述解法也超越了我对二分查找的认知，下面的写法是基于左闭右闭的，但是它是while条件是`low < high`，这是因为当 `low==high` 的时候，说明已经逼近到`target`了。
 >
 > 二、由于题目说了不存在重复的元素，因此上面这道题是不需要考虑相等的情况的
-
-
-
-下面是我的写法:
-
-```c++
-
-class Solution
-{
-public:
-  int findMin(vector<int> &nums)
-  {
-    int left = 0, right = nums.size() - 1;
-    while (left <= right)
-    {
-      int mid = left + (right - left) / 2;
-      if (nums[mid] < nums[right])
-      {
-        right = mid;
-      }
-      else if (nums[mid] > nums[right])
-      {
-        left = mid + 1;
-      }
-      else // 由于题目限制数组各个元素互不相同，因此nums[mid] == nums[right] 的唯一情况是 left == right，也就是它们指向同一个元素
-      {
-        break;
-      }
-    }
-    return nums[left];
-  }
-};
-```
 
 
 
@@ -119,6 +105,3 @@ public:
 
 
 
-这道题和二分查找还是有种很大的却别的，因为二分查找的目标的目标不一定存在于数组中，因此它需要检查最后一个元素是否是目标值，因此二分查找的经典写法是`while(left == right)`，而这个系列的题目，它是要寻找最小值，显然这个最小值是肯定存在的，因此它只需要不断地进行逼近，当只剩下一个元素的时候，那这个元素一定是最小值，因此的循环条件是 `while (low < high)`，其实如果从这个角度来看的话，那么这个算法是比较好理解的: 不断的舍弃掉比最小值大的元素，那么剩下的元素肯定是最小值了。
-
-这种用法其实是二分查找的一个简单变形。
