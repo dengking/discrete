@@ -1,4 +1,5 @@
 nav:
     # - Introduction: index.md
     - LeetCode-852-山脉数组的峰顶索引-中等: LeetCode-852-山脉数组的峰顶索引-中等
+    - LeetCode-162-寻找峰值-中等: LeetCode-162-寻找峰值-中等
     

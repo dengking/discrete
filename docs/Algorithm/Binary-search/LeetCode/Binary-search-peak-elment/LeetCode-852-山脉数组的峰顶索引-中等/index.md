@@ -24,6 +24,7 @@
 #include <vector>
 #include <iostream>
 using namespace std;
+
 class Solution
 {
 public:
@@ -40,11 +41,11 @@ public:
         while (left < right)
         {
             int mid = left + (right - left) / 2;
-            if (arr[mid] < arr[mid + 1])
+            if (arr[mid] < arr[mid + 1]) // 左侧
             {
                 left = mid + 1;
             }
-            else
+            else // arr[mid] >= arr[mid + 1] // 右侧
             {
                 right = mid;
             }
@@ -72,6 +73,7 @@ int main()
 #include <vector>
 #include <iostream>
 using namespace std;
+
 class Solution
 {
 public:
@@ -92,11 +94,11 @@ public:
             {
                 return mid;
             }
-            else if (arr[mid] > arr[mid - 1] && arr[mid] < arr[mid + 1])
-            { //最大值在mid右侧
+            else if (arr[mid] > arr[mid - 1] && arr[mid] < arr[mid + 1]) // 左侧
+            {
                 left = mid + 1;
             }
-            else if (arr[mid] > arr[mid + 1] && arr[mid] < arr[mid - 1])
+            else if (arr[mid] > arr[mid + 1] && arr[mid] < arr[mid - 1]) // 右侧
             {
                 right = mid - 1;
             }
