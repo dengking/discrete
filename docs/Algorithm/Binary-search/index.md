@@ -114,6 +114,8 @@
 
 搜索区间必须是有序的。
 
+[LeetCode-633. 平方数之和](https://leetcode.cn/problems/sum-of-square-numbers/) 
+
 
 
 ### binary-search-rank

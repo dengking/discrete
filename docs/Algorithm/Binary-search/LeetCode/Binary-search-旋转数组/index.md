@@ -5,9 +5,12 @@
 | 题目                                                         |                                |
 | ------------------------------------------------------------ | ------------------------------ |
 |[LeetCode-33. 搜索旋转排序数组-中等](https://leetcode.cn/problems/search-in-rotated-sorted-array/)||
-| [153. 寻找旋转排序数组中的最小值](https://leetcode.cn/problems/find-minimum-in-rotated-sorted-array/) | 元素值 **互不相同**的数组      |
-| [154. 寻找旋转排序数组中的最小值 II](https://leetcode.cn/problems/find-minimum-in-rotated-sorted-array-ii/) | 可能存在 **重复** 元素值的数组 |
-| [剑指 Offer 11. 旋转数组的最小数字](https://leetcode.cn/problems/xuan-zhuan-shu-zu-de-zui-xiao-shu-zi-lcof/) | 这道题和154一模一样            |
+|[LeetCode-81. 搜索旋转排序数组 II-中等](https://leetcode.cn/problems/search-in-rotated-sorted-array-ii/)||
+| [LeetCode-153. 寻找旋转排序数组中的最小值](https://leetcode.cn/problems/find-minimum-in-rotated-sorted-array/) | 元素值 **互不相同**的数组      |
+| [LeetCode-154. 寻找旋转排序数组中的最小值 II](https://leetcode.cn/problems/find-minimum-in-rotated-sorted-array-ii/) | 可能存在 **重复** 元素值的数组 |
+| [LeetCode-剑指 Offer 11. 旋转数组的最小数字](https://leetcode.cn/problems/xuan-zhuan-shu-zu-de-zui-xiao-shu-zi-lcof/) | 这道题和154一模一样            |
+
+
 
 两段分别单调递增。
 

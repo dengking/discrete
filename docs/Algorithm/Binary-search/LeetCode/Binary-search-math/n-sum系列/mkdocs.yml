@@ -1,7 +1,11 @@
 nav:
     - Introduction: index.md
-    - 二数之和-two-sum系列: 二数之和-two-sum系列
+    - 2sum系列: 2sum系列
+    - 3sum系列: 3sum系列
+    - 4sum系列: 4sum系列
     - LeetCode-633-平方数之和-中等: LeetCode-633-平方数之和-中等
+    - LeetCode-剑指-Offer-57-和为s的两个数字: LeetCode-剑指-Offer-57-和为s的两个数字
+    - LeetCode-剑指-Offer-57-II-和为s的连续正数序列: LeetCode-剑指-Offer-57-II-和为s的连续正数序列
     - LeetCode-1711-大餐计数: LeetCode-1711-大餐计数
     
     

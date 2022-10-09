@@ -8,21 +8,33 @@
 
 
 
-## LeetCode题目
+## LeetCode-凑sum问题
 
 分类方式一:
 
-1、两数之和
+一、n-sum
 
-2、三数之和
+1、2sum
 
-3、四数之和
+2、3sum
 
-4、子数组之和
+3、4sum
 
-分类方式二:
+二、subarray-sum
 
-是否有序
+子数组之和，常用技巧:
+
+1、prefix-sum
+
+
+
+三、dp-sum
+
+1、背包dp
+
+
+
+分类方式二: 是否有序
 
 1、有序
 
@@ -30,15 +42,19 @@
 
 
 
+分类方式三: 是否连续
+
+
+
 ### 有序数组的两数之和
 
 
 
-#### [LeetCode-167. 两数之和 II - 输入有序数组](https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted/)
+[LeetCode-167. 两数之和 II - 输入有序数组](https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted/)
 
+[LeetCode-剑指 Offer 57. 和为s的两个数字](https://leetcode.cn/problems/he-wei-sde-liang-ge-shu-zi-lcof/)
 
-
-#### [LeetCode-633. 平方数之和](https://leetcode.cn/problems/sum-of-square-numbers/)
+[LeetCode-633. 平方数之和](https://leetcode.cn/problems/sum-of-square-numbers/) 
 
 这是典型的 [LeetCode-167. 两数之和 II - 输入有序数组](https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted/) 的升级版，这道题和LeetCode 167本质上相同，使用双指针。它增加了一个难度系数就是: 需要计算数据区间。
 
@@ -69,4 +85,24 @@ public:
   }
 };
 ```
+
+
+
+### hash-map-as-index
+
+
+
+[LeetCode-1. 两数之和](https://leetcode.cn/problems/two-sum/) 
+
+[LeetCode-454. 四数相加 II](https://leetcode.cn/problems/4sum-ii/)
+
+[LeetCode-1711. 大餐计数](https://leetcode.cn/problems/count-good-meals/) 
+
+
+
+### subarray-sum
+
+subarray-sum意味着是连续的。
+
+[LeetCode-剑指 Offer 57 - II. 和为s的连续正数序列](https://leetcode.cn/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/) 
 

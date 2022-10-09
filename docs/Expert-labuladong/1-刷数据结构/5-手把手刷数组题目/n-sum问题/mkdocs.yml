@@ -2,6 +2,4 @@ nav:
     - Introduction: index.md
     - Two-Sum-问题的核心思想: Two-Sum-问题的核心思想
     - 一个函数秒杀-2Sum-3Sum-4Sum-问题: 一个函数秒杀-2Sum-3Sum-4Sum-问题
-    - LeetCode-15-三数之和: LeetCode-15-三数之和
-    - LeetCode-18-四数之和: LeetCode-18-四数之和
     
