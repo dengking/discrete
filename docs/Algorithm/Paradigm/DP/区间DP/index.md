@@ -73,3 +73,15 @@ for(int len=2;len<=n;len++)
 
 ## jianshu [算法学习之区间dp](https://www.jianshu.com/p/9c6401ea2f9b)
 
+
+
+## 素材
+
+https://blog.csdn.net/MaYingColdPlay/article/details/125132189
+
+https://blog.csdn.net/sgh666666/article/details/105178376
+
+https://blog.csdn.net/qq_40772692/article/details/80183248
+
+[LeetCode-128. 最长连续序列](https://leetcode.cn/problems/longest-consecutive-sequence/) # [【动态规划】Python 题解](https://leetcode.cn/problems/longest-consecutive-sequence/solution/dong-tai-gui-hua-python-ti-jie-by-jalan/)
+

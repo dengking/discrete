@@ -6,6 +6,7 @@ nav:
     - Segment-tree: Segment-tree
     - Merge-intervals: Merge-intervals
     - LeetCode-986-区间列表的交集: LeetCode-986-区间列表的交集
+    - LeetCode-1854-人口最多的年份-简单: LeetCode-1854-人口最多的年份-简单
     - LeetCode-1893-检查是否区域内所有整数都被覆盖: LeetCode-1893-检查是否区域内所有整数都被覆盖
     - 日程安排系列: 日程安排系列
         
