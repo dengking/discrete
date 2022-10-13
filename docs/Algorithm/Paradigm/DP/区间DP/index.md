@@ -10,7 +10,7 @@
 
 > NOTE: 
 >
-> 区间DP、线段树、树形DP
+> 一、segment-tree=interval-DP+tree-DP
 >
 > 
 
