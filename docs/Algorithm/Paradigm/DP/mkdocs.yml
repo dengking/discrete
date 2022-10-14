@@ -1,8 +1,6 @@
 nav:
     - Introduction: index.md
-    - wikipedia-Dynamic-programming: wikipedia-Dynamic-programming
-    - geeksforgeeks-Dynamic-Programming: geeksforgeeks-Dynamic-Programming
-    - Expert-Accagain: Expert-Accagain
+    - Theory: Theory
     - Catalan-DP: Catalan-DP
     - Fibonacci-DP: Fibonacci-DP
     - 背包DP: 背包DP
