@@ -1,4 +1,4 @@
-# [LeetCode-1893. 检查是否区域内所有整数都被覆盖](https://leetcode.cn/problems/check-if-all-the-integers-in-a-range-are-covered/) 简单
+# [LeetCode-1893. 检查是否区域内所有整数都被覆盖-简单](https://leetcode.cn/problems/check-if-all-the-integers-in-a-range-are-covered/) 
 
 
 
