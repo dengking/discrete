@@ -1,4 +1,6 @@
-[TOC]
+# Bellman equation
 
-# [Bellman equation](https://en.wikipedia.org/wiki/Bellman_equation)
+
+
+## wikipedia [Bellman equation](https://en.wikipedia.org/wiki/Bellman_equation)
 

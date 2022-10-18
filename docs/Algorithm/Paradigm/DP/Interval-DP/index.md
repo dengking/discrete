@@ -79,11 +79,15 @@ $$
 
 ## 素材
 
-https://blog.csdn.net/MaYingColdPlay/article/details/125132189
 
-https://blog.csdn.net/sgh666666/article/details/105178376
 
-https://blog.csdn.net/qq_40772692/article/details/80183248
+csdn [leetcode-区间dp](https://blog.csdn.net/MaYingColdPlay/article/details/125132189)
+
+csdn [LeetCode---区间DP](https://blog.csdn.net/sgh666666/article/details/105178376)
+
+csdn [区间dp入门](https://blog.csdn.net/qq_40772692/article/details/80183248)
 
 [LeetCode-128. 最长连续序列](https://leetcode.cn/problems/longest-consecutive-sequence/) # [【动态规划】Python 题解](https://leetcode.cn/problems/longest-consecutive-sequence/solution/dong-tai-gui-hua-python-ti-jie-by-jalan/)
+
+cnblogs [区间DP（超详细！！！）](https://www.cnblogs.com/ljy-endl/p/11610549.html)
 
