@@ -2,5 +2,4 @@ nav:
     - Introduction: index.md
     - LeetCode-7-整数反转: LeetCode-7-整数反转    
     - LeetCode-9-回文数: LeetCode-9-回文数    
-    - LeetCode-只出现一次的数字系列: LeetCode-只出现一次的数字系列
-    
+    - LeetCode-数字出现的次数系列: LeetCode-数字出现的次数系列      
