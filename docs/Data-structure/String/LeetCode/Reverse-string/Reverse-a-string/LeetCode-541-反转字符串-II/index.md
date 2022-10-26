@@ -45,3 +45,35 @@ int main()
 // g++ test.cpp -pedantic -Wall -Wextra --std=c++11
 ```
 
+
+
+## [官方解题](https://leetcode.cn/problems/reverse-string-ii/solution/fan-zhuan-zi-fu-chuan-ii-by-leetcode-sol-ua7s/)
+
+
+
+```c++
+
+#include <iostream>
+#include <algorithm>
+
+using namespace std;
+
+class Solution
+{
+public:
+    string reverseStr(string s, int k)
+    {
+        int n = s.length();
+        for (int i = 0; i < n; i += 2 * k)
+        {
+            reverse(s.begin() + i, s.begin() + min(i + k, n));
+        }
+        return s;
+    }
+};
+
+int main()
+{
+}
+```
+

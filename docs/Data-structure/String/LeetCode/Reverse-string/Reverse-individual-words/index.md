@@ -1,6 +1,10 @@
-# [Reverse individual words](https://www.geeksforgeeks.org/reverse-individual-words/)
+# Reverse individual words
 
-## 问题描述
+
+
+## geeksforgeeks [Reverse individual words](https://www.geeksforgeeks.org/reverse-individual-words/)
+
+### 问题描述
 
  Given a string str, we need to print reverse of individual words. 
 
@@ -16,7 +20,7 @@ Output : skeeG rof skeeG
 
 [Recommended: Please try your approach on ***{IDE}\*** first, before moving on to the solution.](https://ide.geeksforgeeks.org/)
 
-## 算法
+### 算法
 
 **Method 1 (Simple):** Generate all words separated by space. One by one reverse words and print them separated by space.
 
@@ -100,9 +104,11 @@ int main()
 
 ```
 
-# [Reverse individual words with O(1) extra space](https://www.geeksforgeeks.org/reverse-individual-words-with-o1-extra-space/)
 
-## 问题描述
+
+## geeksforgeeks [Reverse individual words with O(1) extra space](https://www.geeksforgeeks.org/reverse-individual-words-with-o1-extra-space/)
+
+### 问题描述
 
  Given a string **str**, the task is to reverse all the individual words. 
 
