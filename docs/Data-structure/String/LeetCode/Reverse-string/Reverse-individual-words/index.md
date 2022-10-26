@@ -1,5 +1,9 @@
 # Reverse individual words
 
+[LeetCode-151. 反转字符串中的单词-中等](https://leetcode.cn/problems/reverse-words-in-a-string/)
+
+[LeetCode-反转字符串中的单词-III-简单](https://leetcode.cn/problems/reverse-words-in-a-string-iii) 
+
 
 
 ## geeksforgeeks [Reverse individual words](https://www.geeksforgeeks.org/reverse-individual-words/)

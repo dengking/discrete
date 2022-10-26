@@ -1,6 +1,6 @@
 # [LeetCode-151. 反转字符串中的单词-中等](https://leetcode.cn/problems/reverse-words-in-a-string/)
 
-
+这道题是典型的: split+join
 
 ## 我的解题
 
