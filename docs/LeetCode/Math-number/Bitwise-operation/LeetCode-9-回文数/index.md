@@ -1,4 +1,4 @@
-# [LeetCode-9. 回文数](https://leetcode.cn/problems/palindrome-number/) 简单
+# [LeetCode-9. 回文数-简单](https://leetcode.cn/problems/palindrome-number/) 
 
 
 
@@ -30,7 +30,13 @@ public boolean isPalindrome(long x) {
 
 此时 `x == tempNum / 10`，比如 `10001`
 
+
+
 ## 我的解题
+
+1、非常类似于左右双指针-相向而行-stop-condition: equal
+
+构造一个 `tempNum` ，如果它是一个回文数，那么两个数要么相等，要么相差10倍。
 
 
 
@@ -49,7 +55,7 @@ public:
 		}
 
 		long tempNum = 0;
-		while (x > tempNum)
+		while (x > tempNum) // stop-condition: tempNum >= x
 		{
 			tempNum = tempNum * 10 + x % 10;
 			x /= 10;
