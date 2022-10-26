@@ -1,6 +1,7 @@
 nav:
     - Introduction: index.md
-    - 数学-数字: 数学-数字
+    - Math-number: Math-number
+    - Reverse: Reverse
     - Optimization: Optimization
     - Subsequence-Subarray-Substring: Subsequence-Subarray-Substring    
     - 区间: 区间
