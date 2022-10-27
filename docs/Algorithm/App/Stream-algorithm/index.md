@@ -1,4 +1,8 @@
-# Stream
+# Stream algorithm
+
+## wikipedia [Streaming algorithm](https://en.wikipedia.org/wiki/Streaming_algorithm)
+
+In [computer science](https://en.wikipedia.org/wiki/Computer_science), **streaming algorithms** are algorithms for processing [data streams](https://en.wikipedia.org/wiki/Data_stream) in which the input is presented as a [sequence](https://en.wikipedia.org/wiki/Sequence) of items and can be examined in only a few passes (typically [just one](https://en.wikipedia.org/wiki/One-pass_algorithm)). In most models, these algorithms have access to limited memory (generally [logarithmic](https://en.wikipedia.org/wiki/L_(complexity)) in the size of and/or the maximum value in the stream). They may also have limited processing time per item.
 
 
 

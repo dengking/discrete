@@ -1,6 +1,6 @@
 # Programming model
 
-1、在维基百科 [Stream (computing)](https://en.wikipedia.org/wiki/Stream_(computing))中，其实已经涉及了对stream的programming model的描述，从中可以看出，stream的programming model可以采用functional programming paradigm的思想。
+1、在wikipedia [Stream (computing)](https://en.wikipedia.org/wiki/Stream_(computing))中，其实已经涉及了对stream的programming model的描述，从中可以看出，stream的programming model可以采用functional programming paradigm的思想。
 
 ## 模式
 

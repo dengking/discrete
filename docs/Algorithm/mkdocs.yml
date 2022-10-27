@@ -3,12 +3,12 @@ nav:
     - 算法思维: 算法思维    
     - State-space-search: State-space-search # 可以看做是search       
     - Paradigm: Paradigm
-    - Randomized-algorithm: Randomized-algorithm
     - Analysis: Analysis
     - Binary-search: Binary-search # 可以看做是search       
     - Sorting: Sorting  
-    - Merge-algorithm: Merge-algorithm
     - Classical-algorithm: Classical
     - Application: Application
-    - Big-data: Big-data
+   
     - 穷举-VS-DP-VS-greedy: 穷举-VS-DP-VS-greedy
+
+    

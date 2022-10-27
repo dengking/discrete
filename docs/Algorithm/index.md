@@ -6,16 +6,16 @@
 
 ## 库
 
-### [martinbroadhurst](http://www.martinbroadhurst.com/)
+[martinbroadhurst](http://www.martinbroadhurst.com/)
 
-http://www.martinbroadhurst.com
 
-### cppsecrets [C++ algorithm](https://cppsecrets.com/home-page/index.php?articlecategory=2)
 
-### [Algo-Phantoms](https://github.com/Algo-Phantoms)/**[Algo-Tree](https://github.com/Algo-Phantoms/Algo-Tree)**
+cppsecrets [C++ algorithm](https://cppsecrets.com/home-page/index.php?articlecategory=2)
 
-### [labuladong](https://github.com/labuladong)/**[fucking-algorithm](https://github.com/labuladong/fucking-algorithm)**
+[Algo-Phantoms](https://github.com/Algo-Phantoms)/**[Algo-Tree](https://github.com/Algo-Phantoms/Algo-Tree)**
 
-### [xtaci](https://github.com/xtaci)/**[algorithms](https://github.com/xtaci/algorithms)**
+[labuladong](https://github.com/labuladong)/**[fucking-algorithm](https://github.com/labuladong/fucking-algorithm)**
 
-### [OpenGenus](https://github.com/OpenGenus)/**[cosmos](https://github.com/OpenGenus/cosmos)**
+[xtaci](https://github.com/xtaci)/**[algorithms](https://github.com/xtaci/algorithms)**
+
+[OpenGenus](https://github.com/OpenGenus)/**[cosmos](https://github.com/OpenGenus/cosmos)**

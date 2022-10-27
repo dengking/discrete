@@ -104,8 +104,6 @@ A **bytestream** is a sequence of [bytes](https://en.wikipedia.org/wiki/Byte). T
 
 
 
-
-
 ## Stream的方向
 
 在使用stream来进行抽象的时候，我们可以考虑stream的方向：
@@ -129,7 +127,7 @@ stream中的元素默认是有序的。
 
 ### Computation的简单
 
-stream结构的简单决定了对它进行computation是非常简单的。stream结构是discrete的，我们可以one-by-one地来对它计算，一种最最常见的方式就是iteration，关于此，参见工程discrete的`Relation-structure-computation\Computation\Iteration`章节，关于此，在维基百科[Stream (computing)](https://en.wikipedia.org/wiki/Stream_(computing))中也进行了详细地介绍。
+stream结构的简单决定了对它进行computation是非常简单的。stream结构是discrete的，我们可以one-by-one地来对它计算，一种最最常见的方式就是iteration，关于此，参见工程discrete的`Relation-structure-computation\Computation\Iteration`章节，关于此，在 [wikipedia-stream (computing)](https://en.wikipedia.org/wiki/Stream_(computing)) 中也进行了详细地介绍。
 
 
 
