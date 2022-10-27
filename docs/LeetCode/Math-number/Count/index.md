@@ -1,0 +1,4 @@
+# Count
+
+count frequency。
+

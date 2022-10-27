@@ -6,7 +6,7 @@
 
 1、wikipedia [Sorting algorithm](https://en.wikipedia.org/wiki/Sorting_algorithm)
 
-2、wanweibaike [Priority queue](https://en.wanweibaike.com/wiki-Priority%20Queue)
+2、wikipedia [Priority queue](https://en.wikipedia.org/wiki/Priority_queue)
 
 
 
@@ -31,7 +31,7 @@
 
 
 
-二、wanweibaike [Priority queue](https://en.wanweibaike.com/wiki-Priority%20Queue)
+二、wikipedia [Priority queue](https://en.wikipedia.org/wiki/Priority_queue)
 
 |                             Name                             |                Priority Queue Implementation                 |                             Best                             |                           Average                            |                            Worst                             |
 | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
@@ -115,7 +115,7 @@ Selection sorts include cycle sort and heapsort.
 
 7、Adaptability: Whether or not the presortedness of the input affects the running time. Algorithms that take this into account are known to be [adaptive](https://en.wikipedia.org/wiki/Adaptive_sort).
 
-
+8、Online: An algorithm such as Insertion Sort that is online can sort a constant stream of input.
 
 #### Stability
 

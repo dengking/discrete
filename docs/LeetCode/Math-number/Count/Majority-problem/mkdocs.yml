@@ -1,6 +1,7 @@
 nav:
     - Introduction: index.md
+    - Boyer–Moore-majority-vote-algorithm: Boyer–Moore-majority-vote-algorithm    
     - LeetCode-169-多数元素-简单: LeetCode-169-多数元素-简单
-    - LeetCode-1207-独一无二的出现次数-简单: LeetCode-1207-独一无二的出现次数-简单
+    
     
     

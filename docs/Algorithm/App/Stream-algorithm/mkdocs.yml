@@ -1,3 +1,5 @@
 nav:
     - Introduction: index.md
+    - Frequent-elements-problem: Frequent-elements-problem
+    - LeetCode-1429-First-Unique-Number-Premium: LeetCode-1429-First-Unique-Number-Premium
     
