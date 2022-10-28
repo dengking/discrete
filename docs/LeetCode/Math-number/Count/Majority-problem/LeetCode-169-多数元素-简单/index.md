@@ -58,21 +58,68 @@ class Solution
 public:
     int majorityElement(vector<int> &nums)
     {
-        int element = 0, cnt = 0;
+        int element = 0, vote = 0;
         for (auto &&num : nums)
         {
-            if (cnt == 0) // 更换候选人
+            if (vote == 0) // 更换候选人
             {
                 element = num;
-                cnt = 1;
+                vote = 1;
             }
             else if (num == element)
             {
-                ++cnt;
+                ++vote;
             }
             else
             {
-                --cnt;
+                --vote;
+            }
+        }
+        return element;
+    }
+};
+
+// Driver code
+int main()
+{
+}
+
+```
+
+
+
+上述算法等价于:
+
+
+
+```c++
+#include <vector>
+#include <unordered_map>
+#include <unordered_set>
+#include <iostream>
+
+using namespace std;
+
+class Solution
+{
+public:
+    int majorityElement(vector<int> &nums)
+    {
+        int element = 0, vote = 0;
+        for (auto &&num : nums)
+        {
+            if (vote > 0 && num == element)
+            {
+                ++vote;
+            }
+            else if (vote == 0) // 更换候选人
+            {
+                element = num;
+                vote = 1;
+            }
+            else
+            {
+                --vote;
             }
         }
         return element;

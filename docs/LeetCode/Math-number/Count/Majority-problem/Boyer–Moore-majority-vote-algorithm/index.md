@@ -1,5 +1,11 @@
 # Boyer–Moore majority vote algorithm
 
+一、需要明确切换candidate和更新当前candidate的vote的含义: 
+
+当当前candidate的vote为0的时候需要切换candidate；
+
+当当前candidate的vote大于0的时候，才能够更新candidate的vote；
+
 
 
 ## wikipedia [Boyer–Moore majority vote algorithm](https://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_majority_vote_algorithm)
