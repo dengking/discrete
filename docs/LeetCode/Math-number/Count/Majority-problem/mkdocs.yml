@@ -2,6 +2,6 @@ nav:
     - Introduction: index.md
     - Boyer–Moore-majority-vote-algorithm: Boyer–Moore-majority-vote-algorithm    
     - LeetCode-169-多数元素-简单: LeetCode-169-多数元素-简单
-    
+    - LeetCode-229-多数元素-II-Medium: LeetCode-229-多数元素-II-Medium
     
     
