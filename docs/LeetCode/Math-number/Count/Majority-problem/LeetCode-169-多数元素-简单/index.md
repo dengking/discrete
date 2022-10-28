@@ -2,7 +2,7 @@
 
 
 
-hash-map
+## hash-map
 
 ```c++
 #include <vector>
@@ -29,6 +29,82 @@ public:
             }
         }
         return 0;
+    }
+};
+
+// Driver code
+int main()
+{
+}
+
+```
+
+
+
+## Boyer–Moore majority vote algorithm
+
+
+
+```c++
+#include <vector>
+#include <unordered_map>
+#include <unordered_set>
+#include <iostream>
+
+using namespace std;
+
+class Solution
+{
+public:
+    int majorityElement(vector<int> &nums)
+    {
+        int element = 0, cnt = 0;
+        for (auto &&num : nums)
+        {
+            if (cnt == 0) // 更换候选人
+            {
+                element = num;
+                cnt = 1;
+            }
+            else if (num == element)
+            {
+                ++cnt;
+            }
+            else
+            {
+                --cnt;
+            }
+        }
+        return element;
+    }
+};
+
+// Driver code
+int main()
+{
+}
+
+```
+
+
+
+## 排序
+
+
+
+```c++
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+class Solution
+{
+public:
+    int majorityElement(vector<int> &nums)
+    {
+        sort(nums.begin(), nums.end());
+        return nums[nums.size() / 2];
     }
 };
 
