@@ -26,3 +26,8 @@ A [heap](https://en.wikipedia.org/wiki/Heap_(data_structure)) shares some of the
 
 A [self-organizing list](https://en.wikipedia.org/wiki/Self-organizing_list) rearranges its nodes based on some heuristic which reduces search times for data retrieval by keeping commonly accessed nodes at the head of the list.
 
+
+## Implementation
+在 CCIA的6.3.2(dummy head node)和6.2.3(没有dummy head node)中分别给出了两种实现方式。
+
+对于使用dummy head node的实现方式。
