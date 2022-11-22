@@ -28,6 +28,14 @@ A [self-organizing list](https://en.wikipedia.org/wiki/Self-organizing_list) rea
 
 
 ## Implementation
-在 CCIA的6.3.2(dummy head node)和6.2.3(没有dummy head node)中分别给出了两种实现方式。
+在 CCIA的6.3.2(dummy head node)和6.2.3(没有dummy head node)中分别给出了两种实现方式: 
+
+Listing 6.4 A simple single-threaded queue implementation (非常朴素的实现方式，没有使用dummy node)
+
+Listing 6.5 A simple queue with a dummy node
+
+Listing 6.6 A thread-safe queue with fine-grained locking (在6.5的基础上修改而来，支持并发)
+
+
 
 对于使用dummy head node的实现方式。
