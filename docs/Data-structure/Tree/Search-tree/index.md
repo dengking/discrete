@@ -122,6 +122,8 @@ findMaximum(node)
     return max.key
 ```
 
+
+
 ## VS of search tree
 
 ### [B-tree](https://en.wikipedia.org/wiki/B-tree) VS [self-balancing trees](https://en.wikipedia.org/wiki/Self-balancing_binary_search_tree)
@@ -131,6 +133,22 @@ findMaximum(node)
 在 wikipedia [Search tree](https://en.wikipedia.org/wiki/Search_tree) 中有这样的一段话：
 
 > B-trees are generalizations of binary search trees in that they can have a variable number of subtrees at each node. While child-nodes have a pre-defined range, they will not necessarily be filled with data, meaning B-trees can potentially waste some space. The advantage is that B-trees do not need to be re-balanced as frequently as other [self-balancing trees](https://en.wikipedia.org/wiki/Self-balancing_binary_search_tree).
+
+
+
+### B-tree vs R-tree
+
+一、zhihu [什么是R树？](https://zhuanlan.zhihu.com/p/62639268)
+
+B树是一棵平衡树，它是把一维直线分为若干段线段，当我们查找满足某个要求的点的时候，只要去查找它所属的线段即可。依我看来，这种思想其实就是先找一个大的空间，再逐步缩小所要查找的空间，最终在一个自己设定的最小不可分空间内找出满足要求的解。
+
+一个典型的B树查找如下：
+
+![img](https://pic2.zhimg.com/80/v2-66b681ca5195d88bbf5fc7afa92eab9d_1440w.webp)
+
+R树就很好的解决了这种高维空间搜索问题。它把B树的思想很好的扩展到了多维空间，采用了B树分割空间的思想，并在添加、删除操作时采用合并、分解结点的方法，保证树的平衡性。因此，R树就是一棵用来存储高维数据的平衡树。
+
+如上所述，R树是B树在高维空间的扩展，是一棵平衡树。每个R树的叶子结点包含了多个指向不同数据的指针，这些数据可以是存放在硬盘中的，也可以是存在内存中。
 
 
 

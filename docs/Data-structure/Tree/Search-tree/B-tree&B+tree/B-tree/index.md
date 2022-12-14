@@ -164,3 +164,4 @@ Each internal node’s keys act as separation values which divide its subtrees. 
 
 csdn [索引数据结构之哈希、红黑树(Red Black Tree)、B树(B-Tree)、B+树详解](https://blog.csdn.net/qq_36565596/article/details/107895579)
 
+zhihu [为什么 B-tree 在不同著作中度的定义有一定差别？](https://www.zhihu.com/question/19836260/answer/17906104)

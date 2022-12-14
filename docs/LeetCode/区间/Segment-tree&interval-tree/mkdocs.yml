@@ -1,0 +1,6 @@
+nav:
+    - Introduction: index.md
+    - Interval-tree: Interval-tree
+    - Segment-tree: Segment-tree
+    - Fenwick-tree: Fenwick-tree
+    
