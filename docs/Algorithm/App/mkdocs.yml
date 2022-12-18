@@ -1,7 +1,6 @@
 nav:
     - Tower-of-Hanoi: Tower-of-Hanoi
     - Computational-problem: Computational-problem.md
-    - Optimization: Optimization
     - Big-data: Big-data
     - Stream-algorithm: Stream-algorithm     
     
