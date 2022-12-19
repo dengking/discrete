@@ -1,5 +1,9 @@
 # Interval tree
 
+1、构建的时候: 通过比较max 和 interval.low，能够知道应该去left tree 还是 right tree
+
+2、左子树 和 右子树的区间是可能相交的
+
 
 
 ## wikipedia [Interval tree](https://en.wikipedia.org/wiki/Interval_tree)
@@ -37,10 +41,18 @@ Interval trees solve this problem. This article describes two alternative design
 > 一、geeksforgeeks [Interval Tree](https://www.geeksforgeeks.org/interval-tree/) 中的实现方法就是采用的这种思路
 >
 > 以interval的low作为排序基准进行binary search tree的构建
+>
+> 以interval的high作为annotation
 
 An augmented tree can be built from a simple ordered tree, for example a [binary search tree](https://en.wikipedia.org/wiki/Binary_search_tree) or [self-balancing binary search tree](https://en.wikipedia.org/wiki/Self-balancing_binary_search_tree), ordered by the 'low' values of the intervals. An extra annotation is then added to every node, recording the maximum upper value among all the intervals from this node down. Maintaining this attribute involves updating all ancestors of the node from the bottom up whenever a node is added or deleted. This takes only O(*h*) steps per node addition or removal, where *h* is the height of the node added or removed in the tree. If there are any [tree rotations](https://en.wikipedia.org/wiki/Tree_rotation) during insertion and deletion, the affected nodes may need updating as well.
 
-
+> NOTE:
+>
+> 一、
+>
+> add node不涉及"updating all ancestors of the node from the bottom up"
+>
+> delete node涉及
 
 
 
