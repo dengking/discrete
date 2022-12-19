@@ -109,3 +109,5 @@ https://softwareengineering.stackexchange.com/questions/197107/divide-and-conque
 
 https://www.khanacademy.org/computing/computer-science/algorithms/merge-sort/a/divide-and-conquer-algorithms
 
+[Merge Sort - A Divide and Conquer Algorithm](https://www.scaler.com/topics/data-structures/merge-sort-algorithm/)
+
