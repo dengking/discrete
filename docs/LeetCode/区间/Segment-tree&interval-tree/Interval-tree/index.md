@@ -50,3 +50,12 @@ An augmented tree can be built from a simple ordered tree, for example a [binary
 
 
 
+```pseudocode
+Interval overlappingIntervalSearch(root, x)
+1) If x overlaps with root's interval, return the root's interval.
+
+2) If left child of root is not empty and the max  in left child 
+is greater than x's low value, recur for left child
+
+3) Else recur for right child.
+```

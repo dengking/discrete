@@ -8,6 +8,14 @@ A **Fenwick tree** or **binary indexed tree** is a data structure that can effic
 
 
 
+
+
+## geeksforgeeks [Binary Indexed Tree or Fenwick Tree](https://www.geeksforgeeks.org/binary-indexed-tree-or-fenwick-tree-2/)
+
+
+
+
+
 ## leetcode Fenwick tree
 
 https://leetcode.com/tag/binary-indexed-tree/
