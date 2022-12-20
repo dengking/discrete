@@ -9,6 +9,20 @@ struct Interval
     Interval(int low, int high) : low_{low}, high_{high}
     {
     }
+    /// @brief this 和 other是否相交
+    /// @param other
+    /// @return
+    bool Overlap(const Interval &other) const
+    {
+        if (this->high_ < other.low_ || this->low_ > other.high_)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
 };
 
 /// @brief 树节点
@@ -37,6 +51,13 @@ public:
     {
         InsertImpl(root_, low, high);
     }
+    /// @brief 搜索与i相交的interval
+    /// @param i
+    /// @return
+    Interval *OverlapSearch(const Interval &i) const
+    {
+        return OverlapSearchImpl(root_, i);
+    }
 
 private:
     /// @brief 使用递归的方式来实现insert
@@ -61,6 +82,14 @@ private:
             root = std::make_unique<Node>(low, high);
         }
         root->max_ = std::max(root->max_, high);
+    }
+    /// @brief
+    /// @param root
+    /// @param i
+    /// @return
+    Interval *OverlapSearchImpl(const std::unique_ptr<Node> &root, const Interval &i) const
+    {
+        
     }
 };
 
