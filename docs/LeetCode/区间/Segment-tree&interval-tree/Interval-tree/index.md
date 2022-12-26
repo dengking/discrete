@@ -54,6 +54,36 @@ An augmented tree can be built from a simple ordered tree, for example a [binary
 >
 > delete node涉及
 
+Now, it is known that two intervals $A$ and $ B $ overlap only when both $ A_{\textrm {low}}\leq B_{\textrm {high}}$ and $ A_{\textrm {high}}\geq B_{\textrm {low}}$. 
+
+> NOTE:
+>
+> 一、对于上述条件，其实可以反向来思考: 何时两个interval不相交？显然反向问题非常简单: 
+>
+> 1、A 在 B 的左边
+>
+> 2、A 在 B 的右边
+
+When searching the trees for nodes overlapping with a given interval, you can immediately skip:
+
+1、all nodes to the right of nodes whose low value is past the end of the given interval.
+
+> NOTE:
+>
+> 一、上面这段话的意思是: 对于一个节点，如果它的low value比interval的high value还要大，那么这个节点包括它的右节点显然都不会和这个interval相交
+>
+> 二、上述对应的是: A(given interval、target interval) 在 B的左边
+
+2、all nodes that have their maximum high value below the start of the given interval.
+
+> NOTE:
+>
+> 一、上述对应的是: A(given interval、target interval) 在 B的右边
+
+
+
+
+
 
 
 ## geeksforgeeks [Interval Tree](https://www.geeksforgeeks.org/interval-tree/)
@@ -71,3 +101,6 @@ is greater than x's low value, recur for left child
 
 3) Else recur for right child.
 ```
+
+***How does the above algorithm work?*** 
+
