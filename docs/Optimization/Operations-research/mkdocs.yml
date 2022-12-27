@@ -1,6 +1,7 @@
 nav:
     - Introduction: index.md
     - Linear-programming: Linear-programming
+    - Nonlinear-programming: Nonlinear-programming
     - COIN-OR: COIN-OR
     - James-H-Wilkinson: James-H-Wilkinson
     
