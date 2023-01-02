@@ -1,8 +1,59 @@
 # Dummy node技巧
 
+
+
 ## stackoverflow [What is a Dummy Head?](https://stackoverflow.com/questions/37324972/what-is-a-dummy-head)
 
 
+
+[A](https://stackoverflow.com/a/37330797)
+
+Dummy nodes are more like a hack and are commonly used when you want to avoid writing additional code for edge cases.
+
+Consider the following case of inserting at tail in a linked list:
+
+```java
+void insertAtTail(Node oldTail, int i){
+    Node newTail = new Node(i);
+    oldTail.next = newTail;
+    return newTail;
+}
+```
+
+This works fine when oldTail is not null. But imagine the scenario where we are trying to perform insertAtTail() on an empty list. The above written code will not work if the node is null. Therefore, we've to handle the edge case of checking if oldTail is null:
+
+```java
+Node insertAtTail(Node oldTail, int i){
+    Node newTail = new Node(i);
+    if(oldTail == null) {return newTail;}
+    oldTail.next = newTail;
+    return newTail;
+}
+```
+
+It's in scenarios like these that dummy nodes come in handy. Imagine I've a dummy node as follows:
+
+```java
+Node dummy = new Node(0);
+```
+
+Now we pass this dummy node to the calling function:
+
+```java
+insertAtTail(dummy, 5);
+```
+
+When a dummy node is passed to the calling function, you'll see that there's no need to check if dummy is null here. Therefore, we can skip the check for empty node:
+
+```java
+Node insertAtTail(Node dummy, int i){
+    Node newTail = new Node(i);
+    dummy.next = newTail;
+    return newTail;
+}
+```
+
+As you can see, I've removed the check for null here.
 
 [A](https://stackoverflow.com/a/50221469)
 
@@ -10,9 +61,29 @@ When the **head** of the Linked List doesn't point to any Node, you create a Dum
 
 
 
+## stackoverflow [Dummy nodes in linked lists](https://stackoverflow.com/questions/22952882/dummy-nodes-in-linked-lists)
 
 
-这是一种在linked list algorithm实现中，常用的一种technique，按照字面意思"dummy"的意思是"假的"，其实本质上来说，"dummy node"的确是"假的头节点"，它相当于一个**占位符**，包装总是有这样的一个节点在（最最典型的就是 [LeetCode-19. 删除链表的倒数第 N 个结点](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/) ），这样就避免了在对链表进行**修改**的时候对空指针进行讨论而增加代码的复杂度，在 labuladong [单链表的六大解题套路，你都见过么？](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247492022&idx=1&sn=35f6cb8ab60794f8f52338fab3e5cda5&scene=21#wechat_redirect)  中，将其称之为"虚拟头节点"，这个翻译更加准确。在对链表的如下修改中，可以使用这个technique:
+
+[A](https://stackoverflow.com/a/68537188)
+
+In algorithms questions, we always pass the head of the linked list as the argument. If you are changing the position of the head node and you need to return the new head node, the problem will be how are you gonna return the new head. That's why we initially create a dummy node and `dummy.next` will point to the head. So, if you are potentially modifying the head of list, use dummy node
+
+> NOTE:
+>
+> 一、在LeetCode的linked list题目中，大多数都是将linked list的head node作为入参来表示完整的linked list，并且很多算法都会出现上面描述的情形:
+>
+> "If you are changing the position of the head node and you need to return the new head node, the problem will be how are you gonna return the new head"
+>
+> 比如:
+>
+> 1、[LeetCode-19. 删除链表的倒数第 N 个结点](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/) 
+>
+> 2、[LeetCode-24. 两两交换链表中的节点](https://leetcode.cn/problems/swap-nodes-in-pairs/)
+>
+> 3、[LeetCode-1721. 交换链表中的节点-中等](https://leetcode.cn/problems/swapping-nodes-in-a-linked-list/) 
+
+这是一种在linked list algorithm实现中，常用的一种technique，按照字面意思"dummy"的意思是"虚设的、形式的"，其实本质上来说，"dummy node"的确是"虚设的头节点"，它相当于一个**占位符**，包装总是有这样的一个节点在（最最典型的就是 [LeetCode-19. 删除链表的倒数第 N 个结点](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/) ），这样就避免了在对链表进行**修改**的时候对空指针进行讨论而增加代码的复杂度，在 labuladong [单链表的六大解题套路，你都见过么？](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247492022&idx=1&sn=35f6cb8ab60794f8f52338fab3e5cda5&scene=21#wechat_redirect)  中，将其称之为"虚拟头节点"，这个翻译更加准确。在对链表的如下修改中，可以使用这个technique:
 
 1、create linked list
 
