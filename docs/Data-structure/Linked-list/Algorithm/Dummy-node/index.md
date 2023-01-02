@@ -82,6 +82,8 @@ In algorithms questions, we always pass the head of the linked list as the argum
 > 2、[LeetCode-24. 两两交换链表中的节点](https://leetcode.cn/problems/swap-nodes-in-pairs/)
 >
 > 3、[LeetCode-1721. 交换链表中的节点-中等](https://leetcode.cn/problems/swapping-nodes-in-a-linked-list/) 
+>
+> dummy node保证能够以相同的逻辑来处理所有的节点，它是一个我们创建的节点
 
 这是一种在linked list algorithm实现中，常用的一种technique，按照字面意思"dummy"的意思是"虚设的、形式的"，其实本质上来说，"dummy node"的确是"虚设的头节点"，它相当于一个**占位符**，包装总是有这样的一个节点在（最最典型的就是 [LeetCode-19. 删除链表的倒数第 N 个结点](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/) ），这样就避免了在对链表进行**修改**的时候对空指针进行讨论而增加代码的复杂度，在 labuladong [单链表的六大解题套路，你都见过么？](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247492022&idx=1&sn=35f6cb8ab60794f8f52338fab3e5cda5&scene=21#wechat_redirect)  中，将其称之为"虚拟头节点"，这个翻译更加准确。在对链表的如下修改中，可以使用这个technique:
 
