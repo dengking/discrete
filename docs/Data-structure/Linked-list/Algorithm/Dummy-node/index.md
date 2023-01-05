@@ -147,6 +147,12 @@ ListNode findFromEnd(ListNode head, int k) {
 
 
 
+### Pattern: dummy node+prev cur next三指针
+
+TODO: 总结这种算法模式
+
+
+
 ## 二、创建一个新的single-linked-list
 
 create linked list pattern: dummy node+append to tail
