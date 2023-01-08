@@ -16,10 +16,10 @@
 
 二、算法总结:
 
-| 方向       | 从左到右-从首到尾                      | 从右到左-从尾到首 |
-| ---------- | -------------------------------------- | ----------------- |
-| **基础版** | previous-current-next-三指针-iteration | explici-stack     |
-| **递归版** | DFS-pre-order                          | DFS-post-order    |
+| 方向       | 从左到右-从首到尾                             | 从右到左-从尾到首 |
+| ---------- | --------------------------------------------- | ----------------- |
+| **基础版** | previous-current-next-three-pointer-iteration | explici-stack     |
+| **递归版** | DFS-pre-order                                 | DFS-post-order    |
 
 1、上述**递归版**是对**基础版**的递归实现，我们可以看出它们的内在关系
 
@@ -33,7 +33,7 @@ action-2: 让current node的next node指向current node
 
 ### 从左到右-从首到尾-迭代
 
-1、基于"previous-current-next-三指针-iteration"；
+1、基于"previous-current-next-three-pointer-iteration"；
 
 2、action-1
 
@@ -55,7 +55,7 @@ action-2: 让current node的next node指向current node
 
 #### 一、从左到右-从首到尾-DFS-pre-order
 
-1、这种写法是比较容易理解的，因为它符合"previous-current-next-三指针-iteration"
+1、这种写法是比较容易理解的，因为它符合"previous-current-next-three-pointer-iteration"
 
 2、pre-order-action: 对cur进行修改: 将cur的next替换位`pre`，这样就完成了反转。
 

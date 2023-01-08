@@ -16,7 +16,7 @@ Linked-list 、tree和graph都是concrete strucutre，而state/solution space是
 
 
 
-## Traverse linked-list VS Tree VS Graph VS State/Solution space
+## *Traverse* Linked-list VS Tree VS Graph VS State/Solution space
 
 素材:
 
@@ -78,11 +78,11 @@ DFS Graph采用的是类似于preorder的策略；
 
 ### 章节
 
-|                      | 章节                   |      |
-| -------------------- | ---------------------- | ---- |
-| Traverse-linked-list | `Traverse-linked-list` |      |
-| Traverse-tree        | `Traverse-tree`        |      |
-| Traverse-graph       | `Traverse-graph`       |      |
+|                      | 章节                   |
+| -------------------- | ---------------------- |
+| Traverse-linked-list | `Traverse-linked-list` |
+| Traverse-tree        | `Traverse-tree`        |
+| Traverse-graph       | `Traverse-graph`       |
 
 
 
@@ -225,6 +225,12 @@ Finding the [shortest path](https://en.wikipedia.org/wiki/Shortest_path) between
 概括来说就是"stop when target"，"stop when target"的意思是: "当达到目标后，就停止traverse"，stop-condition:
 
 1、到达了目标节点
+
+
+
+## k-step步长-span跨度-stride跨度-traverse
+
+TODO
 
 
 
