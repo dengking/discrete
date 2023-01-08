@@ -107,9 +107,9 @@ https://leetcode.cn/problemset/all/?search=%E5%90%88%E5%B9%B6%20
 
 
 
-[LeetCode-912. 排序数组](https://leetcode.cn/problems/sort-an-array/) (merge sort) 和 leetcode [21. 合并两个有序链表](https://leetcode.cn/problems/merge-two-sorted-lists/) 
+[LeetCode-912. 排序数组](https://leetcode.cn/problems/sort-an-array/) (merge sort) 和 [LeetCode-21. 合并两个有序链表](https://leetcode.cn/problems/merge-two-sorted-lists/) 
 
-merge sortmerge的部分，和 [LeetCode-21. 合并两个有序链表](https://leetcode.cn/problems/merge-two-sorted-lists/) 的逻辑是非常类似的。
+merge sort的merge的部分，和 [LeetCode-21. 合并两个有序链表](https://leetcode.cn/problems/merge-two-sorted-lists/) 的逻辑是非常类似的。
 
 下面的是合并两个序列的题目:
 
@@ -165,9 +165,9 @@ merge sortmerge的部分，和 [LeetCode-21. 合并两个有序链表](https://l
 
 ### merge + top K
 
-#### [LeetCode-373. 查找和最小的 K 对数字](https://leetcode.cn/problems/find-k-pairs-with-smallest-sums/) 中等
+#### [LeetCode-373. 查找和最小的 K 对数字-中等](https://leetcode.cn/problems/find-k-pairs-with-smallest-sums/) 
 
-#### [LeetCode-786. 第 K 个最小的素数分数](https://leetcode.cn/problems/k-th-smallest-prime-fraction/) 困难
+#### [LeetCode-786. 第 K 个最小的素数分数-困难](https://leetcode.cn/problems/k-th-smallest-prime-fraction/) 
 
-#### [LeetCode-378. 有序矩阵中第 K 小的元素](https://leetcode.cn/problems/kth-smallest-element-in-a-sorted-matrix/) 中等
+#### [LeetCode-378. 有序矩阵中第 K 小的元素-中等](https://leetcode.cn/problems/kth-smallest-element-in-a-sorted-matrix/) 
 

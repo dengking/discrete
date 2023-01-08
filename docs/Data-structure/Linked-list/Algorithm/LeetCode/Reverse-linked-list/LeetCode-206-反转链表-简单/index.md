@@ -6,7 +6,9 @@
 
 ## 我的解题
 
+### 迭代"previous-current-next" 三指针
 
+思路: 基于"previous-current-next" 三指针；对每个节点，让它的next指向它的previous即可。
 
 ```C++
 #include <bits/stdc++.h>
@@ -101,11 +103,64 @@ int main()
 
 ```
 
+### dfs-pre-order
+
+
+
+```c++
+#include <iostream>
+using namespace std;
+
+// Definition for singly-linked list.
+struct ListNode
+{
+    int val;
+    ListNode *next;
+    ListNode() : val(0), next(nullptr)
+    {
+    }
+    ListNode(int x) : val(x), next(nullptr)
+    {
+    }
+    ListNode(int x, ListNode *next) : val(x), next(next)
+    {
+    }
+};
+
+class Solution
+{
+public:
+    ListNode *reverseList(ListNode *head)
+    {
+        return dfsPreOrder(nullptr, head);
+    }
+    ListNode *dfsPreOrder(ListNode *prev, ListNode *cur)
+    {
+        if (cur)
+        {
+            auto *next = cur->next;
+            cur->next = prev;
+            return dfsPreOrder(cur, next);
+        }
+        else
+        {
+            return prev;
+        }
+    }
+};
+
+int main()
+{
+}
+// g++ test.cpp -pedantic -Wall -Wextra --std=c++11
+
+```
+
+
+
 1、上述递归版本的实现，相较于 [官方解题](https://leetcode.cn/problems/reverse-linked-list/solution/fan-zhuan-lian-biao-by-leetcode-solution-d1k2/) 中的递归版本是更加容易理解的，它和迭代版本有着较好的对应。
 
-2、recursion and iteration
 
-3、"One-by-one-move next-向后滑动一步"
 
 ## [官方解题](https://leetcode.cn/problems/reverse-linked-list/solution/fan-zhuan-lian-biao-by-leetcode-solution-d1k2/)
 

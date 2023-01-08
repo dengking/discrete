@@ -1,6 +1,7 @@
 nav:
     - Introduction: index.md
+    - Single-linked-list: Single-linked-list
+    - Double-linked-list: Double-linked-list
     - Unrolled-linked-list: Unrolled-linked-list
-    - Double-linked-list: Double-linked-list        
-
     - Algorithm: Algorithm
+    

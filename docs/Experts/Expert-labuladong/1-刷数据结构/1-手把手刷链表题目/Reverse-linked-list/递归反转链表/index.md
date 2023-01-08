@@ -10,7 +10,7 @@
 >
 > 二、原题
 >
-> [LeetCode-92. 反转链表 II](https://leetcode.cn/problems/reverse-linked-list-ii/) 中等
+> [LeetCode-92. 反转链表-II-中等](https://leetcode.cn/problems/reverse-linked-list-ii/) 
 
 
 
@@ -30,9 +30,9 @@ ListNode reverse(ListNode head) {
 
 > NOTE: 
 >
-> 上述是典型的借助system stack来进行反转，在整个调用栈中，`last`的值会一直保持不变: 指向原来的tail，显然最终执行完成后，上述函数的返回值就是last，也就是指向原来的最后一个节点，现在它是新的head了。
+> 一、上述是典型的借助system stack来进行反转，在整个调用栈中，`last`的值会一直保持不变: 指向原来的tail，显然最终执行完成后，上述函数的返回值就是last，也就是指向原来的最后一个节点，现在它是新的head了。
 >
-> 递归函数体，所做的工作其实如下:
+> 二、post-order-action:
 >
 > ```c++
 >     head.next.next = head; // 将当前节点作为它的next的next

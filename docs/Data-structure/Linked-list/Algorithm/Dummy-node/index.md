@@ -22,8 +22,6 @@ LeetCode中single-linked-list类题目主要有如下两种模式:
 
 ## 素材
 
-
-
 1、[LeetCode-19. 删除链表的倒数第 N 个结点](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/) # [官方解题](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/solution/shan-chu-lian-biao-de-dao-shu-di-nge-jie-dian-b-61/) 
 
 2、 labuladong [单链表的六大解题套路，你都见过么？](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247492022&idx=1&sn=35f6cb8ab60794f8f52338fab3e5cda5&scene=21#wechat_redirect) 
@@ -147,10 +145,6 @@ ListNode findFromEnd(ListNode head, int k) {
 
 
 
-### Pattern: dummy node+prev cur next三指针
-
-TODO: 总结这种算法模式
-
 
 
 ## 二、创建一个新的single-linked-list
@@ -233,18 +227,4 @@ As you can see, I've removed the check for null here.
 When the **head** of the Linked List doesn't point to any Node, you create a Dummy Head (Node) pointed from that **head**. So that you would always be able to reach e.g. `head.val` or `head.next` without doing any extra null checks.
 
 
-
-## TODO
-
-一、linked-list-k-step步长-span跨度-stride跨度-iteration
-
-同样是可以使用prev-cur-next三指针
-
-二、linked-list node的分类:
-
-1、head node
-
-2、internal node
-
-3、tail node
 

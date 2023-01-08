@@ -1,33 +1,42 @@
 # Linked list algorithm
 
-## Algorithm总结
+## 素材
 
-创建
+一、geeksforgeeks [Linked List Data Structure](https://www.geeksforgeeks.org/data-structures/linked-list/)
 
-增
+对linked list的各种operation进行了非常好的总结
 
-删
+二、labuladong [单链表的六大解题套路，你都见过么？](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247492022&idx=1&sn=35f6cb8ab60794f8f52338fab3e5cda5&scene=21#wechat_redirect) 
 
-改
 
-查
 
-反转
+## operations
 
-排序
+### 创建
+
+### 增
+
+### 删
+
+### 改
+
+### 查
+
+### 反转
+
+### 排序
+
+
 
 ## Techniques
 
-### 边走边算
+1、traverse-linked-list
 
-linked list只支持sequential access，它的很多algorithm都是基于traverse，一边进行traverse一边进行计算。
+2、dummy-node
 
-### Fast-slow-double-pointer-快慢双指针
 
-### Previous-current-next-pointer-三指针
 
-对linked list的很多操作，都是基于previous pointer、current pointer、next pointer。
+### Pattern: dummy node+prev cur next三指针
 
-### Dummy-node
+TODO: 总结这种算法模式
 
-### Sentinel-node

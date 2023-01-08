@@ -4,7 +4,13 @@
 
 ## 我的解题
 
-### 使用后序遍历、implicit stack
+这道题的下面解法是最最能够体现: explicit stack VS recursion implicit stack 的。
+
+
+
+### DFS-post-order
+
+在post action中，执行insert。
 
 ```C++
 #include <bits/stdc++.h>
