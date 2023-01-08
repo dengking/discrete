@@ -16,7 +16,7 @@ Linked-list 、tree和graph都是concrete strucutre，而state/solution space是
 
 
 
-## Traverse Linked-list VS Tree VS Graph VS State/Solution space
+## Traverse linked-list VS Tree VS Graph VS State/Solution space
 
 素材:
 
