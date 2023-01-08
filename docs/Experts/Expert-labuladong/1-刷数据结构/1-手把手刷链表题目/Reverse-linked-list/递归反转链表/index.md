@@ -21,7 +21,7 @@ ListNode reverse(ListNode head) {
     if (head.next == null) return head; // 如果是tail，则直接返回
     ListNode last = reverse(head.next); // 递归调用
     head.next.next = head; // 将当前节点作为它的next的next
-    head.next = null; // 将当前节点作为tail
+    head.next = null; // 将当前节点作为tail，这一步非常重要，否则构造出的linked-list就没有tail了
     return last;
 }
 ```
