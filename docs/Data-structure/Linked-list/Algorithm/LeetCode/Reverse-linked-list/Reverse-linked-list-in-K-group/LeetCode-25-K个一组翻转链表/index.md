@@ -4,92 +4,69 @@
 
 ## 我的解题
 
+这是参考的labuladong [递归思维：k 个一组反转链表](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247484597&idx=1&sn=c603f1752e33cb2701e371d84254aee2&scene=21#wechat_redirect) 写的
 
+因为题目要求不足k个node的时候不反转，因此不能够使用"计数+tail node"的方式来判断是否停止reverse，而是只能够通过计数节点个数来决定是否进行反转。
 
 ```c++
-// #include <bits/stdc++.h>
-#include <iostream>
-#include <string>
-#include <algorithm>
-#include <vector>
-#include <bitset>
-#include <map>
-#include <list>
-#include <stack>
-#include <unordered_map>
-#include <unordered_set>
-#include <queue>
-#include <deque>
-#include <cmath>
-#include <numeric>
-#include <climits>
-#include <random>
 
-// example1.cpp
-// new-delete-type-mismatch error
-#include <memory>
-#include <vector>
-using namespace std;
 
 struct ListNode
 {
-  int val;
-  ListNode *next;
-  ListNode() : val(0), next(nullptr) {}
-  ListNode(int x) : val(x), next(nullptr) {}
-  ListNode(int x, ListNode *next) : val(x), next(next) {}
+    int val;
+    ListNode *next;
+    ListNode() : val(0), next(nullptr) {}
+    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 
 class Solution
 {
 public:
-  ListNode *reverseKGroup(ListNode *head, int k)
-  {
-    ListNode *a = head, *b = head; // b指向下一段起点
-    for (int i = 0; i < k; i++)
+    /// @brief
+    /// @param head
+    /// @param k
+    /// @return head node
+    ListNode *reverseKGroup(ListNode *head, int k)
     {
-      if (b)
-      {
-        b = b->next;
-      }
-      else // 从head开始的节点数，不足k个，在这种情况下直接返回，不需要进行反转
-      {
-        return head;
-      }
+        ListNode *itor = head;
+        for (int i = 0; i < k; i++) // 先判断是否有k个节点，如果不足k个节点，则不反转
+        {
+            if (itor)
+            {
+                itor = itor->next;
+            }
+            else // 从head开始的节点数，不足k个，在这种情况下直接返回，不需要进行反转
+            {
+                return head;
+            }
+        } // 当退出这个循环的时候，itor所指向的是第k个节点的next
+
+        auto *newHead = reverse(head, itor);
+        ListNode *tail = head;               // 原来的head在经过反转后成为了tail
+        tail->next = reverseKGroup(itor, k); // 与原链表连接在一起
+        return newHead;
     }
-    auto *newHead = reverse(head, b);
-    a->next = reverseKGroup(b, k); // 与原链表连接在一起
-    return newHead;
-  }
-  ListNode *reverse(ListNode *head, ListNode *end)
-  {
-    ListNode *prev = nullptr, *cur = head, *next = nullptr;
-    while (cur != end)
+    /// @brief
+    /// @param head
+    /// @param end 不包括end，和c++的begin、end一样
+    /// @return
+    ListNode *reverse(ListNode *head, ListNode *end)
     {
-      next = cur->next;
-      cur->next = prev;
-      prev = cur;
-      cur = next;
+        ListNode *prev = nullptr, *cur = head, *next = nullptr;
+        while (cur != end)
+        {
+            next = cur->next;
+            cur->next = prev;
+            prev = cur;
+            cur = next;
+        }
+        return prev;
     }
-    return prev;
-  }
 };
 
 int main()
 {
-  auto *one = new ListNode(1);
-  auto *two = new ListNode(2);
-  auto *three = new ListNode(3);
-  auto *four = new ListNode(4);
-  auto *five = new ListNode(5);
-
-  one->next = two;
-  two->next = three;
-  three->next = four;
-  four->next = five;
-
-  Solution s;
-  s.reverseKGroup(one, 2);
 }
 // g++ test.cpp --std=c++11 -pedantic -Wall -Wextra
 
