@@ -36,7 +36,9 @@ linked list的结构非常简单，并且只支持 [sequential access](https://e
 
 
 
-## k-step步长-span跨度-stride跨度-traverse
+## 高级的traverse方式
+
+### k-step步长-span跨度-stride跨度-traverse
 
 一、linked-list-k-step步长-span跨度-stride跨度-iteration
 
@@ -44,7 +46,14 @@ linked list的结构非常简单，并且只支持 [sequential access](https://e
 
 
 
-## k-way-traverse
+### k-way-traverse
 
-TODO
+"k-way"即"多路"，表示同时traverse多个linked-list
 
+
+
+### 从两边到中间相向而行、from sides to middle
+
+一、回文式、消消乐
+
+最最典型的就是回文链表

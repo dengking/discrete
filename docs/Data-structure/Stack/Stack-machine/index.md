@@ -16,7 +16,3 @@ In the case of a hardware processor, a [hardware stack](https://en.wikipedia.org
 
 Stack machines extend [push-down automaton](https://en.wikipedia.org/wiki/Push-down_automaton) with additional load/store operations or multiple stacks and hence are [Turing-complete](https://en.wikipedia.org/wiki/Turing_completeness).
 
-> NOTE:
->
-> 
-
