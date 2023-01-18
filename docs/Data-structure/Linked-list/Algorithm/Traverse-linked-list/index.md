@@ -12,6 +12,8 @@ linked list的结构非常简单，并且只支持 [sequential access](https://e
 
 1、`Reverse-linked-list` 章节
 
+2、`Palindrome-linked-list` 章节
+
 
 
 ### Traverse by iteration
@@ -33,6 +35,8 @@ linked list的结构非常简单，并且只支持 [sequential access](https://e
 素材: 
 
 一、labuladong [递归反转链表：如何拆解复杂问题](https://mp.weixin.qq.com/s/5wz_YJ3lTkDH3nWfVDi5SA) 
+
+二、labuladong [如何高效判断回文单链表？](https://mp.weixin.qq.com/s/tCgEoOlZKS_ohuTx1VxJ-Q) 
 
 
 
@@ -56,4 +60,6 @@ linked list的结构非常简单，并且只支持 [sequential access](https://e
 
 一、回文式、消消乐
 
-最最典型的就是回文链表
+最最典型的就是回文链表，参见:
+
+1、labuladong [如何高效判断回文单链表？](https://mp.weixin.qq.com/s/tCgEoOlZKS_ohuTx1VxJ-Q) 
