@@ -18,77 +18,67 @@
 
 
 
-#### Recursion-DFS-post-order
+#### Left right double pointer by DFS post order
 
-本质上是双指针
+1、本质上是left-right-double-pointer
 
-post-action: 比较left pointer和right pointer
+2、DFS-post-action: 比较left pointer和right pointer
+
+3、本质上对linked-list进行了reverse，因此它是可以使用explicit stack的
 
 ```C++
-#include <bits/stdc++.h>
-using namespace std;
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode() : val(0), next(nullptr) {}
- *     ListNode(int x) : val(x), next(nullptr) {}
- *     ListNode(int x, ListNode *next) : val(x), next(next) {}
- * };
- */
+
 
 struct ListNode
 {
-	int val;
-	ListNode *next;
-	ListNode() :
-					val(0), next(nullptr)
-	{
-	}
-	ListNode(int x) :
-					val(x), next(nullptr)
-	{
-	}
-	ListNode(int x, ListNode *next) :
-					val(x), next(next)
-	{
-	}
+    int val;
+    ListNode *next;
+    ListNode() : val(0), next(nullptr)
+    {
+    }
+    ListNode(int x) : val(x), next(nullptr)
+    {
+    }
+    ListNode(int x, ListNode *next) : val(x), next(next)
+    {
+    }
 };
 class Solution
 {
-	ListNode *left { nullptr };
+    ListNode *left{nullptr};
+
 public:
-	bool isPalindrome(ListNode *head)
-	{
-		left = head;
-		return postOrderTraverse(head);
-	}
-	bool postOrderTraverse(ListNode *right)
-	{
-		if (right)
-		{
-			bool res = postOrderTraverse(right->next) && (left->val == right->val);
-			left = left->next;
-			return res;
-		}
-		else
-		{
-			return true;
-		}
-	}
+    bool isPalindrome(ListNode *head)
+    {
+        left = head;
+        return postOrderTraverse(head);
+    }
+    bool postOrderTraverse(ListNode *right)
+    {
+        if (right)
+        {
+            bool res = postOrderTraverse(right->next); // 必须先压栈
+            res = res && (left->val == right->val);
+            left = left->next;
+
+            return res;
+        }
+        else // base case: 空链表是回文的
+        {
+            return true;
+        }
+    }
 };
 
 int main()
 {
-
 }
-// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra
-
 
 ```
 
+#### Left right double pointer by explicit stack
 
+TODO
 
 #### 中点、反转、节省空间
 
