@@ -43,6 +43,7 @@ struct ListNode
     {
     }
 };
+
 class Solution
 {
     ListNode *left{nullptr};
