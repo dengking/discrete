@@ -8,7 +8,9 @@
 
 In [mathematics](https://en.wikipedia.org/wiki/Mathematics), a **recurrence relation** is an [equation](https://en.wikipedia.org/wiki/Equation) that [recursively](https://en.wikipedia.org/wiki/Recursion) defines a [sequence](https://en.wikipedia.org/wiki/Sequence) or multidimensional array of values, once one or more initial terms are given; each further term of the sequence or array is defined as a [function](https://en.wikipedia.org/wiki/Function_(mathematics)) of the preceding terms.
 
-> NOTE: 显然，recurrence relation是一个的[recursive definition](./Recursive-definition.md)。
+> NOTE: 
+>
+> 显然，recurrence relation是一个的recursive definition。
 
 The term **difference equation** sometimes (and for the purposes of this article) refers to a specific type of **recurrence relation**. However, "difference equation" is frequently used to refer to *any* recurrence relation.
 

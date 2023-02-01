@@ -1,13 +1,34 @@
-# [Corecursion](https://en.wikipedia.org/wiki/Corecursion)
+# Corecursion
 
-共递归
+wikipedia [Dual](https://en.wikipedia.org/wiki/Dual) 
 
-In [computer science](https://en.wikipedia.org/wiki/Computer_science), **corecursion** is a type of operation that is [dual](https://en.wikipedia.org/wiki/Dual_(category_theory)) to [recursion](https://en.wikipedia.org/wiki/Recursion_(computer_science)). Whereas recursion works **analytically**, starting on data further from a **base case** and breaking it down into smaller data and repeating until one reaches a base case, corecursion works **synthetically**, starting from a **base case** and building it up, iteratively producing data further removed from a base case. Put simply, **corecursive algorithms** use the data that they themselves produce, bit by bit, as they become available, and needed, to produce further bits of data. A similar but distinct concept is [*generative recursion*](https://en.wikipedia.org/wiki/Generative_recursion#Structural_versus_generative_recursion) which may lack a definite（确切的） "direction" inherent in corecursion and recursion.
+> [Dual (mathematics)](https://en.wikipedia.org/wiki/Dual_(mathematics)), a notion of paired concepts that mirror one another
 
-> NOTE: recursion 和 corecursion 的计算方向是相反：对于一个 [recurrence relations](https://en.wikipedia.org/wiki/Recurrence_relation) ，如*n! := n × (n - 1)!*.，recursion是从左至右，但是corecursion是从右至左，但是能够殊途同归
-> - recursion works **analytically** VS corecursion works **synthetically**
-> - recursion top-down VS corecursion bottom-up
-> - recursion reduce VS corecursion produce
+显然:
+
+> **corecursion** is a type of operation that is [dual](https://en.wikipedia.org/wiki/Dual_(category_theory)) to [recursion](https://en.wikipedia.org/wiki/Recursion_(computer_science))
+
+
+
+## wikipedia [Corecursion](https://en.wikipedia.org/wiki/Corecursion)
+
+
+
+In [computer science](https://en.wikipedia.org/wiki/Computer_science), **corecursion** is a type of operation that is [dual](https://en.wikipedia.org/wiki/Dual_(category_theory)) to [recursion](https://en.wikipedia.org/wiki/Recursion_(computer_science)): 
+
+1、recursion works **analytically**, starting on data further from a **base case** and breaking it down into smaller data and repeating until one reaches a base case, 
+
+2、corecursion works **synthetically**, starting from a **base case** and building it up, iteratively producing data further removed from a base case. Put simply, **corecursive algorithms** use the data that they themselves produce, bit by bit, as they become available, and needed, to produce further bits of data. A similar but distinct concept is [*generative recursion*](https://en.wikipedia.org/wiki/Generative_recursion#Structural_versus_generative_recursion) which may lack a definite（确切的） "direction" inherent in corecursion and recursion.
+
+> NOTE: 
+>
+> 一、recursion 和 corecursion 的计算方向是相反：对于一个 [recurrence relations](https://en.wikipedia.org/wiki/Recurrence_relation) ，如*n! := n × (n - 1)!*.，recursion是从左至右，但是corecursion是从右至左，但是能够殊途同归
+>
+> 1、recursion works **analytically** VS corecursion works **synthetically**
+>
+> 2、recursion top-down VS corecursion bottom-up
+>
+> 3、recursion reduce VS corecursion produce
 
 Where recursion allows programs to operate on arbitrarily complex data, so long as they can be reduced to simple data (base cases), corecursion allows programs to produce arbitrarily complex and potentially infinite data structures, such as [streams](https://en.wikipedia.org/wiki/Stream_(computing)), so long as it can be produced from simple data (**base cases**) in a sequence of *finite* steps. Where recursion may not terminate, never reaching a **base state**, corecursion starts from a **base state**, and thus produces subsequent steps deterministically, though it may proceed indefinitely (and thus not terminate under strict evaluation), or it may consume more than it produces and thus become non-*productive*. Many functions that are traditionally analyzed as recursive can alternatively, and arguably more naturally, be interpreted as **corecursive functions** that are terminated at a given stage, for example [recurrence relations](https://en.wikipedia.org/wiki/Recurrence_relation) such as the factorial（阶乘）.
 
