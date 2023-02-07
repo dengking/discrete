@@ -207,4 +207,3 @@ for any natural number *n*.
 
 In [recursive function theory](https://en.wikipedia.org/wiki/Recursive_function_theory), **double recursion** is an extension of [primitive recursion](https://en.wikipedia.org/wiki/Primitive_recursion) which allows the definition of non-primitive recursive functions like the [Ackermann function](https://en.wikipedia.org/wiki/Ackermann_function).
 
-

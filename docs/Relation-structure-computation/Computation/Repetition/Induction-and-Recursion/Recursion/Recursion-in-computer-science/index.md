@@ -30,7 +30,7 @@
 
 2、Subobjects（参见cppreference [Object#Subobjects](https://en.cppreference.com/w/cpp/language/object#Polymorphic_objects)）
 
-3、维基百科 [Optimal substructure](https://en.wikipedia.org/wiki/Optimal_substructure) 
+3、wikipedia [Optimal substructure](https://en.wikipedia.org/wiki/Optimal_substructure) 
 
 
 
@@ -63,8 +63,6 @@ multiple-dimensional array和multiple-level pointer可以递归的进行处理�
 
 
 素材:
-
-[Recursive grammar](https://en.wikipedia.org/wiki/Recursive_grammar)
 
 [Recursion theory（Computability theory）](https://en.wikipedia.org/wiki/Computability_theory)
 
