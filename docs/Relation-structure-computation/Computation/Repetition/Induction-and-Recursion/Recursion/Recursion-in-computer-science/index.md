@@ -311,3 +311,20 @@ multiple-dimensional array和multiple-level pointer可以递归的进行处理�
 
 - [Recursive set](https://en.wikipedia.org/wiki/Recursive_set)
 - [Recursively enumerable set](https://en.wikipedia.org/wiki/Recursively_enumerable_set)
+
+
+
+
+
+## Recursion and functional programming
+
+在functional programming一般使用recursion来实现repetition，关于此，在下面文章中有描述:
+
+wikipedia [Recursion (computer science)](https://infogalactic.com/info/Recursion_(computer_science))
+
+> Some [functional programming languages](https://infogalactic.com/info/Functional_languages) do not define any looping constructs but rely solely on recursion to repeatedly call code. 
+
+wikipedia [Functional programming](https://infogalactic.com/info/Functional_programming)
+
+> [Iteration](https://infogalactic.com/info/Iteration) (looping) in functional languages is usually accomplished via [recursion](https://infogalactic.com/info/Recursion). [Recursive functions](https://infogalactic.com/info/Recursion_(computer_science)) invoke themselves, allowing an operation to be performed over and over until the [base case](https://infogalactic.com/info/Recursion_(computer_science)) is reached. 
+

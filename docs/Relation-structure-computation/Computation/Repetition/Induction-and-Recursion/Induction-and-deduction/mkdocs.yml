@@ -1,5 +1,4 @@
 nav:
     - Introduction: index.md
-    - Induction-and-deduction: Induction-and-deduction.md
     - Induction: Induction.md
     - Coinduction: Coinduction.md

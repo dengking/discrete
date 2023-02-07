@@ -1,6 +1,6 @@
 nav:
     - Introduction: index.md
     - Recursive-data-type: Recursive-data-type
-    - Recursion(computer-science): Recursion(computer-science)
+    - Recursive-program: Recursive-program
     - Structural-and-generative-recursion: Structural-and-generative-recursion    
     - Corecursion: Corecursion

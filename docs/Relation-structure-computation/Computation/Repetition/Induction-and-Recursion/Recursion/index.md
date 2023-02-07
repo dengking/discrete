@@ -68,7 +68,7 @@ More generally, recursive definitions of functions can be made whenever the doma
 
 > In [mathematics](https://en.wikipedia.org/wiki/Mathematics) and [computer science](https://en.wikipedia.org/wiki/Computer_science), a **recursive definition**, or **inductive definition**（归纳定义）, is used to define the [elements](https://en.wikipedia.org/wiki/Element_(mathematics)) in a [set](https://en.wikipedia.org/wiki/Set_(mathematics)) in terms of other elements in the set
 
-关于“recursive definition”的一个例子就是[Recursive grammar](https://en.wikipedia.org/wiki/Recursive_grammar)，比如在维基百科[Recursion (computer science)](https://en.wikipedia.org/wiki/Recursion_(computer_science))的[Recursive data types](https://en.wikipedia.org/wiki/Recursion_(computer_science)#Recursive_data_types)段中给出了这样的一个例子：
+关于“recursive definition”的一个例子就是 [recursive grammar](https://en.wikipedia.org/wiki/Recursive_grammar)，比如在维基百科[Recursion (computer science)](https://en.wikipedia.org/wiki/Recursion_(computer_science))的[Recursive data types](https://en.wikipedia.org/wiki/Recursion_(computer_science)#Recursive_data_types)段中给出了这样的一个例子：
 
 ```
  <expr> ::= <number>
