@@ -56,7 +56,19 @@ Induction本质上都是[proof method](https://en.wikipedia.org/wiki/Proof_metho
 
 
 
-analytically top-down reduce
+## two direction、dual
 
-synthetically bottom-up produce
+base case + clause
+
+analytically top-down reduce to base case、stack push 
+
+synthetically bottom-up produce from base case、stack pop
+
+
+
+stack push+pop 才能够归零，才能够计算得到最终的结果。
+
+
+
+
 

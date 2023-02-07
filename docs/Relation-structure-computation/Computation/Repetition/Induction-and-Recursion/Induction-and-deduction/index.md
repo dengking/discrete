@@ -2,6 +2,12 @@
 
 在阅读中经常碰到这两个词语，“induction”即“归纳”，“deduction”即“演绎”，有必要对它们进行总结。
 
+## baike [归纳与演绎](https://baike.baidu.com/item/%E5%BD%92%E7%BA%B3%E4%B8%8E%E6%BC%94%E7%BB%8E/4879738?fr=aladdin)
+
+**归纳**与**演绎**是写作过程中逻辑思维的两种方式。人类认识活动，总是先接触到个别事物，而后推及一般，又从一般推及个别，如此循环往复，使认识不断深化。**归纳就是从个别到一般**，**演绎则是从一般到个别**。
+
+
+
 ## socialresearchmethods [Deduction & Induction](https://socialresearchmethods.net/kb/deduction-and-induction/)
 
 In logic, we often refer to the two broad methods of reasoning as the ***deductive*** and ***inductive*** approaches.
