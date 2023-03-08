@@ -2,7 +2,6 @@ nav:
     - Introduction: index.md
     - labuladong-一文秒杀所有区间相关问题: labuladong-一文秒杀所有区间相关问题
     - 秒懂力扣区间题目-重叠区间-合并区间-插入区间: 秒懂力扣区间题目-重叠区间-合并区间-插入区间
-    - Sweep-line-algorithm: Sweep-line-algorithm
     - Segment-tree: Segment-tree
     - Merge-intervals: Merge-intervals
     - LeetCode-986-区间列表的交集: LeetCode-986-区间列表的交集

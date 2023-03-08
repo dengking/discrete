@@ -1,4 +1,8 @@
-# [Computational problem](https://en.wikipedia.org/wiki/Computational_problem)
+# Computational problem
+
+
+
+## wikipedia [Computational problem](https://en.wikipedia.org/wiki/Computational_problem)
 
 In [theoretical computer science](https://en.wikipedia.org/wiki/Theoretical_computer_science), a **computational problem** is a [mathematical object](https://en.wikipedia.org/wiki/Mathematical_object) representing a collection of questions that [computers](https://en.wikipedia.org/wiki/Computers) might be able to solve. For example, the problem of **factoring**
 
@@ -12,7 +16,7 @@ A computational problem can be viewed as an infinite collection of *instances* t
 
 It is conventional to represent both instances and solutions by binary [strings](https://en.wikipedia.org/wiki/String_(computer_science)), namely elements of {0, 1}*. For example, numbers can be represented as binary strings using the binary encoding. (For readability, we identify numbers with their binary encodings in the examples below.)
 
-## Types of computational problems
+### Types of computational problems
 
 - [decision problem](https://en.wikipedia.org/wiki/Decision_problem) 
 - [search problem](https://en.wikipedia.org/wiki/Search_problem)

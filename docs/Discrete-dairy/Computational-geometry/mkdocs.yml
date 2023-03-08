@@ -1,2 +1,5 @@
 nav:
     - Introduction: index.md
+    - Closest-pair-of-points-problem: Closest-pair-of-points-problem
+    - Cartographic-generalization: Cartographic-generalization
+    - Sweep-line-algorithm: Sweep-line-algorithm
