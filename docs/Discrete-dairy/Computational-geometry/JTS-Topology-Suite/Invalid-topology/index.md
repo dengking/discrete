@@ -21,6 +21,12 @@ stackoverflow [Is there a way to convert a self intersecting polygon to a multip
 >
 > 
 
+gis.stackexchange [Fix/Repair invalid Geometry](https://gis.stackexchange.com/questions/376260/fix-repair-invalid-geometry) 
+
+
+
+[Fixing Invalid Geometry with JTS](http://lin-ear-th-inking.blogspot.com/2021/05/fixing-invalid-geometry-with-jts.html)
+
 
 
 ## [**GeometryFixer.java**](https://github.com/locationtech/jts/blob/master/modules/core/src/main/java/org/locationtech/jts/geom/util/GeometryFixer.java) 
