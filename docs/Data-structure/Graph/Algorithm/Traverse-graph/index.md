@@ -64,7 +64,7 @@ Several special cases of graphs imply(蕴含) the visitation of other vertices i
 
 ## Graph traversal and circle
 
-### Visited array
+### Visited set
 
 1、在graph traversal中，为了避免由于circle而导致的dead loop，graph traversal algorithm普遍采用的是“标记已经visited vertex，对于visited vertex，再次遇到的时候，直接pass掉”。
 
@@ -88,7 +88,7 @@ b、对于BFS: 对于current node的所有的descendant，只要没有被标准�
 
 
 
-#### 两种往visited array中添加节点的方式
+#### 两种往visited set中添加节点的方式
 
 1、先判断是否visited，如果是，则不入queue
 
