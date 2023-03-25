@@ -6,9 +6,9 @@
 
 ## Closure (mathematics)
 
-1、在龙书中有关于闭包的描述
+1、龙书
 
-2、在离散数学的关系章节中有闭包的描述
+2、离散数学的关系章节中有闭包的描述
 
 3、[Kleene star](https://en.wikipedia.org/wiki/Kleene_star)
 
@@ -76,9 +76,13 @@ The problem can also be solved by the [Floyd–Warshall algorithm](https://en.wi
 >
 > 
 
+
+
 ## winona [CS 440 Theory of Algorithms / CS 468 Algorithms in Bioinformatics](https://cs.winona.edu/lin/cs440/ch08-2.pdf)
 
-> NOTE: 在javatpoint [Warshall's Algorithm](https://www.javatpoint.com/warshalls-algorithm) 中，对这个PPT的内容进行了整理
+> NOTE: 
+>
+> 一、在javatpoint [Warshall's Algorithm](https://www.javatpoint.com/warshalls-algorithm) 中，对这个PPT的内容进行了整理
 
 ### What is transitive closure?
 
@@ -118,7 +122,9 @@ The problem can also be solved by the [Floyd–Warshall algorithm](https://en.wi
 
 ![](./winona-Warshall-Algorithm-PPT-6.jpg)
 
-## Implementation
+
+
+## Warshall’s algorithm code
 
 
 
@@ -190,4 +196,8 @@ int main()
 ```
 
 上述代码源自: scanftree [C Program to implement Warshall’s Algorithm](https://scanftree.com/programs/c/c-program-to-implement-warshalls-algorithm/)
+
+
+
+## BFS algorithm code
 
