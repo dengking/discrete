@@ -1,5 +1,6 @@
 nav:
     - Introduction: index.md
+    - Book-Introduction-to-Algorithms: Book-Introduction-to-Algorithms
     - 算法思维: 算法思维    
     - State-space-search: State-space-search # 可以看做是search       
     - Paradigm: Paradigm

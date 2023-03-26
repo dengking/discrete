@@ -42,6 +42,8 @@ Note that the implementation as disjoint-set forests doesn't allow the deletion 
 
 Sharir and Agarwal report connections between the worst-case behavior of disjoint-sets and the length of [Davenport–Schinzel sequences](https://en.wanweibaike.com/wiki-Davenport–Schinzel_sequence), a combinatorial structure from computational geometry.
 
+
+
 ## 素材
 
 1、baike [并查集](https://baike.baidu.com/item/%E5%B9%B6%E6%9F%A5%E9%9B%86/9388442?fr=aladdin)
