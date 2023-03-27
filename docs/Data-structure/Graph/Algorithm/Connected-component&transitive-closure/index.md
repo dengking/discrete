@@ -20,7 +20,23 @@ a、transitive closure是求解各个connected component
 
 b、disjoint-set(union-find-set)用于快速判断两个node是否属于同一个component
 
+
+
 ## wikipedia [Component (graph theory)](https://en.wikipedia.org/wiki/Component_(graph_theory))
 
 
+
+## wikipedia [Dynamic connectivity](https://en.wikipedia.org/wiki/Dynamic_connectivity)
+
+
+
+## wikipedia [Disjoint-set data structure](https://en.wikipedia.org/wiki/Disjoint-set_data_structure)
+
+
+
+Disjoint-set data structures play a key role in [Kruskal's algorithm](https://en.wikipedia.org/wiki/Kruskal's_algorithm) for finding the [minimum spanning tree](https://en.wikipedia.org/wiki/Minimum_spanning_tree) of a graph.
+
+> NOTE:
+>
+> minimal spanning tree的一个非常重要的operation就是判断一个node是否已经属于spanning-tree，这种operation正是disjoint-set的find操作。
 
