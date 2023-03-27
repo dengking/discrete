@@ -4,7 +4,6 @@ nav:
     - Tree-representation: Tree-representation    
     - Tree-data-structure: Tree-data-structure
     - Search-tree: Search-tree
-    - Disjoint-set: Disjoint-set
     - Implementation: Impl
     - Tree-algorithm: Tree-algorithm
     - Application: Application    

@@ -8,7 +8,6 @@ nav:
     - Search-algorithm: Search-algorithm # graph和tree中都会存在的一种问题
     - Cycle: Cycle
     - Dominator: Dominator
-    - Transitive-closure: Transitive-closure
     - Connected-component: Connected-component
     - Flood-Fill-泛洪算法: Flood-Fill-泛洪算法    
     - LeetCode: LeetCode    
