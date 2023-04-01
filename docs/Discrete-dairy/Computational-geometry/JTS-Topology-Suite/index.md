@@ -43,3 +43,43 @@ https://locationtech.github.io/jts/javadoc/org/locationtech/jts/geom/MultiPolygo
 > Models a collection of [`Polygon`](https://locationtech.github.io/jts/javadoc/org/locationtech/jts/geom/Polygon.html)s.
 >
 > As per the OGC SFS specification, the Polygons in a MultiPolygon may not overlap, and may only touch at single points. This allows the topological point-set semantics to be well-defined.
+
+
+
+## GeometryCollection
+
+https://locationtech.github.io/jts/javadoc/org/locationtech/jts/geom/GeometryCollection.html
+
+https://www.tabnine.com/code/java/classes/org.locationtech.jts.geom.GeometryCollection
+
+https://github.com/locationtech/jts/blob/master/modules/core/src/main/java/org/locationtech/jts/geom/GeometryCollection.java
+
+
+
+java.lang.IllegalArgumentException: Operation does not support GeometryCollection arguments
+
+
+
+```
+trimmedPolygon = mergedPolygon.difference(zebraTrimPolygon);
+```
+
+
+
+
+
+## intersection
+
+```
+trimmedPolygon = trimmedPolygon.intersection(crossAreaPolygon);
+```
+
+
+
+```
+org.locationtech.jts.geom.TopologyException: found non-noded intersection between LINESTRING ( 1388902006 476610970, 1388899899 476610895 ) and LINESTRING ( 1388899900 476610895, 1388899783 476612335 ) [ (1.388899899997116E9, 4.7661089503549296E8, 263.49716056168563) ]
+```
+
+
+
+stackexchange [JTS Intersection](https://gis.stackexchange.com/questions/199488/jts-intersection)
