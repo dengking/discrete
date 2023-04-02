@@ -1,1 +1,0 @@
-# [C++ library for constrained Delaunay triangulation](https://artem-ogre.github.io/CDT/)
