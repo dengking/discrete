@@ -4,6 +4,5 @@ nav:
     - Self-balancing-binary-search-tree: Self-balancing-binary-search-tree
     - Red-black-tree: Red-black-tree
     - B-tree&B+tree: B-tree&B+tree
-    - Spatial-data-partitioning-tree: Spatial-data-partitioning-tree
     - Prefix-tree: Prefix-tree
     - Suffix-tree: Suffix-tree
