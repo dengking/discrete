@@ -4,3 +4,6 @@
 
 对于两头是尖尖的斑马线面，如何将两头的尖尖去掉？
 
+
+
+downsampling=降采样-cartographic-generalization=地图抽稀-RDP=Ramer–Douglas–Peucker-algorithm
