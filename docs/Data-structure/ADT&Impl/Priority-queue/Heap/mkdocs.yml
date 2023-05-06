@@ -1,0 +1,5 @@
+nav:
+    - Introduction: index.md
+    - Binary-heap: Binary-heap
+    - Fibonacci-heap: Fibonacci-heap
+    - Index-heap: Index-heap

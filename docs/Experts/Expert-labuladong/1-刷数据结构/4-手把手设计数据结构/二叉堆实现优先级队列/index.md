@@ -22,7 +22,11 @@
 >
 > 2、对于min heap，无论是swim(上浮)还是sink(下沉)，都是当`great(parent, children)`的时候；
 
-二叉堆（Binary Heap）没什么神秘，性质比二叉搜索树 BST 还简单。其主要操作就两个，`sink`（下沉）和`swim`（上浮），用以维护二叉堆的性质。其主要应用有两个，首先是一种排序方法「堆排序」，第二是一种很有用的数据结构「优先级队列」。
+二叉堆（Binary Heap）没什么神秘，性质比二叉搜索树 BST 还简单。其主要操作就两个，`sink`（下沉）和`swim`（上浮），用以维护二叉堆的性质。其主要应用有两个:
+
+1、一种排序方法「堆排序」
+
+2、第二是一种很有用的数据结构「优先级队列」。
 
 本文就以实现**优先级队列**（Priority Queue）为例，通过图片和人类的语言来描述一下二叉堆怎么运作的。
 
@@ -49,7 +53,7 @@ int right(int root) {
 
 > NOTE: 
 >
-> infogalactic [Heap (data structure)](https://infogalactic.com/info/Heap_(data_structure)) :
+> wikipedia [Heap (data structure)](https://en.wikipedia.org/wiki/Heap_(data_structure)) :
 >
 > > Thus the children of the node at position *n* would be at positions **2n** and **2n + 1** in a one-based array, or **2n + 1** and **2n + 2** in a zero-based array. This allows moving up or down the tree by doing simple index computations. 
 >
@@ -62,10 +66,6 @@ int right(int root) {
 PS：因为数组索引是数字，为了方便区分，将字符作为数组元素。
 
 你看到了，把 `arr[1]` 作为整棵树的根的话，每个节点的父节点和左右孩子的索引都可以通过简单的运算得到，这就是二叉堆设计的一个巧妙之处。
-
-> NOTE: 
->
-> 运算是什么？
 
 为了方便讲解，下面都会画的图都是二叉树结构，相信你能把树和数组对应起来。
 

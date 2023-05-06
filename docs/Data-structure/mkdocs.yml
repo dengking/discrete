@@ -7,7 +7,6 @@ nav:
     - Stack: Stack    
     - Graph: Graph
     - Tree: Tree
-    - Heap: Heap
     - Hash: Hash
     - Probabilistic-data-structures: Probabilistic-data-structures
     - Judy-array: Judy-array
