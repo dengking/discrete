@@ -50,6 +50,84 @@ Both the insert and remove operations modify the heap to conform to the **shape 
 
 
 
+#### Insert
+
+To add an element to a heap, we can perform this algorithm:
+
+1、Add the element to the bottom level of the heap at the leftmost open space.
+
+2、Compare the added element with its parent; if they are in the correct order, stop.
+
+3、If not, swap the element with its parent and return to the previous step.
+
+Steps 2 and 3, which restore the heap property by comparing and possibly swapping a node with its parent, are called *the up-heap* operation (also known as *bubble-up*, *percolate-up*, *sift-up*, *trickle-up*, *swim-up*, *heapify-up*, or *cascade-up*).
+
+#### Extract
+
+The procedure for deleting the root from the heap (effectively extracting the maximum element in a max-heap or the minimum element in a min-heap) while retaining the heap property is as follows:
+
+1、Replace the root of the heap with the last element on the last level.
+
+2、Compare the new root with its children; if they are in the correct order, stop.
+
+3、If not, swap the element with one of its children and return to the previous step. (Swap with its smaller child in a min-heap and its larger child in a max-heap.)
+
+Steps 2 and 3, which restore the heap property by comparing and possibly swapping a node with one of its children, are called the *down-heap* (also known as *bubble-down*, *percolate-down*, *sift-down*, *sink-down*, *trickle down*, *heapify-down*, *cascade-down*, *extract-min* or *extract-max*, or simply *heapify*) operation.
+
+```pseudocode
+// Perform a down-heap or heapify-down operation for a max-heap
+// A: an array representing the heap, indexed starting at 1
+// i: the index to start at when heapifying down
+Max-Heapify(A, i):
+    left ← 2×i
+    right ← 2×i + 1
+    largest ← i
+    
+    if left ≤ length(A) and A[left] > A[largest] then:
+        largest ← left
+
+    if right ≤ length(A) and A[right] > A[largest] then:
+        largest ← right
+    
+    if largest ≠ i then:
+        swap A[i] and A[largest]
+        Max-Heapify(A, largest)
+```
+
+#### Insert then extract
+
+Inserting an element then extracting from the heap can be done more efficiently than simply calling the insert and extract functions defined above, which would involve both an `upheap` and `downheap` operation. Instead, we can do just a `downheap` operation, as follows:
+
+
+
+#### Search
+
+Finding an arbitrary element takes O(n) time.
+
+#### Delete
+
+TODO
+
+#### Decrease or increase key
+
+TODO
+
+### Building a heap
+
+#### Williams' method
+
+Building a heap from an array of *n* input elements can be done by starting with an empty heap, then successively inserting each element. This approach, called Williams' method after the inventor of binary heaps, is easily seen to run in *O*(*n* log *n*) time: it performs *n* insertions at *O*(log *n*) cost each.
+
+#### [Floyd](https://en.wikipedia.org/wiki/Robert_W._Floyd)'s method
+
+Williams' method is suboptimal. A faster method (due to [Floyd](https://en.wikipedia.org/wiki/Robert_W._Floyd)[[8\]](https://en.wikipedia.org/wiki/Binary_heap#cite_note-heapbuildjalg-8)) starts by arbitrarily putting the elements on a **binary tree**, respecting the **shape property** (the tree could be represented by an array, see below). Then starting from the lowest level and moving upwards, sift the root of each subtree downward as in the deletion algorithm until the heap property is restored. More specifically if all the subtrees starting at some height $h$ have already been "heapified" (the bottommost level corresponding to ℎ=0![h=0](https://wikimedia.org/api/rest_v1/media/math/render/svg/ffe239e1050529410001cc1c0b3245945bc69709)), the trees at height ℎ+1![h+1](https://wikimedia.org/api/rest_v1/media/math/render/svg/d6bdac90f1b229b8d6c70a3f207926e61c5c68f3) can be heapified by sending their root down along the path of maximum valued children when building a max-heap, or minimum valued children when building a min-heap.
+
+
+
+### Derivation of index equations
+
+
+
 ## Code
 
 ### Java
