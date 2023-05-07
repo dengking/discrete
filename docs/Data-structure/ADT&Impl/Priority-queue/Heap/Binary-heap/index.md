@@ -62,6 +62,27 @@ To add an element to a heap, we can perform this algorithm:
 
 Steps 2 and 3, which restore the heap property by comparing and possibly swapping a node with its parent, are called *the up-heap* operation (also known as *bubble-up*, *percolate-up*, *sift-up*, *trickle-up*, *swim-up*, *heapify-up*, or *cascade-up*).
 
+> NOTE:
+>
+> 一、当**新node**和它的**parent node**不符合 **Heap property** 的时候，需要将换它和它的parent node的位置，把它换上去，然后去比较它和它的parent node的parent node是否符合 **Heap property** ，如果不符合的话，需要将将它的 grand parent node给换下来，可以看到，这个过程一直是up的，那是否需要考虑: 换下来的grand parent node 和 它下面的node是否符合  **Heap property** 呢？答案是不需要: 因为grand parent node和 parent node是符合  **Heap property** 的，使用 grand parent node替换 parent node是肯定能够维持 **Heap property**的；
+>
+> 上爬的过程只和parent进行比较，并且从上换下来的node值是更优值，显然是天然符合 **Heap property** 的。
+>
+> 它符合"append to tail"模式。
+>
+> 下面给出了它的pseudocode:
+
+```pseudocode
+Max-Heapify-Up(A, i):
+    parent ← 2/i
+    
+    if parent >=1 and A[i] > A[parent] then: // 从下标1开始
+        swap A[i] and A[parent]
+        Max-Heapify(A, parent)  
+```
+
+
+
 #### Extract
 
 The procedure for deleting the root from the heap (effectively extracting the maximum element in a max-heap or the minimum element in a min-heap) while retaining the heap property is as follows:
@@ -73,6 +94,12 @@ The procedure for deleting the root from the heap (effectively extracting the ma
 3、If not, swap the element with one of its children and return to the previous step. (Swap with its smaller child in a min-heap and its larger child in a max-heap.)
 
 Steps 2 and 3, which restore the heap property by comparing and possibly swapping a node with one of its children, are called the *down-heap* (also known as *bubble-down*, *percolate-down*, *sift-down*, *sink-down*, *trickle down*, *heapify-down*, *cascade-down*, *extract-min* or *extract-max*, or simply *heapify*) operation.
+
+> NOTE:
+>
+> 一、显然去除了之前的root，就需要从它的两个children中选择一个来接替它，显然需要使用
+>
+> 下面的两个 *heapify* 是最最基础的操作
 
 ```pseudocode
 // Perform a down-heap or heapify-down operation for a max-heap
@@ -92,7 +119,10 @@ Max-Heapify(A, i):
     if largest ≠ i then:
         swap A[i] and A[largest]
         Max-Heapify(A, largest)
+      
 ```
+
+
 
 #### Insert then extract
 
@@ -116,11 +146,33 @@ TODO
 
 #### Williams' method
 
-Building a heap from an array of *n* input elements can be done by starting with an empty heap, then successively inserting each element. This approach, called Williams' method after the inventor of binary heaps, is easily seen to run in *O*(*n* log *n*) time: it performs *n* insertions at *O*(log *n*) cost each.
+Building a heap from an array of *n* input elements can be done by starting with an empty heap, then successively **inserting** each element. This approach, called Williams' method after the inventor of binary heaps, is easily seen to run in *O*(*n* log *n*) time: it performs *n* insertions at *O*(log *n*) cost each.
 
 #### [Floyd](https://en.wikipedia.org/wiki/Robert_W._Floyd)'s method
 
-Williams' method is suboptimal. A faster method (due to [Floyd](https://en.wikipedia.org/wiki/Robert_W._Floyd)[[8\]](https://en.wikipedia.org/wiki/Binary_heap#cite_note-heapbuildjalg-8)) starts by arbitrarily putting the elements on a **binary tree**, respecting the **shape property** (the tree could be represented by an array, see below). Then starting from the lowest level and moving upwards, sift the root of each subtree downward as in the deletion algorithm until the heap property is restored. More specifically if all the subtrees starting at some height $h$ have already been "heapified" (the bottommost level corresponding to ℎ=0![h=0](https://wikimedia.org/api/rest_v1/media/math/render/svg/ffe239e1050529410001cc1c0b3245945bc69709)), the trees at height ℎ+1![h+1](https://wikimedia.org/api/rest_v1/media/math/render/svg/d6bdac90f1b229b8d6c70a3f207926e61c5c68f3) can be heapified by sending their root down along the path of maximum valued children when building a max-heap, or minimum valued children when building a min-heap.
+Williams' method is suboptimal. A faster method (due to [Floyd](https://en.wikipedia.org/wiki/Robert_W._Floyd)[[8\]](https://en.wikipedia.org/wiki/Binary_heap#cite_note-heapbuildjalg-8)) starts by arbitrarily putting the elements on a **binary tree**, respecting the **shape property** (the tree could be represented by an array, see below). Then starting from the **lowest level** and moving upwards, sift the root of each subtree downward as in the deletion algorithm until the **heap property** is restored. More specifically if all the subtrees starting at some height $h$ have already been "heapified" (the bottommost level corresponding to $h=0$), the trees at height $h+1$ can be heapified by sending their root down along the path of maximum valued children when building a **max-heap**, or minimum valued children when building a **min-heap**. This process takes $O(h)$ operations (swaps) per node. 
+
+> NOTE:
+>
+> 一、上面描述的过程在  https://courses.cs.washington.edu/courses/cse373/18wi/files/slides/lecture-14-6up.pdf 中有着很好的说明。
+>
+> 思考: 如何拿到最底层的node？这是可以通过数学计算出来的，结合上面的图。
+
+
+
+### Heap implementation
+
+Heaps are commonly implemented with an [array](https://en.wikipedia.org/wiki/Array_data_structure). Any binary tree can be stored in an array, but because a binary heap is always a **complete binary tree**, it can be stored compactly. No space is required for [pointers](https://en.wikipedia.org/wiki/Pointer_(computer_programming)); instead, the parent and children of each node can be found by arithmetic on array indices. These properties make this heap implementation a simple example of an [implicit data structure](https://en.wikipedia.org/wiki/Implicit_data_structure) or [Ahnentafel](https://en.wikipedia.org/wiki/Ahnentafel) list. 
+
+> NOTE:
+>
+> 一、上面这段话描述了使用array来实现heap的原因:
+>
+> 1、简单
+>
+> 2、compact
+
+Details depend on the root position, which in turn may depend on constraints of a [programming language](https://en.wikipedia.org/wiki/Programming_language) used for implementation, or programmer preference. Specifically, sometimes the root is placed at index 1, in order to simplify arithmetic.
 
 
 
