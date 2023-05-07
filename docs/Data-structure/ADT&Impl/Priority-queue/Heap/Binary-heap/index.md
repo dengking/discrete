@@ -85,7 +85,7 @@ Max-Heapify-Up(A, i):
 
 #### Extract
 
-The procedure for deleting the root from the heap (effectively extracting the maximum element in a max-heap or the minimum element in a min-heap) while retaining the heap property is as follows:
+The procedure for deleting the root from the heap (effectively extracting the maximum element in a **max-heap** or the minimum element in a **min-heap**) while retaining the heap property is as follows:
 
 1、Replace the root of the heap with the last element on the last level.
 
@@ -97,7 +97,7 @@ Steps 2 and 3, which restore the heap property by comparing and possibly swappin
 
 > NOTE:
 >
-> 一、显然去除了之前的root，就需要从它的两个children中选择一个来接替它，显然需要使用
+> 一、显然去除了之前的root，就需要从它的两个children中选择一个来接替它，显然这个过程是需要从上到下一直进行的，上述算法比较巧妙: 它先随便拿一个node来做新root，然后执行替换过程。
 >
 > 下面的两个 *heapify* 是最最基础的操作
 
@@ -157,6 +157,12 @@ Williams' method is suboptimal. A faster method (due to [Floyd](https://en.wikip
 > 一、上面描述的过程在  https://courses.cs.washington.edu/courses/cse373/18wi/files/slides/lecture-14-6up.pdf 中有着很好的说明。
 >
 > 思考: 如何拿到最底层的node？这是可以通过数学计算出来的，结合上面的图。
+>
+> 先upwards然后downward:
+>
+> 1、reverse level order
+>
+> 2、sink
 
 
 
