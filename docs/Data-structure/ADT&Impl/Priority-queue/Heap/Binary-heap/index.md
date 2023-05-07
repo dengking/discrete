@@ -154,15 +154,21 @@ Williams' method is suboptimal. A faster method (due to [Floyd](https://en.wikip
 
 > NOTE:
 >
-> 一、上面描述的过程在  https://courses.cs.washington.edu/courses/cse373/18wi/files/slides/lecture-14-6up.pdf 中有着很好的说明。
+> 一、上面描述的过程在下面文章中有着很好的说明:
 >
-> 思考: 如何拿到最底层的node？这是可以通过数学计算出来的，结合上面的图。
+> 1、https://courses.cs.washington.edu/courses/cse373/18wi/files/slides/lecture-14-6up.pdf 
 >
-> 先upwards然后downward:
+> 2、geeksforgeeks [Building Heap from Array](https://www.geeksforgeeks.org/building-heap-from-array/)
+>
+> 概括来说先upwards然后downward:
 >
 > 1、reverse level order
 >
 > 2、sink
+>
+> 思考: 如何拿到最底层的node？这是可以通过数学计算出来的，结合上面的图。
+>
+> 
 
 
 
