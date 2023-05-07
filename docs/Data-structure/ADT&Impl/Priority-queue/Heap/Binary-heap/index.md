@@ -12,18 +12,6 @@ A binary heap is defined as a binary tree with two additional constraints:[[3\]]
 
 2、**Heap property**: the key stored in each node is either greater than or equal to (≥) or less than or equal to (≤) the keys in the node's children, according to some [total order](https://en.wikipedia.org/wiki/Total_order).
 
-> NOTE:
->
-> 一、思考：为什么按照这种方式存储元素能够保证下标的连续
->
-> ![](./binary-heap.jpg)
->
-> 这是由binary heap的"Shape property"而决定的，它是完全二叉树-> $2^n$ ，从上面的例子可以看出它们具有非常好的数学对应关系，这非常简单而强大
->
-> 二、heap的complexity也是由它的"Shape property"而决定的
->
-> 三、heap的"Shape property"保证了heap是"balanced"
-
 
 
 Heaps：
@@ -158,31 +146,47 @@ Williams' method is suboptimal. A faster method (due to [Floyd](https://en.wikip
 >
 > 1、https://courses.cs.washington.edu/courses/cse373/18wi/files/slides/lecture-14-6up.pdf 
 >
-> 2、geeksforgeeks [Building Heap from Array](https://www.geeksforgeeks.org/building-heap-from-array/)
+> 2、geeksforgeeks [Building Heap from Array](https://www.geeksforgeeks.org/building-heap-from-array/) 
 >
 > 概括来说先upwards然后downward:
 >
 > 1、reverse level order
 >
-> 2、sink
->
-> 思考: 如何拿到最底层的node？这是可以通过数学计算出来的，结合上面的图。
->
-> 
+> 2、heapify(sink)
 
 
 
 ### Heap implementation
 
+
+
 Heaps are commonly implemented with an [array](https://en.wikipedia.org/wiki/Array_data_structure). Any binary tree can be stored in an array, but because a binary heap is always a **complete binary tree**, it can be stored compactly. No space is required for [pointers](https://en.wikipedia.org/wiki/Pointer_(computer_programming)); instead, the parent and children of each node can be found by arithmetic on array indices. These properties make this heap implementation a simple example of an [implicit data structure](https://en.wikipedia.org/wiki/Implicit_data_structure) or [Ahnentafel](https://en.wikipedia.org/wiki/Ahnentafel) list. 
+
+
 
 > NOTE:
 >
-> 一、上面这段话描述了使用array来实现heap的原因:
+> 
 >
-> 1、简单
+> binary heap的"Shape property"决定它是完全二叉树-> $2^n$ ，从下面的例子可以看出它们具有非常好的数学对应关系。
+>
+> 一、binary heap在array中的存储方式: 从上到下，从左到右 逐个存放: 
+>
+> 
+>
+> ![](./binary-heap.jpg)
+>
+> 这是方式有如下优势: 
+>
+> 1、通过简单的运算就能够得到parent node、children node、能够非常容易计算出level、leaf等，参见 geeksforgeeks [Building Heap from Array](https://www.geeksforgeeks.org/building-heap-from-array/) ，这些都为heap的各种algorithm提供了非常便捷的操作，这简单而强大正是计算机科学所追求的
 >
 > 2、compact
+>
+> 二、heap的complexity也是由它的"Shape property"而决定的
+>
+> 三、heap的"Shape property"保证了heap是"balanced"
+
+
 
 Details depend on the root position, which in turn may depend on constraints of a [programming language](https://en.wikipedia.org/wiki/Programming_language) used for implementation, or programmer preference. Specifically, sometimes the root is placed at index 1, in order to simplify arithmetic.
 
