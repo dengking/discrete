@@ -1,5 +1,7 @@
 # Disjoint-set data structure、union–find data structure
 
+我们平时所见的tree都是children pointer，但是disjoint-set data structure比较特殊，它是 [parent pointer tree](https://en.wikipedia.org/wiki/Parent_pointer_tree) ，一般的实现方式会使用array来保存 [parent pointer tree](https://en.wikipedia.org/wiki/Parent_pointer_tree) ，这和 heap一样。
+
 
 
 ## wikipedia [Disjoint-set data structure](https://en.wikipedia.org/wiki/Disjoint-set_data_structure) 
@@ -10,7 +12,25 @@ In [computer science](https://en.wanweibaike.com/wiki-Computer_science), a **dis
 >
 > 一、显然它是由"a collection of [disjoint](https://en.wanweibaike.com/wiki-Disjoint_sets) (non-overlapping) sets"组成
 
-### ADT
+
+
+
+
+### Representation
+
+While there are several ways of implementing disjoint-set data structures, in practice they are often identified with a particular implementation called a **disjoint-set forest**. This is a specialized type of [forest](https://en.wikipedia.org/wiki/Forest_(graph_theory)) which performs unions and finds in near-constant [amortized time](https://en.wikipedia.org/wiki/Amortized_analysis). 
+
+Each node in a **disjoint-set forest** consists of a pointer and some auxiliary information, either a size or a rank (but not both). 
+
+The pointers are used to make [parent pointer trees](https://en.wikipedia.org/wiki/Parent_pointer_tree), where each node that is not the root of a tree points to its parent. To distinguish root nodes from others, their parent pointers have invalid values, such as a circular reference to the node or a sentinel value. 
+
+Each tree represents a set stored in the forest, with the members of the set being the nodes in the tree. Root nodes provide **set representatives**: Two nodes are in the same set if and only if the roots of the trees containing the nodes are equal.
+
+Nodes in the forest can be stored in any way convenient to the application, but a common technique is to store them in an array. In this case, parents can be indicated by their array index.
+
+
+
+### ADT、Operations
 
 It provides operations for :
 
@@ -20,7 +40,58 @@ It provides operations for :
 
 3、finding a representative member of a set. 
 
+> NOTE:
+>
+> 一、"set representative"是一个非常重要的概念
+
 4、find out efficiently if any two elements are in the same or different sets.
+
+### 
+
+Disjoint-set data structures support three operations: Making a new set containing a new element; Finding the representative of the set containing a given element; and Merging two sets.
+
+#### Making new sets
+
+
+
+```pseudocode
+function MakeSet(x) is
+    if x is not already in the forest then
+        x.parent := x
+        x.size := 1     // if nodes store size
+        x.rank := 0     // if nodes store rank
+    end if
+end function
+```
+
+
+
+#### Finding set representatives
+
+
+
+```pseudocode
+function Find(x) is
+    if x.parent ≠ x then
+        x.parent := Find(x.parent)
+        return x.parent
+    else
+        return x
+    end if
+end function
+```
+
+
+
+#### Merging two sets
+
+The operation `Union(x, y)` replaces the set containing *x* and the set containing *y* with their union. `Union` first uses `Find` to determine the roots of the trees containing *x* and *y*. If the roots are the same, there is nothing more to do. Otherwise, the two trees must be merged. This is done by either setting the parent pointer of *x*'s root to *y*'s, or setting the parent pointer of *y*'s root to *x*'s.
+
+The choice of which node becomes the parent has consequences for the complexity of future operations on the tree. If it is done carelessly, trees can become excessively tall. For example, suppose that `Union` always made the tree containing *x* a subtree of the tree containing *y*. Begin with a forest that has just been initialized with elements $1,2,3,\ldots ,n$, and execute `Union(1, 2)`, `Union(2, 3)`, ..., `Union(n - 1, n)`. The resulting forest contains a single tree whose root is *n*, and the path from 1 to *n* passes through every node in the tree. For this forest, the time to run `Find(1)` is *O*(*n*).
+
+In an efficient implementation, tree height is controlled using **union by size** or **union by rank**. Both of these require a node to store information besides just its **parent pointer**. This information is used to decide which root becomes the new parent. Both strategies ensure that trees do not become too deep.
+
+
 
 
 
