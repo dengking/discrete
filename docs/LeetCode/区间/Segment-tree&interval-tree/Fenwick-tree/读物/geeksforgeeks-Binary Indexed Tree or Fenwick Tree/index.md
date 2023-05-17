@@ -45,13 +45,15 @@ The diagram above provides an example of how `getSum()` is working. Here are som
 >
 > 二、它是典型的**数字树**:
 >
-> 1、树的层高由下标数字二进制表示中1的个数决定，显然第一层都是含有一个1的
+> 1、树的层高由下标数字二进制表示中1的个数决定，显然第0层只有一个节点0，第1层都是含有一个1的（2的整数幂）
 >
 > 2、显然下标更小的位于树的内部，更大的位于树的叶子，这是因为它们拥有共同的数位:
 >
 > a、The parent can be obtained by removing the last set bit from the current index, i.e., index = index – (index & (-index)) 
 >
 > b、
+>
+> 三、求和只需要自底向上沿着path直至root node
 
 ### `update(x, val)`
 

@@ -44,6 +44,16 @@ A flat array of $n$ numbers can either store the elements or the **prefix sums**
 
 
 
+### Applications
+
+#### Keeping track of positions problem
+
+Assume one have a set of elements, with an integer displacement. Then Array[i] would store relative displacement to previous element, where i is an element number. By taking range sum between i and j, one would get the relative distance between object i and j.
+
+A concrete real example of this would be tags in html file, where one keep track of line numbers of every element when a element is moved. To get a position, one simply take the range sum between two elements
+
+
+
 ## geeksforgeeks [Binary Indexed Tree or Fenwick Tree](https://www.geeksforgeeks.org/binary-indexed-tree-or-fenwick-tree-2/)
 
 
