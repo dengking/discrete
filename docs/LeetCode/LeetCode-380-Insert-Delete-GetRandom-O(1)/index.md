@@ -24,8 +24,5 @@
 
 四、C++随机数操作
 
-
-
-```
-```
+参见 cppreference [Pseudo-random number generation](https://en.cppreference.com/w/cpp/numeric/random)
 
