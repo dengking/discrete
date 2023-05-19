@@ -82,12 +82,16 @@ The `Find` operation follows the chain of parent pointers from a specified query
 
 Performing a `Find` operation presents an important opportunity for improving the forest. The time in a `Find` operation is spent chasing parent pointers, so a flatter tree leads to faster `Find` operations. When a `Find` is executed, there is no faster way to reach the root than by following each parent pointer in succession. However, the parent pointers visited during this search can be updated to point closer to the root. Because every element visited on the way to a root is part of the same set, this does not change the sets stored in the forest. But it makes future `Find` operations faster, not only for the nodes between the query node and the root, but also for their descendants. This updating is an important part of the disjoint-set forest's amortized performance guarantee.
 
-There are several algorithms for `Find` that achieve the asymptotically optimal time complexity. One family of algorithms, known as **path compression**, makes every node between the query node and the root point to the root. Path compression can be implemented using a simple recursion as follows:
+There are several algorithms for `Find` that achieve the asymptotically optimal time complexity. One family of algorithms, known as **path compression**, makes every node between the query node and the root point to the root. 
+
+实现方式一: simple recursion
+
+Path compression can be implemented using a simple recursion as follows:
 
 ```pseudocode
 function Find(x) is
     if x.parent ≠ x then
-        x.parent := Find(x.parent)
+        x.parent := Find(x.parent) # 将x.parent设置为它的parent所在set 的root
         return x.parent
     else // stop condition
         return x
@@ -98,6 +102,60 @@ end function
 > NOTE:
 >
 > 一、bottom-up
+>
+> 需要注意的是，上述写法其实并没有优化tree
+
+实现方式二: two passes iteration
+
+This implementation makes two passes, one up the tree and one back down. It requires enough scratch memory to store the path from the query node to the root (in the above pseudocode, the path is implicitly represented using the call stack). This can be decreased to a constant amount of memory by performing both passes in the same direction. The constant memory implementation walks from the query node to the root twice, once to find the root and once to update pointers:
+
+> NOTE:
+>
+> 一、上面的这段话是对下面的算法进行的解释，这个实现是two passes
+
+```pseudocode
+function Find(x) is
+    root := x
+    while root.parent ≠ root do # 首先找到root
+        root := root.parent
+    end while
+
+    while x.parent ≠ root do // 将所有的节点的parent都更新为root
+        parent := x.parent
+        x.parent := root
+        x := parent
+    end while
+
+    return root
+end function
+```
+
+实现方式三: one-pass
+
+[Tarjan](https://en.wikipedia.org/wiki/Robert_E._Tarjan) and [Van Leeuwen](https://en.wikipedia.org/wiki/Jan_van_Leeuwen) also developed one-pass `Find` algorithms that retain the same worst-case complexity but are more efficient in practice.[[4\]](https://en.wikipedia.org/wiki/Disjoint-set_data_structure#cite_note-Tarjan1984-4) These are called **path splitting** and **path halving**. Both of these update the parent pointers of nodes on the path between the query node and the root. 
+
+**Path splitting** replaces every parent pointer on that path by a pointer to the node's grandparent:
+
+```pseudocode
+function Find(x) is
+    while x.parent ≠ x do
+        (x, x.parent) := (x.parent, x.parent.parent)
+    end while
+    return x
+end function
+```
+
+**Path halving** works similarly but replaces only every other parent pointer:
+
+```pseudocode
+function Find(x) is
+    while x.parent ≠ x do
+        x.parent := x.parent.parent
+        x := x.parent
+    end while
+    return x
+end function
+```
 
 
 
@@ -109,25 +167,54 @@ The choice of which node becomes the parent has consequences for the complexity 
 
 In an efficient implementation, tree height is controlled using **union by size** or **union by rank**. Both of these require a node to store information besides just its **parent pointer**. This information is used to decide which root becomes the new parent. Both strategies ensure that trees do not become too deep.
 
+##### Union by size
+
+```pseudocode
+function Union(x, y) is
+    // Replace nodes by roots
+    x := Find(x)
+    y := Find(y)
+
+    if x = y then
+        return  // x and y are already in the same set
+    end if
+
+    // If necessary, swap variables to ensure that
+    // x has at least as many descendants as y
+    if x.size < y.size then
+        (x, y) := (y, x)
+    end if
+
+    // Make x the new root
+    y.parent := x
+    // Update the size of x
+    x.size := x.size + y.size
+end function
+```
+
 
 
 
 
 ### Applications
 
-Disjoint-set data structures play a key role in [Kruskal's algorithm](https://en.wikipedia.org/wiki/Kruskal's_algorithm) for finding the [minimum spanning tree](https://en.wikipedia.org/wiki/Minimum_spanning_tree) of a graph. The importance of minimum spanning trees means that disjoint-set data structures underlie a wide variety of algorithms. 
-
-In addition, disjoint-set data structures also have applications to symbolic computation, as well in compilers, especially for [register allocation](https://en.wikipedia.org/wiki/Register_allocation) problems.
-
-Disjoint-set data structures model the [partitioning of a set](https://en.wanweibaike.com/wiki-Partition_of_a_set), for example to keep track of the [connected components](https://en.wanweibaike.com/wiki-Connected_component_(graph_theory)) of an [undirected graph](https://en.wanweibaike.com/wiki-Undirected_graph). This model can then be used to determine whether two vertices belong to the same component, or whether adding an edge between them would result in a cycle. The Union–Find algorithm is used in high-performance implementations of [unification](https://en.wanweibaike.com/wiki-Unification_(computer_science)).
+Disjoint-set data structures model the [partitioning of a set](https://en.wikipedia.org/wiki/Partition_of_a_set), for example to keep track of the [connected components](https://en.wikipedia.org/wiki/Connected_component_(graph_theory)) of an [undirected graph](https://en.wikipedia.org/wiki/Undirected_graph). This model can then be used to determine whether two vertices belong to the same component, or whether adding an edge between them would result in a cycle. 
 
 > NOTE: 
 >
 > 一、在labuladong [Union-Find 并查集算法详解](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247484751&idx=1&sn=a873c1f51d601bac17f5078c408cc3f6&scene=21#wechat_redirect) 将这种application称之为 "动态连通性"
 
+The Union–Find algorithm is used in high-performance implementations of [unification](https://en.wikipedia.org/wiki/Unification_(computer_science)).
+
+Disjoint-set data structures play a key role in [Kruskal's algorithm](https://en.wikipedia.org/wiki/Kruskal's_algorithm) for finding the [minimum spanning tree](https://en.wikipedia.org/wiki/Minimum_spanning_tree) of a graph. The importance of minimum spanning trees means that disjoint-set data structures underlie a wide variety of algorithms. 
+
+In addition, disjoint-set data structures also have applications to symbolic computation, as well in compilers, especially for [register allocation](https://en.wikipedia.org/wiki/Register_allocation) problems.
+
+
+
 This data structure is used by the [Boost Graph Library](https://en.wanweibaike.com/wiki-Boost_Graph_Library) to implement its [Incremental Connected Components](http://www.boost.org/libs/graph/doc/incremental_components.html) functionality. It is also a key component in implementing [Kruskal's algorithm](https://en.wanweibaike.com/wiki-Kruskal's_algorithm) to find the [minimum spanning tree](https://en.wanweibaike.com/wiki-Minimum_spanning_tree) of a graph.
 
-Note that the implementation as disjoint-set forests doesn't allow the deletion of edges, even without path compression or the rank heuristic.
+Note that the implementation as disjoint-set forests doesn't allow the deletion of edges, even without path compression or the rank heuristic. However, there exist modern implementations that allow for constant-time deletion.
 
 Sharir and Agarwal report connections between the worst-case behavior of disjoint-sets and the length of [Davenport–Schinzel sequences](https://en.wanweibaike.com/wiki-Davenport–Schinzel_sequence), a combinatorial structure from computational geometry.
 
