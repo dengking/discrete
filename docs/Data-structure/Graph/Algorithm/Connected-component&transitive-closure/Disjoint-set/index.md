@@ -14,17 +14,19 @@ In [computer science](https://en.wanweibaike.com/wiki-Computer_science), a **dis
 
 
 
-
-
 ### Representation
 
-While there are several ways of implementing disjoint-set data structures, in practice they are often identified with a particular implementation called a **disjoint-set forest**. This is a specialized type of [forest](https://en.wikipedia.org/wiki/Forest_(graph_theory)) which performs unions and finds in near-constant [amortized time](https://en.wikipedia.org/wiki/Amortized_analysis). 
+While there are several ways of implementing **disjoint-set data structures**, in practice they are often identified with a particular implementation called a **disjoint-set forest**. This is a specialized type of [forest](https://en.wikipedia.org/wiki/Forest_(graph_theory)) which performs unions and finds in near-constant [amortized time](https://en.wikipedia.org/wiki/Amortized_analysis). 
 
 Each node in a **disjoint-set forest** consists of a pointer and some auxiliary information, either a size or a rank (but not both). 
 
 The pointers are used to make [parent pointer trees](https://en.wikipedia.org/wiki/Parent_pointer_tree), where each node that is not the root of a tree points to its parent. To distinguish root nodes from others, their parent pointers have invalid values, such as a circular reference to the node or a sentinel value. 
 
 Each tree represents a set stored in the forest, with the members of the set being the nodes in the tree. Root nodes provide **set representatives**: Two nodes are in the same set if and only if the roots of the trees containing the nodes are equal.
+
+> NOTE:
+>
+> 一、"set representative"是一个非常重要的概念，它其实就是disjoint set、subset、sub tree的root node，这是因为union-find set 需要使用**set representative** (**root node**) 来判断两个元素是否属于同一个set，因此它就需要验证path逆流而上去找到它们的root node，即它们的set representative，所以union-find set使用parent pointer。
 
 Nodes in the forest can be stored in any way convenient to the application, but a common technique is to store them in an array. In this case, parents can be indicated by their array index.
 
@@ -45,6 +47,8 @@ It provides operations for :
 > 一、"set representative"是一个非常重要的概念
 
 4、find out efficiently if any two elements are in the same or different sets.
+
+
 
 ### 
 
