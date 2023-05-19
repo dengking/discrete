@@ -50,8 +50,6 @@ It provides operations for :
 
 
 
-### 
-
 Disjoint-set data structures support three operations: Making a new set containing a new element; Finding the representative of the set containing a given element; and Merging two sets.
 
 #### Making new sets
@@ -72,18 +70,34 @@ end function
 
 #### Finding set representatives
 
+The `Find` operation follows the chain of parent pointers from a specified query node *x* until it reaches a root element. This root element represents the set to which *x* belongs and may be *x* itself. `Find` returns the root element it reaches.
 
+> NOTE:
+>
+> 一、stop-condition:
+>
+> 1、top-down: leaf node
+>
+> 2、bottom-up: root node
+
+Performing a `Find` operation presents an important opportunity for improving the forest. The time in a `Find` operation is spent chasing parent pointers, so a flatter tree leads to faster `Find` operations. When a `Find` is executed, there is no faster way to reach the root than by following each parent pointer in succession. However, the parent pointers visited during this search can be updated to point closer to the root. Because every element visited on the way to a root is part of the same set, this does not change the sets stored in the forest. But it makes future `Find` operations faster, not only for the nodes between the query node and the root, but also for their descendants. This updating is an important part of the disjoint-set forest's amortized performance guarantee.
+
+There are several algorithms for `Find` that achieve the asymptotically optimal time complexity. One family of algorithms, known as **path compression**, makes every node between the query node and the root point to the root. Path compression can be implemented using a simple recursion as follows:
 
 ```pseudocode
 function Find(x) is
     if x.parent ≠ x then
         x.parent := Find(x.parent)
         return x.parent
-    else
+    else // stop condition
         return x
     end if
 end function
 ```
+
+> NOTE:
+>
+> 一、bottom-up
 
 
 
