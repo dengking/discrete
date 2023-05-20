@@ -4,7 +4,7 @@
 class DisjointSet
 {
 public:
-    DisjointSet(int n) : parent_(n)
+    DisjointSet(std::size_t n) : parent_(n), set_cnt_{n}
     {
         for (int i = 0; i < n; ++i)
         {
@@ -89,6 +89,7 @@ public:
         if (i_root != j_root)
         {
             parent_[i_root] = j_root;
+            --set_cnt_;
         }
     }
     /// @brief union by size
@@ -110,6 +111,7 @@ public:
                 parent_[j_root] = i_root;
                 size_[i_root] += size_[j_root];
             }
+            --set_cnt_;
         }
     }
 
@@ -135,6 +137,7 @@ public:
                 parent_[j_root] = i_root;
                 rank_[i_root] += 1;
             }
+            --set_cnt_;
         }
     }
 
@@ -142,4 +145,9 @@ private:
     std::vector<int> parent_;
     std::vector<int> size_;
     std::vector<int> rank_;
+    std::size_t set_cnt_{0}; // disjoint set的个数
 };
+
+int main()
+{
+}
