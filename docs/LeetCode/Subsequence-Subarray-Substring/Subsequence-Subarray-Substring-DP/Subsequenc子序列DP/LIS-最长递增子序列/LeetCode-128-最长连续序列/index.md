@@ -4,50 +4,17 @@
 
 这是在阅读 robinliu gitbooks [Sweep Line (Intervals)](https://robinliu.gitbooks.io/leetcode/content/Sweep_Line.html) 时发现的。
 
-## double pointer 从中间向两边扩散
+## union-find-set
 
-这个写法是参考的  robinliu gitbooks [Sweep Line (Intervals)](https://robinliu.gitbooks.io/leetcode/content/Sweep_Line.html) 。
 
-```c++
-#include <algorithm>
-#include <unordered_set>
-using namespace std;
-
-class Solution
-{
-public:
-    int longestConsecutive(vector<int> &nums)
-    {
-        unordered_set<int> sets(nums.begin(), nums.end());
-        int max_len = 0;
-
-        for (auto n : nums)
-        {
-            if (sets.find(n) == sets.end())
-                continue;
-            int i = n - 1;
-            int j = n + 1;
-
-            while (sets.find(i) != sets.end())
-                sets.erase(i--);
-            while (sets.find(j) != sets.end())
-                sets.erase(j++);
-            int cur_len = j - i - 1;
-            max_len = max(cur_len, max_len);
-        }
-
-        return max_len;
-    }
-};
-
-int main()
-{
-}
-```
 
 
 
 ## [江不知](https://leetcode.cn/u/jalan/) # [【动态规划】Python 题解](https://leetcode.cn/problems/longest-consecutive-sequence/solution/dong-tai-gui-hua-python-ti-jie-by-jalan/)
+
+> NOTE:
+>
+> 一、在 [【超小白】哈希集合/哈希表/动态规划/并查集四种方法，绝对够兄弟们喝一壶的！](https://leetcode.cn/problems/longest-consecutive-sequence/solution/xiao-bai-lang-ha-xi-ji-he-ha-xi-biao-don-j5a2/) 中也给出了这种解法
 
 题目要求 $O(n)$ 复杂度。
 
@@ -70,7 +37,7 @@ int main()
 ```c++
 class Solution(object):
     def longestConsecutive(self, nums):
-        hash_dict = dict()
+        hash_dict = dict() // key: 区间的端点, value: 区间的长度
         
         max_length = 0
         for num in nums:
@@ -89,6 +56,10 @@ class Solution(object):
         return max_length
 
 ```
+
+> NOTE:
+>
+> 一、要求是连续的，所以就不给中间留空的机会
 
 当前的数连接了它的左边区间和右边区间，新形成的区间为:
 
@@ -169,3 +140,52 @@ class Solution:
 更新连续子串长度（8+1+0）
 
 所以更新左端点1（9-8）的值为9，右端点9（9+0）的值为9
+
+
+
+
+
+
+
+## double pointer 从中间向两边扩散
+
+这个写法是参考的  robinliu gitbooks [Sweep Line (Intervals)](https://robinliu.gitbooks.io/leetcode/content/Sweep_Line.html) 。
+
+```c++
+#include <algorithm>
+#include <unordered_set>
+using namespace std;
+
+class Solution
+{
+public:
+    int longestConsecutive(vector<int> &nums)
+    {
+        unordered_set<int> sets(nums.begin(), nums.end());
+        int max_len = 0;
+
+        for (auto n : nums)
+        {
+            if (sets.find(n) == sets.end())
+                continue;
+            int i = n - 1;
+            int j = n + 1;
+
+            while (sets.find(i) != sets.end())
+                sets.erase(i--);
+            while (sets.find(j) != sets.end())
+                sets.erase(j++);
+            int cur_len = j - i - 1;
+            max_len = max(cur_len, max_len);
+        }
+
+        return max_len;
+    }
+};
+
+int main()
+{
+}
+```
+
+

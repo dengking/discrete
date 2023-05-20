@@ -2,5 +2,4 @@ nav:
     - Introduction: index.md
     - DFS-graph: DFS-graph
     - BFS-graph: BFS-graph
-    - LeetCode-迷宫系列: LeetCode-迷宫系列
        

@@ -1,5 +1,7 @@
 # Graph algorithm
 
+一、能否同时处理connected、disconnected graph
+
 
 
 ## wikipedia [Graph operations](https://en.wikipedia.org/wiki/Graph_operations)
@@ -113,5 +115,4 @@ Binary operations create a new graph from two initial ones *G*1 = (*V*1, *E*1) a
 [Directed graph traversal, orderings and applications to data-flow analysis](https://eli.thegreenplace.net/2015/directed-graph-traversal-orderings-and-applications-to-data-flow-analysis/)
 
 [Control-flow graph](https://en.wikipedia.org/wiki/Control-flow_graph)
-
 

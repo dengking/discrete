@@ -1,0 +1,7 @@
+nav:
+    - Best-first-search: Best-first-search.
+    - A-star-search-algorithm: A-star-search-algorithm
+    - B-star-search-algorithm: B-star-search-algorithm
+    - Uniform-cost-search: Uniform-cost-search
+    
+    
