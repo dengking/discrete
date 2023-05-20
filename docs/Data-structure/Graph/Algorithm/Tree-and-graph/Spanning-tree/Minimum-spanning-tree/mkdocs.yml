@@ -1,5 +1,6 @@
 nav:
     - Introduction: index.md
-    - Prim's-algorithm: Prim's-algorithm
     - Borůvka's-algorithm: Borůvka's-algorithm
+    - Prim's-algorithm: Prim's-algorithm
+    - Kruskal's-algorithm: Kruskal's-algorithm
     

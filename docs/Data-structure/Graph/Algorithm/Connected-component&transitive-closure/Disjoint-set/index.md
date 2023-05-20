@@ -1,8 +1,8 @@
 # Disjoint-set data structure、union–find data structure
 
-我们平时所见的tree都是children pointer，但是disjoint-set data structure比较特殊，它是 [parent pointer tree](https://en.wikipedia.org/wiki/Parent_pointer_tree) ，一般的实现方式会使用array来保存 [parent pointer tree](https://en.wikipedia.org/wiki/Parent_pointer_tree) ，这和 heap一样。
+一、我们平时所见的tree都是children pointer，但是disjoint-set data structure比较特殊，它是 [parent pointer tree](https://en.wikipedia.org/wiki/Parent_pointer_tree) ，一般的实现方式会使用array来保存 [parent pointer tree](https://en.wikipedia.org/wiki/Parent_pointer_tree) ，这和 heap一样。
 
-
+二、disjoint-set中的set正好和connected-component相对应
 
 ## wikipedia [Disjoint-set data structure](https://en.wikipedia.org/wiki/Disjoint-set_data_structure) 
 
