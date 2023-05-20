@@ -4,6 +4,8 @@
 
 二、disjoint-set中的set正好和connected-component相对应
 
+
+
 ## wikipedia [Disjoint-set data structure](https://en.wikipedia.org/wiki/Disjoint-set_data_structure) 
 
 In [computer science](https://en.wanweibaike.com/wiki-Computer_science), a **disjoint-set data structure**, also called a **union–find data structure** or **merge–find set**, is a data structure that stores a collection of [disjoint](https://en.wanweibaike.com/wiki-Disjoint_sets) (non-overlapping) sets. Equivalently, it stores a [partition of a set](https://en.wanweibaike.com/wiki-Partition_of_a_set) into disjoint subsets. 
@@ -146,7 +148,7 @@ end function
 
 > NOTE:
 >
-> 一、其实方式一、方式二、方式三都属于"**path splitting**"
+> 一、其实方式一、方式二、方式三都属于"**path splitting**"，它是每次都走一步
 
 **Path splitting** replaces every parent pointer on that path by a pointer to the node's grandparent:
 
@@ -273,6 +275,16 @@ Sharir and Agarwal report connections between the worst-case behavior of disjoin
 
 
 
+## 从relation的角度来看待disjoint set
+
+这在wikipedia [Hoshen–Kopelman algorithm](https://en.wikipedia.org/wiki/Hoshen%E2%80%93Kopelman_algorithm) # [Union-find algorithm](https://en.wikipedia.org/wiki/Hoshen%E2%80%93Kopelman_algorithm#Union-find_algorithm) 中有着很好的解释:
+
+> This algorithm is a simple method for computing [equivalence classes](https://en.wikipedia.org/wiki/Equivalence_class). Calling the function `union(x,y)` returns whether items `x` and `y` are members of the same **equivalence class**. Because **equivalence relations** are [transitive](https://en.wikipedia.org/wiki/Transitive_relation), all the items equivalent to `x` are equivalent to all the items equivalent to `y`. Thus for any item `x`, there is a set of items which are all equivalent to `x` (called the equivalence class). A second function `find(x)` returns a representative member of the equivalence class to which `x` belongs.
+
+对于由transitive relation组成的connected-component。
+
+
+
 ## 素材
 
 1、baike [并查集](https://baike.baidu.com/item/%E5%B9%B6%E6%9F%A5%E9%9B%86/9388442?fr=aladdin)
@@ -286,3 +298,15 @@ Sharir and Agarwal report connections between the worst-case behavior of disjoin
 ## LeetCode
 
 https://leetcode.cn/tag/union-find/problemset/
+
+一、[LeetCode-128. Longest Consecutive Sequence-中等](https://leetcode.cn/problems/longest-consecutive-sequence/)
+
+1、对于非连续的数，parent关系使用map来进行存储。
+
+2、连续的数就是一个set
+
+
+
+二、[Hoshen–Kopelman algorithm](https://en.wikipedia.org/wiki/Hoshen%E2%80%93Kopelman_algorithm) 
+
+[LeetCode-130. Surrounded Regions-中等](https://leetcode.cn/problems/surrounded-regions/)

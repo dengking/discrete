@@ -2,4 +2,5 @@ nav:
     - Introduction: index.md
     - DFS-graph: DFS-graph
     - BFS-graph: BFS-graph
+    - Search-graph: Search-graph
        

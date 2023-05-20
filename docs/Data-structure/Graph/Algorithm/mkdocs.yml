@@ -1,13 +1,11 @@
 nav:
     - Introduction: index.md
+    - Graph-algorithm-paradigm: Graph-algorithm-paradigm
     - Traverse-graph: Traverse-graph
-    - Search-graph: Search-graph
     - Shortest-longest-path: Shortest-longest-path
     - Topological-sorting: Topological-sorting
     - Spanning-tree: Spanning-tree    
-    - Search-algorithm: Search-algorithm # graph和tree中都会存在的一种问题
     - Cycle: Cycle
     - Dominator: Dominator
-    - Connected-component: Connected-component
-    - Flood-Fill-泛洪算法: Flood-Fill-泛洪算法    
+    - Connected-component&transitive-closure: Connected-component&transitive-closure
     - LeetCode: LeetCode    

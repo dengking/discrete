@@ -8,7 +8,111 @@
 
 
 
+并查集的思路实际上与思路2有点像，也是来记录右边界的，所有在一个连续区间内的元素都会在一个连通分量中，且这些元素的根结点都为最远的右边界元素。
 
+具体思路是：
+
+遍历所有元素num，如果num+1存在，将num加入到num+1所在的连通分量中；
+重新遍历一遍所有元素num，通过find函数找到num所在分量的根结点，也就是最远右边界，从而求得连续区间的长度。
+
+作者：yimeixiaobai
+链接：https://leetcode.cn/problems/longest-consecutive-sequence/solution/xiao-bai-lang-ha-xi-ji-he-ha-xi-biao-don-j5a2/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+
+
+CPP
+
+```C++
+
+class DisjointSet
+{
+    std::unordered_map<int, int> parent_;
+    std::unordered_map<int, int> counter_;
+
+public:
+    DisjointSet(vector<int> &nums)
+    {
+        for (auto &&num : nums)
+        {
+            parent_[num] = num;
+            counter_[num] = 1;
+        }
+    }
+    int *find_with_path_split(int idx)
+    {
+        if (parent_.count(idx))
+        {
+            while (parent_[idx] != idx)
+            {
+                int parent = parent_[idx];
+                parent_[idx] = parent_[parent_[idx]];
+                idx = parent;
+            }
+            return &(parent_[idx]);
+        }
+        else
+        {
+            return nullptr;
+        }
+    }
+
+    int Union(int i, int j)
+    {
+        if (i == j)
+        {
+            return 0;
+        }
+        if (i > j)
+        {
+            j = i;
+        }
+        int *ptr1 = find_with_path_split(i);
+        int *ptr2 = find_with_path_split(j);
+        if (ptr1 && ptr2)
+        {
+            int root1 = *ptr1;
+            int root2 = *ptr2;
+            if (root1 != root2)
+            {
+                parent_[root1] = root2;
+                counter_[root2] += counter_[root1];
+                return counter_[root2];
+            }
+        }
+        return 0;
+    }
+};
+
+class Solution
+{
+public:
+    int longestConsecutive(vector<int> &nums)
+    {
+        if (nums.size() == 0)
+        {
+            return 0;
+        }
+        DisjointSet disjointSet(nums);
+        int result = 1;
+        for (auto &&num : nums)
+        {
+            int *next = disjointSet.find_with_path_split(num + 1);
+            if (next != nullptr)
+            {
+                result = max(result, disjointSet.Union(num, *next));
+            }
+        }
+        return result;
+    }
+};
+
+```
+
+
+
+动态构建connected-component，在这道题中，就是连续的序列
 
 ## [江不知](https://leetcode.cn/u/jalan/) # [【动态规划】Python 题解](https://leetcode.cn/problems/longest-consecutive-sequence/solution/dong-tai-gui-hua-python-ti-jie-by-jalan/)
 
