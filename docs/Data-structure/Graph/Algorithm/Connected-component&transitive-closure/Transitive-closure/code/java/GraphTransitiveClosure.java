@@ -6,6 +6,11 @@ public class GraphTransitiveClosure<T> {
     private Map<T, Set<T>> adjacencyList; // 图的adjacent list表示方式
     private List<Set<T>> closures; // 传递闭包
 
+    public GraphTransitiveClosure(Map<T, Set<T>> adjacencyList) {
+        this.adjacencyList = adjacencyList;
+        initClosures();
+
+    }
     /**
      * @param edges 图的边
      */
@@ -45,9 +50,6 @@ public class GraphTransitiveClosure<T> {
 
     /**
      * BFS
-     * @param node
-     * @param visitedSet
-     * @return
      */
     private Set<T> initClosure(T node, Set<T> visitedSet) {
         Set<T> closure = new HashSet<>();
