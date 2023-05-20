@@ -84,7 +84,9 @@ Performing a `Find` operation presents an important opportunity for improving th
 
 There are several algorithms for `Find` that achieve the asymptotically optimal time complexity. One family of algorithms, known as **path compression**, makes every node between the query node and the root point to the root. 
 
-实现方式一: simple recursion
+
+
+##### 实现方式一: simple recursion
 
 Path compression can be implemented using a simple recursion as follows:
 
@@ -105,7 +107,9 @@ end function
 >
 > 需要注意的是，上述写法其实并没有优化tree
 
-实现方式二: two passes iteration
+
+
+##### 实现方式二: two passes iteration
 
 This implementation makes two passes, one up the tree and one back down. It requires enough scratch memory to store the path from the query node to the root (in the above pseudocode, the path is implicitly represented using the call stack). This can be decreased to a constant amount of memory by performing both passes in the same direction. The constant memory implementation walks from the query node to the root twice, once to find the root and once to update pointers:
 
@@ -130,22 +134,42 @@ function Find(x) is
 end function
 ```
 
-实现方式三: one-pass
+
+
+##### 实现方式: one-pass
 
 [Tarjan](https://en.wikipedia.org/wiki/Robert_E._Tarjan) and [Van Leeuwen](https://en.wikipedia.org/wiki/Jan_van_Leeuwen) also developed one-pass `Find` algorithms that retain the same worst-case complexity but are more efficient in practice.[[4\]](https://en.wikipedia.org/wiki/Disjoint-set_data_structure#cite_note-Tarjan1984-4) These are called **path splitting** and **path halving**. Both of these update the parent pointers of nodes on the path between the query node and the root. 
+
+
+
+##### 实现方式三: one-pass-**Path splitting** 
+
+> NOTE:
+>
+> 一、其实方式一、方式二、方式三都属于"**path splitting**"
 
 **Path splitting** replaces every parent pointer on that path by a pointer to the node's grandparent:
 
 ```pseudocode
 function Find(x) is
     while x.parent ≠ x do
-        (x, x.parent) := (x.parent, x.parent.parent)
+        (x, x.parent) := (x.parent, x.parent.parent) # 类似于python tuple assignment，它的运行逻辑是先读取，再更新
     end while
     return x
 end function
 ```
 
+
+
+##### 实现方式四: one-pass-**Path halving** 
+
 **Path halving** works similarly but replaces only every other parent pointer:
+
+> NOTE:
+>
+> 一、**halving** 的意思是 **二等分** 
+>
+> 二、"路径减半的工作原理类似，但只替换所有其他父指针"，它是一次走两步，由于root node是self-reference，因此它能够保证最终肯定能够在root node停止下来
 
 ```pseudocode
 function Find(x) is
@@ -193,6 +217,35 @@ end function
 ```
 
 
+
+##### Union by rank
+
+
+
+```pseudocode
+function Union(x, y) is
+    // Replace nodes by roots
+    x := Find(x)
+    y := Find(y)
+
+    if x = y then
+        return  // x and y are already in the same set
+    end if
+
+    // If necessary, rename variables to ensure that
+    // x has rank at least as large as that of y
+    if x.rank < y.rank then
+        (x, y) := (y, x)
+    end if
+
+    // Make x the new root
+    y.parent := x
+    // If necessary, increment the rank of x
+    if x.rank = y.rank then
+        x.rank := x.rank + 1
+    end if
+end function
+```
 
 
 
