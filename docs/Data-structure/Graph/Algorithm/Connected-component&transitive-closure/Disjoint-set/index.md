@@ -283,6 +283,93 @@ Sharir and Agarwal report connections between the worst-case behavior of disjoin
 
 对于由transitive relation组成的connected-component。
 
+## 如何获得disjoint-set中的各个set(connected component)
+
+这是我在做 [LeetCode-130. Surrounded Regions-中等](https://leetcode.cn/problems/surrounded-regions/) 的时候想到的一个问题。
+
+### stackoverflow [Union-Find: retrieve all members of a set efficiently](https://stackoverflow.com/questions/23055236/union-find-retrieve-all-members-of-a-set-efficiently)
+
+I'm working with an `union-find` algorithm. In the first part of my program, the algorithm computes a partition of a big set `E`.
+
+After that, I want to retrieve all the members of the set `S`, which contains a given node `x`.
+
+Until now, naively, I was testing membership of all elements of `E` to the set `S`. But yesterday I was reading "Introduction to Algorithms" (by CLRS, 3rd edition, ex. 21.3-4), and, in the exercises, I found that:
+
+> Suppose that we wish to add the operation `PRINT-SET(x)`, which is given a node `x` and prints all the members of `x`'s set, in any order. Show how we can add just a single attribute to each node in a disjoint-set forest so that `PRINT-SET(x)` takes time linear in the number of members of `x`'s set, and the asymptotic running times of the other operations are unchanged.
+
+"linear in the number of members of `x`'s set" would be a great improvement for my problem! So, I'm trying to solve this exersice... and after some unsuccessful tries, I'm asking help on Stack Overflow!
+
+#### [A](https://stackoverflow.com/a/23061520)
+
+```pseudocode
+MAKE-SET(x)
+    x.p = x
+    x.rank = 0
+    x.link = x        # Circular linked list
+
+UNION(x,y)
+    sx = FIND-SET(x)
+    sy = FIND-SET(y)
+    if sx != sy
+        LINK(sx, sy)
+
+LINK(x,y)             # x,y都是之前的set的root
+    temp = y.link     # Concatenation
+    y.link = x.link   # of the two
+    x.link = temp     # circular lists，新形成的list也是circular list
+    if x.rank > y.rank
+        y.p = x
+    else x.p = y
+         if x.rank == y.rank
+             y.rank = y.rank + 1
+
+FIND-SET(x)
+    if x != x.p
+        x.p = FIND-SET(x.p)
+    return x.p
+
+PRINT-SET(x)
+    root = x
+    PRINT(x)
+    while x.link != root
+        x = x.link
+        PRINT(x)
+```
+
+> NOTE:
+>
+> 一、上面的算法展示了circular linked list:
+>
+> 1、构建
+>
+> 涉及 `MAKE-SET(x)`、`LINK(x,y)` 函数，下面是一些草稿:
+>
+> ![](linked-list-circular-1.jpg)
+> ![](linked-list-circular-2.jpg)
+> ![](linked-list-circular-3.jpg)
+>
+> circular linked list的tail node指向它的head node
+>
+> 从 `LINK(x,y)` 函数来看，在上述算法中，它会使set的root node作为circular linked list的tail node，那么concatenation两个知道tail node的circular linked list很简单:
+>
+> ```
+>     temp = y.link     # Concatenation
+>     y.link = x.link   # of the two
+>     x.link = temp     # circular lists，新形成的list也是circular list
+> ```
+>
+> `x`是circular linked list1的tail node，所以 `x.link` 就是circular linked list1的head node
+>
+> `y`是circular linked list2的tail node，所以 `y.link` 就是circular linked list2的head node
+>
+> 上述concatenation将使`y`的head node作为新的circular linked list的head node，将`x`成为新的circular linked list的tail node，所以`x.link`需要指向circular linked list2的head node，即 `y.link`
+>
+> 2、traverse
+>
+> 在函数 `PRINT-SET(x)` 中展示了traverse circular linked list的方法，简而言之: 对于circular linked list的，它的head node在哪里并不重要，在对它进行traverse的时候，由于它是circular的，因此它能够保证从任何一个node出发，能够访问到每个节点，然后绕了一圈就绕回来了，通过判断节点是否是起始节点就可以判断是否完成遍历，它非常巧妙。
+
+### stackoverflow [Printing out nodes in a disjoint-set data structure in linear time](https://stackoverflow.com/questions/22945058/printing-out-nodes-in-a-disjoint-set-data-structure-in-linear-time)
+
 
 
 ## 素材
