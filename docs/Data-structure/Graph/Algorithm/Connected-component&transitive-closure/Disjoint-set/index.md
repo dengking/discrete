@@ -376,6 +376,10 @@ PRINT-SET(x)
 
 
 
+[A](https://stackoverflow.com/a/22945492)
+
+
+
 ## 素材
 
 1、baike [并查集](https://baike.baidu.com/item/%E5%B9%B6%E6%9F%A5%E9%9B%86/9388442?fr=aladdin)
