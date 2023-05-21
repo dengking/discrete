@@ -5,3 +5,10 @@
 
 
 ## wikipedia [Exact cover](https://en.wikipedia.org/wiki/Exact_cover)
+
+
+
+## wikipedia [Knuth's Algorithm X](https://en.wikipedia.org/wiki/Knuth%27s_Algorithm_X)
+
+
+

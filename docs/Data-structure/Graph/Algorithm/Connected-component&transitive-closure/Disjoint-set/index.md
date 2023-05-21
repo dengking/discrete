@@ -338,25 +338,29 @@ PRINT-SET(x)
 
 > NOTE:
 >
-> 一、上面的算法展示了circular linked list:
+> 一、上面的算法展示了circular linked list的用法，在介绍具体的用法之前，需要了解circular linked list的一个非常好的特性:  能够通过任意一个node开始traverse整个linked list并且不陷入dead loop，这就说明circular linked list是没有严格意义的head、tail的，如果硬是要指定head、tail的话，circular linked list的tail node指向它的head node。另外一点是，circular linked list是有方向的，它的方向就是沿着next pointer的指向，它的形象展示就是如下图所示的带流向的环:
+>
+> ![](circular-linked-list-pic.jpg)
+>
+> 
 >
 > 1、构建
 >
 > 涉及 `MAKE-SET(x)`、`LINK(x,y)` 函数，下面是一些草稿:
 >
-> ![](linked-list-circular-1.jpg)
-> ![](linked-list-circular-2.jpg)
-> ![](linked-list-circular-3.jpg)
+> ![](circular-linked-list-1.jpg)
+> ![](circular-linked-list-2.jpg)
+> ![](circular-linked-list-3.jpg)
 >
-> circular linked list的tail node指向它的head node
->
-> 从 `LINK(x,y)` 函数来看，在上述算法中，它会使set的root node作为circular linked list的tail node，那么concatenation两个知道tail node的circular linked list很简单:
+> 经过了前面的介绍，我们知道circular linked list可以看作是带流向的环，合并每个circular linked list其实就是合并这两个带流向的环，其实联系我们平时合并两个环也是能够想象出算法的: 取两个circular linked list的任意两个node1、node2，让circular linked list1从node1流入到circular linked list2，让circular linked list2从node2流入circular linked list1，这样就能够构建一个更大的环，下面是算法的具体实现:
 >
 > ```
 >     temp = y.link     # Concatenation
 >     y.link = x.link   # of the two
 >     x.link = temp     # circular lists，新形成的list也是circular list
 > ```
+>
+> 从 `LINK(x,y)` 函数来看，在上述算法中，它会使set的root node作为circular linked list的tail node，那么concatenation两个知道tail node的circular linked list很简单:
 >
 > `x`是circular linked list1的tail node，所以 `x.link` 就是circular linked list1的head node
 >
