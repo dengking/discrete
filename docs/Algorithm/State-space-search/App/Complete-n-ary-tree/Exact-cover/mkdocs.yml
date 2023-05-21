@@ -1,0 +1,5 @@
+nav:
+    - Introduction: index.md
+    - Dancing-link: Dancing-link
+    - Sudoku-solving: Sudoku-solving
+    - N-queen: N-queen    

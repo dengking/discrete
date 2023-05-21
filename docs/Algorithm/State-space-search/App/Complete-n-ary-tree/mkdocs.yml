@@ -1,8 +1,7 @@
 nav:
     - Introduction: index.md
     - Subset: Subset # 子集
-    - Sudoku-solving: Sudoku-solving
-    - N-queen: N-queen
+    - Exact-cover: Exact-cover
     - Symbol-triangle: Symbol-triangle    
     - M-coloring-of-graph: M-coloring-of-graph
     
