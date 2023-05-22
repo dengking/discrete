@@ -1,4 +1,5 @@
 nav:
     - Introduction: index.md
     - Connected-component-labeling: Connected-component-labeling
-    
+    - Lattice-path: Lattice-path
+        
