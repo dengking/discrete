@@ -3,7 +3,8 @@ nav:
     - Perfect-hash-function: Perfect-hash-function
     - Rolling-hash: Rolling-hash
     - Geometric-hashing: Geometric-hashing
-    - SipHash: SipHash.md
+    - SipHash: SipHash
     - Cryptographic-hash-functions: Cryptographic-hash-functions
     - Linear-hash: Linear-hash
     - Implementation: Implementation    
+    
