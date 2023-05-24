@@ -1,10 +1,16 @@
 # Floyd–Warshall algorithm
 
-素材:
+一、素材:
 
 1、wikipedia [Floyd–Warshall algorithm](https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm)
 
 2、geeksforgeeks [Floyd Warshall Algorithm | DP-16](https://www.geeksforgeeks.org/floyd-warshall-algorithm-dp-16/) 
+
+二、Graph representation and DP table
+
+[Floyd–Warshall algorithm](https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm) 的精妙之处在于它graph representation就是DP table，它的graph representation是adjacency matrix，显然这是正好可以作为DP table的，这其实是这个算法简单的来源。
+
+三、Floyd–Warshall-algorithm-interval-DP-graph-DP-greedy-algorithm-穷枚举断点+更新区间+approximation=逼近-relaxation
 
 
 
@@ -346,6 +352,3 @@ for ( int k = 0; k < 节点个数; ++k )// k代表的是i和j之间的中间结�
 
 
 
-### Graph representation and DP table
-
-[Floyd–Warshall algorithm](https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm) 的精妙之处在于它graph representation就是DP table，它的graph representation是adjacency matrix，显然这是正好可以作为DP table的，这其实是这个算法简单的来源。
