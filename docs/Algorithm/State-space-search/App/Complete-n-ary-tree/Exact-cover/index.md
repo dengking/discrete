@@ -80,3 +80,22 @@ The exact cover problem is represented in Algorithm X by a matrix *A* consisting
 > NOTE:
 >
 > 一、基于 [incidence matrix](https://en.wikipedia.org/wiki/Incidence_matrix) (关联矩阵)
+>
+> 选择哪些行来构成exact cover
+>
+> 先竖着选择一列，然后再根据这一列选择一行，然后再根据这一行选择其它列，然后根据这些列选择其它的行，由此完成了一轮删除列、删除行，剩余的列是没有被包含道解中的，所以需要继续进行包含
+>
+> 先选择一列，然后看哪些集合包含这一列的元素；然后选出一行，然后将这一行包含的元素对应的列以及所有包含这一行的元素的行全部删除，由此确定了一行、一个集合。然后去寻找下一个集合。
+
+
+
+
+
+The nondeterministic choice of *r* means that the algorithm recurses over independent **subalgorithms**; each **subalgorithm** inherits the current matrix *A*, but reduces it with respect to a different row *r*. If column *c* is entirely zero, there are no subalgorithms and the process terminates unsuccessfully.
+
+The subalgorithms form a [search tree](https://en.wikipedia.org/wiki/Search_tree) in a natural way, with the original problem at the root and with level *k* containing each subalgorithm that corresponds to *k* chosen rows. Backtracking is the process of traversing the tree in preorder, depth first.
+
+Any systematic rule for choosing column *c* in this procedure will find all solutions, but some rules work much better than others. To reduce the number of iterations, Knuth suggests that the **column-choosing algorithm** select a column with the smallest number of 1s in it.
+
+
+
