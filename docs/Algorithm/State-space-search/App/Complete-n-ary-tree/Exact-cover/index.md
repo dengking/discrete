@@ -79,13 +79,8 @@ The exact cover problem is represented in Algorithm X by a matrix *A* consisting
 
 > NOTE:
 >
-> 一、基于 [incidence matrix](https://en.wikipedia.org/wiki/Incidence_matrix) (关联矩阵)
+> 一、基于 [incidence matrix](https://en.wikipedia.org/wiki/Incidence_matrix) (关联矩阵)，每次尝试选择一行(set)，然后消除这个set包含点(列)、与这个set包含相同元素的(相互重叠的)set(行)，如此往复直至最后。
 >
-> 选择哪些行来构成exact cover
->
-> 先竖着选择一列，然后再根据这一列选择一行，然后再根据这一行选择其它列，然后根据这些列选择其它的行，由此完成了一轮删除列、删除行，剩余的列是没有被包含道解中的，所以需要继续进行包含
->
-> 先选择一列，然后看哪些集合包含这一列的元素；然后选出一行，然后将这一行包含的元素对应的列以及所有包含这一行的元素的行全部删除，由此确定了一行、一个集合。然后去寻找下一个集合。
 
 
 
