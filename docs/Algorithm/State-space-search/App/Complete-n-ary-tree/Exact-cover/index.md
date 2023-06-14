@@ -152,4 +152,20 @@ x.left.right ← x;
 x.right.left ← x;
 ```
 
-will restore *x'*s position in the list, assuming that x.right and x.left have been left unmodified. This works regardless of the number of elements in the list, even if that number is 1.
+will restore *x'*s position in the list, assuming that `x.right` and `x.left` have been left unmodified. This works regardless of the number of elements in the list, even if that number is 1.
+
+Knuth observed that a naive implementation of his Algorithm X would spend an inordinate amount of time searching for 1's. When selecting a column, the entire matrix had to be searched for 1's. When selecting a row, an entire column had to be searched for 1's. After selecting a row, that row and a number of columns had to be searched for 1's. To improve this search time from [complexity](https://en.wikipedia.org/wiki/Big_O_notation) O(n) to O(1), Knuth implemented a [sparse matrix](https://en.wikipedia.org/wiki/Sparse_matrix) where only 1's are stored.
+
+At all times, each node in the matrix will point to the adjacent nodes to the left and right (1's in the same row), above and below (1's in the same column), and the header for its column (described below). Each row and column in the matrix will consist of a circular doubly-linked list of nodes.
+
+#### Header
+
+
+
+> NOTE:
+>
+> 一、"control row"
+
+Each column will have a special node known as the "column header," which will be included in the column list, and will form a special row ("control row") consisting of all the columns which still exist in the matrix.
+
+Finally, each column header may optionally track the number of nodes in its column, so that locating a column with the lowest number of nodes is of [complexity](https://en.wikipedia.org/wiki/Big_O_notation) O(*n*) rather than O(*n*×*m*) where *n* is the number of columns and *m* is the number of rows. Selecting a column with a low node count is a heuristic which improves performance in some cases, but is not essential to the algorithm.
