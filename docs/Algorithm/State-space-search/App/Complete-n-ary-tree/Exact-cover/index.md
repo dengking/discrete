@@ -158,6 +158,20 @@ Knuth observed that a naive implementation of his Algorithm X would spend an ino
 
 At all times, each node in the matrix will point to the adjacent nodes to the left and right (1's in the same row), above and below (1's in the same column), and the header for its column (described below). Each row and column in the matrix will consist of a circular doubly-linked list of nodes.
 
+> NOTE:
+>
+> 一、dancing links的主要结构:
+>
+> a、每个节点有5个pointer:
+>
+> 1、left、right
+>
+> 2、above、below
+>
+> 3、column（属于哪一列）
+>
+> b、"Each row and column in the matrix will consist of a circular doubly-linked list of nodes"
+
 #### Header
 
 
@@ -166,6 +180,30 @@ At all times, each node in the matrix will point to the adjacent nodes to the le
 >
 > 一、"control row"
 
-Each column will have a special node known as the "column header," which will be included in the column list, and will form a special row ("control row") consisting of all the columns which still exist in the matrix.
+Each column will have a special node known as the "column header," which will be included in the column list, and will form a special row ("**control row**") consisting of all the columns which still exist in the matrix.
 
 Finally, each column header may optionally track the number of nodes in its column, so that locating a column with the lowest number of nodes is of [complexity](https://en.wikipedia.org/wiki/Big_O_notation) O(*n*) rather than O(*n*×*m*) where *n* is the number of columns and *m* is the number of rows. Selecting a column with a low node count is a heuristic which improves performance in some cases, but is not essential to the algorithm.
+
+
+
+#### Exploring
+
+In Algorithm X, rows and columns are regularly eliminated from and restored to the matrix. 
+
+> NOTE:
+>
+> 一、删除后如何恢复？
+
+Eliminations are determined by selecting a column and a row in that column. If a selected column doesn't have any rows, the current matrix is unsolvable and must be backtracked. When an elimination occurs, all columns for which the selected row contains a 1 are removed, along with all rows (including the selected row) that contain a 1 in any of the removed columns. The columns are removed because they have been filled, and the rows are removed because they conflict with the selected row. To remove a single column, first remove the selected column's header. Next, for each row where the selected column contains a 1, traverse the row and remove it from other columns (this makes those rows inaccessible and is how conflicts are prevented). Repeat this column removal for each column where the selected row contains a 1. This order ensures that any removed node is removed exactly once and in a predictable order, so it can be backtracked appropriately. If the resulting matrix has no columns, then they have all been filled and the selected rows form the solution.
+
+
+
+#### Backtracking
+
+To backtrack, the above process must be reversed using the second algorithm stated above. One requirement of using that algorithm is that backtracking must be done as an exact reversal of eliminations. Knuth's paper gives a clear picture of these relationships and how the node removal and reinsertion works, and provides a slight relaxation of this limitation.
+
+
+
+#### Optional constraints
+
+It is also possible to solve one-cover problems in which a particular constraint is optional, but can be satisfied no more than once. Dancing Links accommodates these with primary columns which must be filled and secondary columns which are optional. This alters the algorithm's solution test from a matrix having no columns to a matrix having no primary columns and if the heuristic of minimum one's in a column is being used then it needs to be checked only within primary columns. Knuth discusses optional constraints as applied to the [*n* queens problem](https://en.wikipedia.org/wiki/Eight_queens_puzzle). The chessboard diagonals represent optional constraints, as some diagonals may not be occupied. If a diagonal is occupied, it can be occupied only once.
