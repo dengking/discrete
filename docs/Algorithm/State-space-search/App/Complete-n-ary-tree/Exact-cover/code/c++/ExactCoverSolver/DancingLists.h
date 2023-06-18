@@ -190,14 +190,14 @@ namespace kai_exact_cover_solver {
             join_horizontally(column_header_node, root); // cyclization
 
             // initialize m x n array of MatrixNode pointers
+            // note that the type of the element in the array is MatrixNode pointer, so ptr_matrix's type is MatrixNode ***
             MatrixNode ***ptr_matrix = new MatrixNode **[m];
             for (int k = 0; k < m; k++) {
                 ptr_matrix[k] = new MatrixNode *[n];
             }
 
-            // create nodes of LMatrix, referenced by pointers in ptr_matrix
-            // also link the nodes vertically
-            // append to tail patten
+            // 1、create nodes of LMatrix, referenced by pointers in ptr_matrix, also link the nodes vertically
+            // 2、append to tail patten
             MatrixNode *tail_node;
             column_header_node = root->right();
             // j = column of matrix, row_index = row of matrix
