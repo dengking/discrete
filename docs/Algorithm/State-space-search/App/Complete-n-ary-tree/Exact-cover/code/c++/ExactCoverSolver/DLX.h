@@ -5,10 +5,14 @@
 #ifndef EXACTCOVERSOLVER_DLX_H
 #define EXACTCOVERSOLVER_DLX_H
 
+#include "ExactCoverSolver.h"
 
-class DLX {
+namespace kai_exact_cover_solver {
 
-};
 
+    class DLX :public ExactCoverSolver{
+
+    };
+}
 
 #endif //EXACTCOVERSOLVER_DLX_H
