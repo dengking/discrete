@@ -177,7 +177,7 @@ namespace kai_exact_cover_solver {
                 row_count = 0;
                 return;
             }
-            // create first column
+            // create first_node_of_row column
             MatrixNode *column_header_node = new ColumnHeaderNode(0);
             //column_header_node->data().column_id = static_cast<ColumnHeaderNode*>(column_header_node);        // point column object to itself
             join_horizontally(root, column_header_node);
@@ -200,7 +200,7 @@ namespace kai_exact_cover_solver {
             // 2、append to tail patten
             MatrixNode *tail_node;
             column_header_node = root->right();
-            // j = column of matrix, row_index = row of matrix
+            // col_index = column of matrix, row_index = row of matrix
             for (int col_index = 0; col_index < n; col_index++, column_header_node = column_header_node->right()) {
                 tail_node = column_header_node;
                 for (int row_index = 0; row_index < m; row_index++) {
@@ -218,42 +218,39 @@ namespace kai_exact_cover_solver {
                 join_vertically(column_header_node, tail_node); // cyclization
             }
 
-            // ignore zero rows at the bottom of the matrix
             int row_index;
+            // the for-loop below ignores zero rows at the bottom of the matrix
             for (row_index = m - 1; row_index >= 0; row_index--) {
-                bool zero_row = 1;
+                bool zero_node_in_row_flag = true;
                 for (int col_index = 0; col_index < n; col_index++) {
                     if (matrix[row_index][col_index]) {
-                        zero_row = 0;
+                        zero_node_in_row_flag = false;
                         break;
                     }
                 }
-                if (!zero_row) break;
+                if (!zero_node_in_row_flag) break;
             }
-
             // 'row_index' is now the index of the last non-zero row, or -1 if there are no non-zero rows
             row_count = row_index + 1;
-
-
             // link the nodes horizontally
-            MatrixNode *first, *prev;
+            MatrixNode *first_node_of_row, *prev_node;
             // row_index = row, j = column
             for (; row_index >= 0; row_index--) {
-                first = nullptr;
+                first_node_of_row = nullptr;
                 for (int col_index = 0; col_index < n; col_index++) {
-                    // find first non-zero matrix entry in row row_index,
-                    // and make 'first' point to the corresponding node
+                    // find first_node_of_row non-zero matrix entry in row row_index,
+                    // and make 'first_node_of_row' point to the corresponding node
                     if (ptr_matrix[row_index][col_index] != nullptr) {
-                        if (first == nullptr) {
-                            first = ptr_matrix[row_index][col_index];
+                        if (first_node_of_row == nullptr) {
+                            first_node_of_row = ptr_matrix[row_index][col_index];
                         } else {
-                            join_horizontally(prev, ptr_matrix[row_index][col_index]);
+                            join_horizontally(prev_node, ptr_matrix[row_index][col_index]);
                         }
-                        prev = ptr_matrix[row_index][col_index];
+                        prev_node = ptr_matrix[row_index][col_index];
                     }
                 }
-                if (first != nullptr) {  // if row row_index is not a zero row
-                    join_horizontally(prev, first);
+                if (first_node_of_row != nullptr) {  // if row row_index is not a zero row
+                    join_horizontally(prev_node, first_node_of_row);
                 }
             }
 
