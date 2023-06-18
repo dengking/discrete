@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.21)
+project(ExactCoverSolver)
+
+set(CMAKE_CXX_STANDARD 23)
+
+add_executable(ExactCoverSolver main.cpp ExactCoverSolver.cpp ExactCoverSolver.h DLX.cpp DLX.h DancingLists.h)
