@@ -3,4 +3,4 @@ project(ExactCoverSolver)
 
 set(CMAKE_CXX_STANDARD 23)
 
-add_executable(ExactCoverSolver main.cpp ExactCoverSolver.cpp ExactCoverSolver.h DLX.cpp DLX.h DancingLists.h)
+add_executable(ExactCoverSolver main.cpp ExactCoverSolver.cpp ExactCoverSolver.h DLX.cpp DLX.h DLXIncidenceMatrix.h)

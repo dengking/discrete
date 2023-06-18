@@ -9,7 +9,7 @@ namespace kai_exact_cover_solver {
 
     class ExactCoverSolver {
     public:
-        virtual void solve() = 0;
+        virtual std::vector<int> solve(bool **incidence_matrix, int m, int n) = 0;
     };
 
 }

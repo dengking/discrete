@@ -2,8 +2,8 @@
 // Created by kai on 2023/6/18.
 //
 
-#ifndef EXACTCOVERSOLVER_DANCINGLISTS_H
-#define EXACTCOVERSOLVER_DANCINGLISTS_H
+#ifndef EXACTCOVERSOLVER_DLXINCIDENCEMATRIX_H
+#define EXACTCOVERSOLVER_DLXINCIDENCEMATRIX_H
 
 #include <iostream>
 
@@ -13,13 +13,13 @@ namespace kai_exact_cover_solver {
      *
      */
     template<class T>
-    class Node {
+    class DLXNode {
     public:
-        Node(const T &theData,
-             Node<T> *theRight = nullptr,
-             Node<T> *theLeft = nullptr,
-             Node<T> *theUp = nullptr,
-             Node<T> *theDown = nullptr)
+        DLXNode(const T &theData,
+                DLXNode<T> *theRight = nullptr,
+                DLXNode<T> *theLeft = nullptr,
+                DLXNode<T> *theUp = nullptr,
+                DLXNode<T> *theDown = nullptr)
                 : data_(theData), right_(theRight), left_(theLeft), up_(theUp), down_(theDown) {}
 
         //!< Sets the node's data to @p theData.
@@ -33,14 +33,14 @@ namespace kai_exact_cover_solver {
 
         }
 
-        Node<T> *right() const { return right_; } //!< \return the right link.
-        Node<T> *left() const { return left_; } //!< \return the left link.
-        Node<T> *up() const { return up_; } //!< \return the up link.
-        Node<T> *down() const { return down_; } //!< \return the down link.
-        void set_right(Node<T> *node) { right_ = node; } //!< Points the right link to @c node.
-        void set_left(Node<T> *node) { left_ = node; } //!< Points the left link to @c node.
-        void set_up(Node<T> *node) { up_ = node; } //!< Points the up link to @c node.
-        void set_down(Node<T> *node) { down_ = node; } //!< Points the down link to @c node.
+        DLXNode<T> *right() const { return right_; } //!< \return the right link.
+        DLXNode<T> *left() const { return left_; } //!< \return the left link.
+        DLXNode<T> *up() const { return up_; } //!< \return the up link.
+        DLXNode<T> *down() const { return down_; } //!< \return the down link.
+        void set_right(DLXNode<T> *node) { right_ = node; } //!< Points the right link to @c node.
+        void set_left(DLXNode<T> *node) { left_ = node; } //!< Points the left link to @c node.
+        void set_up(DLXNode<T> *node) { up_ = node; } //!< Points the up link to @c node.
+        void set_down(DLXNode<T> *node) { down_ = node; } //!< Points the down link to @c node.
 
         /**
          * @brief Joins two nodes together horizontally.
@@ -48,7 +48,7 @@ namespace kai_exact_cover_solver {
          * Sets the right link of @p left to @p right and the left link of @p right to @p left.
          * Assumes neither @p left nor @p right point to @c nullptr.
          */
-        static void join_horizontally(Node<T> *left, Node<T> *right) {
+        static void join_node_horizontally(DLXNode<T> *left, DLXNode<T> *right) {
             left->set_right(right);
             right->set_left(left);
         }
@@ -59,17 +59,17 @@ namespace kai_exact_cover_solver {
          * Sets the up link of @p down to @p up and the down link of @p up to @p down.
          * Assumes neither @p down nor @p up point to @c nullptr.
          */
-        static void join_vertically(Node<T> *down, Node<T> *up) {
+        static void join_node_vertically(DLXNode<T> *down, DLXNode<T> *up) {
             down->set_up(up);
             up->set_down(down);
         }
 
     private:
         T data_;
-        Node<T> *right_;
-        Node<T> *left_;
-        Node<T> *up_;
-        Node<T> *down_;
+        DLXNode<T> *right_;
+        DLXNode<T> *left_;
+        DLXNode<T> *up_;
+        DLXNode<T> *down_;
     };
 
     /**
@@ -79,9 +79,8 @@ namespace kai_exact_cover_solver {
      * Assumes neither @p left nor @p right point to @c nullptr.
      */
     template<class T>
-    void join_horizontally(Node<T> *left, Node<T> *right) {
-        left->set_right(right);
-        right->set_left(left);
+    static void join_node_horizontally(DLXNode<T> *left, DLXNode<T> *right) {
+        DLXNode<T>::join_node_horizontally(left, right)
     }
 
     /**
@@ -91,38 +90,37 @@ namespace kai_exact_cover_solver {
      * Assumes neither @p down nor @p up point to @c nullptr.
      */
     template<class T>
-    void join_vertically(Node<T> *down, Node<T> *up) {
-        down->set_up(up);
-        up->set_down(down);
+    static void join_node_vertically(DLXNode<T> *down, DLXNode<T> *up) {
+        DLXNode<T>::join_node_vertically(down, up);
     }
 
-    class ColumnHeaderNode;
+    class DLXColumnHeaderNode;
 
     /**
      * data of node in the incidence matrix
      * Identifies location of a node within a matrix
      */
-    struct MatrixNodeData {
+    struct DLXMatrixNodeData {
     public:
-        MatrixNodeData(int r = -1, ColumnHeaderNode *c = nullptr) : row_id_(r), column_header_(c) {}
+        DLXMatrixNodeData(int r = -1, DLXColumnHeaderNode *c = nullptr) : row_id_(r), column_header_(c) {}
 
         int row_id_;  //!< A number identifying the row
-        ColumnHeaderNode *column_header_; //!< A pointer to the column header
+        DLXColumnHeaderNode *column_header_; //!< A pointer to the column header
     };
 
     //! The default matrix node used in this project.
-    using MatrixNode = Node<MatrixNodeData>;
+    using DLXMatrixNode = DLXNode<DLXMatrixNodeData>;
 
     /*!
-     * \brief A type of \ref MatrixNode which acts as a header for a column
+     * \brief A type of \ref DLXMatrixNode which acts as a header for a column
      *
-     * The \ref MatrixNodeData#row_id_ is set to -1 and \ref MatrixNodeData#column_header_ points to the object itself.
-     * \ref ColumnHeaderNode objects also store the size of their column, which can be accessed via member functions.
+     * The \ref DLXMatrixNodeData#row_id_ is set to -1 and \ref DLXMatrixNodeData#column_header_ points to the object itself.
+     * \ref DLXColumnHeaderNode objects also store the size of their column, which can be accessed via member functions.
      */
-    class ColumnHeaderNode : public MatrixNode {
+    class DLXColumnHeaderNode : public DLXMatrixNode {
     public:
-        ColumnHeaderNode(int theSize = 0)
-                : MatrixNode(MatrixNodeData(-1, this)), _size(theSize) {}
+        DLXColumnHeaderNode(int theSize = 0)
+                : DLXMatrixNode(DLXMatrixNodeData(-1, this)), _size(theSize) {}
 
         int size() const { return _size; } //!< returns the number of nodes in the column.
         void set_size(int N) { _size = N; } //!< sets the number of nodes in the column to @p N.
@@ -140,82 +138,82 @@ namespace kai_exact_cover_solver {
      * Moreover, rows and columns are represented as circular doubly linked lists, so as to be naturally
      * amenable to the so-called ``Dancing Links'' algorithm of D. Knuth.
      *
-     * The following is a helpful illustration of the IncidenceMatrix data structure taken from [this article](https://arxiv.org/pdf/cs/0011047.pdf) by Knuth.
+     * The following is a helpful illustration of the DLXIncidenceMatrix data structure taken from [this article](https://arxiv.org/pdf/cs/0011047.pdf) by Knuth.
      * ![An image of a linked matrix](../images/linked_matrix_image_(Knuth).png)
      *
      * The data structure consists of a *root* or *head* node (got by calling \ref head() ) which is linked to the
-     * *column headers* (objects of type \ref ColumnHeaderNode ), each of which represents a column of the matrix and whose
-     * \ref ColumnHeaderNode#size() records the number of 1's in that column. Each 1 is represented by an object of type
-     * \ref MatrixNode, and each row and column (including the header) is a circular doubly linked list.
+     * *column headers* (objects of type \ref DLXColumnHeaderNode ), each of which represents a column of the matrix and whose
+     * \ref DLXColumnHeaderNode#size() records the number of 1's in that column. Each 1 is represented by an object of type
+     * \ref DLXMatrixNode, and each row and column (including the header) is a circular doubly linked list.
      *
-     * For each node, \ref MatrixNodeData#column_header_ points to the column header, and \ref MatrixNodeData#row_id_ is the row index.  The
+     * For each node, \ref DLXMatrixNodeData#column_header_ points to the column header, and \ref DLXMatrixNodeData#row_id_ is the row index.  The
      * values of the row index are determined by the matrix passed as an argument to the constructor - gaps in the
-     * row index values of an \ref IncidenceMatrix reflect zero rows in the original matrix.  For
-     * column headers, \ref MatrixNodeData#row_id_ = -1.  Also for \ref head(), \ref MatrixNodeData#column_header_ = @c nullptr.
+     * row index values of an \ref DLXIncidenceMatrix reflect zero rows in the original matrix.  For
+     * column headers, \ref DLXMatrixNodeData#row_id_ = -1.  Also for \ref head(), \ref DLXMatrixNodeData#column_header_ = @c nullptr.
      *
      * @see dancing_links.h, \ref dancing_links_GJK::Exact_Cover_Solver
      */
-    class IncidenceMatrix {
+    class DLXIncidenceMatrix {
     public:
         /**
          * Creates an empty matrix.
          */
-        IncidenceMatrix() : root(new MatrixNode(MatrixNodeData())) {
+        DLXIncidenceMatrix() : root(new DLXMatrixNode(DLXMatrixNodeData())) {
             // make root->down_ constant somehow
-            join_horizontally(root, root);
+            join_node_horizontally(root, root);
             row_count = 0;
         }
 
         /**
-         * @brief Converts a standard boolean matrix to \ref IncidenceMatrix form.
+         * @brief Converts a standard boolean matrix to \ref DLXIncidenceMatrix form.
          * @param matrix A boolean matrix.
          * @param m The number of rows in @p matrix.
          * @param n The number of columns in @p matrix.
          */
-        IncidenceMatrix(bool **matrix, int m, int n) : root(new MatrixNode(MatrixNodeData())) {
+        DLXIncidenceMatrix(bool **matrix, int m, int n) : root(new DLXMatrixNode(DLXMatrixNodeData())) {
             if (m == 0 || n == 0) {
                 row_count = 0;
                 return;
             }
             // create first_node_of_row column
-            MatrixNode *column_header_node = new ColumnHeaderNode(0);
-            //column_header_node->data().column_id = static_cast<ColumnHeaderNode*>(column_header_node);        // point column object to itself
-            join_horizontally(root, column_header_node);
+            DLXMatrixNode *column_header_node = new DLXColumnHeaderNode(0);
+            //column_header_node->data().column_id = static_cast<DLXColumnHeaderNode*>(column_header_node);        // point column object to itself
+            join_node_horizontally(root, column_header_node);
             // create column header objects
             for (int j = 1; j < n; j++) {
-                join_horizontally(column_header_node, new ColumnHeaderNode(0));
+                join_node_horizontally(column_header_node, new DLXColumnHeaderNode(0));
                 column_header_node = column_header_node->right();
-                //column_header_node->data().column_id = static_cast<ColumnHeaderNode*>(column_header_node);
+                //column_header_node->data().column_id = static_cast<DLXColumnHeaderNode*>(column_header_node);
             }
-            join_horizontally(column_header_node, root); // cyclization
+            join_node_horizontally(column_header_node, root); // cyclization
 
-            // initialize m x n array of MatrixNode pointers
-            // note that the type of the element in the array is MatrixNode pointer, so ptr_matrix's type is MatrixNode ***
-            MatrixNode ***ptr_matrix = new MatrixNode **[m];
+            // initialize m x n array of DLXMatrixNode pointers
+            // note that the type of the element in the array is DLXMatrixNode pointer, so ptr_matrix's type is DLXMatrixNode ***
+            DLXMatrixNode ***ptr_matrix = new DLXMatrixNode **[m];
             for (int k = 0; k < m; k++) {
-                ptr_matrix[k] = new MatrixNode *[n];
+                ptr_matrix[k] = new DLXMatrixNode *[n];
             }
 
             // 1、create nodes of LMatrix, referenced by pointers in ptr_matrix, also link the nodes vertically
             // 2、append to tail patten
-            MatrixNode *tail_node;
+            DLXMatrixNode *tail_node;
             column_header_node = root->right();
             // col_index = column of matrix, row_index = row of matrix
             for (int col_index = 0; col_index < n; col_index++, column_header_node = column_header_node->right()) {
                 tail_node = column_header_node;
                 for (int row_index = 0; row_index < m; row_index++) {
                     if (matrix[row_index][col_index]) {
-                        ptr_matrix[row_index][col_index] = new MatrixNode(
-                                MatrixNodeData(row_index, static_cast<ColumnHeaderNode *>(column_header_node))
+                        ptr_matrix[row_index][col_index] = new DLXMatrixNode(
+                                DLXMatrixNodeData(row_index, static_cast<DLXColumnHeaderNode *>(column_header_node))
                         );
-                        join_vertically(ptr_matrix[row_index][col_index], tail_node);
+                        join_node_vertically(ptr_matrix[row_index][col_index], tail_node);
                         tail_node = ptr_matrix[row_index][col_index];
-                        (static_cast<ColumnHeaderNode *>(column_header_node))->add_to_size(1);
+                        (static_cast<DLXColumnHeaderNode *>(column_header_node))->add_to_size(1);
                     } else {
                         ptr_matrix[row_index][col_index] = nullptr;
                     }
                 }
-                join_vertically(column_header_node, tail_node); // cyclization
+                join_node_vertically(column_header_node, tail_node); // cyclization
             }
 
             int row_index;
@@ -233,7 +231,7 @@ namespace kai_exact_cover_solver {
             // 'row_index' is now the index of the last non-zero row, or -1 if there are no non-zero rows
             row_count = row_index + 1;
             // link the nodes horizontally
-            MatrixNode *first_node_of_row, *prev_node;
+            DLXMatrixNode *first_node_of_row, *prev_node;
             // row_index = row, j = column
             for (; row_index >= 0; row_index--) {
                 first_node_of_row = nullptr;
@@ -244,13 +242,13 @@ namespace kai_exact_cover_solver {
                         if (first_node_of_row == nullptr) {
                             first_node_of_row = ptr_matrix[row_index][col_index];
                         } else {
-                            join_horizontally(prev_node, ptr_matrix[row_index][col_index]);
+                            join_node_horizontally(prev_node, ptr_matrix[row_index][col_index]);
                         }
                         prev_node = ptr_matrix[row_index][col_index];
                     }
                 }
                 if (first_node_of_row != nullptr) {  // if row row_index is not a zero row
-                    join_horizontally(prev_node, first_node_of_row);
+                    join_node_horizontally(prev_node, first_node_of_row);
                 }
             }
 
@@ -264,7 +262,11 @@ namespace kai_exact_cover_solver {
 
         }
 
-        MatrixNode *head() const; //!< \return the head node of the matrix (see the detailed class description).
+        //!< \return the head node of the matrix (see the detailed class description).
+        DLXMatrixNode *head() const {
+            return root;
+        }
+
         bool is_trivial() const; //!< \return 1 if the matrix is empty (ie consists only of a head node), 0 otherwise.
         int number_of_rows() const; //!< \return the number of rows (equivalently, the maximum column size).
         /**
@@ -274,17 +276,17 @@ namespace kai_exact_cover_solver {
          * Does not alter any left, right, up or down links belonging to nodes in the row.  If the matrix is empty
          * or @p node is \ref head() or a column header, no action is taken.
          *
-         * \ref ColumnHeaderNode#size() values are updated, but \ref row_id_ values are **not** changed.
+         * \ref DLXColumnHeaderNode#size() values are updated, but \ref row_id_ values are **not** changed.
          */
-        void remove_row(MatrixNode *node);
+        void remove_row(DLXMatrixNode *node);
 
         /**
-         * @brief Undoes the action of \ref IncidenceMatrix#remove_row "remove_row"( @p node).
+         * @brief Undoes the action of \ref DLXIncidenceMatrix#remove_row "remove_row"( @p node).
          *
          * **Precondition** Neither the row containing @c node, nor the calling object have been altered since the
          * last call to \ref remove_row.
          */
-        void restore_row(MatrixNode *node);
+        void restore_row(DLXMatrixNode *node);
 
         /**
          * @brief Removes the column containing the node @p node.
@@ -293,17 +295,17 @@ namespace kai_exact_cover_solver {
          * Removes the entire column, including the column header.  Does not alter any left, right, up or down links belonging to nodes in the column.  If @p node is \ref head(),
          * no action is taken.
          */
-        void remove_column(MatrixNode *node);
+        void remove_column(DLXMatrixNode *node);
 
         /**
-         * @brief Undoes the action of \ref IncidenceMatrix#remove_column "remove_column"( @p node).
+         * @brief Undoes the action of \ref DLXIncidenceMatrix#remove_column "remove_column"( @p node).
          *
          * **Precondition** Neither the column containing @c node, nor the calling object have been altered since the
          * last call to \ref remove_column.
          */
-        void restore_column(MatrixNode *node);
+        void restore_column(DLXMatrixNode *node);
 
-        ~IncidenceMatrix();
+        ~DLXIncidenceMatrix();
 
         /**
          * @brief Displays the matrix in ascii format, which is useful for debugging.
@@ -321,7 +323,7 @@ namespace kai_exact_cover_solver {
                 0 0 0
                 0 1 1
          *
-         * when converted to type IncidenceMatrix, will be displayed as
+         * when converted to type DLXIncidenceMatrix, will be displayed as
          *
                  ROW DIAGRAM
 
@@ -338,12 +340,12 @@ namespace kai_exact_cover_solver {
 
                  >1<>1<>2<
 
-        will be displayed.  This can be used to check that the \ref ColumnHeaderNode#size() values are correct.
+        will be displayed.  This can be used to check that the \ref DLXColumnHeaderNode#size() values are correct.
          */
         void DEBUG_display(std::ostream &out_stream = std::cout);
 
     private:
-        MatrixNode *root; // dummy node
+        DLXMatrixNode *root; // dummy node
         int row_count;      // 1 plus the index of the last nonzero row index of the ORIGINAL matrix
         // set in the constructor and not ever modified
         // only needed for DEBUG_display()
@@ -352,4 +354,4 @@ namespace kai_exact_cover_solver {
 };
 
 
-#endif //EXACTCOVERSOLVER_DANCINGLISTS_H
+#endif //EXACTCOVERSOLVER_DLXINCIDENCEMATRIX_H
