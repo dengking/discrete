@@ -30,17 +30,47 @@ namespace kai_exact_cover_solver {
         //!< \return the data object.
         T &data() const {
             return const_cast<T &>(data_);         // don't know why I have to cast the argument, but compiler otherwise complains
-
         }
 
-        DLXNode<T> *right() const { return right_; } //!< \return the right link.
-        DLXNode<T> *left() const { return left_; } //!< \return the left link.
-        DLXNode<T> *up() const { return up_; } //!< \return the up link.
-        DLXNode<T> *down() const { return down_; } //!< \return the down link.
-        void set_right(DLXNode<T> *node) { right_ = node; } //!< Points the right link to @c node.
-        void set_left(DLXNode<T> *node) { left_ = node; } //!< Points the left link to @c node.
-        void set_up(DLXNode<T> *node) { up_ = node; } //!< Points the up link to @c node.
-        void set_down(DLXNode<T> *node) { down_ = node; } //!< Points the down link to @c node.
+        //!< \return the right link.
+        DLXNode<T> *right() const {
+            return right_;
+        }
+
+        //!< \return the left link.
+        DLXNode<T> *left() const {
+            return left_;
+        }
+
+        //!< \return the up link.
+        DLXNode<T> *up() const {
+            return up_;
+        }
+
+        //!< \return the down link.
+        DLXNode<T> *down() const {
+            return down_;
+        }
+
+        //!< Points the right link to @c node.
+        void set_right(DLXNode<T> *node) {
+            right_ = node;
+        }
+
+        //!< Points the left link to @c node.
+        void set_left(DLXNode<T> *node) {
+            left_ = node;
+        }
+
+        //!< Points the up link to @c node.
+        void set_up(DLXNode<T> *node) {
+            up_ = node;
+        }
+
+        //!< Points the down link to @c node.
+        void set_down(DLXNode<T> *node) {
+            down_ = node;
+        }
 
         /**
          * @brief Joins two nodes together horizontally.
@@ -122,9 +152,21 @@ namespace kai_exact_cover_solver {
         DLXColumnHeaderNode(int theSize = 0)
                 : DLXMatrixNode(DLXMatrixNodeData(-1, this)), _size(theSize) {}
 
-        int size() const { return _size; } //!< returns the number of nodes in the column.
-        void set_size(int N) { _size = N; } //!< sets the number of nodes in the column to @p N.
-        void add_to_size(int N) { _size += N; } //!< Adds @p N to the number of nodes in the column.
+        //!< returns the number of nodes in the column.
+        int size() const {
+            return _size;
+        }
+
+        //!< sets the number of nodes in the column to @p N.
+        void set_size(int N) {
+            _size = N;
+        }
+
+        //!< Adds @p N to the number of nodes in the column.
+        void add_to_size(int N) {
+            _size += N;
+        }
+
     private:
         int _size;
     };
@@ -267,8 +309,16 @@ namespace kai_exact_cover_solver {
             return root;
         }
 
-        bool is_trivial() const; //!< \return 1 if the matrix is empty (ie consists only of a head node), 0 otherwise.
-        int number_of_rows() const; //!< \return the number of rows (equivalently, the maximum column size).
+        //!< \return 1 if the matrix is empty (ie consists only of a head node), 0 otherwise.
+        bool is_empty() const {
+            return root->right() == root && root->left() == root;
+        }
+
+        //!< \return the number of rows (equivalently, the maximum column size).
+        int number_of_rows() const {
+
+        }
+
         /**
          * @brief Removes the row containing the node @p node.
          * @param node A node of the matrix.

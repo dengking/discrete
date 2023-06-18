@@ -56,7 +56,7 @@ namespace kai_exact_cover_solver {
          * If there are no columns, return NULL
          */
         DLXColumnHeaderNode *choose_column(DLXIncidenceMatrix &incidence_matrix) {
-            if (incidence_matrix.is_trivial()) return nullptr;
+            if (incidence_matrix.is_empty()) return nullptr;
 
             DLXColumnHeaderNode *col = static_cast<DLXColumnHeaderNode *>(incidence_matrix.head()->right());
             DLXColumnHeaderNode *max_col = col;
