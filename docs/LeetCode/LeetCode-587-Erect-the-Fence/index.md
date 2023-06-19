@@ -2,7 +2,7 @@
 
 
 
-### 我的解题
+### 错误解题
 
 ```c++
 
@@ -71,11 +71,14 @@ int main() {
 }
 ```
 
+1、vector
 
-
-
+无法通过如下用例:
 
 ```
 [[1,2],[2,2],[4,2]]
 ```
 
+
+
+see also: [【宫水三叶】二维凸包模板题](https://leetcode.cn/problems/erect-the-fence/solution/by-ac_oier-4xuu/)
