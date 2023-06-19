@@ -316,7 +316,12 @@ namespace kai_exact_cover_solver {
 
         //!< \return the number of rows (equivalently, the maximum column size).
         int number_of_rows() const {
-
+            int num = 0;
+            for (DLXMatrixNode *node = root->right(); node != root; node = node->right()) {
+                if (static_cast<DLXColumnHeaderNode *>(node)->size() > num)
+                    num = static_cast<DLXColumnHeaderNode *>(node)->size();
+            }
+            return num;
         }
 
         /**
@@ -328,7 +333,15 @@ namespace kai_exact_cover_solver {
          *
          * \ref DLXColumnHeaderNode#size() values are updated, but \ref row_id_ values are **not** changed.
          */
-        void remove_row(DLXMatrixNode *node);
+        void remove_row(DLXMatrixNode *node) {
+            if (node == NULL || node == root || node->data().column_header_ == node) return;
+            DLXMatrixNode *k = node;
+            do {
+                join_node_vertically(k->down(), k->up());
+                k->data().column_header_->add_to_size(-1);
+                k = k->right();
+            } while (k != node); // stop when we're back where we started
+        }
 
         /**
          * @brief Undoes the action of \ref DLXIncidenceMatrix#remove_row "remove_row"( @p node).
@@ -336,7 +349,15 @@ namespace kai_exact_cover_solver {
          * **Precondition** Neither the row containing @c node, nor the calling object have been altered since the
          * last call to \ref remove_row.
          */
-        void restore_row(DLXMatrixNode *node);
+        void restore_row(DLXMatrixNode *node) {
+            DLXMatrixNode *k = node;
+            do {
+                k->up()->set_down(k);  // connect row back
+                k->down()->set_up(k);  // into the matrix
+                k->data().column_header_->add_to_size(1);
+                k = k->left();
+            } while (k != node);
+        }
 
         /**
          * @brief Removes the column containing the node @p node.
@@ -345,7 +366,14 @@ namespace kai_exact_cover_solver {
          * Removes the entire column, including the column header.  Does not alter any left, right, up or down links belonging to nodes in the column.  If @p node is \ref head(),
          * no action is taken.
          */
-        void remove_column(DLXMatrixNode *node);
+        void remove_column(DLXMatrixNode *node) {
+            if (node == NULL || node == root) return;
+            DLXMatrixNode *k = node;
+            do {
+                join_node_horizontally(k->left(), k->right());
+                k = k->up();
+            } while (k != node); // stop when we're back where we started
+        }
 
         /**
          * @brief Undoes the action of \ref DLXIncidenceMatrix#remove_column "remove_column"( @p node).
@@ -353,9 +381,33 @@ namespace kai_exact_cover_solver {
          * **Precondition** Neither the column containing @c node, nor the calling object have been altered since the
          * last call to \ref remove_column.
          */
-        void restore_column(DLXMatrixNode *node);
+        void restore_column(DLXMatrixNode *node) {
+            DLXMatrixNode *k = node;
+            do {
+                k->right()->set_left(k);
+                k->left()->set_right(k);
+                k = k->down();
+            } while (k != node);
+        }
 
-        ~DLXIncidenceMatrix();
+        ~DLXIncidenceMatrix() {
+            DLXMatrixNode *a, *b, *del;
+            // a iterates through the column headers horizontally
+            // b iterates through each column vertically
+            a = root->right();
+            while (a != root) {
+                b = a->down();
+                while (b != a) {
+                    del = b;
+                    b = b->down();
+                    delete del;
+                }
+                del = a;
+                a = a->right();
+                delete del;
+            }
+            delete root;
+        }
 
         /**
          * @brief Displays the matrix in ascii format, which is useful for debugging.
@@ -392,7 +444,80 @@ namespace kai_exact_cover_solver {
 
         will be displayed.  This can be used to check that the \ref DLXColumnHeaderNode#size() values are correct.
          */
-        void DEBUG_display(std::ostream &out_stream = std::cout);
+        void DEBUG_display(std::ostream &ofs = std::cout) {
+            const char l = '>';
+            const char d = '<';
+            const char r = '<';
+            const char u = '>';
+            const char H = 'H';
+            const char C = 'C';
+            const char N = 'N';
+            const char ind = '\t';
+            const char sp = ' ';
+            ofs << ind << "ROW DIAGRAM" << std::endl << std::endl;
+
+            ofs << ind;
+            ofs << l << H << r;
+
+            DLXMatrixNode *node = root->right();
+            assert(node->left() == root);
+            while (node != root) {
+                assert(node->data().row_id_ == -1);
+                assert(node->right() != NULL);
+                assert(node == node->right()->left());
+                ofs << l << C << r;
+                node = node->right();
+            }
+            ofs << ind << ind << "row " << -1 << std::endl;
+
+            int rownum = 0;
+            DLXMatrixNode *colhead;
+            DLXMatrixNode *prev, *first;
+            while (rownum < row_count) {
+                ofs << ind << sp << sp << sp;
+                colhead = root->right();
+                prev = NULL;
+                while (colhead != root) {
+                    node = colhead->down();
+                    while (node != colhead && node->data().row_id_ != rownum) {
+                        assert(node != NULL);
+                        assert(node->down() != NULL);
+                        assert(node->down()->up() == node);
+                        assert(node->data().column_header_ == colhead);
+                        node = node->down();
+                    }
+                    if (node == colhead) {
+                        ofs << sp << sp << sp;
+                    } else if (node->data().row_id_ == rownum) {
+                        if (prev != NULL) {
+                            assert(prev->right() == node);
+                            assert(node->left() == prev);
+                        } else {
+                            first = node;
+                        }
+                        ofs << l << N << r;
+                        prev = node;
+                    }
+                    colhead = colhead->right();
+                }
+                if (prev != NULL) {
+                    assert(prev->right() == first);
+                    assert(first->left() == prev);
+                }
+                ofs << ind << ind << "row " << rownum << std::endl;
+                rownum++;
+            }
+
+            ofs << std::endl << std::endl;
+            ofs << ind << "COLUMN SIZES" << std::endl << std::endl;
+            ofs << ind;
+            node = root->right();
+            while (node != root) {
+                ofs << l << static_cast<DLXColumnHeaderNode *>(node)->size() << r;
+                node = node->right();
+            }
+            ofs << std::endl;
+        }
 
     private:
         DLXMatrixNode *root; // dummy node
