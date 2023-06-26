@@ -20,7 +20,7 @@ geeksforgeeks [Segment Tree | Sum of given range](https://www.geeksforgeeks.org/
 >
 > 2、complete binary tree
 >
-> 首先计算树的总高度，然后计算存储complete binary tree所需要的总节点个数 
+> 首先计算树的总高度，然后计算存储complete binary tree所需要的总节点个数。显然最终的complete binary tree是原segment tree的超级，它会保护原segment tree，这样原segment tree不是所有的节点都会是complete binary tree的leaf node
 
 
 
