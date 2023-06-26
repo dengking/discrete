@@ -60,3 +60,4 @@ We will use the array `tree[]` to store the nodes of our segment tree (initializ
 2、The children of `tree[i]` are stored at `tree[2*i+1]` and `tree[2*i+2]`.
 
 3、We will pad our `arr[]` with extra `0` or `null` values so that $n=2^k$ (where $n$ is the final length of `arr[]` and *k* is a non-negative integer.)
+
