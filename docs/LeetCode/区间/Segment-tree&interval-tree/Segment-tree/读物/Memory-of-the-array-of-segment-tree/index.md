@@ -26,5 +26,9 @@ geeksforgeeks [Segment Tree | Sum of given range](https://www.geeksforgeeks.org/
 
 
 
+What is happening here is, if you have an array of n elements, then the segment tree will have a leaf node for each of these n entries. Thus, we have (n) leaf nodes, and also (n-1) internal nodes.
+
+
+
 
 
