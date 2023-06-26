@@ -18,7 +18,7 @@ Segment Trees have applications in areas of computational geometry and [geograph
 >
 > 一、翻译如下:
 >
-> 段树在计算几何和地理信息系统领域有应用。例如，我们可能在距中心参考/原点一定距离的空间中有大量点。假设我们必须查找距原点一定距离范围内的点。一个普通的查找表需要对所有可能的点或所有可能的距离进行线性扫描（想想哈希图）。 Segment Trees 让我们在对数时间内以更少的空间成本实现这一目标。这样的问题称为平面范围搜索。有效解决此类问题至关重要，尤其是在处理快速且不可预测的动态数据时（例如，用于空中交通的雷达系统）。
+> "段树在计算几何和地理信息系统领域有应用。例如，我们可能在距中心参考/原点一定距离的空间中有大量点。假设我们必须查找距原点一定距离范围内的点。一个普通的查找表需要对所有可能的点或所有可能的距离进行线性扫描（想想哈希图）。 Segment Trees 让我们在对数时间内以更少的空间成本实现这一目标。这样的问题称为平面范围搜索。有效解决此类问题至关重要，尤其是在处理快速且不可预测的动态数据时（例如，用于空中交通的雷达系统）"。
 
 We will solve the [Range Sum Query problem](https://leetcode.com/articles/a-recursive-approach-to-segment-trees-range-sum-queries-lazy-propagation/#range-sum-queries) later in this editorial as an example of how Segment Trees help us save loads on runtime costs.
 
@@ -55,8 +55,8 @@ Segment trees are very intuitive and easy to use when built recursively.
 
 We will use the array `tree[]` to store the nodes of our segment tree (initialized to all zeros). The following scheme (`0` - based indexing) is used:
 
-1、The node of the tree is at index 00. Thus `tree[0]` is the root of our tree.
+1、The node of the tree is at index 0. Thus `tree[0]` is the root of our tree.
 
 2、The children of `tree[i]` are stored at `tree[2*i+1]` and `tree[2*i+2]`.
 
-3、We will pad our `arr[]` with extra `0` or `null` values so that $n=2^k$ (where $n$ is the final length of `arr[]` and *k* is a non negative integer.)
+3、We will pad our `arr[]` with extra `0` or `null` values so that $n=2^k$ (where $n$ is the final length of `arr[]` and *k* is a non-negative integer.)
