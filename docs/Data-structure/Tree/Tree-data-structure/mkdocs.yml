@@ -1,3 +1,4 @@
 nav:
     - Introduction: index.md
     - Binary-tree: Binary-tree
+    - Search-tree: Search-tree
