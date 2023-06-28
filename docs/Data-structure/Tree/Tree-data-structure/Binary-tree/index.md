@@ -1,5 +1,7 @@
 # Binary tree
 
+
+
 ## wikipedia [Binary tree](https://en.wikipedia.org/wiki/Binary_tree)
 
 > NOTE:
