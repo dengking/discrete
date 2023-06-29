@@ -44,3 +44,11 @@ A **complete** binary tree is a binary tree in which every level, *except possib
 [![img](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Complete_binary2.svg/220px-Complete_binary2.svg.png)](https://en.wikipedia.org/wiki/File:Complete_binary2.svg)
 
 A complete binary tree (that is not full)
+
+
+
+
+
+#### **perfect** binary tree
+
+A **perfect** binary tree is a binary tree in which all interior nodes have two children *and* all leaves have the same *depth* or same *level* (the level of a node defined as the number of edges or links from the root node to a node).
