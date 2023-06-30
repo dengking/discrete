@@ -42,6 +42,20 @@ The elementary interval corresponding to a leaf *v* is denoted Int(*v*).
 
 
 
+## segment tree、perfect binary tree
+
+segment tree是以perfect binary tree的方式进行存储，关于此，参见:
+
+一、挑战程序设计竞赛:
+
+> 线段树是一棵完美二叉树(perfect binary tree)
+
+二、stackoverflow [How is the memory of the array of segment tree 2 * 2 ^(ceil(log(n))) - 1?](https://stackoverflow.com/questions/28470692/how-is-the-memory-of-the-array-of-segment-tree-2-2-ceillogn-1) # [A](https://stackoverflow.com/a/28502243) 
+
+其中的计算方式就是将它看做是一棵完美二叉树(perfect binary tree)
+
+
+
 ## cp-algorithms [Segment Tree](https://cp-algorithms.com/data_structures/segment_tree.html)
 
 

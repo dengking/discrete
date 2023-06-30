@@ -4,6 +4,12 @@
 
 A segment tree is a binary tree where each node represents an interval. Generally a node would store one or more properties of an interval which can be queried later.
 
+> NOTE:
+>
+> 一、"interval"即"区间"，在segment tree中，区间对应的是数组下标的区间，这一点，可以从下面的图中看出，所以在`buildSegTree`中它的两个入参分别是`lo`、`hi` 
+
+
+
 ![A typical Segment Tree](https://leetcode.com/articles/Figures/segtree_intro_1.png)
 
 ### Why do we require it? (or What's the point of this?)
@@ -60,4 +66,26 @@ We will use the array `tree[]` to store the nodes of our segment tree (initializ
 2、The children of `tree[i]` are stored at `tree[2*i+1]` and `tree[2*i+2]`.
 
 3、We will pad our `arr[]` with extra `0` or `null` values so that $n=2^k$ (where $n$ is the final length of `arr[]` and *k* is a non-negative integer.)
+
+
+
+```c++
+void buildSegTree(vector<int>& arr, int treeIndex, int lo, int hi)
+{
+    if (lo == hi) {                 // leaf node. store value in node.
+        tree[treeIndex] = arr[lo];
+        return;
+    }
+
+    int mid = lo + (hi - lo) / 2;   // recurse deeper for children.
+    buildSegTree(arr, 2 * treeIndex + 1, lo, mid);
+    buildSegTree(arr, 2 * treeIndex + 2, mid + 1, hi);
+
+    // merge build results
+    tree[treeIndex] = merge(tree[2 * treeIndex + 1], tree[2 * treeIndex + 2]);
+}
+
+// call this method as buildSegTree(arr, 0, 0, n-1);
+// Here arr[] is input array and n is its size.
+```
 
