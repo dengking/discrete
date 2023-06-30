@@ -67,7 +67,7 @@ We will use the array `tree[]` to store the nodes of our segment tree (initializ
 
 3、We will pad our `arr[]` with extra `0` or `null` values so that $n=2^k$ (where $n$ is the final length of `arr[]` and *k* is a non-negative integer.)
 
-
+#### 1. Build the tree from the original data.
 
 ```c++
 void buildSegTree(vector<int>& arr, int treeIndex, int lo, int hi)
@@ -89,3 +89,12 @@ void buildSegTree(vector<int>& arr, int treeIndex, int lo, int hi)
 // Here arr[] is input array and n is its size.
 ```
 
+The method builds the entire `tree` in a bottom up fashion. When the condition `lo=hi` is satisfied, we are left with a range comprising of just a single element (which happens to be `arr[lo]`). This constitutes a leaf of the tree. The rest of the nodes are built by merging the results of their two children. `treeIndex` is the index of the current node of the segment tree which is being processed.
+
+![Building the Segment Tree](https://leetcode.com/articles/Figures/segtree_example_2.png)
+
+For example, the tree above is made from the input array: (which we will use throughout this tutorial)
+
+
+
+#### 2. Read/Query on an interval or segment of the data.

@@ -50,3 +50,15 @@ A complete binary tree (that is not full)
 #### perfect binary tree
 
 A **perfect** binary tree is a binary tree in which all interior nodes have two children *and* all leaves have the same *depth* or same *level* (the level of a node defined as the number of edges or links from the root node to a node).
+
+
+
+### Combinatorics
+
+$C_{n}=\sum _{i=0}^{n-1}C_{i}C_{n-1-i}$
+
+
+
+
+
+$ ((X*X)*X)*X,\qquad (X*(X*X))*X,\qquad (X*X)*(X*X),\qquad X*((X*X)*X),\qquad X*(X*(X*X)). $
