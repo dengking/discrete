@@ -310,11 +310,17 @@ But what if we had to update a *range* of elements? By our current method, each 
 
 The construction of a tree poses another issue called *ancestral locality*. Ancestors of adjacent leaves are guaranteed to be common at some levels of the tree. Updating each of these leaves individually would mean that we process their common ancestors multiple times. What if we could reduce this repetitive computation?
 
+
+
 ![Ancestral Locality](https://leetcode.com/articles/Figures/segtree_example_4.png)
 
 
 
 In the above example, the root is updated thrice and the node numbered 82 is updated twice. This is because, at some level of the tree, the changes propagated from different leaves will meet.
+
+> NOTE:
+>
+> 一、ancestor被重复更新，是因为从leaf node的change传播到了common ancestor
 
 A third kind of problem is when queried ranges do not contain frequently updated elements. We might be wasting valuable time updating nodes which are rarely going to be accessed/read.
 
