@@ -1,6 +1,7 @@
 nav:
     - Introduction: index.md
-    - LeetCode-303-Range-Sum-Query-Easy: LeetCode-303-Range-Sum-Query-Easy
+    - LeetCode-303-Range-Sum-Query-Immutable-Easy: LeetCode-303-Range-Sum-Query-Immutable-Easy
+    - LeetCode-304-Range-Sum-Query-2D-Immutable-Medium: LeetCode-304-Range-Sum-Query-2D-Immutable-Medium
     - LeetCode-307-Range-Sum-Query-Mutable-Medium: LeetCode-307-Range-Sum-Query-Mutable-Medium
     
     

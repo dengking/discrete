@@ -6,6 +6,12 @@
 
 二、segment tree
 
+## [LeetCode-304. Range Sum Query 2D - Immutable-medium](https://leetcode.cn/problems/range-sum-query-2d-immutable/)
+
+
+
+
+
 ## [LeetCode-307. Range Sum Query - Mutable-medium](https://leetcode.cn/problems/range-sum-query-mutable/)
 
 
