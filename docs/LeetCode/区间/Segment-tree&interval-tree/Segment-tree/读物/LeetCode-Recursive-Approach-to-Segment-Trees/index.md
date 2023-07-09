@@ -270,6 +270,14 @@ void updateValSegTree(int treeIndex, int lo, int hi, int arrIndex, int val)
 // Here you want to update the value at index i with value val.
 ```
 
+> NOTE:
+>
+> 一、`lo`、`hi` 不断地向 `arrIndex` 逼近，直至 `lo == hi == arrIndex` 成立，执行更新；需要注意的是: 最后还要执行 "merge updates" 操作，这是post action；
+>
+> 上述程序非常类似于binary search，需要知道arrIndex属于哪棵子树；
+>
+> 通过上述程序，其实能够加深对binary search的理解；
+
 This is similar to `buildSegTree`. We update the value of the leaf node of our tree which corresponds to the updated element. Later the changes are propagated through the upper levels of the tree straight to the root.
 
 ![Update a Segment Tree Leaf](https://leetcode.com/articles/Figures/segtree_example_4.png)
