@@ -1,8 +1,28 @@
 # Segment tree
 
+一、
+
 segment=线段
 
 interval=区间
+
+
+
+二、
+
+左右两个节点的区间不重叠
+
+
+
+三、线段树是否只能够处理离散的点
+
+sweep line algorithm也是将line segment离散化后进行处理的
+
+1、[LeetCode-218. The Skyline Problem](https://leetcode.cn/problems/the-skyline-problem/) 
+
+输入是区间，需要首先将区间离散化然后再构建线段树
+
+
 
 ## wikipedia [Segment tree](https://en.wikipedia.org/wiki/Segment_tree)
 
@@ -11,6 +31,10 @@ In [computer science](https://en.wikipedia.org/wiki/Computer_science), a **segme
 > NOTE:
 >
 > 一、"storing information about [intervals](https://en.wikipedia.org/wiki/Interval_(mathematics))" 让我想到了  [interval tree](https://en.wikipedia.org/wiki/Interval_tree) 中的 [augmented tree](https://en.wikipedia.org/wiki/Interval_tree#Augmented_tree) 实现方式中的"extra annotation"
+>
+> 二、application:
+>
+> 1、It allows querying which of the stored segments contain a given point
 
 
 
@@ -56,17 +80,27 @@ segment tree是以perfect binary tree的方式进行存储，关于此，参见:
 
 
 
-## cp-algorithms [Segment Tree](https://cp-algorithms.com/data_structures/segment_tree.html)
+## lazy
 
 
 
-## geeksforgeeks [Segment Tree | Sum of given range](https://www.geeksforgeeks.org/segment-tree-sum-of-given-range/)
+一、动态开点
+
+zhihu [数据结构学习笔记(5)动态开点线段树](https://zhuanlan.zhihu.com/p/559047943) 
 
 
 
+二、lazy propagation
 
 
-## LeetCode segment tree
+
+## 读物
+
+一、cp-algorithms [Segment Tree](https://cp-algorithms.com/data_structures/segment_tree.html)
+
+二、geeksforgeeks [Segment Tree | Sum of given range](https://www.geeksforgeeks.org/segment-tree-sum-of-given-range/)
+
+三、LeetCode segment tree
 
 1、cn:
 
@@ -78,7 +112,7 @@ LeetCode.cn [segment tree](https://leetcode.cn/tag/segment-tree/problemset/)
 
 
 
-## TODO
+四、知乎
 
 zhihu [LeetCode . 线段树专题](https://zhuanlan.zhihu.com/p/85846796)
 

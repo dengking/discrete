@@ -2,7 +2,7 @@
 
 > NOTE:
 >
-> 一、"interval"即"区间"，在segment tree中，区间对应的是数组下标的区间，这一点，可以从下面的图中看出，所以在`buildSegTree`中它的两个入参分别是`lo`、`hi` 
+> 一、"interval"、"segment"即"区间"，在segment tree中，区间对应的是数组下标的区间，这一点，可以从下面的图中看出，所以在`buildSegTree`中它的两个入参分别是`lo`、`hi` 
 >
 > 二、这篇文章中有一个需要说明的点: 它其实是使用perfect binary tree来存储segment tree的
 >
@@ -14,7 +14,7 @@
 >
 > range index 
 >
-> tree index
+> tree index: current node
 >
 > 存储方式、逻辑结构
 >
@@ -204,6 +204,30 @@ int querySegTree(int treeIndex, int lo, int hi, int i, int j)
 // Here [i,j] is the range/interval you are querying.
 // This method relies on "null" nodes being equivalent to storing zero.
 ```
+
+> NOTE:
+>
+> 一、range和segment之间共有如下关系:
+>
+> 1、完全不相交
+>
+> 2、完全相交
+>
+> a、range包含segment: current node表示的范围已经是最大的了，所以此时它只能够返回current node
+>
+> b、segment包含range: 此时range只是segment的一部分，此时range有三种可能性:
+>
+> A、range位于: left child node
+>
+> B、range位于: right child node
+>
+> C、range位于: left child node + right child node
+>
+> 3、部分相交
+>
+> 其实上述code是包含了对这种case的处理的，答案是超出root segment的部分最终会进入到 case1分支中，结合具体例子来说: root segment是 `[0, 8]`，查询`[2,9]`
+>
+> 
 
 The method returns a result when the queried range matches exactly with the range represented by a current node. Else it digs deeper into the tree to find nodes which match a portion of the node exactly.
 
