@@ -48,7 +48,7 @@ In [computer science](https://en.wikipedia.org/wiki/Computer_science), a **segme
 
 
 
-### Structure description
+### Description
 
 > NOTE:
 >
@@ -75,6 +75,14 @@ The elementary interval corresponding to a leaf *v* is denoted Int(*v*).
 4、Each node or leaf *v* in *T* stores the interval Int(*v*) and a set of intervals, in some data structure. This canonical subset of node *v* contains the intervals [*x*, *x′*] from *I* such that [*x*, *x′*] contains Int(*v*) and does not contain Int(parent(*v*)). That is, each node in *T* stores the segments that span through its interval, but do not span through the interval of its parent.
 
 
+
+### Generalization for higher dimensions
+
+The **segment tree** can be generalized to higher dimension spaces, in the form of multi-level segment trees. In higher dimensional versions, the **segment tree** stores a collection of axis-parallel (hyper-)rectangles, and can retrieve the rectangles that contain a given query point.
+
+> NOTE:
+>
+> 一、cp-algorithms [Segment Tree](https://cp-algorithms.com/data_structures/segment_tree.html) 中对此进行了介绍
 
 ## segment tree、perfect binary tree
 
