@@ -1,8 +1,12 @@
 # Merge sort
 
-## Merge sort: post-order traversal
+一、merge sort 和 segment tree非常类似: 
 
-### labuladong [东哥手把手带你套框架刷通二叉树|第一期](https://mp.weixin.qq.com/s/izZ5uiWzTagagJec6Y7RvQ) 
+1、它不需要考虑balanced问题，因为它的一分为二是等分
+
+2、merge sort是典型的一分为二(top-down-pre-order-action)然后两两组和(bottom-up-post-order-action)，它是dfs recursion的典型的模板，这一点它和segment tree非常类似。
+
+二、labuladong [东哥手把手带你套框架刷通二叉树|第一期](https://mp.weixin.qq.com/s/izZ5uiWzTagagJec6Y7RvQ) 
 
 再说说归并排序的逻辑，若要对`nums[lo..hi]`进行排序，我们先对`nums[lo..mid]`排序，再对`nums[mid+1..hi]`排序，最后把这两个有序的子数组合并，整个数组就排好序了。
 

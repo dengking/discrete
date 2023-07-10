@@ -24,6 +24,16 @@ sweep line algorithm也是将line segment离散化后进行处理的
 
 
 
+四、segment tree 和 merge sort非常类似: 
+
+1、segment tree不需要考虑balanced的问题，因为它的一分为二是等分，并且它是perfect-binary-tree。
+
+2、segment tree是典型的一分为二(top-down-pre-order-action)然后两两组和(bottom-up-post-order-action)，它是dfs recursion的典型的模板，这一点它和merge sort非常类似。
+
+3、理解它的最最简单的case就是由四个元素组成的array。
+
+
+
 ## wikipedia [Segment tree](https://en.wikipedia.org/wiki/Segment_tree)
 
 In [computer science](https://en.wikipedia.org/wiki/Computer_science), a **segment tree,** also known as a **statistic tree**, is a [tree](https://en.wikipedia.org/wiki/Tree_(data_structure)) [data structure](https://en.wikipedia.org/wiki/Data_structure) used for storing information about [intervals](https://en.wikipedia.org/wiki/Interval_(mathematics)), or segments. It allows querying which of the stored segments contain a given point. It is, in principle, a static structure; that is, it's a structure that cannot be modified once it's built. A similar data structure is the [interval tree](https://en.wikipedia.org/wiki/Interval_tree).
