@@ -24,7 +24,13 @@ In computing, binary trees can be used in two very different ways:
 
 ### Types of binary trees
 
-
+> NOTE:
+>
+> 一、full binary tree VS complete binary tree
+>
+> geeksforgeeks [Difference between Full and Complete Binary Tree](https://www.geeksforgeeks.org/difference-between-full-and-complete-binary-tree/)
+>
+> 
 
 #### full binary tree
 

@@ -1,6 +1,20 @@
 # 区间问题
 
+sweep line algorithm
 
+segment tree 
+
+prefix sum
+
+
+
+相比于prefix sum，segment tree是解决区间问题的更加通用的算法，因为prefix sum只能够处理sum，而segment tree能够处理很多其它类型的问题；
+
+
+
+线段 和 区间 两者存在着一一对应关系，因此两者的很多算法是共通的。
+
+​	
 
 ### Time-based interval
 
