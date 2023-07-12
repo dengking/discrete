@@ -82,7 +82,15 @@ The **segment tree** can be generalized to higher dimension spaces, in the form 
 
 > NOTE:
 >
-> 一、cp-algorithms [Segment Tree](https://cp-algorithms.com/data_structures/segment_tree.html) 中对此进行了介绍
+> 一、素材: 
+>
+> 1、cp-algorithms [Segment Tree](https://cp-algorithms.com/data_structures/segment_tree.html) 中对此进行了介绍
+>
+> 2、[LeetCode-304. Range Sum Query 2D - Immutable-medium](https://leetcode.cn/problems/range-sum-query-2d-immutable/)
+>
+> 3、geeksforgeeks [Two Dimensional Segment Tree | Sub-Matrix Sum](https://www.geeksforgeeks.org/two-dimensional-segment-tree-sub-matrix-sum/)
+>
+> 
 
 ## segment tree、perfect binary tree
 
