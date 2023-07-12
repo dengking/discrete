@@ -7,7 +7,7 @@
 $$
 T(n)=T(n-1)+g(n)
 $$
- 
+
 
 增量法形式简洁，可以应用于许多的几何题目中。
 
@@ -17,14 +17,3 @@ $$
 
 ## 最小圆覆盖问题
 
-> NOTE:
->
-> 1、https://en.wikipedia.org/wiki/Smallest-circle_problem#:~:text=The%20smallest%2Dcircle%20problem%20(also,points%20in%20the%20Euclidean%20plane.
->
-> 2、https://www.cs.princeton.edu/courses/archive/spr09/cos226/checklist/circle.html
->
-> 3、http://www.doc88.com/p-007257893177.html
->
-> 4、https://www.luogu.com.cn/problem/P1742
->
-> 5、https://wenku.baidu.com/view/162699d63186bceb19e8bbe6.html?_wkts_=1688992891211
