@@ -7,5 +7,5 @@ nav:
     - Spanning-tree: Spanning-tree    
     - Cycle: Cycle
     - Dominator: Dominator
-    - Connected-component&transitive-closure: Connected-component&transitive-closure
+    - Connected-component: Connected-component
     - LeetCode: LeetCode    
