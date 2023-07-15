@@ -6,7 +6,7 @@
 
 二、如何实现monotonic stack?
 
-由于栈的操作只有`push`、`pop`、`top`，无法进行swap，因此对于当使用栈进行排序的时候，一般采用的是如下方式: 
+由于栈的操作只有`push`、`pop`、`top`，无法进行swap，因此当使用栈进行排序的时候，一般采用的是如下方式: 
 
 1、坚持"monotonic order"，即保持当前stack中的element的"monotonic order"，一旦，待`push`的element和`top`之间不满足"monotonic order"，那么就需要将当前stack中与待`push`的element不满足"monotonic order"的元素全部"pop"掉。
 
@@ -24,7 +24,33 @@
 
 单调栈能够找到最大的单调递减子序列，留在栈底的一定是最大的数值
 
-## 应用题汇总
+
+
+## 基于monotonic stack的算法汇总
+
+monotonic stack其实可以看做是一种算法模式，下面是基于它的algorithm:
+
+一、shunting yard algorithm
+
+二、precedence climbing algorithm
+
+三、convex hull
+
+1、[Graham scan](https://en.wikipedia.org/wiki/Graham_scan)
+
+wikipedia [Stack (abstract data type)](https://en.wikipedia.org/wiki/Stack_(abstract_data_type)) 
+
+> [Graham scan](https://en.wikipedia.org/wiki/Graham_scan), an algorithm for the [convex hull](https://en.wikipedia.org/wiki/Convex_hull) of a two-dimensional system of points. A convex hull of a subset of the input is maintained in a stack, which is used to find and remove concavities(凹陷) in the boundary when a new point is added to the hull.
+
+2、Monotone chain
+
+wikibook [Algorithm Implementation/Geometry/Convex hull/Monotone chain](https://en.wikibooks.org/wiki/Algorithm_Implementation/Geometry/Convex_hull/Monotone_chain)
+
+四、[All nearest smaller values](https://en.wikipedia.org/wiki/All_nearest_smaller_values) 
+
+
+
+## LeetCode题汇总
 
 |                                           | 例题 | 栈中元素单调性 | 含义       | 要求          | 遍历方向 |
 | ----------------------------------------- | ---- | -------------- | ---------- | ------------- | -------- |
