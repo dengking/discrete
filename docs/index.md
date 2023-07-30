@@ -1,4 +1,6 @@
-# 关于本工程
+# Discrete
+
+我认为"computer science is discrete"，所以使用discrete作为标题。
 
 1、本工程讨论discrete math、relation、structure、computation等抽象、触及computation本质的内容。
 

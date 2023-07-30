@@ -1,25 +1,12 @@
 nav:
-    - Home: index.md
-    
+    - Home: index.md    
     - Computer-science-is-discrete: Computer-science-is-discrete
-    
     - Discrete-math: Discrete-math
-    
     - Relation-structure-computation: Relation-structure-computation
-    
     - Algorithm: Algorithm
-    
     - Data-structure: Data-structure
-    
     - LeetCode: LeetCode
-    
-    - OI-Wiki: OI-Wiki
-    
     - Experts: Experts
-    
     - Courses: Courses
-    
     - Book-Foundations-of-Computer-Science: Book-Foundations-of-Computer-Science
-
-    - TODO: TODO
     
