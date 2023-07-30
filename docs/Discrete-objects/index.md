@@ -12,11 +12,11 @@
 >
 > 1、这在 "Relation-structure-computation" 中进行了很好的描述
 
-2、连续的对象，往往首先需要离散化(dissertation)，才能够对它进行表示，进而设计算法来对它进行解决
+2、连续的对象，往往首先需要离散化(discretization)，才能够对它进行表示，进而设计算法来对它进行解决
 
 > draft: 
 >
-> 1、路网模型
+> 1、discretization的一个典型例子: 路网模型
 
 
 
