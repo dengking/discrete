@@ -124,7 +124,68 @@ int main()
 
 
 
-## 解法3: 
+## 解法3: 解法2: 先hash index，然后loop: `std::unordered_multimap<int, int>`
+
+```c++
+#include <unordered_map>
+#include <iostream>
+#include <format>
+#include <vector>
+using namespace std;
+
+class Solution
+{
+public:
+    vector<int> twoSum(vector<int> &nums, int target)
+    {
+        std::unordered_multimap<int, int> nums_map;
+        for (int i = 0; i < nums.size(); ++i)
+        {
+            int num = nums[i];
+            nums_map.insert({num, i});
+        }
+        for (int i = 0; i < nums.size(); ++i)
+        {
+            int num = nums[i];
+            int num2 = target - num;
+            if (nums_map.count(num2))
+            {
+                auto indexes = nums_map.equal_range(num2);
+                if (num == num2)
+                {
+                    if (std::distance(indexes.first, indexes.second) >= 2)
+                    {
+                        for (auto it = indexes.first; it != indexes.second; it++)
+                        {
+                            if (it->second != i)
+                            {
+                                return {i, it->second};
+                            }
+                        }
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                }
+                else
+                {
+                    return {i, indexes.first->second};
+                }
+            }
+        }
+        return {};
+    }
+};
+
+int main()
+{
+    Solution s;
+    std::vector<int> nums{3, 2, 4};
+    s.twoSum(nums, 6);
+    int debug = 0;
+}
+```
 
 
 
