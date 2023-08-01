@@ -1,5 +1,19 @@
 # 我的刷题
 
+[LeetCode-1. 两数之和](https://leetcode.cn/problems/two-sum/) 
+
+一、$O(N)$
+
+为access过的数建立hash map，然后在其中寻找目标数
+
+
+
+[LeetCode-11. 盛最多水的容器](https://leetcode.cn/problems/container-with-most-water/) 
+
+
+
+[LeetCode-167. Two Sum II - Input array is sorted](https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted/)
+
 
 
 ## 递归经典例子
