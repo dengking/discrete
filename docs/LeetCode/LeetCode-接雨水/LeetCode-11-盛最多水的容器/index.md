@@ -2,13 +2,9 @@
 
 
 
-## 我的解题
+## 穷举 $O(N^2)$
 
-
-
-### $O(N^2)$
-
-
+search space: upper triangular square matrix(上三角方阵)
 
 ```c++
 
@@ -45,7 +41,7 @@ int main()
 
 
 
-### $O(N)$
+## $O(N)$
 
 
 

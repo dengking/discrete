@@ -1,20 +1,40 @@
 # 我的刷题
 
-[LeetCode-1. 两数之和](https://leetcode.cn/problems/two-sum/) 
+## [LeetCode-1. 两数之和](https://leetcode.cn/problems/two-sum/) 
 
-一、$O(N)$
+$O(N^2)$ 
 
-为access过的数建立hash map，然后在其中寻找目标数
+search space: upper triangular square matrix(上三角方阵)
+
+$O(N)$
+
+为access过的数建立hash map，然后在其中寻找目标数，避免了第二层的循环
 
 
+
+## [LeetCode-11. 盛最多水的容器](https://leetcode.cn/problems/container-with-most-water/) 
+
+$O(N^2)$ 
+
+search space: upper triangular square matrix(上三角方阵)
+
+$O(N)$
+
+double- pointer-search
+
+prune
+
+素材
+
+1、 [nettee](https://leetcode.cn/u/nettee/) [一张图告诉你 O(n) 的双指针解法的本质原理（C++/Java）](https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted/solutions/87919/yi-zhang-tu-gao-su-ni-on-de-shuang-zhi-zhen-jie-fa/)  
 
 [LeetCode-11. 盛最多水的容器](https://leetcode.cn/problems/container-with-most-water/) 
-
-
 
 [LeetCode-167. Two Sum II - Input array is sorted](https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted/)
 
 
+
+一次丢一行、一列，逐步向目标靠拢
 
 ## 递归经典例子
 
