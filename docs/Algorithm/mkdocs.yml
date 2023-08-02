@@ -1,15 +1,12 @@
 nav:
     - Introduction: index.md
-    - Book-Introduction-to-Algorithms: Book-Introduction-to-Algorithms
+    - Books: Books
     - 算法思维: 算法思维    
-    - State-space-search: State-space-search # 可以看做是search       
-    - Paradigm: Paradigm
+    - Search-algorithms: Search-algorithms # 可以看做是search       
+    - Sorting-algorithms: Sorting-algorithms
+    - Paradigms: Paradigms
     - Analysis: Analysis
-    - Binary-search: Binary-search # 可以看做是search       
-    - Sorting: Sorting  
-    - Classical-algorithm: Classical
     - Application: Application
-   
     - 穷举-VS-DP-VS-greedy: 穷举-VS-DP-VS-greedy
 
     

@@ -1,0 +1,6 @@
+nav:
+    - Introduction: index.md
+    - Double-pointer-search: Double-pointer-search # 可以看做是search       
+    - State-space-search: State-space-search # 可以看做是search       
+
+    

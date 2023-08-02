@@ -1,0 +1,4 @@
+nav:
+    - Introduction: index.md
+    - Binary-search: Binary-search # 可以看做是search       
+    
