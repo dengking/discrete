@@ -1,7 +1,6 @@
 nav:
     - Introduction: index.md
     - Combinational-analysis: Combinational-analysis
-    - wikipedia-Search-algorithm: wikipedia-Search-algorithm
     - Constraint-satisfaction-problem: Constraint-satisfaction-problem.md
     - Strategy: Strategy
     - Application: App

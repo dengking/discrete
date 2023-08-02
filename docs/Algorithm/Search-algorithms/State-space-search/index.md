@@ -31,7 +31,7 @@
 | Classification criteria | Examples                                                     |
 | ----------------------- | ------------------------------------------------------------ |
 | virtual                 | 参见 维基百科 [Search algorithm](https://en.wikipedia.org/wiki/Search_algorithm) `#` For virtual search spaces 章节 |
-| physical/concrete       | - tree<br>- graph                                            |
+| physical/concrete       | - list<br>- tree<br>- graph                                  |
 
 
 
@@ -101,5 +101,4 @@ complete n-ary tree、subset tree子集树、permutation tree排列树、combina
 ## Search strategy
 
 在`strategy` 章节中进行了描述。
-
 
