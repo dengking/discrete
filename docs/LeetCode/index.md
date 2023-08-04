@@ -20,9 +20,9 @@ search space: upper triangular square matrix(上三角方阵)
 
 $O(N)$
 
-double- pointer-search
+double- pointer-search+prune
 
-prune
+一次丢一行、一列，逐步向目标靠拢，丢弃无效搜索
 
 素材
 
@@ -34,7 +34,15 @@ prune
 
 
 
-一次丢一行、一列，逐步向目标靠拢
+## Leetcode [26. 删除有序数组中的重复项](https://leetcode.cn/problems/remove-duplicates-from-sorted-array/)
+
+参见: 
+
+labuladong [如何高效对有序数组/链表去重？](https://mp.weixin.qq.com/s/6Eb7gKqNqXH9B0hSZvMs5A)
+
+双指针
+
+
 
 ## 递归经典例子
 
@@ -49,6 +57,8 @@ prune
 ## 回溯法
 
 参见 `Algorithm\State-space-search\LeetCode` 章节，其中进行了非常好的总结。
+
+
 
 ## 数组类型问题
 
@@ -66,23 +76,15 @@ prune
 
 
 
-## 去重
+## [LeetCode-83. 删除排序链表中的重复元素](https://leetcode.cn/problems/remove-duplicates-from-sorted-list/) 
 
-### [LeetCode-83. 删除排序链表中的重复元素](https://leetcode.cn/problems/remove-duplicates-from-sorted-list/) 
-
-参见: 
-
-labuladong [如何高效对有序数组/链表去重？](https://mp.weixin.qq.com/s/6Eb7gKqNqXH9B0hSZvMs5A)
-
-
-
-### Leetcode [26. 删除有序数组中的重复项](https://leetcode.cn/problems/remove-duplicates-from-sorted-array/)
+linked-list、去重
 
 参见: 
 
 labuladong [如何高效对有序数组/链表去重？](https://mp.weixin.qq.com/s/6Eb7gKqNqXH9B0hSZvMs5A)
 
-双指针
+
 
 
 
@@ -168,11 +170,29 @@ TODO 需要将相关试题解析总结
 
 5、leetcode 2 号算法题：两数相加
 
-## LeetCode 一题多解
 
-[LeetCode-787. K 站中转内最便宜的航班](https://leetcode.cn/problems/cheapest-flights-within-k-stops/) 中等
+
+## [LeetCode-787. K 站中转内最便宜的航班-中等](https://leetcode.cn/problems/cheapest-flights-within-k-stops/) 
 
 这道题是可以使用多种解法的
 
+LeetCode 一题多解
 
+
+
+## LeetCode matrix/grid
+
+algorithms:
+
+1、union-find-set
+
+2、flood-fill
+
+题目: 
+
+一、LeetCode-binary-search-matrix-series
+
+二、LeetCode-word-search-series
+
+三、LeetCode-number-of-islands-series
 

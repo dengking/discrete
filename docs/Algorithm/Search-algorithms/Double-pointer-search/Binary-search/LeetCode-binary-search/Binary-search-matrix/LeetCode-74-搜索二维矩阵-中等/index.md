@@ -1,4 +1,4 @@
-# [LeetCode-74. Search a 2D Matrix](https://leetcode.cn/problems/search-a-2d-matrix/)
+# [LeetCode-74. Search a 2D Matrix-medium](https://leetcode.cn/problems/search-a-2d-matrix/)
 
 
 
