@@ -1,8 +1,6 @@
 # Connected component
 
-素材:
-
-一、和connected component密切相关的内容:
+一、计算所有的connected component
 
 1、transitive closure:
 
@@ -14,13 +12,19 @@
 
 
 
-总结:
-
-一、transitive closure VS disjoint-set (从set、relation、graph角度进行分析)
+总结: transitive closure VS disjoint-set (从set、relation、graph角度进行分析)
 
 a、transitive closure是求解各个connected component的，如果输入已经是graph了，那么使用这个算法会比较方便
 
 b、disjoint-set(union-find-set)用于快速判断两个node是否属于同一个component，如果输入是discrete的，那么使用它会比较方便
+
+
+
+二、connected-component-labeling
+
+
+
+三、connected-component-border
 
 
 

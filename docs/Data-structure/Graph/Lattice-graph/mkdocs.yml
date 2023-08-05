@@ -1,5 +1,5 @@
 nav:
     - Introduction: index.md
-    - Connected-component-labeling: Connected-component-labeling
+    - Flooding-algorithm: Flooding-algorithm
     - Lattice-path: Lattice-path
         

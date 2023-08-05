@@ -2,3 +2,6 @@ nav:
     - Introduction: index.md
     - Transitive-closure: Transitive-closure
     - Disjoint-set: Disjoint-set
+    - Connected-component-labeling: Connected-component-labeling
+    - Connected-component-border: Connected-component-border
+    

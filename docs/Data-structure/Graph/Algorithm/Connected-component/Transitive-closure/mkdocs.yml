@@ -1,3 +1,4 @@
 nav:
     - Introduction: index.md
-    
+    - Graph-repeated-BFS-flood-fill: Graph-repeated-BFS-flood-fill
+    - Floyd–Warshall-algorithm: Floyd–Warshall-algorithm

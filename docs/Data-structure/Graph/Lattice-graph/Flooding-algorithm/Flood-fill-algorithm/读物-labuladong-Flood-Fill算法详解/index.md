@@ -1,12 +1,8 @@
-# Flood fill 泛洪算法
-
-一、在 labuladong [Flood Fill 算法详解](https://mp.weixin.qq.com/s/Y7snQIraCC6PRhj9ZSnlzw) 中，发现了这个算法，第一感觉就是 "探针"、"试探"。
-
-二、"泛洪"，这翻译是非常形象的
-
-## labuladong [Flood Fill 算法详解](https://mp.weixin.qq.com/s/Y7snQIraCC6PRhj9ZSnlzw) 
+# labuladong [Flood Fill 算法详解](https://mp.weixin.qq.com/s/Y7snQIraCC6PRhj9ZSnlzw) 
 
 为了继续深化 [框架思维](http://mp.weixin.qq.com/s?__biz=MzU0MDg5OTYyOQ==&mid=2247483857&idx=1&sn=918638e5a70e22b5b7bda9bbc5484f20&chksm=fb336193cc44e885f0524bdfe58a4e92b22a2b46017bf232b2ef91a576de648a8e61a30fd83d&scene=21#wechat_redirect)，本文讲解 FloodFill 算法的原理，以及该算法在「自动魔棒工具」和「扫雷」中的灵活应用。
+
+
 
 ### Example
 
@@ -58,13 +54,13 @@ void fill(int x, int y) {
 
 
 
-#### [LeetCode-733. 图像渲染](https://leetcode.cn/problems/flood-fill/) 简单
+#### [LeetCode-733. 图像渲染-简单](https://leetcode.cn/problems/flood-fill/) 
 
 下面看一道 LeetCode 题目，其实就是让我们来实现**「颜色填充」**功能。
 
 > NOTE: 
 >
-> 一、[LeetCode-733. 图像渲染](https://leetcode.cn/problems/flood-fill/) 简单
+> 一、[LeetCode-733. 图像渲染-简单](https://leetcode.cn/problems/flood-fill/) 
 >
 > 二、这道题，其实也是可以使用BFS来解决的，但是BFS需要queue，空间复杂的更高
 
@@ -153,6 +149,8 @@ image[x][y] = newColor;/* 遍历框架，上下左右 */
 
 这种解决方法是最常用的，相当于使用一个特殊值 -1 代替 visited 数组的作用，达到不走回头路的效果。为什么是 -1，因为题目中说了颜色取值在 0 - 65535 之间，所以 -1 足够特殊，能和颜色区分开。
 
+
+
 ### 四、拓展延伸：自动魔棒工具和扫雷
 
 #### 「自动魔棒工具」
@@ -181,12 +179,16 @@ if (Math.abs(image[x][y] - origColor) > threshold)
 > NOTE: 
 >
 > 一、这个是有些困难的
+>
+> [LeetCode-1034. 边框着色-中等](https://leetcode.cn/problems/coloring-a-border/) 
+>
+> 
 
-对于第二个问题，我们首先明确问题：不要把 origColor 区域内所有像素点都染色，而是只给区域最外圈像素点染色。然后，我们分析，如何才能仅给外围染色，即如何才能找到最外围坐标，最外围坐标有什么特点？
+对于第二个问题，我们首先明确问题：不要把 `origColor` 区域内所有像素点都染色，而是只给区域最外圈像素点染色。然后，我们分析，如何才能仅给外围染色，即如何才能找到最外围坐标，最外围坐标有什么特点？
 
 ![图片](https://mmbiz.qpic.cn/mmbiz_png/map09icNxZ4kTCAiaBoMiag2Co4PB7OPorxia3nmnmhRqNzvg7Vtp1WE7jrHVDQAAMCB7SHp16Oyj7wxGFSBSw3Y2w/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
-可以发现，origColor 区域内部的坐标四面一定都是 origColor，而区域边界上的坐标，至少有一个方向不是 origColor，这就是解决问题的关键。保持框架不变，使用 visited 数组记录已搜索坐标，主要代码如下：
+可以发现，`origColor` 区域内部的坐标四面一定都是 `origColor`，而区域边界上的坐标，至少有一个方向不是 `origColor`，这就是解决问题的关键。保持框架不变，使用 `visited` 数组记录已搜索坐标，主要代码如下：
 
 
 
@@ -198,28 +200,98 @@ if (Math.abs(image[x][y] - origColor) > threshold)
 
 > NOTE: 
 >
-> 一、`fill`函数的返回值表示的是当前节点是否是在**连通分量**中，需要注意的是，对于`visited`为`true`的，也要返回1，说明它是在**连通分量**中的。
+> 一、[LeetCode-1034. 边框着色-中等](https://leetcode.cn/problems/coloring-a-border/) 的难度其实是不低的，它需要我们完成两件事:
+>
+> 1、定位connected component的边界
+>
+> 2、更新颜色
+>
+> 上述code虽然剪短，但是却蕴含玄机: 
+>
+> a、`fill` 函数的返回值表示的是当前节点是否是在**连通分量**中
+>
+> b、这两道题是非常好的对比: 
+>
+> 它们都需要考虑的一个共同问题是: 如何判断当前节点是否位于connected component中(两道题都是使用的 `if (image[x][y] != oldColor)` 来作为判断条件)，在成功判定后，需要对当前节点的颜色进行更新，需要注意的是: 这种**对原始数据进行更新的做法是需要考虑更新后是否会影响前面的判断**(在 [LeetCode-1034. 边框着色-中等](https://leetcode.cn/problems/coloring-a-border/)  中就会设计到这个问题)。
+>
+> [LeetCode-733. 图像渲染-简单](https://leetcode.cn/problems/flood-fill/) 中会对原始数据进行了修改，只要当前节点位于connected component中就执行更新，它通过如下条件来判断当前节点是否位于connected component中:
+>
+> ```c++
+> if (image[x][y] != oldColor)
+> ```
+>
+> 当一个节点的颜色被更新后，显然上述判断是会返回false的，即认为它不属于**原来的connected component**中，所以在此遇到这个节点的时候，它不会执行更新，这样的逻辑其实是复合条件的。
+>
+> [LeetCode-1034. 边框着色-中等](https://leetcode.cn/problems/coloring-a-border/) 中会对原始数据进行修改，但是它是有**条件**(connected component的边界)的更新，它的判定条件是节点当前节点的四周的四个节点中，最多只有三个节点**现在**或者**曾经**位于**原来的connected component**中，需要注意的是: 这里的判断条件是 "**现在**或者**曾经**"，这是因为对于位于边界的多个相邻的节点，如果其中一个被更新了，那么它的相邻的节点在执行自己的更新的判定的时候，是需要查询它曾经是否属于原来的connected component的才能够准确地判断自己是否位于边界。那如何来实现呢？有如下两种方式: 
+>
+> 1、使用`visited` array记录visited过的、位于**原来的connected component**中的节点，需要注意的是，在实现的时候，需要注意它和 `if (image[x][y] != oldColor)` 哪个在前哪个在后
+>
+> 2、判断当前节点的值是否等于update value，如果等于，那么这个节点肯定是 visited过的、位于**原来的connected component**中的节点
 >
 > 二、我第一次尝试时，写出的程序如下: 
 >
 > ```C++
+> #include <vector>
 > 
-> 	int fill(vector<vector<int>> &image, int x, int y, int oldColor, int newColor, vector<vector<bool>> &visited)
-> 	{
-> 		if (!inArea(image, x, y))
-> 			return 0;
-> 		if (image[x][y] != oldColor)
-> 			return 0;
-> 		if (visited[x][y])
-> 			return 1;
-> 		visited[x][y] = true;
-> 		int surround = fill(image, x - 1, y, oldColor, newColor, visited) + fill(image, x + 1, y, oldColor, newColor, visited) + fill(image, x, y - 1, oldColor, newColor, visited) + fill(image, x, y + 1, oldColor, newColor, visited);
-> 		if (surround < 4)
-> 		{
-> 			image[x][y] = newColor;
-> 		}
-> 		return 1;
-> 	}
+> using namespace std;
+> 
+> class Solution {
+> public:
+>  vector<vector<int>> colorBorder(vector<vector<int>> &grid, int r0, int c0, int color) {
+>      vector<vector<bool>> visited{grid.size()};
+>      for (auto &&v: visited) {
+>          v = vector<bool>(grid[0].size(), false);
+>      }
+>      int oldColor = grid[r0][c0]; // 旧颜色
+>      fill(grid, r0, c0, oldColor, color, visited);
+>      return grid;
+>  }
+> 
+>  /**
+>      * @brief
+>      *
+>      * @param image
+>      * @param x
+>      * @param y
+>      * @param newColor
+>      */
+>     int fill(vector<vector<int>> &image, int x, int y, int oldColor, int newColor, vector<vector<bool>> &visited) {
+>         if (!inArea(image, x, y)) {
+>             return 0;
+>         }
+>         if (image[x][y] != oldColor) {
+>             return 0;
+>         }
+>         if (visited[x][y]) {
+>             return 1;
+>         }
+>         visited[x][y] = true;
+>         int surround = fill(image, x - 1, y, oldColor, newColor, visited) +
+>                        fill(image, x + 1, y, oldColor, newColor, visited) +
+>                        fill(image, x, y - 1, oldColor, newColor, visited) +
+>                        fill(image, x, y + 1, oldColor, newColor, visited);
+>         if (surround < 4) {
+>             image[x][y] = newColor;
+>         }
+>         return 1;
+>     }
+> 
+>     bool inArea(vector<vector<int>> &image, int x, int y) {
+>         return (x >= 0 && x < image.size()) && (y >= 0 && y < image[0].size());
+>     }
+> };
+> 
+> int main() {
+>     vector<vector<int>> image{{1, 1, 1},
+>                               {1, 1, 1},
+>                               {1, 1, 1}};
+>     Solution s;
+>     s.colorBorder(image, 1, 1, 2);
+> 
+> }
+> // g++ test.cpp --std=c++11 -pedantic -Wall -Wextra
+> 
+> 
 > ```
 >
 > 关键的差异点在于: 
@@ -249,59 +321,63 @@ if (Math.abs(image[x][y] - origColor) > threshold)
 > 三、完整的、正确的C++source code
 >
 > ```C++
-> #include <bits/stdc++.h>
-> using namespace std;
-> class Solution
-> {
-> public:
-> 	vector<vector<int>> colorBorder(vector<vector<int>> &grid, int r0, int c0, int color)
-> 	{
-> 		vector<vector<bool>> visited { grid.size() };
-> 		for (auto &&v : visited)
-> 		{
-> 			v = vector<bool>(grid[0].size(), false);
-> 		}
-> 		int oldColor = grid[r0][c0]; // 旧颜色
-> 		fill(grid, r0, c0, oldColor, color, visited);
-> 		return grid;
-> 	}
-> 	/**
-> 	 * @brief
-> 	 *
-> 	 * @param image
-> 	 * @param x
-> 	 * @param y
-> 	 * @param newColor
-> 	 */
-> 	int fill(vector<vector<int>> &image, int x, int y, int oldColor, int newColor, vector<vector<bool>> &visited)
-> 	{
-> 		if (!inArea(image, x, y))
-> 			return 0;
-> 		if (visited[x][y])
-> 			return 1;
-> 		if (image[x][y] != oldColor)
-> 			return 0;
+> #include <vector>
 > 
-> 		visited[x][y] = true;
-> 		int surround = fill(image, x - 1, y, oldColor, newColor, visited) + fill(image, x + 1, y, oldColor, newColor, visited) + fill(image, x, y - 1, oldColor, newColor, visited) + fill(image, x, y + 1, oldColor, newColor, visited);
-> 		cout << surround << endl;
-> 		if (surround < 4)
-> 		{
-> 			cout << x << "," << y << endl;
-> 			image[x][y] = newColor;
-> 		}
-> 		return 1;
-> 	}
-> 	bool inArea(vector<vector<int>> &image, int x, int y)
-> 	{
-> 		return (x >= 0 && x < image.size()) && (y >= 0 && y < image[0].size());
-> 	}
+> using namespace std;
+> 
+> class Solution {
+> public:
+>     vector<vector<int>> colorBorder(vector<vector<int>> &grid, int r0, int c0, int color) {
+>         vector<vector<bool>> visited{grid.size()};
+>         for (auto &&v: visited) {
+>             v = vector<bool>(grid[0].size(), false);
+>         }
+>         int oldColor = grid[r0][c0]; // 旧颜色
+>         fill(grid, r0, c0, oldColor, color, visited);
+>         return grid;
+>     }
+> 
+>     /**
+>      * @brief
+>      *
+>      * @param image
+>      * @param x
+>      * @param y
+>      * @param newColor
+>      */
+>     int fill(vector<vector<int>> &image, int x, int y, int oldColor, int newColor, vector<vector<bool>> &visited) {
+>         if (!inArea(image, x, y)) {
+>             return 0;
+>         }
+>         if (visited[x][y]) {
+>             return 1;
+>         }
+>         if (image[x][y] != oldColor) {
+>             return 0;
+>         }
+> 
+>         visited[x][y] = true;
+>         int surround = fill(image, x - 1, y, oldColor, newColor, visited) +
+>                        fill(image, x + 1, y, oldColor, newColor, visited) +
+>                        fill(image, x, y - 1, oldColor, newColor, visited) +
+>                        fill(image, x, y + 1, oldColor, newColor, visited);
+>         if (surround < 4) { // 只有边界才更新颜色
+>             image[x][y] = newColor;
+>         }
+>         return 1;
+>     }
+> 
+>     bool inArea(vector<vector<int>> &image, int x, int y) {
+>         return (x >= 0 && x < image.size()) && (y >= 0 && y < image[0].size());
+>     }
 > };
-> int main()
-> {
-> 	vector<vector<int>> image { { 1, 1, 1 }, { 1, 1, 1 }, { 1, 1, 1 } };
-> 	Solution s;
-> 	s.colorBorder(image, 1, 1, 2);
+> 
+> int main() {
+>     vector<vector<int>> image{{1, 1, 1},
+>                               {1, 1, 1},
+>                               {1, 1, 1}};
+>     Solution s;
+>     s.colorBorder(image, 1, 1, 2);
 > 
 > }
 > // g++ test.cpp --std=c++11 -pedantic -Wall -Wextra
@@ -331,8 +407,4 @@ if (Math.abs(image[x][y] - origColor) > threshold)
 > ```
 >
 > 它不能够使用回溯法来防止dead recursion的原因是: 它不能对所有的code染色，只能够对边界code染色。
-
-
-
-## wikipedia [Flood fill](https://en.wikipedia.org/wiki/Flood_fill)
 

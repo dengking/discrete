@@ -1,4 +1,5 @@
 nav:
     - Introduction: index.md
     - Flood-fill-algorithm: Flood-fill-algorithm
-        
+    - Jump-flooding-algorithm: Jump-flooding-algorithm
+    

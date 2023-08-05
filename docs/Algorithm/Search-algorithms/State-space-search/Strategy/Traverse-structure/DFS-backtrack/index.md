@@ -8,15 +8,23 @@
 
 上面这段话其实总结得不错，回溯法就是树的 "深度优先遍历+先序+后序"
 
-先序: 
+a、先序、pre-order、pre-action: 
 
 1、判断是否搜索到了一个解
 
 2、有借
 
-后序:
+b、后序、post-order、post- action:
 
 1、有还
+
+2、需要注意，还的时候一些比较特殊的例子:
+
+[LeetCode-733. 图像渲染-简单](https://leetcode.cn/problems/flood-fill/) 
+
+labuladong [Flood Fill 算法详解](https://mp.weixin.qq.com/s/Y7snQIraCC6PRhj9ZSnlzw) 
+
+
 
 ## LeetCode习题汇总
 
