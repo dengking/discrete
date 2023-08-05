@@ -20,7 +20,7 @@ nav:
     - Automaton: Automaton
     - 简化代码: 简化代码
     - LeetCode-Range-Sum-Query: LeetCode-Range-Sum-Query
-    - LeetCode-接雨水: LeetCode-接雨水
+    - LeetCode-接雨水-series: LeetCode-接雨水-series
     - LeetCode-733-图像渲染: LeetCode-733-图像渲染
     - LeetCode-1034-边框着色: LeetCode-1034-边框着色
-    
+    - LeetCode-word-search-series: LeetCode-word-search-series
