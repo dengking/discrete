@@ -1,5 +1,7 @@
 nav:
     - Introduction: index.md
-    - 背包DP: 背包DP
-    - K-way-merge-多路归并: K-way-merge-多路归并
+    - 宫水三叶-背包DP: 宫水三叶-背包DP
+    - 宫水三叶-K-way-merge-多路归并: 宫水三叶-K-way-merge-多路归并
+    - 宫水三叶-trie=prefix-tree=前缀树: 宫水三叶-trie=prefix-tree=前缀树
+    
     
