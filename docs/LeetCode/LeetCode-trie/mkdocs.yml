@@ -1,4 +1,5 @@
 nav:
     - Introduction: index.md
     - LeetCode-208-Implement-Trie(Prefix-Tree)-middle: LeetCode-208-Implement-Trie(Prefix-Tree)-middle
+    - LeetCode-211-Design-Add-and-Search-Words-Data-Structure-middle: LeetCode-211-Design-Add-and-Search-Words-Data-Structure-middle
     

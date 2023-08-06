@@ -215,3 +215,6 @@ class Trie {
 
 
 ## 宫水三叶[【设计数据结构】Trie 运用题](https://mp.weixin.qq.com/s/TPVBlNBLlUpQKXK_XkR-3Q)
+
+[LeetCode-211. Design Add and Search Words Data Structure-Middle](https://leetcode.cn/problems/design-add-and-search-words-data-structure/)
+
