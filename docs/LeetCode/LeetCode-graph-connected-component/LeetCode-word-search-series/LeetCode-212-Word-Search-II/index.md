@@ -86,37 +86,30 @@ int main() {
 
 
 
+## DFS+trie
+
 在一个matrix中搜索一个trie。
 
 
 
 ```c++
-#include <vector>
-#include <iostream>
-#include <algorithm>
 
-using namespace std;
-
-struct TrieNode
-{
+struct TrieNode {
     bool isEnd_{false};
     std::string word_;
     std::vector<TrieNode *> children_{26, nullptr};
 };
 
-class Trie
-{
+class Trie {
     TrieNode *root_;
 
 public:
-    Trie() : root_{new TrieNode}
-    {
+    Trie() : root_{new TrieNode} {
     }
-    void insert(const std::string &word)
-    {
+
+    void insert(const std::string &word) {
         TrieNode *node = root_;
-        for (auto &&c : word)
-        {
+        for (auto &&c: word) {
             if (node->children_[c - 'a'] == nullptr)
                 node->children_[c - 'a'] = new TrieNode;
             node = node->children_[c - 'a'];
@@ -125,70 +118,62 @@ public:
         node->word_ = word;
     }
 
-    TrieNode *transition(const TrieNode *node, char c)
-    {
+    TrieNode *transition(const TrieNode *node, char c) {
         return node->children_[c - 'a'];
     }
-    TrieNode *getRoot()
-    {
+
+    TrieNode *getRoot() {
         return root_;
     }
 };
-class Solution
-{
+
+class Solution {
     Trie trie;
-    vector<string> foundWords;
+    std::set<string> foundWords;
     int rowCnt{0};
     int colCnt{0};
 
 public:
-    vector<string> findWords(vector<vector<char>> &board, vector<string> &words)
-    {
-        for (auto &&word : words)
-        {
+    vector<string> findWords(vector<vector<char>> &board, vector<string> &words) {
+        for (auto &&word: words) {
             trie.insert(word);
         }
         rowCnt = board.size();
         colCnt = board[0].size();
-        for (int m = 0; m < rowCnt; ++m)
-        {
-            for (int n = 0; n < colCnt; ++n)
-            {
+        for (int m = 0; m < rowCnt; ++m) {
+            if (foundWords.size() == words.size()) {
+                break;
+            }
+            for (int n = 0; n < colCnt; ++n) {
                 std::vector<std::vector<bool>> visited(rowCnt, std::vector<bool>(colCnt, false));
                 dfs(board, m, n, visited, trie.getRoot());
             }
         }
-        return foundWords;
+        return vector<string>(foundWords.begin(), foundWords.end());
     }
 
 private:
-    void dfs(const vector<vector<char>> &board, int rowIdx, int colIdx, vector<vector<bool>> &visited, const TrieNode *parentNode)
-    {
-        if (parentNode == nullptr)
-        {
+    void dfs(const vector<vector<char>> &board, int rowIdx, int colIdx, vector<vector<bool>> &visited,
+             const TrieNode *parentNode) {
+        if (parentNode == nullptr) {
             return;
         }
 
-        if (rowIdx < 0 || rowIdx >= rowCnt)
-        {
+        if (rowIdx < 0 || rowIdx >= rowCnt) {
             return;
         }
-        if (colIdx < 0 || colIdx >= colCnt)
-        {
+        if (colIdx < 0 || colIdx >= colCnt) {
             return;
         }
-        if (visited[rowIdx][colIdx])
-        {
+        if (visited[rowIdx][colIdx]) {
             return;
         }
         TrieNode *node = trie.transition(parentNode, board[rowIdx][colIdx]);
-        if (node == nullptr)
-        {
+        if (node == nullptr) {
             return;
         }
-        if (node->isEnd_)
-        {
-            foundWords.push_back(node->word_);
+        if (node->isEnd_ && !foundWords.contains(node->word_)) {
+            foundWords.insert(node->word_);
         }
         visited[rowIdx][colIdx] = true;
         dfs(board, rowIdx, colIdx + 1, visited, node);
@@ -198,16 +183,6 @@ private:
         visited[rowIdx][colIdx] = false;
     }
 };
-
-// Driver code
-int main()
-{
-
-    Solution s;
-
-    return 0;
-}
-// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra
 
 ```
 
