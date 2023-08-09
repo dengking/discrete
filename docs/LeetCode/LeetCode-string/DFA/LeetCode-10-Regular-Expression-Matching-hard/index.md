@@ -11,3 +11,202 @@
 多个
 
 等情况。
+
+## 版本1
+
+```c++
+struct Node {
+    bool isTerminal_{false}; // 是否是终态
+    std::unordered_map<char, Node *> children_;
+    Node *parent_{nullptr};
+
+    bool isRoot() {
+        return parent_ == nullptr;
+    }
+};
+
+class Solution {
+    static constexpr char epsilonChar = 0;
+    static constexpr char wildCardChar = '.';
+    Node *root_;
+    Node *errorNode_;
+public:
+    Solution() : root_{new Node}, errorNode_{new Node} {
+    }
+
+    bool isMatch(string s, string p) {
+        buildDFA(p);
+        Node *node = root_;
+        for (auto &&c: s) {
+            char cc;
+            if (node->children_.contains(c)) {
+                cc = c;
+            } else if (node->children_.contains(wildCardChar)) {
+                cc = wildCardChar;
+            } else if (node->children_.contains(epsilonChar)) {
+                cc = epsilonChar;
+            } else {
+                return false;
+            }
+            node = node->children_[cc];
+        }
+        return transition(epsilonChar, node)->isTerminal_;
+    }
+
+    Node *transition(char c, Node *node) {
+        if (node->children_.contains(c)) {
+            return node->children_[c];
+        } else {
+            return errorNode_;
+        }
+    }
+
+    void buildDFA(string p) {
+        Node *node = root_;
+        for (int i = 0; i < p.size(); ++i) {
+            char c = p[i];
+            /**
+             * 对当前node进行修饰
+             */
+            if (c == '*') {
+                node->children_[p[i - 1]] = node; // 自引用: 处理多个
+                node->parent_->children_[epsilonChar] = node; // epsilon转换: 处理0个
+            } else {
+                /**
+                 * 需要知道parent、child
+                 */
+                Node *newNode = new Node;
+                newNode->parent_ = node;
+                node->children_[c] = newNode;
+                node = newNode;//iteration
+            }
+        }
+        Node *newNode = new Node;
+        newNode->isTerminal_ = true; // 终态
+        newNode->parent_ = node;
+        node->children_[epsilonChar] = newNode;
+    }
+};
+```
+
+无法通过的用例:
+
+```c++
+"mississippi"
+"mis*is*p*."
+```
+
+原因: 没有对 `epsilonChar` 进行特殊处理。
+
+
+
+## 版本2
+
+```c++
+#include <algorithm>
+#include <string>
+#include <iostream>
+
+using namespace std;
+
+struct Node {
+    bool isTerminal_{false}; // 是否是终态
+    std::unordered_map<char, Node *> children_;
+    Node *parent_{nullptr};
+
+    bool isRoot() {
+        return parent_ == nullptr;
+    }
+};
+
+class Solution {
+    static constexpr char epsilonChar = 0;
+    static constexpr char wildCardChar = '.';
+    Node *root_;
+    Node *errorNode_;
+public:
+    Solution() : root_{new Node}, errorNode_{new Node} {
+    }
+
+    bool isMatch(string s, string p) {
+        buildDFA(p);
+        Node *node = root_;
+        for (auto &&c: s) {
+            if (!transition(c, node)) {
+                return false;
+            }
+        }
+        if (transition(epsilonChar, node)) {
+            return node->isTerminal_;
+        } else {
+            return false;
+        }
+    }
+
+    bool transition(char c, Node *&node) {
+        if (node->children_.contains(c)) {
+            node = node->children_[c];
+            return true;
+        } else if (node->children_.contains(wildCardChar)) { // 必须要先执行通配符的匹配
+            node = node->children_[wildCardChar];
+            return true;
+        } else if (node->children_.contains(epsilonChar)) { // 执行一次空转换，到下一个节点去匹配
+            node = node->children_[epsilonChar];
+            return transition(c, node);
+        } else {
+            return false;
+        }
+    }
+
+    void buildDFA(string p) {
+        Node *node = root_;
+        for (int i = 0; i < p.size(); ++i) {
+            char c = p[i];
+            /**
+             * 对当前node进行修饰
+             */
+            if (c == '*') {
+                node->children_[p[i - 1]] = node; // 自引用: 处理多个
+                node->parent_->children_[epsilonChar] = node; // epsilon转换: 处理0个
+            } else {
+                /**
+                 * 需要知道parent、child
+                 */
+                Node *newNode = new Node;
+                newNode->parent_ = node;
+                node->children_[c] = newNode;
+                node = newNode;//iteration
+            }
+        }
+        Node *newNode = new Node;
+        newNode->isTerminal_ = true; // 终态
+        newNode->parent_ = node;
+        node->children_[epsilonChar] = newNode;
+    }
+};
+
+
+// Driver code
+int main() {
+
+    Solution s;
+    std::cout << s.isMatch("mississippi", "mis*is*p*.") << std::endl;
+    std::cout << s.isMatch("aa", "aa") << std::endl;
+    std::cout << s.isMatch("aa", "a") << std::endl;
+    return 0;
+}
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra
+
+```
+
+无法通过的用例:
+
+```c++
+s = "aaa"
+p = "a*a"
+```
+
+
+
+对于同一个字符 `a`，有两个转换。
+
