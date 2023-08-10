@@ -12,16 +12,7 @@
 
 等情况。
 
-二、如何判断是否匹配成功
 
-```c++
-s = "aaa"
-p = "a*b"
-```
-
-
-
-显然将所有的字符串都吞完是不能作为判定的方法的。
 
 
 
@@ -407,10 +398,187 @@ public:
 
     bool dfsDFA(const string &s, int i, Node *&node) {
         if (i >= s.size()) {
-            if (node->children_.contains(epsilonChar)) {
+            /*if (node->children_.contains(epsilonChar)) {
                 return node->children_[epsilonChar]->isTerminal_;
             } else {
                 return false;
+            }*/
+            return node->isTerminal_;
+        }
+        char c = s[i];
+        for (auto&&[transitionChar, nextNode]: node->children_) {
+            if (transitionChar == c) {
+                if (dfsDFA(s, i + 1, nextNode)) {
+                    return true;
+                }
+            }
+            if (transitionChar == wildCardChar) {
+                if (dfsDFA(s, i + 1, nextNode)) {
+                    return true;
+                }
+            }
+            /**
+             * 匹配 *
+             */
+            if (transitionChar == epsilonChar && transition2Self(nextNode)) {
+                if (dfsDFA(s, i, nextNode)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    bool transition2Self(Node *node) {
+        for (auto&&[transitionChar, nextNode]: node->children_) {
+            if (node == nextNode) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    bool transition2Self(Node *node, char c) {
+        if (node->children_.contains(c)) {
+            Node *node1 = node->children_[c];
+            if (node == node1) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    bool epsilonTransition2Me(Node *node) {
+        if (node->parent_->children_.contains(epsilonChar)) {
+            return node == node->parent_->children_[epsilonChar];
+        }
+        return false;
+    }
+
+    void buildDFA(string p) {
+        Node *node = root_;
+        for (int i = 0; i < p.size(); ++i) {
+            char c = p[i];
+            /**
+             * 对当前node进行修饰
+             */
+            if (c == '*') {
+                node->children_[p[i - 1]] = node; // 自引用: 处理多个
+                node->parent_->children_[epsilonChar] = node; // epsilon转换: 处理0个
+            } else {
+                /**
+                 * 处理诸如 "a*a" 的case，这种case是本程序不支持的形式，因为本程序是DFA，而这种case在一个状态下，从"a"有两种transition，
+                 * 本程序的做法是将它转换为 "a+" 的形式
+                 */
+                if (transition2Self(node, c) && epsilonTransition2Me(node)) {
+                    node->parent_->children_.erase(node->parent_->children_.find(epsilonChar));
+                } else {
+                    /**
+                     * 需要知道parent、child
+                     */
+                    Node *newNode = new Node;
+                    newNode->parent_ = node;
+                    node->children_[c] = newNode;
+                    node = newNode;//iteration
+                }
+            }
+        }
+        node->isTerminal_ = true;
+//        Node *newNode = new Node;
+//        newNode->isTerminal_ = true; // 终态
+//        newNode->parent_ = node;
+//        node->children_[epsilonChar] = newNode;
+    }
+};
+
+
+// Driver code
+int main() {
+
+    Solution s1;
+    std::cout << s1.isMatch("mississippi", "mis*is*p*.") << std::endl;
+
+    Solution s2;
+    std::cout << s2.isMatch("aa", "aa") << std::endl;
+
+    Solution s3;
+    std::cout << s3.isMatch("aa", "a") << std::endl;
+
+    Solution s4;
+    std::cout << s4.isMatch("aaa", "a*a") << std::endl;
+    return 0;
+}
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra
+
+```
+
+
+
+无法通过的用例:
+
+```
+s = "a"
+p = "ab*"
+输出
+false
+预期结果
+true
+```
+
+
+
+如何判断是否匹配成功，通过上述用例可以看出，将所有的字符串都吞完是不能作为判定的方法的，因为可能出现字符串比pattern短的情况，那如何来解决这种问题呢？一种方式是匹配完成后，执行一次epsilon transition。
+
+
+
+## 版本5
+
+```c++
+#include <algorithm>
+#include <string>
+#include <iostream>
+
+using namespace std;
+
+struct Node {
+    bool isTerminal_{false}; // 是否是终态
+    std::unordered_map<char, Node *> children_{};
+    Node *parent_{nullptr};
+
+    bool isRoot() {
+        return parent_ == nullptr;
+    }
+};
+
+class Solution {
+    static constexpr char epsilonChar = 0;
+    static constexpr char wildCardChar = '.';
+    Node *root_;
+public:
+    Solution() : root_{new Node} {
+    }
+
+    bool isMatch(string s, string p) {
+        buildDFA(std::move(p));
+        return dfsDFA(s, 0, root_);
+    }
+
+    bool dfsDFA(const string &s, int i, Node *&node) {
+        if (i >= s.size()) {
+
+            if (node->isTerminal_) {
+                return true;
+            } else {
+                /**
+                 * 在匹配完成后，执行一次epsilon transition，因为可能出现字符串比pattern短的情况，比如:
+                 * s = "a"
+                 * p = "ab*"
+                 */
+                if (node->children_.contains(epsilonChar)) {
+                    return node->children_[epsilonChar]->isTerminal_;
+                } else {
+                    return false;
+                }
             }
         }
         char c = s[i];
@@ -475,29 +643,27 @@ public:
                 node->parent_->children_[epsilonChar] = node; // epsilon转换: 处理0个
             } else {
                 /**
-                * 处理诸如 "a*a" 的case，将它转换为 "a+" 的
-                */
-                /*
+                 * 处理诸如 "a*a" 的case，这种case是本程序不支持的形式，因为本程序是DFA，而这种case在一个状态下，从"a"有两种transition，
+                 * 本程序的做法是将它转换为 "a+" 的形式
+                 */
                 if (transition2Self(node, c) && epsilonTransition2Me(node)) {
                     node->parent_->children_.erase(node->parent_->children_.find(epsilonChar));
-                } else {*/
-                /**
-                 * 需要知道parent、child
-                 */
-                Node *newNode = new Node;
-                newNode->parent_ = node;
-                node->children_[c] = newNode;
-                node = newNode;//iteration
-                /*}*/
+                } else {
+                    /**
+                     * 需要知道parent、child
+                     */
+                    Node *newNode = new Node;
+                    newNode->parent_ = node;
+                    node->children_[c] = newNode;
+                    node = newNode;//iteration
+                }
             }
-            /**
-            * 处理诸如 "a*a" 的case，将它转换为 "a+" 的
-            */
-            Node *newNode = new Node;
-            newNode->isTerminal_ = true; // 终态
-            newNode->parent_ = node;
-            node->children_[epsilonChar] = newNode;
         }
+        node->isTerminal_ = true;
+//        Node *newNode = new Node;
+//        newNode->isTerminal_ = true; // 终态
+//        newNode->parent_ = node;
+//        node->children_[epsilonChar] = newNode;
     }
 };
 
@@ -524,5 +690,18 @@ int main() {
 
 
 
+无法通过的用例
 
+```
+s = "cbaacacaaccbaabcb"
+p = "c*b*b*.*ac*.*bc*a*"
+输出
+false
+预期结果
+true
+```
+
+上述case暴露出两个问题
+
+1、  `b*b*` 显然是NFA，不是DFA，应该将它折叠为 `b*`
 
