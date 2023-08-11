@@ -1,6 +1,6 @@
 nav:
     - Introduction: index.md
-    - Math-number: Math-number
+    - LeetCode-math-number: LeetCode-math-number
     # merge、reverse、partition、split等是非常常见的一些题目，并且它们的出题方式有些类似
     - Reverse: Reverse
     - Merge: Merge
