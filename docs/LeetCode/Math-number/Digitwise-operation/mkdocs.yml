@@ -1,0 +1,6 @@
+nav:
+    - Introduction: index.md
+    - Digit-DP: Digit-DP
+    - LeetCode-7-Reverse-Integer-middle: LeetCode-7-Reverse-Integer-middle    
+    - LeetCode-9-回文数: LeetCode-9-回文数    
+
