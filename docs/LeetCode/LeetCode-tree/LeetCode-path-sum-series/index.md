@@ -1,0 +1,454 @@
+# LeetCode-path-sum-series
+
+[LeetCode-112. Path Sum-easy](https://leetcode.cn/problems/path-sum/) 判断
+
+[LeetCode-113. Path Sum II-middle](https://leetcode.cn/problems/path-sum-ii/) 枚举所有的可能性
+
+[LeetCode-437. Path Sum III-middle](https://leetcode.cn/problems/path-sum-iii/) 计数
+
+
+
+## [LeetCode-112. Path Sum-easy](https://leetcode.cn/problems/path-sum/)
+
+
+
+### DFS
+
+
+
+```c++
+class Solution {
+public:
+    bool hasPathSum(TreeNode *root, int targetSum) {
+        if (root == nullptr) {
+            return false;
+        }
+        if (root->left == nullptr && root->right == nullptr) {
+            return root->val == targetSum;
+        } else {
+            return hasPathSum(root->left, targetSum - root->val) || hasPathSum(root->right, targetSum - root->val);
+        }
+    }
+};
+```
+
+
+
+## [LeetCode-113. Path Sum II-middle](https://leetcode.cn/problems/path-sum-ii/) 
+
+
+
+### DFS+backtrack
+
+```c++
+#include <algorithm>
+#include <string>
+#include <vector>
+#include <set>
+
+using namespace std;
+
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+
+    TreeNode() : val(0), left(nullptr), right(nullptr) {}
+
+    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+
+    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+};
+
+class Solution {
+    vector<vector<int>> result;
+public:
+    vector<vector<int>> pathSum(TreeNode *root, int targetSum) {
+        vector<int> path;
+        dfs(root, targetSum, path);
+        return result;
+    }
+
+private:
+    void dfs(TreeNode *root, int targetSum, vector<int> &path) {
+        if (root == nullptr) {
+            return;
+        }
+        path.push_back(root->val);
+        if (root->left == nullptr && root->right == nullptr) {
+            if (root->val == targetSum) {
+                result.push_back(path);
+            }
+        } else {
+            dfs(root->left, targetSum - root->val, path);
+            dfs(root->right, targetSum - root->val, path);
+        }
+        path.pop_back();
+    }
+};
+
+// Driver code
+int main() {
+
+    Solution s;
+
+    return 0;
+}
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra
+
+```
+
+
+
+## [LeetCode-437. Path Sum III-middle](https://leetcode.cn/problems/path-sum-iii/) 
+
+
+
+### 第一次解题: 错误
+
+```c++
+#include <algorithm>
+#include <string>
+#include <vector>
+#include <set>
+
+using namespace std;
+
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+
+    TreeNode() : val(0), left(nullptr), right(nullptr) {}
+
+    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+
+    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+};
+
+class Solution {
+public:
+    int pathSum(TreeNode *root, int targetSum) {
+        if (root == nullptr) {
+            return 0;
+        }
+
+        int result = 0;
+        if (root->val == targetSum) {
+            result += 1; // 选择当前节点，则到此为止了
+            // 不选择当前节点，分别到left、right中去尝试
+            result += pathSum(root->left, targetSum);
+            result += pathSum(root->right, targetSum);
+            return result;
+        } else {
+            return pathSum(root->left, targetSum) + // 不包含当前节点
+                   pathSum(root->left, targetSum - root->val) + // 包含当前节点
+                   pathSum(root->right, targetSum) +
+                   pathSum(root->right, targetSum - root->val);
+        }
+    }
+};
+
+// Driver code
+int main() {
+
+    Solution s;
+
+    return 0;
+}
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra
+
+```
+
+上述方式的一个问题是它包含了间隔的节点，但是题目要求的是连续的节点，所以它的计算结果肯定会正确答案更大。
+
+
+
+### 第二次解题: 错误
+
+对于每个节点: 寻找包含它的满足题目要求的path的数目。
+
+```c++
+class Solution {
+    int result{0};
+public:
+    int pathSum(TreeNode *root, int targetSum) {
+        dfs(root, targetSum);
+        return result;
+    }
+
+private:
+    void dfs(TreeNode *root, int targetSum) {
+        if (root == nullptr) {
+            return;
+        }
+        result += pathSumImpl(root, targetSum);
+        dfs(root->left, targetSum);
+        dfs(root->right, targetSum);
+    }
+
+    int pathSumImpl(TreeNode *root, int targetSum) {
+        if (root == nullptr) {
+            return 0;
+        }
+        if (root->val == targetSum) {
+            return 1;
+        } else {
+            return pathSumImpl(root->left, targetSum - root->val) + // 包含当前节点
+                   pathSumImpl(root->right, targetSum - root->val);
+        }
+    }
+};
+```
+
+
+
+无法通过的用例:
+
+```
+[1,-2,-3,1,3,-2,null,-1] 
+-1
+```
+
+预期结果: 4
+
+实际: 3
+
+![](./bad-case-1.png)
+
+分析: 没有包含 `1,-2,1,-1` ，所以改法是: 
+
+```c++
+    int pathSumImpl(TreeNode *root, int targetSum) {
+        if (root == nullptr) {
+            return 0;
+        }
+        if (root->val == targetSum) {
+            return 1 + pathSumImpl(root->left, 0) + pathSumImpl(root->right, 0);
+        } else {
+            return pathSumImpl(root->left, targetSum - root->val) + // 包含当前节点
+                   pathSumImpl(root->right, targetSum - root->val);
+        }
+    }
+```
+
+
+
+第三次解题: 
+
+```c++
+#include <algorithm>
+#include <string>
+#include <vector>
+#include <set>
+
+using namespace std;
+
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+
+    TreeNode() : val(0), left(nullptr), right(nullptr) {}
+
+    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+
+    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+};
+
+class Solution {
+    int result{0};
+public:
+    int pathSum(TreeNode *root, int targetSum) {
+        dfs(root, targetSum);
+        return result;
+    }
+
+private:
+    void dfs(TreeNode *root, int targetSum) {
+        if (root == nullptr) {
+            return;
+        }
+        result += pathSumImpl(root, targetSum);
+        dfs(root->left, targetSum);
+        dfs(root->right, targetSum);
+    }
+
+    int pathSumImpl(TreeNode *root, int targetSum) {
+        if (root == nullptr) {
+            return 0;
+        }
+        if (root->val == targetSum) {
+            return 1 + pathSumImpl(root->left, 0) + pathSumImpl(root->right, 0);
+        } else {
+            return pathSumImpl(root->left, targetSum - root->val) + // 包含当前节点
+                   pathSumImpl(root->right, targetSum - root->val);
+        }
+    }
+};
+
+// Driver code
+int main() {
+
+    Solution s;
+
+    return 0;
+}
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra
+
+```
+
+
+
+### 第三次解题: 错误
+
+```c++
+
+class Solution {
+    long result{0};
+public:
+    int pathSum(TreeNode *root, int targetSum) {
+        dfs(root, targetSum);
+        return result;
+    }
+
+private:
+    void dfs(TreeNode *root, int targetSum) {
+        if (root == nullptr) {
+            return;
+        }
+        result += pathSumImpl(root, targetSum);
+        dfs(root->left, targetSum);
+        dfs(root->right, targetSum);
+    }
+
+    int pathSumImpl(TreeNode *root, int targetSum) {
+        if (root == nullptr) {
+            return 0;
+        }
+        if (root->val == targetSum) {
+            return 1 + pathSumImpl(root->left, 0) + pathSumImpl(root->right, 0);
+        } else {
+            return pathSumImpl(root->left, targetSum - root->val) + // 包含当前节点
+                   pathSumImpl(root->right, targetSum - root->val);
+        }
+    }
+};
+
+```
+
+无法通过的用例:
+
+![](bad-case-2.png)
+
+问题的原因在于: `targetSum - root->val` 、`targetSum - root->val` 等操作造成了，解决方法是使用更宽的类型 `long`。
+
+### 第四次解题
+
+```c++
+#include <algorithm>
+#include <string>
+#include <vector>
+#include <set>
+
+using namespace std;
+
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+
+    TreeNode() : val(0), left(nullptr), right(nullptr) {}
+
+    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+
+    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+};
+
+class Solution {
+public:
+    int pathSum(TreeNode *root, int targetSum) {
+        if (root == nullptr) {
+            return 0;
+        }
+        int result = rootSum(root, targetSum);
+        result += pathSum(root->left, targetSum);
+        result += pathSum(root->right, targetSum);
+        return result;
+    }
+
+private:
+    int rootSum(TreeNode *root, long targetSum) {
+        if (root == nullptr) {
+            return 0;
+        }
+        if (root->val == targetSum) {
+            return 1 + rootSum(root->left, 0) + rootSum(root->right, 0);
+        } else {
+            return rootSum(root->left, targetSum - root->val) + // 包含当前节点
+                   rootSum(root->right, targetSum - root->val);
+        }
+    }
+};
+
+// Driver code
+int main() {
+
+    Solution s;
+
+    return 0;
+}
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra
+
+```
+
+
+
