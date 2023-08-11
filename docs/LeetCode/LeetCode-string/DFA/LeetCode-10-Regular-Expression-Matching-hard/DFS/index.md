@@ -852,10 +852,6 @@ public:
             }
         }
         node->isTerminal_ = true;
-//        Node *newNode = new Node;
-//        newNode->isTerminal_ = true; // 终态
-//        newNode->parent_ = node;
-//        node->children_[epsilonChar] = newNode;
     }
 };
 

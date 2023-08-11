@@ -1,2 +1,5 @@
 nav:
     - Introduction: index.md
+    - BFS: BFS
+    - DFS: DFS
+    
