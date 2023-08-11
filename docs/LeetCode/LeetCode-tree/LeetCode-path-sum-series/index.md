@@ -465,3 +465,72 @@ If the depth of a tree is smaller than `5`, then this tree can be represented by
 Given an array of **ascending** three-digit integers `nums` representing a binary tree with a depth smaller than `5`, return *the sum of all paths from the root towards the leaves*.
 
 It is **guaranteed** that the given array represents a valid connected binary tree.
+
+
+
+```c++
+#include <algorithm>
+#include <iostream>
+#include <string>
+#include <vector>
+#include <set>
+#include <array>
+
+using namespace std;
+
+
+class Solution {
+
+public:
+    int pathSum(vector<int> &nums) {
+
+    }
+
+private:
+    /**
+     * 每一层节点的个数: 2^(depth-1)
+     * 给定节点 [i,j,k]，它的左子节点 [i+1, j*2-1, ], 它的右节点: [i+1, j*2, ]
+     * @param nums
+     * @param i
+     * @return
+     */
+    int dfs(vector<int> &nums, int i) {
+        if (i >= nums.size()) {
+            return 0;
+        }
+
+    }
+
+    /**
+     * 百位
+     * @param num
+     * @return
+     */
+    std::array<int, 3> getDigits(int num) {
+        std::array<int, 3> digits;
+        int i = 0;
+        while (num) {
+            digits[i++] = num % 10;
+            num /= 10;
+        }
+        return digits;
+    }
+
+
+};
+
+// Driver code
+int main() {
+
+    Solution s;
+    std::bitset<10> decimalBitset(15);
+    std::cout << decimalBitset[0] << std::endl;
+    std::cout << decimalBitset[1] << std::endl;
+    std::cout << decimalBitset[2] << std::endl;
+    return 0;
+
+}
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra
+
+```
+

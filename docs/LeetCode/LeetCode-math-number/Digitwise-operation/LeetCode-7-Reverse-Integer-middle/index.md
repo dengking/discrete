@@ -19,7 +19,7 @@ public:
     int reverse(int x)
     {
         int res = 0;
-        while (x)
+        while (x) // 负数的truth value是1，所以它是支持负数的，需要注意这里的条件不能是 while (x > 0)
         {
             int bit = x % 10;
             if (res > INT_MAX / 10 || (res == INT_MAX / 10 && bit > 7))
