@@ -468,6 +468,8 @@ It is **guaranteed** that the given array represents a valid connected binary tr
 
 
 
+### DFS+backtrack
+
 ```c++
 #include <algorithm>
 #include <iostream>
@@ -480,10 +482,22 @@ using namespace std;
 
 
 class Solution {
-
+    vector<std::array<int, 3>> numDigits;
+    std::unordered_map<int, int> nodes;
+    int result{0};
 public:
     int pathSum(vector<int> &nums) {
-
+        for (int i = 0; i < nums.size(); ++i) {
+            int num = nums[i];
+            auto digit = getDigits(num);
+            numDigits.push_back(digit);
+            int nodeKey = digit[1] + // 十位
+                          digit[2] * 10;// 百位
+            nodes[nodeKey] = i;
+        }
+        int pathSum = 0;
+        dfs(nums, 0, pathSum);
+        return result;
     }
 
 private:
@@ -494,11 +508,45 @@ private:
      * @param i
      * @return
      */
-    int dfs(vector<int> &nums, int i) {
+    void dfs(vector<int> &nums, int i, int &pathSum) {
         if (i >= nums.size()) {
-            return 0;
+            return;
         }
+        int leftChild = getLeftChild(i), rightChild = getRightChild(i);
+        const auto &digit = numDigits[i];
+        pathSum += digit[0];
+        if (leftChild == -1 && rightChild == -1) {
+            result += pathSum;
+        }
+        if (leftChild != -1) {
+            dfs(nums, leftChild, pathSum);
+        }
+        if (rightChild != -1) {
+            dfs(nums, rightChild, pathSum);
+        }
+        pathSum -= digit[0];
+    }
 
+    int getLeftChild(int i) {
+        auto &digit = numDigits[i];
+        int nodeKey = (digit[1] * 2 - 1) + // 十位
+                      (digit[2] + 1) * 10;// 百位
+        if (nodes.contains(nodeKey)) {
+            return nodes[nodeKey];
+        } else {
+            return -1;
+        }
+    }
+
+    int getRightChild(int i) {
+        auto &digit = numDigits[i];
+        int nodeKey = digit[1] * 2 + // 十位
+                      (digit[2] + 1) * 10;// 百位
+        if (nodes.contains(nodeKey)) {
+            return nodes[nodeKey];
+        } else {
+            return -1;
+        }
     }
 
     /**
@@ -515,18 +563,14 @@ private:
         }
         return digits;
     }
-
-
 };
 
 // Driver code
 int main() {
 
     Solution s;
-    std::bitset<10> decimalBitset(15);
-    std::cout << decimalBitset[0] << std::endl;
-    std::cout << decimalBitset[1] << std::endl;
-    std::cout << decimalBitset[2] << std::endl;
+    vector<int> nums{113, 215, 221};
+    s.pathSum(nums);
     return 0;
 
 }
