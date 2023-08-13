@@ -1,4 +1,5 @@
 nav:
+    - Introduction: index.md
     - LeetCode-Basic-Calculator-serial: LeetCode-Basic-Calculator-serial
     - LeetCode-439-Ternary-Expression-Parser-middle-plus: LeetCode-439-Ternary-Expression-Parser-middle-plus
     

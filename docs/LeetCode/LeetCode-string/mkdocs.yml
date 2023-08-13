@@ -1,6 +1,7 @@
 nav:
     - Introduction: index.md
     - LeetCode-6-Zigzag-Conversion-middle: LeetCode-6-Zigzag-Conversion-middle
+    - LeetCode-68-Text-Justification-hard: LeetCode-68-Text-Justification-hard
     - LeetCode-DFA: LeetCode-DFA
-    - LeetCode-parse: LeetCode-parse
-    
+    - LeetCode-Integer&string: LeetCode-Integer&string # int&string 和 DFA 是密切相关的，要将两者放到一起
+    - LeetCode-parse-expression: LeetCode-parse-expression
