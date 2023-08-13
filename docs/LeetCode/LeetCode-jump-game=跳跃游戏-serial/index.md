@@ -187,3 +187,53 @@ https://leetcode.cn/problems/jump-game-ii/submissions/455827768/
 [5,6,4,4,6,9,4,4,7,4,4,8,2,6,8,1,5,9,6,5,2,7,9,7,9,6,9,4,1,6,8,8,4,4,2,0,3,8,5]
 ```
 
+
+
+### DP
+
+显然，这个问题是具备最优子结构的，所以是可以使用DP解决的。
+
+```c++
+#include <vector>
+
+using namespace std;
+
+class Solution {
+    vector<int> minSteps; // 到达目标的最小步数
+public:
+    int jump(vector<int> &nums) {
+        minSteps = vector<int>(nums.size(), INT_MAX);
+        minSteps[0] = 0; // 一开始就位于index 0处，所以将它初始化位0
+        for (int i = 0; i < nums.size(); ++i) {
+            int num = nums[i];
+            for (int j = 1; j <= num; ++j) {
+                int next = i + j;
+                if (next >= nums.size()) {
+                    next = nums.size() - 1;
+                }
+                minSteps[next] = min(minSteps[next], minSteps[i] + 1);
+            }
+        }
+        return minSteps.back();
+    }
+};
+
+// Driver code
+int main() {
+
+    Solution s;
+    vector<int> nums{2, 3, 1, 1, 4};
+    s.jump(nums);
+    return 0;
+
+}
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra
+
+```
+
+
+
+## [LeetCode-1306. Jump Game III-middle](https://leetcode.cn/problems/jump-game-iii/)
+
+
+
