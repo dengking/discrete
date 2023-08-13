@@ -1,14 +1,24 @@
-# [LeetCode-536. 从字符串生成二叉树-中等](https://leetcode.cn/problems/construct-binary-tree-from-string/) 
+# 从包含括号的表达式生成二叉树
+
+geeksforgeeks [Construct Binary Tree from String with bracket representation](https://www.geeksforgeeks.org/construct-binary-tree-string-bracket-representation/)
+
+## [LeetCode-536. 从字符串生成二叉树-中等](https://leetcode.cn/problems/construct-binary-tree-from-string/) 
 
 你需要用一个包括括号和整数的字符串构建一棵二叉树。
 
 输入的字符串代表一棵二叉树。它包括整数和随后的 0 、1 或 2 对括号。整数代表根的值，一对括号内表示同样结构的子树。
 
-## 我的解题
+You need to construct a binary tree from a string consisting of parenthesis and integers.
 
-这道题和根据遍历结果恢复二叉树有些类似。
+The whole input represents a binary tree. It contains an integer followed by zero, one or two pairs of parenthesis. The integer represents the root's value and a pair of parenthesis contains a child binary tree with the same structure.
+
+You always start to construct the **left** child node of the parent first if it exists.
+
+
 
 ## 自顶向下
+
+这道题和根据遍历结果恢复二叉树有些类似。
 
 ### 程序一
 
@@ -192,8 +202,4 @@ int main()
 // g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -Werror
 
 ```
-
-
-
-## 自底向上
 

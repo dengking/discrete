@@ -1,8 +1,8 @@
-# Bracket and tree
+# LeetCode-parenthese
 
 
 
-## 括号 和 tree 的对应关系
+## Parenthese 和 tree 的对应关系
 
 1、tree是可以使用parenthese来表示，反之亦然，匹配的括号表达式对应一棵expression tree。
 
@@ -33,8 +33,6 @@
 ## Examples
 
 1、C和C++中，使用`{}`来定义block，block中可以再包含block，从而形成nesting结构
-
-
 
 3、nltk的[Noun Phrase Chunking](http://www.nltk.org/book/ch07.html)
 
@@ -125,27 +123,25 @@ TODO
 
 
 
-## leetcode
+## LeetCode
 
 https://leetcode.cn/problemset/all/?search=%E6%8B%AC%E5%8F%B7
 
-## 资源
+
+
+## 素材
+
+一、geeksforgeeks [Binary tree to string with brackets](https://www.geeksforgeeks.org/binary-tree-string-brackets/) 
+
+二、DFA parenthese
+
+DFA 本质上是线性的，因此它无法处理带括号的问题，带括号的是nesting的。
+
+三、labuladong
 
 labuladong [3 分钟看懂如何判断括号的合法性](https://mp.weixin.qq.com/s/o2MjTSIC4FkPscF5MnLXMQ)
 
 labuladong [手把手解决三道括号相关的算法题](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247487246&idx=1&sn=4a514020ce9dc8777e2d1d503188b62b&scene=21#wechat_redirect)
 
 labuladong [回溯算法最佳实践：合法括号生成](https://mp.weixin.qq.com/s/XVnoX-lBzColVvVXNkGc5g)
-
-
-
-## TODO
-
-geeksforgeeks [Binary tree to string with brackets](https://www.geeksforgeeks.org/binary-tree-string-brackets/)
-
-
-
-
-
-
 

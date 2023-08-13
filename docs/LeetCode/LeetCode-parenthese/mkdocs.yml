@@ -1,8 +1,9 @@
 nav:
     - Introduction: index.md
-    - i-programmer-Parentheses-Are-Trees: i-programmer-Parentheses-Are-Trees
     - Bracket(tournament): Bracket(tournament)
     - Matched-balanced-parentheses: Matched-balanced-parentheses
     - Depth-of-nested-parenthesis: Depth-of-nested-parenthesis
     - Bracket(tournament): Bracket(tournament)
-    - 从包含括号的字符串生成二叉树: 从包含括号的字符串生成二叉树
+    - Construct-binary-tree-from-parenthesis: Construct-binary-tree-from-parenthesis
+    - LeetCode-22-Generate-Parentheses-middle: LeetCode-22-Generate-Parentheses-middle
+    
