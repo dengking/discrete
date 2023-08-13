@@ -1,8 +1,14 @@
-# [LeetCode-224. 基本计算器](https://leetcode.cn/problems/basic-calculator/)
+# LeetCode-Basic Calculator
 
 
 
-## 第一次解题
+## [LeetCode-224. Basic Calculator-hard](https://leetcode.cn/problems/basic-calculator/)
+
+这是在阅读 labuladong [如何拆解复杂问题：实现一个计算器](https://mp.weixin.qq.com/s/ds0guq9gPTLIHLEQnFxZVQ) 时发现的。
+
+
+
+### 第一次解题
 
 ```c++
 #include <iostream>
@@ -103,7 +109,7 @@ int main()
 
 
 
-## 第二次解题
+### 第二次解题
 
 ```c++
 #include <iostream>
@@ -199,7 +205,7 @@ int main()
 
 
 
-## 第三次解题
+### 第三次解题
 
 ```c++
 #include <iostream>
@@ -383,3 +389,6 @@ int main()
 }
 ```
 
+
+
+## [LeetCode-227. Basic Calculator II-middle](https://leetcode.cn/problems/basic-calculator-ii/)
