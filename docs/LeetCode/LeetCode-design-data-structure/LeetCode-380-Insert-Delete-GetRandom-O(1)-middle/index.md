@@ -1,8 +1,12 @@
-# LeetCode [380. Insert Delete GetRandom O(1)](https://leetcode.cn/problems/insert-delete-getrandom-o1/) 中等
+# [LeetCode-380. Insert Delete GetRandom O(1)-middle](https://leetcode.cn/problems/insert-delete-getrandom-o1/) 
+
+
 
 一、https://leetcode.cn/problems/insert-delete-getrandom-o1/solution/by-ac_oier-tpex/1504113
 
 > 总结一下：这其实考察的是**链表**和**数组**的特点，想要把他们优点兼具，要么链表+hash，要么数组+hash，但这两种结合还是有瑕疵，需要一些细节处理，比如链表+hash，不好按idx查找，也是这个原因我们选择了数组+hash。。。。 这是个知识点，学到了！
+
+
 
 二、删除交换
 

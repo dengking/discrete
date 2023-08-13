@@ -1,4 +1,6 @@
 nav:
     - Introduction: index.md
-    - DFA: DFA
+    - LeetCode-6-Zigzag-Conversion-middle: LeetCode-6-Zigzag-Conversion-middle
+    - LeetCode-DFA: LeetCode-DFA
+    - LeetCode-parse: LeetCode-parse
     

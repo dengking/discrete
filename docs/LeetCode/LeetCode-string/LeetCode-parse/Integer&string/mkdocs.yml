@@ -1,5 +1,7 @@
 nav:
     - Introduction: index.md
-    - itoa-IntToString: itoa-IntToString
-    - atoi: atoi
-    - TODO-LeetCode-273-整数转换英文表示-困难: TODO-LeetCode-273-整数转换英文表示-困难
+    - itoa-IntegerToString: itoa-IntegerToString
+    - atoi-String2Integer: atoi-String2Integer
+    - LeetCode-12-Integer-to-Roman-middle: LeetCode-12-Integer-to-Roman-middle
+    - LeetCode-13-Roman-to-Integer-easy: LeetCode-13-Roman-to-Integer-easy
+    - LeetCode-273-Integer-to-English-Words-hard: LeetCode-273-Integer-to-English-Words-hard

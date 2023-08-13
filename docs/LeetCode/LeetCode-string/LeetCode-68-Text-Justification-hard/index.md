@@ -12,10 +12,6 @@
 
 2、然后编排这一行单词
 
-
-
-
-
 ```c++
 #include <iostream>
 #include <string>

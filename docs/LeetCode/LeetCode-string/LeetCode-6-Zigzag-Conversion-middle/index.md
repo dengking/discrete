@@ -32,6 +32,9 @@ public:
         string res;
         int period = numRows * 2 - 2; // 每个周期元素的个数
         // int periodCnt = std::ceil(s.size() / period); // 周期数
+        /**
+         * 结果测试，上面的ceil函数返回失败，所以采用下面的等价的实现方式
+         */
         int periodCnt = s.size() / period; // 周期数
         if (s.size() % period) {
             ++periodCnt;
@@ -40,15 +43,21 @@ public:
         res.reserve(s.size());
         int maxIdx = s.size() - 1;
         /**
-         * 从上到下每一行，需要将从左到右的每个周期中属于改行数按照顺序添加到其中
+         * 从上到下每一行，需要将从左到右的每个周期中属于该行数按照顺序添加到其中
          */
         for (int rowIdx = 0; rowIdx < numRows; ++rowIdx) {
             for (int periodIdx = 0; periodIdx < periodCnt; ++periodIdx) {
                 int startIdxOfCurPeriod = periodIdx * period; // 第j周期的起始下标
                 int startIdxOfNextPeriod = (periodIdx + 1) * period; // 第j周期的起始下标
+                /**
+                 * 第0行，每个周期只有一个数属于该行
+                 */
                 if (rowIdx == 0) {
                     res.push_back(s[startIdxOfCurPeriod]);
                 } else {
+                    /**
+                     * 对于其它行，每个周期最多有两个数属于该行
+                     */
                     int leftIdx = startIdxOfCurPeriod + rowIdx, rightIdx = startIdxOfNextPeriod - rowIdx;
                     if (leftIdx == rightIdx && leftIdx <= maxIdx) {
                         res.push_back(s[leftIdx]);
