@@ -1,9 +1,4 @@
 nav:
     - Introduction: index.md
-    - LeetCode-62-Unique-Paths-middle: LeetCode-62-Unique-Paths-middle
-    - LeetCode-63-Unique-Paths-II-middle: LeetCode-63-Unique-Paths-II-middle
-    - LeetCode-980-Unique-Paths-III-hard: LeetCode-980-Unique-Paths-III-hard
-    - LeetCode-64-Minimum-Path-Sum-middle: LeetCode-64-Minimum-Path-Sum-middle
-    
-        
+
     
