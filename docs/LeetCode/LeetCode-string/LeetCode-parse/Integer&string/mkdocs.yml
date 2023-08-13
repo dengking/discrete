@@ -2,6 +2,5 @@ nav:
     - Introduction: index.md
     - itoa-IntegerToString: itoa-IntegerToString
     - atoi-String2Integer: atoi-String2Integer
-    - LeetCode-12-Integer-to-Roman-middle: LeetCode-12-Integer-to-Roman-middle
-    - LeetCode-13-Roman-to-Integer-easy: LeetCode-13-Roman-to-Integer-easy
+    - Integer&Roman: Integer&Roman
     - LeetCode-273-Integer-to-English-Words-hard: LeetCode-273-Integer-to-English-Words-hard
