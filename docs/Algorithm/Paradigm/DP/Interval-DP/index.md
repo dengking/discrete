@@ -1,6 +1,26 @@
 # 区间DP
 
-由矩阵连乘问题想到了区间DP，矩阵连乘问题可以看做是区间DP。
+一、素材
+
+oi-wiki [区间 DP](https://oi-wiki.org/dp/interval/)，总结得非常好
+
+csdn [leetcode-区间dp](https://blog.csdn.net/MaYingColdPlay/article/details/125132189)
+
+csdn [LeetCode---区间DP](https://blog.csdn.net/sgh666666/article/details/105178376)
+
+csdn [区间dp入门](https://blog.csdn.net/qq_40772692/article/details/80183248)
+
+[LeetCode-128. 最长连续序列](https://leetcode.cn/problems/longest-consecutive-sequence/) # [【动态规划】Python 题解](https://leetcode.cn/problems/longest-consecutive-sequence/solution/dong-tai-gui-hua-python-ti-jie-by-jalan/)
+
+cnblogs [区间DP（超详细！！！）](https://www.cnblogs.com/ljy-endl/p/11610549.html)
+
+jianshu [算法学习之区间dp](https://www.jianshu.com/p/9c6401ea2f9b)
+
+
+
+二、example
+
+1、矩阵连乘问题是典型的区间DP
 
 
 
@@ -59,33 +79,9 @@ $$
 
 
 
-## oi-wiki [区间 DP](https://oi-wiki.org/dp/interval/)
-
-### 定义
 
 
 
 
 
-## CSDN [区间dp入门](https://blog.csdn.net/qq_40772692/article/details/80183248)
-
-
-
-## jianshu [算法学习之区间dp](https://www.jianshu.com/p/9c6401ea2f9b)
-
-
-
-## 素材
-
-
-
-csdn [leetcode-区间dp](https://blog.csdn.net/MaYingColdPlay/article/details/125132189)
-
-csdn [LeetCode---区间DP](https://blog.csdn.net/sgh666666/article/details/105178376)
-
-csdn [区间dp入门](https://blog.csdn.net/qq_40772692/article/details/80183248)
-
-[LeetCode-128. 最长连续序列](https://leetcode.cn/problems/longest-consecutive-sequence/) # [【动态规划】Python 题解](https://leetcode.cn/problems/longest-consecutive-sequence/solution/dong-tai-gui-hua-python-ti-jie-by-jalan/)
-
-cnblogs [区间DP（超详细！！！）](https://www.cnblogs.com/ljy-endl/p/11610549.html)
 
