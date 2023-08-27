@@ -1,3 +1,17 @@
+# 背包问题
+
+背包问题是典型的既可以使用多种算法来进行求解的:
+
+1、subset backtrace
+
+2、DP
+
+3、greedy algorithm
+
+
+
+
+
 # 背包DP 和 fibonacci DP
 
 一、两者本质上是非常类似的: 可以认为 fibonacci DP 是简化版的 背包DP，背包DP 是泛化的 fibonacci DP ，两者的关联在下面文章中有着非常好的描述:
