@@ -196,3 +196,55 @@ int main(){
 
 
 
+## 3. 多重背包
+
+
+
+### 多重背包二进制优化
+
+将每一种物品由1.2.4.8.16.128...的件数打包，不足一组的零头重新打包，转化为01背包问题
+
+```cpp
+//多重背包二进制拆分 
+#include<iostream>
+#include<cstdio>
+using namespace std;
+
+int n,v,c[12500],w[12500],dp[25000];
+int cnt;//划分成01背包后的总包数 
+
+int main(){
+    scanf("%d%d",&n,&v);
+    while(n--){
+        int a,b,s; 
+        scanf("%d%d%d",&a,&b,&s);
+        //倍增思想 
+        int k=1; //相当于base(每组件数)：1 2 4 8 16 32 64 128 256...据此打包
+        while(k<=s){
+            cnt++;
+            c[cnt]=k*a;
+            w[cnt]=k*b;
+            s-=k;
+            k*=2;
+        }
+        if(s>0){ //若拆完之后还有零头
+            cnt++; //再分一个包
+            c[cnt]=a*s;
+            w[cnt]=b*s;
+        }
+    }
+    //相当于将多重背包转化为01背包
+    n=cnt;//01物品总个数
+    for(int i=1;i<=n;i++) 
+        for(int j=v;j>=c[i];j--)//注意倒序遍历 
+            dp[j]=max(dp[j],dp[j-c[i]]+w[i]);
+
+    printf("%d",dp[v]);
+}
+```
+
+
+
+
+
+## 4. 分组背包
