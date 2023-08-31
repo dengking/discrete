@@ -8,7 +8,7 @@
 
 ### 01背包朴素
 
-*状态表示* ： ![dp [ i ][ j ]](https://math.jianshu.com/math?formula=dp%20%5B%20i%20%5D%5B%20j%20%5D) **只从前 i 个物品中选**，**总体积不超过 j** 的选法的集合。
+*状态表示* ： `dp [ i ][ j ]` **只从前 i 个物品中选**，**总体积不超过 j** 的选法的集合。
  *属性*： ![MAX](https://math.jianshu.com/math?formula=MAX)
  *状态计算*：
 
@@ -325,6 +325,10 @@ int main(){
 **题目描述**
 有 $N$ 个物品和一个容量是 $V$ 的背包。**物品之间具有依赖关系**，且**依赖关系**组成一棵树的形状。如果选择一个物品，则必须选择它的父节点。
 
+> NOTE:
+>
+> 一、是所有的父节点
+
 [图片上传失败...(image-2ed05f-1628507177264)]
 
 如果选择物品5，则必须选择物品1和2。这是因为2是5的父节点，1是2的父节点。
@@ -353,14 +357,18 @@ int main(){
 #define maxn 200
 #define maxm 400
 using namespace std;
+//n物品个数 v总体积 c[i]第i件物品体积 worth[i]第i件物品价值 
 int n,v,cnt,w[maxn],c[maxn],dp[maxn][maxm];
-int root;
+int root; // 根节点
+// head: parent
 int head[maxn],dis[maxn],vis[maxn];
 struct node{
-    int to,next;
-}e[maxm];
+    int to,next; // to: 指向child, next指向的是兄弟节点
+}e[maxm]; // 保存所有的node
 // 链式前向星 或者叫 邻接表
 //加边操作
+// x: parent
+// y: child
 void add(int x,int y){
     cnt++;
     e[cnt].to=y;
@@ -396,3 +404,6 @@ int main(){
 }
 ```
 
+> NOTE:
+>
+> 一、每个节点只有一个parent，所以通过一个parent array就可以将一颗树给保存下来
