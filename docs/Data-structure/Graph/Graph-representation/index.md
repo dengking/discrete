@@ -1,6 +1,6 @@
 # Graph representation
 
-
+保存图时，需要考虑的一个问题是: 一个点可以关联多条边，即 [star](https://en.wikipedia.org/wiki/Star_(graph_theory))  。
 
 ## wikipedia [Graph (abstract data type)#Representations](https://en.wikipedia.org/wiki/Graph_(abstract_data_type)) 
 
@@ -198,7 +198,7 @@ public:
 
 
 
-## 其他素材
+## 素材
 
 khanacademy [Representing graphs](https://www.khanacademy.org/computing/computer-science/algorithms/graph-representation/a/representing-graphs)
 

@@ -172,3 +172,12 @@ b、之前写的DFS的存在性问题：当使用DFS解存在性问题的时候�
 
 2、berkeley [Chapter 6 Dynamic programming](https://people.eecs.berkeley.edu/~vazirani/algorithms/chap6.pdf)
 
+
+
+## 草稿
+
+一、dp nested-for loop的顺序
+
+1、背包DP
+
+2、tag-Floyd–Warshall-algorithm-interval=区间-DP-graph-枚举断点+更新区间
