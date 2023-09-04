@@ -1,4 +1,14 @@
-# [jianshu-背包问题九讲 超全归纳](https://www.jianshu.com/p/830de6df0207)
+# [jianshu-背包问题九讲 超全归纳](https://www.jianshu.com/p/830de6df0207) 
+
+背包问题一般套路：
+
+```cpp
+for 物品
+    for 体积
+        for 决策
+```
+
+
 
 
 

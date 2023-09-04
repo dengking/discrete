@@ -1,4 +1,4 @@
-# 动态规划
+# DP: 动态规划
 
 
 
@@ -132,15 +132,25 @@ b、之前写的DFS的存在性问题：当使用DFS解存在性问题的时候�
 
 
 
+## DP implementation
+
+DP framework: nested-for loop的顺序
+
+1、背包DP
+
+2、tag-Floyd–Warshall-algorithm-interval=区间-DP-graph-枚举断点+更新区间
+
+3、Bellman–Ford-algorithm
 
 
-## 动态规划复杂度分析
+
+### 动态规划复杂度分析
 
 一、动态规划是否能够实现 $O(N)$​ 的复杂度？
 
 动态规划算法的复杂度和动态规划算法本身没有关系，而是和具体问题相关的:
 
-### $O(N)$ 复杂度
+#### $O(N)$ 复杂度
 
 一、一些子数组问题可以实现$O(N)$ 复杂度
 
@@ -158,7 +168,7 @@ b、之前写的DFS的存在性问题：当使用DFS解存在性问题的时候�
 
 
 
-### $O(N^2)$ 复杂度
+#### $O(N^2)$ 复杂度
 
 一、很多**子序列**问题，复杂度都为$O(N^2)$​​​ 复杂度
 
@@ -174,10 +184,7 @@ b、之前写的DFS的存在性问题：当使用DFS解存在性问题的时候�
 
 
 
-## 草稿
+二、
 
-一、dp nested-for loop的顺序
+cnblogs [数字组合（dp ｜｜ 深搜)](https://www.cnblogs.com/wk-love-zsy/p/13894302.html)
 
-1、背包DP
-
-2、tag-Floyd–Warshall-algorithm-interval=区间-DP-graph-枚举断点+更新区间
