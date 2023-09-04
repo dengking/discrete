@@ -62,4 +62,7 @@
 >
 > [Floyd–Warshall algorithm](https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm) 的精妙之处在于它graph representation就是DP table，它的graph representation是adjacency matrix，显然这是正好可以作为DP table的，这其实是这个算法简单的来源。
 
-3、 [Transitive_closure](https://en.wikipedia.org/wiki/Transitive_closure) 的 Warshall’s Algorithm
+3、[Transitive_closure](https://en.wikipedia.org/wiki/Transitive_closure) 的 Warshall’s Algorithm
+
+4、[Bellman–Ford algorithm](https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm) 
+
