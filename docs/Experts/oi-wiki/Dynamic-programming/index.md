@@ -141,3 +141,13 @@ $\color{red}\text{dalao}$
 写出 **状态转移方程**：$f(i,j)=\max\{f(i,k)+f(k+1,j)+\sum_{t=i}^{j} a_t \}~(i\le k<j)$
 
 令 $sum_i$ 表示 $a$ 数组的前缀和，状态转移方程变形为 $f(i,j)=\max\{f(i,k)+f(k+1,j)+sum_j-sum_{i-1} \}$。
+
+## [DAG 上的 DP](https://oi-wiki.org/dp/dag/)
+
+
+
+## [树形 DP](https://oi-wiki.org/dp/tree/)
+
+
+
+## [数位 DP](https://oi-wiki.org/dp/number/)
