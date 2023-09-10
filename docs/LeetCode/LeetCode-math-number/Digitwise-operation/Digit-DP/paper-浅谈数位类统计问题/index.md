@@ -155,45 +155,56 @@
 这样就可以得到询问的算法: 首先预处理 $f$ ，然后对于输入 $n$ ，我们在假想的**完全二叉树**中，从根走到 $n$ 所在的叶子，每次向右转时统计左子树内数的个数。下面是C++代码:
 
 ```C++
-#include <bits/stdc++.h>
-using namespace std;
+#include <cstdio>
 
-void init()//预处理f
-{
-f[0][0]=1;
-for (int i=1;i<=31;++i) {
-f[i][0]=f[i-1][0];
-for (int j=1;j<=i;++j) f[i][j]=f[i-1][j]+f[i-1][j-1]; }
-}
-int calc(int x, int k) // 统计[0..x]内二进制表示含k个1的数的个数
-{
-	int tol = 0, ans = 0; // tol 记录当前路径上已有的1的数量，ans表示答案
-	for (int i = 31; i > 0; ++i)
-	{
-		if (x & (1 << i))
-		{
-			++tol;
-			if (tol > k)
-				break;
-			x = x ^ (1 << 1);
-		}
-		if (1 << (i - 1) <= x)
-		{
-			ans += f[i - 1][k - tol];
-		}
-	}
-	if (tol + x == k)
-	{
-		++ans;
-	}
-	return ans;
-}
-int main()
-{
-}
-// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -g
+const int N = 50;
+int f[N][N]; //f[i][j] 前i个中选j个1的个数
 
+/**
+ * 预处理f
+ */
+void init() {
+    f[0][0] = 1;
+    for (int i = 1; i <= 31; ++i) {
+        f[i][0] = f[i - 1][0];
+        for (int j = 1; j <= i; ++j) {
+            f[i][j] = f[i - 1][j] + f[i - 1][j - 1];
+        }
+    }
+}
 
+/**
+ * 统计[0..x]内二进制表示含k个1的数的个数
+ * @param x 
+ * @param k 
+ * @return 
+ */
+int calc(int x, int k) {
+    int total = 0, ans = 0;//total记录当前路径上已有的1的数量，ans表示答案
+    for (int i = 31; i > 0; --i) {
+        if (x & (1 << i)) {
+            ++total;
+            if (total > k) break;
+            x = x ^ (1 << i); // ^ 是 XOR operator，它实现的效果是将x的最高为设置为0
+        }
+        if ((1 << (i - 1)) <= x) {
+            ans += f[i - 1][k - total];
+        }
+    }
+    if (total + x == k) {
+        ++ans;
+    }
+    return ans;
+}
+
+int main() {
+    init();
+    int x, y, k, c;
+    while (~scanf("%d%d%d%d", &x, &y, &k, &c)) {
+        printf("%d\n", calc(y, k) - calc(x - 1, k));
+    }
+    return 0;
+}
 ```
 
 最后的问题就是如何处理非二进制。对于询问 $n$，我们需要求出不超过 $n$ 的最大 B 进制 表示只含 0、1 的数:找到 $n$ 的左起第一位非 0、1 的数位，将它变为 1，并将右面所有数位 设为 1。将得到的 B 进制表示视为二进制进行询问即可。
@@ -225,4 +236,6 @@ int main()
 > NOTE: 
 >
 > 下面代码是截取自 CSDN [ural 1057 Amount of degrees 【数位dp】](https://blog.csdn.net/y990041769/article/details/40515677)
+
+
 
