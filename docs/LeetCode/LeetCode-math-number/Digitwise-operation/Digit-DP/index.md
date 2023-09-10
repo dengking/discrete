@@ -20,10 +20,6 @@ complete n-ary tree: 在每一位可以选择哪些digit。
 
 
 
-
-
-
-
 ## 素材
 
 一、[paper-浅谈数位类统计问题](https://www.gydoc.com/p-5722.html)
