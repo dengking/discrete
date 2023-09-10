@@ -1,6 +1,6 @@
 # Tree DP
 
-参考文章:
+素材: 
 
 1、CSDN [树形dp+树形结构总结](https://blog.csdn.net/dcx2001/article/details/78269908)
 
@@ -8,7 +8,9 @@
 
 3、codeforces [DP on Trees Tutorial](https://codeforces.com/blog/entry/20935)
 
+4、[浅谈数位类统计问题](https://www.gydoc.com/p-5722.html) 
 
+>  设 $f[i, j]$ 表示所求，则分别统计左右子树内符合条件数的个数，有 $f[i, j] = f[i - 1, j] + f[i - 1, j - 1]$ 。
 
 ## geeksforgeeks [Dynamic Programming on Trees | Set-1](https://www.geeksforgeeks.org/dynamic-programming-trees-set-1/)
 
@@ -62,4 +64,8 @@ The answer is 22, as Path 4 has the maximum sum of values of nodes in its path f
 The problem can be solved using **Dynamic Programming on trees.** Start memoizing from the leaves and add the maximum of leaves to the root of every sub-tree. At the last step, there will be root and the sub-tree under it, adding the value at node and maximum of sub-tree will give us the maximum sum of the node values from root to any of the leaves.
 
 ## geeksforgeeks [Dynamic Programming on Trees | Set 2](https://www.geeksforgeeks.org/dynamic-programming-trees-set-2/?ref=rp)
+
+
+
+
 
