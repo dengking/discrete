@@ -4,7 +4,23 @@
 
 > 这是一道经典的「数位 DP」模板题的简化版，原题在 [这里](https://www.luogu.com.cn/problem/P1980) 。
 
-二、数位DP其实本质上是基于binary representation的number，将其转换为tree DP、系列DP。
+
+
+## use tree to represent number
+
+数位DP其实本质上是基于binary representation的number，将其转换为tree DP、系列DP。
+
+在刘聪 paper [浅谈数位类统计问题](https://www.gydoc.com/p-5722.html) 中，使用了"**逐位确定**"
+
+例子：
+
+1、lexilogical number
+
+complete n-ary tree: 在每一位可以选择哪些digit。
+
+
+
+
 
 
 
@@ -42,12 +58,3 @@ cnblogs [计数DP之数字](https://www.cnblogs.com/soda-ma/p/13325119.html)
 
 
 
-## use tree to represent number
-
-例子：
-
-1、lexilogical number
-
-complete n-ary tree
-
-2、

@@ -1,10 +1,10 @@
-# Digitwise operation
+# Digit-wise operation
 
 
 
-[LeetCode-136. 只出现一次的数字](https://leetcode.cn/problems/single-number/) 简单
+[LeetCode-136. 只出现一次的数字-简单](https://leetcode.cn/problems/single-number/) 
 
-[LeetCode-137. 只出现一次的数字 II](https://leetcode.cn/problems/single-number-ii/) 中等
+[LeetCode-137. 只出现一次的数字 II-中等](https://leetcode.cn/problems/single-number-ii/) 
 
 [LeetCode-260. 只出现一次的数字 III- middle](https://leetcode.cn/problems/single-number-iii/) 
 
@@ -62,3 +62,26 @@ while (!sd.empty())
 ```
 
 二、geeksforgeeks [C Program to Print all digits of a given number](https://www.geeksforgeeks.org/c-program-to-print-all-digits-of-a-given-number/)
+
+
+
+三、
+
+```c++
+/**
+ * 将数num转换为base进制
+ * @param num 
+ * @param base 
+ * @return 
+ */
+std::vector<int> getDigits(int num, int base) {
+    std::vector<int> digits;
+    while (num) {
+        digits.push_back(num % base);
+        num /= base;
+    }
+    return digits;
+}
+
+```
+
