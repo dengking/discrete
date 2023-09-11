@@ -187,7 +187,7 @@ int calc(int x, int k) {
             if (total > k) break;
             x = x ^ (1 << i); // ^ 是 XOR operator，它实现的效果是将x的最高为设置为0
         }
-        if ((1 << (i - 1)) <= x) {
+        if ((1 << (i - 1)) <= x) { // 这是什么含义？
             ans += f[i - 1][k - total];
         }
     }
@@ -279,18 +279,19 @@ int solve(int x, int k, int c) {
 
     int cnt = 0, ans = 0;// cnt记录当前路径上已有的1的数量
     for (int i = digits.size() - 1; i >= 0; i--) {
-        //为1，则依次求解
+        // i是digits的下标，根据前面 f 的定义可知，f[i][j]中的i指的是树高，所以需要将digits的下标转换为树高
+        // 为1，则依次求解
         if (digits[i] == 1) {
-            ans += f[i][k - cnt];
+            ans += f[i][k - cnt]; // 显然它的左子树的树高为i，需要在其中寻找包含 k-cnt 个1的数的个数
             cnt++;
             if (cnt == k)
                 break;
-        } else if (digits[i] > 1) { //假如大于1的话，相当于所有的位有可以为1，所以直接求解跳出
+        } else if (digits[i] > 1) { // 假如大于1的话，则i以及i后面的所有digit都可以为1，所以直接求解跳出
             ans += f[i + 1][k - cnt];
             break;
         }
     }
-    if (cnt == k)
+    if (cnt == k) // 数n本身
         ans++;
     return ans;
 }
@@ -306,3 +307,8 @@ int main() {
 }
 ```
 
+```
+12121
+```
+
+需要考虑树的高度和digit个数的对应关系
