@@ -26,6 +26,10 @@ Step 2:乘法原理
 **1**
 ```
 
+固定一位，由它的高位、低位进行组合。
+
+
+
 其实，[【宫水三叶】将数位 DP 问题转化为计数类模拟题](https://leetcode.cn/problems/number-of-digit-one/solution/gong-shui-san-xie-jiang-shu-wei-dp-wen-t-c9oi/) 中的讲解方式上更好的，更加容易理解，结合来看是更好的。下面的例子来进行理解:
 
 |        | 范围        |
