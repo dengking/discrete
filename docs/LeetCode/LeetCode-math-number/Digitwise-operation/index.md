@@ -8,6 +8,8 @@
 
 [LeetCode-260. 只出现一次的数字 III- middle](https://leetcode.cn/problems/single-number-iii/) 
 
+[LeetCode-233. 数字 1 的个数-困难](https://leetcode.cn/problems/number-of-digit-one/) 
+
 
 
 ## Extract digits from integer/split an int into its digits
@@ -85,3 +87,21 @@ std::vector<int> getDigits(int num, int base) {
 
 ```
 
+
+
+## 乘法原理
+
+```
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+```
+
+乘法原理、重复出现、这道题非常好的展示了数位具有非常好的重复性质。
