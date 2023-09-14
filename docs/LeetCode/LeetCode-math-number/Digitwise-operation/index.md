@@ -89,7 +89,25 @@ std::vector<int> getDigits(int num, int base) {
 
 
 
-## 乘法原理
+## 数位类统计问题
+
+[刘聪-浅谈数位类统计问题](https://www.gydoc.com/p-5722.html)  
+
+### 乘法原理
+
+[LeetCode-233. 数字 1 的个数-困难](https://leetcode.cn/problems/number-of-digit-one/) 
+
+> 基于乘法原理来进行计数
+>
+> 要统计百位上为1的数的个数，即要统计如下形式：
+>
+> ```
+> **1**
+> ```
+>
+> 固定一位，由它的高位、低位进行组合。
+>
+> 
 
 ```
 0
