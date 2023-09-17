@@ -146,7 +146,7 @@ int fib(int n) {
 >
 > 一、这段关于"状态、选择、base case"的描述是非常好的，能够帮助我们快速地写出状态转移方程
 >
-> 二、原题 [LeetCode-322. 零钱兑换](https://leetcode.cn/problems/coin-change/) 中等
+> 二、原题 [LeetCode-322. 零钱兑换-中等](https://leetcode.cn/problems/coin-change/) 
 >
 > 三、凑零钱问题是典型的完全背包问题，这在下面的文章中进行了介绍：
 >

@@ -1,1 +1,1 @@
-[939. Minimum Area Rectangle](https://leetcode.cn/problems/minimum-area-rectangle/)
+# [LeetCode-939. Minimum Area Rectangle-middle](https://leetcode.cn/problems/minimum-area-rectangle/)

@@ -14,7 +14,7 @@
 
 例子：
 
-1、lexilogical number
+1、lexicographical order(字典序)
 
 complete n-ary tree: 在每一位可以选择哪些digit。
 
