@@ -1,5 +1,4 @@
 nav:
     - Introduction: index.md
-    - paper-浅谈数位类统计问题: paper-浅谈数位类统计问题
-    - LeetCode-233-数字1的个数-困难: LeetCode-233-数字1的个数-困难
+    - 数位类统计问题: 数位类统计问题
     

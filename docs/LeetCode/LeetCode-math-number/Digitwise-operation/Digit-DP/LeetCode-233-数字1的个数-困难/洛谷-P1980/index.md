@@ -1,4 +1,6 @@
-# P1980
+# [P1980](https://www.luogu.com.cn/problem/P1980)
+
+
 
 https://www.luogu.com.cn/problem/solution/P1980
 

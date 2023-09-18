@@ -4,19 +4,7 @@
 
 > 这是一道经典的「数位 DP」模板题的简化版，原题在 [这里](https://www.luogu.com.cn/problem/P1980) 。
 
-
-
-## use tree to represent number
-
-数位DP其实本质上是基于binary representation的number，将其转换为tree DP、系列DP。
-
-在刘聪 paper [浅谈数位类统计问题](https://www.gydoc.com/p-5722.html) 中，使用了"**逐位确定**"
-
-例子：
-
-1、lexicographical order(字典序)
-
-complete n-ary tree: 在每一位可以选择哪些digit。
+二、digit-DP其实本质上是基于tree representation的number，将其转换为tree DP、序列DP（因为很多问题都是求解区间）。
 
 
 
@@ -40,17 +28,25 @@ LeetCode **「902. 最大为 N 的数字组合」**
 
 [LeetCode-233. 数字 1 的个数](https://leetcode.cn/problems/number-of-digit-one/)
 
-三、论文 [浅谈数位类统计问题](https://www.gydoc.com/p-5722.html) 
-
-四、CSDN Accagain [【DP专辑】ACM动态规划总结](https://blog.csdn.net/cc_again/article/details/25866971?spm=1001.2014.3001.5502)
 
 
+四、
 
-### TODO
+CSDN Accagain [【DP专辑】ACM动态规划总结](https://blog.csdn.net/cc_again/article/details/25866971?spm=1001.2014.3001.5502)
+
+
 
 CSDN [数字游戏 （dp）](https://blog.csdn.net/xiaofang3a/article/details/39897737)
 
 cnblogs [计数DP之数字](https://www.cnblogs.com/soda-ma/p/13325119.html)
 
 
+
+## 数位类统计问题
+
+
+
+[LeetCode-233. 数字 1 的个数-困难](https://leetcode.cn/problems/number-of-digit-one/) 
+
+[LeetCode-600. Non-negative Integers without Consecutive Ones-Hard](https://leetcode.cn/problems/non-negative-integers-without-consecutive-ones/)
 
