@@ -2,7 +2,7 @@
 
 
 
-## wanweibaike [Priority queue](https://en.wanweibaike.com/wiki-Priority%20Queue)
+## wikipedia [Priority queue](https://en.wikipedia.org/wiki/Priority_queue)
 
 In [computer science](https://en.wanweibaike.com/wiki-Computer_science), a **priority queue** is an [abstract data type](https://en.wanweibaike.com/wiki-Abstract_data_type) similar to a regular [queue](https://en.wanweibaike.com/wiki-Queue_(abstract_data_type)) or [stack](https://en.wanweibaike.com/wiki-Stack_(abstract_data_type)) data structure in which each element additionally has a "**priority**" associated with it. In a priority queue, an element with high priority is served before an element with low priority. In some implementations, if two elements have the same priority, they are served according to the order in which they were enqueued, while in other implementations, ordering of elements with the same priority is undefined.
 
