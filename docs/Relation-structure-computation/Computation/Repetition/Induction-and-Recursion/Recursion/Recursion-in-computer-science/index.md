@@ -301,8 +301,6 @@ multiple-dimensional array和multiple-level pointer可以看做是具备nesting�
 
 multiple-dimensional array和multiple-level pointer可以递归的进行处理，在文章 https://stackoverflow.com/a/5580952 中给出了示例程序。
 
-
-
 素材:
 
 [Recursion theory（Computability theory）](https://en.wikipedia.org/wiki/Computability_theory)

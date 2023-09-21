@@ -162,6 +162,10 @@ Below is a table of [comparison sorts](https://en.wanweibaike.com/wiki-Compariso
 > [Introsort](https://en.wanweibaike.com/wiki-Introsort)、[Timsort](https://en.wanweibaike.com/wiki-Timsort) 是 综合两种排序方式
 >
 > [Insertion sort](https://en.wanweibaike.com/wiki-Insertion_sort)、
+>
+> [Quicksort](https://en.wanweibaike.com/wiki-Quicksort): 
+>
+> [divide-and-conquer algorithm](https://en.wikipedia.org/wiki/Divide-and-conquer_algorithm)、pivot-partition-exchange-sort 
 
 
 
@@ -223,3 +227,8 @@ It improves upon bubble sort and insertion sort by moving out of order elements 
 > NOTE: 
 >
 > 参见 `Distribution-sort` 章节
+
+
+
+
+

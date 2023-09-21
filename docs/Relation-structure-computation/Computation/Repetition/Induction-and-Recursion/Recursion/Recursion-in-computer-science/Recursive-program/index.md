@@ -181,4 +181,3 @@ Example implementation of binary search in C:
  }
 ```
 
-
