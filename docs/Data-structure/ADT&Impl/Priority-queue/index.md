@@ -98,6 +98,10 @@ The heap data structure has many applications.
 
 2、[Selection algorithms](https://en.wikipedia.org/wiki/Selection_algorithm): A heap allows access to the min or max element in constant time, and other selections (such as median or kth-element) can be done in sub-linear time on data that is in a heap.[[19\]](https://en.wikipedia.org/wiki/Heap_(data_structure)#cite_note-24)
 
+> NOTE:
+>
+> 一、[michaelpollmeier-Selecting top k items from a list efficiently in Java / Groovy](https://www.michaelpollmeier.com/selecting-top-k-items-from-a-list-efficiently-in-java-groovy)
+
 3、[Graph algorithms](https://en.wikipedia.org/wiki/List_of_algorithms#Graph_algorithms): By using heaps as internal traversal data structures, run time will be reduced by polynomial order. Examples of such problems are [Prim's minimal-spanning-tree algorithm](https://en.wikipedia.org/wiki/Prim's_algorithm) and [Dijkstra's shortest-path algorithm](https://en.wikipedia.org/wiki/Dijkstra's_algorithm).
 
 4、[Priority queue](https://en.wikipedia.org/wiki/Priority_queue): A priority queue is an abstract concept like "a list" or "a map"; just as a list can be implemented with a linked list or an array, a priority queue can be implemented with a heap or a variety of other methods.
