@@ -4,7 +4,7 @@
 
 2、“recurrence relation”所描述的relation是[离散](../../../What-is-discrete-math/Discrete-math.md)的。
 
-## wikipedia [Recurrence relation](https://en.wikipedia.org/wiki/Recurrence_relation)
+## wikipedia [Recurrence relation](https://en.wikipedia.org/wiki/Recurrence_relation) 
 
 In [mathematics](https://en.wikipedia.org/wiki/Mathematics), a **recurrence relation** is an [equation](https://en.wikipedia.org/wiki/Equation) that [recursively](https://en.wikipedia.org/wiki/Recursion) defines a [sequence](https://en.wikipedia.org/wiki/Sequence) or multidimensional array of values, once one or more initial terms are given; each further term of the sequence or array is defined as a [function](https://en.wikipedia.org/wiki/Function_(mathematics)) of the preceding terms.
 

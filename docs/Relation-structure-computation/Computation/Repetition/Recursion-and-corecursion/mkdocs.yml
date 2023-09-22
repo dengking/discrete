@@ -2,4 +2,5 @@ nav:
     - Introduction: index.md
     - Recurrence-relation: Recurrence-relation
     - Recursion-in-computer-science: Recursion-in-computer-science
+    - Corecursion: Corecursion
     

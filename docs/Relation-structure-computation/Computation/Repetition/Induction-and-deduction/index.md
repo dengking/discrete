@@ -34,7 +34,9 @@ In logic, we often refer to the two broad methods of reasoning as the ***deducti
 
 ### wikipedia [Mathematical induction](https://en.wikipedia.org/wiki/Mathematical_induction)
 
-数学归纳法
+> NOTE:
+>
+> 一、数学归纳法
 
 **Mathematical induction** is a [mathematical proof](https://en.wikipedia.org/wiki/Mathematical_proof) technique. It is essentially used to prove that a property *P*(*n*) holds for every [natural number](https://en.wikipedia.org/wiki/Natural_number) *n*, i.e. for *n* = 0, 1, 2, 3, and so on. Metaphors can be informally used to understand the concept of mathematical induction, such as the metaphor of falling dominoes（多米诺骨牌） or climbing a ladder（梯子）.
 
@@ -42,7 +44,9 @@ The method of induction requires two cases to be proved. The first case, called 
 
 The method can be extended to prove statements about more general [well-founded](https://en.wikipedia.org/wiki/Well-founded) structures, such as [trees](https://en.wikipedia.org/wiki/Tree_(set_theory)); this generalization, known as [structural induction](https://en.wikipedia.org/wiki/Structural_induction), is used in [mathematical logic](https://en.wikipedia.org/wiki/Mathematical_logic) and [computer science](https://en.wikipedia.org/wiki/Computer_science). Mathematical induction in this extended sense is closely related to [recursion](https://en.wikipedia.org/wiki/Recursion). Mathematical induction, in some form, is the foundation of all [correctness proofs for computer programs](https://en.wikipedia.org/wiki/Formal_verification).
 
-对于软件工程师而言，碰到的更多的是 [structural induction](https://en.wikipedia.org/wiki/Structural_induction)。
+> NOTE:
+>
+> 一、对于软件工程师而言，碰到的更多的是 [structural induction](https://en.wikipedia.org/wiki/Structural_induction)。
 
 ### wikipedia [Structural induction](https://en.wikipedia.org/wiki/Structural_induction) 
 

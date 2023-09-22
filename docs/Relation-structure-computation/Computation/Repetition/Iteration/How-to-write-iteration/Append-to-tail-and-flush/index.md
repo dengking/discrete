@@ -2,11 +2,7 @@
 
 一、flush标志
 
-
-
 二、何时将current flush到result中
-
-
 
 三、最后一个元素的处理
 

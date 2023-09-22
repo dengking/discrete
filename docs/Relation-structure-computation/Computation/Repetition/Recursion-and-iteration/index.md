@@ -1,8 +1,8 @@
-# Recursion and loop
+# Recursion and iteration
 
 Recursion 和 loop 是两种**实现**方式，recursion本质上来说是自顶向下的使用[递归关系](./Recurrence-relation.md)，loop本质上来说是自底向上地使用[递归关系](./Recurrence-relation.md)（dynamic programming、greedy algorithm都是基于loop的）。本文就对两者进行探讨。
 
-## Recursion VS loop
+## Recursion VS iteration
 
 两种都能够实现repetition。
 
@@ -24,16 +24,17 @@ Recursion的实现依赖于recursive function
 
 当所处的环境无法使用loop statements的时候，则只能够通过Recursion来实现repetition: 
 
-1) 有的programming language并没有提供loop statement，比如Lisp，因此，它们只能使用recursion来实现repetition。
+1、有的programming language并没有提供loop statement，比如Lisp，因此，它们只能使用recursion来实现repetition。
 
-2) C++ TMP
+2、C++ TMP
 
-从运行成本比较：参见维基百科[Recursion (computer science)](https://en.wikipedia.org/wiki/Recursion_(computer_science))第三段。
+从运行成本比较：参见wikipedia [Recursion (computer science)](https://en.wikipedia.org/wiki/Recursion_(computer_science))第三段。
 
 两者的相同点：参见：
 
-- 维基百科[Recursion (computer science)](https://en.wikipedia.org/wiki/Recursion_(computer_science))第二段：都能够实现“repeatedly call code”。
-- 维基百科[loop](https://en.wikipedia.org/wiki/loop#Computing) ，其中的[Relationship with recursion](https://en.wikipedia.org/wiki/loop#Relationship_with_recursion)总结地非常好。
+1、wikipedia [Recursion (computer science)](https://en.wikipedia.org/wiki/Recursion_(computer_science))第二段：都能够实现“repeatedly call code”。
+
+2、wikipedia [loop](https://en.wikipedia.org/wiki/loop#Computing) ，其中的[Relationship with recursion](https://en.wikipedia.org/wiki/loop#Relationship_with_recursion)总结地非常好。
 
 
 

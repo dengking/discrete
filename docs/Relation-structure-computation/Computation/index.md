@@ -41,15 +41,17 @@ relation可以使用graph来实现，所以上述两者，其实本质上是相�
 
 参见：
 
-1、维基百科 [Iterative method](https://en.wikipedia.org/wiki/Iterative_method)
+1、wikipedia [Iterative method](https://en.wikipedia.org/wiki/Iterative_method)
 
-2、维基百科 [Mathematical optimization](https://en.wikipedia.org/wiki/Mathematical_optimization) `#` [Computational optimization techniques](https://en.wikipedia.org/wiki/Mathematical_optimization#Computational_optimization_techniques)，
+2、wikipedia [Mathematical optimization](https://en.wikipedia.org/wiki/Mathematical_optimization) `#` [Computational optimization techniques](https://en.wikipedia.org/wiki/Mathematical_optimization#Computational_optimization_techniques)，
 
 下面是一些例子：
 
 1、[Gradient descent](https://en.wikipedia.org/wiki/Gradient_descent) 
 
-主要用于解决 Continuous optimization problem，参见`Relation-structure-computation\Computation\Algorithm\Application\Optimization`。
+主要用于解决 Continuous optimization problem，参见:
+
+`Relation-structure-computation\Computation\Algorithm\Application\Optimization`。
 
 ### 逐步向目标靠近
 
@@ -67,17 +69,15 @@ relation可以使用graph来实现，所以上述两者，其实本质上是相�
 
 从search algorithm的角度来看，“逐步向目标靠近”也可以看做是一种search，关于search algorithm，参见：
 
-- `Relation-structure-computation\Computation\Algorithm\Application\Search`
-
-
-
-
+`Relation-structure-computation\Computation\Algorithm\Application\Search`
 
 
 
 ## Computation的度量
 
-> NOTE: Turing的可计算理论是对此的研究。
+> NOTE: 
+>
+> 一、Turing的可计算理论是对此的研究。
 
 所有的one-by-one，都是enumerable、countable。
 
@@ -115,7 +115,9 @@ unit表示的是计算单位，在文章`Unit.md`中对一些常见的unit进行
 
 ### 计算的方向
 
-沿着关系、结构来进行计算，一般，我们可以选择两个不同的方向，这将在`./Computation-direction`章节中进行介绍。
+沿着关系、结构来进行计算，一般，我们可以选择两个不同的方向，这将在`Computation-direction`章节中进行介绍。
+
+
 
 ### 如何设计algorithm？
 

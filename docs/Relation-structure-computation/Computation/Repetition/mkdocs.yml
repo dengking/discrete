@@ -1,9 +1,9 @@
 nav:
-    - Introduction: index.md
-   
-    - Loop: Loop
-    # 归纳与递归
-    - Induction-and-Recursion: Induction-and-Recursion 
-    
-    - Recursion-and-loop: Recursion-and-loop
+    - Introduction: index.md 
+    - Iteration: Iteration 
+    - Recursion-and-corecursion: Recursion-and-corecursion  
+    - Induction-and-deduction: Induction-and-deduction 
+    - Recursion-and-iteration: Recursion-and-iteration 
+    - Recursion-and-induction: Recursion-and-induction 
+
     

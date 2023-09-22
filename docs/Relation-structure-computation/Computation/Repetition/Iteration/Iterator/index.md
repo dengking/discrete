@@ -69,9 +69,7 @@ for value in iterable:
 
 ## Iterator VS pointer 
 
-我觉得，最最能够说明iterator VS pointer的是[Iterator pattern](https://en.wikipedia.org/wiki/Iterator_pattern)，在维基百科[Iterator pattern#Overview](https://en.wikipedia.org/wiki/Iterator_pattern#Overview)中说明了我们为什么要使用iterator pattern，其实就是iterator pattern相比于pointer的优势所在，iterator更加地抽象，我们依赖于抽象，而不是依赖于具体。
-
-
+我觉得，最最能够说明iterator VS pointer的是[Iterator pattern](https://en.wikipedia.org/wiki/Iterator_pattern)，在wikipedia [Iterator pattern#Overview](https://en.wikipedia.org/wiki/Iterator_pattern#Overview)中说明了我们为什么要使用iterator pattern，其实就是iterator pattern相比于pointer的优势所在，iterator更加地抽象，我们依赖于抽象，而不是依赖于具体。
 
 
 
