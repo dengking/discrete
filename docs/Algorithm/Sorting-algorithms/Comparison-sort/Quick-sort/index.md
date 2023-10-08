@@ -146,98 +146,145 @@ Quicksort also competes with [merge sort](https://en.wikipedia.org/wiki/Merge_so
 
 ## Implementation
 
+divide-and-conquer
+
+partition-and-exchange
+
+## Partition implementation
+
 一、下面两种实现方式，其实都使用了double pointer: 
 
-1、double pointer: left、right pointer: 由两端向中间扩展
-
-labuladong [快排亲兄弟：快速选择算法详解](https://mp.weixin.qq.com/s/TRO3FOKT90Mpvn3hQWVBAQ) 	
-
-“计算机算法设计与分析”
+1、double pointer: left pointer+right pointer
 
 相比之下，这种方法是更加容易理解的，根据labuladong [快排亲兄弟：快速选择算法详解](https://mp.weixin.qq.com/s/TRO3FOKT90Mpvn3hQWVBAQ) 中的解释可知，这种写法是源自《算法4》的。
 
-2、double pointer: fast、slow pointer
+2、double pointer: fast pointer+slow pointer
 
-“hackerearth [Quick Sort](https://www.hackerearth.com/zh/practice/algorithms/sorting/quick-sort/tutorial/)”中的实现方式的思路是：自左向右进行扩展、fast-slow double pointer。
+
 
 二、分三段，只需要两个boundary，分别对应`i`和`j`。
 
+三、test case:
 
+1、无序
 
-### double pointer: left、right pointer
+2、正序
 
+3、逆序
 
+### double pointer: left pointer+right pointer
 
-#### labuladong [快排亲兄弟：快速选择算法详解](https://mp.weixin.qq.com/s/TRO3FOKT90Mpvn3hQWVBAQ) 	
+1、由两端向中间走(双端)
+
+需要注意极端情况: 一端直接走到底，所以需要加上越界保护
+
+2、stop when left meet right
+
+3、循环体内部不断地调整
+
+#### Java
 
 ```C++
-int partition(int[] nums, int lo, int hi) {
-    if (lo == hi) return lo;
-    // 将 nums[lo] 作为默认分界点 pivot
-    int pivot = nums[lo];
-    // j = hi + 1 因为 while 中会先执行 --
-    int i = lo, j = hi + 1;
-    while (true) {
-        // 保证 nums[lo..i] 都小于 pivot
-        while (nums[++i] < pivot) {
-            if (i == hi) break;
-        }
-        // 保证 nums[j..hi] 都大于 pivot
-        while (nums[--j] > pivot) {
-            if (j == lo) break;
-        }
-        if (i >= j) break;
-        // 如果走到这里，一定有：
-        // nums[i] > pivot && nums[j] < pivot
-        // 所以需要交换 nums[i] 和 nums[j]，
-        // 保证 nums[lo..i] < pivot < nums[j..hi]
-        swap(nums, i, j);
+package com.company;
+
+class Foo {
+    /**
+     * 快速排序主函数
+     *
+     * @param nums
+     */
+    void sort(int[] nums) {
+        // 一般要在这用洗牌算法将 nums 数组打乱，
+        // 以保证较高的效率，我们暂时省略这个细节
+        sort(nums, 0, nums.length - 1);
     }
-    // 将 pivot 值交换到正确的位置
-    swap(nums, j, lo);
-    // 现在 nums[lo..j-1] < nums[j] < nums[j+1..hi]
-    return j;
+
+    /**
+     * 快速排序核心逻辑
+     *
+     * @param nums
+     * @param lo
+     * @param hi
+     */
+    void sort(int[] nums, int lo, int hi) {
+        if (lo >= hi) return;
+        // 通过交换元素构建分界点索引 p
+        int p = partition(nums, lo, hi);
+        // 现在 nums[lo..p-1] 都小于 nums[p]，
+        // 且 nums[p+1..hi] 都大于 nums[p]
+        sort(nums, lo, p - 1);
+        sort(nums, p + 1, hi);
+    }
+
+    int partition(int[] nums, int lo, int hi) {
+        if (lo == hi) return lo; // base case
+        // 将 nums[lo] 作为默认分界点 pivot
+        int pivot = nums[lo];
+        // right = hi + 1 因为 while 中会先执行 --
+        int left = lo, right = hi + 1;
+        while (true) {
+            // 保证 nums[lo..left] 都小于 pivot
+            while (nums[++left] < pivot) {
+                if (left == hi) break; // 越界保护: 保证left不越界
+            }
+            // 保证 nums[right..hi] 都大于 pivot
+            while (nums[--right] > pivot) {
+                if (right == lo) break; // 越界保护: 保证right不越界
+            }
+            if (left >= right) break; // 这里退出while (true)
+            // 如果走到这里，一定有：
+            // nums[left] > pivot && nums[right] < pivot
+            // 所以需要交换 nums[left] 和 nums[right]，
+            // 保证 nums[lo..left] < pivot < nums[right..hi]
+            swap(nums, left, right);
+        }
+        swap(nums, right, lo); // 将 pivot 值交换到正确的位置
+        // 现在 nums[lo..j-1] < nums[j] < nums[j+1..hi]
+        return right;
+    }
+
+    // 交换数组中的两个元素
+    void swap(int[] nums, int i, int j) {
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+    }
+
+
+    public static void main(String[] args) {
+
+    }
 }
 
-// 交换数组中的两个元素
-void swap(int[] nums, int i, int j) {
-    int temp = nums[i];
-    nums[i] = nums[j];
-    nums[j] = temp;
-}
 ```
 
-> NOTE: 
->
-> 一、注意: 
->
-> 1、上述 `i` 是left，`j`是right
->
-> 2、由于循环体内一定会执行`--j`，因此虽然j的初始值是 `hi + 1`，实际执行过程中是不会
->
-> 3、由于`a[lo]`会被选做pivot，因此第一次 `++i` 顺利地pass掉它了，这是非常合理的
->
-> 4、通过2、3的总结可知，`i`、`j`的初始化选择的妙处，并且第一次执行的时候，它们都能够pass掉无效值 
->
-> 二、为什么最终执行的 `swap(nums, j, lo)`？
->
-> 以排序 `5,1,6,2,7,4,8` 为例
->
-> 当退出 `while(true)` 的时候，`i`和`j`肯定都过界了，即此时 `i` 指向的大于pivot的，`j` 指向的是小于pivot的，partition的要求是小于它的要在它的左边，因此要和 `j` 进行交换
->
-> 三、思考: 何时因为 `i == j` 而break？
->
-> 比如数组是有序递减的: `6,5,4,5,2,1`，显然，循环退出是由于`i == j`，此时进行 `swap(nums, j, lo)` 也是合理的
+一、上述代码参考自: labuladong [快排亲兄弟：快速选择算法详解](https://mp.weixin.qq.com/s/TRO3FOKT90Mpvn3hQWVBAQ) 	
 
-熟悉快速排序逻辑的读者应该可以理解这段代码的含义了，这个`partition`函数细节较多，上述代码参考《算法4》，是众多写法中最漂亮简洁的一种，所以建议背住，这里就不展开解释了。
+> 熟悉快速排序逻辑的读者应该可以理解这段代码的含义了，这个`partition`函数细节较多，上述代码参考《算法4》，是众多写法中最漂亮简洁的一种，所以建议背住，这里就不展开解释了。
 
-#### 计算机算法设计与分析
+2、由于循环体内一定会执行`--right`，因此虽然 `right` 的初始值是 `hi + 1`，实际执行过程中是不会发生越界的
+
+3、由于`a[lo]`会被选做pivot，因此第一次 `++left` 顺利地pass掉它了，这是非常合理的
+
+4、通过2、3的总结可知，`left`、`right`的初始化选择的妙处，并且第一次执行的时候，它们都能够pass掉无效值 
+
+二、为什么最终执行的 `swap(nums, right, lo)`？
+
+以排序 `5,1,6,2,7,4,8` 为例
+
+当退出 `while(true)` 的时候，`left`和`right`肯定都过界了，即此时 `left` 指向的大于pivot的，`right` 指向的是小于pivot的，partition的要求是小于它的要在它的左边，因此要和 `right` 进行交换
+
+三、思考: 何时因为 `left == right` 而break？
+
+比如数组是有序递减的: `6,5,4,5,2,1`，显然，循环退出是由于`i == j`，此时进行 `swap(nums, j, lo)` 也是合理的
+
+#### C++
+
+《计算机算法设计与分析》
 
 ![](./Quick-sort-0.jpg)
 ![](./Quick-sort-1.jpg)
 ![](./Quick-sort-2.jpg)
-
-##### 完整程序
 
 
 
@@ -245,113 +292,96 @@ void swap(int[] nums, int i, int j) {
 #include <cstdio>
 #include <iostream>
 #include <algorithm>
+
 /**
- * 此算法采用的是分治策略，divide：将a分成三段a[start]< a[start],<a[start];,conquer: 递归地求解各个字段
- * @param start 数组起始下标
- * @param end 数组终止下标
- **/
+ * 对a进行划分，以a[low]作为基准，进行划分后a[low]左边的元素都比它小，右边的元素都比它大
+ * @tparam T
+ * @param a
+ * @param low
+ * @param high
+ * @return
+ */
 template<typename T>
-void QuickSort(T a[], int start, int end);
-// 对a进行划分，以a[start]作为基准，进行划分后a[start]左边的元素都比它小，右边的元素都比它大
-template<typename T>
-int Partition(T a[], int start, int end);
-
-/*Displays the array, passed to this method*/
-template<typename T>
-void display(T arr[], int n);
-
-int main()
-{
-
-	int n;
-	std::cout << "Enter size of array:\n";
-	std::cin >> n; // E.g. 8
-
-	std::cout << "Enter the elements of the array\n";
-	int i;
-	int *arr = new int[n];
-	for (i = 0; i < n; i++)
-	{
-		std::cin >> arr[i];
-	}
-
-	std::cout << "Original array: ";
-	display(arr, n); // Original array : 10 11 9 8 4 7 3 8
-
-	QuickSort(arr, 0, n - 1);
-
-	std::cout << "Sorted array: ";
-	display(arr, n); // Sorted array : 3 4 7 8 8 9 10 11
-	getchar();
-	return 0;
+int Partition(T a[], int low, int high) {
+    int left = low, right = high + 1;
+    T pivot = a[low]; //x是基准
+    while (true) {
+        while (a[++left] < pivot) {
+            if (left == high) break; // 越界保护: 保证left不越界
+        }
+        while (a[--right] > pivot) {
+            if (right == low) break; // 越界保护: 保证right不越界
+        }
+        if (left >= right) break;
+        std::swap(a[left], a[right]); // 使用标准库的swap函数
+    }
+    std::swap(a[low], a[right]);
+    return right;
 }
 
 /**
- * @param start 数组起始下标
- * @param end 数组终止下标
+ * 此算法采用的是分治策略，divide：将a分成三段a[low]< a[low],<a[low];,conquer: 递归地求解各个字段
+ * @param low 数组起始下标
+ * @param high 数组终止下标
  **/
 template<typename T>
-void QuickSort(T a[], int start, int end)
-{
-	if (start < end)
-	{
-		int p = Partition(a, start, end); // pivot index
-		QuickSort(a, start, p - 1); // 对左半段排序
-		QuickSort(a, p + 1, end); // 对右半段排序
-	}
+void QuickSort(T a[], int low, int high) {
+    if (low < high) {
+        int p = Partition(a, low, high); // pivot index
+        QuickSort(a, low, p - 1); // 对左半段排序
+        QuickSort(a, p + 1, high); // 对右半段排序
+    }
 }
-template<typename T>
-int Partition(T a[], int start, int end)
-{
-	int i = start, j = end + 1; //i指向数组头，j指向数组尾
-	T pivot = a[start]; //x是基准
-	while (true)
-	{
-        // 因为选择a[start]为pivot，因此不需要比较第一个数，可以直接++i
-        // 直到a[i]〉=x才跳出循环，这时候是需要进行置换的
-		while (a[++i] < pivot && i < end) 
-			;
-		while (a[--j] > pivot && j > start)
-			;
-        //这是本循环退出的唯一途径，循环退出时，i指向的是右段的第一个元素，j指向的是左段的最后一个元素，显然，x最终要插在这两个元素之间
-		if (i >= j)
-			break;
-		std::swap(a[i], a[j]); // 使用标准库的swap函数
 
-	}
-	swap(a[start], a[j]);
-	return j;
-}
 
 /*Displays the array, passed to this method*/
 template<typename T>
-void display(T arr[], int n)
-{
-
-	int i;
-	for (i = 0; i < n; i++)
-	{
-		std::cout << arr[i] << " ";
-	}
-
-	std::cout << "\n";
+void display(T arr[], int n) {
+    int i;
+    for (i = 0; i < n; i++) {
+        std::cout << arr[i] << ",";
+    }
+    std::cout << "\n";
 }
+
+int main() {
+
+    int n;
+    std::cout << "Enter size of array:\n";
+    std::cin >> n; // E.g. 8
+
+    std::cout << "Enter the elements of the array\n";
+    int i;
+    int *arr = new int[n];
+    for (i = 0; i < n; i++) {
+        std::cin >> arr[i];
+    }
+
+    std::cout << "Original array: ";
+    display(arr, n); // Original array : 10 11 9 8 4 7 3 8
+
+    QuickSort(arr, 0, n - 1);
+
+    std::cout << "Sorted array: ";
+    display(arr, n); // Sorted array : 3 4 7 8 8 9 10 11
+    getchar();
+    return 0;
+}
+
+
+
 
 ```
 
-测试用例：`[5, 4, 3, 2, 1]`
-
-使用上述算法对`[5, 4, 3, 2, 1]`进行排序：`while(a[++i]<x and i<end);`退出时，`i`的值为`end`即4；`while(a[--j]>x);`退出时，`j`的值为`4`。
-
-测试用例：`[10, 11, 9, 8, 4, 7, 3, 8]`
 
 
-
-### double pointer: fast、slow pointer
+### double pointer: fast pointer+slow pointer
 
 #### hackerearth [Quick Sort](https://www.hackerearth.com/zh/practice/algorithms/sorting/quick-sort/tutorial/)
 
 讲解地非常不错。
+
+“hackerearth [Quick Sort](https://www.hackerearth.com/zh/practice/algorithms/sorting/quick-sort/tutorial/)”中的实现方式的思路是：自左向右进行扩展、fast-slow double pointer。
 
 ##### `partition`
 
@@ -625,15 +655,7 @@ public:
 		swap(nums[start], nums[right]);
 		return right;
 	}
-	// 采用Fisher–Yates-shuffle算法
-	void shuffleArray(vector<int>& nums) {
-		srand(time(0));
-		int len = nums.size();
-		for (int i = 0; i < len; ++i) {
-			int j = rand() % (len - i);
-			swap(nums[i], nums[j]);
-		}
-	}
+
 };
 
 int main()
@@ -652,3 +674,61 @@ int main()
 ## TODO
 
 developer.51cto [坐在马桶上看算法：快速排序](https://developer.51cto.com/art/201403/430986.htm)
+
+
+
+
+
+draft
+
+```c++
+#include <algorithm>
+#include <random>
+#include <iostream>
+
+template<typename T>
+T random(T range_from, T range_to) {
+    static std::random_device rand_dev;
+    static std::mt19937 generator(rand_dev());
+    static std::uniform_int_distribution<T> distr(range_from, range_to);
+    return distr(generator);
+}
+
+template<typename T>
+void quickSort(T array[], int low, int high) {
+    if (low < high) {
+        int p = partition(array, low, high);
+        quickSort(array, low, p - 1);
+        quickSort(array, p + 1, high);
+    }
+}
+
+template<typename T>
+int randomizedPartition(T array[], int low, int high) {
+    if (low == high) {
+        return low;
+    }
+    std::swap(array[low], array[random(low, high)]); // 随机选择一个来作为pivot
+    int pivot = array[low];
+    int left = low, right = high + 1;
+    while (true) {
+        while (array[++left] < pivot) {
+            if (left == high) break;
+        }
+        while (array[--right] > pivot) {
+            if (right == low)break;
+        }
+
+    }
+}
+
+int main() {
+    for (int i = 0; i < 50; ++i)
+        std::cout << random(0, 9) << std::endl;
+
+}
+
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -Werror
+
+```
+

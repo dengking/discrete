@@ -113,3 +113,7 @@ The heap data structure has many applications.
 > 一、[LeetCode-23. 合并K个升序链表](https://leetcode.cn/problems/merge-k-sorted-lists/)
 
 6、[Order statistics](https://en.wikipedia.org/wiki/Order_statistics): The Heap data structure can be used to efficiently find the kth smallest (or largest) element in an array.
+
+> NOTE:
+>
+> 一、heap select

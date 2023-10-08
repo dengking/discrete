@@ -1,3 +1,5 @@
 nav:
     - Introduction: index.md
-    
+    - Quick-select: Quick-select
+    - Median-of-medians: Median-of-medians   
+        
