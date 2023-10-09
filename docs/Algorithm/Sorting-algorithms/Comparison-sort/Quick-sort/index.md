@@ -30,7 +30,11 @@ Quicksort is a [divide and conquer algorithm](https://en.wikipedia.org/wiki/Divi
 
 The base case of the recursion is arrays of size zero or one, which are in order by definition, so they never need to be sorted.
 
-The **pivot selection** and partitioning steps can be done in several different ways; the choice of specific implementation schemes greatly affects the algorithm's performance.
+The choice of partition routine (including the **pivot selection**) and other details not entirely specified above can affect the algorithm's performance, possibly to a great extent for specific input arrays. In discussing the efficiency of quicksort, it is therefore necessary to specify these choices first. Here we mention two specific partition methods.
+
+
+
+
 
 ### Implementation issues
 
