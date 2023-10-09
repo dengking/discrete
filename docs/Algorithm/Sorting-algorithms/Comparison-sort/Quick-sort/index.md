@@ -172,6 +172,8 @@ partition-and-exchange
 
 3、逆序
 
+4、等值
+
 ### double pointer: left pointer+right pointer
 
 1、由两端向中间走(双端)
@@ -277,6 +279,18 @@ class Foo {
 三、思考: 何时因为 `left == right` 而break？
 
 比如数组是有序递减的: `6,5,4,5,2,1`，显然，循环退出是由于`i == j`，此时进行 `swap(nums, j, lo)` 也是合理的
+
+四、和pivot的比较能否包含等号？
+
+不能，反例1
+
+4444445
+
+此时如果包含等号，则left pointer、right pointer会在相遇后仍然往相反方向走而导致两者错过了。
+
+3333333
+
+
 
 #### C++
 
