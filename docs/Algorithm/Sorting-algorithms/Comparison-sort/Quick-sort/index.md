@@ -32,13 +32,35 @@ The base case of the recursion is arrays of size zero or one, which are in order
 
 The choice of partition routine (including the **pivot selection**) and other details not entirely specified above can affect the algorithm's performance, possibly to a great extent for specific input arrays. In discussing the efficiency of quicksort, it is therefore necessary to specify these choices first. Here we mention two specific partition methods.
 
+#### Lomuto partition scheme
+
+> NOTE:
+>
+> 一、double pointer: fast pointer+slow pointer
 
 
 
+#### Hoare partition scheme
 
-### Implementation issues
+> NOTE:
+>
+> 一、double pointer: left pointer+right pointer
 
-#### Parallelization
+
+
+#### Implementation issues
+
+
+
+##### Choice of pivot
+
+
+
+##### Repeated elements
+
+
+
+##### Parallelization
 
 Quicksort's divide-and-conquer formulation makes it amenable to [parallelization](https://en.wikipedia.org/wiki/Parallel_algorithm) using [task parallelism](https://en.wikipedia.org/wiki/Task_parallelism). The partitioning step is accomplished through the use of a [parallel prefix sum](https://en.wikipedia.org/wiki/Prefix_sum) algorithm to compute an index for each array element in its section of the partitioned array.[[23\]](https://en.wikipedia.org/wiki/Quicksort#cite_note-23)[[24\]](https://en.wikipedia.org/wiki/Quicksort#cite_note-24) Given an array of size *n*, the partitioning step performs O(*n*) work in *O*(log *n*) time and requires O(*n*) additional scratch space. After the array has been partitioned, the two partitions can be sorted recursively in parallel. Assuming an ideal choice of pivots, parallel quicksort sorts an array of size *n* in O(*n* log *n*) work in O(log² *n*) time using O(*n*) additional space.
 
@@ -180,6 +202,8 @@ partition-and-exchange
 
 ### double pointer: left pointer+right pointer
 
+
+
 1、由两端向中间走(双端)
 
 需要注意极端情况: 一端直接走到底，所以需要加上越界保护
@@ -284,15 +308,19 @@ class Foo {
 
 比如数组是有序递减的: `6,5,4,5,2,1`，显然，循环退出是由于`i == j`，此时进行 `swap(nums, j, lo)` 也是合理的
 
-四、和pivot的比较能否包含等号？
+四、和pivot的比较能否包含等号？显然是不能的，因为我们的目的是将数组分为三部分(<pivot、pivot、>pivot)，下面是一些反例:
 
-不能，反例1
+反例1
 
 4444445
 
 此时如果包含等号，则left pointer、right pointer会在相遇后仍然往相反方向走而导致两者错过了。
 
 3333333
+
+五、算法如何处理等值的情况？
+
+显然会执行很多的无用的替换。
 
 
 
@@ -307,47 +335,61 @@ class Foo {
 
 
 ```c++
-#include <cstdio>
-#include <iostream>
 #include <algorithm>
+#include <random>
+#include <iostream>
+
+/**
+ * 参考自:
+ * https://stackoverflow.com/a/20136256
+ * @param rangeFrom
+ * @param rangeTo
+ * @return
+ */
+int random(int rangeFrom, int rangeTo) {
+    std::random_device rand_dev;
+    std::mt19937 generator(rand_dev());
+    std::uniform_int_distribution<> distr(rangeFrom, rangeTo);
+    return distr(generator);
+}
+
 
 /**
  * 对a进行划分，以a[low]作为基准，进行划分后a[low]左边的元素都比它小，右边的元素都比它大
  * @tparam T
- * @param a
+ * @param array
  * @param low
  * @param high
  * @return
  */
 template<typename T>
-int Partition(T a[], int low, int high) {
+int randomizedPartition(T array[], int low, int high) {
+    if (low == high) {
+        return low;
+    }
+    std::swap(array[low], array[random(low, high)]); // 随机选择一个来作为pivot
+    T pivot = array[low];
     int left = low, right = high + 1;
-    T pivot = a[low]; //x是基准
     while (true) {
-        while (a[++left] < pivot) {
+        while (array[++left] < pivot) {
             if (left == high) break; // 越界保护: 保证left不越界
         }
-        while (a[--right] > pivot) {
+        while (array[--right] > pivot) {
             if (right == low) break; // 越界保护: 保证right不越界
         }
         if (left >= right) break;
-        std::swap(a[left], a[right]); // 使用标准库的swap函数
+        std::swap(array[left], array[right]);
     }
-    std::swap(a[low], a[right]);
+    std::swap(array[low], array[right]);
     return right;
 }
 
-/**
- * 此算法采用的是分治策略，divide：将a分成三段a[low]< a[low],<a[low];,conquer: 递归地求解各个字段
- * @param low 数组起始下标
- * @param high 数组终止下标
- **/
 template<typename T>
-void QuickSort(T a[], int low, int high) {
+void quickSort(T array[], int low, int high) {
     if (low < high) {
-        int p = Partition(a, low, high); // pivot index
-        QuickSort(a, low, p - 1); // 对左半段排序
-        QuickSort(a, p + 1, high); // 对右半段排序
+        int p = randomizedPartition(array, low, high); // pivot index
+        quickSort(array, low, p - 1); // 对左半段排序
+        quickSort(array, p + 1, high); // 对右半段排序
     }
 }
 
@@ -361,6 +403,7 @@ void display(T arr[], int n) {
     }
     std::cout << "\n";
 }
+
 
 int main() {
 
@@ -378,16 +421,16 @@ int main() {
     std::cout << "Original array: ";
     display(arr, n); // Original array : 10 11 9 8 4 7 3 8
 
-    QuickSort(arr, 0, n - 1);
+    quickSort(arr, 0, n - 1);
 
     std::cout << "Sorted array: ";
     display(arr, n); // Sorted array : 3 4 7 8 8 9 10 11
     getchar();
     return 0;
+
 }
 
-
-
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -Werror
 
 ```
 
@@ -582,7 +625,9 @@ int main()
 
 
 
-### `randomized_partition` 避免退化
+### `randomizedPartition` 避免退化
+
+
 
 当原数组本身是有序的时候，如果每次都选择第一个元素作为pivot，那么将导致quick sort退化，下面是源自: https://leetcode.cn/submissions/detail/194476777/testcase/ 
 
