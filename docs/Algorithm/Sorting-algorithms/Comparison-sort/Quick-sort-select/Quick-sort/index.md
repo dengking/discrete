@@ -623,175 +623,48 @@ int main()
 
 
 
+### Choice of pivot
 
-
-### `randomizedPartition` 避免退化
-
-
-
-当原数组本身是有序的时候，如果每次都选择第一个元素作为pivot，那么将导致quick sort退化，下面是源自: https://leetcode.cn/submissions/detail/194476777/testcase/ 
+当原数组本身是有序的时候，如果每次都选择第一个元素作为pivot，那么将导致quick sort退化，下面是源自 [LeetCode-912. 排序数组](https://leetcode.cn/problems/sort-an-array/) 的一个 [test case](https://leetcode.cn/submissions/detail/194476777/testcase/) :
 
 ```C++
 [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52, ......50000]
 ```
 
-这种情况下是会超时的。
+这种情况下是会超时的。一种常见的策略是随机化的选择pivot，有如下两种实现随机化选择pivot都方式:
+
+一、提前shuffle待排序的数组
+
+stackoverflow [Is it possible to random_shuffle an array of int elements?](https://stackoverflow.com/questions/14720134/is-it-possible-to-random-shuffle-an-array-of-int-elements)
 
 
-
-源自: [LeetCode-912. 排序数组](https://leetcode.cn/problems/sort-an-array/) # [官方解题](https://leetcode.cn/problems/sort-an-array/solution/pai-xu-shu-zu-by-leetcode-solution/)
-
-```C++
-class Solution {
-    int partition(vector<int>& nums, int l, int r) {
-        int pivot = nums[r];
-        int i = l - 1;
-        for (int j = l; j <= r - 1; ++j) {
-            if (nums[j] <= pivot) {
-                i = i + 1;
-                swap(nums[i], nums[j]);
-            }
-        }
-        swap(nums[i + 1], nums[r]);
-        return i + 1;
-    }
-    int randomized_partition(vector<int>& nums, int l, int r) {
-        int i = rand() % (r - l + 1) + l; // 随机选一个作为我们的主元
-        swap(nums[r], nums[i]);
-        return partition(nums, l, r);
-    }
-    void randomized_quicksort(vector<int>& nums, int l, int r) {
-        if (l < r) {
-            int pos = randomized_partition(nums, l, r);
-            randomized_quicksort(nums, l, pos - 1);
-            randomized_quicksort(nums, pos + 1, r);
-        }
-    }
-public:
-    vector<int> sortArray(vector<int>& nums) {
-        srand((unsigned)time(NULL));
-        randomized_quicksort(nums, 0, (int)nums.size() - 1);
-        return nums;
-    }
-};
-
-
-```
-
-#### 写法二
-
-```C++
-#include <vector>
-#include <algorithm>
-#include <random>
-#include <iostream>
-#include <cstdlib>
-#include <ctime>
-using namespace std;
-
-class Solution {
-public:
-	vector<int> sortArray(vector<int>& nums) {
-		shuffleArray(nums);
-		sortArrayImpl(nums, 0, nums.size() - 1);
-		return nums;
-
-	}
-	void sortArrayImpl(vector<int>& nums, int start, int end) {
-		if (start >= end) {
-			return;
-		}
-		int p = partition(nums, start, end);
-		sortArrayImpl(nums, start, p - 1);
-		sortArrayImpl(nums, p + 1, end);
-	}
-	int partition(vector<int>& nums, int start, int end) {
-		int left = start, right = end + 1;
-		int pivot = nums[start];
-		while (true) {
-			while (nums[++left] < pivot && left < end);
-			while (nums[--right] > pivot && right > start);
-			if (left >= right)
-				break;
-			swap(nums[left], nums[right]);
-		}
-		swap(nums[start], nums[right]);
-		return right;
-	}
-
-};
-
-int main()
-{
-	vector<int> nums{ 5,2,3,1 };
-	Solution s;
-	s.sortArray(nums);
-}
-
-// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -Werror
-
-```
-
-
-
-## TODO
-
-developer.51cto [坐在马桶上看算法：快速排序](https://developer.51cto.com/art/201403/430986.htm)
-
-
-
-
-
-draft
 
 ```c++
-#include <algorithm>
 #include <random>
+#include <algorithm>
+#include <iterator>
 #include <iostream>
 
-template<typename T>
-T random(T range_from, T range_to) {
-    static std::random_device rand_dev;
-    static std::mt19937 generator(rand_dev());
-    static std::uniform_int_distribution<T> distr(range_from, range_to);
-    return distr(generator);
-}
-
-template<typename T>
-void quickSort(T array[], int low, int high) {
-    if (low < high) {
-        int p = partition(array, low, high);
-        quickSort(array, low, p - 1);
-        quickSort(array, p + 1, high);
-    }
-}
-
-template<typename T>
-int randomizedPartition(T array[], int low, int high) {
-    if (low == high) {
-        return low;
-    }
-    std::swap(array[low], array[random(low, high)]); // 随机选择一个来作为pivot
-    int pivot = array[low];
-    int left = low, right = high + 1;
-    while (true) {
-        while (array[++left] < pivot) {
-            if (left == high) break;
-        }
-        while (array[--right] > pivot) {
-            if (right == low)break;
-        }
-
-    }
-}
-
 int main() {
-    for (int i = 0; i < 50; ++i)
-        std::cout << random(0, 9) << std::endl;
+    int array[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
+    std::random_device rd;
+    std::mt19937 g(rd());
+
+    std::shuffle(std::begin(array), std::end(array), g);
+
+    std::copy(std::begin(array), std::end(array), std::ostream_iterator<int>(std::cout, " "));
+    std::cout << "\n";
 }
-
-// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -Werror
-
 ```
+
+
+
+
+
+二、在partition的时候随机选择
+
+在前面已经展示了这种写法。
+
+
 
