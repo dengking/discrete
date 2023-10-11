@@ -32,6 +32,42 @@ A heap is a useful data structure when it is necessary to repeatedly remove the 
 
 
 
+### Applications
+
+一、[Heapsort](https://en.wikipedia.org/wiki/Heapsort): 
+
+One of the best sorting methods being in-place and with no quadratic worst-case scenarios.
+
+二、Heap select
+
+[Selection algorithms](https://en.wikipedia.org/wiki/Selection_algorithm): 
+
+A heap allows access to the min or max element in constant time, and other selections (such as median or kth-element) can be done in sub-linear time on data that is in a heap.
+
+[Order statistics](https://en.wikipedia.org/wiki/Order_statistics): 
+
+The Heap data structure can be used to efficiently find the kth smallest (or largest) element in an array.
+
+三、[Graph algorithms](https://en.wikipedia.org/wiki/List_of_algorithms#Graph_algorithms): 
+
+By using heaps as internal traversal data structures, run time will be reduced by polynomial order. Examples of such problems are [Prim's minimal-spanning-tree algorithm](https://en.wikipedia.org/wiki/Prim's_algorithm) and [Dijkstra's shortest-path algorithm](https://en.wikipedia.org/wiki/Dijkstra's_algorithm). 
+
+四、[Priority queue](https://en.wikipedia.org/wiki/Priority_queue): 
+
+A priority queue is an abstract concept like "a list" or "a map"; just as a list can be implemented with a linked list or an array, a priority queue can be implemented with a heap or a variety of other methods.
+
+五、[K-way merge](https://en.wikipedia.org/wiki/K-way_merge_algorithm): 
+
+A heap data structure is useful to merge many already-sorted input streams into a single sorted output stream. Examples of the need for merging include external sorting and streaming results from distributed data such as a log structured merge tree. The inner loop is obtaining the min element, replacing with the next element for the corresponding input stream, then doing a sift-down heap operation. (Alternatively the replace function.) (Using extract-max and insert functions of a priority queue are much less efficient.)
+
+> NOTE:
+>
+> 一、[LeetCode-23. 合并K个升序链表](https://leetcode.cn/problems/merge-k-sorted-lists/) 
+
+
+
+
+
 ## Implementation
 
 1、Binary heap

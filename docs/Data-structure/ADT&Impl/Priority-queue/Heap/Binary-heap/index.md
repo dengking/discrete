@@ -158,15 +158,11 @@ Williams' method is suboptimal. A faster method (due to [Floyd](https://en.wikip
 
 ### Heap implementation
 
-
-
 Heaps are commonly implemented with an [array](https://en.wikipedia.org/wiki/Array_data_structure). Any binary tree can be stored in an array, but because a binary heap is always a **complete binary tree**, it can be stored compactly. No space is required for [pointers](https://en.wikipedia.org/wiki/Pointer_(computer_programming)); instead, the parent and children of each node can be found by arithmetic on array indices. These properties make this heap implementation a simple example of an [implicit data structure](https://en.wikipedia.org/wiki/Implicit_data_structure) or [Ahnentafel](https://en.wikipedia.org/wiki/Ahnentafel) list. 
 
 
 
 > NOTE:
->
-> 
 >
 > binary heap的"Shape property"决定它是完全二叉树-> $2^n$ ，从下面的例子可以看出它们具有非常好的数学对应关系。
 >

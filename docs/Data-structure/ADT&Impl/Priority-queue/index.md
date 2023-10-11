@@ -68,9 +68,11 @@ One can imagine a priority queue as a modified [queue](https://en.wanweibaike.co
 
 ## Applications
 
-> NOTE: 
->
-> 在非常多的algorithm中，都使用到了priority queue
+
+
+在非常多的algorithm中，都使用到了priority queue
+
+一、
 
 1、[LeetCode-23. 合并K个升序链表](https://leetcode.cn/problems/merge-k-sorted-lists/)
 
@@ -90,30 +92,5 @@ One can imagine a priority queue as a modified [queue](https://en.wanweibaike.co
 
 
 
-### wikipedia [Heap (data structure)](https://en.wikipedia.org/wiki/Heap_(data_structure)) # Applications
+二、wikipedia [Heap (data structure)](https://en.wikipedia.org/wiki/Heap_(data_structure)) # Applications
 
-The heap data structure has many applications.
-
-1、[Heapsort](https://en.wikipedia.org/wiki/Heapsort): One of the best sorting methods being in-place and with no quadratic worst-case scenarios.
-
-2、[Selection algorithms](https://en.wikipedia.org/wiki/Selection_algorithm): A heap allows access to the min or max element in constant time, and other selections (such as median or kth-element) can be done in sub-linear time on data that is in a heap.[[19\]](https://en.wikipedia.org/wiki/Heap_(data_structure)#cite_note-24)
-
-> NOTE:
->
-> 一、[michaelpollmeier-Selecting top k items from a list efficiently in Java / Groovy](https://www.michaelpollmeier.com/selecting-top-k-items-from-a-list-efficiently-in-java-groovy)
-
-3、[Graph algorithms](https://en.wikipedia.org/wiki/List_of_algorithms#Graph_algorithms): By using heaps as internal traversal data structures, run time will be reduced by polynomial order. Examples of such problems are [Prim's minimal-spanning-tree algorithm](https://en.wikipedia.org/wiki/Prim's_algorithm) and [Dijkstra's shortest-path algorithm](https://en.wikipedia.org/wiki/Dijkstra's_algorithm).
-
-4、[Priority queue](https://en.wikipedia.org/wiki/Priority_queue): A priority queue is an abstract concept like "a list" or "a map"; just as a list can be implemented with a linked list or an array, a priority queue can be implemented with a heap or a variety of other methods.
-
-5、[K-way merge](https://en.wikipedia.org/wiki/K-way_merge_algorithm): A heap data structure is useful to merge many already-sorted input streams into a single sorted output stream. Examples of the need for merging include external sorting and streaming results from distributed data such as a log structured merge tree. The inner loop is obtaining the min element, replacing with the next element for the corresponding input stream, then doing a sift-down heap operation. (Alternatively the replace function.) (Using extract-max and insert functions of a priority queue are much less efficient.)
-
-> NOTE:
->
-> 一、[LeetCode-23. 合并K个升序链表](https://leetcode.cn/problems/merge-k-sorted-lists/)
-
-6、[Order statistics](https://en.wikipedia.org/wiki/Order_statistics): The Heap data structure can be used to efficiently find the kth smallest (or largest) element in an array.
-
-> NOTE:
->
-> 一、heap select
