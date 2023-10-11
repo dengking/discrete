@@ -1,6 +1,6 @@
 # 关于本章
 
-本章描述 data structure，主要是基于 [Wikipedia Data structures](https://en.wikipedia.org/wiki/Data_structure) 的组织结构，并结合我的实践，进行了一定的扩充。
+本章描述 data structure，主要是基于 [wikipedia Data structures](https://en.wikipedia.org/wiki/Data_structure) 的组织结构，并结合我的实践，进行了一定的扩充。
 
 主要按照如下思路来组织内容的:
 

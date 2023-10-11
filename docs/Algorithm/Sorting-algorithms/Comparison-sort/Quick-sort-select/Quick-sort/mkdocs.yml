@@ -1,5 +1,5 @@
 nav:
     - Introduction: index.md
-    - Quick-select: Quick-select
     - Quicksort&BST: Quicksort&BST
+    - Formal-analysis: Formal-analysis
     

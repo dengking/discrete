@@ -1,14 +1,38 @@
-# quick select
+# Quick select
 
 参考内容:
 
 1、labuladong [快排亲兄弟：快速选择算法详解](https://mp.weixin.qq.com/s/TRO3FOKT90Mpvn3hQWVBAQ) 	
 
-2、wikipedia [Quickselect](https://en.wikipedia.org/wiki/Quickselect)
+2、wikipedia [Quickselect](https://en.wikipedia.org/wiki/Quickselect) 
 
 
 
-## c++
+## wikipedia [Quickselect](https://en.wikipedia.org/wiki/Quickselect) 
+
+
+
+```pseudocode
+// Returns the k-th smallest element of list within left..right inclusive
+// (i.e. left <= k <= right).
+function select(list, left, right, k) is
+    if left = right then   // If the list contains only one element,
+        return list[left]  // return that element
+    pivotIndex  := ...     // select a pivotIndex between left and right,
+                           // e.g., left + floor(rand() % (right − left + 1))
+    pivotIndex  := partition(list, left, right, pivotIndex)
+    // The pivot is in its final sorted position
+    if k = pivotIndex then
+        return list[k]
+    else if k < pivotIndex then
+        return select(list, left, pivotIndex − 1, k)
+    else
+        return select(list, pivotIndex + 1, right, k) 
+```
+
+
+
+## C++
 
 ```c++
 #include<iostream>
@@ -39,10 +63,5 @@ int RandomizedSelect(int a[], int p, int r, int k) {
         return RandomizedSelect(a, i, k, k - j);
     }
 }
-
-
-
-
-
 ```
 

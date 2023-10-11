@@ -5,11 +5,11 @@ nav:
     
     - Insertion-sort: Insertion-sort
     
-    - Quick-sort: Quick-sort
+    - Quick-sort-select: Quick-sort-select
     
     - Merge-sort: Merge-sort
     
-    - Heapsort: Heapsort
+    - Heap-sort-select: Heap-sort-select
     
     - Shellsort: Shellsort
     
