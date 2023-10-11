@@ -1,6 +1,5 @@
 nav:
     - Introduction: index.md
-    - Selection-algorithm: Selection-algorithm
- 
+    - Median-of-medians: Median-of-medians   
     - 最接近: 最接近
     

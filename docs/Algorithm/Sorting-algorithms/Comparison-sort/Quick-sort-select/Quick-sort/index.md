@@ -118,7 +118,7 @@ partition-and-exchange
 
 4、等值
 
-### double pointer: left pointer+right pointer
+### Double pointer: left pointer+right pointer
 
 
 
@@ -354,7 +354,7 @@ int main() {
 
 
 
-### double pointer: fast pointer+slow pointer
+### Double pointer: fast pointer+slow pointer
 
 #### hackerearth [Quick Sort](https://www.hackerearth.com/zh/practice/algorithms/sorting/quick-sort/tutorial/)
 
