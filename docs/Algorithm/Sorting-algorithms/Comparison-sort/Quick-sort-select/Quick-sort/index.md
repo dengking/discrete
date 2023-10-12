@@ -165,7 +165,7 @@ class Foo {
     }
 
     int partition(int[] nums, int lo, int hi) {
-        if (lo == hi) return lo; // base case
+        if (lo == hi) return lo; // base case, // 必须加这个判定，否则当nums只有一个元素的时候，则必然会导致nums[++left]发生越界访问
         // 将 nums[lo] 作为默认分界点 pivot
         int pivot = nums[lo];
         // right = hi + 1 因为 while 中会先执行 --
@@ -282,7 +282,7 @@ int random(int rangeFrom, int rangeTo) {
  */
 template<typename T>
 int randomizedPartition(T array[], int low, int high) {
-    if (low == high) {
+    if (low == high) { // base case, // 必须加这个判定，否则当nums只有一个元素的时候，则必然会导致nums[++left]发生越界访问
         return low;
     }
     std::swap(array[low], array[random(low, high)]); // 随机选择一个来作为pivot

@@ -86,7 +86,7 @@ public:
 
 
 
-### median of three
+### Hoare partition scheme+median of three
 
 ```c++
 #include <vector>
@@ -95,56 +95,46 @@ public:
 
 using namespace std;
 
-class Solution
-{
+class Solution {
 public:
-    int findKthLargest(vector<int> &nums, int k)
-    {
+    int findKthLargest(vector<int> &nums, int k) {
         return quickSelect(nums, 0, nums.size() - 1, nums.size() - k);
     }
-    int quickSelect(vector<int> &nums, int lo, int hi, int k)
-    {
+
+    int quickSelect(vector<int> &nums, int lo, int hi, int k) {
         int p = randomizedPartition(nums, lo, hi);
-        if (p == k)
-        {
+        if (p == k) {
             return nums[p];
-        }
-        else if (p > k)
-        {
+        } else if (p > k) {
             return quickSelect(nums, lo, p - 1, k);
-        }
-        else
-        {
+        } else {
             return quickSelect(nums, p + 1, hi, k);
         }
     }
-    int randomizedPartition(vector<int> &nums, int lo, int hi)
-    {
+
+    int randomizedPartition(vector<int> &nums, int lo, int hi) {
+        if (lo == hi) { // 必须加这个判定，否则当nums只有一个元素的时候，则必然会导致nums[++left]发生越界访问
+            return lo;
+        }
         // median of three
         int mid = lo + (hi - lo) / 2;
-        if (nums[hi] < nums[mid])
-        {
+        if (nums[hi] < nums[mid]) {
             std::swap(nums[hi], nums[mid]);
         }
-        if (nums[hi] < nums[lo])
-        {
+        if (nums[hi] < nums[lo]) {
             std::swap(nums[hi], nums[lo]);
         }
-        if (nums[lo] < nums[mid])
-        {
+        if (nums[lo] < nums[mid]) {
             std::swap(nums[lo], nums[mid]);
         }
         int pivot = nums[lo];
         int left = lo, right = hi + 1;
-        while (true)
-        {
-            while (nums[++left] < pivot)
-            {
+        while (true) {
+            while (nums[++left] < pivot) {
                 if (left == hi)
                     break;
             }
-            while (nums[--right] > pivot)
-            {
+            while (nums[--right] > pivot) {
                 if (right == lo)
                     break;
             }
@@ -158,8 +148,10 @@ public:
     }
 };
 
-int main()
-{
+int main() {
+    Solution solution;
+    vector<int> nums{1};
+    solution.findKthLargest(nums, 1);
 }
 // g++ test.cpp --std=c++11 -pedantic -Wall -Wextra
 
