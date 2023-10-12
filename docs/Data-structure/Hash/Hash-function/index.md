@@ -73,8 +73,6 @@ Hash functions rely on generating favorable probability distributions for their 
 
 
 
-
-
 ### Properties
 
 > Note: Properties determine their usage, it is necessary to know the properties a hash function possess. 
@@ -94,8 +92,6 @@ Note that this criterion only requires the value to be *uniformly distributed*, 
 Hash tables often contain only a small subset of the valid inputs. For instance, a club membership list may contain only a hundred or so member names, out of the very large set of all possible names. In these cases, the uniformity criterion should hold for almost all **typical subsets** of entries that may be found in the table, not just for the global set of all possible entries.
 
 > NOTE: **Typical subset** VS **global set**
-
-
 
 
 
@@ -171,12 +167,6 @@ A hash function with minimal movement is especially useful in [distributed hash 
 
 
 
-
-
-
-
-
-
 ## wikipedia [Category:Hash functions](https://en.wikipedia.org/wiki/Category:Hash_functions)
 
 
@@ -212,8 +202,6 @@ To make things more complicated, cryptographic hash functions are sometimes simp
 ## VS-cryptographic-hash-function-VS-perfect hash function?
 
 [Are cryptographic hash functions perfect hash functions?](https://crypto.stackexchange.com/questions/8092/are-cryptographic-hash-functions-perfect-hash-functions)
-
-
 
 
 

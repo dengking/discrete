@@ -1,7 +1,5 @@
 # Associative array(dict、map) and set
 
-
-
 一、set 和 associative array 本质上是非常类似的: 
 
 1、set只有key没有value
@@ -15,7 +13,6 @@
 ## Implementation
 
 两种在实现上是非常类似的，一般采用相同的data structure来进行实现
-
 
 
 

@@ -1,6 +1,36 @@
 # Binary heap
 
+一、binary heap是基于数学的data structure，binary heap通过数学关系保存parent、children关系，swim的时候，使用的parent关系，sink的时候，使用的children关系；
 
+二、通过 binary heap 的实现原理来理解max heap、min heap 和 comparator 之间的关系
+
+在 labuladong [图文详解二叉堆，实现优先级队列](https://mp.weixin.qq.com/s/o7tdyLiYm668dpUWd-x7Lg) 中，对 binary heap 的实现原理进行了非常好的介绍。
+
+binary heap 所强调的是 parent node 和 children node之间的关系，所以它的comparator是基于 parent node 和 children node 的；
+
+binary heap 的原理是: 
+
+1、在insert的时候，首先将元素插入到末尾，然后swim(上浮)；显然，对于max heap，我们总是需要将max放到堆顶，当 `less(parent, children)` 的时候，就将元素换到parent的位置，从而实现swim(上浮)；
+
+stop condition: root node
+
+2、在delete的时候，首先将末尾元素换到头，然后sink；
+
+stop condition: leaf node
+
+总的来说，
+
+1、对于max heap，无论是swim(上浮)还是sink(下沉)，都是当`less(parent, children)`的时候；
+
+2、对于min heap，无论是swim(上浮)还是sink(下沉)，都是当`great(parent, children)`的时候；
+
+三、
+
+level order
+
+[transitive relation](https://en.wikipedia.org/wiki/Transitive_relation)
+
+ 
 
 ## wikipedia [Binary heap](https://en.wikipedia.org/wiki/Binary_heap)
 
@@ -52,7 +82,7 @@ Steps 2 and 3, which restore the heap property by comparing and possibly swappin
 
 > NOTE:
 >
-> 一、当**新node**和它的**parent node**不符合 **Heap property** 的时候，需要将换它和它的parent node的位置，把它换上去，然后去比较它和它的parent node的parent node是否符合 **Heap property** ，如果不符合的话，需要将将它的 grand parent node给换下来，可以看到，这个过程一直是up的，那是否需要考虑: 换下来的grand parent node 和 它下面的node是否符合  **Heap property** 呢？答案是不需要: 因为grand parent node和 parent node是符合  **Heap property** 的，使用 grand parent node替换 parent node是肯定能够维持 **Heap property**的；
+> 一、当**新node**和它的**parent node**不符合 **Heap property** 的时候，需要将换它和它的parent node的位置，把它换上去，然后去比较它和它的parent node的parent node是否符合 **Heap property** ，如果不符合的话，需要将它的 grand parent node给换下来，可以看到，这个过程一直是up的，那是否需要考虑: 换下来的grand parent node 和 它下面的node是否符合  **Heap property** 呢？答案是不需要: 因为grand parent node和 parent node是符合  **Heap property** 的，使用 grand parent node替换 parent node是肯定能够维持 **Heap property**的；
 >
 > 上爬的过程只和parent进行比较，并且从上换下来的node值是更优值，显然是天然符合 **Heap property** 的。
 >
@@ -66,14 +96,14 @@ Max-Heapify-Up(A, i):
     
     if parent >=1 and A[i] > A[parent] then: // 从下标1开始
         swap A[i] and A[parent]
-        Max-Heapify(A, parent)  
+        Max-Heapify-Up(A, parent)  
 ```
 
 
 
 #### Extract
 
-The procedure for deleting the root from the heap (effectively extracting the maximum element in a **max-heap** or the minimum element in a **min-heap**) while retaining the heap property is as follows:
+The procedure for deleting the root from the heap (effectively extracting the ***maximum*** element in a **max-heap** or the ***minimum*** element in a **min-heap**) while retaining the heap property is as follows:
 
 1、Replace the root of the heap with the last element on the last level.
 
@@ -85,7 +115,7 @@ Steps 2 and 3, which restore the heap property by comparing and possibly swappin
 
 > NOTE:
 >
-> 一、显然去除了之前的root，就需要从它的两个children中选择一个来接替它，显然这个过程是需要从上到下一直进行的，上述算法比较巧妙: 它先随便拿一个node来做新root，然后执行替换过程。
+> 一、显然去除了之前的root，就需要从它的两个children中选择一个来接替它，显然这个过程是需要从上到下一直进行的，上述算法比较巧妙: 它先随便拿一个node来做新root，然后执行替换过程，这相当于probe。
 >
 > 下面的两个 *heapify* 是最最基础的操作
 
