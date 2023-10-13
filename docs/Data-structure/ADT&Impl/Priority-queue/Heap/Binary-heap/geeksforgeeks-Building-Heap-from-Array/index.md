@@ -99,6 +99,14 @@ Heapify 1: First Swap 1 and 17, again swap 1 and 15, finally swap 1 and 6.
 > NOTE:
 >
 > 一、从上面的例子可以看出heap的存储方式的巨大优势，它能够为heap的各种algorithm提供非常简单而强大的保障
+>
+> 二、heapify的stop condition: 
+>
+> ``` C++
+> left >= N || right >= N
+> ```
+>
+> 
 
 
 
