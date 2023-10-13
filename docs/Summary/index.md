@@ -91,3 +91,5 @@ segment tree是perfect-binary-tree
 一、binary heap的parent、children关系基于简单的数学
 
 二、hash table将映射关系使用一个简单的hash function来保存
+
+三、[Fibonacci heap](https://en.wikipedia.org/wiki/Fibonacci_heap)
