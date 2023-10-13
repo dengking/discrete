@@ -30,7 +30,19 @@ level order
 
 [transitive relation](https://en.wikipedia.org/wiki/Transitive_relation)
 
- 
+四、在数组中的存储方式
+
+geeksforgeeks [Building Heap from Array](https://www.geeksforgeeks.org/building-heap-from-array/) 
+
+> *Also, the array representation of the complete binary tree contains the level order traversal of the tree.*
+
+按照level的方式，自左到右、自上而下顺序存储于array中。
+
+五、
+
+*heapify-up*:  
+
+*heapify-down*: 简称 *heapify* 
 
 ## wikipedia [Binary heap](https://en.wikipedia.org/wiki/Binary_heap)
 
@@ -168,7 +180,7 @@ Building a heap from an array of *n* input elements can be done by starting with
 
 #### [Floyd](https://en.wikipedia.org/wiki/Robert_W._Floyd)'s method
 
-Williams' method is suboptimal. A faster method (due to [Floyd](https://en.wikipedia.org/wiki/Robert_W._Floyd)[[8\]](https://en.wikipedia.org/wiki/Binary_heap#cite_note-heapbuildjalg-8)) starts by arbitrarily putting the elements on a **binary tree**, respecting the **shape property** (the tree could be represented by an array, see below). Then starting from the **lowest level** and moving upwards, sift the root of each subtree downward as in the deletion algorithm until the **heap property** is restored. More specifically if all the subtrees starting at some height $h$ have already been "heapified" (the bottommost level corresponding to $h=0$), the trees at height $h+1$ can be heapified by sending their root down along the path of maximum valued children when building a **max-heap**, or minimum valued children when building a **min-heap**. This process takes $O(h)$ operations (swaps) per node. 
+Williams' method is suboptimal. A faster method (due to [Floyd](https://en.wikipedia.org/wiki/Robert_W._Floyd)[[8\]](https://en.wikipedia.org/wiki/Binary_heap#cite_note-heapbuildjalg-8)) starts by arbitrarily putting the elements on a **binary tree**, respecting the **shape property** (the tree could be represented by an array, see below). Then starting from the **lowest level** and moving upwards, sift(落下、下坠) the root of each subtree downward as in the deletion algorithm until the **heap property** is restored. More specifically if all the subtrees starting at some height $h$ have already been "heapified" (the bottommost level corresponding to $h=0$), the trees at height $h+1$ can be heapified by sending their root down along the path of maximum valued children when building a **max-heap**, or minimum valued children when building a **min-heap**. This process takes $O(h)$ operations (swaps) per node. 
 
 > NOTE:
 >
@@ -210,7 +222,7 @@ Heaps are commonly implemented with an [array](https://en.wikipedia.org/wiki/Arr
 >
 > 二、heap的complexity也是由它的"Shape property"而决定的
 >
-> 三、heap的"Shape property"保证了heap是"balanced"
+> 三、heap的"shape property"保证了heap是"balanced"
 
 
 

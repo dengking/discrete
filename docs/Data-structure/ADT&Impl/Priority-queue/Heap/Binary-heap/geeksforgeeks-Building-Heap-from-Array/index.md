@@ -1,6 +1,8 @@
 # geeksforgeeks [Building Heap from Array](https://www.geeksforgeeks.org/building-heap-from-array/)
 
-
+> NOTE:
+>
+> 一、[Floyd](https://en.wikipedia.org/wiki/Robert_W._Floyd)'s method
 
 - Root is at index 0 in array.
 - Left child of i-th node is at (2*i + 1)th index.
@@ -11,7 +13,7 @@
 
 **Efficient Approach**: To solve the problem using this approach follow the below idea:
 
-The above approach can be optimized by observing the fact that the leaf nodes need not to be *heapified* as they already follow the **heap property**. Also, the array representation of the complete binary tree contains the **level order traversal** of the tree. So the idea is to find the position of the **last non-leaf node** and perform the heapify operation of each non-leaf node in **reverse level order**. 
+The above approach can be optimized by observing the fact that the leaf nodes need not to be *heapified* as they already follow the **heap property**. Also, the array representation of the **complete binary tree** contains the **level order traversal** of the tree. So the idea is to find the position of the **last non-leaf node** and perform the heapify operation of each **non-leaf node** in **reverse level order**. 
 
 > NOTE:
 >
@@ -162,9 +164,9 @@ void printHeap(int arr[], int N)
 int main()
 {
 	// Binary Tree Representation of input array
-	//			 1
-	//		    / \
-	//		  3	    5
+	//			     1
+	//		    /    \
+	//		   3	    5
 	//	    /  \   /  \
 	//	   4   6  13  10
 	//   /  \ /  \
@@ -178,7 +180,7 @@ int main()
 	printHeap(arr, N);
 
 	// Final Heap:
-	//			 17
+	//		  17
 	//		 / \
 	//		 15	 13
 	//		 / \	 / \
