@@ -50,6 +50,8 @@ geeksforgeeks [Building Heap from Array](https://www.geeksforgeeks.org/building-
 
 按照level的方式，自左到右、自上而下顺序存储于array中。[Floyd](https://en.wikipedia.org/wiki/Robert_W._Floyd)'s method  其实就是reverse-BFS，由于知道last node，因此last non-leaf node(last node 的parent node)也是知道的，知道了last non-leaf node，就知道了所有的internal node，从last non-leaf node开始，以reverse-BFS的方式逐个处理所有的internal node。
 
+
+
 ## wikipedia [Binary heap](https://en.wikipedia.org/wiki/Binary_heap)
 
 A **binary heap** is a [heap](https://en.wikipedia.org/wiki/Heap_(data_structure)) [data structure](https://en.wikipedia.org/wiki/Data_structure) that takes the form of a [binary tree](https://en.wikipedia.org/wiki/Binary_tree). Binary heaps are a common way of implementing [priority queues](https://en.wikipedia.org/wiki/Priority_queue).[[1\]](https://en.wikipedia.org/wiki/Binary_heap#cite_note-clrs-1): 162–163  The binary heap was introduced by [J. W. J. Williams](https://en.wikipedia.org/wiki/J._W._J._Williams) in 1964, as a data structure for [heapsort](https://en.wikipedia.org/wiki/Heapsort).
@@ -163,6 +165,28 @@ Max-Heapify(A, i):
 #### Insert then extract
 
 Inserting an element then extracting from the heap can be done more efficiently than simply calling the insert and extract functions defined above, which would involve both an `upheap` and `downheap` operation. Instead, we can do just a `downheap` operation, as follows:
+
+1. Compare whether the item we're pushing or the peeked top of the heap is greater (assuming a max heap)
+2. If the root of the heap is greater:
+   1. Replace the root with the new item
+   2. Down-heapify starting from the root
+3. Else, return the item we're pushing
+
+
+
+[Python](https://en.wikipedia.org/wiki/Python_(programming_language)) provides such a function for insertion then extraction called "heappushpop", which is paraphrased below.[[6\]](https://en.wikipedia.org/wiki/Binary_heap#cite_note-6)[[7\]](https://en.wikipedia.org/wiki/Binary_heap#cite_note-7) The heap array is assumed to have its first element at index 1.
+
+```python
+// Push a new item to a (max) heap and then extract the root of the resulting heap. 
+// heap: an array representing the heap, indexed at 1
+// item: an element to insert
+// Returns the greater of the two between item and the root of heap.
+Push-Pop(heap: List<T>, item: T) -> T:
+    if heap is not empty and heap[1] > item then:  // < if min heap
+        swap heap[1] and item
+        _downheap(heap starting from index 1)
+    return item
+```
 
 
 
@@ -360,6 +384,7 @@ public class MaxPQ < Key extends Comparable < Key >> {
 using namespace std;
 
 class BinaryHeap {
+
 public:
     /**
      * 对以idx为root的sub tree执行sink
@@ -371,10 +396,10 @@ public:
         int left = root * 2 + 1;
         int right = root * 2 + 2;
         int largest = root;
-        if (left < n && arr[left] > arr[largest]) {
+        if (left < n && arr[largest] > arr[left]) {
             largest = left;
         }
-        if (right < n && arr[right] > arr[largest]) {
+        if (right < n && arr[largest] > arr[right]) {
             largest = right;
         }
         if (largest != root) {
@@ -384,7 +409,7 @@ public:
     }
 
     /**
-     * 上述heapifyRecursively涉及尾递归，所以可以使用迭代进行消除: 
+     * 上述heapifyRecursively涉及尾递归，所以可以使用迭代进行消除:
      * 1、上述递归的iterator是root，所以需要将root作为iterator
      * 2、上述递归的stop condition是root的子树都满足heap property，所以下面的while也是如此
      * @param arr
@@ -396,10 +421,10 @@ public:
             int largest = root;
             int left = root * 2 + 1;
             int right = root * 2 + 2;
-            if (left < n && arr[left] > arr[largest]) {
+            if (left < n && arr[largest] > arr[left]) {
                 largest = left;
             }
-            if (right < n && arr[right] > arr[largest]) {
+            if (right < n && arr[largest] > arr[right]) {
                 largest = right;
             }
             if (largest != root) {
@@ -411,8 +436,24 @@ public:
         }
     }
 
-    static void heapifyUp(std::vector<int> &arr) {
+    static void heapifyUpRecursively(std::vector<int> &arr, int node) {
+        int parent = (node - 1) / 2;
+        if (parent >= 0 && arr[parent] > arr[node]) {
+            std::swap(arr[parent], arr[node]);
+            heapifyUpRecursively(arr, parent);
+        }
+    }
 
+    static void heapifyUpIteratively(std::vector<int> &arr, int node) {
+        while (true) {
+            int parent = (node - 1) / 2;
+            if (parent >= 0 && arr[parent] > arr[node]) {
+                std::swap(arr[parent], arr[node]);
+                node = parent;
+            } else {
+                break;
+            }
+        }
     }
 
     /**
@@ -423,10 +464,17 @@ public:
      *      parent: (i-1)/2
      * @param n arr中用于build heap的元素的个数，即对 arr[0] ~ arr[n-1]中的元素构建heap
      */
-    static void buildHeapByFloydMethod(std::vector<int> &arr, int n) {
+    static void buildHeapByFloydMethodRecursively(std::vector<int> &arr, int n) {
         int lastNoneLeafNodeIdx = (n - 2) / 2;
         for (int i = lastNoneLeafNodeIdx; i >= 0; --i) {
             heapifyRecursively(arr, i, n);
+        }
+    }
+
+    static void buildHeapByFloydMethodIteratively(std::vector<int> &arr, int n) {
+        int lastNoneLeafNodeIdx = (n - 2) / 2;
+        for (int i = lastNoneLeafNodeIdx; i >= 0; --i) {
+            heapifyIteratively(arr, i, n);
         }
     }
 
@@ -440,11 +488,17 @@ public:
 
 int main() {
     std::vector<int> arr{1, 2, 3, 4, 5, 6, 7};
-    BinaryHeap::buildHeapByFloydMethod(arr, arr.size());
+    BinaryHeap::buildHeapByFloydMethodRecursively(arr, arr.size());
+    BinaryHeap::printHeap(arr, arr.size());
+
+    BinaryHeap::buildHeapByFloydMethodIteratively(arr, arr.size());
     BinaryHeap::printHeap(arr, arr.size());
 
     arr = {6, 10, 1, 3, 7, 1, 1, 8, 100};
-    BinaryHeap::buildHeapByFloydMethod(arr, arr.size());
+    BinaryHeap::buildHeapByFloydMethodRecursively(arr, arr.size());
+    BinaryHeap::printHeap(arr, arr.size());
+
+    BinaryHeap::buildHeapByFloydMethodIteratively(arr, arr.size());
     BinaryHeap::printHeap(arr, arr.size());
 }
 // g++ test.cpp --std=c++11 -pedantic -Wall -Wextra
