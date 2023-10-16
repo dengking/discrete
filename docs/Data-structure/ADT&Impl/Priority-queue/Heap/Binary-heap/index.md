@@ -347,3 +347,107 @@ public class MaxPQ < Key extends Comparable < Key >> {
 
 ```
 
+
+
+### C++
+
+
+
+```C++
+#include <vector>
+#include <iostream>
+
+using namespace std;
+
+class BinaryHeap {
+public:
+    /**
+     * 对以idx为root的sub tree执行sink
+     * @param arr
+     * @param root
+     * @param n arr中用于build heap的元素的个数，即对 arr[0] ~ arr[n-1]中的元素构建heap
+     */
+    static void heapifyRecursively(std::vector<int> &arr, int root, int n) {
+        int left = root * 2 + 1;
+        int right = root * 2 + 2;
+        int largest = root;
+        if (left < n && arr[left] > arr[largest]) {
+            largest = left;
+        }
+        if (right < n && arr[right] > arr[largest]) {
+            largest = right;
+        }
+        if (largest != root) {
+            std::swap(arr[largest], arr[root]);
+            heapifyRecursively(arr, largest, n);
+        }
+    }
+
+    /**
+     * 上述heapifyRecursively涉及尾递归，所以可以使用迭代进行消除: 
+     * 1、上述递归的iterator是root，所以需要将root作为iterator
+     * 2、上述递归的stop condition是root的子树都满足heap property，所以下面的while也是如此
+     * @param arr
+     * @param root
+     * @param n
+     */
+    static void heapifyIteratively(std::vector<int> &arr, int root, int n) {
+        while (true) {
+            int largest = root;
+            int left = root * 2 + 1;
+            int right = root * 2 + 2;
+            if (left < n && arr[left] > arr[largest]) {
+                largest = left;
+            }
+            if (right < n && arr[right] > arr[largest]) {
+                largest = right;
+            }
+            if (largest != root) {
+                std::swap(arr[largest], arr[root]);
+                root = largest;
+            } else {
+                break;
+            }
+        }
+    }
+
+    static void heapifyUp(std::vector<int> &arr) {
+
+    }
+
+    /**
+     *
+     * @param arr 从index=0开始存放元素
+     * left  child: 2*i+1
+     * right child: 2*i+2
+     *      parent: (i-1)/2
+     * @param n arr中用于build heap的元素的个数，即对 arr[0] ~ arr[n-1]中的元素构建heap
+     */
+    static void buildHeapByFloydMethod(std::vector<int> &arr, int n) {
+        int lastNoneLeafNodeIdx = (n - 2) / 2;
+        for (int i = lastNoneLeafNodeIdx; i >= 0; --i) {
+            heapifyRecursively(arr, i, n);
+        }
+    }
+
+    static void printHeap(std::vector<int> &arr, int n) {
+        for (int i = 0; i < n; ++i) {
+            std::cout << arr[i] << ",";
+        }
+        std::cout << std::endl;
+    }
+};
+
+int main() {
+    std::vector<int> arr{1, 2, 3, 4, 5, 6, 7};
+    BinaryHeap::buildHeapByFloydMethod(arr, arr.size());
+    BinaryHeap::printHeap(arr, arr.size());
+
+    arr = {6, 10, 1, 3, 7, 1, 1, 8, 100};
+    BinaryHeap::buildHeapByFloydMethod(arr, arr.size());
+    BinaryHeap::printHeap(arr, arr.size());
+}
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra
+
+```
+
