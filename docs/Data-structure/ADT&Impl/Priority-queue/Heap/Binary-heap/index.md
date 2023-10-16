@@ -44,6 +44,12 @@ geeksforgeeks [Building Heap from Array](https://www.geeksforgeeks.org/building-
 
 *heapify-down*: 简称 *heapify* 
 
+六、[Floyd](https://en.wikipedia.org/wiki/Robert_W._Floyd)'s build heap method 充分运用了heap在array中的存储方式来设计算法，geeksforgeeks [Building Heap from Array](https://www.geeksforgeeks.org/building-heap-from-array/) 
+
+> *Also, the array representation of the complete binary tree contains the level order traversal of the tree.*
+
+按照level的方式，自左到右、自上而下顺序存储于array中。[Floyd](https://en.wikipedia.org/wiki/Robert_W._Floyd)'s method  其实就是reverse-BFS，由于知道last node，因此last non-leaf node(last node 的parent node)也是知道的，知道了last non-leaf node，就知道了所有的internal node，从last non-leaf node开始，以reverse-BFS的方式逐个处理所有的internal node。
+
 ## wikipedia [Binary heap](https://en.wikipedia.org/wiki/Binary_heap)
 
 A **binary heap** is a [heap](https://en.wikipedia.org/wiki/Heap_(data_structure)) [data structure](https://en.wikipedia.org/wiki/Data_structure) that takes the form of a [binary tree](https://en.wikipedia.org/wiki/Binary_tree). Binary heaps are a common way of implementing [priority queues](https://en.wikipedia.org/wiki/Priority_queue).[[1\]](https://en.wikipedia.org/wiki/Binary_heap#cite_note-clrs-1): 162–163  The binary heap was introduced by [J. W. J. Williams](https://en.wikipedia.org/wiki/J._W._J._Williams) in 1964, as a data structure for [heapsort](https://en.wikipedia.org/wiki/Heapsort).

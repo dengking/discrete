@@ -1,8 +1,6 @@
 # geeksforgeeks [Building Heap from Array](https://www.geeksforgeeks.org/building-heap-from-array/)
 
-> NOTE:
->
-> 一、[Floyd](https://en.wikipedia.org/wiki/Robert_W._Floyd)'s method
+
 
 - Root is at index 0 in array.
 - Left child of i-th node is at (2*i + 1)th index.
@@ -17,7 +15,11 @@ The above approach can be optimized by observing the fact that the leaf nodes ne
 
 > NOTE:
 >
-> 一、其实就是reverse-BFS
+> 一、[Floyd](https://en.wikipedia.org/wiki/Robert_W._Floyd)'s method 充分运用了heap在array中的存储方式来设计算法，geeksforgeeks [Building Heap from Array](https://www.geeksforgeeks.org/building-heap-from-array/) 
+>
+> > *Also, the array representation of the complete binary tree contains the level order traversal of the tree.*
+>
+> 按照level的方式，自左到右、自上而下顺序存储于array中。[Floyd](https://en.wikipedia.org/wiki/Robert_W._Floyd)'s method  其实就是reverse-BFS，由于知道last node，因此last non-leaf node(last node 的parent node)也是知道的，知道了last non-leaf node，就知道了所有的internal node，从last non-leaf node开始，以reverse-BFS的方式逐个处理所有的internal node。
 
 **Last non-leaf node** *= parent of last-node.*
 *or, Last non-leaf node = parent of node at (n-1)th index.*
