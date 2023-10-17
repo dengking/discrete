@@ -1,4 +1,12 @@
-# wikipedia [Divide-and-conquer algorithm](https://en.wikipedia.org/wiki/Divide-and-conquer_algorithm)
+# Divide-and-conquer
+
+分治的思想是: 对于难以直接求解的问题，可以考虑把这个问题分解成若干规模较小的相同子问题，从而各个击破，分而治之。
+
+典型的自顶向下进行分析
+
+
+
+## wikipedia [Divide-and-conquer algorithm](https://en.wikipedia.org/wiki/Divide-and-conquer_algorithm)
 
 In [computer science](https://en.wikipedia.org/wiki/Computer_science), **divide and conquer** is an [algorithm design paradigm](https://en.wikipedia.org/wiki/Algorithm_design_paradigm) based on multi-branched [recursion](https://en.wikipedia.org/wiki/Recursion). A divide-and-conquer [algorithm](https://en.wikipedia.org/wiki/Algorithm) works by recursively breaking down a problem into two or more sub-problems of the same or related type, until these become simple enough to be solved directly. The solutions to the sub-problems are then combined to give a solution to the original problem.
 
@@ -31,7 +39,7 @@ The correctness of a divide-and-conquer algorithm is usually proved by [mathemat
 
 
 
-## Decrease and conquer
+### Decrease and conquer
 
 These algorithms can be implemented more efficiently than general divide-and-conquer algorithms; in particular, if they use [tail recursion](https://infogalactic.com/info/Tail_recursion), they can be converted into simple [loops](https://infogalactic.com/info/Loop_(computing)). 
 
@@ -39,32 +47,71 @@ These algorithms can be implemented more efficiently than general divide-and-con
 >
 > 1、tail recursion: recursion to loop
 
-## Advantages
+### Advantages
 
 
 
-### Solving difficult problems
+#### Solving difficult problems
 
 
 
-### Algorithm efficiency
+#### Algorithm efficiency
 
 
 
-### Parallelism
+#### Parallelism
 
 > NOTE: 
 >
 > 1、需要思考，如何并行化divide and conquer algorithm
 
-### Memory access
+#### Memory access
 
 > NOTE: 
 >
 > 1、这一段关于 memory、cache的论述是非常好的
 
-### Roundoff control
+#### Roundoff control
 
 > NOTE: 
 >
 > 1、"Roundoff"的含义是 "圆整"
+
+
+
+## Divide-and-conquer and parallel computing
+
+
+
+### Parallel computing 加速 divide-and-conquer
+
+Parallel computing、distributed computing能够加速divide-and-conquer的性能
+
+一、"fork and join parallel divide-and-conquer"
+
+典型的例子就是 "APUE 11.6.8 Barriers" 中的merge sort的例子。
+
+二、"distributed computing parallel divide-and-conquer"
+
+
+
+### 使用divide-and-conquer来分解
+
+> NOTE: 
+>
+> 1、这是在阅读 "drdobbs [How Much Scalability Do You Have or Need?](https://www.drdobbs.com/parallel/how-much-scalability-do-you-have-or-need/201202924) # O(N): Scalable Throughput And the Free Lunch" 时，想到的，其中将此称为 "**natural parallelism**"。我们将此称为"fork-join-parallel-divide-and-conquer-and-merge-quicksort-natural parallelism"
+
+1、当今"parallel computing是主流"，我们更应该使用"divide-and-conquer"来对structure进行分解，让各个sub structure被并行地计算
+
+2、distributed computing、parallel computing 都 蕴含着 divide-and-conquer思想
+
+
+
+### 参见
+
+1、"wikipedia [Divide-and-conquer algorithm](https://en.wikipedia.org/wiki/Divide-and-conquer_algorithm) # Parallelism"章节
+
+2、工程"Parallel-computing"的`Fork–join-model`章节
+
+3、stackoverflow [difference of divide and conquer & fork and join](https://stackoverflow.com/questions/29686964/difference-of-divide-and-conquer-fork-and-join)
+
