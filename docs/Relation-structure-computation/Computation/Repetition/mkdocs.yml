@@ -1,7 +1,6 @@
 nav:
     - Introduction: index.md 
     - Iteration: Iteration 
-    - Recursion-and-corecursion: Recursion-and-corecursion  
     - Induction-and-deduction: Induction-and-deduction 
     - Recursion-and-iteration: Recursion-and-iteration 
     - Recursion-and-induction: Recursion-and-induction 

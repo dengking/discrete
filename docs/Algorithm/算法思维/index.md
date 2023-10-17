@@ -8,7 +8,9 @@
 
 
 
-## 二、Divide and conquer、原问题和子问题
+## 二、Divide and conquer
+
+原问题和子问题
 
 这是非常重要的解决问题的思路，参见 `Divide-and-Conquer` 章节
 

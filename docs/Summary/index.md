@@ -93,3 +93,14 @@ segment tree是perfect-binary-tree
 二、hash table将映射关系使用一个简单的hash function来保存
 
 三、[Fibonacci heap](https://en.wikipedia.org/wiki/Fibonacci_heap)
+
+
+
+## 一分为二
+
+binary search
+
+merge sort
+
+segment tree
+
