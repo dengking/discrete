@@ -1,7 +1,6 @@
 nav:
     - Introduction: index.md
+    - Divide-and-conquer: Divide-and-conquer
     - Recurrence-relation: Recurrence-relation
-    - Recursion-and-corecursion: Recursion-and-corecursion  
-    - wikipedia-Divide-and-conquer-algorithm: wikipedia-Divide-and-conquer-algorithm
-    - Divide-and-conquer-and-merge-framework: Divide-and-conquer-and-merge-framework
+    - Recursion: Recursion  
     - Complexity-analysis: Complexity-analysis
