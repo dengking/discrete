@@ -22,12 +22,12 @@ draft:
 
 ## Algorithm example
 
-使用上述思想对
+使用上述思想对一些algorithm进行分析。
 
 | Example                                                      | 核心思想                                                     |      |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ---- |
-| [LeetCode-213. 打家劫舍 II](https://leetcode.cn/problems/house-robber-ii/) 中等 | 题目要求不能抢相邻的，并且题目给出的环形数组，所以就可以分为三种情况:<br>1、`[1, n-2]`<br>2、`[0, n-2]`<br>3、`[1, n-1]`<br>然后从上述三种情况中进行择优录取。 |      |
-| [LeetCode-321. 拼接最大数](https://leetcode.cn/problems/create-maximum-number/) 困难 | 题目要求从两个数组中共取出k个数，找出最大的数，该算法依次取出所有的k个数，并进行择优录取。 |      |
+| [LeetCode-213. 打家劫舍 II-中等](https://leetcode.cn/problems/house-robber-ii/) | 题目要求不能抢相邻的，并且题目给出的环形数组，所以就可以分为三种情况:<br>1、`[1, n-2]`<br>2、`[0, n-2]`<br>3、`[1, n-1]`<br>然后从上述三种情况中进行择优录取。 |      |
+| [LeetCode-321. 拼接最大数-困难](https://leetcode.cn/problems/create-maximum-number/) | 题目要求从两个数组中共取出k个数，找出最大的数，该算法依次取出所有的k个数，并进行择优录取。 |      |
 |                                                              |                                                              |      |
 
 典型的例子: [external sorting](https://en.wanweibaike.com/wiki-External%20sorting)。
@@ -99,26 +99,7 @@ wikipedia [快速排序](https://en.wikipedia.org/wiki/Quicksort)
 
 自顶向下
 
-2、quick select
 
-参见  labuladong [快排亲兄弟：快速选择算法详解](https://mp.weixin.qq.com/s/TRO3FOKT90Mpvn3hQWVBAQ) 。
-
-3、merge sort
-
-参见 labuladong [东哥手把手带你套框架刷通二叉树|第一期](https://mp.weixin.qq.com/s/izZ5uiWzTagagJec6Y7RvQ) 
-
-```C++
-void sort(int[] nums, int lo, int hi) {
-    int mid = (lo + hi) / 2;
-    sort(nums, lo, mid);
-    sort(nums, mid + 1, hi);
-
-    /****** 后序遍历位置 ******/
-    // 合并两个排好序的子数组
-    merge(nums, lo, mid, hi);
-    /************************/
-}
-```
 
 4、两数之和、三数之和
 
