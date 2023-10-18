@@ -20,7 +20,8 @@
 
 
 
-## 其他素材
+## Draft
 
 1、labuladong [数据结构和算法学习指南](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247484852&idx=1&sn=85b50b8b0470bb4897e517955f4e5002&scene=21#wechat_redirect)
 
+2、很多algorithm，其实都是基于解空间、原问题和子问题而构建的

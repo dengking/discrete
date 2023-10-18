@@ -1,26 +1,14 @@
 # Divide-and-Conquer&Recurrence-relation&Recursion
 
-概述: Divide-and-Conquer的思想是思考**原问题**和**子问题**之间的关系，总结出描述问题的 [recurrence relation](https://en.wikipedia.org/wiki/Recurrence_relation) (是一种 recursive definition)，然后借助recursion来实现进而求解。
+本章内容概述: 
+
+一、Divide-and-Conquer的思想是思考**原问题**和**子问题**之间的关系，总结出描述问题的 [recurrence relation](https://en.wikipedia.org/wiki/Recurrence_relation) (是一种 recursive definition)，然后借助recursion来实现进而求解。
 
 上述思想是dynamic programming、greedy algorithm的基石，它们都是从它演变而来。
 
-"divide-and-conquer"是非常重要的计算思想，它简单然而强大: 
+二、Divide-and-Conquer和Recursion
 
-一、one-by-one的典范
-
-显然，它的计算方式是one-by-one。
-
-
-
-
-
-四、distributed computing、parallel computing 都蕴含着 divide-and-conquer思想，在"Divide-and-conquer and parallel computing"中，对此进行了讨论。
-
-
-
-## Divide-and-Conquer和Recursion
-
-Divide-and-conquer algorithm 它天然地适合于使用 recursion来实现: 
+Divide-and-conquer algorithm 天然地适合于使用 recursion来实现: 
 
 由于 **分治法** 产生的 **子问题** 和 **原问题** 往往是相同**性质**的，因此可以使用递归技术。分治法的核心是把问题的规模降低，因此，在回溯函数的参数中往往有表示问题规模的参数。
 
@@ -32,25 +20,9 @@ draft:
 
 
 
+## Algorithm example
 
-
-## Divide and conquer example
-
-labuladong [手把手搞懂接雨水问题的多种解法](https://mp.weixin.qq.com/s/mFqrlhqYEPhRa9p4ewl3Xw)
-
-> 对于这种问题，我们不要想整体，而应该去想局部；就像之前的文章写的动态规划问题处理字符串问题，不要考虑如何处理整个字符串，而是去思考应该如何处理每一个字符。
->
-> 这么一想，可以发现这道题的思路其实很简单。具体来说，仅仅对于位置`i`，能装下多少水呢？
-
-很多algorithm，其实都是基于解空间、原问题和子问题而构建的
-
-
-
-
-
-## Examples
-
-
+使用上述思想对
 
 | Example                                                      | 核心思想                                                     |      |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ---- |
@@ -64,28 +36,93 @@ labuladong [手把手搞懂接雨水问题的多种解法](https://mp.weixin.qq.
 >
 > 这是自顶向下的思考方式
 
-## TODO
-
-programiz [Divide and Conquer Algorithm](https://www.programiz.com/dsa/divide-and-conquer)
-
-https://softwareengineering.stackexchange.com/questions/197107/divide-and-conquer-algorithms-why-not-split-in-more-parts-than-two
 
 
-https://www.khanacademy.org/computing/computer-science/algorithms/merge-sort/a/divide-and-conquer-algorithms
+### 二分算法
+
+下面是一些典型的二分算法，即取k=2。
+
+#### [二分搜索](https://en.wikipedia.org/wiki/Binary_search_algorithm)
+
+$$
+T(n) = 2T(n/2) = \log_2 n
+$$
+
+
+wikipedia [二分搜索](https://en.wikipedia.org/wiki/Binary_search_algorithm)
+
+
+参见《`algorithm-analysis-binary-search.md`》
+
+#### [合并排序](https://en.wikipedia.org/wiki/Merge_sort)
+
+$$
+T(n) =
+\begin{cases}
+O(1),  & n \le 1 \\
+2T(n/2) + O(n), & n \gt 1
+\end{cases}
+$$
+
+解上述递归方程，可知
+$$
+T(n) = O(n\log n)
+$$
 
 
 
+wikipedia [合并排序](https://en.wikipedia.org/wiki/Merge_sort)
 
 
-### 重叠子问题
+#### [快速排序](https://en.wikipedia.org/wiki/Quicksort)
 
-对于重叠子问题，我们可以将它们的解保存下来，用于后续的使用，从而提高性能。
+$$
+T(n) =
+\begin{cases}
+O(1),  & n \le 1 \\
+2T(n/2) + O(n), & n \gt 1
+\end{cases}
+$$
 
-1、重叠子问题，参见 `Overlapping-subproblem` 章节
+解上述递归方程，可知
+$$
+T(n) = O(n\log n)
+$$
 
-2、"time and space tradeoff"，参见 `Space-time-tradeoff` 章节
+wikipedia [快速排序](https://en.wikipedia.org/wiki/Quicksort) 
 
 
+
+#### 补充: 使用二分思想的算法
+
+1、[LeetCode-23. 合并K个升序链表](https://leetcode.cn/problems/merge-k-sorted-lists/)  # 方法三：分治合并
+
+自顶向下
+
+2、quick select
+
+参见  labuladong [快排亲兄弟：快速选择算法详解](https://mp.weixin.qq.com/s/TRO3FOKT90Mpvn3hQWVBAQ) 。
+
+3、merge sort
+
+参见 labuladong [东哥手把手带你套框架刷通二叉树|第一期](https://mp.weixin.qq.com/s/izZ5uiWzTagagJec6Y7RvQ) 
+
+```C++
+void sort(int[] nums, int lo, int hi) {
+    int mid = (lo + hi) / 2;
+    sort(nums, lo, mid);
+    sort(nums, mid + 1, hi);
+
+    /****** 后序遍历位置 ******/
+    // 合并两个排好序的子数组
+    merge(nums, lo, mid, hi);
+    /************************/
+}
+```
+
+4、两数之和、三数之和
+
+参见 labuladong [双指针技巧汇总](https://mp.weixin.qq.com/s/yLc7-CZdti8gEMGWhd0JTg) 
 
 
 
@@ -94,3 +131,8 @@ https://www.khanacademy.org/computing/computer-science/algorithms/merge-sort/a/d
 merge-sort 自己主动就保持了平衡
 
 quick-sort要通过特殊的操作来保持平衡
+
+
+
+
+
