@@ -117,6 +117,8 @@ merge-sort 自己主动就保持了平衡
 
 quick-sort要通过特殊的操作来保持平衡
 
+TODO: unbalanced partition、divide导致的退化
+
 
 
 
