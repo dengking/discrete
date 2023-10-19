@@ -87,25 +87,25 @@ TODO
 
 ### LeetCode
 
-[LeetCode-23. 合并K个升序链表](https://leetcode.cn/problems/merge-k-sorted-lists/)  # 方法三：分治合并
+- [LeetCode-23. 合并K个升序链表](https://leetcode.cn/problems/merge-k-sorted-lists/)  # 方法三：分治合并
 
 自顶向下
 
 
 
-两数之和、三数之和
+- 两数之和、三数之和
 
 参见 labuladong [双指针技巧汇总](https://mp.weixin.qq.com/s/yLc7-CZdti8gEMGWhd0JTg) 
 
 
 
-[LeetCode-213. 打家劫舍 II-中等](https://leetcode.cn/problems/house-robber-ii/) 
+- [LeetCode-213. 打家劫舍 II-中等](https://leetcode.cn/problems/house-robber-ii/) 
 
 题目要求不能抢相邻的，并且题目给出的环形数组，所以就可以分为三种情况:<br>1、`[1, n-2]`<br>2、`[0, n-2]`<br>3、`[1, n-1]`<br>然后从上述三种情况中进行择优录取。
 
 
 
-[LeetCode-321. 拼接最大数-困难](https://leetcode.cn/problems/create-maximum-number/) 
+- [LeetCode-321. 拼接最大数-困难](https://leetcode.cn/problems/create-maximum-number/) 
 
 题目要求从两个数组中共取出k个数，找出最大的数，该算法依次取出所有的k个数，并进行择优录取。
 
