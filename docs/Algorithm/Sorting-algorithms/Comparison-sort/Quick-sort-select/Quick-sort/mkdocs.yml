@@ -1,5 +1,5 @@
 nav:
     - Introduction: index.md
     - Quicksort&BST: Quicksort&BST
-    - Formal-analysis: Formal-analysis
+    - Complexity-analysis: Complexity-analysis
     
