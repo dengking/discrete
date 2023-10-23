@@ -8,25 +8,20 @@
 
 
 
-## 二、Divide and conquer、原问题和子问题
+## 二、Divide and conquer
 
-这是非常重要的解决问题的思路，参见 `Divide-and-Conquer` 章节
-
-### 重叠子问题
-
-对于重叠子问题，我们可以将它们的解保存下来，用于后续的使用，从而提高性能。
-
-1、重叠子问题，参见 `Overlapping-subproblem` 章节
-
-2、"time and space tradeoff"，参见 `Space-time-tradeoff` 章节
+参见 `Divide-and-Conquer&Recurrence-relation&Recursion` 章节 
 
 
 
 ## 三、time and space tradeoff
 
+参见 `Space-time-tradeoff` 章节
 
 
-## 其他素材
+
+## Draft
 
 1、labuladong [数据结构和算法学习指南](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247484852&idx=1&sn=85b50b8b0470bb4897e517955f4e5002&scene=21#wechat_redirect)
 
+2、很多algorithm，其实都是基于解空间、原问题和子问题而构建的

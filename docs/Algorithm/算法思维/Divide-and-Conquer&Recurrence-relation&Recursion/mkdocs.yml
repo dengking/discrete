@@ -1,0 +1,6 @@
+nav:
+    - Introduction: index.md
+    - Divide-and-conquer: Divide-and-conquer
+    - Recurrence-relation: Recurrence-relation
+    - Recursion: Recursion  
+    - Complexity-analysis: Complexity-analysis
