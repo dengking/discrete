@@ -14,5 +14,39 @@ quick select正好可以将数组按照pivot分为两部分，然后将前后两
 
 
 
+### sort
+
+首先将数组$nums$进行排序，对于每个奇数位的数$nums[i]$，交换它和它后面的一个元素$nums[i+1]$。
+
+```c++
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+class Solution
+{
+public:
+    void wiggleSort(vector<int> &nums)
+    {
+        std::sort(nums.begin(), nums.end());
+        for (int i = 1; i < nums.size() - 1; i += 2)
+        {
+            std::swap(nums[i], nums[i + 1]);
+        }
+    }
+};
+
+int main()
+{
+}
+```
+
+
+
+### quickSelct
+
+
+
 ## [LeetCode-324. Wiggle Sort II-Middle](https://leetcode.cn/problems/wiggle-sort-ii/)
 
