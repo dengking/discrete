@@ -30,6 +30,7 @@ level order
 
 [transitive relation](https://en.wikipedia.org/wiki/Transitive_relation)
 
+
 四、在数组中的存储方式
 
 geeksforgeeks [Building Heap from Array](https://www.geeksforgeeks.org/building-heap-from-array/) 
@@ -37,6 +38,10 @@ geeksforgeeks [Building Heap from Array](https://www.geeksforgeeks.org/building-
 > *Also, the array representation of the complete binary tree contains the level order traversal of the tree.*
 
 按照level的方式，自左到右、自上而下顺序存储于array中。
+
+array index 0
+
+array index 1
 
 五、
 
