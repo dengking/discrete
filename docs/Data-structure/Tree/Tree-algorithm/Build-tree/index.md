@@ -18,15 +18,25 @@
 
 树构造模型非常重要，在很多地方都有广泛运用。
 
-## TODO
 
- 结合案例来进行说明：
 
-自顶向下的案例包括：
+## Top-down
 
-- 生成nav tree
+一、divide-and-conquer
 
-自底向上的案例包括：
+[LeetCode-108. Convert Sorted Array to Binary Search Tree-Easy](https://leetcode.cn/problems/convert-sorted-array-to-binary-search-tree/) 
 
-- shift-reduce parsing
+quick-sort
+
+二、生成nav tree
+
+
+
+## Bottom-up
+
+一、shift-reduce parsing
+
+二、wikipedia [Huffman coding](https://en.wikipedia.org/wiki/Huffman_coding)
+
+
 
