@@ -76,7 +76,7 @@ Quicksort's divide-and-conquer formulation makes it amenable to [parallelization
 
 > NOTE: 
 >
-> 一、quick sort隐式地构造了一颗BST
+> 一、quick sort隐式地构造了一颗BST，更多内容参见 `Quicksort&BST` 章节
 
 An often desirable property of a [sorting algorithm](https://en.wikipedia.org/wiki/Sorting_algorithm) is **stability** – that is the order of elements that compare equal is not changed, allowing controlling order of multikey tables (e.g. directory or folder listings) in a natural way. This property is hard to maintain for in situ（原位） (or in place) quicksort (that uses only constant additional space for pointers and buffers, and *O*(log *n*) additional space for the management of explicit or implicit recursion). For variant quicksorts involving extra memory due to representations using pointers (e.g. lists or trees) or files (effectively lists), it is trivial to maintain stability. The more complex, or disk-bound, data structures tend to increase time cost, in general making increasing use of virtual memory or disk.
 

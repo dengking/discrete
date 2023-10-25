@@ -1,4 +1,4 @@
-# Quicksort && BST
+# Quicksort & BST
 
 正如 wikipedia [Quicksort](https://en.wikipedia.org/wiki/Quicksort) 中所总结的:
 
