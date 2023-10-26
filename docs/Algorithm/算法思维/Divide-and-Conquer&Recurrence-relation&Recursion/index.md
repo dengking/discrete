@@ -77,6 +77,10 @@ $$
 
 wikipedia [快速排序](https://en.wikipedia.org/wiki/Quicksort) 
 
+#### Segment tree
+
+和merge sort非常类似
+
 
 
 ### [External sorting](https://en.wanweibaike.com/wiki-External%20sorting)
@@ -119,7 +123,9 @@ quick-sort要通过特殊的操作来保持平衡
 
 TODO: unbalanced partition、divide导致的退化
 
+TODO: 构建树的时候保持balanced的方式
 
+union-find set中保持balanced的方式
 
 
 
