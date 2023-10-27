@@ -8,6 +8,10 @@
 
 
 
+[LeetCode-129. Sum Root to Leaf Numbers-middle](https://leetcode.cn/problems/sum-root-to-leaf-numbers/)
+
+本质上是类似的。
+
 ## [LeetCode-112. Path Sum-easy](https://leetcode.cn/problems/path-sum/)
 
 
@@ -577,4 +581,50 @@ int main() {
 // g++ test.cpp --std=c++11 -pedantic -Wall -Wextra
 
 ```
+
+
+
+## [129. Sum Root to Leaf Numbers-middle](https://leetcode.cn/problems/sum-root-to-leaf-numbers/)
+
+```c++
+
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+
+    TreeNode() : val(0), left(nullptr), right(nullptr) {}
+
+    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+
+    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+};
+
+class Solution {
+    int sum_{0};
+public:
+    int sumNumbers(TreeNode *root) {
+        dfs(root, 0);
+        return sum_;
+    }
+
+private:
+    void dfs(TreeNode *root, int pathSum) {
+        if (root == nullptr) {
+            return;
+        }
+        pathSum = pathSum * 10 + root->val;
+        if (root->left == nullptr && root->right == nullptr) {
+            sum_ += pathSum;
+            return;
+        }
+
+        dfs(root->left, pathSum);
+        dfs(root->right, pathSum);
+    }
+};
+
+```
+
+上述写法让我想到了Huffman coding tree。
 
