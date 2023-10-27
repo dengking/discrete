@@ -74,7 +74,7 @@ parent pointer: bottom-up、stop condition: root node
 
 
 
-## segment tree、heap
+## segment tree、binary heap
 
 
 
@@ -84,11 +84,15 @@ segment tree是perfect-binary-tree
 
 程序设计大赛
 
+两者都是array-based data structure
+
+两者的数学关系相同
+
 
 
 ## 基于数学的data structure
 
-一、binary heap的parent、children关系基于简单的数学
+一、binary heap、segment tree的parent、children关系基于简单的数学
 
 二、hash table将映射关系使用一个简单的hash function来保存
 

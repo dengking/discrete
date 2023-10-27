@@ -38,5 +38,6 @@ quick-sort
 
 二、wikipedia [Huffman coding](https://en.wikipedia.org/wiki/Huffman_coding)
 
+tag-bottom-up-先构造leaf node-两两合并-然后root node
 
-
+tag-recursive binary bottom up 2-way merge build binary tree 自底向上递归两两合并构建二叉树
