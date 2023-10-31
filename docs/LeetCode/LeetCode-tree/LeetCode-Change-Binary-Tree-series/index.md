@@ -23,14 +23,23 @@ struct TreeNode {
 class Solution {
 public:
     TreeNode *upsideDownBinaryTree(TreeNode *root) {
-        TreeNode *newRoot = root->left;
-        newRoot->left = root->right;
-        newRoot->right = root;
-
-        upsideDownBinaryTree(root->left);
-        upsideDownBinaryTree(root->right);
+        if (root == nullptr) {
+            return nullptr;
+        }
+        if (!root->left) {
+            return root;
+        }
+        TreeNode *left = root->left, *right = root->right;
+        TreeNode *newRoot = upsideDownBinaryTree(left);
+        left->left = right;
+        left->right = root;
+        // 必须要设置为nullptr，否则会发生undefined behavior: use after free，即访问野指针
+        root->left = nullptr;
+        root->right = nullptr;
+        return newRoot;
     }
 };
+
 ```
 
 
