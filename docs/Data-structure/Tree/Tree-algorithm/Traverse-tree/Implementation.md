@@ -40,7 +40,7 @@
 >
 > - 迭代版本
 >
-> 2、为了便于理解，下面的例子，都已这个tree进行测试
+> 2、为了便于理解，下面的例子，都以这个tree进行测试
 >
 > ![](./example-tree.jpg)
 
@@ -417,9 +417,9 @@ iterativeInorder(node)
 > 2、对于每个node，只要它不是null，都需要首先将它push到explicit stack中，然后去access它的left node(迭代)，这对应的是:
 >
 > ```pseudocode
->  if (node ≠ null) # 继续深入
->    s.push(node)
->    node ← node.left # 迭代
+> if (node ≠ null) # 继续深入
+> s.push(node)
+> node ← node.left # 迭代
 > ```
 >
 > 3、由于迭代体中，总是push left node，这样就可能将leaf node的"left child"即一个**null pointer** push到**explicit stack**中；对于一个leaf node，它的children都是null，这是一个非常重要的特征，可以据此来判断是否已经到达了leaf node，一旦current node是null，这就说明当前explicit stack的top是需要进行visit的node；因此，当while的迭代体中，发现node是null的时候，则说明已经到达了leaf node，因此就可以开始visit了；
@@ -427,9 +427,9 @@ iterativeInorder(node)
 > 4、只有当一个node没有left node或者它的left node已经visit过了，它才能够被visit，然后再去visit它的right node，这对应的是:
 >
 > ```pseudocode
->    node ← s.pop()
->    visit(node)
->    node ← node.right
+> node ← s.pop()
+> visit(node)
+> node ← node.right
 > ```
 >
 > 
@@ -439,7 +439,7 @@ iterativeInorder(node)
 > 案例:
 >
 > ```C++
->    1
+> 1
 > ```
 >
 > 最最简单的情况: 单个node
@@ -455,9 +455,9 @@ iterativeInorder(node)
 > 案例: 
 >
 > ```
->      4
->    /   \
->  3       5       
+>    4
+>  /   \
+> 3     5       
 > ```
 >
 > 
@@ -477,11 +477,11 @@ iterativeInorder(node)
 > 案例:
 >
 > ```
->       5
->     /
->   3
->     \
->       4
+>    5
+>  /
+> 3
+>  \
+>    4
 > ```
 >
 > 
@@ -583,6 +583,8 @@ iterativeInorder(node)
 > // g++ test.cpp
 > 
 > ```
+>
+> 四、[LeetCode-173. Binary Search Tree Iterator-Middle](https://leetcode.cn/problems/binary-search-tree-iterator/)
 >
 > 
 
