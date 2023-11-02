@@ -1,4 +1,3 @@
 nav:
     - Introduction: index.md
-    - LeetCode-297-二叉树的序列化与反序列化-困难: LeetCode-297-二叉树的序列化与反序列化-困难    
     #- LeetCode-331-验证二叉树的前序序列化: LeetCode-331-验证二叉树的前序序列化

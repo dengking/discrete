@@ -1,5 +1,7 @@
 # [LeetCode-99. 恢复二叉搜索树](https://leetcode.cn/problems/recover-binary-search-tree/)
 
+阅读 labuladong [原创 | 手把手刷二叉搜索树（第二期）](https://mp.weixin.qq.com/s/SuGAvV9zOi4viaeyjWhzDw) 时发现的这道题。
+
 
 
 ## [官方解题](https://leetcode.cn/problems/recover-binary-search-tree/solution/hui-fu-er-cha-sou-suo-shu-by-leetcode-solution/)

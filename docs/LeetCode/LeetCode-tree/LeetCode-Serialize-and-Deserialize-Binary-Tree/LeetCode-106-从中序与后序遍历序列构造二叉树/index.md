@@ -1,5 +1,7 @@
 # [LeetCode-106. 从中序与后序遍历序列构造二叉树](https://leetcode.cn/problems/construct-binary-tree-from-inorder-and-postorder-traversal/) 中等
 
+阅读 labuladong [东哥手把手帮你刷通二叉树|第二期](https://mp.weixin.qq.com/s/OlpaDhPDTJlQ5MJ8tsARlA) 时，发现的这道题。
+
 ## 我的解题
 
 

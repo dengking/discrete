@@ -1,5 +1,7 @@
 # [LeetCode-297. 二叉树的序列化与反序列化](https://leetcode.cn/problems/serialize-and-deserialize-binary-tree/) 困难
 
+这是在阅读 labuladong [二叉树的题，就那几个框架，枯燥至极](https://mp.weixin.qq.com/s/DVX2A1ha4xSecEXLxW_UsA) 时发现的。
+
 
 
 ## 我的解题
@@ -80,4 +82,8 @@ public:
 // Codec codec;
 // codec.deserialize(codec.serialize(root));
 ```
+
+
+
+## [LeetCode-剑指 Offer 37. 序列化二叉树](https://leetcode.cn/problems/xu-lie-hua-er-cha-shu-lcof/)
 
