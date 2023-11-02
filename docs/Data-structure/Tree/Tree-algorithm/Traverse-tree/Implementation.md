@@ -22,7 +22,7 @@
 >   while (not s.isEmpty())
 > ```
 >
-> 这是因为`iterativePreorder` 在while开始之前，就将确定的root node push到了explicit stack中；`iterativePostorder` 和 `iterativeInorder` 不能这样做的原因是: 它们无法先access parent node。
+> 这是因为`iterativePreorder` 在while开始之前，就将确定的root node push到了explicit stack中(这一点和BFS tree的写法非常类似)；`iterativePostorder` 和 `iterativeInorder` 不能这样做的原因是: 它们无法先access parent node。
 >
 > 4、循环体中的`if (node ≠ null)`和迭代版本中的`if (node ≠ null)`是对应的
 >
