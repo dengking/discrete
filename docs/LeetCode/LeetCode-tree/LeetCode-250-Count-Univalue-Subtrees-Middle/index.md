@@ -18,35 +18,50 @@ struct TreeNode {
 };
 
 class Solution {
+    int cnt_{0};
 public:
     int countUnivalSubtrees(TreeNode *root) {
-        if (root == nullptr) {
-            return 0;
-        }
-        if (!root->left && !root->right) { // leaf node
-            return 1;
-        }
-        return countUnivalSubtreesImpl(root->left) + countUnivalSubtreesImpl(root->right);
+        countUnivalSubtreesImpl(root);
+        return cnt_;
     }
 
-public:
-    int countUnivalSubtreesImpl(TreeNode *root) {
+private:
+    bool countUnivalSubtreesImpl(TreeNode *root) {
         if (root == nullptr) {
-            return 0;
+            return true;
         }
         if (!root->left && !root->right) { // leaf node
-            return 1;
+            ++cnt_;
+            return true;
         }
-        int leftCnt = countUnivalSubtrees(root->left);
-        int rightCnt = countUnivalSubtrees(root->right);;
-        if (root->left && root->left->val == root->val) {
-
-            ++leftCnt;
+        bool isLeftSubtreeUnival = countUnivalSubtreesImpl(root->left);
+        bool isRightSubtreeUnival = countUnivalSubtreesImpl(root->right);
+        if (root->left && !root->right) { // 只有左子树
+            if (root->left->val == root->val && isLeftSubtreeUnival) {
+                ++cnt_;
+                return true;
+            } else {
+                return false;
+            }
         }
-        if (root->right && root->right->val == root->val) {
-            ++rightCnt;
+        if (!root->left && root->right) { // 只有右子树
+            if (root->right->val == root->val && isRightSubtreeUnival) {
+                ++cnt_;
+                return true;
+            } else {
+                return false;
+            }
         }
-        return leftCnt + rightCnt;
+        if (root->left && root->right) {
+            if (root->left->val == root->val && root->right->val == root->val
+                && isLeftSubtreeUnival && isRightSubtreeUnival) {
+                ++cnt_;
+                return true;
+            } else {
+                return false;
+            }
+        }
+        return false;
     }
 };
 
