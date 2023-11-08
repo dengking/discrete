@@ -4,7 +4,7 @@
 >
 > 一、"interval"、"segment"即"区间"，在segment tree中，区间对应的是数组下标的区间，这一点，可以从下面的图中看出，所以在`buildSegTree`中它的两个入参分别是`lo`、`hi` 
 >
-> 二、这篇文章中有一个需要说明的点: 它其实是使用perfect binary tree来存储segment tree的
+> 二、这篇文章中有一个需要说明的点: 它其实是使用 perfect binary tree 来存储 segment tree 的
 >
 > 三、segment tree必然是bottom-up+return-value模式
 >
@@ -18,7 +18,7 @@
 >
 > 存储方式、逻辑结构
 >
-> tree index 和 segment index是一一对应的，这在构建segment tree的时候就已经确定好了，后面的所有操作都是按照这个固定的关系运行的，所以每个函数的如此肯定会带上
+> tree index 和 segment index是一一对应的，这在构建segment tree的时候就已经确定好了，后面的所有操作都是按照这个固定的关系运行的，所以每个函数的 **入参** 肯定会带上
 >
 > ```c++
 > treeIndex
@@ -274,7 +274,7 @@ void updateValSegTree(int treeIndex, int lo, int hi, int arrIndex, int val)
 >
 > 一、`lo`、`hi` 不断地向 `arrIndex` 逼近，直至 `lo == hi == arrIndex` 成立，执行更新；需要注意的是: 最后还要执行 "merge updates" 操作，这是post action；
 >
-> 上述程序非常类似于binary search，需要知道arrIndex属于哪棵子树；
+> 上述程序非常类似于binary search，需要知道 `arrIndex` 属于哪棵子树；
 >
 > 通过上述程序，其实能够加深对binary search的理解；
 
