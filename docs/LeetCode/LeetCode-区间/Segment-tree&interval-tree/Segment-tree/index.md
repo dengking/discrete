@@ -14,7 +14,7 @@ interval=区间
 
 
 
-三、线段树是否只能够处理离散的点
+三、线段树是否只能够处理离散的点？使用segment tree之前需要考虑如何定义区间，最最典型的例子是range sum query，它是基于array的，它的range是array index。
 
 sweep line algorithm也是将line segment离散化后进行处理的
 
@@ -28,11 +28,25 @@ sweep line algorithm也是将line segment离散化后进行处理的
 
 1、segment tree不需要考虑balanced的问题，因为它的一分为二是等分，并且它是perfect-binary-tree。
 
-2、segment tree是典型的一分为二(top-down-pre-order-action)然后两两组和(bottom-up-post-order-action)，它是dfs recursion的典型的模板，这一点它和merge sort非常类似。
+2、segment tree是典型的一分为二(top-down-pre-order-action)+两两合并(bottom-up-post-order-action)，它是dfs recursion的典型的模板，这一点它和merge sort非常类似。所以segment tree是left、right是相同的
+
+![img](https://media.geeksforgeeks.org/wp-content/cdn-uploads/segment-tree1.png)
+
+参考自: geeksforgeeks [Lazy Propagation in Segment Tree](https://www.geeksforgeeks.org/lazy-propagation-in-segment-tree/)
+
+
 
 3、理解它的最最简单的case就是由四个元素组成的array。
 
+五、
 
+a、build
+
+b、update
+
+1、element update
+
+2、range update
 
 ## wikipedia [Segment tree](https://en.wikipedia.org/wiki/Segment_tree)
 
@@ -52,7 +66,7 @@ In [computer science](https://en.wikipedia.org/wiki/Computer_science), a **segme
 
 > NOTE:
 >
-> 一、构建方式: 自底向上+两两合并
+> 一、构建方式: 一分为二(top-down-pre-order-action)+两两合并(bottom-up-post-order-action)
 
 Let *S* be a set of intervals, or segments. Let *p*1, *p*2, ..., *pm* be the list of distinct interval endpoints, sorted from left to right. Consider the partitioning of the real line induced by those points. The regions of this partitioning are called *elementary intervals*. Thus, the elementary intervals are, from left to right:
 $$
@@ -117,6 +131,10 @@ zhihu [数据结构学习笔记(5)动态开点线段树](https://zhuanlan.zhihu.
 
 
 二、lazy propagation
+
+geeksforgeeks [Lazy Propagation in Segment Tree](https://www.geeksforgeeks.org/lazy-propagation-in-segment-tree/)
+
+[LeetCode-segment tree](https://leetcode.com/tag/segment-tree/) 
 
 
 

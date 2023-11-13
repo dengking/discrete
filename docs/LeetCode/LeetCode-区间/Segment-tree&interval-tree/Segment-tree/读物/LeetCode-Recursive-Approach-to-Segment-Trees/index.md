@@ -6,15 +6,15 @@
 >
 > 二、这篇文章中有一个需要说明的点: 它其实是使用 perfect binary tree 来存储 segment tree 的
 >
-> 三、segment tree必然是bottom-up+return-value模式
+> 三、segment tree必然是 divide&conquer&merge 模式: 先**一分为二**然后**两两合并**
 >
 > 四、
 >
 > segment index
 >
-> range index 
+> range index(`lo`、`hi`) 
 >
-> tree index: current node
+> tree index: current node、root node
 >
 > 存储方式、逻辑结构
 >
@@ -26,7 +26,9 @@
 > hi
 > ```
 >
-> 
+> 作者是按照 segment tree-range query 的方式来命名的。
+>
+> 和大多数tree algorithm一样，segment tree的入参肯定会包含root node，在本文中，函数的第一个入参 `treeIndex` 就表示root node。
 
 ### What is a Segment Tree?
 
@@ -48,7 +50,7 @@ Segment Trees have applications in areas of computational geometry and [geograph
 >
 > "段树在计算几何和地理信息系统领域有应用。例如，我们可能在距中心参考/原点一定距离的空间中有大量点。假设我们必须查找距原点一定距离范围内的点。一个普通的查找表需要对所有可能的点或所有可能的距离进行线性扫描（想想哈希图）。 Segment Trees 让我们在对数时间内以更少的空间成本实现这一目标。这样的问题称为平面范围搜索。有效解决此类问题至关重要，尤其是在处理快速且不可预测的动态数据时（例如，用于空中交通的雷达系统）"。
 >
-> 二、上述例子的具体实现方式
+> 二、上面提及的 [Planar Range Searching](https://en.wikipedia.org/wiki/Range_searching) 要如何实现呢？ 在 [wikipedia-Planar Range Searching](https://en.wikipedia.org/wiki/Range_searching) 中提及了 [Range tree](https://en.wikipedia.org/wiki/Range_tree) 。
 
 We will solve the [Range Sum Query problem](https://leetcode.com/articles/a-recursive-approach-to-segment-trees-range-sum-queries-lazy-propagation/#range-sum-queries) later in this editorial as an example of how Segment Trees help us save loads on runtime costs.
 
@@ -119,7 +121,7 @@ void buildSegTree(vector<int>& arr, int treeIndex, int lo, int hi)
 >
 > 1、一般构建一个tree的函数都会返回root node，但是上述函数却没有，这是因为它将tree存储于array中，
 >
-> 2、segment是二分、`treeIndex`是按照binary heap的方式
+> 2、segment tree是二分、`treeIndex`是按照binary heap的方式
 >
 > 二、tags
 >
@@ -276,7 +278,7 @@ void updateValSegTree(int treeIndex, int lo, int hi, int arrIndex, int val)
 >
 > 上述程序非常类似于binary search，需要知道 `arrIndex` 属于哪棵子树；
 >
-> 通过上述程序，其实能够加深对binary search的理解；
+> 通过上述程序，其实能够加深对 binary search 的理解；
 
 This is similar to `buildSegTree`. We update the value of the leaf node of our tree which corresponds to the updated element. Later the changes are propagated through the upper levels of the tree straight to the root.
 
@@ -287,8 +289,6 @@ In this example, element at indexes (in original input data) `1`,`3` and `6` are
 
 
 ### Complexity Analysis
-
-
 
 Let's take a look at the `build` process. We visit each leaf of the **segment tree** (corresponding to each element in our array `arr[]`). That makes *n* leaves. Also there will be *n*−1 internal nodes. So we process about $2∗n$ nodes. This makes the build process run in $O(n)$ linear complexity.
 
@@ -340,6 +340,8 @@ Till now we have been updating single elements only. That happens in logarithmic
 
 But what if we had to update a *range* of elements? By our current method, each of the elements would have to be updated independently, each incurring some run time cost.
 
+#### Ancestral locality
+
 The construction of a tree poses another issue called *ancestral locality*. Ancestors of adjacent leaves are guaranteed to be common at some levels of the tree. Updating each of these leaves individually would mean that we process their common ancestors multiple times. What if we could reduce this repetitive computation?
 
 
@@ -368,7 +370,7 @@ We use another array `lazy[]` which is the same size as our **segment tree array
 
 > NOTE:
 >
-> 一、`update` 的时候仅仅将更新的值放到 `lazy` 数组中，等node实际被access的时候才执行更新
+> 一、`update` 的时候仅仅将更新的值放到 `lazy` 数组中，等 node 实际被 access 的时候才执行更新
 
 #### 1. Updating a range lazily
 
@@ -429,3 +431,56 @@ This is a two step process:
 1、Normalize the current node by removing laziness. This step is the same as the `update` step.
 
 2、Recurse for the children as you would normally to find appropriate segments which fit in queried range.
+
+
+
+```c++
+int queryLazySegTree(int treeIndex, int lo, int hi, int i, int j)
+{
+    // query for arr[i..j]
+
+    if (lo > j || hi < i)                                   // segment completely outside range
+        return 0;                                           // represents a null node
+
+    if (lazy[treeIndex] != 0) {                             // this node is lazy
+        tree[treeIndex] += (hi - lo + 1) * lazy[treeIndex]; // normalize current node by removing laziness
+
+        if (lo != hi) {                                     // update lazy[] for children nodes
+            lazy[2 * treeIndex + 1] += lazy[treeIndex];
+            lazy[2 * treeIndex + 2] += lazy[treeIndex];
+        }
+
+        lazy[treeIndex] = 0;                                // current node processed. No longer lazy
+    }
+
+    if (i <= lo && j >= hi)                                 // segment completely inside range
+        return tree[treeIndex];
+
+    int mid = lo + (hi - lo) / 2;                           // partial overlap of current segment and queried range. Recurse deeper.
+
+    if (i > mid)
+        return queryLazySegTree(2 * treeIndex + 2, mid + 1, hi, i, j);
+    else if (j <= mid)
+        return queryLazySegTree(2 * treeIndex + 1, lo, mid, i, j);
+
+    int leftQuery = queryLazySegTree(2 * treeIndex + 1, lo, mid, i, mid);
+    int rightQuery = queryLazySegTree(2 * treeIndex + 2, mid + 1, hi, mid + 1, j);
+
+    // merge query results
+    return leftQuery + rightQuery;
+}
+// call this method as queryLazySegTree(0, 0, n-1, i, j);
+// Here [i,j] is the range/interval you are querying.
+// This method relies on "null" nodes being equivalent to storing zero.
+```
+
+
+
+```c++
+tree[treeIndex] += (hi - lo + 1) * lazy[treeIndex]; // normalize current node by removing laziness
+// and
+tree[treeIndex] += (hi - lo + 1) * val; // update segment
+// and
+tree[treeIndex] = tree[2 * treeIndex + 1] + tree[2 * treeIndex + 2]; // merge updates
+```
+
