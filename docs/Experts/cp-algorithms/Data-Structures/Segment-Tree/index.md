@@ -217,7 +217,9 @@ Several typical applications of this data structure are described below. It is w
 
 > NOTE:
 >
-> 一、geeksforgeeks [Two Dimensional Segment Tree | Sub-Matrix Sum](https://www.geeksforgeeks.org/two-dimensional-segment-tree-sub-matrix-sum/) 
+> 一、补充内容:
+>
+> geeksforgeeks [Two Dimensional Segment Tree | Sub-Matrix Sum](https://www.geeksforgeeks.org/two-dimensional-segment-tree-sub-matrix-sum/) 
 
 A **Segment Tree** can be generalized quite natural to higher dimensions. If in the one-dimensional case we split the indices of the array into **segments**, then in the two-dimensional we make an ordinary **Segment Tree** with respect to the first indices, and for each segment we build an ordinary **Segment Tree** with respect to the second indices.
 
@@ -263,6 +265,16 @@ void build_x(int vx, int lx, int rx) {
     build_y(vx, lx, rx, 1, 0, m-1);
 }
 ```
+
+> NOTE:
+>
+> 一、使用 geeksforgeeks [Two Dimensional Segment Tree | Sub-Matrix Sum](https://www.geeksforgeeks.org/two-dimensional-segment-tree-sub-matrix-sum/) 中图示的立体的segment tree来理解上述内容 
+>
+> 首先是单行创建segment tree、然后
+>
+> `build_x` 也是先一分为二、然后两两合并
+>
+> 
 
 Such a **Segment Tree** still uses a linear amount of memory, but with a larger constant: $16 n m$ . It is clear that the described procedure $\text{build}_x$  also works in linear time.
 
