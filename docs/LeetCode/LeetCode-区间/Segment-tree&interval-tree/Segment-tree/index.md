@@ -6,7 +6,7 @@ segment=线段
 
 interval=区间
 
-
+借助segment tree，可以实现关于区间统计的一类问题。
 
 二、
 
