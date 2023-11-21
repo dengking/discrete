@@ -270,9 +270,13 @@ void build_x(int vx, int lx, int rx) {
 >
 > 一、使用 geeksforgeeks [Two Dimensional Segment Tree | Sub-Matrix Sum](https://www.geeksforgeeks.org/two-dimensional-segment-tree-sub-matrix-sum/) 中图示的立体的segment tree来理解上述内容 
 >
-> 首先是单行创建segment tree、然后
+> ![](pic-1-matrix.png) 
 >
-> `build_x` 也是先一分为二、然后两两合并
+> ![](pic-2-2d-segment-tree.png)
+>
+> 1、首先是单行创建segment tree、然后在第一步的基础上两两合并
+>
+> 2、`build_x` 也是先一分为二、然后两两合并
 >
 > 
 
@@ -308,7 +312,4 @@ This function works in $O(\log n \log m)$  time, since it first descends the t
 
 ##### Modify
 
-Finally we consider the modification query. We want to learn how to modify the Segment Tree in accordance with the change in the value of some element $a[x][y] = p$ . It is clear, that the changes will occur only in those vertices of the first Segment Tree that cover the coordinate $x$  (and such will be
-$O(\log n)$ ), and for Segment Trees corresponding to them the changes will only occurs at those vertices that covers the coordinate  
-$y$  (and such will be  
-$O(\log m)$ ). Therefore the implementation will be not very different form the one-dimensional case, only now we first descend the first coordinate, and then the second.
+Finally we consider the modification query. We want to learn how to modify the Segment Tree in accordance with the change in the value of some element $a[x][y] = p$ . It is clear, that the changes will occur only in those vertices of the first Segment Tree that cover the coordinate $x$  (and such will be $O(\log n)$ ), and for Segment Trees corresponding to them the changes will only occurs at those vertices that covers the coordinate  $y$  (and such will be  $O(\log m)$ ). Therefore the implementation will be not very different form the one-dimensional case, only now we first descend the first coordinate, and then the second.
