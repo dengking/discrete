@@ -32,7 +32,7 @@
 >
 > build segment tree的时候的range idx: lo, hi
 >
-> query segment tree的时候的range idx: i, j(不实用left、right的原因是为了避免和tree的left child、right child重复)
+> query segment tree(range)的时候的range idx: i, j(不实用left、right的原因是为了避免和tree的left child、right child重复)
 >
 > 和大多数tree algorithm一样，segment tree的入参肯定会包含root node，在本文中，函数的第一个入参 `treeIndex` 就表示root node。
 >

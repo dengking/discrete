@@ -126,94 +126,68 @@ reference operator[]( size_type pos );
 
 
 ```c++
-#include <unordered_map>
-#include <iostream>
-#include <format>
 #include <vector>
+
 using namespace std;
 
-class NumArray
-{
-    vector<int> segmentTree_;
-    int length;
-
-private:
-    void buildSegmentTree(vector<int> &nums, int treeIndex, int segmentLowIndex, int segmentHighIndex)
-    {
-        if (segmentLowIndex == segmentHighIndex)
-        {
-            segmentTree_[treeIndex] = nums[segmentLowIndex];
-            return;
-        }
-        int mid = segmentLowIndex + (segmentHighIndex - segmentLowIndex) / 2;
-        buildSegmentTree(nums, treeIndex * 2 + 1, segmentLowIndex, mid);
-        buildSegmentTree(nums, treeIndex * 2 + 2, mid + 1, segmentHighIndex);
-        segmentTree_[treeIndex] = segmentTree_[treeIndex * 2 + 1] + segmentTree_[treeIndex * 2 + 2];
-    }
-
-    static inline bool isSegmentInsideRange(int segmentLowIndex, int segmentHighIndex, int rangeLeftIndex, int rangeRightIndex)
-    {
-        return rangeLeftIndex <= segmentLowIndex && rangeRightIndex >= segmentHighIndex;
-    }
-
-    int querySegmentTree(int treeIndex, int segmentLowIndex, int segmentHighIndex, int rangeLeftIndex, int rangeRightIndex)
-    {
-        if (rangeLeftIndex > segmentHighIndex || rangeRightIndex < segmentLowIndex)
-        {
-            return 0;
-        }
-        if (isSegmentInsideRange(segmentLowIndex, segmentHighIndex, rangeLeftIndex, rangeRightIndex))
-        {
-            return segmentTree_[treeIndex];
-        }
-        int segmentMidIndex = segmentLowIndex + (segmentHighIndex - segmentLowIndex) / 2;
-        if (rangeLeftIndex > segmentMidIndex) // 位于右子树
-        {
-            return querySegmentTree(treeIndex * 2 + 2, segmentMidIndex + 1, segmentHighIndex, rangeLeftIndex, rangeRightIndex);
-        }
-        else if (rangeRightIndex <= segmentMidIndex) // 位于左子树
-        {
-            return querySegmentTree(treeIndex * 2 + 1, segmentLowIndex, segmentMidIndex, rangeLeftIndex, rangeRightIndex);
-        }
-        else
-        {
-            return querySegmentTree(treeIndex * 2 + 1, segmentLowIndex, segmentMidIndex, rangeLeftIndex, segmentMidIndex) +
-                   querySegmentTree(treeIndex * 2 + 2, segmentMidIndex + 1, segmentHighIndex, segmentMidIndex + 1, rangeRightIndex);
-        }
-    }
+class RangSumSegmentTree {
+    std::vector<int> tree_;
+    const std::vector<int> &nums_;
 
 public:
-    NumArray(vector<int> &nums)
-    {
-        length = nums.size();
-        segmentTree_.resize(length * 4);
-        buildSegmentTree(nums, 0, 0, length - 1);
+    RangSumSegmentTree(const std::vector<int> &nums) : nums_(nums), tree_(nums.size() * 4) {
+        buildTree(0, 0, nums_.size() - 1);
     }
 
-    int sumRange(int left, int right)
-    {
-        return querySegmentTree(0, 0, length - 1, left, right);
+    int query(int left, int right) {
+        return query(0, 0, nums_.size() - 1, left, right);
+    }
+
+private:
+    void buildTree(int root, int lo, int hi) {
+        if (lo == hi) {
+            tree_[root] = nums_[lo];
+        } else {
+            int mid = lo + (hi - lo) / 2;
+            int left = root * 2 + 1;
+            int right = root * 2 + 2;
+            buildTree(left, lo, mid);
+            buildTree(right, mid + 1, hi);
+            tree_[root] = tree_[left] + tree_[right];
+        }
+    }
+
+    int query(int root, int lo, int hi, int i, int j) {
+        if (lo > j || hi < i) { // segment completely outside range
+            return 0; // represents a null node
+        } else if (i <= lo && j >= hi) { // segment completely inside range
+            return tree_[root];
+        } else {
+            int mid = lo + (hi - lo) / 2;
+            int left = root * 2 + 1;
+            int right = root * 2 + 2;
+            if (j <= mid) { // 位于左子树
+                return query(left, lo, mid, i, j);
+            } else if (i > mid) { // 位于右子树
+                return query(right, mid + 1, hi, i, j);
+            } else {
+                return query(left, lo, mid, i, mid) + query(right, mid + 1, hi, mid + 1, j);
+            }
+        }
     }
 };
 
-/**
- * Your NumArray object will be instantiated and called as such:
- * NumArray* obj = new NumArray(nums);
- * int param_1 = obj->sumRange(left,right);
- */
+class NumArray {
+    RangSumSegmentTree segmentTree_;
+public:
+    NumArray(vector<int> &nums) : segmentTree_{nums} {
 
-int main()
-{
-    vector<int> nums; // = {-2, 0, 3, -5, 2, -1};
-    nums.push_back(-2);
-    nums.push_back(0);
-    nums.push_back(3);
-    nums.push_back(-5);
-    nums.push_back(2);
-    nums.push_back(-1);
-    NumArray arr(nums);
-    arr.sumRange(0, 2);
-}
+    }
+
+    int sumRange(int left, int right) {
+        return segmentTree_.query(left, right);
+    }
+};
 ```
 
 
