@@ -4,6 +4,8 @@
 >
 > 一、"interval"、"segment"即"区间"，在segment tree中，区间对应的是数组下标的区间，这一点，可以从下面的图中看出，所以在`buildSegTree`中它的两个入参分别是`lo`、`hi` 
 >
+> query的入参: left、right
+>
 > 二、这篇文章中有一个需要说明的点: 它其实是使用 perfect binary tree 来存储 segment tree 的
 >
 > 三、segment tree必然是 divide&conquer&merge 模式: 先**一分为二**然后**两两合并**
@@ -26,9 +28,19 @@
 > hi
 > ```
 >
-> 作者是按照 segment tree-range query 的方式来命名的。
+> 作者是按照 segment tree-range query 的方式来命名的: 
+>
+> build segment tree的时候的range idx: lo, hi
+>
+> query segment tree的时候的range idx: i, j(不实用left、right的原因是为了避免和tree的left child、right child重复)
 >
 > 和大多数tree algorithm一样，segment tree的入参肯定会包含root node，在本文中，函数的第一个入参 `treeIndex` 就表示root node。
+>
+> `tree[0]` 对应的是整个range
+>
+> `tree[1]` 对应的是整个left half range
+>
+> `tree[2]` 对应的是整个right half range
 
 ### What is a Segment Tree?
 
