@@ -278,7 +278,11 @@ void build_x(int vx, int lx, int rx) {
 >
 > 2、`build_x` 也是先一分为二、然后两两合并
 >
-> 
+> 二、思考它的内存分布
+>
+> inner-row(行内): $column\_count \times 4$
+>
+> inter-row (行间): $row\_count \times 4$
 
 Such a **Segment Tree** still uses a linear amount of memory, but with a larger constant: $16 n m$ . It is clear that the described procedure $\text{build}_x$  also works in linear time.
 
