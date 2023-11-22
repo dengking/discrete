@@ -1,10 +1,20 @@
-# cp-algorithms [Segment Tree](https://cp-algorithms.com/data_structures/segment_tree.html)
+# cp-algorithms [Segment Tree](https://cp-algorithms.com/data_structures/segment_tree.html) 
 
-A Segment Tree is a data structure that stores information about array intervals as a tree. This allows answering range queries over an array efficiently, while still being flexible enough to allow quick modification of the array. This includes finding the sum of consecutive array elements $a[l \dots r]$ , or finding the minimum element in a such a range in  $O(\log n)$  time. Between answering such queries, the Segment Tree allows modifying the array by replacing one element, or even changing the elements of a whole subsegment (e.g. assigning all elements  $a[l \dots r]$  to any value, or adding a value to all element in the subsegment).
+A **Segment Tree** is a data structure that stores information about array intervals as a tree. This allows answering range queries over an array efficiently, while still being flexible enough to allow quick modification of the array. This includes finding the sum of consecutive array elements $a[l \dots r]$ , or finding the minimum element in a such a range in  $O(\log n)$  time. Between answering such queries, the **Segment Tree** allows modifying the array by replacing one element, or even changing the elements of a whole subsegment (e.g. assigning all elements  $a[l \dots r]$  to any value, or adding a value to all element in the subsegment).
 
 > NOTE:
 >
 > 一、segment tree是否只能够建立于array之上？
+>
+> 准确来说，只能够建立在支持random access的容器上
+>
+> 二、上面这段话的后半段说明它是支持三种形式的update的:
+>
+> 1、element update
+>
+> 2、range update
+>
+> 
 
 In general, a Segment Tree is a very flexible data structure, and a huge number of problems can be solved with it. Additionally, it is also possible to apply more complex operations and answer more complex queries (see Advanced versions of Segment Trees). In particular the Segment Tree can be easily generalized to larger dimensions. For instance, with a two-dimensional Segment Tree you can answer sum or minimum queries over some subrectangle of a given matrix in only  $O(\log^2 n)$  time.
 
@@ -233,13 +243,23 @@ A matrix $a[0 \dots n-1, 0 \dots m-1]$  is given, and we have to find the sum 
 >
 > 一、$a[0 \dots n-1, 0 \dots m-1]$ 表示matrix是 $m \times n$ 
 
+##### Build
+
 So we build a 2D **Segment Tree**: first the **Segment Tree** using the first coordinate (  $x$ ), then the second (  $y$ ).
 
-To make the construction process more understandable, you can forget for a while that the matrix is two-dimensional, and only leave the first coordinate. We will construct an ordinary one-dimensional **Segment Tree** using only the first coordinate. But instead of storing a number in a segment, we store an entire **Segment Tree**: i.e. at this moment we remember that we also have a second coordinate; but because at this moment the first coordinate is already fixed to some interval   $[l \dots r]$ , we actually work with such a strip   $a[l \dots r, 0 \dots m-1]$  and for it we build a **Segment Tree**.
+To make the construction process more understandable, you can forget for a while that the matrix is two-dimensional, and only leave(留下) the first coordinate. We will construct an ordinary one-dimensional **Segment Tree** using only the first coordinate. But instead of storing a number in a segment, we store an entire **Segment Tree**: i.e. at this moment we remember that we also have a second coordinate; but because at this moment the first coordinate is already fixed to some interval   $[l \dots r]$ , we actually work with such a strip   $a[l \dots r, 0 \dots m-1]$  and for it we build a **Segment Tree**.
 
-Here is the implementation of the construction of a **2D Segment Tree**. It actually represents two separate blocks: the construction of a **Segment Tree** along the $x$  coordinate ( $\text{build}_x$ ), and the $y$  coordinate ( $\text{build}_y$ ). For the leaf nodes in $\text{build}_y$  we have to separate two cases: when the current segment of the first coordinate   $[tlx \dots trx]$  has length 1, and when it has a length greater than one. In the first case, we just take the corresponding value from the matrix, and in the second case we can combine the values of two **Segment Trees** from the left and the right son in the coordinate   $x$ .
+> NOTE:
+>
+> 一、"We will construct an ordinary one-dimensional **Segment Tree** using only the first coordinate. But instead of storing a number in a segment, we store an entire **Segment Tree**"
+>
+> 上面这段话的意思是: 在segment中存储的不是number而是segment tree，这其实就是segment tree of segment tree，关于此可以参见 geeksforgeeks [Two Dimensional Segment Tree | Sub-Matrix Sum](https://www.geeksforgeeks.org/two-dimensional-segment-tree-sub-matrix-sum/) 中图示的立体的segment tree:
+>
+> ![img](https://media.geeksforgeeks.org/wp-content/uploads/Untitled-Diagram-5-1-e1524129806521.png)
 
-##### Build
+Here is the implementation of the construction of a **2D Segment Tree**. It actually represents two separate blocks: the construction of a **Segment Tree** along the $x$  coordinate ( $\text{build}_x$ ), and the $y$  coordinate ( $\text{build}_y$ ). For the leaf nodes in $\text{build}_y$  we have to separate two cases: when the current segment of the first coordinate   $[tlx \dots trx]$  has length 1, and when it has a length greater than one. In the first case, we just take the corresponding value from the matrix, and in the second case we can combine the values of two **Segment Trees** from the left and the right son in the coordinate  $x$ .
+
+
 
 ```c++
 void build_y(int vx, int lx, int rx, int vy, int ly, int ry) {
@@ -276,7 +296,13 @@ void build_x(int vx, int lx, int rx) {
 >
 > 1、首先是单行创建segment tree、然后在第一步的基础上两两合并
 >
-> 2、`build_x` 也是先一分为二、然后两两合并
+> 2、`build_x` 也是先一分为二、然后两两合并: 
+>
+> 在 `build_y(vx, lx, rx, 1, 0, m-1)` 中执行merge
+>
+> 
+>
+> 3、上述是典型的segment  tree of segment tree
 >
 > 二、思考它的内存分布
 >
@@ -291,29 +317,103 @@ Such a **Segment Tree** still uses a linear amount of memory, but with a larger 
 Now we turn to processing of queries. We will answer to the two-dimensional query using the same principle: first break the query on the first coordinate, and then for every reached vertex, we call the corresponding **Segment Tree** of the second coordinate.
 
 ```c++
-int sum_y(int vx, int vy, int tly, int try_, int ly, int ry) {
-    if (ly > ry) 
-        return 0;
-    if (ly == tly && try_ == ry)
-        return t[vx][vy];
-    int tmy = (tly + try_) / 2;
-    return sum_y(vx, vy*2, tly, tmy, ly, min(ry, tmy))
-         + sum_y(vx, vy*2+1, tmy+1, try_, max(ly, tmy+1), ry);
+
+int sum_y(int vx, int vy, int tly, int try_, int ly, int ry)
+{
+	if (ly > ry) // empty case
+		return 0;
+	if (ly == tly && try_ == ry) // base case
+		return t[vx][vy];
+	int tmy = (tly + try_) / 2; // mid
+	// 下面代码将ly、ry沿着tmy分割为两部分，它采用的是简化写法
+	return sum_y(vx, vy * 2, tly, tmy, ly, min(ry, tmy)) // min保证至多为tmy(最大不超过tmy)
+		   +
+		   sum_y(vx, vy * 2 + 1, tmy + 1, try_, max(ly, tmy + 1), ry); // max保证至少为tmy + 1(最小要超过tmy + 1)
 }
 
-int sum_x(int vx, int tlx, int trx, int lx, int rx, int ly, int ry) {
-    if (lx > rx)
-        return 0;
-    if (lx == tlx && trx == rx)
-        return sum_y(vx, 1, 0, m-1, ly, ry);
-    int tmx = (tlx + trx) / 2;
-    return sum_x(vx*2, tlx, tmx, lx, min(rx, tmx), ly, ry)
-         + sum_x(vx*2+1, tmx+1, trx, max(lx, tmx+1), rx, ly, ry);
+int sum_x(int vx, int tlx, int trx, int lx, int rx, int ly, int ry)
+{
+	if (lx > rx) // empty case
+		return 0;
+	if (lx == tlx && trx == rx) // base case
+		return sum_y(vx, 1, 0, m - 1, ly, ry);
+	int tmx = (tlx + trx) / 2; // mid
+	// 下面代码将tlx、trx沿着tmx分割为两部分，它采用的是简化写法
+	return sum_x(vx * 2, tlx, tmx, lx, min(rx, tmx), ly, ry) // min保证至多为tmx(最大不超过tmx)
+		   +
+		   sum_x(vx * 2 + 1, tmx + 1, trx, max(lx, tmx + 1), rx, ly, ry); // max保证至少为tmx + 1(最小要超过tmx + 1)
 }
+
 ```
+
+> NOTE:
+>
+> 一、上述所展示的是一种简化的写法:
+>
+> 1、base case
+>
+> 2、empty case
+>
+> 3、min、max妙用
 
 This function works in $O(\log n \log m)$  time, since it first descends the tree in the first coordinate, and for each traversed vertex in the tree it makes a query in the corresponding **Segment Tree** along the second coordinate.
 
 ##### Modify
 
-Finally we consider the modification query. We want to learn how to modify the Segment Tree in accordance with the change in the value of some element $a[x][y] = p$ . It is clear, that the changes will occur only in those vertices of the first Segment Tree that cover the coordinate $x$  (and such will be $O(\log n)$ ), and for Segment Trees corresponding to them the changes will only occurs at those vertices that covers the coordinate  $y$  (and such will be  $O(\log m)$ ). Therefore the implementation will be not very different form the one-dimensional case, only now we first descend the first coordinate, and then the second.
+Finally we consider the **modification query**. We want to learn how to modify the **Segment Tree** in accordance with the change in the value of some element $a[x][y] = p$ . It is clear, that the changes will occur only in those vertices of the first **Segment Tree** that cover the coordinate $x$  (and such will be $O(\log n)$ ), and for Segment Trees corresponding to them the changes will only occurs at those vertices that covers the coordinate  $y$  (and such will be  $O(\log m)$ ). Therefore the implementation will be not very different form the one-dimensional case, only now we first descend the first coordinate, and then the second.
+
+> NOTE:
+>
+> 一、"We want to learn how to modify the **Segment Tree** in accordance with the change in the value of some element $a[x][y] = p$ "
+>
+> 上面这段话的意思是: 在修改了原始数组后，如何更新segment tree。
+
+
+
+```c++
+
+void update_y(int vx, int lx, int rx, int vy, int ly, int ry, int x, int y, int new_val)
+{
+	if (ly == ry)
+	{
+		if (lx == rx)
+			t[vx][vy] = new_val;
+		else
+			t[vx][vy] = t[vx * 2][vy] + t[vx * 2 + 1][vy];
+	}
+	else
+	{
+		int my = (ly + ry) / 2;
+		if (y <= my)
+			update_y(vx, lx, rx, vy * 2, ly, my, x, y, new_val);
+		else
+			update_y(vx, lx, rx, vy * 2 + 1, my + 1, ry, x, y, new_val);
+		t[vx][vy] = t[vx][vy * 2] + t[vx][vy * 2 + 1];
+	}
+}
+
+/// @brief 将arr[x][y]设置为new_val
+/// @param vx
+/// @param lx
+/// @param rx
+/// @param x
+/// @param y
+/// @param new_val
+void update_x(int vx, int lx, int rx, int x, int y, int new_val)
+{
+	if (lx != rx)
+	{
+		int mx = (lx + rx) / 2;
+		if (x <= mx) // 只对包含x的分支执行update
+			update_x(vx * 2, lx, mx, x, y, new_val);
+		else
+			update_x(vx * 2 + 1, mx + 1, rx, x, y, new_val);
+	}
+	update_y(vx, lx, rx, 1, 0, m - 1, x, y, new_val);
+}
+
+```
+
+
+
+#### Compression of 2D Segment Tree

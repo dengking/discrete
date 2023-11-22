@@ -38,15 +38,7 @@ sweep line algorithm也是将line segment离散化后进行处理的
 
 3、理解它的最最简单的case就是由四个元素组成的array。
 
-五、
 
-a、build
-
-b、update
-
-1、element update
-
-2、range update
 
 ## wikipedia [Segment tree](https://en.wikipedia.org/wiki/Segment_tree)
 
@@ -120,15 +112,47 @@ segment tree是以perfect binary tree的方式进行存储，关于此，参见:
 
 
 
-## lazy
+## Operation+implementation
 
 
+
+两种写法: 
+
+1、简化写法: cp-algorithms [Segment Tree](https://cp-algorithms.com/data_structures/segment_tree.html) 
+
+base case、empty case
+
+min、max妙用
+
+2、复杂写法: [LeetCode-Recursive Approach to Segment Trees](https://leetcode.com/articles/a-recursive-approach-to-segment-trees-range-sum-queries-lazy-propagation/) 
+
+
+
+### Build
+
+
+
+### Update
+
+1、element update
+
+2、range update（涉及lazy propagation）
+
+参见:
+
+cp-algorithms [Segment Tree](https://cp-algorithms.com/data_structures/segment_tree.html) 
+
+update和build的实现非常类似: 都需要读取值然后自动向上、两两合并，所不同的是，update的值是从外面传入的，build的值是从array中读取的；另外update只需要对半边树执行，build则是两边都需要执行。
+
+
+
+#### Range update
+
+##### lazy propagation
 
 一、动态开点
 
 zhihu [数据结构学习笔记(5)动态开点线段树](https://zhuanlan.zhihu.com/p/559047943) 
-
-
 
 二、lazy propagation
 
@@ -138,7 +162,19 @@ geeksforgeeks [Lazy Propagation in Segment Tree](https://www.geeksforgeeks.org/l
 
 
 
-## 读物
+## 2D Segment Tree
+
+一、素材
+
+geeksforgeeks [Two Dimensional Segment Tree | Sub-Matrix Sum](https://www.geeksforgeeks.org/two-dimensional-segment-tree-sub-matrix-sum/)
+
+cp-algorithms [Segment Tree](https://cp-algorithms.com/data_structures/segment_tree.html) 
+
+二、segment tree of segment tree
+
+
+
+## 素材
 
 一、cp-algorithms [Segment Tree](https://cp-algorithms.com/data_structures/segment_tree.html)
 
@@ -164,4 +200,5 @@ zhihu [线段树(Segment Tree)(上)](https://zhuanlan.zhihu.com/p/436326746)
 
 zhihu [线段树(Segment Tree)专题](https://zhuanlan.zhihu.com/p/40151999)
 
-zhihu [线段树（segment tree)、区间树(interval tree)](https://zhuanlan.zhihu.com/p/105368572)
+zhihu [线段树（segment tree)、区间树(interval tree)](https://zhuanlan.zhihu.com/p/105368572) 
+
