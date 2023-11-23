@@ -367,6 +367,8 @@ Finally we consider the **modification query**. We want to learn how to modify t
 > 一、"We want to learn how to modify the **Segment Tree** in accordance with the change in the value of some element $a[x][y] = p$ "
 >
 > 上面这段话的意思是: 在修改了原始数组后，如何更新segment tree。
+>
+> 
 
 
 

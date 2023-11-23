@@ -142,9 +142,13 @@ min、max妙用
 
 cp-algorithms [Segment Tree](https://cp-algorithms.com/data_structures/segment_tree.html) 
 
-update和build的实现非常类似: 都需要读取值然后自动向上、两两合并，所不同的是，update的值是从外面传入的，build的值是从array中读取的；另外update只需要对半边树执行，build则是两边都需要执行。
+#### Element update
 
+element update的第一步是需要找到对应的元素，然后执行update，找到元素的过程类似于binary search。
 
+element update和build的实现非常类似: 都需要读取值然后自动向上、两两合并，所不同的是，update的值是从外面传入的，build的值是从array中读取的；另外update只需要对半边树执行，build则是两边都需要执行。
+
+不断逼近，必然会相逢。
 
 #### Range update
 
