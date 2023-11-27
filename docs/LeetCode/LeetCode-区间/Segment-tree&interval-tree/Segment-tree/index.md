@@ -166,6 +166,32 @@ geeksforgeeks [Lazy Propagation in Segment Tree](https://www.geeksforgeeks.org/l
 
 
 
+### Query
+
+cp-algorithms [Segment Tree](https://cp-algorithms.com/data_structures/segment_tree.html) 、[LeetCode-segment tree](https://leetcode.com/tag/segment-tree/) 中query的实现方式不同:
+
+cp-algorithms [Segment Tree](https://cp-algorithms.com/data_structures/segment_tree.html) 中: 
+
+1、base case: segment == range
+
+2、empty exception case: range invalid(fall back)
+
+3、recession: segment != range
+
+[LeetCode-segment tree](https://leetcode.com/tag/segment-tree/) 中:
+
+1、base case: segment <= range
+
+2、empty exception case: range invalid(fall back)
+
+3、recession: segment > range
+
+
+
+cp-algorithms [Segment Tree](https://cp-algorithms.com/data_structures/segment_tree.html) 中虽然base case相比于[LeetCode-segment tree](https://leetcode.com/tag/segment-tree/) 中要严苛，但是由于采用了divide-and-conquer，并且有empty exception case的兜底，因此在segment外的range肯定会命中empty exception case从而被丢弃，由多个segment组成的range肯定会被分解直至完全命中segment。
+
+
+
 ## 2D Segment Tree
 
 一、素材

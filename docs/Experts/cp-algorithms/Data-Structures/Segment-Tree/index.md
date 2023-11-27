@@ -209,17 +209,72 @@ How to build a tree with such data? Again we compute it in a recursive fashion: 
 
 ### Saving the entire subarrays in each vertex
 
-This is a separate subsection(部分) that stands apart from the others, because at each vertex of the **Segment Tree** we don't store information about the corresponding segment in compressed form (sum, minimum, maximum, ...), but store all elements of the segment. Thus the root of the Segment Tree will store all elements of the array, the left child vertex will store the first half of the array, the right vertex the second half, and so on.
+This is a separate subsection(部分) that stands apart from the others, because at each vertex of the **Segment Tree** we don't store information about the corresponding segment in compressed form (sum, minimum, maximum, ...), but store all elements of the segment. Thus the root of the **Segment Tree** will store all elements of the array, the left child vertex will store the first half of the array, the right vertex the second half, and so on.
 
-In its simplest application of this technique we store the elements in sorted order. In more complex versions the elements are not stored in lists, but more advanced data structures (sets, maps, ...). But all these methods have the common factor, that each vertex requires linear memory (i.e. proportional to the length of the corresponding segment).
+In its simplest application of this technique we store the elements in sorted order. In more complex versions the elements are not stored in lists, but more advanced data structures (sets, maps, ...). But all these methods have the **common factor**, that each vertex requires linear memory (i.e. proportional to the length of the corresponding segment).
 
-The first natural question, when considering these Segment Trees, is about memory consumption. Intuitively this might look like $O(n^2)$  memory, but it turns out that the complete tree will only need $O(n \log n)$  memory. Why is this so? Quite simply, because each element of the array falls into $O(\log n)$  segments (remember the height of the tree is $O(\log n)$ ).
+The first natural question, when considering these **Segment Trees**, is about memory consumption. Intuitively this might look like $O(n^2)$  memory, but it turns out that the complete tree will only need $O(n \log n)$  memory. Why is this so? Quite simply, because each element of the array falls into $O(\log n)$  segments (remember the height of the tree is $O(\log n)$ ).
 
 So in spite of the apparent extravagance of such a **Segment Tree**, it consumes only slightly more memory than the usual **Segment Tree**.
 
 Several typical applications of this data structure are described below. It is worth noting the similarity of these **Segment Trees** with 2D data structures (in fact this is a 2D data structure, but with rather limited capabilities).
 
+#### Find the smallest number greater or equal to a specified number. No modification queries.
 
+We want to answer queries of the following form: for three given numbers $(l, r, x)$  we have to find the minimal number in the segment $a[l \dots r]$  which is greater than or equal to $x$ .
+
+We construct a **Segment Tree**. In each vertex we store a sorted list of all numbers occurring in the corresponding segment, like described above. How to build such a **Segment Tree** as effectively as possible? As always we approach this problem recursively: let the lists of the left and right children already be constructed, and we want to build the list for the current vertex. From this view the operation is now trivial and can be accomplished in linear time: We only need to combine the two sorted lists into one, which can be done by iterating over them using two pointers. The C++ STL already has an implementation of this algorithm.
+
+Because this structure of the Segment Tree and the similarities to the merge sort algorithm, the data structure is also often called "**Merge Sort Tree**".
+
+```c++
+#include <vector>
+#include <algorithm>
+
+std::vector<int> t[4 * MAXN];
+
+void build(int a[], int v, int tl, int tr) {
+    if (tl == tr) {
+        t[v] = std::vector<int>(1, a[tl]);
+    } else {
+        int tm = (tl + tr) / 2;
+        build(a, v * 2, tl, tm);
+        build(a, v * 2 + 1, tm + 1, tr);
+        std::merge(t[v * 2].begin(), t[v * 2].end(), t[v * 2 + 1].begin(), t[v * 2 + 1].end(),
+                   std::back_inserter(t[v]));
+    }
+}
+
+```
+
+We already know that the Segment Tree constructed in this way will require   $O(n \log n)$  memory. And thanks to this implementation its construction also takes $O(n \log n)$  time, after all each list is constructed in linear time in respect to its size.
+
+Now consider the answer to the query. We will go down the tree, like in the regular Segment Tree, breaking our segment $a[l \dots r]$  into several subsegments (into at most $O(\log n)$  pieces). It is clear that the answer of the whole answer is the minimum of each of the subqueries. So now we only need to understand, how to respond to a query on one such subsegment that corresponds with some vertex of the tree.
+
+We are at some vertex of the **Segment Tree** and we want to compute the answer to the query, i.e. find the minimum number greater that or equal to a given number $x$ . Since the vertex contains the list of elements in sorted order, we can simply perform a **binary search** on this list and return the first number, greater than or equal to $x$ . 
+
+```C++
+#include <vector>
+#include <algorithm>
+#include <limits>
+
+int query(int v, int tl, int tr, int l, int r, int x) {
+    if (l > r)
+        return std::numeric_limits<int>::max();
+    if (l == tl && r == tr) {
+        std::vector<int>::iterator pos = std::lower_bound(t[v].begin(), t[v].end(), x);
+        if (pos != t[v].end())
+            return *pos;
+        return std::numeric_limits<int>::max();
+    }
+    int tm = (tl + tr) / 2;
+    return std::min(query(v * 2, tl, tm, l, std::min(r, tm), x),
+                    query(v * 2 + 1, tm + 1, tr, std::max(l, tm + 1), r, x));
+}
+
+```
+
+The constant $\text{INF}$  is equal to some large number that is bigger than all numbers in the array. Its usage means, that there is no number greater than or equal to $x$  in the segment. It has the meaning of "there is no answer in the given interval".
 
 
 
@@ -318,30 +373,29 @@ Now we turn to processing of queries. We will answer to the two-dimensional quer
 
 ```c++
 
-int sum_y(int vx, int vy, int tly, int try_, int ly, int ry)
-{
-	if (ly > ry) // empty case
-		return 0;
-	if (ly == tly && try_ == ry) // base case
-		return t[vx][vy];
-	int tmy = (tly + try_) / 2; // mid
-	// 下面代码将ly、ry沿着tmy分割为两部分，它采用的是简化写法
-	return sum_y(vx, vy * 2, tly, tmy, ly, min(ry, tmy)) // min保证至多为tmy(最大不超过tmy)
-		   +
-		   sum_y(vx, vy * 2 + 1, tmy + 1, try_, max(ly, tmy + 1), ry); // max保证至少为tmy + 1(最小要超过tmy + 1)
+
+int sum_y(int vx, int vy, int tly, int try_, int ly, int ry) {
+    if (ly > ry) // empty case
+        return 0;
+    if (ly == tly && try_ == ry) // base case
+        return t[vx][vy];
+    int tmy = (tly + try_) / 2; // mid
+    // 下面代码将ly、ry沿着tmy分割为两部分，它采用的是简化写法
+    return sum_y(vx, vy * 2, tly, tmy, ly, min(ry, tmy)) // min保证至多为tmy(最大不超过tmy)
+           +
+           sum_y(vx, vy * 2 + 1, tmy + 1, try_, max(ly, tmy + 1), ry); // max保证至少为tmy + 1(最小要超过tmy + 1)
 }
 
-int sum_x(int vx, int tlx, int trx, int lx, int rx, int ly, int ry)
-{
-	if (lx > rx) // empty case
-		return 0;
-	if (lx == tlx && trx == rx) // base case
-		return sum_y(vx, 1, 0, m - 1, ly, ry);
-	int tmx = (tlx + trx) / 2; // mid
-	// 下面代码将tlx、trx沿着tmx分割为两部分，它采用的是简化写法
-	return sum_x(vx * 2, tlx, tmx, lx, min(rx, tmx), ly, ry) // min保证至多为tmx(最大不超过tmx)
-		   +
-		   sum_x(vx * 2 + 1, tmx + 1, trx, max(lx, tmx + 1), rx, ly, ry); // max保证至少为tmx + 1(最小要超过tmx + 1)
+int sum_x(int vx, int tlx, int trx, int lx, int rx, int ly, int ry) {
+    if (lx > rx) // empty case
+        return 0;
+    if (lx == tlx && trx == rx) // base case
+        return sum_y(vx, 1, 0, m - 1, ly, ry);
+    int tmx = (tlx + trx) / 2; // mid
+    // 下面代码将tlx、trx沿着tmx分割为两部分，它采用的是简化写法
+    return sum_x(vx * 2, tlx, tmx, lx, min(rx, tmx), ly, ry) // min保证至多为tmx(最大不超过tmx)
+           +
+           sum_x(vx * 2 + 1, tmx + 1, trx, max(lx, tmx + 1), rx, ly, ry); // max保证至少为tmx + 1(最小要超过tmx + 1)
 }
 
 ```
@@ -419,3 +473,5 @@ void update_x(int vx, int lx, int rx, int x, int y, int new_val)
 
 
 #### Compression of 2D Segment Tree
+
+Let the problem be the following: there are  $n$  points on the plane given by their coordinates  $(x_i, y_i)$  and queries of the form "count the number of points lying in the rectangle  $((x_1, y_1), (x_2, y_2))$ ". It is clear that in the case of such a problem it becomes unreasonably wasteful to construct a two-dimensional Segment Tree with  $O(n^2)$  elements. Most on this memory will be wasted, since each single point can only get into  $O(\log n)$  segments of the tree along the first coordinate, and therefore the total "useful" size of all tree segments on the second coordinate is  $O(n \log n)$ .
