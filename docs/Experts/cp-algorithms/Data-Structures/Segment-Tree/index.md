@@ -284,19 +284,23 @@ All problems in the above sections discussed modification queries that only affe
 
 
 
+If now there comes a query that asks the current value of a particular array entry, it is enough to go down the tree and add up all values found along the way.
+
+> NOTE: track current path
+
 ```c++
 #include <vector>
 #include <algorithm>
 #include <limits>
 
 void build(int a[], int v, int tl, int tr) {
-    if (tl == tr) {
+    if (tl == tr) { // Leaf node
         t[v] = a[tl];
     } else {
         int tm = (tl + tr) / 2;
         build(a, v * 2, tl, tm);
         build(a, v * 2 + 1, tm + 1, tr);
-        t[v] = 0;
+        t[v] = 0; // Internal node
     }
 }
 
@@ -313,14 +317,15 @@ void update(int v, int tl, int tr, int l, int r, int add) {
 }
 
 int get(int v, int tl, int tr, int pos) {
-    if (tl == tr)
+    if (tl == tr) // Leaf node
         return t[v];
     int tm = (tl + tr) / 2;
     if (pos <= tm)
-        return t[v] + get(v * 2, tl, tm, pos);
+        return t[v] + get(v * 2, tl, tm, pos); // go down the tree and add up all values found along the way
     else
         return t[v] + get(v * 2 + 1, tm + 1, tr, pos);
 }
+
 ```
 
 
