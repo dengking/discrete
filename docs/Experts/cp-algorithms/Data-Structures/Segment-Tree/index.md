@@ -276,6 +276,53 @@ int query(int v, int tl, int tr, int l, int r, int x) {
 
 The constant $\text{INF}$  is equal to some large number that is bigger than all numbers in the array. Its usage means, that there is no number greater than or equal to $x$  in the segment. It has the meaning of "there is no answer in the given interval".
 
+### Range updates (Lazy Propagation)
+
+All problems in the above sections discussed modification queries that only affected a single element of the array each. However the **Segment Tree** allows applying modification queries to an entire segment of contiguous elements, and perform the query in the same time $O(\log n)$ .
+
+#### Addition on segments
+
+
+
+```c++
+#include <vector>
+#include <algorithm>
+#include <limits>
+
+void build(int a[], int v, int tl, int tr) {
+    if (tl == tr) {
+        t[v] = a[tl];
+    } else {
+        int tm = (tl + tr) / 2;
+        build(a, v * 2, tl, tm);
+        build(a, v * 2 + 1, tm + 1, tr);
+        t[v] = 0;
+    }
+}
+
+void update(int v, int tl, int tr, int l, int r, int add) {
+    if (l > r)
+        return;
+    if (l == tl && r == tr) {
+        t[v] += add;
+    } else {
+        int tm = (tl + tr) / 2;
+        update(v * 2, tl, tm, l, std::min(r, tm), add);
+        update(v * 2 + 1, tm + 1, tr, std::max(l, tm + 1), r, add);
+    }
+}
+
+int get(int v, int tl, int tr, int pos) {
+    if (tl == tr)
+        return t[v];
+    int tm = (tl + tr) / 2;
+    if (pos <= tm)
+        return t[v] + get(v * 2, tl, tm, pos);
+    else
+        return t[v] + get(v * 2 + 1, tm + 1, tr, pos);
+}
+```
+
 
 
 ### [Generalization to higher dimensions](https://cp-algorithms.com/data_structures/segment_tree.html#generalization-to-higher-dimensions)
