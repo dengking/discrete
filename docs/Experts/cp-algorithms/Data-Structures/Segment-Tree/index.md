@@ -280,13 +280,37 @@ The constant $\text{INF}$  is equal to some large number that is bigger than a
 
 All problems in the above sections discussed modification queries that only affected a single element of the array each. However the **Segment Tree** allows applying modification queries to an entire segment of contiguous elements, and perform the query in the same time $O(\log n)$ .
 
+> NOTE:
+>
+> 一、update:
+>
+> 1、addition
+>
+> 2、assignment
+
 #### Addition on segments
 
+We begin by considering problems of the simplest form: the **modification query** should add a number $x$  to all numbers in the segment  $a[l \dots r]$ . The second query, that we are supposed to answer, asked simply for the value of $a[i]$ .
 
+> NOTE:
+>
+> 一、上面这段话的简单意思就是: 首先执行segment update，然后执行query
+>
+> 二、理解本段内容的一个非常关键点: **modification query**、**addition query** ，作者其实将对segment的modification也看作是一种query
 
-If now there comes a query that asks the current value of a particular array entry, it is enough to go down the tree and add up all values found along the way.
+To make the **addition query** efficient, we store at each vertex in the **Segment Tree** how many we should add to all numbers in the corresponding segment. For example, if the query "add 3 to the whole array  $a[0 \dots n-1]$ " comes, then we place the number 3 in the root of the tree. In general we have to place this number to multiple segments, which form a partition of the query segment. Thus we don't have to change all $O(n)$  values, but only  $O(\log n)$  many.
 
-> NOTE: track current path
+> NOTE:
+>
+> 一、上面这段话是非常跳跃的，在 [LeetCode-Recursive Approach to Segment Trees](https://leetcode.com/articles/a-recursive-approach-to-segment-trees-range-sum-queries-lazy-propagation/) 中有着更好的描述，这里简单的记忆是: 将自底向上转化为自顶向下，这种方式是非常适合于segment tree的。
+
+If now there comes a query that asks the current value of a particular array entry, it is enough to go down the tree and add up all values found along the way(track current path).
+
+> NOTE: 
+>
+> 一、关于下面code的一些注解: 
+>
+> 下面的code snippet所展示的仅仅是对一个segment tree的lazy propagation，这个segment tree实际上并不具备应用价值，因为它的internal node并没有存储任何统计数据。
 
 ```c++
 #include <vector>
@@ -321,12 +345,24 @@ int get(int v, int tl, int tr, int pos) {
         return t[v];
     int tm = (tl + tr) / 2;
     if (pos <= tm)
+        // track current path, 自顶向下
         return t[v] + get(v * 2, tl, tm, pos); // go down the tree and add up all values found along the way
     else
         return t[v] + get(v * 2 + 1, tm + 1, tr, pos);
 }
 
 ```
+
+#### Assignment on segments
+
+Suppose now that the modification query asks to assign each element of a certain segment  $a[l \dots r]$  to some value  
+$p$ . As a second query we will again consider reading the value of the array  $a[i]$ . 
+
+To perform this **modification query** on a whole segment, you have to store at each vertex of the **Segment Tree** whether the corresponding segment is covered entirely with the same value or not. This allows us to make a "lazy" update: instead of changing all segments in the tree that cover the query segment, we only change some, and leave others unchanged. A **marked vertex** will mean, that every element of the corresponding segment is assigned to that value, and actually also the complete subtree should only contain this value. In a sense we are lazy and delay writing the new value to all those vertices. We can do this tedious task later, if this is necessary.
+
+So after the **modification query** is executed, some parts of the tree become irrelevant - some modifications remain unfulfilled in it.
+
+For example if a **modification query** "assign a number to the whole array  $a[0 \dots n-1]$ " gets executed, in the **Segment Tree** only a single change is made - the number is placed in the root of the tree and this vertex gets **marked**. The remaining segments remain unchanged, although in fact the number should be placed in the whole tree.
 
 
 
@@ -526,4 +562,9 @@ void update_x(int vx, int lx, int rx, int x, int y, int new_val)
 
 #### Compression of 2D Segment Tree
 
-Let the problem be the following: there are  $n$  points on the plane given by their coordinates  $(x_i, y_i)$  and queries of the form "count the number of points lying in the rectangle  $((x_1, y_1), (x_2, y_2))$ ". It is clear that in the case of such a problem it becomes unreasonably wasteful to construct a two-dimensional Segment Tree with  $O(n^2)$  elements. Most on this memory will be wasted, since each single point can only get into  $O(\log n)$  segments of the tree along the first coordinate, and therefore the total "useful" size of all tree segments on the second coordinate is  $O(n \log n)$ .
+Let the problem be the following: there are $n$  points on the plane given by their coordinates $(x_i, y_i)$  and queries of the form "count the number of points lying in the rectangle $((x_1, y_1), (x_2, y_2))$ ". It is clear that in the case of such a problem it becomes unreasonably wasteful to construct a two-dimensional Segment Tree with $O(n^2)$  elements. Most on this memory will be wasted, since each single point can only get into $O(\log n)$  segments of the tree along the first coordinate, and therefore the total "useful" size of all tree segments on the second coordinate is $O(n \log n)$ .
+
+
+
+So we proceed as follows: at each vertex of the Segment Tree with respect to the first coordinate we store a Segment Tree constructed only by those second coordinates that occur in the current segment of the first coordinates. In other words, when constructing a Segment Tree inside some vertex with index $vx$  and the boundaries $tlx$  and $trx$ , we only consider those points that fall into this interval $x \in [tlx, trx]$ , and build a Segment Tree just using them.
+>>>>>>> Stashed changes

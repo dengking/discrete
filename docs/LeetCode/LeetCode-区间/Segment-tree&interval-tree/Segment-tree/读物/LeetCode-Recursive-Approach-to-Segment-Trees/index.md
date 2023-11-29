@@ -354,6 +354,18 @@ But what if we had to update a *range* of elements? By our current method, each 
 
 #### Ancestral locality
 
+> NOTE:
+>
+> 一、"ancestral locality"本质上是源自于segment tree的parent node肯定是包含它的children node的，因此"Ancestors of adjacent leaves are guaranteed to be common at some levels of the tree"，因此独立地自底向上地沿着从child到ancestor的path更新每个node()，显然会导致ancestor会被重复地update(meet)。
+>
+> key word: the changes propagated from different leaves will meet
+>
+> lazy propagation本质上是对上述自底向上方式的一种reverse，它采用的自顶向下的方式，这里简单的记忆是: 将自底向上转化为自顶向下，这种方式是非常适合于segment tree的。
+>
+> key word: postpone updating descendants of a node, until the descendants themselves need to be accessed.
+>
+> 
+
 The construction of a tree poses another issue called *ancestral locality*. Ancestors of adjacent leaves are guaranteed to be common at some levels of the tree. Updating each of these leaves individually would mean that we process their common ancestors multiple times. What if we could reduce this repetitive computation?
 
 
@@ -362,7 +374,7 @@ The construction of a tree poses another issue called *ancestral locality*. Ance
 
 
 
-In the above example, the root is updated thrice and the node numbered 82 is updated twice. This is because, at some level of the tree, the changes propagated from different leaves will meet.
+In the above example, the root is updated thrice and the node numbered 82 is updated twice. This is because, at some level of the tree, **the changes propagated from different leaves will meet**.
 
 > NOTE:
 >
@@ -374,7 +386,7 @@ Using **Lazy Propagation** allows us to overcome all of these problems by reduci
 
 ### How do we use it?
 
-As the name suggests, we update nodes lazily. In short, we try to postpone updating descendants of a node, until the descendants themselves need to be accessed.
+As the name suggests, we update nodes lazily. In short, **we try to postpone updating descendants of a node, until the descendants themselves need to be accessed**.
 
 For the purpose of applying it to the [Range Sum Query problem](https://leetcode.com/problems/range-sum-query-mutable/), we assume that the `update` operation on a range, increments each element in the range by some amount `val`.
 
