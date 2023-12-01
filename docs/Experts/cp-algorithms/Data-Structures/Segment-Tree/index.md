@@ -1,5 +1,7 @@
 # cp-algorithms [Segment Tree](https://cp-algorithms.com/data_structures/segment_tree.html) 
 
+> 一、理解这篇文章的内容的一个非常关键点: **modification query**、**addition query** ，作者其实将对segment的modification也看作是一种query
+
 A **Segment Tree** is a data structure that stores information about array intervals as a tree. This allows answering range queries over an array efficiently, while still being flexible enough to allow quick modification of the array. This includes finding the sum of consecutive array elements $a[l \dots r]$ , or finding the minimum element in a such a range in  $O(\log n)$  time. Between answering such queries, the **Segment Tree** allows modifying the array by replacing one element, or even changing the elements of a whole subsegment (e.g. assigning all elements  $a[l \dots r]$  to any value, or adding a value to all element in the subsegment).
 
 > NOTE:
@@ -18,9 +20,7 @@ A **Segment Tree** is a data structure that stores information about array inter
 
 In general, a Segment Tree is a very flexible data structure, and a huge number of problems can be solved with it. Additionally, it is also possible to apply more complex operations and answer more complex queries (see Advanced versions of Segment Trees). In particular the Segment Tree can be easily generalized to larger dimensions. For instance, with a two-dimensional Segment Tree you can answer sum or minimum queries over some subrectangle of a given matrix in only  $O(\log^2 n)$  time.
 
-
-
-One important property of Segment Trees is that they require only a linear amount of memory. The standard Segment Tree requires  $4n$  vertices for working on an array of size  $n$ .
+One important property of **Segment Trees** is that they require only a linear amount of memory. The standard **Segment Tree** requires  $4n$  vertices for working on an array of size  $n$ .
 
 
 
@@ -276,6 +276,12 @@ int query(int v, int tl, int tr, int l, int r, int x) {
 
 The constant $\text{INF}$  is equal to some large number that is bigger than all numbers in the array. Its usage means, that there is no number greater than or equal to $x$  in the segment. It has the meaning of "there is no answer in the given interval".
 
+#### Find the smallest number greater or equal to a specified number. With modification queries.
+
+This task is similar to the previous. The last approach has a disadvantage, it was not possible to modify the array between answering queries. Now we want to do exactly this: a **modification query** will do the assignment  $a[i] = y$ .
+
+
+
 ### Range updates (Lazy Propagation)
 
 All problems in the above sections discussed modification queries that only affected a single element of the array each. However the **Segment Tree** allows applying modification queries to an entire segment of contiguous elements, and perform the query in the same time $O(\log n)$ .
@@ -296,7 +302,7 @@ We begin by considering problems of the simplest form: the **modification query*
 >
 > 一、上面这段话的简单意思就是: 首先执行segment update，然后执行query
 >
-> 二、理解本段内容的一个非常关键点: **modification query**、**addition query** ，作者其实将对segment的modification也看作是一种query
+> 
 
 To make the **addition query** efficient, we store at each vertex in the **Segment Tree** how many we should add to all numbers in the corresponding segment. For example, if the query "add 3 to the whole array  $a[0 \dots n-1]$ " comes, then we place the number 3 in the root of the tree. In general we have to place this number to multiple segments, which form a partition of the query segment. Thus we don't have to change all $O(n)$  values, but only  $O(\log n)$  many.
 
@@ -355,14 +361,116 @@ int get(int v, int tl, int tr, int pos) {
 
 #### Assignment on segments
 
-Suppose now that the modification query asks to assign each element of a certain segment  $a[l \dots r]$  to some value  
+> NOTE:
+>
+> 一、这一段介绍的实现是非常类似于 [LeetCode-Recursive Approach to Segment Trees](https://leetcode.com/articles/a-recursive-approach-to-segment-trees-range-sum-queries-lazy-propagation/) 中的实现的
+
+Suppose now that the **modification query** asks to assign each element of a certain segment  $a[l \dots r]$  to some value  
 $p$ . As a second query we will again consider reading the value of the array  $a[i]$ . 
 
-To perform this **modification query** on a whole segment, you have to store at each vertex of the **Segment Tree** whether the corresponding segment is covered entirely with the same value or not. This allows us to make a "lazy" update: instead of changing all segments in the tree that cover the query segment, we only change some, and leave others unchanged. A **marked vertex** will mean, that every element of the corresponding segment is assigned to that value, and actually also the complete subtree should only contain this value. In a sense we are lazy and delay writing the new value to all those vertices. We can do this tedious task later, if this is necessary.
+To perform this **modification query** on a whole segment, you have to store at each vertex of the **Segment Tree** whether the corresponding segment is covered entirely with the same value or not. This allows us to make a "lazy" update: instead of changing all segments in the tree that cover the **query segment**, we only change some, and leave others unchanged. A **marked vertex** will mean, that every element of the corresponding segment is assigned to that value, and actually also the complete subtree should only contain this value. In a sense we are lazy and delay writing the new value to all those vertices. We can do this tedious task later, if this is necessary.
 
 So after the **modification query** is executed, some parts of the tree become irrelevant - some modifications remain unfulfilled in it.
 
 For example if a **modification query** "assign a number to the whole array  $a[0 \dots n-1]$ " gets executed, in the **Segment Tree** only a single change is made - the number is placed in the root of the tree and this vertex gets **marked**. The remaining segments remain unchanged, although in fact the number should be placed in the whole tree.
+
+Suppose now that the second **modification query** says, that the first half of the array $a[0 \dots n/2]$  should be assigned with some other number. To process this query we must assign each element in the whole left child of the root vertex with that number. But before we do this, we must first sort out the root vertex first. The subtlety(细微差别) here is that the right half of the array should still be assigned to the value of the first query, and at the moment there is no information for the right half stored.
+
+The way to solve this is to push the information of the root to its children, i.e. if the root of the tree was assigned with any number, then we assign the left and the right child vertices with this number and remove the mark of the root. After that, we can assign the left child with the new value, without losing any necessary information.
+
+Summarizing we get: for any queries (a modification or reading query) during the descent along the tree we should always push information from the current vertex into both of its children. We can understand this in such a way, that when we descent the tree we apply delayed modifications, but exactly as much as necessary (so not to degrade the complexity of  $O(\log n)$ ). 
+
+For the implementation we need to make a  $\text{push}$  function, which will receive the current vertex, and it will push the information for its vertex to both its children. We will call this function at the beginning of the query functions (but we will not call it from the leaves, because there is no need to push information from them any further). 
+
+```c++
+#include <vector>
+#include <algorithm>
+#include <limits>
+
+void push(int v) {
+    if (marked[v]) {
+        t[v * 2] = t[v * 2 + 1] = t[v];
+        marked[v * 2] = marked[v * 2 + 1] = true;
+        marked[v] = false;
+    }
+}
+
+void update(int v, int tl, int tr, int l, int r, int new_val) {
+    if (l > r)
+        return;
+    if (l == tl && tr == r) {
+        t[v] = new_val;
+        marked[v] = true;
+    } else {
+        push(v);
+        int tm = (tl + tr) / 2;
+        update(v * 2, tl, tm, l, min(r, tm), new_val);
+        update(v * 2 + 1, tm + 1, tr, max(l, tm + 1), r, new_val);
+    }
+}
+
+int get(int v, int tl, int tr, int pos) {
+    if (tl == tr) {
+        return t[v];
+    }
+    push(v);
+    int tm = (tl + tr) / 2;
+    if (pos <= tm)
+        return get(v * 2, tl, tm, pos);
+    else
+        return get(v * 2 + 1, tm + 1, tr, pos);
+}
+```
+
+Notice: the function  $\text{get}$  can also be implemented in a different way: do not make delayed updates, but immediately return the value  $t[v]$  if  $marked[v]$  is true.
+
+#### Adding on segments, querying for maximum
+
+Now the modification query is to add a number to all elements in a range, and the reading query is to find the maximum in a range.
+
+So for each vertex of the Segment Tree we have to store the maximum of the corresponding subsegment. The interesting part is how to recompute these values during a modification request.
+
+For this purpose we keep store an additional value for each vertex. In this value we store the addends we haven't propagated to the child vertices. Before traversing to a child vertex, we call  $\text{push}$  and propagate the value to both children. We have to do this in both the  $\text{update}$  function and the  $\text{query}$  function.
+
+```c++
+#include <vector>
+#include <algorithm>
+#include <limits>
+
+void push(int v) {
+    t[v * 2] += lazy[v];
+    lazy[v * 2] += lazy[v];
+    t[v * 2 + 1] += lazy[v];
+    lazy[v * 2 + 1] += lazy[v];
+    lazy[v] = 0;
+}
+
+void update(int v, int tl, int tr, int l, int r, int addend) {
+    if (l > r)
+        return;
+    if (l == tl && tr == r) {
+        t[v] += addend;
+        lazy[v] += addend;
+    } else {
+        push(v);
+        int tm = (tl + tr) / 2;
+        update(v * 2, tl, tm, l, min(r, tm), addend);
+        update(v * 2 + 1, tm + 1, tr, max(l, tm + 1), r, addend);
+        t[v] = max(t[v * 2], t[v * 2 + 1]);
+    }
+}
+
+int query(int v, int tl, int tr, int l, int r) {
+    if (l > r)
+        return -INF;
+    if (l == tl && tr == r)
+        return t[v];
+    push(v);
+    int tm = (tl + tr) / 2;
+    return max(query(v * 2, tl, tm, l, min(r, tm)),
+               query(v * 2 + 1, tm + 1, tr, max(l, tm + 1), r));
+}
+```
 
 
 
@@ -567,4 +675,4 @@ Let the problem be the following: there are $n$  points on the plane given by 
 
 
 So we proceed as follows: at each vertex of the Segment Tree with respect to the first coordinate we store a Segment Tree constructed only by those second coordinates that occur in the current segment of the first coordinates. In other words, when constructing a Segment Tree inside some vertex with index $vx$  and the boundaries $tlx$  and $trx$ , we only consider those points that fall into this interval $x \in [tlx, trx]$ , and build a Segment Tree just using them.
->>>>>>> Stashed changes
+
