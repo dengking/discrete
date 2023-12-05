@@ -308,7 +308,9 @@ To make the **addition query** efficient, we store at each vertex in the **Segme
 
 > NOTE:
 >
-> 一、上面这段话是非常跳跃的，在 [LeetCode-Recursive Approach to Segment Trees](https://leetcode.com/articles/a-recursive-approach-to-segment-trees-range-sum-queries-lazy-propagation/) 中有着更好的描述，这里简单的记忆是: 将自底向上转化为自顶向下，这种方式是非常适合于segment tree的。
+> 一、上面这段话是非常跳跃的，在 [LeetCode-Recursive Approach to Segment Trees](https://leetcode.com/articles/a-recursive-approach-to-segment-trees-range-sum-queries-lazy-propagation/) 中有着更好的描述，这里简单的记忆是: 将自底向上传播转化为自顶向下传播，这种方式是非常适合于segment tree的。
+>
+> 
 
 If now there comes a query that asks the current value of a particular array entry, it is enough to go down the tree and add up all values found along the way(track current path).
 
@@ -376,7 +378,11 @@ For example if a **modification query** "assign a number to the whole array  $
 
 Suppose now that the second **modification query** says, that the first half of the array $a[0 \dots n/2]$  should be assigned with some other number. To process this query we must assign each element in the whole left child of the root vertex with that number. But before we do this, we must first sort out the root vertex first. The subtlety(细微差别) here is that the right half of the array should still be assigned to the value of the first query, and at the moment there is no information for the right half stored.
 
-The way to solve this is to push the information of the root to its children, i.e. if the root of the tree was assigned with any number, then we assign the left and the right child vertices with this number and remove the mark of the root. After that, we can assign the left child with the new value, without losing any necessary information.
+The way to solve this is to **push** the information of the root to its children, i.e. if the root of the tree was assigned with any number, then we assign the left and the right child vertices with this number and remove the mark of the root. After that, we can assign the left child with the new value, without losing any necessary information.
+
+> NOTE:
+>
+> 一、上述"**push**"所对应的就是下面的 `push` 函数，它的实现本质上是**自顶向下传播**
 
 Summarizing we get: for any queries (a modification or reading query) during the descent along the tree we should always push information from the current vertex into both of its children. We can understand this in such a way, that when we descent the tree we apply delayed modifications, but exactly as much as necessary (so not to degrade the complexity of  $O(\log n)$ ). 
 
@@ -675,4 +681,67 @@ Let the problem be the following: there are $n$  points on the plane given by 
 
 
 So we proceed as follows: at each vertex of the Segment Tree with respect to the first coordinate we store a Segment Tree constructed only by those second coordinates that occur in the current segment of the first coordinates. In other words, when constructing a Segment Tree inside some vertex with index $vx$  and the boundaries $tlx$  and $trx$ , we only consider those points that fall into this interval $x \in [tlx, trx]$ , and build a Segment Tree just using them.
+
+
+
+
+
+### Preserving the history of its values (Persistent Segment Tree)
+
+A persistent data structure is a data structure that remembers it previous state for each modification. This allows to access any version of this data structure that interest us and execute a query on it.
+
+In fact, any change request in the **Segment Tree** leads to a change in the data of only $O(\log n)$  vertices along the path starting from the root. So if we store the Segment Tree using pointers (i.e. a vertex stores pointers to the left and the right child vertices), then when performing the **modification query**, we simply need to create new vertices instead of changing the available vertices. Vertices that are not affected by the **modification query** can still be used by pointing the pointers to the old vertices. Thus for a **modification query** $O(\log n)$  new vertices will be created, including a new root vertex of the Segment Tree, and the entire previous version of the tree rooted at the old root vertex will remain unchanged.
+
+Let's give an example implementation for the simplest Segment Tree: when there is only a query asking for sums, and modification queries of single elements.
+
+```c++
+struct Vertex {
+    Vertex *l, *r;
+    int sum;
+
+    Vertex(int val) : l(nullptr), r(nullptr), sum(val) {}
+    Vertex(Vertex *l, Vertex *r) : l(l), r(r), sum(0) {
+        if (l) sum += l->sum;
+        if (r) sum += r->sum;
+    }
+};
+
+Vertex* build(int a[], int tl, int tr) {
+    if (tl == tr)
+        return new Vertex(a[tl]);
+    int tm = (tl + tr) / 2;
+    return new Vertex(build(a, tl, tm), build(a, tm+1, tr));
+}
+
+int get_sum(Vertex* v, int tl, int tr, int l, int r) {
+    if (l > r)
+        return 0;
+    if (l == tl && tr == r)
+        return v->sum;
+    int tm = (tl + tr) / 2;
+    return get_sum(v->l, tl, tm, l, min(r, tm))
+         + get_sum(v->r, tm+1, tr, max(l, tm+1), r);
+}
+
+Vertex* update(Vertex* v, int tl, int tr, int pos, int new_val) {
+    if (tl == tr)
+        return new Vertex(new_val);
+    int tm = (tl + tr) / 2;
+    if (pos <= tm)
+        return new Vertex(update(v->l, tl, tm, pos, new_val), v->r);
+    else
+        return new Vertex(v->l, update(v->r, tm+1, tr, pos, new_val));
+}
+```
+
+For each modification of the **Segment Tree** we will receive a new root vertex. To quickly jump between two different versions of the **Segment Tree**, we need to store this roots in an array. To use a specific version of the Segment Tree we simply call the query using the appropriate root vertex.
+
+With the approach described above almost any **Segment Tree** can be turned into a persistent data structure.
+
+
+
+#### Finding the  $k$ -th smallest number in a range
+
+This time we have to answer queries of the form "What is the $k$ -th smallest element in the range  $a[l \dots r]$ . This query can be answered using a **binary search** and a **Merge Sort Tree**, but the **time complexity** for a single query would be  $O(\log^3 n)$ . We will accomplish the same task using a persistent Segment Tree in  
+$O(\log n)$ .
 
