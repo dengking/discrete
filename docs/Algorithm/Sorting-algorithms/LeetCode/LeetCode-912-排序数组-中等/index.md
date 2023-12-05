@@ -174,78 +174,7 @@ int main()
 
 ```
 
-
-
-### Merge sort
-
-```C++
-#include <bits/stdc++.h>
-using namespace std;
-
-class Solution
-{
-	vector<int> temp; // 保存临时排序结果
-public:
-	vector<int> sortArray(vector<int> &nums)
-	{
-		temp.resize((int) nums.size(), 0);
-		mergeSort(nums, 0, nums.size() - 1);
-		return nums;
-	}
-private:
-	void mergeSort(vector<int> &nums, int left, int right)
-	{
-		if (left >= right) // base case
-		{
-			return;
-		}
-		int mid = (left + right) >> 1;
-		mergeSort(nums, left, mid);
-		mergeSort(nums, mid + 1, right);
-		int i = left, j = mid + 1;
-		int count = 0;
-		while (i <= mid && j <= right)
-		{
-			if (nums[i] <= nums[j])
-			{
-				temp[count++] = nums[i++];
-			}
-			else
-			{
-				temp[count++] = nums[j++];
-			}
-		}
-		while (i <= mid)
-		{
-			temp[count++] = nums[i++];
-		}
-		while (j <= right)
-		{
-			temp[count++] = nums[j++];
-		}
-		for (int i = 0; i < right - left + 1; ++i)
-		{
-			nums[i + left] = temp[i];
-		}
-	}
-};
-
-int main()
-{
-
-}
-// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -g
-
-
-```
-
-
-
-
-
-## 三刷
-
-### quick sort
+#### 写法三
 
 ```c++
 
@@ -299,82 +228,68 @@ private:
 
 ```
 
-### merge sort
 
-```c++
-#include <iostream>
-#include <string>
+
+### Merge sort
+
+```C++
 #include <algorithm>
 #include <vector>
-#include <bitset>
-#include <map>
-#include <stack>
-#include <unordered_map>
-#include <unordered_set>
-#include <cmath>
-#include <numeric>
-#include <climits>
-#include <random>
-
 using namespace std;
 
 class Solution
 {
-  std::vector<int> tmp;
+    std::vector<int> tmp; // 保存临时排序结果
 
 public:
-  vector<int> sortArray(vector<int> &nums)
-  {
-    tmp.reserve(nums.size());
-    sortArray(nums, 0, nums.size() - 1);
-    return nums;
-  }
+    vector<int> sortArray(vector<int> &nums)
+    {
+        tmp.resize((int)nums.size(), 0);
+        sortArray(nums, 0, nums.size() - 1);
+        return nums;
+    }
+    void sortArray(vector<int> &nums, int lo, int hi)
+    {
+        if (lo >= hi) // base case
+        {
+            return;
+        }
+        int mid = lo + (hi - lo) / 2;
+        sortArray(nums, lo, mid);
+        sortArray(nums, mid + 1, hi);
+        std::vector<int> merged = merge(nums, lo, mid, mid + 1, hi);
+        std::copy(merged.begin(), merged.end(), nums.begin() + lo);
+    }
 
 private:
-  void sortArray(vector<int> &nums, int start, int stop)
-  {
-    if (start < stop)
+    std::vector<int> merge(vector<int> &nums, int lo1, int hi1, int lo2, int hi2)
     {
-      int mid = start + (stop - start) / 2;
-      sortArray(nums, start, mid);
-      sortArray(nums, mid + 1, stop);
-      merge(nums, start, mid, stop);
+        int first = lo1;
+        int second = lo2;
+        while (first <= hi1 && second <= hi2)
+        {
+            if (nums[first] < nums[second])
+            {
+                tmp.push_back(nums[first++]);
+            }
+            else
+            {
+                tmp.push_back(nums[second++]);
+            }
+        }
+        while (first <= hi1)
+        {
+            tmp.push_back(nums[first++]);
+        }
+        while (second <= hi2)
+        {
+            tmp.push_back(nums[second++]);
+        }
+        return tmp;
     }
-  }
-  void merge(vector<int> &nums, int start, int mid, int stop)
-  {
-    int cnt = 0;
-    int first = start;
-    int second = mid + 1;
-    while (first <= mid && second <= stop)
-    {
-      if (nums[first] < nums[second])
-      {
-        tmp[cnt++] = nums[first++];
-      }
-      else
-      {
-        tmp[cnt++] = nums[second++];
-      }
-    }
-    while (first <= mid)
-    {
-      tmp[cnt++] = nums[first++];
-    }
-    while (second <= stop)
-    {
-      tmp[cnt++] = nums[second++];
-    }
-    int len = stop - start + 1;
-    for (int i = 0; i < len; ++i)
-    {
-      nums[i + start] = tmp[i];
-    }
-  }
 };
-
-int main()
-{
-}
 ```
+
+
+
 

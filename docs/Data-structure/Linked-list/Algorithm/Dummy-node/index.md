@@ -12,7 +12,7 @@ LeetCode中single-linked-list类题目主要有如下两种模式:
 
 2、避免对空指针进行讨论
 
-3、凑齐 "prev-cur-next-三指针-iteration" 
+3、凑齐 "prev-cur-next-三指针-iteration" (简称"dummy node+prev cur next三指针")
 
 ## "dummy node"翻译为"虚拟头节点"
 
@@ -44,6 +44,8 @@ LeetCode中single-linked-list类题目主要有如下两种模式:
 
 5、reddit [[C+] In a linked list what is a dummy node?](https://www.reddit.com/r/learnprogramming/comments/20e0yc/c_in_a_linked_list_what_is_a_dummy_node/)
 
+6、stackoverflow [What is a Dummy Head?](https://stackoverflow.com/questions/37324972/what-is-a-dummy-head)
+
 
 
 ## 一、对已有的single-linked-list进行修改
@@ -57,12 +59,6 @@ LeetCode中single-linked-list类题目主要有如下两种模式:
 对于大多数single-linked-list题目，我们都是基于"prev-cur-next-三指针-iteration"来进行解决，但是对于head-node，相较于internel-node，它具有如下特殊之处:
 
 1、head node没有predecessor node(前驱节点)
-
-
-
-
-
-
 
 对于上述两种情况，新的linked-list始终都是 `dummy->next` 。
 
@@ -187,7 +183,7 @@ void insertAtTail(Node oldTail, int i){
 }
 ```
 
-This works fine when oldTail is not null. But imagine the scenario where we are trying to perform insertAtTail() on an empty list. The above written code will not work if the node is null. Therefore, we've to handle the edge case of checking if oldTail is null:
+This works fine when `oldTail` is not null. But imagine the scenario where we are trying to perform `insertAtTail()` on an empty list. The above written code will not work if the node is null. Therefore, we've to handle the edge case of checking if `oldTail` is null:
 
 ```java
 Node insertAtTail(Node oldTail, int i){
@@ -210,7 +206,7 @@ Now we pass this dummy node to the calling function:
 insertAtTail(dummy, 5);
 ```
 
-When a dummy node is passed to the calling function, you'll see that there's no need to check if dummy is null here. Therefore, we can skip the check for empty node:
+When a **dummy node** is passed to the calling function, you'll see that there's no need to check if dummy is null here. Therefore, we can skip the check for empty node:
 
 ```java
 Node insertAtTail(Node dummy, int i){
@@ -224,7 +220,7 @@ As you can see, I've removed the check for null here.
 
 [A](https://stackoverflow.com/a/50221469)
 
-When the **head** of the Linked List doesn't point to any Node, you create a Dummy Head (Node) pointed from that **head**. So that you would always be able to reach e.g. `head.val` or `head.next` without doing any extra null checks.
+When the **head** of the Linked List doesn't point to any Node, you create a **Dummy Head (Node)** pointed from that **head**. So that you would always be able to reach e.g. `head.val` or `head.next` without doing any extra null checks.
 
 
 

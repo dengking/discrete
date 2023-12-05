@@ -1,6 +1,6 @@
 # Linked list algorithm
 
-## 素材
+素材
 
 一、geeksforgeeks [Linked List Data Structure](https://www.geeksforgeeks.org/data-structures/linked-list/)
 

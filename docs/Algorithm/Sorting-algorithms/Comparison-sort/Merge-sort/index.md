@@ -44,63 +44,61 @@ void sort(int[] nums, int lo, int hi) {
 [LeetCode-912. 排序数组](https://leetcode.cn/problems/sort-an-array/) # Merge sort
 
 ```C++
-#include <bits/stdc++.h>
+#include <algorithm>
+#include <vector>
 using namespace std;
 
 class Solution
 {
-    vector<int> temp; // 保存临时排序结果
+    std::vector<int> tmp; // 保存临时排序结果
+
 public:
     vector<int> sortArray(vector<int> &nums)
     {
-        temp.resize((int)nums.size(), 0);
-        mergeSort(nums, 0, nums.size() - 1);
+        tmp.resize((int)nums.size(), 0);
+        sortArray(nums, 0, nums.size() - 1);
         return nums;
     }
-
-private:
-    void mergeSort(vector<int> &nums, int left, int right)
+    void sortArray(vector<int> &nums, int lo, int hi)
     {
-        if (left >= right) // base case
+        if (lo >= hi) // base case
         {
             return;
         }
-        int mid = (left + right) >> 1;
-        mergeSort(nums, left, mid);
-        mergeSort(nums, mid + 1, right);
-        int first = left, second = mid + 1;
-        int count = 0;
-        while (first <= mid && second <= right)
+        int mid = lo + (hi - lo) / 2;
+        sortArray(nums, lo, mid);
+        sortArray(nums, mid + 1, hi);
+        std::vector<int> merged = merge(nums, lo, mid, mid + 1, hi);
+        std::copy(merged.begin(), merged.end(), nums.begin() + lo);
+    }
+
+private:
+    std::vector<int> merge(vector<int> &nums, int lo1, int hi1, int lo2, int hi2)
+    {
+        int first = lo1;
+        int second = lo2;
+        while (first <= hi1 && second <= hi2)
         {
-            if (nums[first] <= nums[second])
+            if (nums[first] < nums[second])
             {
-                temp[count++] = nums[first++];
+                tmp.push_back(nums[first++]);
             }
             else
             {
-                temp[count++] = nums[second++];
+                tmp.push_back(nums[second++]);
             }
         }
-        while (first <= mid)
+        while (first <= hi1)
         {
-            temp[count++] = nums[first++];
+            tmp.push_back(nums[first++]);
         }
-        while (second <= right)
+        while (second <= hi2)
         {
-            temp[count++] = nums[second++];
+            tmp.push_back(nums[second++]);
         }
-        for (int i = 0; i < right - left + 1; ++i)
-        {
-            nums[i + left] = temp[i];
-        }
+        return tmp;
     }
 };
-
-int main()
-{
-}
-// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -g
-
 ```
 
 ### 非递归的实现方式
