@@ -1,5 +1,7 @@
 # Reverse-linked-list
 
+
+
 ## 素材
 
 一、labuladong
@@ -115,11 +117,11 @@ explicit stack VS recursion implicit stack
 
 
 
-## LeetCode题目
-
-
+## LeetCode
 
 一、反转整个linked list
+
+[LeetCode-206. 反转链表-简单](https://leetcode.cn/problems/reverse-linked-list/)
 
 二、反转部分linked list
 

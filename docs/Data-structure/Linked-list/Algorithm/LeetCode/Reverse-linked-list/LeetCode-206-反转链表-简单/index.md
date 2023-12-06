@@ -1,10 +1,8 @@
-# [LeetCode-206. 反转链表](https://leetcode.cn/problems/reverse-linked-list/)
+## [LeetCode-206. 反转链表-简单](https://leetcode.cn/problems/reverse-linked-list/)
 
 
 
-## 我的解题
-
-### previous-current-next-三指针-iteration
+### Previous-current-next-三指针-iteration
 
 思路: 基于"previous-current-next-三指针-iteration"；让current node的next指向它的previous node。
 
@@ -269,7 +267,4 @@ int main()
 
 ```
 
-
-
-## [官方解题](https://leetcode.cn/problems/reverse-linked-list/solution/fan-zhuan-lian-biao-by-leetcode-solution-d1k2/)
 
