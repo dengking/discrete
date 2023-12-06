@@ -20,7 +20,7 @@ array 和 linked list不仅仅是两种data structure，它们所代表的是两
 
 2、studytonight [Difference between Array and Linked List](https://www.studytonight.com/data-structures/linked-list-vs-array)
 
-linked list只能够 [sequential access](https://en.wanweibaike.com/wiki-Sequential_access)，但是array能够random access。
+linked list只能够 [sequential access](https://en.wanweibaike.com/wiki-Sequential_access)，但是array能够[random access](https://en.wikipedia.org/wiki/Random_access)。
 
 在 wikipedia [Linked list](https://en.wanweibaike.com/wiki-Linked%20list) 中，有着非常好的总结。
 
@@ -72,3 +72,10 @@ linked list只能够 [sequential access](https://en.wanweibaike.com/wiki-Sequent
 
 
 
+## [Random access](https://en.wikipedia.org/wiki/Random_access) VS [Sequential access](https://en.wikipedia.org/wiki/Sequential_access) 
+
+[wikipedia-Sequential access](https://en.wikipedia.org/wiki/Sequential_access):
+
+> In [data structures](https://en.wikipedia.org/wiki/Data_structure), a data structure is said to have **sequential access** if one can only visit the values it contains in one particular order. The canonical example is the [linked list](https://en.wikipedia.org/wiki/Linked_list). Indexing into a list that has sequential access requires [O](https://en.wikipedia.org/wiki/Big_O_notation)(*n*) time, where *n* is the index. As a result, many algorithms such as [quicksort](https://en.wikipedia.org/wiki/Quicksort) and [binary search](https://en.wikipedia.org/wiki/Binary_search_algorithm) degenerate into bad algorithms that are even less efficient than their naive alternatives; these algorithms are impractical without [random access](https://en.wikipedia.org/wiki/Random_access). On the other hand, some algorithms, typically those that do not have index, require only sequential access, such as [mergesort](https://en.wikipedia.org/wiki/Mergesort), and face no penalty.
+
+[binary search](https://en.wikipedia.org/wiki/Binary_search_algorithm) 是典型的需要一分为二的，如果不能够random access，那么显然无法在O(1)的时间内实现一分为二；
