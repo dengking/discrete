@@ -310,15 +310,21 @@ To make the **addition query** efficient, we store at each vertex in the **Segme
 >
 > 一、上面这段话是非常跳跃的，在 [LeetCode-Recursive Approach to Segment Trees](https://leetcode.com/articles/a-recursive-approach-to-segment-trees-range-sum-queries-lazy-propagation/) 中有着更好的描述，这里简单的记忆是: 将自底向上传播转化为自顶向下传播，这种方式是非常适合于segment tree的。
 >
-> 
+> 上面这段话的含义是需要结合下面的代码来进行理解的，它其实描述的是采用这种方式的益处: 
+>
+> >  Thus we don't have to change all $O(n)$  values, but only  $O(\log n)$  many
 
-If now there comes a query that asks the current value of a particular array entry, it is enough to go down the tree and add up all values found along the way(track current path).
+If now there comes a query that asks the current value of a particular array entry, it is enough to go down the tree and add up all values found along the way(**track current path**).
 
 > NOTE: 
 >
 > 一、关于下面code的一些注解: 
 >
-> 下面的code snippet所展示的仅仅是对一个segment tree的lazy propagation，这个segment tree实际上并不具备应用价值，因为它的internal node并没有存储任何统计数据。
+> 下面的code snippet所展示的仅仅是对一个segment tree的lazy propagation，其实下面所展示的严格来说，并不算是segment tree，因为它的internal node并没有存储任何统计数据。下面的这种写法所带来的最大的好处就是前面提到的: 
+>
+> > Thus we don't have to change all $O(n)$  values, but only  $O(\log n)$  many
+>
+> 从下面的代码可知，所有的修改都是在index层进行的。
 
 ```c++
 #include <vector>
@@ -360,6 +366,116 @@ int get(int v, int tl, int tr, int pos) {
 }
 
 ```
+
+
+
+##### 完整测试程序
+
+```c++
+#include <algorithm>
+#include <vector>
+#include <iostream>
+#include <concepts>
+
+template <typename T>
+class SegmentTree
+{
+private:
+    std::vector<T> tree_;
+    int hi_{0}; // segment hi
+
+public:
+    SegmentTree(const std::vector<T> &arr)
+    {
+        tree_.resize(arr.size() * 4);
+        hi_ = arr.size() - 1;
+        build(0, 0, hi_, arr);
+    }
+    /// @brief 将arr[i, j]范围内的元素的值设置为newVal
+    /// @param i
+    /// @param j
+    /// @param newVal
+    void rangeAdd(int i, int j, T &&addend)
+    {
+        rangeAdd(0, 0, hi_, i, j, std::forward<T>(addend));
+    }
+    T get(int idx)
+    {
+        return get(0, 0, hi_, idx);
+    }
+
+private:
+    void build(int rootIdx, int lo, int hi, const std::vector<T> &arr)
+    {
+        if (lo == hi) // Leaf node
+        {
+            tree_[rootIdx] = arr[lo];
+        }
+        else
+        {
+            int mid = lo + (hi - lo) / 2;
+            int left = rootIdx * 2 + 1, right = rootIdx * 2 + 2;
+            build(left, lo, mid, arr);
+            build(right, mid + 1, hi, arr);
+            tree_[rootIdx] = T(); // internal node
+        }
+    }
+
+    void rangeAdd(int rootIdx, int lo, int hi, int i, int j, T &&addend)
+    {
+        if (i > j)
+        {
+            return;
+        }
+        if (lo == i && hi == j)
+        {
+            tree_[rootIdx] += std::move(addend);
+            return;
+        }
+        int mid = lo + (hi - lo) / 2;
+        int left = rootIdx * 2 + 1, right = rootIdx * 2 + 2;
+
+        rangeAdd(left, lo, mid, lo, std::min(hi, mid), std::forward<T>(addend));
+        rangeAdd(left, mid + 1, hi, std::max(lo, mid + 1), hi, std::forward<T>(addend));
+    }
+
+    T get(int rootIdx, int lo, int hi, int idx)
+    {
+        if (lo == hi) // Leaf node
+            return tree_[rootIdx];
+        int mid = lo + (hi - lo) / 2;
+        if (idx <= mid)
+        {
+            // track current path, 自顶向下
+            return tree_[rootIdx] + get(rootIdx * 2 + 1, lo, mid, idx); // go down the tree and add up all values found along the way
+        }
+        else
+        {
+            return tree_[rootIdx] + get(rootIdx * 2 + 2, mid + 1, hi, idx);
+        }
+    }
+};
+
+int main()
+{
+    std::vector<int> arr{1, 2, 3, 4, 5, 6};
+    SegmentTree<int> segTree(arr);
+    std::cout << segTree.get(0) << std::endl;
+    std::cout << segTree.get(2) << std::endl;
+    std::cout << segTree.get(4) << std::endl;
+    segTree.rangeAdd(0, 5, 1);
+    std::cout << segTree.get(0) << std::endl;
+    std::cout << segTree.get(2) << std::endl;
+    std::cout << segTree.get(4) << std::endl;
+
+    segTree.rangeAdd(0, 4, 1);
+    std::cout << segTree.get(0) << std::endl;
+    std::cout << segTree.get(2) << std::endl;
+    std::cout << segTree.get(4) << std::endl;
+}
+```
+
+
 
 #### Assignment on segments
 
