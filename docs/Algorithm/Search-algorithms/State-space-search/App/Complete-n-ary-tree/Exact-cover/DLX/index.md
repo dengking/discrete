@@ -1,6 +1,6 @@
 # DLX
 
-
+DLX算法是采用的是 [incidence matrix](https://en.wikipedia.org/wiki/Incidence_matrix) (关联矩阵) 来描述问题，它充分展示了选择问题的合适表示方式来设计算法的重要性。
 
 ## wikipedia [Knuth's Algorithm X](https://en.wikipedia.org/wiki/Knuth%27s_Algorithm_X)
 
@@ -14,17 +14,23 @@ The exact cover problem is represented in Algorithm X by a matrix *A* consisting
 
 Algorithm X works as follows:
 
-```
-# If the matrix A has no columns, the current partial solution is a valid solution; terminate successfully.
-    1、Otherwise choose a column c (deterministically).
-    2、Choose a row r such that Ar, c = 1 (nondeterministically).
-    3、Include row r in the partial solution.
-    4、For each column j such that Ar, j = 1,
-        for each row i such that Ai, j = 1,
-            delete row i from matrix A. # 消除与这个set包含相同元素的(相互重叠的)set(行)
-        delete column j from matrix A. # 消除这个set包含点(列)
-    Repeat this algorithm recursively on the reduced matrix A.
-```
+`#` If the matrix $A$ has no columns, the current partial solution is a valid solution; terminate successfully.
+
+​    1、Otherwise choose a column $c$ (deterministically).
+
+​    2、Choose a row r such that $A_{r, c} = 1$ (nondeterministically).
+
+​    3、Include row $r$ in the partial solution.
+
+​    4、For each column $j$ such that $A_{r, j}= 1$ ,
+
+​          for each row i such that $A_{i, j}=1$,
+
+​              delete row $i$ from matrix $A$. # 消除与这个set包含相同元素的(相互重叠的)set(行)		
+
+​              delete column $j$ from matrix A. # 消除这个set包含点(列)
+
+​    5、Repeat this algorithm recursively on the reduced matrix A.
 
 
 
@@ -34,15 +40,21 @@ Algorithm X works as follows:
 
 
 
-The nondeterministic choice of *r* means that the algorithm recurses over independent **subalgorithms**; each **subalgorithm** inherits the current matrix *A*, but reduces it with respect to a different row *r*. If column *c* is entirely zero, there are no subalgorithms and the process terminates unsuccessfully.
+The nondeterministic choice of *r* means that the algorithm recurses over independent **subalgorithms**; each **subalgorithm** inherits the current matrix *A*, but reduces it with respect to a different row *r*. If column *c* is entirely zero, there are no **subalgorithms** and the process terminates unsuccessfully.
 
 > NOTE:
 >
 > 一、r是row，即一个set，
 >
-> 二、"independent **subalgorithm**" 指的是什么？指的是选择一行？应该是的，因为下面段落中提及了search tree
+> 二、"**subalgorithm**" 指的是什么？结合上面的内容可知它指的是选择一行并执行后续的消除(2~5)
 
 The subalgorithms form a [search tree](https://en.wikipedia.org/wiki/Search_tree) in a natural way, with the original problem at the root and with level *k* containing each subalgorithm that corresponds to *k* chosen rows. Backtracking is the process of traversing the tree in preorder, depth first.
+
+> NOTE:
+>
+> 一、上面这段话中的 "The subalgorithms form a [search tree](https://en.wikipedia.org/wiki/Search_tree) in a natural way" 如何理解呢？
+>
+> 删行，每次执行 subalgorithm 会删除一行，因此
 
 Any systematic rule for choosing column *c* in this procedure will find all solutions, but some rules work much better than others. To reduce the number of iterations, Knuth suggests that the **column-choosing algorithm** select a column with the smallest number of 1s in it.
 
