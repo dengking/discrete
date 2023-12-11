@@ -24,7 +24,11 @@ In the [mathematical](https://en.wikipedia.org/wiki/Mathematical) field of [comb
 >
 > > 给定一个大集合X={a1, a2, ..., am}（本文我们默认集合中不包含重复元素，且集合元素无序，下文不再赘述），以及一系列X的子集S1, S2, ..., Sn。要求从这n个子集中选出若干个，使得选出的所有子集两两互斥，且它们的并集恰好等于X。
 
+The **exact cover problem** can be generalized slightly to involve not only ***exactly-once* constraints** but also ***at-most-once* constraints**.
 
+> NOTE:
+>
+> 一、这在后面的"Generalized exact cover"章节中有着更好的描述
 
 ### Formal definition
 
@@ -141,5 +145,13 @@ For example, the relation "contains" in the [detailed example](https://en.wikipe
 
 
 
+### Generalized exact cover
 
+In a standard **exact cover problem**, each constraint must be satisfied exactly once. It is a simple generalization to relax this requirement slightly and allow for the possibility that some ***primary* constraints** must be satisfied by *exactly one* choice but other ***secondary* constraints** can be satisfied by *at most one* choice.
+
+As Knuth explains, a **generalized exact cover problem** can be converted to an equivalent **exact cover** problem by simply appending one row for each **secondary column**, containing a single 1 in that column.[[4\]](https://en.wikipedia.org/wiki/Exact_cover#cite_note-4) If in a particular candidate solution a particular **secondary column** is satisfied, then the added row isn't needed. But if the **secondary column** isn't satisfied, as is allowed in the generalized problem but not the standard problem, then the added row can be selected to ensure the column is satisfied.
+
+But Knuth goes on to explain that it is better working with the generalized problem directly, because the generalized algorithm is simpler and faster: A simple change to his Algorithm X allows **secondary columns** to be handled directly.
+
+The [N queens problem](https://en.wikipedia.org/wiki/N_queens_problem) is an example of a **generalized exact cover problem**, as the constraints corresponding to the **diagonals** of the chessboard have a maximum rather than an exact queen count.
 
