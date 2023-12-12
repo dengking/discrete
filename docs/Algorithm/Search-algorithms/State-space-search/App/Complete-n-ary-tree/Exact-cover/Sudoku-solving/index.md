@@ -20,6 +20,8 @@
 
 ## Sudoku Solver
 
+[rafal-Solving Sudoku with Dancing Links](https://rafal.io/posts/solving-sudoku-with-dancing-links.html)
+
 ### [berkeley-Dancing Links and Sudoku A Java Sudoku Solver](https://www.ocf.berkeley.edu/~jchu/publicportal/sudoku/presentationboard.pdf)
 
 > NOTE:
