@@ -180,7 +180,11 @@ It is also possible to solve one-cover problems in which a particular constraint
 
 
 
-## [gkaranikas](https://github.com/gkaranikas)/[dancing-links](https://github.com/gkaranikas/dancing-links)
+## C++
+
+
+
+### [gkaranikas](https://github.com/gkaranikas)/[dancing-links](https://github.com/gkaranikas/dancing-links)
 
 
 
@@ -190,3 +194,14 @@ column header node 和 matrix node必须是相同的类型，只有这样才能�
 
 因为无论是行还是列，都需要整体地进行删除和恢复，因此，它们都需要使用**doubly linked list**来进行实现。
 
+
+
+## Python
+
+https://github.com/topics/dancing-links?l=python 
+
+[mcgill-Algorithm X in 30 lines!](https://www.cs.mcgill.ca/~aassaf9/python/algorithm_x.html)
+
+[sraaphorst ](https://github.com/sraaphorst)/ [dlx-python](https://github.com/sraaphorst/dlx-python)
+
+[zacholade](https://github.com/zacholade)/**[sudoku-dancing-links](https://github.com/zacholade/sudoku-dancing-links)**
