@@ -110,7 +110,7 @@ namespace kai_exact_cover_solver {
      */
     template<class T>
     static void join_node_horizontally(DLXNode<T> *left, DLXNode<T> *right) {
-        DLXNode<T>::join_node_horizontally(left, right)
+        DLXNode<T>::join_node_horizontally(left, right);
     }
 
     /**
@@ -219,13 +219,11 @@ namespace kai_exact_cover_solver {
             }
             // create first_node_of_row column
             DLXMatrixNode *column_header_node = new DLXColumnHeaderNode(0);
-            //column_header_node->data().column_id = static_cast<DLXColumnHeaderNode*>(column_header_node);        // point column object to itself
             join_node_horizontally(root, column_header_node);
             // create column header objects
             for (int j = 1; j < n; j++) {
                 join_node_horizontally(column_header_node, new DLXColumnHeaderNode(0));
                 column_header_node = column_header_node->right();
-                //column_header_node->data().column_id = static_cast<DLXColumnHeaderNode*>(column_header_node);
             }
             join_node_horizontally(column_header_node, root); // cyclization
 
@@ -241,6 +239,7 @@ namespace kai_exact_cover_solver {
             DLXMatrixNode *tail_node;
             column_header_node = root->right();
             // col_index = column of matrix, row_index = row of matrix
+            // 一次构建一列
             for (int col_index = 0; col_index < n; col_index++, column_header_node = column_header_node->right()) {
                 tail_node = column_header_node;
                 for (int row_index = 0; row_index < m; row_index++) {
@@ -248,7 +247,7 @@ namespace kai_exact_cover_solver {
                         ptr_matrix[row_index][col_index] = new DLXMatrixNode(
                                 DLXMatrixNodeData(row_index, static_cast<DLXColumnHeaderNode *>(column_header_node))
                         );
-                        join_node_vertically(ptr_matrix[row_index][col_index], tail_node);
+                        join_node_vertically(ptr_matrix[row_index][col_index], tail_node); // 垂直的
                         tail_node = ptr_matrix[row_index][col_index];
                         (static_cast<DLXColumnHeaderNode *>(column_header_node))->add_to_size(1);
                     } else {

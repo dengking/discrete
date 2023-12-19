@@ -18,7 +18,7 @@ namespace kai_exact_cover_solver {
      * - https://en.wikipedia.org/wiki/Knuth%27s_Algorithm_X
      */
     class DLX : public ExactCoverSolver {
-        typedef std::vector<int> SolutionStack;
+        using SolutionStack = std::vector<int>;
         enum class RowColumnTag {
             row, column
         };

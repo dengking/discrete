@@ -1,6 +1,24 @@
 # DLX
 
-DLX算法是采用的是 [incidence matrix](https://en.wikipedia.org/wiki/Incidence_matrix) (关联矩阵) 来描述问题，它充分展示了选择问题的合适表示方式来设计算法的重要性。
+一、DLX算法是采用的是 [incidence matrix](https://en.wikipedia.org/wiki/Incidence_matrix) (关联矩阵) 来描述问题，它充分展示了选择问题的合适表示方式来设计算法的重要性。
+
+二、dancing links的主要结构:
+
+a、每个节点有5个pointer:
+
+1、left、right
+
+2、above、below
+
+3、header for its column（属于哪一列），后面简称"**column header**"
+
+b、"Each row and column in the matrix will consist of a circular doubly-linked list of nodes"
+
+
+
+[![img](https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Dancing_links.svg/220px-Dancing_links.svg.png)](https://en.wikipedia.org/wiki/File:Dancing_links.svg)
+
+
 
 ## wikipedia [Knuth's Algorithm X](https://en.wikipedia.org/wiki/Knuth%27s_Algorithm_X)
 
@@ -28,7 +46,7 @@ Algorithm X works as follows:
 
 ​              delete row $i$ from matrix $A$. # 消除与这个set包含相同元素的(相互重叠的)set(行)		
 
-​              delete column $j$ from matrix A. # 消除这个set包含点(列)
+​          delete column $j$ from matrix A. # 消除这个set包含点(列)
 
 ​    5、Repeat this algorithm recursively on the reduced matrix A.
 
@@ -37,6 +55,8 @@ Algorithm X works as follows:
 > NOTE:
 >
 > 一、基于 [incidence matrix](https://en.wikipedia.org/wiki/Incidence_matrix) (关联矩阵)，每次尝试选择一行(set)，然后消除这个set包含点(列)、与这个set包含相同元素的(相互重叠的)set(行)，如此往复直至最后。
+>
+> 思考: 为什么先删除行再删除列？
 
 
 
@@ -104,27 +124,23 @@ x.right.left ← x;
 
 will restore *x'*s position in the list, assuming that `x.right` and `x.left` have been left unmodified. This works regardless of the number of elements in the list, even if that number is 1.
 
+> NOTE:
+>
+> 一、对于Dancing Links，下面操作非常容易实现:
+>
+> 1、eliminated
+>
+> 2、restored
+
 Knuth observed that a naive implementation of his Algorithm X would spend an inordinate(过多的) amount of time searching for 1's. When selecting a column, the entire matrix had to be searched for 1's. When selecting a row, an entire column had to be searched for 1's. After selecting a row, that row and a number of columns had to be searched for 1's. To improve this search time from [complexity](https://en.wikipedia.org/wiki/Big_O_notation) O(n) to O(1), Knuth implemented a [sparse matrix](https://en.wikipedia.org/wiki/Sparse_matrix) where only 1's are stored.
 
 > NOTE:
 >
 > 一、 "[sparse matrix](https://en.wikipedia.org/wiki/Sparse_matrix)" 是一个创举。
 
-At all times, each node in the matrix will point to the adjacent nodes to the left and right (1's in the same row), above and below (1's in the same column), and the header for its column (described below). Each row and column in the matrix will consist of a circular doubly-linked list of nodes.
+At all times, each node in the matrix will point to the adjacent nodes to the **left** and **right** (1's in the same row), **above** and **below** (1's in the same column), and the **header for its column** (described below). Each row and column in the matrix will consist of a circular doubly-linked list of nodes.
 
-> NOTE:
->
-> 一、dancing links的主要结构:
->
-> a、每个节点有5个pointer:
->
-> 1、left、right
->
-> 2、above、below
->
-> 3、header for its column（属于哪一列）
->
-> b、"Each row and column in the matrix will consist of a circular doubly-linked list of nodes"
+
 
 #### Header
 
@@ -132,21 +148,23 @@ At all times, each node in the matrix will point to the adjacent nodes to the le
 >
 > 一、"control row"
 
-Each column will have a special node known as the "column header," which will be included in the column list, and will form a special row ("**control row**") consisting of all the columns which still exist in the matrix.
+Each column will have a special node known as the "**column header**", which will be included in the column list, and will form a special row ("**control row**") consisting of all the columns which still exist in the matrix.
 
-Finally, each column header may optionally track the number of nodes in its column, so that locating a column with the lowest number of nodes is of [complexity](https://en.wikipedia.org/wiki/Big_O_notation) O(*n*) rather than O(*n*×*m*) where *n* is the number of columns and *m* is the number of rows. Selecting a column with a low node count is a heuristic which improves performance in some cases, but is not essential to the algorithm.
+Finally, each **column heade**r may optionally track the number of nodes in its column, so that locating a column with the lowest number of nodes is of [complexity](https://en.wikipedia.org/wiki/Big_O_notation) O(*n*) rather than O(*n*×*m*) where *n* is the number of columns and *m* is the number of rows. Selecting a column with a low node count is a heuristic which improves performance in some cases, but is not essential to the algorithm.
 
 
 
 #### Exploring
 
-In Algorithm X, rows and columns are regularly eliminated from and restored to the matrix. 
+In Algorithm X, rows and columns are regularly **eliminated** from and **restored** to the matrix. 
 
 > NOTE:
 >
 > 一、删除后如何恢复？
 
-Eliminations are determined by selecting a column and a row in that column. If a selected column doesn't have any rows, the current matrix is unsolvable and must be backtracked. When an elimination occurs, all columns for which the selected row contains a 1 are removed, along with all rows (including the selected row) that contain a 1 in any of the removed columns. The columns are removed because they have been filled, and the rows are removed because they conflict with the selected row. To remove a single column, first remove the selected column's header. Next, for each row where the selected column contains a 1, traverse the row and remove it from other columns (this makes those rows inaccessible and is how conflicts are prevented). Repeat this column removal for each column where the selected row contains a 1. This order ensures that any removed node is removed exactly once and in a predictable order, so it can be backtracked appropriately. If the resulting matrix has no columns, then they have all been filled and the selected rows form the solution.
+**Eliminations** are determined by selecting a column and a row in that column. If a selected column doesn't have any rows, the current matrix is unsolvable and must be backtracked. When an **elimination** occurs, all columns for which the selected row contains a 1 are removed, along with all rows (including the selected row) that contain a 1 in any of the removed columns. The columns are removed because they have been filled, and the rows are removed because they conflict with the selected row. 
+
+To remove a single column, first remove the selected column's header. Next, for each row where the selected column contains a 1, traverse the row and remove it from other columns (this makes those rows inaccessible and is how conflicts are prevented). Repeat this **column removal** for each column where the selected row contains a 1. This order ensures that any removed node is removed exactly once and in a predictable order, so it can be backtracked appropriately. If the resulting matrix has no columns, then they have all been filled and the selected rows form the solution.
 
 
 
@@ -159,4 +177,16 @@ To backtrack, the above process must be reversed using the second algorithm stat
 #### Optional constraints
 
 It is also possible to solve one-cover problems in which a particular constraint is optional, but can be satisfied no more than once. Dancing Links accommodates these with primary columns which must be filled and secondary columns which are optional. This alters the algorithm's solution test from a matrix having no columns to a matrix having no primary columns and if the heuristic of minimum one's in a column is being used then it needs to be checked only within primary columns. Knuth discusses optional constraints as applied to the [*n* queens problem](https://en.wikipedia.org/wiki/Eight_queens_puzzle). The chessboard diagonals represent optional constraints, as some diagonals may not be occupied. If a diagonal is occupied, it can be occupied only once.
+
+
+
+## [gkaranikas](https://github.com/gkaranikas)/[dancing-links](https://github.com/gkaranikas/dancing-links)
+
+
+
+column header node 和 matrix node必须是相同的类型，只有这样才能够相互引用。
+
+首先构建control row，然后逐列构建。
+
+因为无论是行还是列，都需要整体地进行删除和恢复，因此，它们都需要使用**doubly linked list**来进行实现。
 

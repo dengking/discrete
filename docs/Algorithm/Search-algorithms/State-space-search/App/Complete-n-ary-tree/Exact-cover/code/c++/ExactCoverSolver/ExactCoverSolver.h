@@ -5,6 +5,8 @@
 #ifndef EXACTCOVERSOLVER_EXACTCOVERSOLVER_H
 #define EXACTCOVERSOLVER_EXACTCOVERSOLVER_H
 
+#include <vector>
+
 namespace kai_exact_cover_solver {
 
     class ExactCoverSolver {
