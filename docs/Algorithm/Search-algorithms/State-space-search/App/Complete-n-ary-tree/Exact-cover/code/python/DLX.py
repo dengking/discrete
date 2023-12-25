@@ -10,7 +10,7 @@ class Node:
     """Nodes for the sparse matrix"""
 
     def __init__(self, header_node=None):
-        self.value = None
+        self.value = None  # 节点的值
         self.left = self
         self.right = self
         self.up = self
@@ -48,10 +48,10 @@ class DancingLinkAlgorithm:
         :param matrix:
         """
         self.root = RootNode()  # Create our root node for accessing the matrix
-        self.create_sparse_matrix(matrix)
+        self.__create_sparse_matrix__(matrix)
         self.answers = []  # 所有的答案
 
-    def create_sparse_matrix(self, matrix: List):
+    def __create_sparse_matrix__(self, matrix: List):
         """
         逐行创建spare matrix
         :param matrix:
@@ -169,7 +169,6 @@ class DancingLinkAlgorithm:
         使用backtrack的方式得到所有的solution
         :param k:
         :param solutions:
-        :param answers:
         :return:
         """
         if self.root.right == self.root:
