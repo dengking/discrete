@@ -38,6 +38,22 @@ b、control row是每一列的dummy node
 
 3、为什么cover和uncover是朝着相反的方向
 
+why cover and uncover function iterate towards reverse direction in dancing link algorithm
+
+> In the Dancing Links algorithm, the "cover" and "uncover" functions iterate in the reverse direction to efficiently backtrack and restore the state of the algorithm.
+>
+> The Dancing Links algorithm is used to solve exact cover problems, such as the Sudoku puzzle or the N-Queens problem. It is based on the idea of representing the problem as a matrix of 0s and 1s, where each row represents a constraint and each column represents a choice. The goal is to find a combination of choices that satisfies all the constraints.
+>
+> The "cover" function is used to remove a column from the matrix and all rows that intersect with that column. This removal is done by updating the links between the neighboring nodes in the matrix. The purpose of covering a column is to indicate that a choice has been made and to prevent it from being chosen again in subsequent iterations.
+>
+> On the other hand, the "uncover" function is used to restore a previously covered column and its associated rows. It reverses the changes made by the "cover" function, restoring the links between the nodes and allowing the algorithm to explore other possible choices.
+>
+> By iterating in the reverse direction during the "uncover" operation, the algorithm can efficiently backtrack to the previous state and explore alternative choices. This is crucial for finding all possible solutions to the exact cover problem.
+>
+> In summary, the reverse direction of iteration in the "cover" and "uncover" functions in the Dancing Links algorithm allows for efficient backtracking and exploration of alternative choices to find all possible solutions.
+
+
+
 ## wikipedia [Knuth's Algorithm X](https://en.wikipedia.org/wiki/Knuth%27s_Algorithm_X)
 
 **Algorithm X** is an [algorithm](https://en.wikipedia.org/wiki/Algorithm) for solving the [exact cover](https://en.wikipedia.org/wiki/Exact_cover) problem. It is a straightforward [recursive](https://en.wikipedia.org/wiki/Recursion_(computer_science)), [nondeterministic](https://en.wikipedia.org/wiki/Nondeterministic_algorithm), [depth-first](https://en.wikipedia.org/wiki/Depth-first), [backtracking](https://en.wikipedia.org/wiki/Backtracking) algorithm used by [Donald Knuth](https://en.wikipedia.org/wiki/Donald_Knuth) to demonstrate an efficient implementation called DLX, which uses the [dancing links](https://en.wikipedia.org/wiki/Dancing_links) technique.
@@ -198,22 +214,6 @@ It is also possible to solve one-cover problems in which a particular constraint
 
 
 
-## C++
-
-
-
-### [gkaranikas](https://github.com/gkaranikas)/[dancing-links](https://github.com/gkaranikas/dancing-links)
-
-
-
-column header node 和 matrix node必须是相同的类型，只有这样才能够相互引用。
-
-首先构建control row，然后逐列构建。
-
-因为无论是行还是列，都需要整体地进行删除和恢复，因此，它们都需要使用**doubly linked list**来进行实现。
-
-
-
 ## Python
 
 https://github.com/topics/dancing-links?l=python 
@@ -222,9 +222,11 @@ https://github.com/topics/dancing-links?l=python
 
 [sraaphorst ](https://github.com/sraaphorst)/ [dlx-python](https://github.com/sraaphorst/dlx-python)
 
-[zacholade](https://github.com/zacholade)/**[sudoku-dancing-links](https://github.com/zacholade/sudoku-dancing-links)**
+[zacholade](https://github.com/zacholade)/**[sudoku-dancing-links](https://github.com/zacholade/sudoku-dancing-links)** 
 
 
+
+### Get all solutions
 
 [jovian-dancing-links](https://jovian.com/fuzzyray/dancing-links)
 
@@ -435,4 +437,22 @@ if __name__ == '__main__':
     ]
 
 ```
+
+
+
+
+
+## C++
+
+
+
+### [gkaranikas](https://github.com/gkaranikas)/[dancing-links](https://github.com/gkaranikas/dancing-links)
+
+
+
+column header node 和 matrix node必须是相同的类型，只有这样才能够相互引用。
+
+首先构建control row，然后逐列构建。
+
+因为无论是行还是列，都需要整体地进行删除和恢复，因此，它们都需要使用**doubly linked list**来进行实现。
 

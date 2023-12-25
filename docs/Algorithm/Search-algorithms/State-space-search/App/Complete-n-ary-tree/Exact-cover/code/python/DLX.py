@@ -132,6 +132,8 @@ class DancingLinkAlgorithm:
         row = column.down
         while row != column:
             right_node = row.right
+            # 需要注意: 对于row本身是不需要执行下面循环体的，这是因为需要通过列拿到这些行，所以不能够将这列和这些行的关系解除
+            # 在前面的逻辑中这一列已经被从control row中剔除了，所以它们无法通过这一列被检索到
             while right_node != row:
                 right_node.up.down = right_node.down
                 right_node.down.up = right_node.up
@@ -191,7 +193,6 @@ class DancingLinkAlgorithm:
 
             solutions.pop()
             # undo
-            column = row_node.column
             left_node = row_node.left
             while left_node != row_node:
                 if left_node != self.root:
