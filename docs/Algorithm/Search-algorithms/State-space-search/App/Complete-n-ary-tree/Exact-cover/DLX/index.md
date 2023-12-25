@@ -24,6 +24,20 @@ b、"Each row and column in the matrix will consist of a circular doubly-linked 
 
 2、在circular doubly linked list中，能够非常容易实现插入、删除一个节点
 
+四、
+
+1、dummy node: 
+
+a、root是control row的dummy node
+
+b、control row是每一列的dummy node
+
+因此，它是非常典型的通过control row来将这个matrix给构建起来的
+
+2、iterate over circular doubly linked list
+
+3、为什么cover和uncover是朝着相反的方向
+
 ## wikipedia [Knuth's Algorithm X](https://en.wikipedia.org/wiki/Knuth%27s_Algorithm_X)
 
 **Algorithm X** is an [algorithm](https://en.wikipedia.org/wiki/Algorithm) for solving the [exact cover](https://en.wikipedia.org/wiki/Exact_cover) problem. It is a straightforward [recursive](https://en.wikipedia.org/wiki/Recursion_(computer_science)), [nondeterministic](https://en.wikipedia.org/wiki/Nondeterministic_algorithm), [depth-first](https://en.wikipedia.org/wiki/Depth-first), [backtracking](https://en.wikipedia.org/wiki/Backtracking) algorithm used by [Donald Knuth](https://en.wikipedia.org/wiki/Donald_Knuth) to demonstrate an efficient implementation called DLX, which uses the [dancing links](https://en.wikipedia.org/wiki/Dancing_links) technique.
