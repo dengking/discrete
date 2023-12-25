@@ -442,6 +442,94 @@ if __name__ == '__main__':
 
 
 
+test
+
+```py
+from typing import List
+
+
+class Node:
+    def __init__(self, header, value):
+        self.header = header
+        self.up = self
+        self.down = self
+        self.left = self
+        self.right = self
+        self.value = value
+
+
+class HeaderNode(Node):
+    def __init__(self, column_id):
+        super(HeaderNode, self).__init__(self, column_id)
+        self.cnt = 0
+
+
+class RootNode(Node):
+    def __init__(self):
+        super(RootNode, self).__init__(self, 'RootNode')
+
+    def __repr__(self):
+        return 'RootNode'
+
+
+class DancingLinksAlgorithm:
+    def __init__(self, matrix: List):
+        self.root = RootNode()
+        self.__create__(matrix)
+        self.headers = []
+        self.solutions = []
+
+    def __create__(self, matrix: List):
+        for col in range(0, len(matrix[0])):
+            node = HeaderNode(col)
+            last_node = self.root.left
+            last_node.right = node
+            self.root.left = node
+            node.left = last_node
+            node.right = self.root
+            self.headers.append(node)
+        for row in range(0, len(matrix)):
+            row_first_node = None
+            for col in range(0, matrix[row]):
+                header = self.headers[col]
+                if matrix[row][col]:
+                    node = Node(header, matrix[row][col])
+                    col_last_node = header.up
+                    col_last_node.down = node
+                    node.up = col_last_node
+                    node.down = header
+                    header.up = node
+                    if row_first_node is None:
+                        row_first_node = node
+                    else:
+                        row_last_node = row_first_node.left
+                        row_last_node.right = node
+                        node.left = row_last_node
+                        node.right = row_first_node
+                        row_first_node.left = node
+
+    def solve(self):
+        self.__solve_impl__(0)
+
+    def cover(self, node):
+        pass
+
+    def uncover(self, node):
+        pass
+
+    def __select_min_header__(self):
+        pass
+
+    def __solve_impl__(self, k, solution=[]):
+        if self.root.left == self.root:
+            self.solutions.append(solution[:])
+
+```
+
+
+
+
+
 ## C++
 
 
