@@ -166,42 +166,46 @@ class DancingLinkAlgorithm:
         self.solve_impl(0)
         return self.answers
 
-    def solve_impl(self, k, solutions=[]):
+    def solve_impl(self, k, solution=[]):
         """
         使用backtrack的方式得到所有的solution
         :param k:
-        :param solutions:
+        :param solution:
         :return:
         """
         if self.root.right == self.root:
-            self.answers.append(solutions[:])
+            self.answers.append(solution[:])
             return
 
         column = self.get_min_column()
         self.cover(column)
-
+        print(f'cover column:{column}')
         row_node = column.down
         while row_node != column:
-            solutions.append(row_node)
+            solution.append(row_node)
 
             right_node = row_node.right
             while right_node != row_node:  # 将这一行所有占据的列给消除掉
                 self.cover(right_node)
+                print(f'cover node:{right_node}')
                 right_node = right_node.right
 
-            self.solve_impl(k + 1, solutions)
+            self.solve_impl(k + 1, solution)
 
-            solutions.pop()
+            solution.pop()
             # undo
             left_node = row_node.left
             while left_node != row_node:
                 if left_node != self.root:
                     self.uncover(left_node)
+                    print(f'uncover node:{left_node}')
+
                 left_node = left_node.left
 
             row_node = row_node.down  # move next
 
         self.uncover(column)
+        print(f'uncover column:{column}')
 
 
 if __name__ == '__main__':
@@ -215,5 +219,6 @@ if __name__ == '__main__':
         [0, 0, (1, 0, 2), 0, 0, 0, 0, (1, 0, 2), 0, 0, (1, 0, 2), 0],  # 2 at (1,0)
         [0, 0, 0, (1, 1, 2), 0, 0, 0, (1, 1, 2), 0, 0, 0, (1, 1, 2)]  # 2 at (1,1)
     ]
+
     dlx = DancingLinkAlgorithm(constraint_matrix)
     print(dlx.solve())

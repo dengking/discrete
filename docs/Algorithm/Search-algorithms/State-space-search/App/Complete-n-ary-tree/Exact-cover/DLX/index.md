@@ -52,7 +52,21 @@ why cover and uncover function iterate towards reverse direction in dancing link
 >
 > In summary, the reverse direction of iteration in the "cover" and "uncover" functions in the Dancing Links algorithm allows for efficient backtracking and exploration of alternative choices to find all possible solutions.
 
+五、它的实现是需要对link的操作非常熟悉
 
+traverse方式
+
+六、搜索策略
+
+每次都会选择节点最少都一列，然后尝试这一列的不同的行
+
+只在选择一列、一行后，才进行下一轮的迭代。	
+
+
+
+
+
+DLX是列驱动的，固定的选择一列，然后选择与这一列相交的行。
 
 ## wikipedia [Knuth's Algorithm X](https://en.wikipedia.org/wiki/Knuth%27s_Algorithm_X)
 
@@ -111,6 +125,19 @@ The subalgorithms form a [search tree](https://en.wikipedia.org/wiki/Search_tree
 > 删行，每次执行 subalgorithm 会删除一行，因此
 
 Any systematic rule for choosing column *c* in this procedure will find all solutions, but some rules work much better than others. To reduce the number of iterations, Knuth suggests that the **column-choosing algorithm** select a column with the smallest number of 1s in it.
+
+
+
+```python
+constraint_matrix = [
+    [1, 0, 0, 1, 0, 0, 1],
+    [1, 0, 0, 1, 0, 0, 0],
+    [0, 0, 0, 1, 1, 0, 1],
+    [0, 0, 1, 0, 1, 1, 0],
+    [0, 1, 1, 0, 0, 1, 1],
+    [0, 1, 0, 0, 0, 0, 1],
+]
+```
 
 
 
@@ -439,6 +466,23 @@ if __name__ == '__main__':
 ```
 
 
+
+```c++
+cover: HeaderNode: 0
+cover: HeaderNode: 1
+cover: HeaderNode: 2
+cover: HeaderNode: 3
+uncover: HeaderNode: 3
+uncover: HeaderNode: 2
+uncover: HeaderNode: 1
+cover: HeaderNode: 1
+cover: HeaderNode: 2
+cover: HeaderNode: 3
+uncover: HeaderNode: 3
+uncover: HeaderNode: 2
+uncover: HeaderNode: 1
+uncover: HeaderNode: 0
+```
 
 
 

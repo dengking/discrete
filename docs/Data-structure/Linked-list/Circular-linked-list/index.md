@@ -140,18 +140,30 @@ PRINT-SET(x)
         PRINT(x)
 ```
 
+上面的方式等价于下面的方式: 
+
+```pseudocode
+PRINT-SET(x)
+    root = x
+    PRINT(x)
+    x = x.link
+    while x != root
+        PRINT(x)
+        x = x.link
+```
+
+
+
 错误写法:
 
-```
+```pseudocode
 PRINT-SET(x)
     root = x
     while x.link != root
         PRINT(x)
-        x = x.link
-        
+        x = x.link   
 ```
 
 无法处理single node，因为single node，它是self-reference的，所以 `x.link == root` ，所以上述写法无法遍历到single node。
 
-
-
+总结: traverse single linked-list的方式和DLX algorithm中traverse control row的方式是不同的，DLX中有root node，这个root node是特殊的sentinel/dummy，它不应该被访问到，因此可以作为sentinel；而上面的，每个node都是需要被访问到，同时需要考虑single node、multiple nodes，那如何做到不重不漏地access到每个node呢？它的做法是比较简单的: 首先access 第一个node，这样这个node就可以作为sentinel/dummy了，然后访问后面的node，这样就达到了不重不漏。
