@@ -58,15 +58,40 @@ traverse方式
 
 六、搜索策略
 
-每次都会选择节点最少都一列，然后尝试这一列的不同的行
+每次都会选择行数最少都一列，然后尝试这一列的不同的行；选择最少行数列是一种heuristic，显然行数最好的，能够快速地尝试它的每一行，按照作者的说法，能够加速搜索。DLX是列驱动的，固定的选择一列，然后选择与这一列相交的行。只在选择一列、一行后，才进行下一轮的迭代。	
 
-只在选择一列、一行后，才进行下一轮的迭代。	
+`__cover__` 相当于这一列的值已经满足了，可以将它删除了。
+
+`__select_min_header__` 中，当搜索到一个列，这个列上没有row的时候，此时是可以直接判定这种检索失败的，但是目前的实现并没有，而是返回这个`cnt`为0的header，在 `__solve_impl__` 中，对于这个`cnt`为0的header，它会直接进入`__uncover__`中，然后返回。也就是说，这种写法的本意是: 只有在header上有row的情况下，才会进入下一轮的迭代中，否则直接`__uncover__`返回。
+
+在尝试了一列的所有的row之后，才可以`__uncover__`。
+
+这种写法的另外一个优势是: 如果存在一列上没有任何行，即问题本身是无解的，则它是可以直接将这个没有任何行的列给选择出来的。
 
 
 
+```c++
+cover: HeaderNode: 0
+cover: HeaderNode: 1
+cover: HeaderNode: 2
+cover: HeaderNode: 3
+uncover: HeaderNode: 3
+uncover: HeaderNode: 2
+uncover: HeaderNode: 1
+cover: HeaderNode: 1
+cover: HeaderNode: 2
+cover: HeaderNode: 3
+uncover: HeaderNode: 3
+uncover: HeaderNode: 2
+uncover: HeaderNode: 1
+uncover: HeaderNode: 0
+```
 
 
-DLX是列驱动的，固定的选择一列，然后选择与这一列相交的行。
+
+上述方式非常类似于加括号。
+
+
 
 ## wikipedia [Knuth's Algorithm X](https://en.wikipedia.org/wiki/Knuth%27s_Algorithm_X)
 
@@ -467,25 +492,6 @@ if __name__ == '__main__':
 
 
 
-```c++
-cover: HeaderNode: 0
-cover: HeaderNode: 1
-cover: HeaderNode: 2
-cover: HeaderNode: 3
-uncover: HeaderNode: 3
-uncover: HeaderNode: 2
-uncover: HeaderNode: 1
-cover: HeaderNode: 1
-cover: HeaderNode: 2
-cover: HeaderNode: 3
-uncover: HeaderNode: 3
-uncover: HeaderNode: 2
-uncover: HeaderNode: 1
-uncover: HeaderNode: 0
-```
-
-
-
 test
 
 ```py
@@ -569,8 +575,6 @@ class DancingLinksAlgorithm:
             self.solutions.append(solution[:])
 
 ```
-
-
 
 
 
