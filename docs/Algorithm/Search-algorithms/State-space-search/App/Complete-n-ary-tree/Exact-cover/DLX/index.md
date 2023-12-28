@@ -1,96 +1,5 @@
 # DLX
 
-一、DLX算法是采用的是 [incidence matrix](https://en.wikipedia.org/wiki/Incidence_matrix) (关联矩阵) 来描述问题，它充分展示了选择问题的合适表示方式来设计算法的重要性。
-
-二、dancing links的主要结构:
-
-a、每个节点有5个pointer:
-
-1、left、right
-
-2、above、below
-
-3、header for its column（属于哪一列），后面简称"**column header**"
-
-b、"Each row and column in the matrix will consist of a circular doubly-linked list of nodes"
-
-
-
-[![img](https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Dancing_links.svg/220px-Dancing_links.svg.png)](https://en.wikipedia.org/wiki/File:Dancing_links.svg)
-
-三、DLX算法充分应用了circular doubly linked list的特性:
-
-1、在circular doubly linked list中，拿到一个节点就相当于拿到整个linked list，它能够方便地对整个linked list进行遍历
-
-2、在circular doubly linked list中，能够非常容易实现插入、删除一个节点
-
-四、
-
-1、dummy node: 
-
-a、root是control row的dummy node
-
-b、control row是每一列的dummy node
-
-因此，它是非常典型的通过control row来将这个matrix给构建起来的
-
-2、iterate over circular doubly linked list
-
-3、为什么cover和uncover是朝着相反的方向
-
-why cover and uncover function iterate towards reverse direction in dancing link algorithm
-
-> In the Dancing Links algorithm, the "cover" and "uncover" functions iterate in the reverse direction to efficiently backtrack and restore the state of the algorithm.
->
-> The Dancing Links algorithm is used to solve exact cover problems, such as the Sudoku puzzle or the N-Queens problem. It is based on the idea of representing the problem as a matrix of 0s and 1s, where each row represents a constraint and each column represents a choice. The goal is to find a combination of choices that satisfies all the constraints.
->
-> The "cover" function is used to remove a column from the matrix and all rows that intersect with that column. This removal is done by updating the links between the neighboring nodes in the matrix. The purpose of covering a column is to indicate that a choice has been made and to prevent it from being chosen again in subsequent iterations.
->
-> On the other hand, the "uncover" function is used to restore a previously covered column and its associated rows. It reverses the changes made by the "cover" function, restoring the links between the nodes and allowing the algorithm to explore other possible choices.
->
-> By iterating in the reverse direction during the "uncover" operation, the algorithm can efficiently backtrack to the previous state and explore alternative choices. This is crucial for finding all possible solutions to the exact cover problem.
->
-> In summary, the reverse direction of iteration in the "cover" and "uncover" functions in the Dancing Links algorithm allows for efficient backtracking and exploration of alternative choices to find all possible solutions.
-
-五、它的实现是需要对link的操作非常熟悉
-
-traverse方式
-
-六、搜索策略
-
-每次都会选择行数最少都一列，然后尝试这一列的不同的行；选择最少行数列是一种heuristic，显然行数最好的，能够快速地尝试它的每一行，按照作者的说法，能够加速搜索。DLX是列驱动的，固定的选择一列，然后选择与这一列相交的行。只在选择一列、一行后，才进行下一轮的迭代。	
-
-`__cover__` 相当于这一列的值已经满足了，可以将它删除了。
-
-`__select_min_header__` 中，当搜索到一个列，这个列上没有row的时候，此时是可以直接判定这种检索失败的，但是目前的实现并没有，而是返回这个`cnt`为0的header，在 `__solve_impl__` 中，对于这个`cnt`为0的header，它会直接进入`__uncover__`中，然后返回。也就是说，这种写法的本意是: 只有在header上有row的情况下，才会进入下一轮的迭代中，否则直接`__uncover__`返回。
-
-在尝试了一列的所有的row之后，才可以`__uncover__`。
-
-这种写法的另外一个优势是: 如果存在一列上没有任何行，即问题本身是无解的，则它是可以直接将这个没有任何行的列给选择出来的。
-
-
-
-```c++
-cover: HeaderNode: 0
-cover: HeaderNode: 1
-cover: HeaderNode: 2
-cover: HeaderNode: 3
-uncover: HeaderNode: 3
-uncover: HeaderNode: 2
-uncover: HeaderNode: 1
-cover: HeaderNode: 1
-cover: HeaderNode: 2
-cover: HeaderNode: 3
-uncover: HeaderNode: 3
-uncover: HeaderNode: 2
-uncover: HeaderNode: 1
-uncover: HeaderNode: 0
-```
-
-
-
-上述方式非常类似于加括号。
-
 
 
 ## wikipedia [Knuth's Algorithm X](https://en.wikipedia.org/wiki/Knuth%27s_Algorithm_X)
@@ -129,7 +38,6 @@ Algorithm X works as follows:
 >
 > 一、基于 [incidence matrix](https://en.wikipedia.org/wiki/Incidence_matrix) (关联矩阵)，每次尝试选择一行(set)，然后消除这个set包含点(列)、与这个set包含相同元素的(相互重叠的)set(行)，如此往复直至最后。
 >
-> 思考: 为什么先删除行再删除列？
 
 
 
@@ -151,7 +59,29 @@ The subalgorithms form a [search tree](https://en.wikipedia.org/wiki/Search_tree
 
 Any systematic rule for choosing column *c* in this procedure will find all solutions, but some rules work much better than others. To reduce the number of iterations, Knuth suggests that the **column-choosing algorithm** select a column with the smallest number of 1s in it.
 
+### Example
 
+For example, consider the exact cover problem specified by the universe *U* = {1, 2, 3, 4, 5, 6, 7} and the collection of sets S = {*A*, *B*, *C*, *D*, *E*, *F*}, where:
+
+- *A* = {1, 4, 7};
+- *B* = {1, 4};
+- *C* = {4, 5, 7};
+- *D* = {3, 5, 6};
+- *E* = {2, 3, 6, 7}; and
+- *F* = {2, 7}.
+
+
+
+This problem is represented by the matrix:
+
+|      |  1   |  2   |  3   |  4   |  5   |  6   |  7   |
+| :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
+| *A*  |  1   |  0   |  0   |  1   |  0   |  0   |  1   |
+| *B*  |  1   |  0   |  0   |  1   |  0   |  0   |  0   |
+| *C*  |  0   |  0   |  0   |  1   |  1   |  0   |  1   |
+| *D*  |  0   |  0   |  1   |  0   |  1   |  1   |  0   |
+| *E*  |  0   |  1   |  1   |  0   |  0   |  1   |  1   |
+| *F*  |  0   |  1   |  0   |  0   |  0   |  0   |  1   |
 
 ```python
 constraint_matrix = [
@@ -178,7 +108,7 @@ Knuth's main purpose in describing Algorithm X was to demonstrate the utility of
 
 oi-wiki [Dancing Links](https://oi-wiki.org/search/dlx/)
 
-## wikipedia [Dancing Links](https://en.wikipedia.org/wiki/Dancing_Links)
+## wikipedia [Dancing Links](https://en.wikipedia.org/wiki/Dancing_Links) 
 
 In [computer science](https://en.wikipedia.org/wiki/Computer_science), **dancing links** (**DLX**) is a technique for adding and deleting a node from a circular [doubly linked list](https://en.wikipedia.org/wiki/Doubly_linked_list). It is particularly useful for efficiently implementing [backtracking](https://en.wikipedia.org/wiki/Backtracking) algorithms, such as [Knuth's Algorithm X](https://en.wikipedia.org/wiki/Knuth's_Algorithm_X) for the [exact cover problem](https://en.wikipedia.org/wiki/Exact_cover_problem).[[1\]](https://en.wikipedia.org/wiki/Dancing_Links#cite_note-1) Algorithm X is a [recursive](https://en.wikipedia.org/wiki/Recursion_(computer_science)), [nondeterministic](https://en.wikipedia.org/wiki/Nondeterministic_algorithm), [depth-first](https://en.wikipedia.org/wiki/Depth-first), [backtracking](https://en.wikipedia.org/wiki/Backtracking) [algorithm](https://en.wikipedia.org/wiki/Algorithm) that finds all solutions to the [exact cover](https://en.wikipedia.org/wiki/Exact_cover) problem. Some of the better-known exact cover problems include [tiling](https://en.wikipedia.org/wiki/Tessellation), the [*n* queens problem](https://en.wikipedia.org/wiki/Eight_queens_puzzle), and [Sudoku](https://en.wikipedia.org/wiki/Sudoku).
 
@@ -196,14 +126,14 @@ As the remainder of this article discusses the details of an implementation tech
 
 The idea of DLX is based on the observation that in a circular [doubly linked list](https://en.wikipedia.org/wiki/Doubly_linked_list) of nodes,
 
-```
+```pseudocode
 x.left.right ← x.right;
 x.right.left ← x.left;
 ```
 
 will remove node *x* from the list, while
 
-```
+```pseudocode
 x.left.right ← x;
 x.right.left ← x;
 ```
@@ -266,7 +196,140 @@ It is also possible to solve one-cover problems in which a particular constraint
 
 
 
-## Python
+## Implementation
+
+### 如何实现sparse [incidence matrix](https://en.wikipedia.org/wiki/Incidence_matrix) (关联矩阵) ？
+
+> NOTE:
+>
+> 在 wikipedia [Dancing Links](https://en.wikipedia.org/wiki/Dancing_Links) 中使用的是sparse matrix，为了以示区分，我使用的是 sparse [incidence matrix](https://en.wikipedia.org/wiki/Incidence_matrix) (关联矩阵) 这个词
+
+DLX算法是采用的是sparse [incidence matrix](https://en.wikipedia.org/wiki/Incidence_matrix) (关联矩阵) 来描述问题，它充分展示了选择问题的合适表示方式来设计算法的重要性。DLX算法的sparse [incidence matrix](https://en.wikipedia.org/wiki/Incidence_matrix) 如图所示:
+
+[![img](https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Dancing_links.svg/220px-Dancing_links.svg.png)](https://en.wikipedia.org/wiki/File:Dancing_links.svg) 
+
+关键词:  sparse matrix、circular doubly-linked list
+
+#### Nodes
+
+`Node` <--- `HeaderNode` 
+
+​          <--- `RootNode` 
+
+
+
+`Node` 有5个pointer:
+
+1、left、right
+
+2、above(up)、below(down)
+
+3、header for its column（属于哪一列），后面简称"**column header**"、header node
+
+```python
+
+class Node:
+    def __init__(self, header, value):
+        self.header = header  # header for its column（属于哪一列），后面简称"**column header**"、header node
+        self.up = self
+        self.down = self
+        self.left = self
+        self.right = self
+        self.value = value
+
+    def __repr__(self):
+        return f"Node: row={self.value},col={self.header.value}"
+
+
+class HeaderNode(Node):
+    def __init__(self, column_id):
+        super(HeaderNode, self).__init__(self, column_id)
+        self.cnt = 0  # 这一列有多少行，作为heuristic
+
+    def __repr__(self):
+        return "HeaderNode: {}".format(self.value)
+
+
+class RootNode(Node):
+    def __init__(self):
+        super(RootNode, self).__init__(self, 'RootNode')
+
+    def __repr__(self):
+        return 'RootNode'
+
+```
+
+
+
+#### Circular doubly-linked list
+
+"Each row and column in the matrix will consist of a **circular doubly-linked list** of nodes".
+
+
+
+一、DLX算法充分应用了circular doubly linked list的特性:
+
+1、在circular doubly linked list中，拿到一个节点就相当于拿到整个linked list，它能够方便地对整个linked list进行遍历
+
+2、在circular doubly linked list中，能够非常容易实现插入、删除一个节点
+
+二、dummy node: 
+
+a、root是control row的dummy node
+
+b、control row是每一列的dummy node
+
+DLX是通过root拿到control row，然后拿到每一列，来将这个matrix给构建起来的
+
+
+
+显然它的实现是需要对link的操作非常熟悉。
+
+
+
+#### 搜索策略
+
+概述: exact cover问题的解是由row组成的，因此它是需要对row进行backtrack: 每一列肯定要选择一行，因此它会尝试一列的所有的行，所以它可以看作是**列驱动**的。
+
+每次都会选择**行数**最少的一列，然后尝试这一列的不同的行（backtrack）；选择最少行数的列是一种heuristic，显然行数最少的，能够快速地尝试它的每一行，按照作者的说法，能够加速搜索。DLX是**列驱动**的，固定地选择行数最少的一列，然后选择与这一列相交的行。只在选择一列、一行后，才进行下一轮的迭代。	
+
+选择一列就相当于这一列的值已经满足了，就可以将这一列进行cover（从sparse incidence matrix中删除），此时这一列已经从matrix中抽出列，然后对这列的所有的行进行尝试，尝试完了后，才能够将这一列进行uncover复原。
+
+`__select_min_header__` 中，当搜索到一个列，这个列上没有row的时候，此时是可以直接判定这个检索是失败的，对于这种情况有两种实现方式:
+
+1、判定这一列的行树，如果为0，则直接return
+
+2、不做特殊处理，和其它的有行的列的处理流程一样，由于它上面没有行，所以会直接进行`__cover__`、`__uncover__` 
+
+在 `__solve_impl__` 中，对于这个`cnt`为0的header，它会直接进入`__uncover__`中，然后返回。也就是说，这种写法的本意是: 只有在header上有row的情况下，才会进入下一轮的迭代中，否则直接`__uncover__`返回。
+
+在尝试了一列的所有的row之后，才可以`__uncover__`。
+
+这种写法的另外一个优势是: 如果存在一列上没有任何行，即问题本身是无解的，则它是可以直接将这个没有任何行的列给选择出来的。
+
+
+
+3、为什么cover和uncover是朝着相反的方向
+
+why cover and uncover function iterate towards reverse direction in dancing link algorithm
+
+> In the Dancing Links algorithm, the "cover" and "uncover" functions iterate in the reverse direction to efficiently backtrack and restore the state of the algorithm.
+>
+> The Dancing Links algorithm is used to solve exact cover problems, such as the Sudoku puzzle or the N-Queens problem. It is based on the idea of representing the problem as a matrix of 0s and 1s, where each row represents a constraint and each column represents a choice. The goal is to find a combination of choices that satisfies all the constraints.
+>
+> The "cover" function is used to remove a column from the matrix and all rows that intersect with that column. This removal is done by updating the links between the neighboring nodes in the matrix. The purpose of covering a column is to indicate that a choice has been made and to prevent it from being chosen again in subsequent iterations.
+>
+> On the other hand, the "uncover" function is used to restore a previously covered column and its associated rows. It reverses the changes made by the "cover" function, restoring the links between the nodes and allowing the algorithm to explore other possible choices.
+>
+> By iterating in the reverse direction during the "uncover" operation, the algorithm can efficiently backtrack to the previous state and explore alternative choices. This is crucial for finding all possible solutions to the exact cover problem.
+>
+> In summary, the reverse direction of iteration in the "cover" and "uncover" functions in the Dancing Links algorithm allows for efficient backtracking and exploration of alternative choices to find all possible solutions.
+
+
+
+
+
+### Python
 
 https://github.com/topics/dancing-links?l=python 
 
@@ -278,14 +341,15 @@ https://github.com/topics/dancing-links?l=python
 
 
 
-### Get all solutions
+#### Get all solutions
 
 [jovian-dancing-links](https://jovian.com/fuzzyray/dancing-links)
 
 ```c++
+from typing import List, Union
+
 """
 1、https://jovian.com/fuzzyray/dancing-links
-
 """
 
 
@@ -293,7 +357,7 @@ class Node:
     """Nodes for the sparse matrix"""
 
     def __init__(self, header_node=None):
-        self.value = None
+        self.value = None  # 节点的值
         self.left = self
         self.right = self
         self.up = self
@@ -301,10 +365,10 @@ class Node:
         self.column = header_node
 
     def __repr__(self):
-        return "Node: {}:{}".format(self.column.value, self.value)
+        return f"Node:row={self.value},col={self.column.value}"
 
 
-class HeaderNode(Node):
+class ColumnNode(Node):
     def __init__(self, column_id):
         super().__init__(header_node=self)
         self.value = column_id
@@ -323,45 +387,39 @@ class RootNode(Node):
         return "RootNode"
 
 
-class DancingLinkAlgorithm:
+class DancingLinksAlgorithm:
 
-    def __init__(self, matrix):
-        """
-
-        :param matrix:
-        """
+    def __init__(self, matrix: List[List]):
         self.root = RootNode()  # Create our root node for accessing the matrix
-        self.create_sparse_matrix(matrix)
+        self.columns = []  # all columns
+        self.__create_sparse_matrix__(matrix)
+        self.solutions = []  # 所有的答案
 
-    def create_sparse_matrix(self, matrix):
-
+    def __create_sparse_matrix__(self, matrix: List):
         # Create the column header nodes
         for col_idx in range(len(matrix[0])):
-            new_node = HeaderNode(col_idx)
+            new_node = ColumnNode(col_idx)
             last_node = self.root.left
             new_node.right = self.root
             self.root.left = new_node
             new_node.left = last_node
             last_node.right = new_node
+            self.columns.append(new_node)
 
-        # 逐行构建
-        for row_idx in range(len(matrix)):
+        for row_idx in range(len(matrix)):  # 逐行构建
             row_start_node = None
             for col_idx in range(len(matrix[0])):
                 if matrix[row_idx][col_idx]:
                     # Link new node up/down
-                    header: HeaderNode = self.root.right
-                    for _ in range(col_idx):
-                        header = header.right
+                    header: ColumnNode = self.columns[col_idx]
                     new_node = Node(header)
-                    new_node.value = matrix[row_idx][col_idx]
+                    new_node.value = row_idx
                     col_last_node = header.up
                     new_node.down = header
                     header.up = new_node
                     new_node.up = col_last_node
                     col_last_node.down = new_node
                     header.node_count += 1
-
                     # Link new node left/right
                     if row_start_node:
                         row_last_node = row_start_node.left
@@ -373,7 +431,7 @@ class DancingLinkAlgorithm:
                         row_start_node = new_node
 
     def print_matrix(self):
-        node = self.root
+        node: Union[Node, ColumnNode] = self.root
         while node.right != self.root:
             node = node.right
             column = node
@@ -383,26 +441,22 @@ class DancingLinkAlgorithm:
                 print('\t{} Right{} Left{}'.format(node, node.right, node.left))
             node = node.down
 
-    def get_min_column(self):
+    def get_min_column(self) -> ColumnNode:
         """
         get_min_column implements Heuristic S from Donald Knuth's Dancing Links paper. The Heuristic is to
         deterministically choose the column with the least number of nodes.
         :return:
         """
-        node = self.root.right
+        node: Union[Node, ColumnNode] = self.root.right
         min_column = node
-        while node.right != self.root:
-            node = node.right
+        while node != self.root:
             if node.node_count < min_column.node_count:
                 min_column = node
+            node = node.right
         return min_column
 
-    def cover(self, node):
-        """
-        remove
-        :param node:
-        :return:
-        """
+    @classmethod
+    def __cover__(cls, node: Union[ColumnNode, Node]):
         column = node.column
         column.right.left = column.left
         column.left.right = column.right
@@ -410,6 +464,8 @@ class DancingLinkAlgorithm:
         row = column.down
         while row != column:
             right_node = row.right
+            # 需要注意: 对于row本身是不需要执行下面循环体的，这是因为需要通过列拿到这些行，所以不能够将这列和这些行的关系解除
+            # 在前面的逻辑中这一列已经被从control row中剔除了，所以它们无法通过这一列被检索到
             while right_node != row:
                 right_node.up.down = right_node.down
                 right_node.down.up = right_node.up
@@ -417,12 +473,8 @@ class DancingLinkAlgorithm:
                 right_node = right_node.right
             row = row.down
 
-    def uncover(self, node):
-        """
-        restore
-        :param node:
-        :return:
-        """
+    @classmethod
+    def __uncover__(cls, node):
         column = node.column
 
         row = column.up
@@ -439,45 +491,43 @@ class DancingLinkAlgorithm:
         column.left.right = column
 
     def solve(self):
-        answers = []
-        self.solve_impl(0, answers=answers)
-        return answers
+        self.__solve_impl__(0)
+        return self.solutions
 
-    def solve_impl(self, k, solutions=[], answers=[]):
-
+    def __solve_impl__(self, k, solution=[]):
         if self.root.right == self.root:
-            answers.append(solutions[:])
+            self.solutions.append(solution[:])
             return
 
         column = self.get_min_column()
-        self.cover(column)
-
+        if column.node_count == 0:
+            return
+        self.__cover__(column)
+        print(f'cover column:{column}')
         row_node = column.down
         while row_node != column:
-            solutions.append(row_node)
+            solution.append(row_node)
+            left_node = row_node.left
+            while left_node != row_node:  # 将这一行所有占据的列给消除掉
+                self.__cover__(left_node)
+                left_node = left_node.left
 
+            self.__solve_impl__(k + 1, solution)
+
+            solution.pop()
+            # undo
             right_node = row_node.right
             while right_node != row_node:
-                self.cover(right_node)
+                self.__uncover__(right_node)
                 right_node = right_node.right
+            row_node = row_node.down  # move next
 
-            self.solve_impl(k + 1, solutions)
-
-            solutions.pop()
-
-            column = row_node.column
-            left_node = row_node.left
-            while left_node != row_node:
-                if left_node != self.root:
-                    self.uncover(left_node)
-                left_node = left_node.left
-            row_node = row_node.down
-
-        self.uncover(column)
+        self.__uncover__(column)
+        print(f'uncover column:{column}')
 
 
 if __name__ == '__main__':
-    constraint_matrix = [
+    constraint_matrix1 = [
         [(0, 0, 1), 0, 0, 0, (0, 0, 1), 0, 0, 0, (0, 0, 1), 0, 0, 0],  # 1 at (0,0)
         [0, (0, 1, 1), 0, 0, (0, 1, 1), 0, 0, 0, 0, (0, 1, 1), 0, 0],  # 1 at (0,1)
         [0, 0, (1, 0, 1), 0, 0, (1, 0, 1), 0, 0, (1, 0, 1), 0, 0, 0],  # 1 at (1,0)
@@ -488,7 +538,44 @@ if __name__ == '__main__':
         [0, 0, 0, (1, 1, 2), 0, 0, 0, (1, 1, 2), 0, 0, 0, (1, 1, 2)]  # 2 at (1,1)
     ]
 
+    dlx1 = DancingLinksAlgorithm(constraint_matrix1)
+    print(dlx1.solve())
+
+    constraint_matrix2 = [
+        [1, 0, 0, 1, 0, 0, 1],
+        [1, 0, 0, 1, 0, 0, 0],
+        [0, 0, 0, 1, 1, 0, 1],
+        [0, 0, 1, 0, 1, 1, 0],
+        [0, 1, 1, 0, 0, 1, 1],
+        [0, 1, 0, 0, 0, 0, 1],
+    ]
+    dlx2 = DancingLinksAlgorithm(constraint_matrix2)
+    print(dlx2.solve())
+
 ```
+
+
+
+```c++
+cover: HeaderNode: 0
+cover: HeaderNode: 1
+cover: HeaderNode: 2
+cover: HeaderNode: 3
+uncover: HeaderNode: 3
+uncover: HeaderNode: 2
+uncover: HeaderNode: 1
+cover: HeaderNode: 1
+cover: HeaderNode: 2
+cover: HeaderNode: 3
+uncover: HeaderNode: 3
+uncover: HeaderNode: 2
+uncover: HeaderNode: 1
+uncover: HeaderNode: 0
+```
+
+
+
+上述方式非常类似于加括号。
 
 
 
@@ -578,11 +665,11 @@ class DancingLinksAlgorithm:
 
 
 
-## C++
+### C++
 
 
 
-### [gkaranikas](https://github.com/gkaranikas)/[dancing-links](https://github.com/gkaranikas/dancing-links)
+#### [gkaranikas](https://github.com/gkaranikas)/[dancing-links](https://github.com/gkaranikas/dancing-links)
 
 
 
