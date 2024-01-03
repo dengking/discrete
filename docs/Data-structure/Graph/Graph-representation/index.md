@@ -1,6 +1,45 @@
 # Graph representation
 
-保存图时，需要考虑的一个问题是: 一个点可以关联多条边，即 [star](https://en.wikipedia.org/wiki/Star_(graph_theory))  。
+一、从relation的角度来分析graph representation
+
+可以使用graph来表示relation，而graph representation同样需要是基于vertex、edge之间的relation，graph的各种representation主要是基于如下两种relation:
+
+| relation                                                     |                                 |
+| ------------------------------------------------------------ | ------------------------------- |
+| adjacency                                                    | relation of vertex-vertex pairs |
+| [incidence(graph)](https://en.wikipedia.org/wiki/Incidence_(graph)) | relation of vertex-edge pairs   |
+
+需要注意的是，"[incidence(graph)](https://en.wikipedia.org/wiki/Incidence_(graph))"在graph语境中特指"relation of vertex-edge"，在其它语境中，它有着更加宽泛的含义(可以描述任何两类事物之间的**关联关系**)，关于此，在 [wikipedia-Incidence matrix](https://en.wikipedia.org/wiki/Incidence_matrix) 中有着很好的说明:
+
+> In [mathematics](https://en.wikipedia.org/wiki/Mathematics), an **incidence matrix** is a [logical matrix](https://en.wikipedia.org/wiki/Logical_matrix) that shows the relationship between two classes of objects, usually called an [incidence relation](https://en.wikipedia.org/wiki/Incidence_(geometry)). If the first class is *X* and the second is *Y*, the matrix has one row for each element of *X* and one column for each element of *Y*. The entry in row *x* and column *y* is 1 if *x* and *y* are related (called *incident* in this context) and 0 if they are not. There are variations;
+
+
+
+二、
+
+graph star: 
+
+保存图时，需要考虑的一个问题是: 一个点可以关联多条边/点，即 [star](https://en.wikipedia.org/wiki/Star_(graph_theory))  。
+
+三、根据问题灵活的选择graph representation
+
+1、以vertex视角:
+
+vertex+in-edges+out-edges
+
+这种方式是我在做拓扑检查的时候采用的一种graph representation
+
+它和 [Adjacency list](https://en.wikipedia.org/wiki/Adjacency_list) （邻接链表）有点类似
+
+
+
+素材:
+
+mathcs.emory [Representing weighted graphs](http://www.mathcs.emory.edu/~cheung/Courses/171/Syllabus/11-Graph/weighted.html)
+
+khanacademy [Representing graphs](https://www.khanacademy.org/computing/computer-science/algorithms/graph-representation/a/representing-graphs)
+
+
 
 ## wikipedia [Graph (abstract data type)#Representations](https://en.wikipedia.org/wiki/Graph_(abstract_data_type)) 
 
@@ -16,85 +55,44 @@
 >
 > 二、在原文中还给出了在使用上述三种表示方式下执行一些典型操作时的算法复杂度。
 
+## wikipedia [Adjacency list](https://en.wikipedia.org/wiki/Adjacency_list) 
 
-
-## mathcs.emory [Representing weighted graphs](http://www.mathcs.emory.edu/~cheung/Courses/171/Syllabus/11-Graph/weighted.html)
-
-> NOTE: 如何来表示一个weighted graph？正如在Summary章节所述，即需要考虑structure也需要考虑property（也就是这里说的weight）
-
-### Weighted graphs
-
-**Weighted graph** = a **graph** whose **edges** have **weights**
-
-![](./weight01.gif)
+> NOTE:
+>
+> 一、"adjacency list" 的意思是 "邻接表"
 
 
 
-The **weight** of an **edge** can **represent**:
-
-- **Cost or distance**
-- **Capacity** = the **maximim amount of flow** that can be **transported** from one place to another
-
-### Adjacency list
-
-Each **node** in the **adjacency graph** will **contain:**
-
-- A **neighbor node ID** (this **field** was **already** discussed previously)
-- A `cost` field (this field is new)
-
-#### Example
-
-**Graph:**
-
-![](./weight01.gif)
-
-**Representation:**
-
-![](./adjacency-list.gif)
+[![img](https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Simple_cycle_graph.svg/120px-Simple_cycle_graph.svg.png)](https://en.wikipedia.org/wiki/File:Simple_cycle_graph.svg)
 
 
 
-Class used to represent (define) **edges**:
 
-```java
+|      |             |      |
+| ---- | ----------- | ---- |
+| a    | adjacent to | b,c  |
+| b    | adjacent to | a,c  |
+| c    | adjacent to | a,b  |
+
+### Implementation details
+
+An adjacency list representation for a graph associates each vertex in the graph with the collection of its neighboring vertices or edges. There are many variations of this basic idea, differing in the details of how they implement the association between vertices and collections, in how they implement the collections, in whether they include both vertices and edges or only vertices as first class objects, and in what kinds of objects are used to represent the vertices and edges.
+
+1、An implementation suggested by [Guido van Rossum](https://en.wikipedia.org/wiki/Guido_van_Rossum) uses a [hash table](https://en.wikipedia.org/wiki/Hash_table) to associate each vertex in a graph with an [array](https://en.wikipedia.org/wiki/Array_data_structure) of adjacent vertices. In this representation, a vertex may be represented by any hashable object. There is no explicit representation of edges as objects.
+
+2、Cormen et al. suggest an implementation in which the vertices are represented by index numbers.[[2\]](https://en.wikipedia.org/wiki/Adjacency_list#cite_note-2) Their representation uses an array indexed by vertex number, in which the array cell for each vertex points to a [singly linked list](https://en.wikipedia.org/wiki/Singly_linked_list) of the neighboring vertices of that vertex. In this representation, the nodes of the singly linked list may be interpreted as edge objects; however, they do not store the full information about each edge (they only store one of the two endpoints of the edge) and in undirected graphs there will be two different linked list nodes for each edge (one within the lists for each of the two endpoints of the edge).
+
+3、The [object oriented](https://en.wikipedia.org/wiki/Object_oriented) incidence list structure suggested by Goodrich and Tamassia has special classes of vertex objects and edge objects. Each vertex object has an instance variable pointing to a collection object that lists the neighboring edge objects. In turn, each edge object points to the two vertex objects at its endpoints.[[3\]](https://en.wikipedia.org/wiki/Adjacency_list#cite_note-A-3) This version of the adjacency list uses more memory than the version in which adjacent vertices are listed directly, but the existence of explicit edge objects allows it extra flexibility in storing additional information about edges.
 
 
-   /* ==========================================
-      Edges is stored as Node of a linked list
-      ========================================== */         
-   public class Edge
-   {
-      int  NodeID;     // The neighbor node
-      double Weight;   // Weight of edge
-      Node next;       // Link variable
-   }  
-```
+
+## wikipedia [Adjacency matrix](https://en.wikipedia.org/wiki/Adjacency_matrix)
+
+In [graph theory](https://en.wikipedia.org/wiki/Graph_theory) and [computer science](https://en.wikipedia.org/wiki/Computer_science), an **adjacency matrix** is a [square matrix](https://en.wikipedia.org/wiki/Square_matrix) used to represent a finite [graph](https://en.wikipedia.org/wiki/Graph_(discrete_mathematics)). The elements of the [matrix](https://en.wikipedia.org/wiki/Matrix_(mathematics)) indicate whether pairs of [vertices](https://en.wikipedia.org/wiki/Vertex_(graph_theory)) are [adjacent](https://en.wikipedia.org/wiki/Neighbourhood_(graph_theory)) or not in the graph.
 
 
 
-Class used to represent (define) a graph:
-
-```java
-   /* =============================================================
-      The graph is an array of Edge (Edge[i] = all edges of node i)
-      ============================================================== */         
-   public class Graph
-   {
-       public Edge[] graph;    // Array of Edges      
-   }
-```
-
-### Adjacency matrix
-
-> NOTE: 原文称之为 "Adjacency array"
-
-Representing a weighted graph using an adjacency array:
-
-- If there is no edge between node i and node j, the value of the array element `a[i][j] = some very large value`
-
-- Otherwise, `a[i][j]` is a floating value that is equal to the weight of the `edge (i, j)`
-
-#### Example
+### Example
 
 ![](./weight01.gif)
 
@@ -118,7 +116,9 @@ Representation:
                    * = a very large value (infinite)
 ```
 
+### Data structures
 
+一、2D array
 
 Class used to represent a graph using an adjacency matrix:
 
@@ -134,6 +134,8 @@ Class used to represent a graph using an adjacency matrix:
       ...
    }
 ```
+
+二、DLX
 
 
 
@@ -188,17 +190,4 @@ public:
 
 这种表示方式相对比较简单: 如果"adjacent vertices" 或者 "terminal vertices" 中不包含目标节点，那么就不相连。
 
-
-
-### 从relation的角度来分析graph representation
-
-使用graph来表示relation，relation是有属性的，所以graph需要能够表示出这些relation的属性，各种algorithm其实就是基于relation和relation的属性的。
-
-这就是graph、representation、property、algorithm。
-
-
-
-## 素材
-
-khanacademy [Representing graphs](https://www.khanacademy.org/computing/computer-science/algorithms/graph-representation/a/representing-graphs)
 
