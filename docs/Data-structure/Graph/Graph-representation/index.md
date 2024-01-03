@@ -2,7 +2,7 @@
 
 一、从relation的角度来分析graph representation
 
-可以使用graph来表示relation，而graph representation同样需要是基于vertex、edge之间的relation，graph的各种representation主要是基于如下两种relation:
+可以使用graph来表示relation，而graph representation同样需要是基于vertex、edge之间的**relation**，graph的各种representation主要是基于如下两种relation:
 
 | relation                                                     |                                 |
 | ------------------------------------------------------------ | ------------------------------- |
@@ -25,13 +25,9 @@ graph star:
 
 1、以vertex视角:
 
-vertex+in-edges+out-edges
+vertex+(in-edges)+(out-edges)
 
-这种方式是我在做拓扑检查的时候采用的一种graph representation
-
-它和 [Adjacency list](https://en.wikipedia.org/wiki/Adjacency_list) （邻接链表）有点类似
-
-
+这种方式是我在做拓扑检查的时候采用的一种graph representation，它和 [Adjacency list](https://en.wikipedia.org/wiki/Adjacency_list) （邻接链表）有点类似。
 
 素材:
 
@@ -79,6 +75,10 @@ khanacademy [Representing graphs](https://www.khanacademy.org/computing/computer
 An adjacency list representation for a graph associates each vertex in the graph with the collection of its neighboring vertices or edges. There are many variations of this basic idea, differing in the details of how they implement the association between vertices and collections, in how they implement the collections, in whether they include both vertices and edges or only vertices as first class objects, and in what kinds of objects are used to represent the vertices and edges.
 
 1、An implementation suggested by [Guido van Rossum](https://en.wikipedia.org/wiki/Guido_van_Rossum) uses a [hash table](https://en.wikipedia.org/wiki/Hash_table) to associate each vertex in a graph with an [array](https://en.wikipedia.org/wiki/Array_data_structure) of adjacent vertices. In this representation, a vertex may be represented by any hashable object. There is no explicit representation of edges as objects.
+
+> NOTE:
+>
+> 一、[Python Patterns - Implementing Graphs](https://www.python.org/doc/essays/graphs/)
 
 2、Cormen et al. suggest an implementation in which the vertices are represented by index numbers.[[2\]](https://en.wikipedia.org/wiki/Adjacency_list#cite_note-2) Their representation uses an array indexed by vertex number, in which the array cell for each vertex points to a [singly linked list](https://en.wikipedia.org/wiki/Singly_linked_list) of the neighboring vertices of that vertex. In this representation, the nodes of the singly linked list may be interpreted as edge objects; however, they do not store the full information about each edge (they only store one of the two endpoints of the edge) and in undirected graphs there will be two different linked list nodes for each edge (one within the lists for each of the two endpoints of the edge).
 
@@ -139,6 +139,22 @@ Class used to represent a graph using an adjacency matrix:
 
 
 
+## Incidence matrix
+
+一、是在学习boost [IncidenceGraph](https://www.boost.org/doc/libs/1_73_0/libs/graph/doc/IncidenceGraph.html)时，想到的incidence matrix。
+
+二、"incidence matrix"的意思是: "邻接矩阵"。
+
+三、有两种实现方式:
+
+1、array
+
+2、DLX
+
+### wikipedia [Incidence matrix](https://en.wikipedia.org/wiki/Incidence_matrix)
+
+
+
 ## Summary
 
 ### Weighted graph 如何表示两点不相连？
@@ -189,5 +205,4 @@ public:
 二、Adjacency-list
 
 这种表示方式相对比较简单: 如果"adjacent vertices" 或者 "terminal vertices" 中不包含目标节点，那么就不相连。
-
 

@@ -1,4 +1,4 @@
-# python [Python Patterns - Implementing Graphs](https://www.python.org/doc/essays/graphs/)
+# [Python Patterns - Implementing Graphs](https://www.python.org/doc/essays/graphs/)
 
 Graphs are networks consisting of nodes connected by **edges** or **arcs**. In **directed graphs**, the connections between nodes have a direction, and are called **arcs**; in **undirected graphs**, the connections have no direction and are called **edges**. We mainly discuss **directed graphs**. Algorithms in graphs include finding a **path** between two nodes, finding the **shortest path** between two nodes, determining **cycles** in the graph (a cycle is a non-empty path from a node to itself), finding a path that reaches all nodes (the famous "traveling salesman problem"), and so on. Sometimes the **nodes** or **arcs** of a graph have **weights** or **costs** associated with them, and we are interested in finding the **cheapest path**.
 

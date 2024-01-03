@@ -1,4 +1,3 @@
 nav:
     - Introduction: index.md
     - Adjacency-list: Adjacency-list
-    - Incidence-matrix: Incidence-matrix
