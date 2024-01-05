@@ -12,9 +12,24 @@
 
 一、dijkstra algorithm=BFS+greedy-algorithm贪心算法+dynamic-programming动态规划: 
 
-1、greedy-algorithm贪心算法: 每次选择距离source最短的node进行expand、relaxation approximation。
+1、对上面这段话的解释: 每次选择距离source最短的node(greedy-algorithm贪心算法)进行expand(BFS)、对 expand得到的node进行edge relaxation approximation。
 
+这段话比较抽象，结合一个具体的例子来理解最好:
 
+```python
+        graph = {
+            'A': {'B': 1, 'C': 3},
+            'B': {'C': 1},
+            'C': {},
+        }
+        
+        start = 'A'
+        end = 'C'
+```
+
+这个例子虽小，但是体现Dijkstra's algorithm的精妙所在，使用这个例子来模拟算法，我有了如下感悟:
+
+a、到达一个node的path有多条，Dijkstra's algorithm会尝试各条，edge relaxation保证了选择当前最优秀的进入到priority queue替换之前的(一个node可能会被多次relaxation)，同时阻挡来后续的劣质的 
 
 2、wikipedia [Dijkstra's algorithm # Pseudocode](https://en.wikipedia.org/wiki/Dijkstra's_algorithm#Pseudocode) 一次性将所有等node都加入到queue中，labuladong [我写了一个模板，把 Dijkstra 算法变成了默写题](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247492167&idx=1&sn=bc96c8f97252afdb3973c7d760edb9c0&scene=21#wechat_redirect) 中是动态加入。如果 queue不支持 `decrease_priority` 接口，那么就无法按照 wikipedia [Dijkstra's algorithm # Pseudocode](https://en.wikipedia.org/wiki/Dijkstra's_algorithm#Pseudocode) 中的写法写。
 
@@ -258,6 +273,12 @@ A more general problem would be to find all the shortest paths between ***source
 
 ### Practical optimizations and infinite graphs
 
+[![img](https://upload.wikimedia.org/wikipedia/commons/2/23/Dijkstras_progress_animation.gif)](https://en.wikipedia.org/wiki/File:Dijkstras_progress_animation.gif)
+
+Illustration of **Dijkstra's algorithm** finding a path from a **start node** (lower left, red) to a **goal node** (upper right, green) in a [robot](https://en.wikipedia.org/wiki/Robotics) [motion planning](https://en.wikipedia.org/wiki/Motion_planning) problem. Open nodes represent the "tentative" set (aka set of "unvisited" nodes). Filled nodes are the visited ones, with color representing the distance: the greener, the closer. Nodes in all the different directions are explored uniformly, appearing more-or-less as a circular [wavefront](https://en.wikipedia.org/wiki/Wavefront) as Dijkstra's algorithm uses a [heuristic](https://en.wikipedia.org/wiki/Consistent_heuristic) identically equal to 0.
+
+
+
 > NOTE:
 >
 > 一、GPT:
@@ -286,6 +307,29 @@ A more general problem would be to find all the shortest paths between ***source
 > > 4. **General Applicability**: Uniform-cost search is a more general algorithm that can be applied to any search problem, not just pathfinding in weighted graphs. It does not rely on the structure of a graph or the presence of edge weights, so the concept of relaxation is not applicable.
 > >
 > > In summary, uniform-cost search inherently ensures that the shortest path is found by the order in which nodes are expanded, without the need for a separate relaxation process. The use of a priority queue to manage the frontier is key to this behavior.
+>
+> 三、**Uniform-cost search** VS **Dijkstra's algorithm**
+>
+> 两者都是用来priority queue来进行greed selection，不同的是: 
+>
+> **Dijkstra's algorithm**  使用的是edge relaxation
+>
+> **Uniform-cost search** 使用的是closed set(最优质已经确定)，因为总是greedy选择最优的，因此从priority queue中pop出来的总是最优的，因此可以将它们放到
+>
+> 从下面的case来看，两者都能够找到最优值:
+>
+> ```python
+>         graph = {
+>             'A': {'B': 1, 'C': 3},
+>             'B': {'C': 1},
+>             'C': {},
+>         }
+>         
+>         start = 'A'
+>         end = 'C'
+> ```
+>
+> 
 
 In common presentations of **Dijkstra's algorithm**, initially all nodes are entered into the priority queue. This is, however, not necessary: the algorithm can start with a priority queue that contains only one item, and insert new items as they are discovered (instead of doing a decrease-key, check whether the key is in the queue; if it is, decrease its key, otherwise insert it).[[7\]](https://en.wanweibaike.com/wiki-Dijkstra's Algorithm#cite_note-mehlhorn-7):198 This variant has the same worst-case bounds as the common variant, but maintains a smaller priority queue in practice, speeding up the queue operations.
 
@@ -777,9 +821,13 @@ if __name__ == '__main__':
 
 
 
-[LeetCode-1631. 最小体力消耗路径](https://leetcode.cn/problems/path-with-minimum-effort/)
+[LeetCode-1631. 最小体力消耗路径](https://leetcode.cn/problems/path-with-minimum-effort/) 
 
-[LeetCode-1514. 概率最大的路径](https://leetcode.cn/problems/path-with-maximum-probability/)
+
+
+[LeetCode-1514. 概率最大的路径](https://leetcode.cn/problems/path-with-maximum-probability/) 
+
+
 
 [LeetCode-787. K 站中转内最便宜的航班-中等](https://leetcode.cn/problems/cheapest-flights-within-k-stops/) 
 
