@@ -57,7 +57,7 @@ void Floyd(int arrDis[][], Vertex arrPath[][])const;
 
 1、2、3都属于DP optimization algorithm，都使用了edge relaxation，关于此，在wikipedia [Bellman–Ford algorithm](https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm) 中有着非常好的总结:
 
-> Like [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra's_algorithm), Bellman–Ford proceeds by [relaxation](https://en.wikipedia.org/wiki/Relaxation_(approximation)), in which approximations to the correct distance are replaced by better ones until they eventually reach the solution.
+> Like [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra's_algorithm), Bellman–Ford proceeds by [relaxation](https://en.wikipedia.org/wiki/Relaxation_(approximation)), in which  to the correct distance are replaced by better ones until they eventually reach the solution.
 
 上述三个algorithm都是"proceed by [relaxation](https://en.wikipedia.org/wiki/Relaxation_(approximation))" ，它们所不同的是执行relaxation的次数、时机。
 
