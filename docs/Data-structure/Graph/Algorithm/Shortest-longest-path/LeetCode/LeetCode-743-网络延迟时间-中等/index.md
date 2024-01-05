@@ -14,79 +14,19 @@
 
 显然相比之下，第二种方式是更好的。
 
-二、这道题其实要求解的是 [Shortest-path tree](https://en.wikipedia.org/wiki/Shortest-path_tree)，最终答案是 [Shortest-path tree](https://en.wikipedia.org/wiki/Shortest-path_tree) 的最大值
 
 
+## C++
 
-## [官方解题](https://leetcode.cn/problems/network-delay-time/solution/wang-luo-yan-chi-shi-jian-by-leetcode-so-6phc/) # 使用dijkstra算法
+这是参考的
 
-根据题意，从节点 `k` 发出的信号，到达节点 `x` 的时间就是节点 `k` 到节点 `x` 的最短路的长度。因此我们需要求出节点 `k` 到其余所有点的最短路，其中的最大值就是答案。若存在从 `k` 出发无法到达的点，则返回 -1。
+1、 [官方解题](https://leetcode.cn/problems/network-delay-time/solution/wang-luo-yan-chi-shi-jian-by-leetcode-so-6phc/) 
 
-### 不使用 `priority_queue`
+参考了它的graph表示方式；
 
-> NOTE: 
->
-> 下面的这种写法不好，不建议采用
+2、[XingHe](https://leetcode.cn/u/QRhqcDD90G/) # [c++/python3/java （1）朴素dijkstra算法 （2）最小堆+visited+dijkstra算法](https://leetcode.cn/problems/network-delay-time/solution/cpython3java-1po-su-dijkstrasuan-fa-2zui-ks36/) #（二）最小堆+visited+dijkstra算法
 
-
-
-```C++
-#include <bits/stdc++.h>
-using namespace std;
-
-class Solution
-{
-public:
-	int networkDelayTime(vector<vector<int>> &times, int n, int k)
-	{
-		const int inf = INT_MAX / 2;
-		vector<vector<int>> g(n, vector<int>(n, inf)); // graph，这种表示方式记录的是从source到所有的n个节点的距离，它可以通过inf开判定两个节点之间是否可达
-		for (auto &t : times)
-		{
-			int x = t[0] - 1, y = t[1] - 1; // 需要注意标号到下标的转换
-			g[x][y] = t[2]; // 从节点x到节点y的距离为t[2]
-		}
-
-		vector<int> dist(n, inf);
-		dist[k - 1] = 0; // 需要注意标号到下标的转换
-		vector<int> used(n); // 这是visited array
-		for (int i = 0; i < n; ++i)
-		{
-			int x = -1;
-			for (int y = 0; y < n; ++y) // 选择出最短距离
-			{
-				if (!used[y] && (x == -1 || dist[y] < dist[x]))
-				{
-					x = y;
-				}
-			}
-			used[x] = true;
-			for (int y = 0; y < n; ++y)
-			{
-				dist[y] = min(dist[y], dist[x] + g[x][y]);
-			}
-		}
-
-		int ans = *max_element(dist.begin(), dist.end());
-		return ans == inf ? -1 : ans;
-	}
-};
-
-int main()
-{
-
-}
-// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -g
-
-```
-
-
-
-### 使用`priority_queue`
-
-> NOTE:
->
-> 这种写法较好，建议采用
+参考了它的visited array；
 
 ```c++
 #include <bits/stdc++.h>
@@ -143,72 +83,7 @@ int main()
 
 ```
 
-## [XingHe](https://leetcode.cn/u/QRhqcDD90G/) # [c++/python3/java （1）朴素dijkstra算法 （2）最小堆+visited+dijkstra算法](https://leetcode.cn/problems/network-delay-time/solution/cpython3java-1po-su-dijkstrasuan-fa-2zui-ks36/)
 
-### （二）最小堆+visited+dijkstra算法
-
-```c++
-class Solution 
-{
-public:
-    int networkDelayTime(vector<vector<int>>& times, int n, int k) 
-    {
-        //---------------------最小堆+visited+朴素dijkstra算法 -----------------------//
-        int INF = 1e9;
-        unordered_map<int, vector<pair<int, int>>> adjvex;
-        for (auto v : times)
-        {
-            int x = v[0],  y = v[1],  cost = v[2];
-            x --;
-            y --;
-            adjvex[x].push_back({y, cost});
-        }
-
-        int start = k - 1;
-        vector<int> dist(n, INF);
-        vector<bool> visited(n, false);
-        dist[start] = 0;
-        priority_queue<pair<int,int>, vector<pair<int,int>>, greater<pair<int,int>> > minHeap;
-        minHeap.push({0, start});
-        while (!minHeap.empty())
-        {
-            auto [d, x] = minHeap.top();
-            minHeap.pop();
-            if (visited[x] == true)
-                continue;
-            visited[x] = true;
-            for (auto [y, cost] : adjvex[x])
-            {
-                if (dist[x] + cost < dist[y])
-                {
-                    dist[y] = dist[x] + cost;
-                    minHeap.push({dist[y], y});
-                }
-            }
-        }
-
-        //---- 最后一个到达的，是求max
-        int res = *max_element(dist.begin(), dist.end());  
-        return (res != INF ? res : -1);
-
-    }   
-};
-
-```
-
-
-
-## 我的解题
-
-这是参考的
-
-1、 [官方解题](https://leetcode.cn/problems/network-delay-time/solution/wang-luo-yan-chi-shi-jian-by-leetcode-so-6phc/) 
-
-参考了它的graph表示方式；
-
-2、[XingHe](https://leetcode.cn/u/QRhqcDD90G/) # [c++/python3/java （1）朴素dijkstra算法 （2）最小堆+visited+dijkstra算法](https://leetcode.cn/problems/network-delay-time/solution/cpython3java-1po-su-dijkstrasuan-fa-2zui-ks36/) #（二）最小堆+visited+dijkstra算法
-
-参考了它的visited array；
 
 写的，比较符合我的审美的一个程序:
 
@@ -275,6 +150,54 @@ int main()
 {
   Solution s;
 }
+
+```
+
+
+
+## Python
+
+```python
+import heapq
+import unittest
+from typing import List, Dict
+
+
+class Solution:
+    def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
+        distances = {i + 1: float('inf') for i in range(n)}
+        graph_in_ajd_list: Dict[int, Dict] = {t[0]: {} for t in times}
+        for t in times:
+            graph_in_ajd_list[t[0]][t[1]] = t[2]
+        distances[k] = 0
+        q = [(0, k)]
+        while q:
+            distance, node = heapq.heappop(q)
+            for adj_node, adj_distance in graph_in_ajd_list.get(node, {}).items():
+                new_distance = distance + adj_distance
+                if new_distance < distances[adj_node]:
+                    distances[adj_node] = new_distance
+                    heapq.heappush(q, (new_distance, adj_node))
+
+        max_distance = -1
+        if float('inf') in distances.values():
+            return max_distance
+        return max(distances.values())
+
+
+class TestStringMethods(unittest.TestCase):
+
+    def test_case_1(self):
+        self.solution = Solution()
+        times = [[1, 2, 1], [2, 3, 2], [1, 3, 4]]
+        n = 3
+        k = 1
+
+        self.assertEqual(self.solution.networkDelayTime(times, n, k), -1)
+
+
+if __name__ == '__main__':
+    unittest.main()
 
 ```
 
