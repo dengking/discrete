@@ -1,7 +1,5 @@
 # Graph algorithm
 
-一、能否同时处理connected、disconnected graph
-
 
 
 ## wikipedia [Graph operations](https://en.wikipedia.org/wiki/Graph_operations)
