@@ -1,97 +1,34 @@
 # Dijkstra's algorithm
 
-## 素材
+---
 
-一、wikipedia [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra's_algorithm) 
+> References: 
+>
+> - wikipedia [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra's_algorithm) 
+>
+> - labuladong [我写了一个模板，把 Dijkstra 算法变成了默写题](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247492167&idx=1&sn=bc96c8f97252afdb3973c7d760edb9c0&scene=21#wechat_redirect) 
+>
+> - [stackoverflow-Negative weights using Dijkstra's Algorithm](https://stackoverflow.com/questions/6799172/negative-weights-using-dijkstras-algorithm) # [A](https://stackoverflow.com/a/55596739) 
+>
+> - [zhihu-Dijkstra's 最短路径算法能不能解这个含有负权重的问题？](https://www.zhihu.com/question/21620069/answer/24518138) 
 
-二、labuladong [我写了一个模板，把 Dijkstra 算法变成了默写题](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247492167&idx=1&sn=bc96c8f97252afdb3973c7d760edb9c0&scene=21#wechat_redirect) 
-
-
-
-## 概括
-
-一、dijkstra algorithm=BFS+greedy-algorithm贪心算法+dynamic-programming动态规划: 
-
-1、对上面这段话的解释: 每次选择距离source最短的node(greedy-algorithm贪心算法)进行expand(BFS)、对 expand得到的node进行edge relaxation approximation。
-
-这段话比较抽象，结合一个具体的例子来理解最好:
-
-```python
-        graph = {
-            'A': {'B': 1, 'C': 3},
-            'B': {'C': 1},
-            'C': {},
-        }
-        
-        start = 'A'
-        end = 'C'
-```
-
-这个例子虽小，但是体现Dijkstra's algorithm的精妙所在，使用这个例子来模拟算法，我有了如下感悟:
-
-a、到达一个node的path有多条，Dijkstra's algorithm会尝试各条，edge relaxation保证了选择当前最优秀的进入到priority queue替换之前的(一个node可能会被多次relaxation)，同时阻挡来后续的劣质的 
-
-2、wikipedia [Dijkstra's algorithm # Pseudocode](https://en.wikipedia.org/wiki/Dijkstra's_algorithm#Pseudocode) 一次性将所有等node都加入到queue中，labuladong [我写了一个模板，把 Dijkstra 算法变成了默写题](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247492167&idx=1&sn=bc96c8f97252afdb3973c7d760edb9c0&scene=21#wechat_redirect) 中是动态加入。如果 queue不支持 `decrease_priority` 接口，那么就无法按照 wikipedia [Dijkstra's algorithm # Pseudocode](https://en.wikipedia.org/wiki/Dijkstra's_algorithm#Pseudocode) 中的写法写。
-
-
-
-3、使用 priority queue/heap 按照distance对node进行排序，在具体实现上，需要将distance/weight和node一起放到`priority_queue`中，不能够只放node或者只放distance/weight，因为这样是会导致无法对node进行排序、无法取出node等。wikipedia [Dijkstra's algorithm # Pseudocode](https://en.wikipedia.org/wiki/Dijkstra's_algorithm#Pseudocode) 中是通过如下方式实现的:
-
-```Java
-Q.add_with_priority(source, dist[source])
-Q.decrease_priority(v, alt)
-```
-
-在labuladong [我写了一个模板，把 Dijkstra 算法变成了默写题](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247492167&idx=1&sn=bc96c8f97252afdb3973c7d760edb9c0&scene=21#wechat_redirect)中是通过如下方式实现的:
-
-```Java
-class State {
-    // 图节点的 id
-    int id;
-    // 从 start 节点到当前节点的距离
-    int distFromStart;
-
-    State(int id, int distFromStart) {
-        this.id = id;
-        this.distFromStart = distFromStart;
-    }
-}
-```
-
-
-
-二、为什么不支持负数边？why dijkstra algorithm not allow negative edge？
-
-Dijkstra's algorithm does not allow negative edge weights because it relies on the assumption that once a node has been visited (i.e., the shortest path to that node has been found), its shortest path will not change. This assumption is based on the fact that adding more edges to a path will only increase the total path cost when all edge weights are non-negative.
-
-Here's a breakdown(分解) of why negative edge weights cause problems for Dijkstra's algorithm:
-
-1. **Greedy Approach**: Dijkstra's algorithm is a greedy algorithm that makes the locally optimal choice at each step. It assumes that the shortest path to a node is finalized as soon as that node is added to the set of visited nodes. This is because, with non-negative edge weights, any extension of a path would only make it longer.
-2. **Priority Queue**: The algorithm uses a priority queue (or a min-heap) to select the next node with the smallest tentative distance. If a node is revisited with a shorter path due to a negative edge, the priority queue may not correctly reflect the updated shortest paths, leading to incorrect results.
-3. **Incorrect Shortest Path**: If negative edge weights are present, a path that has already been determined to be the shortest could be further shortened by taking a detour through a negative edge, violating the algorithm's assumption. Dijkstra's algorithm does not revisit nodes to check if their shortest path has been updated, which means it can miss shorter paths created by negative edges.
-4. **Negative Cycles**: If a graph contains a negative cycle (a cycle whose edges sum to a negative value), the shortest path is undefined because you could repeatedly traverse the negative cycle and reduce the path length indefinitely. Dijkstra's algorithm does not have a mechanism to detect negative cycles.
-
-To handle graphs with negative edge weights, algorithms like Bellman-Ford or Johnson's algorithm (which uses Bellman-Ford as a preprocessing step) should be used. These algorithms are designed to accommodate negative edge weights and can detect **negative cycles**.
-
-
-
-三、Dijkstra's algorithm是否需要visited set？
-
-对于没有 negative weight edge 的graph，在使用 Dijkstra's algorithm 的时候，是不需要考虑cycle问题的，这是因为 Dijkstra's algorithm 是 greedy algorithm，如果出现cycle，重复visit到一个node，显然更多的path是会导致distance增加的，显然这种path会被丢弃。
-
-
-
-四、generic Dijkstra shortest-path algorithm
-
-
-
-五、construct shortest path tree、shortest path graph
-
-1、将 [shortest-path tree](https://en.wikipedia.org/wiki/Shortest-path_tree)、shortest path graph 存放到`prev` array中
-
-2、stop condition: source node没有predecessor
+---
 
 ## wikipedia [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra's_algorithm) 
+
+> NOTE:
+>
+> 一、这篇文章的是存在一个问题的: 它没有描述清楚 Dijkstra's algorithm 的各种variant，并且它没有说明它到底使用的哪种。如果不交代这个前提，那么讨论 Dijkstra's algorithm 的 negative weight edge 是没有意义的，因为有的版本是支持negative weight edge，有的是不支持的。并且 "Algorithm" 节中描述的算法 和 "Pseudocode" 节的是对不上的: "Algorithm"中描述的算法使用的是 "NO re-entrance allowed"( 通过visited set实现的 )，通过 [Dijkstra's 最短路径算法能不能解这个含有负权重的问题？ - Quokka的回答 - 知乎](https://www.zhihu.com/question/21620069/answer/24518138) 中的内容可知，原始版本的不支持negative weight的Dijkstra's algorithm: 
+>
+> 1、NO re-entrance allowed( 通过visited set实现的 )，因此，
+>
+> 2、source to target
+>
+> 原始版本的不支持negative weight的Dijkstra's algorithm，由于明确不支持negative weight，所以它在首次到达target node后就可以终止算法(如果需要支持negative weight，则需要 re-entrance allowed+计算出source to all nodes的距离，结合 [stackoverflow-Negative weights using Dijkstra's Algorithm](https://stackoverflow.com/questions/6799172/negative-weights-using-dijkstras-algorithm) # [A](https://stackoverflow.com/a/55596739) 中的例子来理解这段话)
+>
+> 对于没有 negative weight 的graph，使用 原始版本的Dijkstra's algorithm "NO re-entrance allowed"( 通过visited set实现的 ) 的性能是最优的。
+>
+> 其它的各种variant都是基于"原始版本的不支持negative weight的Dijkstra's algorithm"。
 
 The algorithm exists in many variants. Dijkstra's original algorithm found the shortest path between two given nodes,[[5\]](https://en.wikipedia.org/wiki/Dijkstra's_algorithm#cite_note-Dijkstra1959-5) but a more common variant fixes a single node as the "source" node and finds shortest paths from the source to all other nodes in the graph, producing a [shortest-path tree](https://en.wikipedia.org/wiki/Shortest-path_tree).
 
@@ -100,7 +37,12 @@ The algorithm exists in many variants. Dijkstra's original algorithm found the s
 > 一、single source
 >
 > 二、从后面的`Pseudocode`可知，dijkstra的implementation中，会将 [shortest-path tree](https://en.wikipedia.org/wiki/Shortest-path_tree) 存放到`prev` array中
+
+The algorithm exists in many variants. Dijkstra's original algorithm found the shortest path between two given nodes,[[6\]](https://en.wikipedia.org/wiki/Dijkstra's_algorithm#cite_note-Dijkstra1959-6) but a more common variant fixes a single node as the "source" node and finds shortest paths from the source to all other nodes in the graph, producing a [shortest-path tree](https://en.wikipedia.org/wiki/Shortest-path_tree).
+
+> NOTE:
 >
+> 一、后面会介绍Dijkstra's algorithm的各种variants
 
 ### Generic Dijkstra shortest-path algorithm
 
@@ -121,6 +63,12 @@ This is [asymptotically](https://en.wanweibaike.com/wiki-Asymptotic_computationa
 > 一、为什么dijkstra 算法是不允许负数边的？这在前面进行了讨论。
 
 In some fields, [artificial intelligence](https://en.wanweibaike.com/wiki-Artificial_intelligence) in particular, Dijkstra's algorithm or a variant of it is known as **uniform cost search** and formulated as an instance of the more general idea of [best-first search](https://en.wanweibaike.com/wiki-Best-first_search).
+
+### Algorithm
+
+> NOTE:
+>
+> 一、原始版本的Dijkstra's algorithm "NO re-entrance allowed"( 通过visited set实现的 )，因此不支持negative weight；后面的 "Pseudocode" 章节描述的和本节的不匹配。 
 
 ### Pseudocode
 
@@ -273,6 +221,10 @@ A more general problem would be to find all the shortest paths between ***source
 
 ### Practical optimizations and infinite graphs
 
+> NOTE:
+>
+> 一、本节所描述的其实是 Dijkstra's algorithm 的一种 variant 
+
 [![img](https://upload.wikimedia.org/wikipedia/commons/2/23/Dijkstras_progress_animation.gif)](https://en.wikipedia.org/wiki/File:Dijkstras_progress_animation.gif)
 
 Illustration of **Dijkstra's algorithm** finding a path from a **start node** (lower left, red) to a **goal node** (upper right, green) in a [robot](https://en.wikipedia.org/wiki/Robotics) [motion planning](https://en.wikipedia.org/wiki/Motion_planning) problem. Open nodes represent the "tentative" set (aka set of "unvisited" nodes). Filled nodes are the visited ones, with color representing the distance: the greener, the closer. Nodes in all the different directions are explored uniformly, appearing more-or-less as a circular [wavefront](https://en.wikipedia.org/wiki/Wavefront) as Dijkstra's algorithm uses a [heuristic](https://en.wikipedia.org/wiki/Consistent_heuristic) identically equal to 0.
@@ -359,6 +311,323 @@ procedure uniform_cost_search(start) is
 ### Related problems and algorithms
 
 Unlike Dijkstra's algorithm, the [Bellman–Ford algorithm](https://en.wanweibaike.com/wiki-Bellman–Ford_algorithm) can be used on graphs with negative edge weights, as long as the graph contains no [negative cycle](https://en.wanweibaike.com/wiki-Negative_cycle) reachable from the source vertex *s*. The presence of such cycles means there is no shortest path, since the total weight becomes lower each time the cycle is traversed. (This statement assumes that a "path" is allowed to repeat vertices. In [graph theory](https://en.wanweibaike.com/wiki-Graph_theory) that is normally not allowed. In [theoretical computer science](https://en.wanweibaike.com/wiki-Theoretical_computer_science) it often is allowed.) It is possible to adapt Dijkstra's algorithm to handle negative weight edges by combining it with the Bellman-Ford algorithm (to remove negative edges and detect negative cycles), such an algorithm is called [Johnson's algorithm](https://en.wanweibaike.com/wiki-Johnson's_algorithm).
+
+> NOTE:
+>
+> 一、通过"Variants of Dijkstra's Algorithmz"章节的内容可知，除了 [Johnson's algorithm](https://en.wanweibaike.com/wiki-Johnson's_algorithm) ，还有其它的 variant 可以支持negative weight graph。
+
+
+
+## Variants of Dijkstra's Algorithm
+
+
+
+---
+
+> References:
+>
+> - [stackoverflow-Negative weights using Dijkstra's Algorithm](https://stackoverflow.com/questions/6799172/negative-weights-using-dijkstras-algorithm) # [A](https://stackoverflow.com/a/55596739) 
+>
+> - [zhihu-Dijkstra's 最短路径算法能不能解这个含有负权重的问题？](https://www.zhihu.com/question/21620069/answer/24518138) 
+> - [algs4.cs.princeton-4.4  Shortest Paths](https://algs4.cs.princeton.edu/44sp/) 
+> - [zhihu-如何看待 SPFA 算法已死这种说法？](https://www.zhihu.com/question/292283275/answer/484871888) 
+
+---
+
+
+
+---
+
+> 说明: 
+>
+> 1、本节的内容是我在思考Dijkstra's Algorithm是否支持negative edge这个问题时，通过 Google 发现了 "References" 中所链接的非常有价值的内容，它们不仅拓展而去加深了我对Dijkstra's Algorithm的认知，让我认识到Dijkstra's Algorithm有着多种variants，这些variants能够处理不同类型的graph，总的来说: 需要根据graph的类型灵活的选择合适的implementation。本节主要以graph是否包含**negative edge**来描述**标准版本的Dijkstra's Algorithm**以及它的一些variant。
+>
+> 2、 由于明确主流的programming language已经支持了priority queue，所以后续都不再描述Dijkstra最初的实现中的nested-for版本了，而是全部使用priority queue。 
+>
+> 3、通过对比各种variant，能够更好地掌握这些算法
+
+---
+
+
+
+[stackoverflow-Negative weights using Dijkstra's Algorithm](https://stackoverflow.com/questions/6799172/negative-weights-using-dijkstras-algorithm) # [A](https://stackoverflow.com/a/55596739) 
+
+> **There are 3 kinds of implementation of Dijkstra's algorithm**: 
+>
+> 1、Using a **nested `for`-loop** to relax vertices. This is the easiest way to implement Dijkstra's algorithm. The time complexity is O(V^2).
+>
+> 2、Priority-queue/heap based implementation + NO re-entrance allowed, where **re-entrance means a relaxed vertex can be pushed into the priority-queue again to be relaxed again later**.
+>
+> 3、Priority-queue/heap based implementation + re-entrance allowed.
+
+[Dijkstra's 最短路径算法能不能解这个含有负权重的问题？ - Quokka的回答 - 知乎](https://www.zhihu.com/question/21620069/answer/24518138)
+
+> 对于有负权边但无[负权回路](https://www.zhihu.com/search?q=负权回路&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra={"sourceType"%3A"answer"%2C"sourceId"%3A24518138})的图：
+>
+> 1、如果是标准的O(V^2)的Dijkstra，那是算不出的（除非碰巧算对）。
+>
+> 2、如果是优先队列优化（或者说堆优化）的版本，也不行（除非碰巧算对）。
+>
+> 3、如果是优先队列优化**+允许重入队**（详细解释见下文），那么可以（是真的可以计算出来，不是碰巧）。但这实际上已经是priority queue-based Bellman-Ford了，是 [Bellman-Ford算法](https://www.zhihu.com/search?q=Bellman-Ford算法&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra={"sourceType"%3A"answer"%2C"sourceId"%3A24518138}) 的变种。国内 ACMer 也把这个算法叫做使用优先队列的 [SPFA](https://en.wikipedia.org/wiki/Shortest_path_faster_algorithm) 算法，国外似乎习惯把这个算法仍旧叫做堆优化的Dijkstra，或者 generalized Dijkstra，看作Dijkstra的变种，可能是习惯不一样吧。不过此时已经说不清这到底是Dijkstra还是Bellman-Ford算法了……但是需要注意的是，该算法的运行时间可能为指数！！
+>
+> > NOTE:
+> >
+> > 一、SPFA算法指的是 [Shortest path faster algorithm](https://en.wikipedia.org/wiki/Shortest_path_faster_algorithm) ，需要注意的是，原始的 [SPFA](https://en.wikipedia.org/wiki/Shortest_path_faster_algorithm) 算法没有使用priority queue。
+>
+> 可以参考[Shortest Paths](https://link.zhihu.com/?target=http%3A//algs4.cs.princeton.edu/44sp/)，其中有这么一段话：
+>
+> > **Q.** Does Dijkstra's algorithm work with negative weights?
+> > **A.** Yes and no. There are two shortest paths algorithms known as *Dijkstra's algorithm*, depending on whether a vertex can be enqueued on the priority queue more than once. When the weights are nonnegative, the two versions coincide (as no vertex will be enqueued more than once). The version implemented in [DijkstraSP.java](https://link.zhihu.com/?target=http%3A//algs4.cs.princeton.edu/44sp/DijkstraSP.java.html) (which allows a vertex to be enqueued more than once) is correct in the presence of negative edge weights (but no negative cycles) but its running time is exponential in the worst case. (We note that [DijkstraSP.java](https://link.zhihu.com/?target=http%3A//algs4.cs.princeton.edu/44sp/DijkstraSP.java.html) throws an exception if the edge-weighted digraph has an edge with a negative weight, so that a programmer is not surprised by this exponential behavior.) If we modify [DijkstraSP.java](https://link.zhihu.com/?target=http%3A//algs4.cs.princeton.edu/44sp/DijkstraSP.java.html) so that a vertex cannot be enqueued more than once (e.g., using a `marked[]` array to mark those vertices that have been relaxed), then the algorithm is guaranteed to run in *E* log *V* time but it may yield incorrect results when there are edges with negative weights.
+>
+> > NOTE:
+> >
+> > 一、需要注意: 上面这段话其实是有误导的，通过"Graph with non-negative weight edge"中的内容可知，对于有多条path到达的node，它是可能多次进入priority queue的，不过是可以将它标记为状态的，这样可以避免再次对它进行expand。
+>
+> 作者：Quokka
+> 链接：https://www.zhihu.com/question/21620069/answer/24518138
+> 来源：知乎
+> 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+>
+> 
+>
+> 算法 3 的时间复杂度不好分析，算法的运行时间依赖于输入数据的分布。**在非[负权图](https://www.zhihu.com/search?q=负权图&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra={"sourceType"%3A"answer"%2C"sourceId"%3A24518138})的情况下，此算法与算法 2 行为完全相同，时间复杂度为O（(V+E)lg V）；而对于有负权边但无负权回路的图，算法的最坏运行时间是顶点数目的指数**（详见 [https://courses.engr.illinois.edu/cs498374/fa2014/notes/26-sssp.pdf](https://link.zhihu.com/?target=https%3A//courses.engr.illinois.edu/cs498374/fa2014/notes/26-sssp.pdf)，课后练习第 7 题）。不过在随机图上实际运行起来往往比较快。
+>
+> 这个算法实在太奇葩了，它既不是Dij，也不是BF；既是Dij的变种，又是BF的变种，是一个混合产物。由于这个算法的运行时间不稳定，有时在[算法竞赛](https://www.zhihu.com/search?q=算法竞赛&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra={"sourceType"%3A"answer"%2C"sourceId"%3A24518138})中可以构造出来一些图卡这个算法让它退化，之后在国内spfa就有了一些魔改版（尤其是在09年集训队[姜碧野](https://www.zhihu.com/search?q=姜碧野&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra={"sourceType"%3A"answer"%2C"sourceId"%3A24518138})的论文之后），乱改松弛/入队/出队等的顺序或者把优先队列换成栈等其他数据结构，彻底乱成了一锅粥。这些变种算法实践中通常都是有效的，然而其最坏时间复杂度，甚至是算法的正确性都难以得到保证，也许在极端情形下会出错或者变得特别慢，我个人的建议是不要趟这些浑水。
+>
+> 当然，**原始的 SPFA（就是使用普通 FIFO 的队列那种）算法正确性是可以保证的，并且最差时间复杂度和 Bellman-Ford 相同，为 O(VE)。**事实上，此时 SPFA 正是 Moore 1957 年提出的[最短路算法](https://www.zhihu.com/search?q=最短路算法&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra={"sourceType"%3A"answer"%2C"sourceId"%3A24518138})，应该叫 Queue-based Bellman-Ford 或者 **Bellman-Ford-Moore 算法。该算法和 Bellman-Ford 算法的有效操作是完全等价的**：BF 算法每一轮会遍历所有边，但可能很多边都无法进行松弛，遍历这些边是没有意义的；BFM 的每一轮计算则是采用队列的方式，只扫描该轮中有可能被松弛的边，因此减少了很多无效操作，运行起来更快。BFM 算法的正确性和复杂度证明同样见上述 Illinois 的算法讲义。
+>
+> 下面这个回答里说的很清楚，**SPFA 的各种优化本质上就是让队列更接近优先队列。**但是考虑到队列版的 SPFA （或者说 BFM 算法）稳定地优于 Bellman-Ford，而优先队列版的 SPFA 在正权图上可以达到堆优化 Dijkstra 的性能，带负权边的图上却可能退化到指数级；所以只要参考优先队列版 SPFA （其实应该叫 priority-queue based Bellman-Ford）的卡法，就能相应地卡 SPFA 的各种魔改版。
+
+
+
+### Graph with non-negative weight edge 
+
+对于没有 negative weight edge 的graph，显然经过的edge越多，则distance越大，即它是单调递增的，Dijkstra's algorithm 是 greedy algorithm，每次从priority queue中选择出来的node满足如下条件:
+
+1、它每次从priority queue中选择最短的edge进行expand
+
+2、经过的path数量是最少的
+
+显然，上述两个条件都保证了每次从priority queue中选择出来的node，从source到它的距离都是最近的，因此可以**断言**它就是**终态的node**；由于可能有多种路径到达一个node，因此可能重复visit到一个终态的node，如果已经确定它是终态的，那么可以直接将它给pass掉不再对它进行expand，这就是前面提到的的"NO re-entrance"的含义。显然这是一个很好的优化，那如何来实现呢？
+
+**关键字**: 终态node、NO re-entrance
+
+
+
+#### NO re-entrance的实现
+
+有如下两种方式:
+
+1、visited set；
+
+将**终态的node**放到**visited set**中，这样再次碰到的时候就可以将它pass掉。
+
+2、不使用visited set，而是通过距离来进行判断，当从priority queue中pop出来的node，如果发现到它的距离比之前的距离更大，显然这就是一个**终态的node** ，可以将它pass掉。
+
+在 labuladong [我写了一个模板，把 Dijkstra 算法变成了默写题](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247492167&idx=1&sn=bc96c8f97252afdb3973c7d760edb9c0&scene=21#wechat_redirect) 、chatGPT给出的实现中使用的是这种写法的。
+
+
+
+#### 原始版本的Dijkstra's Algorithm Code
+
+```python
+import heapq
+from typing import List, Dict
+import unittest
+
+
+def dijkstra_with_visited_set(graph: Dict[str, Dict[str, int]], start: str):
+    # Initialize distances from start to all other nodes as infinity
+    distances = {node: float('infinity') for node in graph}
+    # Set distance to the start node to zero
+    distances[start] = 0
+
+    # Priority queue to hold nodes to visit
+    priority_queue = [(0, start)]
+
+    # Set to keep track of visited nodes
+    visited = set()
+
+    while priority_queue:
+        # Select the node with the smallest distance
+        current_distance, current_node = heapq.heappop(priority_queue)
+
+        # If this node has been visited, skip it
+        if current_node in visited:
+            continue
+
+        # Mark the node as visited
+        visited.add(current_node)
+
+        # Check all the neighbors of the current node
+        for neighbor, weight in graph[current_node].items():
+            distance = current_distance + weight
+
+            # If the distance to the neighbor is less through this node...
+            if distance < distances[neighbor]:
+                # Update the distance
+                distances[neighbor] = distance
+                # Add the neighbor to the priority queue for consideration
+                heapq.heappush(priority_queue, (distance, neighbor))
+
+    return distances
+
+
+def dijkstra_without_visited_set(graph: Dict[str, Dict[str, int]], start: str):
+    # Initialize distances from start to all other nodes as infinity
+    distances = {node: float('infinity') for node in graph}
+    # Set distance to the start node to zero
+    distances[start] = 0
+
+    # Priority queue to hold nodes to visit
+    priority_queue = [(0, start)]
+
+    while priority_queue:
+        # Select the node with the smallest distance
+        current_distance, current_node = heapq.heappop(priority_queue)
+
+        # If this node has been visited, skip it
+        if current_distance > distances[current_node]:
+            continue
+
+        # Check all the neighbors of the current node
+        for neighbor, weight in graph[current_node].items():
+            distance = current_distance + weight
+
+            # If the distance to the neighbor is less through this node...
+            if distance < distances[neighbor]:
+                # Update the distance
+                distances[neighbor] = distance
+                # Add the neighbor to the priority queue for consideration
+                heapq.heappush(priority_queue, (distance, neighbor))
+
+    return distances
+
+
+class TestDijkstraAlgorithm(unittest.TestCase):
+
+    def test_case_0(self):
+        # Example usage:
+        graph = {
+            'A': {'B': 1, 'C': 3},
+            'B': {'C': 1},
+            'C': {},
+        }
+        start_node = 'A'
+        end_node = 'C'
+        shortest_paths_1 = dijkstra_with_visited_set(graph, start_node)
+        shortest_paths_2 = dijkstra_without_visited_set(graph, start_node)
+        print(shortest_paths_1[end_node], shortest_paths_2[end_node])
+        self.assertEqual(shortest_paths_1[end_node], shortest_paths_2[end_node])
+        self.assertEqual(shortest_paths_1[end_node], 2)
+
+
+if __name__ == '__main__':
+    unittest.main()
+
+```
+
+
+
+### Graph with negative weight edge 
+
+Q: 为什么原始版本的Dijkstra's algorithm不支持negative weight？
+
+A: 由于存在negative weight edge，则不再满足前面的edge越少，则distance越小的条件，因为增加负数边可能相反导致总距离减少，所以无法保证单调递增的，所以无法使用greedy algorithm，无法提早将一些node标记为终态，此时需要需要尝试所有的node才能够最终得到最优值。
+
+> 补充:
+>
+> chatGPT: why dijkstra algorithm not allow negative edge？
+>
+> Dijkstra's algorithm does not allow negative edge weights because it relies on the assumption that once a node has been visited (i.e., the shortest path to that node has been found), its shortest path will not change. This assumption is based on the fact that adding more edges to a path will only increase the total path cost when all edge weights are non-negative.
+>
+> Here's a breakdown(分解) of why negative edge weights cause problems for Dijkstra's algorithm:
+>
+> 1. **Greedy Approach**: Dijkstra's algorithm is a greedy algorithm that makes the locally optimal choice at each step. It assumes that the shortest path to a node is finalized as soon as that node is added to the set of visited nodes. This is because, with non-negative edge weights, any extension of a path would only make it longer.
+> 2. **Priority Queue**: The algorithm uses a priority queue (or a min-heap) to select the next node with the smallest tentative distance. If a node is revisited with a shorter path due to a negative edge, the priority queue may not correctly reflect the updated shortest paths, leading to incorrect results.
+> 3. **Incorrect Shortest Path**: If negative edge weights are present, a path that has already been determined to be the shortest could be further shortened by taking a detour through a negative edge, violating the algorithm's assumption. Dijkstra's algorithm does not revisit nodes to check if their shortest path has been updated, which means it can miss shorter paths created by negative edges.
+> 4. **Negative Cycles**: If a graph contains a negative cycle (a cycle whose edges sum to a negative value), the shortest path is undefined because you could repeatedly traverse the negative cycle and reduce the path length indefinitely. Dijkstra's algorithm does not have a mechanism to detect negative cycles.
+>
+> To handle graphs with negative edge weights, algorithms like Bellman-Ford or Johnson's algorithm (which uses Bellman-Ford as a preprocessing step) should be used. These algorithms are designed to accommodate negative edge weights and can detect **negative cycles**.
+>
+
+
+
+Algorithms:
+
+1、[Bellman–Ford algorithm](https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm) 
+
+这是最最基础的算法 
+
+### Graph with negative-weight-cycle 
+
+
+
+
+
+## 概括
+
+一、dijkstra algorithm=BFS+greedy-algorithm贪心算法+dynamic-programming动态规划: 
+
+1、对上面这段话的解释: 每次选择距离source最短的node(greedy-algorithm贪心算法)进行expand(BFS)、对 expand得到的node进行edge relaxation approximation。
+
+这段话比较抽象，结合一个具体的例子来理解最好:
+
+```python
+        graph = {
+            'A': {'B': 1, 'C': 3},
+            'B': {'C': 1},
+            'C': {},
+        }
+        
+        start = 'A'
+        end = 'C'
+```
+
+这个例子虽小，但是体现Dijkstra's algorithm的精妙所在，使用这个例子来模拟算法，我有了如下感悟:
+
+a、到达一个node的path有多条，Dijkstra's algorithm会尝试各条，edge relaxation保证了选择当前最优秀的进入到priority queue替换之前的(一个node可能会被多次relaxation)，同时阻挡来后续的劣质的 
+
+2、wikipedia [Dijkstra's algorithm # Pseudocode](https://en.wikipedia.org/wiki/Dijkstra's_algorithm#Pseudocode) 一次性将所有等node都加入到queue中，labuladong [我写了一个模板，把 Dijkstra 算法变成了默写题](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247492167&idx=1&sn=bc96c8f97252afdb3973c7d760edb9c0&scene=21#wechat_redirect) 中是动态加入。如果 queue不支持 `decrease_priority` 接口，那么就无法按照 wikipedia [Dijkstra's algorithm # Pseudocode](https://en.wikipedia.org/wiki/Dijkstra's_algorithm#Pseudocode) 中的写法写。
+
+
+
+3、使用 priority queue/heap 按照distance对node进行排序，在具体实现上，需要将distance/weight和node一起放到`priority_queue`中，不能够只放node或者只放distance/weight，因为这样是会导致无法对node进行排序、无法取出node等。wikipedia [Dijkstra's algorithm # Pseudocode](https://en.wikipedia.org/wiki/Dijkstra's_algorithm#Pseudocode) 中是通过如下方式实现的:
+
+```Java
+Q.add_with_priority(source, dist[source])
+Q.decrease_priority(v, alt)
+```
+
+在labuladong [我写了一个模板，把 Dijkstra 算法变成了默写题](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247492167&idx=1&sn=bc96c8f97252afdb3973c7d760edb9c0&scene=21#wechat_redirect) 中是通过如下方式实现的:
+
+```Java
+class State {
+    // 图节点的 id
+    int id;
+    // 从 start 节点到当前节点的距离
+    int distFromStart;
+
+    State(int id, int distFromStart) {
+        this.id = id;
+        this.distFromStart = distFromStart;
+    }
+}
+```
+
+
+
+四、generic Dijkstra shortest-path algorithm
+
+
+
+五、construct shortest path tree、shortest path graph
+
+1、将 [shortest-path tree](https://en.wikipedia.org/wiki/Shortest-path_tree)、shortest path graph 存放到`prev` array中
+
+2、stop condition: source node没有predecessor
+
+
 
 ## Implementation
 
@@ -751,116 +1020,6 @@ int[] dijkstra(int start, List<Integer>[] graph) {
 ```
 
 
-
-
-
-### 一个疑惑点
-
-写法有多种版本:
-
-
-wikipedia [Dijkstra's algorithm # Pseudocode](https://en.wikipedia.org/wiki/Dijkstra's_algorithm#Pseudocode)
-
-```pseudocode
-1  function Dijkstra(Graph, source):
-2      dist[source] ← 0                           // Initialization
-3
-4      create vertex priority queue Q
-5      Q.add_with_priority(source, dist[source])
-6
-7      for each vertex v in Graph.Vertices:
-8          if v ≠ source
-9              dist[v] ← INFINITY                 // Unknown distance from source to v
-10              prev[v] ← UNDEFINED                // Predecessor of v
-11
-12         Q.add_with_priority(v, dist[v])
-13
-14
-15     while Q is not empty:                      // The main loop
-16         u ← Q.extract_min()                    // Remove and return best vertex
-17         for each neighbor v of u:              // only v that are still in Q
-18             alt ← dist[u] + Graph.Edges(u, v)
-19             if alt < dist[v] and dist[u] is not INFINITY:
-20                 dist[v] ← alt
-21                 prev[v] ← u
-22                 Q.decrease_priority(v, alt)
-23
-24     return dist, prev
-```
-
-
-
-
-labuladong [我写了一个模板，把 Dijkstra 算法变成了默写题](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247492167&idx=1&sn=bc96c8f97252afdb3973c7d760edb9c0&scene=21#wechat_redirect)
-
-```Java
-// 返回节点 from 到节点 to 之间的边的权重
-int weight(int from, int to);
-
-// 输入节点 s 返回 s 的相邻节点
-List<Integer> adj(int s);
-
-// 输入一幅图和一个起点 start，计算 start 到其他节点的最短距离
-int[] dijkstra(int start, List<Integer>[] graph) {
-    // 图中节点的个数
-    int V = graph.length;
-    // 记录最短路径的权重，你可以理解为 dp table
-    // 定义：distTo[i] 的值就是节点 start 到达节点 i 的最短路径权重
-    int[] distTo = new int[V];
-    // 求最小值，所以 dp table 初始化为正无穷
-    Arrays.fill(distTo, Integer.MAX_VALUE);
-    // base case，start 到 start 的最短距离就是 0
-    distTo[start] = 0;
-
-    // 优先级队列，distFromStart 较小的排在前面
-    Queue<State> pq = new PriorityQueue<>((a, b) -> {
-        return a.distFromStart - b.distFromStart;
-    });
-
-    // 从起点 start 开始进行 BFS
-    pq.offer(new State(start, 0));
-
-    while (!pq.isEmpty()) {
-        State curState = pq.poll();
-        int curNodeID = curState.id;
-        int curDistFromStart = curState.distFromStart;
-
-        if (curDistFromStart > distTo[curNodeID]) {
-            // 已经有一条更短的路径到达 curNode 节点了
-            continue;
-        }
-        // 将 curNode 的相邻节点装入队列
-        for (int nextNodeID : adj(curNodeID)) {
-            // 看看从 curNode 达到 nextNode 的距离是否会更短
-            int distToNextNode = distTo[curNodeID] + weight(curNodeID, nextNodeID);
-            if (distTo[nextNodeID] > distToNextNode) {
-                // 更新 dp table
-                distTo[nextNodeID] = distToNextNode;
-                // 将这个节点以及距离放入队列
-                pq.offer(new State(nextNodeID, distToNextNode));
-            }
-        }
-    }
-    return distTo;
-}
-```
-
-
-
-两者之间的差别:
-
-1、labuladong [我写了一个模板，把 Dijkstra 算法变成了默写题](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247492167&idx=1&sn=bc96c8f97252afdb3973c7d760edb9c0&scene=21#wechat_redirect) 中多了如下逻辑:
-
-```Java
-    if (curDistFromStart > distTo[curNodeID]) {
-        // 已经有一条更短的路径到达 curNode 节点了
-        continue;
-    }
-```
-
-那这个逻辑是否是必须要的呢？
-
-在 [LeetCode-743. 网络延迟时间](https://leetcode.cn/problems/network-delay-time/) 中我尝试将它去掉，代码依然能够通过。
 
 
 

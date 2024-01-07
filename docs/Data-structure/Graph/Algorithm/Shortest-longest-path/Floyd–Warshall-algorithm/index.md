@@ -24,13 +24,19 @@ Floyd–Warshall algorithm的思想非常简单: **穷举**，对于包含N个�
 
 In [computer science](https://en.wikipedia.org/wiki/Computer_science), the **Floyd–Warshall algorithm** (also known as **Floyd's algorithm**, the **Roy–Warshall algorithm**, the **Roy–Floyd algorithm**, or the **WFI algorithm**) ...
 
+### History and naming
+
+The Floyd–Warshall algorithm is an example of [dynamic programming](https://en.wikipedia.org/wiki/Dynamic_programming), and was published in its currently recognized form by [Robert Floyd](https://en.wikipedia.org/wiki/Robert_Floyd) in 1962.[[3\]](https://en.wikipedia.org/wiki/Floyd–Warshall_algorithm#cite_note-3) However, it is essentially the same as algorithms previously published by [Bernard Roy](https://en.wikipedia.org/wiki/Bernard_Roy) in 1959[[4\]](https://en.wikipedia.org/wiki/Floyd–Warshall_algorithm#cite_note-4) and also by [Stephen Warshall](https://en.wikipedia.org/wiki/Stephen_Warshall) in 1962[[5\]](https://en.wikipedia.org/wiki/Floyd–Warshall_algorithm#cite_note-5) for finding the **transitive closure** of a graph,[[6\]](https://en.wikipedia.org/wiki/Floyd–Warshall_algorithm#cite_note-6) and is closely related to [Kleene's algorithm](https://en.wikipedia.org/wiki/Kleene's_algorithm) (published in 1956) for converting a [deterministic finite automaton](https://en.wikipedia.org/wiki/Deterministic_finite_automaton) into a [regular expression](https://en.wikipedia.org/wiki/Regular_expression).[[7\]](https://en.wikipedia.org/wiki/Floyd–Warshall_algorithm#cite_note-7) The modern formulation of the algorithm as three nested for-loops was first described by Peter Ingerman, also in 1962.[[8\]](https://en.wikipedia.org/wiki/Floyd–Warshall_algorithm#cite_note-8)
+
+
+
 > NOTE: 
 >
-> 一、要理解上面这段话，其实是需要了解"History and naming"节的内容，从这个算法的命名来看，它其实就涉及多位计算机科学家，下面是一个简单的梳理
+> 一、要理解 [Floyd–Warshall algorithm](https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm) 的命名，其实是需要了解"History and naming"节的内容，从这个算法的命名来看，它其实就涉及多位计算机科学家，下面是一个简单的梳理
 >
 > | 时间 | 计算机科学家                                                 | application        |
 > | ---- | ------------------------------------------------------------ | ------------------ |
-> | 1959 | [Bernard Roy](https://en.wikipedia.org/wiki/Bernard_Roy)     |                    |
+> | 1959 | [Bernard Roy](https://en.wikipedia.org/wiki/Bernard_Roy)     | transitive closure |
 > | 1962 | [Robert Floyd](https://en.wikipedia.org/wiki/Robert_Floyd)   | shortest-path      |
 > | 1962 | [Stephen Warshall](https://en.wikipedia.org/wiki/Stephen_Warshall) | transitive closure |
 >
@@ -43,11 +49,73 @@ In [computer science](https://en.wikipedia.org/wiki/Computer_science), the **Flo
 >
 > 
 
-### History and naming
+### Path reconstruction
+
+> NOTE:
+>
+> 一、采用的是和 [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra's_algorithm) 中相同的方法: 
+>
+> 1、[shortest-path tree](https://en.wikipedia.org/wiki/Shortest-path_tree) 
+>
+> 2、shortest-path graph
+
+### Pseudocode
 
 
 
-The Floyd–Warshall algorithm is an example of [dynamic programming](https://en.wikipedia.org/wiki/Dynamic_programming), and was published in its currently recognized form by [Robert Floyd](https://en.wikipedia.org/wiki/Robert_Floyd) in 1962.[[3\]](https://en.wikipedia.org/wiki/Floyd–Warshall_algorithm#cite_note-3) However, it is essentially the same as algorithms previously published by [Bernard Roy](https://en.wikipedia.org/wiki/Bernard_Roy) in 1959[[4\]](https://en.wikipedia.org/wiki/Floyd–Warshall_algorithm#cite_note-4) and also by [Stephen Warshall](https://en.wikipedia.org/wiki/Stephen_Warshall) in 1962[[5\]](https://en.wikipedia.org/wiki/Floyd–Warshall_algorithm#cite_note-5) for finding the **transitive closure** of a graph,[[6\]](https://en.wikipedia.org/wiki/Floyd–Warshall_algorithm#cite_note-6) and is closely related to [Kleene's algorithm](https://en.wikipedia.org/wiki/Kleene's_algorithm) (published in 1956) for converting a [deterministic finite automaton](https://en.wikipedia.org/wiki/Deterministic_finite_automaton) into a [regular expression](https://en.wikipedia.org/wiki/Regular_expression).[[7\]](https://en.wikipedia.org/wiki/Floyd–Warshall_algorithm#cite_note-7) The modern formulation of the algorithm as three nested for-loops was first described by Peter Ingerman, also in 1962.[[8\]](https://en.wikipedia.org/wiki/Floyd–Warshall_algorithm#cite_note-8)
+```pseudocode
+let dist be a |V| × |V| array of minimum distances initialized to ∞ (infinity)
+for each edge (u, v) do
+    dist[u][v] ← w(u, v)  // The weight of the edge (u, v)
+for each vertex v do
+    dist[v][v] ← 0
+for k from 1 to |V|
+    for i from 1 to |V|
+        for j from 1 to |V|
+            if dist[i][j] > dist[i][k] + dist[k][j] 
+                dist[i][j] ← dist[i][k] + dist[k][j]
+            end if
+```
+
+
+
+
+
+```pseudocode
+let dist be a 
+|
+�
+|
+×
+|
+�
+|
+{\displaystyle |V|\times |V|} array of minimum distances initialized to 
+∞\infty  (infinity)
+let prev be a 
+|
+�
+|
+×
+|
+�
+|
+{\displaystyle |V|\times |V|} array of vertex indices initialized to null
+
+procedure FloydWarshallWithPathReconstruction() is
+    for each edge (u, v) do
+        dist[u][v] ← w(u, v)  // The weight of the edge (u, v)
+        prev[u][v] ← u
+    for each vertex v do
+        dist[v][v] ← 0
+        prev[v][v] ← v
+    for k from 1 to |V| do // standard Floyd-Warshall implementation
+        for i from 1 to |V|
+            for j from 1 to |V|
+                if dist[i][j] > dist[i][k] + dist[k][j] then
+                    dist[i][j] ← dist[i][k] + dist[k][j]
+                    prev[i][j] ← prev[k][j]
+```
 
 
 
@@ -59,7 +127,9 @@ The Floyd–Warshall algorithm is an example of [dynamic programming](https://en
 
 3、Finding a [regular expression](https://en.wikipedia.org/wiki/Regular_expression) denoting the [regular language](https://en.wikipedia.org/wiki/Regular_language) accepted by a [finite automaton](https://en.wikipedia.org/wiki/Finite_automaton) ([Kleene's algorithm](https://en.wikipedia.org/wiki/Kleene's_algorithm), a closely related generalization of the Floyd–Warshall algorithm)
 
-4、[Widest paths/Maximum bandwidth paths](https://en.wikipedia.org/wiki/Widest_path_problem)
+4、[Widest paths/Maximum bandwidth paths](https://en.wikipedia.org/wiki/Widest_path_problem) 
+
+
 
 ## Implementation
 

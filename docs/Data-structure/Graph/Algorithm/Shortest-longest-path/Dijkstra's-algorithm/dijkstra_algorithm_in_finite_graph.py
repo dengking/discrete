@@ -34,8 +34,8 @@ class DijkstraAlgorithmInFiniteGraphTrackingShortestPathGraph:
             if current_distance > distances[current_node]:
                 continue
 
-            for adj_node, new_distance in self.graph_in_adj_list.get(current_node, {}).items():
-                new_distance = current_distance + new_distance
+            for adj_node, adj_distance in self.graph_in_adj_list.get(current_node, {}).items():
+                new_distance = current_distance + adj_distance
                 if new_distance < distances.get(adj_node, float('inf')):
                     distances[adj_node] = new_distance
                     heapq.heappush(q, (new_distance, adj_node))
@@ -217,6 +217,27 @@ class TestDijkstraAlgorithmInFiniteGraph(unittest.TestCase):
         print(paths)
         self.assertEqual(len(paths), 1)
         self.assertEqual(paths[0], ['A', 'B', 'C', 'D', 'E'])
+
+    def test_negative_edge(self):
+        """
+        这个例子验证这种实现能够处理negative weight edge，它来自:
+        https://stackoverflow.com/a/6799344
+        需要注意: 虽然上述链接中否定了Dijkstra's algorithm不能够处理negative weight edge，但是它的回答是不准确的，
+        它的回答是基于使用了visited set的Dijkstra's algorithm implementation，但是上述implementation没有使用visited set,
+        它是能够处理negative weight edge的
+        :return:
+        """
+        graph = {
+            'A': {'B': 1, 'C': 0, 'D': 99},
+            'B': {'C': 1},
+            'C': {},
+            'D': {'B': -300},
+
+        }
+        self.dijkstra = DijkstraAlgorithmInFiniteGraphTrackingShortestPathGraph(graph)
+        start = 'A'
+        distances, shortest_path_graph = self.dijkstra.shortest_path_to_all_nodes(start)
+        self.assertEqual(distances['C'], -200)
 
 
 class TestDijkstraAlgorithmInFiniteGraphTrackingShortestPathTree(unittest.TestCase):
