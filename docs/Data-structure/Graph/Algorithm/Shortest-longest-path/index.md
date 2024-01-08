@@ -239,6 +239,26 @@ void Floyd(int arrDis[][], Vertex arrPath[][])const;
 
 
 
+#### Bellman–Ford-algorithm-VS-Floyd–Warshall-algorithm
+
+---
+
+> References: 
+>
+> geeksforgeeks [Bellman–Ford Algorithm | DP-23](https://www.geeksforgeeks.org/bellman-ford-algorithm-dp-23/) 
+
+---
+
+Bellman–Ford-algorithm: 枚举经过一条**边**、两条边...
+
+> "the algorithm calculates **shortest paths** in a **bottom-up** manner. It first calculates the shortest distances which have at-most one edge in the path. Then, it calculates the shortest paths with at-most 2 edges, and so on. "
+
+
+
+Floyd–Warshall-algorithm: 枚举经过一个**点**、两个点...
+
+> "the algorithm calculates **shortest paths** in a **bottom-up** manner. It first calculates the shortest distances which have at-most one point in the path. Then, it calculates the shortest paths with at-most 2 points, and so on. "
+
 
 
 ## Bellman–Ford algorithm
