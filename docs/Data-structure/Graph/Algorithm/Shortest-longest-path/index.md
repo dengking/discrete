@@ -62,8 +62,6 @@ Ask yourself:
 | **approximation**        | edge relaxation                                              | edge relaxation                                              | edge relaxation                                              |            |
 | **time complexity**      |                                                              |                                                              |                                                              |            |
 |                          |                                                              |                                                              |                                                              |            |
-|                          |                                                              |                                                              |                                                              |            |
-|                          |                                                              |                                                              |                                                              |            |
 
 
 
@@ -91,9 +89,9 @@ void Dijkstra(Vertex source,Weight dist[], Vertex prev[])const;
 //prev[]用来记录每个结点的直接前驱
 ```
 
-2、"shortest paths between all pairs of vertices"
+2、APSP
 
- 
+[incidence matrix](https://en.wikipedia.org/wiki/Incidence_matrix)
 
 ```C++
 void Floyd(int arrDis[][], Vertex arrPath[][])const;
@@ -136,11 +134,15 @@ if distance[u] + w < distance[v] then
 
 ---
 
+
+
 #### Dijkstra's-algorithm-VS-Bellman–Ford-algorithm
 
 素材: 
 
 1、wikipedia [Bellman–Ford algorithm](https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm)
+
+
 
 #### Dijkstra's-algorithm-VS-BFS
 
@@ -174,9 +176,11 @@ Bellman–Ford algorithm是一种简单(相比于Dijkstra's algorithm，它简�
 
 
 
-#### Why Bellman–Ford algorithm support negative weight？
+#### Why support negative weight？
 
 这个问题是可以对比Dijkstra's algorithm来进行理解的: Dijkstra's algorithm的支持negative weight的variant和不支持的已经蕴含了这个问题的答案。
+
+
 
 ### wikipedia [Bellman–Ford algorithm](https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm) 
 
@@ -184,24 +188,30 @@ The **Bellman–Ford algorithm** is an [algorithm](https://en.wanweibaike.com/wi
 
 
 
+#### Complexity
+
+|                                                              | Complexity                        |
+| :----------------------------------------------------------- | --------------------------------- |
+| [Worst-case](https://en.wikipedia.org/wiki/Best,_worst_and_average_case) [performance](https://en.wikipedia.org/wiki/Time_complexity) | ${\displaystyle \Theta (|V||E|)}$ |
+| [Best-case](https://en.wikipedia.org/wiki/Best,_worst_and_average_case) [performance](https://en.wikipedia.org/wiki/Time_complexity) | ${\displaystyle \Theta (|E|)}$    |
+| [Worst-case](https://en.wikipedia.org/wiki/Best,_worst_and_average_case) [space complexity](https://en.wikipedia.org/wiki/Space_complexity) | ${\displaystyle \Theta (|V|)}$    |
+
+> NOTE:
+>
+> 一、对于 [Best-case](https://en.wikipedia.org/wiki/Best,_worst_and_average_case) [performance](https://en.wikipedia.org/wiki/Time_complexity) ，需要结合 wikipedia [Bellman–Ford algorithm](https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm) / [Improvements](https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm#Improvements) 章节的内容来进行理解。
+
 #### Algorithm
 
 Like [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra's_algorithm), Bellman–Ford proceeds by [relaxation](https://en.wikipedia.org/wiki/Relaxation_(approximation)), in which approximations(逼近、近似) to the correct distance are replaced by better ones until they eventually reach the solution. In both algorithms, the **approximate distance** to each vertex is always an overestimate(高估) of the **true distance**, and is replaced by the minimum of its old value and the length of a newly found path. However, **Dijkstra's algorithm** uses a [priority queue](https://en.wikipedia.org/wiki/Priority_queue) to [greedily](https://en.wikipedia.org/wiki/Greedy_algorithm) select the closest vertex that has not yet been processed, and performs this **relaxation process** on all of its outgoing edges; by contrast, the **Bellman–Ford algorithm** simply relaxes *all* the edges, and does this $|V|-1$ times, where $|V|$  is the number of vertices in the graph. In each of these repetitions, the number of vertices with correctly calculated distances grows, from which it follows that eventually all vertices will have their correct distances. This method allows the Bellman–Ford algorithm to be applied to a wider class of inputs than Dijkstra. The intermediate answers depend on the order of edges relaxed, but the final answer remains the same.
 
 > NOTE:
 >
-> 一、[relaxation](https://en.wikipedia.org/wiki/Relaxation_(approximation)) 的表面含义是"松弛"，它所链接的文章是 [Relaxation (approximation)](https://en.wikipedia.org/wiki/Relaxation_(approximation)) ，其中"approximation"的含义是"逼近"、"近似"，理解这个词是理解上面这段话的基础，结合具体代码来说，它指的是:
->
-> ```
->           if distance[u] + w < distance[v] then
->               distance[v] := distance[u] + w
->               predecessor[v] := u
-> ```
+> 一、关于 [relaxation](https://en.wikipedia.org/wiki/Relaxation_(approximation)) 的表面含义是"松弛"，它所链接的文章是 [Relaxation (approximation)](https://en.wikipedia.org/wiki/Relaxation_(approximation)) ，前面也进行了说明
 >
 > **approximate distance** 
->
-> **true distance** 
->
+>    
+>    **true distance** 
+>    
 > 二、上面这段话非常好地总结来 [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra's_algorithm) 和 [Bellman–Ford algorithm](https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm) 之间的异同:
 >
 > 同: 
@@ -213,7 +223,7 @@ Like [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra's_algorithm),
 > 异:
 >
 > | [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra's_algorithm) | [Bellman–Ford algorithm](https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm) |
-> | ------------------------------------------------------------ | ------------------------------------------------------------ |
+>| ------------------------------------------------------------ | ------------------------------------------------------------ |
 > | Dijkstra's algorithm uses a [priority queue](https://en.wikipedia.org/wiki/Priority_queue) to [greedily](https://en.wikipedia.org/wiki/Greedy_algorithm) select the closest vertex that has not yet been processed, and performs this relaxation process on all of its outgoing edges; | Bellman–Ford algorithm simply relaxes *all* the edges, and does this $|V|-1$ times, where $|V|$  is the number of vertices in the graph. |
 >
 > 三、思考: 为什么执行 $|V|-1$ 次 relaxation？在后面会进行介绍。
@@ -268,7 +278,13 @@ function BellmanFord(list vertices, list edges, vertex source) is
 >
 > 一、关于"Step 3: check for negative-weight cycles"，在 geeksforgeeks [Bellman–Ford Algorithm | DP-23](https://www.geeksforgeeks.org/bellman-ford-algorithm-dp-23/)  中有着更好的描述。
 >
-> 二、初次阅读上述code，会疑惑它是否是求解SSSP(single source shortest path)的，因为在step2中并没有看到对source对处理。这需要结合 geeksforgeeks [Bellman–Ford Algorithm | DP-23](https://www.geeksforgeeks.org/bellman-ford-algorithm-dp-23/)  中的source code来看。 
+> 二、Bellman-Ford algorithm是求解SSSP(single source shortest path)的，它需要和Dijkstra执行相同的初始化: 
+>
+> ``` pseudocode
+> distance[source] := 0              // The distance from the source to itself is, of course, zero
+> ```
+>
+> 
 
 Simply put, the algorithm initializes the distance to the source to 0 and all other nodes to infinity. Then for all edges, if the distance to the destination can be shortened by taking the edge, the distance is updated to the new lower value.
 
@@ -282,11 +298,15 @@ Since the longest possible path without a cycle can be $|V|-1$ edges, the edges 
 
 ##### Finding negative cycles
 
-A final scan of all the edges is performed and if any distance is updated, then a path of length $|V|$ edges has been found which can only occur if at least one negative cycle exists in the graph.
+When the algorithm is used to find shortest paths, the existence of negative cycles is a problem, preventing the algorithm from finding a correct answer. However, since it terminates upon finding a negative cycle, the Bellman–Ford algorithm can be used for applications in which this is the target to be sought – for example in [cycle-cancelling](https://en.wikipedia.org/wiki/Minimum-cost_flow_problem) techniques in [network flow](https://en.wikipedia.org/wiki/Flow_network) analysis.
 
-> NOTE: 
+> NOTE:
 >
-> 一、上面这段话结合 geeksforgeeks [Bellman–Ford Algorithm | DP-23](https://www.geeksforgeeks.org/bellman-ford-algorithm-dp-23/) 中的例子会更加容易理解
+> 一、
+
+#### Improvements / Variant
+
+The Bellman–Ford algorithm may be improved in practice (although not in the worst case) by the observation that, if an iteration of the main loop of the algorithm terminates without making any changes, the algorithm can be immediately terminated, as subsequent iterations will not make any more changes. With this **early termination condition**, the main loop may in some cases use many fewer than |*V*| − 1 iterations, even though the worst case of the algorithm remains unchanged. The following improvements all maintain the $O(|V|\cdot |E|)$ worst-case time complexity.
 
 
 
@@ -358,8 +378,6 @@ if __name__ == '__main__':
 #### C++
 
 geeksforgeeks [Bellman–Ford Algorithm | DP-23](https://www.geeksforgeeks.org/bellman-ford-algorithm-dp-23/)
-
-
 
 
 
@@ -526,6 +544,12 @@ int main()
 ```
 
 
+
+## Shortest Path Faster Algorithm
+
+
+
+### wikipedia [Shortest Path Faster Algorithm](https://en.wikipedia.org/wiki/Shortest_Path_Faster_Algorithm)
 
 
 
