@@ -1,30 +1,30 @@
-# Floyd–Warshall algorithm
+## Floyd–Warshall algorithm
 
-一、素材:
+---
 
-1、wikipedia [Floyd–Warshall algorithm](https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm)
+> References: 
+>
+> - wikipedia [Floyd–Warshall algorithm](https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm)
+>
+> - geeksforgeeks [Floyd Warshall Algorithm | DP-16](https://www.geeksforgeeks.org/floyd-warshall-algorithm-dp-16/) 
 
-2、geeksforgeeks [Floyd Warshall Algorithm | DP-16](https://www.geeksforgeeks.org/floyd-warshall-algorithm-dp-16/) 
+---
 
-二、Graph representation and DP table
+### 概括
 
 [Floyd–Warshall algorithm](https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm) 的精妙之处在于它graph representation就是DP table，它的graph representation是adjacency matrix，显然这是正好可以作为DP table的，这其实是这个算法简单的来源。
 
-三、Floyd–Warshall-algorithm-interval-DP-graph-DP-greedy-algorithm-穷枚举断点+更新区间+approximation=逼近-relaxation
-
-
-
-## Computation complexity
+Floyd–Warshall-algorithm-interval-DP-graph-DP-greedy-algorithm-穷枚举断点+更新区间+approximation=逼近-relaxation
 
 Floyd–Warshall algorithm的思想非常简单: **穷举**，对于包含N个节点的graph，显然穷举/遍历需要 $O(N^3)$ 。
 
 
 
-## wikipedia [Floyd–Warshall algorithm](https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm)
+### wikipedia [Floyd–Warshall algorithm](https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm)
 
 In [computer science](https://en.wikipedia.org/wiki/Computer_science), the **Floyd–Warshall algorithm** (also known as **Floyd's algorithm**, the **Roy–Warshall algorithm**, the **Roy–Floyd algorithm**, or the **WFI algorithm**) ...
 
-### History and naming
+#### History and naming
 
 The Floyd–Warshall algorithm is an example of [dynamic programming](https://en.wikipedia.org/wiki/Dynamic_programming), and was published in its currently recognized form by [Robert Floyd](https://en.wikipedia.org/wiki/Robert_Floyd) in 1962.[[3\]](https://en.wikipedia.org/wiki/Floyd–Warshall_algorithm#cite_note-3) However, it is essentially the same as algorithms previously published by [Bernard Roy](https://en.wikipedia.org/wiki/Bernard_Roy) in 1959[[4\]](https://en.wikipedia.org/wiki/Floyd–Warshall_algorithm#cite_note-4) and also by [Stephen Warshall](https://en.wikipedia.org/wiki/Stephen_Warshall) in 1962[[5\]](https://en.wikipedia.org/wiki/Floyd–Warshall_algorithm#cite_note-5) for finding the **transitive closure** of a graph,[[6\]](https://en.wikipedia.org/wiki/Floyd–Warshall_algorithm#cite_note-6) and is closely related to [Kleene's algorithm](https://en.wikipedia.org/wiki/Kleene's_algorithm) (published in 1956) for converting a [deterministic finite automaton](https://en.wikipedia.org/wiki/Deterministic_finite_automaton) into a [regular expression](https://en.wikipedia.org/wiki/Regular_expression).[[7\]](https://en.wikipedia.org/wiki/Floyd–Warshall_algorithm#cite_note-7) The modern formulation of the algorithm as three nested for-loops was first described by Peter Ingerman, also in 1962.[[8\]](https://en.wikipedia.org/wiki/Floyd–Warshall_algorithm#cite_note-8)
 
@@ -49,7 +49,7 @@ The Floyd–Warshall algorithm is an example of [dynamic programming](https://en
 >
 > 
 
-### Path reconstruction
+#### Path reconstruction
 
 > NOTE:
 >
@@ -59,9 +59,11 @@ The Floyd–Warshall algorithm is an example of [dynamic programming](https://en
 >
 > 2、shortest-path graph
 
-### Pseudocode
+#### Pseudocode
 
 
+
+##### Without tracking shortest-path-tree
 
 ```pseudocode
 let dist be a |V| × |V| array of minimum distances initialized to ∞ (infinity)
@@ -79,28 +81,11 @@ for k from 1 to |V|
 
 
 
-
+##### With tracking shortest-path-tree
 
 ```pseudocode
-let dist be a 
-|
-�
-|
-×
-|
-�
-|
-{\displaystyle |V|\times |V|} array of minimum distances initialized to 
-∞\infty  (infinity)
-let prev be a 
-|
-�
-|
-×
-|
-�
-|
-{\displaystyle |V|\times |V|} array of vertex indices initialized to null
+let dist be a |�|×|�|{\displaystyle |V|\times |V|} array of minimum distances initialized to ∞\infty  (infinity)
+let prev be a |�|×|�|{\displaystyle |V|\times |V|} array of vertex indices initialized to null
 
 procedure FloydWarshallWithPathReconstruction() is
     for each edge (u, v) do
@@ -119,7 +104,20 @@ procedure FloydWarshallWithPathReconstruction() is
 
 
 
-### Applications and generalizations
+```pseudocode
+procedure Path(u, v)
+    if prev[u][v] = null then
+        return []
+    path ← [v]
+    while u ≠ v
+        v ← prev[u][v]
+        path.prepend(v)
+    return path
+```
+
+
+
+#### Applications and generalizations
 
 1、Shortest paths in directed graphs (Floyd's algorithm).
 

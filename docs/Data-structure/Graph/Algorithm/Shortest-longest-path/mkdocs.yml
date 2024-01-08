@@ -2,6 +2,5 @@ nav:
     - Introduction: index.md
     - BFS-shortest-path: BFS-shortest-path    
     - Dijkstra's-algorithm: Dijkstra's-algorithm
-    - Edge-relaxation: Edge-relaxation
     - Floyd–Warshall-algorithm: Floyd–Warshall-algorithm
     - LeetCode: LeetCode

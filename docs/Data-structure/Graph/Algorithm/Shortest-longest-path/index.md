@@ -53,17 +53,114 @@ Ask yourself:
 
 
 
-|                          | [Bellman–Ford algorithm](https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm) | [Floyd–Warshall algorithm](https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm) | [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra's_algorithm) | **BFS**    |
-| ------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ---------- |
-|                          | SSSP                                                         | APSP                                                         | SSSP                                                         |            |
-|                          | weighted-digraph-with-negative-weight-edges                  | weighted-digraph-with-negative-weight-edges                  | weighted-digraph-without-negative-weight-edges               | unweighted |
-| **graph representation** | edges list                                                   | [adjacency matrix](https://en.wikipedia.org/wiki/Adjacency_matrix) | [adjacency list](https://en.wikipedia.org/wiki/Adjacency_list) |            |
-| **algorithm paradigm**   | DP                                                           | DP                                                           | BFS+greedy+DP                                                |            |
-| **approximation**        | edge relaxation                                              | edge relaxation                                              | edge relaxation                                              |            |
-| **time complexity**      |                                                              |                                                              |                                                              |            |
-|                          |                                                              |                                                              |                                                              |            |
+|                                | [Bellman–Ford algorithm](https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm) | [Floyd–Warshall algorithm](https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm) | [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra's_algorithm) | **BFS**    |
+| ------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ---------- |
+|                                | SSSP                                                         | APSP                                                         | SSSP                                                         |            |
+|                                | weighted-digraph-with-negative-weight-edges                  | weighted-digraph-with-negative-weight-edges                  | weighted-digraph-without-negative-weight-edges               | unweighted |
+| **graph representation**       | edges list                                                   | [adjacency matrix](https://en.wikipedia.org/wiki/Adjacency_matrix) | [adjacency list](https://en.wikipedia.org/wiki/Adjacency_list) |            |
+| **algorithm paradigm**         | DP                                                           | DP                                                           | BFS+greedy+DP                                                |            |
+| **approximation**              | edge relaxation                                              | edge relaxation                                              | edge relaxation                                              |            |
+| **bast-case-time-complexity**  |                                                              | $O(V^3)$                                                     |                                                              |            |
+| **worst-case-time-complexity** |                                                              | $O(V^3)$                                                     |                                                              |            |
+|                                |                                                              |                                                              |                                                              |            |
 
 
+
+### Edge relaxation
+
+---
+
+> References:
+>
+> - stackoverflow [Relaxation of an edge in Dijkstra's algorithm](https://stackoverflow.com/questions/12782431/relaxation-of-an-edge-in-dijkstras-algorithm) 
+> - towardsdatascience [Understanding Edge Relaxation for Dijkstra’s Algorithm and Bellman-Ford Algorithm](https://towardsdatascience.com/algorithm-shortest-paths-1d8fa3f50769) 
+> - baeldung [Edge Relaxation in Dijkstra’s Algorithm](https://www.baeldung.com/cs/dijkstra-edge-relaxation) 
+> - wikipedia [Relaxation (approximation)](https://en.wikipedia.org/wiki/Relaxation_(approximation))
+
+---
+
+[Bellman–Ford algorithm](https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm) 、[Floyd–Warshall algorithm](https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm) 、[Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra's_algorithm) 都是 "proceed by edge relaxation"，关于"edge relaxation"，在 wikipedia [Bellman–Ford algorithm](https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm) 中有着非常好的总结:
+
+> Like [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra's_algorithm), Bellman–Ford proceeds by [relaxation](https://en.wikipedia.org/wiki/Relaxation_(approximation)), in which approximations to the correct distance are replaced by better ones until they eventually reach the solution. In both algorithms, the approximate distance to each vertex is always an overestimate of the true distance, and is replaced by the minimum of its old value and the length of a newly found path. 
+
+上述三个algorithm都是"proceed by [relaxation](https://en.wikipedia.org/wiki/Relaxation_(approximation))" ，它们所不同的是执行relaxation的次数、时机，它们展示了求解**最优值问题**的非常好的范式(paradigm)，这种paradigm可以归入到
+
+- iterative-optimization-algorithm
+
+- DP optimization algorithm
+
+[relaxation](https://en.wikipedia.org/wiki/Relaxation_(approximation)) 的表面含义是"松弛"，它所链接的文章是 [wikipedia-Relaxation (approximation)](https://en.wikipedia.org/wiki/Relaxation_(approximation)) ，其中"approximation"的含义是"逼近"、"近似"，理解这个词是理解这些algorithm的基础；
+
+在 "stackoverflow [Relaxation of an edge in Dijkstra's algorithm](https://stackoverflow.com/questions/12782431/relaxation-of-an-edge-in-dijkstras-algorithm) What does **relaxation of an edge** mean in the context of graph theory ?" # [A](https://stackoverflow.com/a/12782683) 中给出了这个词的由来的非常形象化的解释: 
+
+> [Here's](http://web.cs.unlv.edu/larmore/Courses/CSC269/pathing) a nice description of the Algorithm that also explains the notion of relaxation.
+>
+> > The notion of "relaxation" comes from an analogy between the estimate of the shortest path and the length of a **helical tension spring**(螺旋拉升的弹簧), which is not designed for compression. Initially, the cost of the shortest path is an overestimate, likened to a stretched out spring. As shorter paths are found, the estimated cost is lowered, and the spring is relaxed. Eventually, the shortest path, if one exists, is found and the spring has been relaxed to its resting(静止) length.
+>
+
+简而言之:弹簧一开始被拉伸地很长，后来不断释放而越来越短最终恢复到弹簧的静止最短长度。在弹簧的语境中，"relax"的意思是"放松"、"释放"，显然它非常符合graph中求解shortest path的语境。
+
+---
+
+> 翻译: 
+>
+> "likened"的意思是类比、比照；
+>
+> "helical tension spring"的意思是"螺旋拉升的弹簧"
+>
+> "estimate"、"overestimate"
+>
+> "stretched out"的意思是"伸展"、"拉伸"
+
+---
+
+在 stackoverflow [Relaxation of an edge in Dijkstra's algorithm](https://stackoverflow.com/questions/12782431/relaxation-of-an-edge-in-dijkstras-algorithm) # [A](https://stackoverflow.com/a/12782820) 中给出了具体代码:
+
+```pseudocode
+if distance[u] + w < distance[v] then
+    distance[v] := distance[u] + w
+    predecessor[v] := u
+```
+
+
+
+#### 基于edge relaxation规范和简化algorithms 
+
+基于**edge relaxation**，可以对上述algorithm的代码进行**规范**和**简化**:
+
+- Dijkstra
+
+  参考自: stackoverflow [Negative weights using Dijkstra's Algorithm](https://stackoverflow.com/questions/6799172/negative-weights-using-dijkstras-algorithm) 
+
+  ```pseudocode
+  Dijkstra(G, w, s)  {
+     Initialize-Single-Source(G, s)
+     S ← Ø
+     Q ← V[G]//priority queue by d[v]
+     while Q ≠ Ø do
+        u ← Extract-Min(Q)
+        S ← S U {u}
+        for each vertex v in Adj[u] do
+           Relax(u, v)
+  }
+  
+  Initialize-Single-Source(G, s) {
+     for each vertex v  V(G)
+        d[v] ← ∞
+        π[v] ← NIL
+     d[s] ← 0
+  }
+  
+  Relax(u, v) {
+     //update only if we found a strictly shortest path
+     if d[v] > d[u] + w(u,v) 
+        d[v] ← d[u] + w(u,v)
+        π[v] ← u
+        Update(Q, v)
+  }
+  ```
+
+  
 
 ### Others
 
@@ -99,26 +196,6 @@ void Floyd(int arrDis[][], Vertex arrPath[][])const;
 //arrDis[][]用来存储问题的解，即图中，任意两个结点之间的最短距离。使用邻接矩阵weight_adjacency对它进行初始化
 
 //arrPath存储的是中间结点，arrPath[i][j]表示从结点i到结点j的最短路径需要经过的中间结点
-```
-
-
-
-#### Edge relaxation
-
-1、2、3都属于DP optimization algorithm，都使用了edge relaxation，关于此，在wikipedia [Bellman–Ford algorithm](https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm) 中有着非常好的总结:
-
-> Like [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra's_algorithm), Bellman–Ford proceeds by [relaxation](https://en.wikipedia.org/wiki/Relaxation_(approximation)), in which approximations to the correct distance are replaced by better ones until they eventually reach the solution.
-
-上述三个algorithm都是"proceed by [relaxation](https://en.wikipedia.org/wiki/Relaxation_(approximation))" ，它们所不同的是执行relaxation的次数、时机。
-
-
-
-[relaxation](https://en.wikipedia.org/wiki/Relaxation_(approximation)) 的表面含义是"松弛"，它所链接的文章是 [Relaxation (approximation)](https://en.wikipedia.org/wiki/Relaxation_(approximation)) ，其中"approximation"的含义是"逼近"、"近似"，理解这个词是理解上面这段话的基础，结合具体代码来说，它指的是:
-
-```pseudocode
-if distance[u] + w < distance[v] then
-    distance[v] := distance[u] + w
-    predecessor[v] := u
 ```
 
 
