@@ -88,7 +88,7 @@ Closures of Relations(从relation-structure的角度来进行分析)
 
 
 
-#### Warshall’s Algorithm
+### Warshall’s Algorithm
 
 ---
 
@@ -102,7 +102,7 @@ Closures of Relations(从relation-structure的角度来进行分析)
 
 
 
-#### Repeated BFS
+### Repeated BFS
 
 wikipedia [Transitive_closure](https://en.wikipedia.org/wiki/Transitive_closure) 
 
