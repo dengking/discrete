@@ -57,8 +57,13 @@ cp-algorithms [Floyd-Warshall Algorithm](https://cp-algorithms.com/graph/all-pai
 >
 > Let us number the vertices starting from 1 to  $n$ . The matrix of distances is  $d[ ][ ]$ .
 >
-> Before  $k$ -th phase ( $k = 1 \dots n$ ),  $d[i][j]$  for any vertices  $i$  and  $j$  stores the length of the shortest path between the vertex  
-> $i$  and vertex  $j$ , which contains only the vertices  $\{1, 2, ..., k-1\}$  as internal vertices in the path.
+> Before  $k$ -th phase ( $k = 1 \dots n$ ),  $d[i][j]$  for any vertices  $i$  and  $j$  stores the length of the shortest path between the vertex  $i$  and vertex  $j$ , which contains only the vertices  $\{1, 2, ..., k-1\}$​  as internal vertices in the path.
+
+
+
+思考: 如何保证每一对点直接点最短距离都能够被计算出来？
+
+
 
 ### wikipedia [Floyd–Warshall algorithm](https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm)
 
@@ -400,7 +405,9 @@ distances[A][B] = min(distances[A][C], distances[C][B]) # AC并不直接相连�
 
 如果我们在最内层检查所有**中间节点** `k`（结点 `k` 代表 `A` 和 `B` 之间的**中间结点**），那么对于A->B，我们只能发现一条路径A->B，路径距离为9，而实际上不止这一条路径，还存在A->D->C->B这条路径，真实的最短路径是A->D->C->B，路径距离为6。造成错误的原因就是我们把检查所有节点放在最内层、检查中间节点 `k` 放在最内层，造成过早的把A到B的最短路径确定下来了:
 
-1、当确定A->B的最短路径时`distances[A][C]`尚未被计算，从DP的角度来看，这相当于它所包含的subproblem还没有被计算出来。
+1、当确定A->B的最短路径时`distances[A][C]`尚未被计算，从DP的角度来看，这相当于它所包含的subproblem还没有被计算出来，显然这是违背最优化原则的，因为它需要由子问题的最优解得到原问题的最优解。
+
+以bottom-up的方式来计算最优值。
 
 2、当后面存在更短的路径时，`distances[A][B]`已经不再会更新了
 
@@ -434,5 +441,4 @@ for ( int k = 0; k < 节点个数; ++k )// k代表的是i和j之间的中间结�
  
 
 如何填充Path的值呢？很简单，当我们发现Dis(AX) + Dis(XB) < Dis(AB)成立时，就要把最短路径改为A->...->X->...->B，而此时，Path(XB)的值是已知的，所以，Path(AB) = Path(XB)。
-
 
