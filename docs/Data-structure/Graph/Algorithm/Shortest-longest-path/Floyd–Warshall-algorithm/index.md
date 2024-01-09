@@ -10,18 +10,30 @@
 >
 > - stackoverflow [Why does Floyd Warshall's algorithm succeed?](https://stackoverflow.com/questions/63385915/why-does-floyd-warshalls-algorithm-succeed) 
 >
+> - cp-algorithms [Floyd-Warshall Algorithm](https://cp-algorithms.com/graph/all-pair-shortest-path-floyd-warshall.html) 
+>
 
 ---
 
 ### 概括
 
-[Floyd–Warshall algorithm](https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm) 的精妙之处在于它graph representation(adjacency matrix)就是DP table。
+> NOTE:
+>
+> 一、从算法思想、算法原理到实现
 
-Floyd–Warshall-algorithm-interval-DP-graph-DP-greedy-algorithm-穷枚举断点+更新区间+approximation=逼近-relaxation
+Floyd–Warshall-algorithm-interval-DP-graph-DP-greedy-algorithm-穷枚举断点+更新区间+edge-relaxation-approximation=逼近
 
 Floyd–Warshall algorithm的思想非常简单: **穷举**，对于包含N个节点的graph，显然穷举/遍历需要 $O(N^3)$ 。
 
+[Floyd–Warshall algorithm](https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm) 的精妙之处在于它graph representation(adjacency matrix)就是DP table。
 
+Floyd–Warshall-algorithm: 枚举经过一个**点**、两个点...的所有的可能性
+
+> "the algorithm calculates **shortest paths** in a **bottom-up** manner. It first calculates the shortest distances which have at-most one point in the path. Then, it calculates the shortest paths with at-most 2 points, and so on. "
+
+> NOTE:
+>
+> 一、上面这段话源自: geeksforgeeks [Bellman–Ford Algorithm | DP-23](https://www.geeksforgeeks.org/bellman-ford-algorithm-dp-23/) 
 
 Floyd–Warshall algorithm的pseudocode看得比较简答，但是解释清楚为什么它能够成功计算出最短距离？如何解释outermost loop？等问题却并不容易，下面是一些很好的素材: 
 
@@ -31,17 +43,21 @@ stackoverflow [Why does Floyd Warshall's algorithm succeed?](https://stackoverfl
 >
 > ```c
 > for (int k = 0; k < n; ++k) {
->     for (int i = 0; i < n; ++i) {
->         for (int j = 0; j < n; ++j) {
->             d[i][j] = min(d[i][j], d[i][k] + d[k][j]); 
->         }
->     }
+>  for (int i = 0; i < n; ++i) {
+>      for (int j = 0; j < n; ++j) {
+>          d[i][j] = min(d[i][j], d[i][k] + d[k][j]); 
+>      }
+>  }
 > }
 > ```
 >
 > The outermost loop does not loop over all intermediate vertices. When computing the shortest path from `i` to `j`, the outermost loop defines the set of vertices that can be a part of the path from `i` to `j`. In particular, if we label our `n` vertices `1, 2, 3, ..., n`, then the value of `k` specifies that we can only visit vertices from the set `{1, 2, ..., k}` on that iteration. You can see that, as `k -> n`, the `d[i][j]` values eventually converge to our solution (since a true "shortest path" should be allowed to use any vertex as an intermediate).
 >
 > Why do we break it down in this manner? Because if we know the solution for a fixed value of `k`, then we can easily construct the solution for `k + 1`. This is a key principle of dynamic programming, and you should try to understand how the recurrence `d[i][j] = min(d[i][j], d[i][k] + d[k][j])` exhausts all possibilities.
+>
+> > NOTE:
+> >
+> > 1、基于子问题的解才能够bottom-up地计算得到更大问题的解
 >
 > Now to answer your question directly more directly, it doesn't matter if a newly computed path using the set `{1, 2, ..., k}` uses the results from the previous iteration of the outermost loop. This is true because the set `{1, 2, ..., k - 1}` is a subset of `{1, 2, ..., k}`, so it would be perfectly fine if we did reuse our previously shorted computed path. The key idea is that we have the *option* to use the newly added vertex `k`.
 >
@@ -62,6 +78,80 @@ cp-algorithms [Floyd-Warshall Algorithm](https://cp-algorithms.com/graph/all-pai
 
 
 思考: 如何保证每一对点直接点最短距离都能够被计算出来？
+
+它展示了DP实现求解最优值的一个非常重要的条件: 
+
+1、基于子问题的解才能够bottom-up地计算得到更大问题的解
+
+
+
+### 错误版本
+
+```C++
+for ( int i = 0; i < 节点个数; ++i )// 我们要求的是从i到j的最短路径，k代表的是i和j之间的中间结点
+{
+	for ( int j = 0; j < 节点个数; ++j )
+	{
+		for ( int k = 0; k < 节点个数; ++k )
+		{
+			if ( Dis[i][k] + Dis[k][j] < Dis[i][j] )
+			{
+				// 找到更短路径
+				Dis[i][j] = Dis[i][k] + Dis[k][j];
+			}
+		}
+	}
+}
+
+```
+
+结合具体的例子来思考这个问题:
+
+![](./example-graph.png)
+
+```
+distances[A][B] = min(distances[A][D], distances[D][B]) # DB并不直接相连，距离为inf
+distances[A][B] = min(distances[A][C], distances[C][B]) # AC并不直接相连，距离为inf
+```
+
+如果我们在最内层检查所有**中间节点** `k`（结点 `k` 代表 `A` 和 `B` 之间的**中间结点**），那么对于A->B，我们只能发现一条路径A->B，路径距离为9，而实际上不止这一条路径，还存在A->D->C->B这条路径，真实的最短路径是A->D->C->B，路径距离为6。造成错误的原因就是我们把检查所有节点放在最内层、检查中间节点 `k` 放在最内层，造成过早的把A到B的最短路径确定下来了:
+
+1、当确定A->B的最短路径时`distances[A][C]`尚未被计算，从DP的角度来看，这相当于它所包含的subproblem还没有被计算出来，显然这是违背最优化原则的，因为它需要由子问题的最优解得到原问题的最优解。
+
+以bottom-up的方式来计算最优值。
+
+2、当后面存在更短的路径时，`distances[A][B]`已经不再会更新了
+
+
+
+### 正确版本
+
+所以，我们需要改写循环顺序，如下：
+
+```c++
+for ( int k = 0; k < 节点个数; ++k )// k代表的是i和j之间的中间结点
+{
+	for ( int i = 0; i < 节点个数; ++i )
+	{
+		for ( int j = 0; j < 节点个数; ++j )
+		{
+			if ( Dis[i][k] + Dis[k][j] < Dis[i][j] )
+			{
+				// 找到更短路径
+				Dis[i][j] = Dis[i][k] + Dis[k][j];
+			}
+		}
+	}
+}
+```
+
+注意此种写法的优点：对于每一个节点X，我们都会把所有的i到j处理完毕后才继续检查下一个节点。
+
+那么接下来的问题就是，我们如何找出最短路径呢？这里需要借助一个辅助数组Path，它是这样使用的：Path(AB)的值如果为P，则表示A节点到B节点的最短路径是A->...->P->B（表示A到B的最短距离所必须经过的结点）。这样一来，假设我们要找A->B的最短路径，那么就依次查找，假设Path(AB)的值为P，那么接着查找Path(AP)，假设Path(AP)的值为L，那么接着查找Path(AL)，假设Path(AL)的值为A，则查找结束，最短路径为A->L->P->B。
+
+ 
+
+如何填充Path的值呢？很简单，当我们发现Dis(AX) + Dis(XB) < Dis(AB)成立时，就要把最短路径改为A->...->X->...->B，而此时，Path(XB)的值是已知的，所以，Path(AB) = Path(XB)。
 
 
 
@@ -374,71 +464,5 @@ dp[3][3]=min(dp[3][3], dp[3][3]+dp[3][3])
 
 可以看到，上述计算过程并没有不断地进行更新而是在原地踏步。
 
-### 错误版本
 
-```C++
-for ( int i = 0; i < 节点个数; ++i )// 我们要求的是从i到j的最短路径，k代表的是i和j之间的中间结点
-{
-	for ( int j = 0; j < 节点个数; ++j )
-	{
-		for ( int k = 0; k < 节点个数; ++k )
-		{
-			if ( Dis[i][k] + Dis[k][j] < Dis[i][j] )
-			{
-				// 找到更短路径
-				Dis[i][j] = Dis[i][k] + Dis[k][j];
-			}
-		}
-	}
-}
-
-```
-
-结合具体的例子来思考这个问题:
-
-![](./example-graph.png)
-
-```
-distances[A][B] = min(distances[A][D], distances[D][B]) # DB并不直接相连，距离为inf
-distances[A][B] = min(distances[A][C], distances[C][B]) # AC并不直接相连，距离为inf
-```
-
-如果我们在最内层检查所有**中间节点** `k`（结点 `k` 代表 `A` 和 `B` 之间的**中间结点**），那么对于A->B，我们只能发现一条路径A->B，路径距离为9，而实际上不止这一条路径，还存在A->D->C->B这条路径，真实的最短路径是A->D->C->B，路径距离为6。造成错误的原因就是我们把检查所有节点放在最内层、检查中间节点 `k` 放在最内层，造成过早的把A到B的最短路径确定下来了:
-
-1、当确定A->B的最短路径时`distances[A][C]`尚未被计算，从DP的角度来看，这相当于它所包含的subproblem还没有被计算出来，显然这是违背最优化原则的，因为它需要由子问题的最优解得到原问题的最优解。
-
-以bottom-up的方式来计算最优值。
-
-2、当后面存在更短的路径时，`distances[A][B]`已经不再会更新了
-
-
-
-### 正确版本
-
-所以，我们需要改写循环顺序，如下：
-
-```c++
-for ( int k = 0; k < 节点个数; ++k )// k代表的是i和j之间的中间结点
-{
-	for ( int i = 0; i < 节点个数; ++i )
-	{
-		for ( int j = 0; j < 节点个数; ++j )
-		{
-			if ( Dis[i][k] + Dis[k][j] < Dis[i][j] )
-			{
-				// 找到更短路径
-				Dis[i][j] = Dis[i][k] + Dis[k][j];
-			}
-		}
-	}
-}
-```
-
-注意此种写法的优点：对于每一个节点X，我们都会把所有的i到j处理完毕后才继续检查下一个节点。
-
-那么接下来的问题就是，我们如何找出最短路径呢？这里需要借助一个辅助数组Path，它是这样使用的：Path(AB)的值如果为P，则表示A节点到B节点的最短路径是A->...->P->B（表示A到B的最短距离所必须经过的结点）。这样一来，假设我们要找A->B的最短路径，那么就依次查找，假设Path(AB)的值为P，那么接着查找Path(AP)，假设Path(AP)的值为L，那么接着查找Path(AL)，假设Path(AL)的值为A，则查找结束，最短路径为A->L->P->B。
-
- 
-
-如何填充Path的值呢？很简单，当我们发现Dis(AX) + Dis(XB) < Dis(AB)成立时，就要把最短路径改为A->...->X->...->B，而此时，Path(XB)的值是已知的，所以，Path(AB) = Path(XB)。
 
