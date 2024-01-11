@@ -62,7 +62,17 @@ Several special cases of graphs imply(蕴含) the visitation of other vertices i
 
 
 
-## Graph traversal and circle
+## Circle
+
+并不是所有的情况下都需要处理circle
+
+dead loop
+
+visited path
+
+visted set
+
+在求解最优值的时候，比如最短路径，如果edge都是positive的，那么这种情况下其实并不需要显式地处理circle。
 
 ### Visited set
 

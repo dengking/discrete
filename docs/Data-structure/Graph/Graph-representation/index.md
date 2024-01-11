@@ -1,5 +1,19 @@
 # Graph representation
 
+---
+
+> References: 
+>
+> mathcs.emory [Representing weighted graphs](http://www.mathcs.emory.edu/~cheung/Courses/171/Syllabus/11-Graph/weighted.html)
+>
+> khanacademy [Representing graphs](https://www.khanacademy.org/computing/computer-science/algorithms/graph-representation/a/representing-graphs) 
+>
+> wikipedia [Graph (abstract data type)#Representations](https://en.wikipedia.org/wiki/Graph_(abstract_data_type)) 
+
+---
+
+
+
 一、从relation的角度来分析graph representation
 
 可以使用graph来表示relation，而graph representation同样需要是基于vertex、edge之间的**relation**，graph的各种representation主要是基于如下两种relation:
@@ -31,10 +45,6 @@ vertex+(in-edges)+(out-edges)
 
 素材:
 
-mathcs.emory [Representing weighted graphs](http://www.mathcs.emory.edu/~cheung/Courses/171/Syllabus/11-Graph/weighted.html)
-
-khanacademy [Representing graphs](https://www.khanacademy.org/computing/computer-science/algorithms/graph-representation/a/representing-graphs)
-
 
 
 ## wikipedia [Graph (abstract data type)#Representations](https://en.wikipedia.org/wiki/Graph_(abstract_data_type)) 
@@ -51,7 +61,11 @@ khanacademy [Representing graphs](https://www.khanacademy.org/computing/computer
 >
 > 二、在原文中还给出了在使用上述三种表示方式下执行一些典型操作时的算法复杂度。
 
-## wikipedia [Adjacency list](https://en.wikipedia.org/wiki/Adjacency_list) 
+## Adjacency list
+
+
+
+### wikipedia [Adjacency list](https://en.wikipedia.org/wiki/Adjacency_list) 
 
 > NOTE:
 >
@@ -70,7 +84,7 @@ khanacademy [Representing graphs](https://www.khanacademy.org/computing/computer
 | b    | adjacent to | a,c  |
 | c    | adjacent to | a,b  |
 
-### Implementation details
+#### Implementation details
 
 An adjacency list representation for a graph associates each vertex in the graph with the collection of its neighboring vertices or edges. There are many variations of this basic idea, differing in the details of how they implement the association between vertices and collections, in how they implement the collections, in whether they include both vertices and edges or only vertices as first class objects, and in what kinds of objects are used to represent the vertices and edges.
 
@@ -84,15 +98,209 @@ An adjacency list representation for a graph associates each vertex in the graph
 
 3、The [object oriented](https://en.wikipedia.org/wiki/Object_oriented) incidence list structure suggested by Goodrich and Tamassia has special classes of vertex objects and edge objects. Each vertex object has an instance variable pointing to a collection object that lists the neighboring edge objects. In turn, each edge object points to the two vertex objects at its endpoints.[[3\]](https://en.wikipedia.org/wiki/Adjacency_list#cite_note-A-3) This version of the adjacency list uses more memory than the version in which adjacent vertices are listed directly, but the existence of explicit edge objects allows it extra flexibility in storing additional information about edges.
 
+### discrete book 10.3 Representing Graphs and Graph Isomorphism
+
+> NOTE: "isomorphism" 的意思是: "同构"
+
+![](./FIGURE-1-A-Simple-Graph.jpg)
+
+> NOTE: adjacent vertices
 
 
-## wikipedia [Adjacency matrix](https://en.wikipedia.org/wiki/Adjacency_matrix)
+
+![](./FIGURE-2-A-Directed-Graph.jpg)
+
+> NOTE: terminal vertices
+
+### Data structures
+
+#### Unweighted directed  graph
+
+1、可以看作是weight=1的weighted directed graph
+
+1、dict of list
+
+[Python Patterns - Implementing Graphs](https://www.python.org/doc/essays/graphs/) 
+
+```c++
+import unittest
+from collections import deque
+from typing import Dict, List, Optional
+
+
+class DirectedUnweightedGraphInAdjacencyList:
+    """
+    1、以adjacency list实现directed unweighted graph
+    2、https://www.python.org/doc/essays/graphs/
+    """
+
+    def __init__(self, graph: Dict[str, List[str]]):
+        self.graph = graph
+
+    def find_path_dfs(self, start, end) -> List[str]:
+        return self.__find_path_dfs_impl__(start, end)
+
+    def __find_path_dfs_impl__(self, start, end, path=[]) -> Optional[List[str]]:
+        """
+        1、可能找不到从start到end的path，所以需要通过返回值来表示是否找到了path
+        2、需要注意它避免dead loop的方式，它没有使用visited set，而是直接基于path
+        :param start:
+        :param end:
+        :param path:
+        :return: 如果找到了从start到end的path，则返回path，否则返回None
+        """
+        path = path + [start]
+        if start == end:
+            return path
+        if start not in self.graph:
+            return None
+        for adj_node in self.graph[start]:  # move next
+            if adj_node not in path:
+                new_path = self.__find_path_dfs_impl__(adj_node, end, path)
+                if new_path:
+                    return new_path
+        return None
+
+    def find_all_paths_dfs(self, start, end) -> List[List[str]]:
+        return self.__find_all_paths_dfs_impl__(start, end)
+
+    def __find_all_paths_dfs_impl__(self, start, end, path=[]):
+        path = path + [start]
+        if start == end:
+            return [path]
+        if start not in self.graph:
+            return []
+        paths = []
+        for node in self.graph[start]:  # move next
+            if node not in path:
+                paths.append(self.__find_path_dfs_impl__(node, end, path))
+        return paths
+
+    def find_shortest_path_dfs(self, start: str, end: str):
+        return self.__find_shortest_path_dfs_impl__(start, end)
+
+    def __find_shortest_path_dfs_impl__(self, start, end, path=[]):
+        """
+
+        :param start:
+        :param end:
+        :return:
+        """
+        path = path + [start]
+        if start == end:
+            return path
+        if start not in self.graph:
+            return None
+        shortest = None
+        for node in self.graph[start]:
+            if node not in path:
+                new_path = self.__find_shortest_path_dfs_impl__(node, end, path)
+                if new_path:
+                    if not shortest or len(new_path) < len(shortest):
+                        shortest = new_path
+        return shortest
+
+    def find_path_bfs(self, start: str, end: str) -> Optional[List[str]]:
+        """
+
+        :param start:
+        :param end:
+        :return:
+        """
+
+    def find_shortest_path_bfs(self, start, end):
+        dist = {start: [start]}
+        q = deque(start)
+        while len(q):
+            at = q.popleft()
+            for next_node in self.graph[at]:
+                if next_node not in dist:
+                    dist[next_node] = [dist[at], next_node]
+                    q.append(next_node)
+        return dist.get(end)
+
+
+class TestStringMethods(unittest.TestCase):
+
+    def test_find_path_dfs(self):
+        self.graph = DirectedUnweightedGraphInAdjacencyList(
+            {'A': ['B', 'C'],
+             'B': ['C', 'D'],
+             'C': ['D'],
+             'D': ['C'],
+             'E': ['F'],
+             'F': ['C']}
+        )
+        start = 'A'
+        end = 'C'
+        path = self.graph.find_path_dfs(start, end)
+        print(path)
+        self.assertEqual(len(path), 3)
+        self.assertEqual(path[0], start)
+        self.assertEqual(path[-1], end)
+
+    def test_find_all_paths_dfs(self):
+        self.graph = DirectedUnweightedGraphInAdjacencyList(
+            {'A': ['B', 'C'],
+             'B': ['C', 'D'],
+             'C': ['D'],
+             'D': ['C'],
+             'E': ['F'],
+             'F': ['C']}
+        )
+        start = 'A'
+        end = 'C'
+        paths = self.graph.find_all_paths_dfs(start, end)
+        print(paths)
+        self.assertEqual(len(paths), 2)
+        for path in paths:
+            self.assertEqual(path[0], start)
+            self.assertEqual(path[-1], end)
+
+    def test_find_shortest_path_dfs(self):
+        self.graph = DirectedUnweightedGraphInAdjacencyList(
+            {'A': ['B', 'C'],
+             'B': ['C', 'D'],
+             'C': ['D'],
+             'D': ['C'],
+             'E': ['F'],
+             'F': ['C']}
+        )
+        start = 'A'
+        end = 'C'
+        path = self.graph.find_shortest_path_dfs(start, end)
+        print(path)
+        self.assertEqual(len(path), 2)
+        self.assertEqual(path[0], start)
+        self.assertEqual(path[-1], end)
+
+
+if __name__ == '__main__':
+    unittest.main()
+
+```
+
+#### Weighted directed graph
+
+weighted-directed-graph=DFA: 
+
+- 描述的是一个状态(source start node)在某个输入(weight)下转移到另外一个状态(target end node)
+
+- 描述的是一个状态(source start node)以某个代价(weight)下转移到另外一个状态(target end node)
+
+
+
+
+
+## Adjacency matrix
+
+### wikipedia [Adjacency matrix](https://en.wikipedia.org/wiki/Adjacency_matrix)
 
 In [graph theory](https://en.wikipedia.org/wiki/Graph_theory) and [computer science](https://en.wikipedia.org/wiki/Computer_science), an **adjacency matrix** is a [square matrix](https://en.wikipedia.org/wiki/Square_matrix) used to represent a finite [graph](https://en.wikipedia.org/wiki/Graph_(discrete_mathematics)). The elements of the [matrix](https://en.wikipedia.org/wiki/Matrix_(mathematics)) indicate whether pairs of [vertices](https://en.wikipedia.org/wiki/Vertex_(graph_theory)) are [adjacent](https://en.wikipedia.org/wiki/Neighbourhood_(graph_theory)) or not in the graph.
 
 
 
-### Example
+#### Example
 
 ![](./weight01.gif)
 
@@ -137,7 +345,7 @@ Class used to represent a graph using an adjacency matrix:
 
 二、DLX
 
-
+DLX可以用来存储sparse generic incidence matrix，而adjacency matrix属于generic incident matrix的一种，所以DLX也可以用于存储incidence matrix。 
 
 ## Incidence matrix
 
@@ -145,15 +353,19 @@ Class used to represent a graph using an adjacency matrix:
 
 二、"incidence matrix"的意思是: "邻接矩阵"。
 
-三、有两种实现方式:
 
-1、array
-
-2、DLX
 
 ### wikipedia [Incidence matrix](https://en.wikipedia.org/wiki/Incidence_matrix)
 
 
+
+### Data structures
+
+一、2D array
+
+
+
+二、DLX
 
 ## Summary
 

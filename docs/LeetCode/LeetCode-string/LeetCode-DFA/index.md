@@ -6,11 +6,11 @@
 
  这让我发现了DFA在LeetCode中的应用，下面是相关试题:
 
-1、[LeetCode-8. 字符串转换整数 (atoi)](https://leetcode.cn/problems/string-to-integer-atoi/)  中等
+1、[LeetCode-8. 字符串转换整数 (atoi)-中等](https://leetcode.cn/problems/string-to-integer-atoi/)  
 
-2、[LeetCode-393. UTF-8 编码验证](https://leetcode.cn/problems/utf-8-validation/) 中等
+2、[LeetCode-393. UTF-8 编码验证-中等](https://leetcode.cn/problems/utf-8-validation/) 
 
-3、[LeetCode-65. 有效数字](https://leetcode.cn/problems/valid-number/) 困难
+3、[LeetCode-65. 有效数字-困难](https://leetcode.cn/problems/valid-number/) 
 
 
 

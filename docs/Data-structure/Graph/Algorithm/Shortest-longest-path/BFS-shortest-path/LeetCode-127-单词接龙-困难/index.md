@@ -1,4 +1,4 @@
-# [LeetCode-127. 单词接龙-困难](https://leetcode.cn/problems/word-ladder/)
+# [LeetCode-127. 单词接龙-困难](https://leetcode.cn/problems/word-ladder/) 
 
 一、这是在Google "bidirectional bfs - leetcode"时发现的，这道题和 [LeetCode-752. 打开转盘锁-中等](https://leetcode.cn/problems/open-the-lock/) 非常类似。
 
