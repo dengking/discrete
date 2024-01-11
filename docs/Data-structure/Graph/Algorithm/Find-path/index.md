@@ -8,6 +8,8 @@
 
 一、backtrack find 
 
+[Python Patterns - Implementing Graphs](https://www.python.org/doc/essays/graphs/) 
+
 ```python
 import unittest
 from collections import deque
