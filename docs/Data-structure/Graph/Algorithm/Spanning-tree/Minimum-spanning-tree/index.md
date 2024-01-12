@@ -97,9 +97,209 @@ Minimum spanning trees can also be used to describe financial markets.[[37\]](ht
 
 
 
+## Prim's algorithm
+
+
+
+### wikipedia [Prim's algorithm](https://en.wikipedia.org/wiki/Prim%27s_algorithm)
+
+
+
+
+
+## Borůvka's algorithm
+
+
+
+### wikipedia [Borůvka's algorithm](https://en.wikipedia.org/wiki/Bor%C5%AFvka%27s_algorithm)
+
+
+
+## Kruskal's algorithm
+
+
+
+### wikipedia [Kruskal's algorithm](https://en.wikipedia.org/wiki/Kruskal%27s_algorithm)
+
+**Kruskal's algorithm**[[1\]](https://en.wikipedia.org/wiki/Kruskal's_algorithm#cite_note-1) finds a [minimum spanning forest](https://en.wikipedia.org/wiki/Minimum_spanning_tree) of an undirected [edge-weighted graph](https://en.wikipedia.org/wiki/Weighted_graph). 
+
+If the graph is [connected](https://en.wikipedia.org/wiki/Connectivity_(graph_theory)), it finds a [minimum spanning tree](https://en.wikipedia.org/wiki/Minimum_spanning_tree). (A minimum spanning tree of a connected graph is a subset of the [edges](https://en.wikipedia.org/wiki/Edge_(graph_theory)) that forms a tree that includes every [vertex](https://en.wikipedia.org/wiki/Vertex_(graph_theory)), where the sum of the [weights](https://en.wikipedia.org/wiki/Weighted_graph) of all the edges in the tree is minimized. 
+
+For a disconnected graph, a minimum spanning forest is composed of a minimum spanning tree for each [connected component](https://en.wikipedia.org/wiki/Connected_component_(graph_theory)).) 
+
+It is a [greedy algorithm](https://en.wikipedia.org/wiki/Greedy_algorithm) in [graph theory](https://en.wikipedia.org/wiki/Graph_theory) as in each step it adds the next lowest-weight edge that will not form a [cycle](https://en.wikipedia.org/wiki/Cycle_(graph_theory)) to the **minimum spanning forest**.
+
+> NOTE:
+>
+> 一、
+>
+> 1、undirected
+>
+> 2、forest
+>
+> 3、connected、disconnected
+>
+> 4、edge-driven
+
+
+
+#### Algorithm
+
+1、create a forest *F* (a set of trees), where each vertex in the graph is a separate [tree](https://en.wikipedia.org/wiki/Tree_(graph_theory))
+
+2、create a sorted set *S* containing all the edges in the graph
+
+3、while *S* is [nonempty](https://en.wikipedia.org/wiki/Nonempty) and *F* is not yet [spanning](https://en.wikipedia.org/wiki/Spanning_tree)
+
+- remove an edge with minimum weight from *S*
+- if the removed edge connects two different trees then add it to the forest *F*, combining two trees into a single tree
+
+
+
+#### Pseudocode
+
+The following code is implemented with a [disjoint-set data structure](https://en.wikipedia.org/wiki/Disjoint-set_data_structure). Here, we represent our forest *F* as a set of edges, and use the disjoint-set data structure to efficiently determine whether two vertices are part of the same tree.
+
+```pseudocode
+algorithm Kruskal(G) is
+    F:= ∅
+    for each v ∈ G.V do
+        MAKE-SET(v)
+    for each (u, v) in G.E ordered by weight(u, v), increasing do
+        if FIND-SET(u) ≠ FIND-SET(v) then
+            F:= F ∪ {(u, v)} ∪ {(v, u)}
+            UNION(FIND-SET(u), FIND-SET(v))
+    return F
+```
+
+
+
+## Implementation
+
+```c++
+#include <vector>
+#include <algorithm>
+#include <cmath>
+using namespace std;
+
+/// @brief
+class DisjointSet
+{
+public:
+    DisjointSet(int n) : parent_(n), size_(n)
+    {
+        for (int i = 0; i < n; ++i)
+        {
+            parent_[i] = i;
+            size_[i] = 1;
+        }
+    }
+    /// @brief
+    /// @param idx
+    /// @return
+    int find_by_path_split(int idx)
+    {
+        while (parent_[idx] != idx)
+        {
+            int parent = parent_[idx];
+            parent_[idx] = parent_[parent_[idx]]; // Path splitting replaces every parent pointer on that path by a pointer to the node's grandparent
+            idx = parent;                         // iteration
+        }
+        return idx;
+    }
+
+    void union_by_size(int i, int j)
+    {
+        int i_root = find_by_path_split(i);
+        int j_root = find_by_path_split(j);
+        if (i_root != j_root)
+        {
+            if (size_[i_root] < size_[j_root])
+            {
+                parent_[i_root] = j_root;
+                size_[j_root] += size_[i_root];
+            }
+            else
+            {
+                parent_[j_root] = i_root;
+                size_[i_root] += size_[j_root];
+            }
+        }
+    }
+
+private:
+    vector<int> parent_;
+    vector<int> size_;
+};
+
+/// @brief
+class Solution
+{
+    struct Edge
+    {
+        int p1_;
+        int p2_;
+        int weight_;
+        Edge(int p1, int p2, int weight) : p1_{p1}, p2_{p2}, weight_{weight}
+        {
+        }
+
+        bool operator<(const Edge &other) const
+        {
+            return this->weight_ < other.weight_;
+        }
+    };
+
+public:
+    int minCostConnectPoints(vector<vector<int>> &points)
+    {
+        vector<Edge> edges;
+        std::size_t edge_cnt = (points.size() * (points.size() - 1)) / 2;
+        edges.reserve(edge_cnt);
+        DisjointSet disjoint_set(points.size());
+        for (int i = 0; i < points.size(); ++i)
+        {
+            for (int j = i + 1; j < points.size(); ++j)
+            {
+                edges.emplace_back(i, j, manhattan_distance(points[i], points[j]));
+            }
+        }
+        std::sort(edges.begin(), edges.end());
+        int result = 0;
+        for (auto &&edge : edges)
+        {
+            if (disjoint_set.find_by_path_split(edge.p1_) != disjoint_set.find_by_path_split(edge.p2_))
+            {
+                disjoint_set.union_by_size(edge.p1_, edge.p2_);
+                result += edge.weight_;
+            }
+        }
+        return result;
+    }
+    int manhattan_distance(const vector<int> &p1, const vector<int> &p2)
+    {
+        return abs(p1[0] - p2[0]) + abs(p1[1] - p2[1]);
+    }
+};
+
+int main()
+{
+}
+```
+
+
+
 ## LeetCode
 
 https://leetcode.cn/tag/minimum-spanning-tree/problemset/
+
+
+
+[LeetCode-1489. Find Critical and Pseudo-Critical Edges in Minimum Spanning Tree-中等](https://leetcode.cn/problems/find-critical-and-pseudo-critical-edges-in-minimum-spanning-tree/)
+
+[LeetCode-1584. Min Cost to Connect All Points-中等](https://leetcode.cn/problems/min-cost-to-connect-all-points/)
+
+
 
 
 
