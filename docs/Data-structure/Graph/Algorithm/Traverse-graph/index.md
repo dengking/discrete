@@ -42,17 +42,180 @@ Several special cases of graphs imply(蕴含) the visitation of other vertices i
 
 *Main article:* [Depth-first search](https://en.wikipedia.org/wiki/Depth-first_search)
 
-> NOTE: 
->
-> 1、参见`DFS-graph`章节
+
 
 #### Breadth-first search
 
 *Main article:* [Breadth-first search](https://en.wikipedia.org/wiki/Breadth-first_search)
 
+
+
+## BFS
+
+---
+
+> References: 
+>
+> - wikipedia [Breadth-first search](https://en.wikipedia.org/wiki/Breadth-first_search) 
+>
+> - labuladong [我写了一个模板，把 Dijkstra 算法变成了默写题](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247492167&idx=1&sn=bc96c8f97252afdb3973c7d760edb9c0&scene=21#wechat_redirect) 
+>
+> 
+
+---
+
+
+
+### wikipedia [Breadth-first search](https://en.wikipedia.org/wiki/Breadth-first_search) 
+
+**Breadth-first search** (**BFS**) is an [algorithm](https://en.wikipedia.org/wiki/Algorithm) for traversing or searching [tree](https://en.wikipedia.org/wiki/Tree_(data_structure)) or [graph](https://en.wikipedia.org/wiki/Graph_(data_structure)) data structures. It starts at the [tree root](https://en.wikipedia.org/wiki/Tree_(data_structure)#Terminology) (or some arbitrary node of a graph, sometimes referred to as a 'search key'[[1\]](https://en.wikipedia.org/wiki/Breadth-first_search#cite_note-1)), and explores all of the neighbor nodes at the present depth prior to moving on to the nodes at the next depth level.
+
 > NOTE: 
 >
-> 1、参见`BFS-graph`章节
+> 1、"level"让我想到了hierarchy
+
+#### Pseudocode
+
+**Input**: A graph *G* and a *starting vertex* *root* of *G*
+
+**Output**: Goal state. The *parent* links trace the shortest path back to *root*[[7\]](https://en.wikipedia.org/wiki/Breadth-first_search#cite_note-7)
+
+```pseudocode
+ 1  procedure BFS(G, root) is
+ 2      let Q be a queue
+ 3      label root as discovered
+ 4      Q.enqueue(root)
+ 5      while Q is not empty do
+ 6          v := Q.dequeue()
+ 7          if v is the goal then
+ 8              return v
+ 9          for all edges from v to w in G.adjacentEdges(v) do
+10              if w is not labeled as discovered then
+11                  label w as discovered
+12                  Q.enqueue(w)
+```
+
+### Code
+
+```python
+import unittest
+from collections import deque
+from typing import Dict, List, Callable
+
+
+class DirectedUnweightedGraphInAdjacencyList:
+    """
+    1、以adjacency list实现directed unweighted graph
+    2、https://www.python.org/doc/essays/graphs/
+    """
+
+    def __init__(self, graph: Dict[str, List[str]]):
+        self.graph = graph
+
+    def bfs1(self, start: str, visitor: Callable = print) -> List[str]:
+        """
+
+        :param visitor:
+        :param start:
+        :return:
+        """
+        q = deque()
+        visited_set = set()
+        visited_nodes = []
+
+        q.append(start)
+        visited_set.add(start)
+        while q:
+            size = len(q)
+            for _ in range(size):
+                node = q.popleft()
+                visitor(node)
+                visited_nodes.append(node)
+                for adj_node in filter(lambda adj_node: adj_node not in visited_set, self.graph[node]):
+                    q.append(adj_node)
+                    visited_set.add(adj_node)
+        return visited_nodes
+
+    def bfs2(self, start: str) -> List[str]:
+        # Create a queue and enqueue the starting node
+        queue = deque([start])
+        # This list will keep track of all visited nodes
+        visited = []
+        # Loop as long as there are nodes in the queue
+        while queue:
+            # Dequeue a node from the queue
+            current_node = queue.popleft()
+            # If the node has not been visited, add it to the visited list
+            if current_node not in visited:
+                visited.append(current_node)
+                # Enqueue all neighboring nodes
+                for neighbor in self.graph[current_node]:
+                    queue.append(neighbor)
+
+        # Return the list of visited nodes
+        return visited
+
+
+class TestBFSAlgorithm(unittest.TestCase):
+    def test_shortest_path_to_all_node(self):
+        # Graph represented as an adjacency list
+        graph = {
+            'A': ['B', 'C'],
+            'B': ['D', 'E'],
+            'C': ['F'],
+            'D': [],
+            'E': ['F'],
+            'F': []
+        }
+        directed_unweighted_graph_in_adj_list = DirectedUnweightedGraphInAdjacencyList(graph)
+        source = 'A'
+        nodes1 = directed_unweighted_graph_in_adj_list.bfs1(source)
+        nodes2 = directed_unweighted_graph_in_adj_list.bfs2(source)
+        self.assertEqual(len(nodes1), 6)
+        self.assertEqual(nodes1, ['A', 'B', 'C', 'D', 'E', 'F'])
+        self.assertEqual(nodes1, nodes2)
+
+
+if __name__ == '__main__':
+    unittest.main()
+
+```
+
+
+
+### Applications
+
+Breadth-first search can be used to solve many problems in graph theory, for example:
+
+1、Copying [garbage collection](https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)), [Cheney's algorithm](https://en.wikipedia.org/wiki/Cheney's_algorithm)
+
+2、Finding the [shortest path](https://en.wikipedia.org/wiki/Shortest_path) between two nodes *u* and *v*, with path length measured by number of edges (an advantage over [depth-first search](https://en.wikipedia.org/wiki/Depth-first_search))[[12\]](https://en.wikipedia.org/wiki/Breadth-first_search#cite_note-12)
+
+> NOTE: 
+>
+> 一、关于此，参见:
+>
+> 1、`BFS-shortest-path` 章节
+>
+> 二、[Dijkstra’s algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm) 可以看作是一种BFS
+
+3、[(Reverse) Cuthill–McKee](https://en.wikipedia.org/wiki/Cuthill–McKee_algorithm) mesh numbering
+
+4、[Ford–Fulkerson method](https://en.wikipedia.org/wiki/Ford–Fulkerson_algorithm) for computing the [maximum flow](https://en.wikipedia.org/wiki/Maximum_flow_problem) in a [flow network](https://en.wikipedia.org/wiki/Flow_network)
+
+5、Serialization/Deserialization of a binary tree vs serialization in sorted order, allows the tree to be re-constructed in an efficient manner.
+
+6、Construction of the *failure function* of the [Aho-Corasick](https://en.wikipedia.org/wiki/Aho-Corasick) pattern matcher.
+
+7、Testing [bipartiteness of a graph](https://en.wikipedia.org/wiki/Bipartite_graph#Testing_bipartiteness).
+
+8、[Topological sorting](https://en.wikipedia.org/wiki/Topological_sorting)
+
+> NOTE:
+>
+> 一、这是最适合用graph BFS的问题
+
+
 
 
 
@@ -72,7 +235,7 @@ visited path
 
 visted set
 
-在求解最优值的时候，比如最短路径，如果edge都是positive的，那么这种情况下其实并不需要显式地处理circle。
+在求解最优值的时候，比如最短路径，如果edge都是positive的，那么这种情况下其实并不需要显式地处理circle，因为最优值的目标就能够避免重复选择路径。
 
 ### Visited set
 
