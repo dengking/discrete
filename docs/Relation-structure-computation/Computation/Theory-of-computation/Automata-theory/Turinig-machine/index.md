@@ -1,36 +1,52 @@
 # Turing machine
 
+---
+
+> References:
+>
+> - cam.ac.uk [What is a Turing machine?](https://www.cl.cam.ac.uk/projects/raspberrypi/tutorials/turing-machine/one.html)
+> - euston96 [Turing machine](https://www.euston96.com/en/turing-machine/)
+> - wikipedia [Turing machine](https://en.wikipedia.org/wiki/Turing_machine) 
+
+---
+
+wikipedia [Turing machine](https://en.wikipedia.org/wiki/Turing_machine)的介绍非常冗长，初读起来会比较费劲，所以找了一些其他的相对精简一些的文章，可以按照上述顺序阅读。
 
 
-Turing machine非常重要，对于一个software engineer，有必要了解一下它。
 
-维基百科中关于[Turing machine](https://en.wikipedia.org/wiki/Turing_machine)的介绍非常冗长，初读起来会比较费劲，所以找了一些其他的相对精简一些的文章，下面罗列了我觉得比较好的阅读顺序：
+## wikipedia [Turing machine](https://en.wikipedia.org/wiki/Turing_machine)
 
-- cam.ac.uk [What is a Turing machine?](https://www.cl.cam.ac.uk/projects/raspberrypi/tutorials/turing-machine/one.html)
-- euston96 [Turing machine](https://www.euston96.com/en/turing-machine/)
-- wikipedia [Turing machine](https://en.wikipedia.org/wiki/Turing_machine)
+A **Turing machine** is a [mathematical model of computation](https://en.wikipedia.org/wiki/Mathematical_model_of_computation) that defines an [abstract machine](https://en.wikipedia.org/wiki/Abstract_machine), which manipulates **symbols** on a strip of tape according to a **table of rules**. Despite the model's simplicity, given any [computer algorithm](https://en.wikipedia.org/wiki/Computer_algorithm), a Turing machine capable of simulating that algorithm's logic can be constructed.
 
-## euston96 [Turing machine](https://www.euston96.com/en/turing-machine/)
+The machine operates on an **infinite memory tape** divided into [discrete](https://en.wikipedia.org/wiki/Discrete_mathematics) "cells". The machine positions its "head" over a cell and "reads" or "scans" the symbol there. Then, as per the symbol and its present place in a "finite table" of user-specified instructions, the machine (i) writes a symbol (e.g., a digit or a letter from a finite alphabet) in the cell (some models allow symbol erasure or no writing), then (ii) either moves the **tape** one cell left or right (some models allow no motion, some models move the head), then (iii) (as determined by the observed symbol and the machine's place in the table) either proceeds to a subsequent instruction or halts the computation.
 
-The **Turing machine** is a **computer device** which consists of a **read** and **write header**, what we know best today as a **scanner** and a paper ribbon that passes through the machine. This tape was divided into **squares**, and each of them had a **symbol** at the same time. It was responsible for the **storage** of the machine and was a kind of vehicle for **entry** and **exit**, as well as working memory to store the results of the intermediate steps of the calculation.
+> NOTE: 上面这段话已经总结了Turing machine的组成和运行机制
 
-### What is the Turing machine?
+The Turing machine was invented in 1936 by [Alan Turing](https://en.wikipedia.org/wiki/Alan_Turing). With this model, Turing was able to answer two questions in the negative: 
 
-It is a more general language **recognition** **module** that any **Finite** and **Stack** automaton has, as it has the ability to recognize **regular** and context-**independent** languages, as well as many other types of languages.
+(1) Does a machine exist that can determine whether any arbitrary machine on its tape is "circular" (e.g., freezes, or fails to continue its computational task)
 
-### Features of Turing Machine
+(2) does a machine exist that can determine whether any arbitrary machine on its tape ever prints a given symbol
 
-The main features of the Turing machine were as follows:
+> Note: 上面两句中，that引导的定从是修饰machine的
 
-- The input that the tape has before the calculation begins, must consist of a finite number of symbols.
-- The machine tape has an unlimited length.
-- The read/write head can be programmable.
-- The Turing machine is capable of doing six types of fundamental operations: read, write, move left, move right, change state and stop.
-- It has the ability to compute anything any modern computer can calculate.
-- It consists of an input and output alphabet and a special symbol called white.
+Thus by providing a mathematical description of a very simple device capable of arbitrary computations, he was able to prove properties of computation in general—and in particular, the [uncomputability](https://en.wikipedia.org/wiki/Computability) of the *[Entscheidungsproblem](https://en.wikipedia.org/wiki/Entscheidungsproblem)* ('decision problem').
 
-### History of Turing machine
+> NOTE: 关于Turing提及的两个问题，并没有搞清楚这些问题到底是什么。
 
-**Alan Mathison Turing** was the inventor of the Turing machine. He was known as an extremely talented man, who had great influences on the development of **computing** and on the formalization of the concept of **algorithm** and **computation** through his Turing machine, which played a very important role in the creation of the modern computer.
+Thus, Turing machines prove **fundamental limitations** on the power of **mechanical computation**. While they can express arbitrary computations, their minimalist design makes them unsuitable for computation in practice: real-world [computers](https://en.wikipedia.org/wiki/Computer) are based on different designs that, unlike Turing machines, use [random-access memory](https://en.wikipedia.org/wiki/Random-access_memory).
 
-Turing described it for the first time in his 1936 article dealing with issues concerning **computable** **numbers**. In his article, Turing imagines that his creation is not a mechanical machine, but rather a person he decided to call a computer, which carelessly executes these deterministic mechanical rules.
+> NOTE: 上面的一段话其实说明了Turing machine的价值所在：理论上证明 **mechanical computation**的限制所在，这对于通用计算机的诞生是具有非常重要的意义的。
+
+> NOTE: 需要注意的是，虽然real-world [computers](https://en.wikipedia.org/wiki/Computer) 没有采纳Turing machine的设计，但是Turing machine启发了real-world [computers](https://en.wikipedia.org/wiki/Computer) 的设计。一个real-world [computers](https://en.wikipedia.org/wiki/Computer) ，应该能够提供和Turing machine相同的 power of **mechanical computation**。关于Turing machine和现代computer之间的关联，可以参看下面的overview章节，当然在学习计算机组成原理的时候，还是会讨论Turing machine和[Von Neumann architecture](https://en.wikipedia.org/wiki/Von_Neumann_architecture)、 [stored-program computer](https://en.wikipedia.org/wiki/Stored-program_computer)。
+>
+> 除此之外，Turing machine theory of computation
+
+
+
+[Turing completeness](https://en.wikipedia.org/wiki/Turing_completeness) is the ability for a system of instructions to simulate a Turing machine. A programming language that is Turing complete is theoretically capable of expressing all tasks accomplishable by computers; nearly all programming languages are Turing complete if the limitations of finite memory are ignored.
+
+![Automata theory.svg](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Automata_theory.svg/300px-Automata_theory.svg.png)
+
+> Classes of automata
+

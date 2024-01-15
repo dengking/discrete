@@ -1,6 +1,6 @@
 # Graph traversal
 
-这是解决各种graph问题的基础。
+
 
 ## wikipedia [Graph traversal](https://en.wikipedia.org/wiki/Graph_traversal)
 
@@ -60,7 +60,17 @@ Several special cases of graphs imply(蕴含) the visitation of other vertices i
 >
 > - labuladong [我写了一个模板，把 Dijkstra 算法变成了默写题](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247492167&idx=1&sn=bc96c8f97252afdb3973c7d760edb9c0&scene=21#wechat_redirect) 
 >
-> 
+> - medium [Top 25 Breadth First Search (BFS) Practice Problems](https://medium.com/techie-delight/top-20-breadth-first-search-bfs-practice-problems-ac2812283ab1)
+>
+> - labuladong 
+>
+>   - [BFS 算法框架套路详解](https://mp.weixin.qq.com/s/WH_XGm1-w5882PnenymZ7g) (相比之下，这篇文章不及下面这篇)
+>   -  [我写了一个模板，把 Dijkstra 算法变成了默写题](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247492167&idx=1&sn=bc96c8f97252afdb3973c7d760edb9c0&scene=21#wechat_redirect) 
+>   - [益智游戏克星：BFS暴力搜索算法](https://mp.weixin.qq.com/s/Xn-oW7QRu8spYzL3B6zLxw)
+>
+> - geeksforgeeks [Depth First Search or DFS for a Graph](https://www.geeksforgeeks.org/depth-first-search-or-dfs-for-a-graph/)
+>
+>   
 
 ---
 
@@ -181,7 +191,66 @@ if __name__ == '__main__':
 
 ```
 
+上面展示了两种BFS的写法，两种往visited set中添加节点的方式。
 
+#### bfs1
+
+一、bfs1的写法源自于 labuladong [我写了一个模板，把 Dijkstra 算法变成了默写题](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247492167&idx=1&sn=bc96c8f97252afdb3973c7d760edb9c0&scene=21#wechat_redirect) 
+
+- 其中对queue machine有着非常好的描述
+
+- 其中对while-从上到下+for-同层从左到右到解释非常好
+
+- 这篇文章对BFS binary tree、BFS multiple tree、BFS graph都进行了介绍
+
+![image](./BFS-traverse.png)
+
+
+
+- 这篇文章中给出来具体的code
+
+```java
+// 输入起点，进行 BFS 搜索
+int BFS(Node start) {
+    Queue<Node> q; // 核心数据结构
+    Set<Node> visited; // 避免走回头路
+
+    q.offer(start); // 将起点加入队列
+    visited.add(start);
+
+    int step = 0; // 记录搜索的步数
+    while (q not empty) {
+        int sz = q.size();
+        /* 将当前队列中的所有节点向四周扩散一步 */
+        for (int i = 0; i < sz; i++) {
+            Node cur = q.poll();
+            printf("从 %s 到 %s 的最短距离是 %s", start, cur, step);
+
+            /* 将 cur 的相邻节点加入队列 */
+            for (Node x : cur.adj()) {
+                if (x not in visited) {
+                    q.offer(x);
+                    visited.add(x);
+                }
+            }
+        }
+        step++;
+    }
+}
+```
+
+再加上 BFS 算法利用`for`循环一层一层向外扩散的逻辑和`visited`集合防止走回头路的逻辑，当你每次从队列中拿出节点`cur`的时候，从`start`到`cur`的最短权重就是`step`记录的步数。
+
+二、上述写法可以总结为:
+
+- nested-loop
+- 同时进入queue、visited-set
+
+
+
+#### bfs2
+
+bfs2源自chatGTP，相比于bfs1，它更加简单，它采用的是"If the node has not been visited, add it to the visited list"。
 
 ### Applications
 
@@ -214,6 +283,18 @@ Breadth-first search can be used to solve many problems in graph theory, for exa
 > NOTE:
 >
 > 一、这是最适合用graph BFS的问题
+
+
+
+### Complexity
+
+#### Space complexity
+
+[LeetCode-【宫水三叶】一题三解：「双向 BFS」& 「AStar 算法」&「IDA* 算法」](https://leetcode.cn/problems/open-the-lock/solution/gong-shui-san-xie-yi-ti-shuang-jie-shuan-wyr9/)
+
+> 使用朴素 BFS 进行求解时，队列中最多会存在“两层”的搜索节点。
+>
+> 因此搜索空间的上界取决于 **目标节点所在的搜索层次的深度所对应的宽度**。
 
 
 
@@ -258,18 +339,6 @@ a、对于DFS: 如果current node没有被标注，则将它的所有的descenda
 b、对于BFS: 对于current node的所有的descendant，只要没有被标准，就enqueue。
 
 4、将它标注为visited，就相当于在tree traversal中，调用了visit function。
-
-
-
-#### 两种往visited set中添加节点的方式
-
-1、先判断是否visited，如果是，则不入queue
-
-"[LeetCode-752. 打开转盘锁](https://leetcode.cn/problems/open-the-lock/) 中等 # 我的解"题中，就是采用的这种方式
-
-2、先入queue，然后再入visited
-
-"[LeetCode-【中规中矩】752. 打开转盘锁（宽度优先搜索）](https://leetcode.cn/problems/open-the-lock/solution/zhong-gui-zhong-ju-kuan-du-you-xian-sou-suo-by-jyj/) "中，就是使用的这种方式
 
 
 
