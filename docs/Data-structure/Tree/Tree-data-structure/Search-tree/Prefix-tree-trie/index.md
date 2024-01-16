@@ -16,6 +16,12 @@
 
 
 
+## Trie-is-DFA
+
+Trie本质上是DFA，它指定了每个节点在当前字符下的转移到下一个节点，它可以使用weighted-directed-graph来进行实现。
+
+
+
 ## wikipedia [Trie](https://en.wikipedia.org/wiki/Trie) 
 
 > NOTE: 
@@ -30,7 +36,7 @@ In the example shown, keys are listed in the nodes and values below them. Each c
 >
 > 一、关于finite automata的内容参见《Automata theory-formal languages and formal grammars》目录，其中收录关于finite automata的知识。
 >
-> 二、其实感觉trie更加类似于graph，因为trie的edge有label，类似于weighted graph，所以它的实现除了需要保存节点之间的edge，还需要保存每条edge的label，其实这就非常类似finite automata；
+> 二、其实感觉trie更加类似于graph，因为trie的edge有label，类似于weighted directed graph，所以它的实现除了需要保存节点之间的edge，还需要保存每条edge的label，其实这就非常类似finite automata；
 
 Though tries can be keyed by character strings, they need not be. The same algorithms can be adapted to serve similar functions on **ordered lists** of any construct, e.g. permutations on a list of digits or shapes. In particular, a **bitwise trie** is keyed on the individual bits making up any fixed-length binary datum, such as an integer or memory address.
 
@@ -38,43 +44,7 @@ Though tries can be keyed by character strings, they need not be. The same algor
 
 A trie for keys "A", "to", "tea", "ted", "ten", "i", "in", and "inn". Note that this example does not have all the children alphabetically sorted from left to right as it should be (the root and node 't').
 
-
-
-### Applications
-
-#### As a replacement for other data structures
-
-As discussed below, a trie has a number of advantages over binary search trees.
-
-A trie can also be used to replace a [hash table](https://en.wikipedia.org/wiki/Hash_table), over which it has the following advantages:
-
-- Looking up data in a trie is faster in the worst case, O(m) time (where m is the length of a search string), compared to an imperfect hash table. An imperfect hash table can have key collisions. A key collision is the hash function mapping of different keys to the same position in a hash table. The worst-case lookup speed in an imperfect hash table is [O(N)](https://en.wikipedia.org/wiki/Hash_table#Chaining) time, but far more typically is O(1), with O(m) time spent evaluating the hash.
-- There are no collisions of different keys in a trie.
-- Buckets in a trie, which are analogous to hash table buckets that store key collisions, are necessary only if a single key is associated with more than one value.
-- There is no need to provide a hash function or to change hash functions as more keys are added to a trie.
-- A trie can provide an alphabetical ordering of the entries by key.
-
-However, a trie also has some drawbacks compared to a hash table:
-
-- Trie lookup can be slower than hash table lookup, especially if the data is directly accessed on a hard disk drive or some other secondary storage device where the random-access time is high compared to main memory.[[7\]](https://en.wikipedia.org/wiki/Trie#cite_note-triememory-7)
-- Some keys, such as floating point numbers, can lead to long chains and prefixes that are not particularly meaningful. Nevertheless, a bitwise trie can handle standard IEEE single and double format floating point numbers.[*citation needed*]
-- Some tries can require more space than a hash table, as memory may be allocated for each character in the search string, rather than a single chunk of memory for the whole entry, as in most hash tables.
-
-
-
-#### Dictionary representation
-
-A common application of a trie is storing a [predictive text](https://en.wikipedia.org/wiki/Predictive_text) or [autocomplete](https://en.wikipedia.org/wiki/Autocomplete) dictionary, such as found on a [mobile telephone](https://en.wikipedia.org/wiki/Mobile_telephone). Such applications take advantage of a trie's ability to quickly search for, insert, and delete entries; however, if storing dictionary words is all that is required (i.e., storage of information auxiliary to each word is not required), a minimal [deterministic acyclic finite state automaton](https://en.wikipedia.org/wiki/Deterministic_acyclic_finite_state_automaton) (DAFSA) would use less space than a trie. This is because a DAFSA can compress identical branches from the trie which correspond to the same suffixes (or parts) of different words being stored.
-
-Tries are also well suited for implementing approximate matching algorithms,[[8\]](https://en.wikipedia.org/wiki/Trie#cite_note-8) including those used in [spell checking](https://en.wikipedia.org/wiki/Spell_checking) and [hyphenation](https://en.wikipedia.org/wiki/Hyphenation_algorithm)[[4\]](https://en.wikipedia.org/wiki/Trie#cite_note-Liang1983-4) software.
-
-
-
-#### Term indexing
-
-A [discrimination tree](https://en.wikipedia.org/w/index.php?title=Discrimination_tree&action=edit&redlink=1) [term index](https://en.wikipedia.org/wiki/Term_indexing) stores its information in a trie data structure.[[9\]](https://en.wikipedia.org/wiki/Trie#cite_note-9)
-
-
+​	
 
 ### Algorithms
 
@@ -115,17 +85,80 @@ def insert(node: Node, key: str, value: Any) -> None:
     node.value = value
 ```
 
+### Code
+
+#### Python
+
+```python
+import unittest
+from typing import Dict
 
 
-#### Sorting
+class TrieNode:
+    def __init__(self):
+        self.children: Dict[str, TrieNode] = {}
+        self.is_end_of_word = False
+
+
+class Trie:
+    def __init__(self):
+        self.root = TrieNode()
+
+    def insert(self, word: str):
+        node = self.root
+        for char in word:
+            if char not in node.children:
+                node.children[char] = TrieNode()
+            node = node.children[char]
+        node.is_end_of_word = True
+
+    def search(self, word: str):
+        node = self.root
+        for char in word:
+            if char not in node.children:
+                return False
+            node = node.children[char]
+        return node.is_end_of_word
+
+    def starts_with(self, prefix: str):
+        node = self.root
+        for char in prefix:
+            if char not in node.children:
+                return False
+            node = node.children[char]
+        return True
+
+
+class TestTrie(unittest.TestCase):
+    def test_trie(self):
+        # Example usage
+        trie = Trie()
+        trie.insert("apple")
+        print(trie.search("apple"))  # Returns True
+        print(trie.search("app"))  # Returns False
+        print(trie.starts_with("app"))  # Returns True
+        trie.insert("app")
+        print(trie.search("app"))  # Returns True
+
+```
+
+
+
+
+
+
+
+## Applications
+
+
+
+### Sorting
 
 Lexicographic sorting of a set of keys can be accomplished by building a **trie** from them, and traversing it in [pre-order](https://en.wikipedia.org/wiki/Tree_traversal#Pre-order), printing only the leaves' values. This algorithm is a form of [radix sort](https://en.wikipedia.org/wiki/Radix_sort).[[10\]](https://en.wikipedia.org/wiki/Trie#cite_note-10)
 
 A trie forms the fundamental data structure of [Burstsort](https://en.wikipedia.org/wiki/Burstsort), which (in 2007) was the fastest known string sorting algorithm.[[11\]](https://en.wikipedia.org/wiki/Trie#cite_note-cachestringsort-11) However, now there are faster string sorting algorithms.[[12\]](https://en.wikipedia.org/wiki/Trie#cite_note-stringradix-12)
 
-
-
-#### Full text search
+### Full text search
 
 A special kind of trie, called a [suffix tree](https://en.wikipedia.org/wiki/Suffix_tree), can be used to index all suffixes in a text in order to carry out fast full text searches.
 
@@ -133,6 +166,13 @@ A special kind of trie, called a [suffix tree](https://en.wikipedia.org/wiki/Suf
 
 
 
-## Trie-is-DFA
+### [Aho–Corasick algorithm](https://en.wikipedia.org/wiki/Aho%E2%80%93Corasick_algorithm)
 
-Trie本质上是DFA，它指定了每个节点在当前字符下的转移到下一个节点。
+KMP-failure-function+trie
+
+
+
+### [Huffman coding](https://en.wikipedia.org/wiki/Huffman_coding)
+
+Huffman coding tree也可以看作是一种trie
+
