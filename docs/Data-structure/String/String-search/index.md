@@ -10,6 +10,38 @@
 
 
 
+String search algorithm所要解决的问题是在字符串 `text` 中搜索 `patten` (substring)，对于这类问题，可以double pointer( `first=i` 指向`text`; ` second=j` 指向 `pattern` ) 来进行描述。最为对照，下面是naive string search algorithm:
+
+```python
+class StringSearchAlgorithms:
+    """字符串搜索算法"""
+
+    @classmethod
+    def naive_search_algorithm(cls, text: str, pattern: str) -> int:
+        """
+        在text中搜索pattern
+        :param text:
+        :param pattern:
+        :return:
+        """
+        i, j = 0, 0
+        while i < len(text) and j < len(pattern):
+            if text[i] == pattern[j]:
+                i += 1
+                j += 1
+            else:
+                # mismatch，则从头再来
+                i += 1
+                j = 0
+        if j == len(pattern):
+            return i - j
+        else:
+            return -1
+
+```
+
+
+
 ## wikipedia [String-searching algorithm](https://en.wikipedia.org/wiki/String-searching_algorithm) 
 
 In [computer science](https://en.wikipedia.org/wiki/Computer_science), **string-searching algorithms**, sometimes called **string-matching algorithms**, are an important class of [string algorithms](https://en.wikipedia.org/wiki/String_algorithms) that try to find a place where one or several [strings](https://en.wikipedia.org/wiki/String_(computer_science)) (also called patterns) are found within a larger string or text.

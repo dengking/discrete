@@ -172,8 +172,6 @@ void build()
 
 ```
 
-## wikipedia [Aho–Corasick algorithm](https://en.wikipedia.org/wiki/Aho%E2%80%93Corasick_algorithm)
-
 
 
 
@@ -246,7 +244,7 @@ Thus we can understand the edges of the trie as **transitions** in an automaton 
 
 Thus we can understand the edges of the trie as transitions in an automaton according to the corresponding letter. However for an automaton we cannot restrict the possible transitions for each state. If we try to perform a transition using a letter, and there is no corresponding edge in the trie, then we nevertheless must go into some state.
 
-## geeksforgeeks [Aho-Corasick Algorithm for Pattern Searching](https://www.geeksforgeeks.org/aho-corasick-algorithm-pattern-searching/)
+## geeksforgeeks [Aho-Corasick Algorithm for Pattern Searching](https://www.geeksforgeeks.org/aho-corasick-algorithm-pattern-searching/) 
 
 Given an input text and an array of `k` words, `arr[]`, find all occurrences of all words in the input text. Let **n** be the length of text and **m** be the total number characters in all words, i.e. `m = length(arr[0]) + length(arr[1]) + … + length(arr[k-1])`. Here **k** is total numbers of input words.
 
@@ -322,8 +320,4 @@ For a state `s`, indexes of all words ending at `s` are stored. These indexes ar
 Below is C++ implementation of Aho-Corasick Algorithm
 
 
-
-## Implementation
-
-https://github.com/WojciechMula/pyahocorasick
 

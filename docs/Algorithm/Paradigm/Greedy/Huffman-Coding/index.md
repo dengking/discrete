@@ -1,8 +1,17 @@
 # Huffman Coding
 
+---
+
+> References
+>
+> - wikipedia [Huffman coding](https://en.wikipedia.org/wiki/Huffman_coding) 
+> - geeksforgeeks [Huffman Coding | Greedy Algo-3](https://www.geeksforgeeks.org/huffman-coding-greedy-algo-3/) 
+
+---
 
 
-## wikipedia [Huffman coding](https://en.wikipedia.org/wiki/Huffman_coding)
+
+## wikipedia [Huffman coding](https://en.wikipedia.org/wiki/Huffman_coding) 
 
 
 
@@ -176,4 +185,4 @@ int main()
 
 ## Huffman-tree-vs-trie
 
-一、stackexchange [Is huffman coding tree a heap or a trie?](https://cs.stackexchange.com/questions/96009/is-huffman-coding-tree-a-heap-or-a-trie)
+一、stackexchange [Is huffman coding tree a heap or a trie?](https://cs.stackexchange.com/questions/96009/is-huffman-coding-tree-a-heap-or-a-trie) 

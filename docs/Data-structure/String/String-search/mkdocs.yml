@@ -1,6 +1,6 @@
 nav:
     - Introduction: index.md
-    - Knuth-Morris-Pratt-algorithm: Knuth-Morris-Pratt-algorithm
+    - Finite-state-automaton-based-string-search-algorithm: Finite-state-automaton-based-string-search-algorithm
     - Rabin-Karp-algorithm: Rabin-Karp-algorithm
     - LCS-longest-common-substring: LCS-longest-common-substring
     - LeetCode-28-Implement-strStr()-Easy: LeetCode-28-Implement-strStr()-Easy
