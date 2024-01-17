@@ -284,6 +284,41 @@ Breadth-first search can be used to solve many problems in graph theory, for exa
 >
 > 一、这是最适合用graph BFS的问题
 
+9、需要验证只有沿着一条边才能够进入到目标边，使用BFS进行反向查找 
+
+```Java
+    private boolean isInLinkLaneGroupValid() {
+        if (!isFound()) {
+            return false;
+        }
+        Set<UnimapLaneGroup> visited = new HashSet<>(); // 防止dead loop
+        Queue<UnimapLaneGroup> q = new LinkedList<>();
+        q.add(inLinkLaneGroup);
+        visited.add(inLinkLaneGroup);
+        while (!q.isEmpty()) {
+            int cnt = q.size();
+            if (cnt > 1) {
+                return false;
+            }
+            while (cnt > 0) {
+                UnimapLaneGroup laneGroup = q.poll();
+                Arrays.stream(laneGroup.getPrevLaneGroups())
+                        .filter(prevLaneGroup ->
+                                LaneGroupUtil.isInCrossArea(prevLaneGroup)
+                                        && isSameLinkKindAsEnterLaneGroup(prevLaneGroup)
+                                        && !visited.contains(prevLaneGroup)
+                        )
+                        .forEach(prevLaneGroup -> {
+                            q.add(prevLaneGroup);
+                            visited.add(prevLaneGroup);
+                        });
+                --cnt;
+            }
+        }
+        return true;
+    }
+```
+
 
 
 ### Complexity
