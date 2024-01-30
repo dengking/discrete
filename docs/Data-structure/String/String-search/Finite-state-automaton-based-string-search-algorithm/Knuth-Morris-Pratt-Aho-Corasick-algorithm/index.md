@@ -416,7 +416,7 @@ public:
 
 ---
 
-
+tag-[automaton=自动机]-[Aho-Corasick-algorithm=AC-automaton]-[KMP-failure-function+trie]-BFS
 
 ### gpt-4-vision
 
@@ -494,6 +494,24 @@ class AhoCorasickStringSearchAlgorithm(unittest.TestCase):
         print(matches)
 
 ```
+
+### wikipedia [Aho–Corasick algorithm](https://en.wikipedia.org/wiki/Aho%E2%80%93Corasick_algorithm) 
+
+
+
+It is a kind of **dictionary-matching [algorithm](https://en.wikipedia.org/wiki/Algorithm)** that locates elements of a finite set of strings (the "dictionary") within an input text. 
+
+
+
+Informally, the algorithm constructs a [finite-state machine](https://en.wikipedia.org/wiki/Finite-state_machine) that resembles a [trie](https://en.wikipedia.org/wiki/Trie) with additional links between the various internal nodes. These extra internal links allow fast transitions between failed string matches (e.g. a search for `cart` in a trie that does not contain `cart`, but contains `art`, and thus would fail at the node prefixed by `car`), to other branches of the trie that share a common suffix (e.g., in the previous case, a branch for `attribute` might be the best lateral transition). This allows the automaton to transition between string matches without the need for backtracking.
+
+> NOTE:
+>
+> 一、上面这段话中的例子没有理解
+
+#### Example
+
+In this example, we will consider a dictionary consisting of the following words: {`a`, `ab`, `bab`, `bc`, `bca`, `c`, `caa`}. 
 
 
 
