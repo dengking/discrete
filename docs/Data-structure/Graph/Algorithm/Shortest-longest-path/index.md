@@ -172,9 +172,11 @@ if distance[u] + w < distance[v] then
 
 #### 解的表达方式
 
+本质上是 [spanning tree](https://en.wikipedia.org/wiki/Spanning_tree) 。
+
 1、SSSP
 
-shortest-path-tree
+[shortest-path-tree](https://en.wikipedia.org/wiki/Shortest-path_tree) 
 
 shortest-path-graph
 
