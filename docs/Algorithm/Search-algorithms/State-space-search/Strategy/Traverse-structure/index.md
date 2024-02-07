@@ -8,7 +8,7 @@
 
 二、abstract structure
 
-Linked-list 、tree和graph都是concrete strucutre，而state/solution space是virtual structure，它通常是：
+linked-list 、tree、graph都是concrete strucutre，而state/solution space是virtual structure，它通常是：
 
 1、backtrack过程中生成
 

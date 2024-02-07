@@ -1,8 +1,8 @@
 nav:
     - Introduction: index.md
-    - DFS: DFS
+    - DFS-stack-machine: DFS-stack-machine
     - DFS-backtrack: DFS-backtrack
-    - BFS: BFS
+    - BFS-queue-machine: BFS-queue-machine
     - BFS-branch-and-bound: BFS-branch-and-bound    
 
     

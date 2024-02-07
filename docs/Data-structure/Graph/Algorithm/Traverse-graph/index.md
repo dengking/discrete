@@ -8,7 +8,7 @@ In [computer science](https://en.wikipedia.org/wiki/Computer_science), **graph t
 
 > NOTE: 
 >
-> 1、其实traversal就是search
+> 1、其实traversal就是search 
 
 ### Redundancy
 
@@ -77,12 +77,6 @@ Several special cases of graphs imply(蕴含) the visitation of other vertices i
 
 
 ### wikipedia [Breadth-first search](https://en.wikipedia.org/wiki/Breadth-first_search) 
-
-**Breadth-first search** (**BFS**) is an [algorithm](https://en.wikipedia.org/wiki/Algorithm) for traversing or searching [tree](https://en.wikipedia.org/wiki/Tree_(data_structure)) or [graph](https://en.wikipedia.org/wiki/Graph_(data_structure)) data structures. It starts at the [tree root](https://en.wikipedia.org/wiki/Tree_(data_structure)#Terminology) (or some arbitrary node of a graph, sometimes referred to as a 'search key'[[1\]](https://en.wikipedia.org/wiki/Breadth-first_search#cite_note-1)), and explores all of the neighbor nodes at the present depth prior to moving on to the nodes at the next depth level.
-
-> NOTE: 
->
-> 1、"level"让我想到了hierarchy
 
 #### Pseudocode
 
@@ -252,13 +246,15 @@ int BFS(Node start) {
 
 bfs2源自chatGTP，相比于bfs1，它更加简单，它采用的是"If the node has not been visited, add it to the visited list"。
 
+
+
 ### Applications
 
 Breadth-first search can be used to solve many problems in graph theory, for example:
 
-1、Copying [garbage collection](https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)), [Cheney's algorithm](https://en.wikipedia.org/wiki/Cheney's_algorithm)
+- Copying [garbage collection](https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)), [Cheney's algorithm](https://en.wikipedia.org/wiki/Cheney's_algorithm)
 
-2、Finding the [shortest path](https://en.wikipedia.org/wiki/Shortest_path) between two nodes *u* and *v*, with path length measured by number of edges (an advantage over [depth-first search](https://en.wikipedia.org/wiki/Depth-first_search))[[12\]](https://en.wikipedia.org/wiki/Breadth-first_search#cite_note-12)
+- Finding the [shortest path](https://en.wikipedia.org/wiki/Shortest_path) between two nodes *u* and *v*, with path length measured by number of edges (an advantage over [depth-first search](https://en.wikipedia.org/wiki/Depth-first_search))[[12\]](https://en.wikipedia.org/wiki/Breadth-first_search#cite_note-12)
 
 > NOTE: 
 >
@@ -268,23 +264,23 @@ Breadth-first search can be used to solve many problems in graph theory, for exa
 >
 > 二、[Dijkstra’s algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm) 可以看作是一种BFS
 
-3、[(Reverse) Cuthill–McKee](https://en.wikipedia.org/wiki/Cuthill–McKee_algorithm) mesh numbering
+- [(Reverse) Cuthill–McKee](https://en.wikipedia.org/wiki/Cuthill–McKee_algorithm) mesh numbering
 
-4、[Ford–Fulkerson method](https://en.wikipedia.org/wiki/Ford–Fulkerson_algorithm) for computing the [maximum flow](https://en.wikipedia.org/wiki/Maximum_flow_problem) in a [flow network](https://en.wikipedia.org/wiki/Flow_network)
+- [Ford–Fulkerson method](https://en.wikipedia.org/wiki/Ford–Fulkerson_algorithm) for computing the [maximum flow](https://en.wikipedia.org/wiki/Maximum_flow_problem) in a [flow network](https://en.wikipedia.org/wiki/Flow_network)
 
-5、Serialization/Deserialization of a binary tree vs serialization in sorted order, allows the tree to be re-constructed in an efficient manner.
+- Serialization/Deserialization of a binary tree vs serialization in sorted order, allows the tree to be re-constructed in an efficient manner.
 
-6、Construction of the *failure function* of the [Aho-Corasick](https://en.wikipedia.org/wiki/Aho-Corasick) pattern matcher.
+- Construction of the *failure function* of the [Aho-Corasick](https://en.wikipedia.org/wiki/Aho-Corasick) pattern matcher.
 
-7、Testing [bipartiteness of a graph](https://en.wikipedia.org/wiki/Bipartite_graph#Testing_bipartiteness).
+- Testing [bipartiteness of a graph](https://en.wikipedia.org/wiki/Bipartite_graph#Testing_bipartiteness).
 
-8、[Topological sorting](https://en.wikipedia.org/wiki/Topological_sorting)
+- [Topological sorting](https://en.wikipedia.org/wiki/Topological_sorting)
 
 > NOTE:
 >
 > 一、这是最适合用graph BFS的问题
 
-9、需要验证只有沿着一条边才能够进入到目标边，使用BFS进行反向查找 
+- 需要验证只有沿着一条边才能够进入到目标边，使用BFS进行反向查找 
 
 ```Java
     private boolean isInLinkLaneGroupValid() {
@@ -318,6 +314,8 @@ Breadth-first search can be used to solve many problems in graph theory, for exa
         return true;
     }
 ```
+
+- [spanning tree](https://en.wikipedia.org/wiki/Spanning_tree#Algorithms) 
 
 
 
@@ -376,4 +374,6 @@ b、对于BFS: 对于current node的所有的descendant，只要没有被标准�
 4、将它标注为visited，就相当于在tree traversal中，调用了visit function。
 
 
+
+## LeetCode
 
