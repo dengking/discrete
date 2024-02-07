@@ -36,7 +36,116 @@ A single **spanning tree** of a graph can be found in [linear time](https://en.w
 
 #### BFS
 
+```python
+import unittest
+from collections import deque
+from typing import Dict, List, Tuple, Union
 
+
+class DirectedUnweightedGraphInAdjacencyList:
+    """
+    1、以adjacency list实现directed unweighted graph
+    2、https://www.python.org/doc/essays/graphs/
+    """
+
+    def __init__(self, graph: Dict[Union[str, int], List[Union[str, int]]]):
+        self.graph = graph
+
+    def construct_spanning_tree_by_bfs1(self, start: Union[str, int]) -> List[Tuple[Union[str, int], Union[str, int]]]:
+        """
+
+        :param start:
+        :return:
+        """
+        spanning_tree = []
+
+        q = deque()
+        visited_set = set()
+        q.append(start)
+        visited_set.add(start)
+        while q:
+            size = len(q)
+            for _ in range(size):
+                node = q.popleft()
+                for adj_node in filter(lambda adjacent_node: adjacent_node not in visited_set,
+                                       self.graph.get(node, [])):
+                    q.append(adj_node)
+                    visited_set.add(adj_node)
+                    spanning_tree.append((node, adj_node))
+        return spanning_tree
+
+    def construct_spanning_tree_by_bfs2(self, start: Union[str, int]) -> List[Tuple[Union[str, int], Union[str, int]]]:
+        """
+
+        :param start:
+        :return:
+        """
+        spanning_tree = []
+
+        q = deque()
+        visited_set = set()
+
+        q.append(start)
+        while q:
+            size = len(q)
+            for _ in range(size):
+                node = q.popleft()
+                if node not in visited_set:
+                    visited_set.add(node)
+                    for adj_node in filter(lambda adjacent_node: adjacent_node not in visited_set,
+                                           self.graph.get(node, [])):
+                        q.append(adj_node)
+                        spanning_tree.append((node, adj_node))
+
+        return spanning_tree
+
+
+class TestSpanningTreeConstructionAlgorithm(unittest.TestCase):
+    def test_spanning_tree_constructed_by_bfs(self):
+        # Graph represented as an adjacency list
+        graph = {
+            0: [1, 2],
+            1: [0, 2, 3],
+            2: [0, 1, 4],
+            3: [1],
+            4: [2]
+        }
+        directed_unweighted_graph_in_adj_list = DirectedUnweightedGraphInAdjacencyList(graph)
+        source = 1
+        spanning_tree1 = directed_unweighted_graph_in_adj_list.construct_spanning_tree_by_bfs1(source)
+        spanning_tree2 = directed_unweighted_graph_in_adj_list.construct_spanning_tree_by_bfs2(source)
+        print(f'spanning_tree1:{spanning_tree1}')
+        print(f'spanning_tree2:{spanning_tree2}')
+
+        self.assertEqual(len(spanning_tree1), len(spanning_tree2))
+        self.assertEqual(len(spanning_tree1), 4)
+
+
+if __name__ == '__main__':
+    unittest.main()
+
+```
+
+运行结果如下:
+
+```python
+spanning_tree1:[(1, 0), (1, 2), (1, 3), (2, 4)]
+spanning_tree2:[(1, 0), (1, 2), (1, 3), (0, 2), (2, 4)]
+
+
+5 != 4
+
+Expected :4
+Actual   :5
+```
+
+上述 `construct_spanning_tree_by_bfs2` 存在错误，从上述运行结果也可以看出 `construct_spanning_tree_by_bfs1`、`construct_spanning_tree_by_bfs2` 两种BFS方式之间的差异: 
+
+eager: 只要碰到node，就将它放到visited set中，它能够避免node重复进入到queue中
+
+lazy   : 
+
+每个node都需要access一遍，但是当将它们用于spanning tree都construction的时候，bfs2就不适用了。
 
 #### DFS
 
