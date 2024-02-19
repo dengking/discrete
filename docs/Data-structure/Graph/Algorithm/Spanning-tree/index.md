@@ -2,15 +2,15 @@
 
 
 
-## wikipedia [Spanning tree](https://en.wikipedia.org/wiki/Spanning_tree)
+## wikipedia [Spanning tree](https://en.wikipedia.org/wiki/Spanning_tree) 
 
 In the [mathematical](https://en.wikipedia.org/wiki/Mathematics) field of [graph theory](https://en.wikipedia.org/wiki/Graph_theory), a **spanning tree** *T* of an [undirected graph](https://en.wikipedia.org/wiki/Undirected_graph) *G* is a subgraph that is a [tree](https://en.wikipedia.org/wiki/Tree_(graph_theory)) which includes all of the [vertices](https://en.wikipedia.org/wiki/Vertex_(graph_theory)) of *G*.
 
-In general, a graph may have several spanning trees, but a graph that is not [connected](https://en.wikipedia.org/wiki/Connected_graph) will not contain a spanning tree (see about [spanning forests](https://en.wikipedia.org/wiki/Spanning_tree#Spanning_forests) below).
+In general, a graph may have several spanning trees, but a graph that is not [connected](https://en.wikipedia.org/wiki/Connected_graph) will not contain a **spanning tree** (see about [spanning forests](https://en.wikipedia.org/wiki/Spanning_tree#Spanning_forests) below).
 
 ### Applications
 
-Several [pathfinding](https://en.wikipedia.org/wiki/Pathfinding) algorithms, including [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra's_algorithm) and the [A* search algorithm](https://en.wikipedia.org/wiki/A*_search_algorithm), internally build a spanning tree as an intermediate step in solving the problem.
+Several [pathfinding](https://en.wikipedia.org/wiki/Pathfinding) algorithms, including [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra's_algorithm) and the [A* search algorithm](https://en.wikipedia.org/wiki/A*_search_algorithm), internally build a **spanning tree** as an intermediate step in solving the problem.
 
 > NOTE:
 >
@@ -141,11 +141,21 @@ Actual   :5
 
 上述 `construct_spanning_tree_by_bfs2` 存在错误，从上述运行结果也可以看出 `construct_spanning_tree_by_bfs1`、`construct_spanning_tree_by_bfs2` 两种BFS方式之间的差异: 
 
-eager: 只要碰到node，就将它放到visited set中，它能够避免node重复进入到queue中
+eager:
 
 lazy   : 
 
-每个node都需要access一遍，但是当将它们用于spanning tree都construction的时候，bfs2就不适用了。
+(visit node、expand node to queue)，因此可以在这两个地方进行去重:
+
+`bfs1`是在expand node to queue的地方进行去重，它是只要碰到node，就将它放到visited set中，它能够避免node重复进入到queue中；
+
+`bfs2`是在visit node的时候进行去重；
+
+显然它们两者之间的差异在spanning tree construction中显现出来了。
+
+每个node都需要access一遍，但是当将它们用于spanning tree construction的时候，`bfs2`就不适用了。
+
+expand node to queue的时候将edge存到结果集中。
 
 #### DFS
 

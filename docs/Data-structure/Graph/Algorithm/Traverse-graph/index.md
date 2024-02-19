@@ -87,19 +87,22 @@ Several special cases of graphs imply(蕴含) the visitation of other vertices i
 ```pseudocode
  1  procedure BFS(G, root) is
  2      let Q be a queue
- 3      label root as discovered
+ 3      label root as explored
  4      Q.enqueue(root)
  5      while Q is not empty do
  6          v := Q.dequeue()
  7          if v is the goal then
  8              return v
  9          for all edges from v to w in G.adjacentEdges(v) do
-10              if w is not labeled as discovered then
-11                  label w as discovered
-12                  Q.enqueue(w)
+10              if w is not labeled as explored then
+11                  label w as explored
+12                  w.parent := v # trace the shortest path
+13                  Q.enqueue(w)
 ```
 
 ### Code
+
+在使用BFS构建 [spanning tree](https://en.wikipedia.org/wiki/Spanning_tree) 的时候是最能够体现两种BFS实现的差异
 
 ```python
 import unittest
@@ -187,7 +190,7 @@ if __name__ == '__main__':
 
 上面展示了两种BFS的写法，两种往visited set中添加节点的方式。
 
-#### bfs1
+#### bfs1: eager mode
 
 一、bfs1的写法源自于 labuladong [我写了一个模板，把 Dijkstra 算法变成了默写题](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247492167&idx=1&sn=bc96c8f97252afdb3973c7d760edb9c0&scene=21#wechat_redirect) 
 
@@ -242,7 +245,7 @@ int BFS(Node start) {
 
 
 
-#### bfs2
+#### bfs2: lazy mode
 
 bfs2源自chatGTP，相比于bfs1，它更加简单，它采用的是"If the node has not been visited, add it to the visited list"。
 
