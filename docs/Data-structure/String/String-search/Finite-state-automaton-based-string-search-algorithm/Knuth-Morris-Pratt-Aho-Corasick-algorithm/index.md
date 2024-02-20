@@ -1,8 +1,16 @@
 # [Knuth–Morris–Pratt algorithm](https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm)、[Aho–Corasick algorithm](https://en.wikipedia.org/wiki/Aho%E2%80%93Corasick_algorithm)
 
+它们是典型的 [string-searching algorithm](https://en.wikipedia.org/wiki/String-searching_algorithm) :
+
+> In [computer science](https://en.wikipedia.org/wiki/Computer_science), **string-searching algorithms**, sometimes called **string-matching algorithms**, are an important class of [string algorithms](https://en.wikipedia.org/wiki/String_algorithms) that try to find a place where one or several [strings](https://en.wikipedia.org/wiki/String_(computer_science)) (also called patterns) are found within a larger string or text.
 
 
 
+- [Knuth–Morris–Pratt algorithm](https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm): pattern
+
+- [Aho–Corasick algorithm](https://en.wikipedia.org/wiki/Aho%E2%80%93Corasick_algorithm): patterns、dictionary
+
+在 mismatch 的发生的时候，充分利用 pattern(proper prefix、proper suffix)、已匹配的substring(matched substring)的信息来加速匹配。
 
 ## [Knuth–Morris–Pratt algorithm](https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm) 
 
@@ -137,7 +145,7 @@ public:
 
 ### KMP的核心思想
 
-KMP的核心思想是: 充分利用已匹配的substring的信息，已匹配的substring是pattern的左部分(因为是从左到右进行匹配)。当mismatch的时候，如何移动 `j` 指针。
+KMP的核心思想是: 充分利用已匹配的substring(matched substring)的信息，已匹配的substring是pattern的左部分(因为是从左到右进行匹配)。当mismatch的时候，如何移动 `j` 指针。
 
 > NOTE:
 >
@@ -413,10 +421,19 @@ public:
 >
 > - wikipedia [Aho–Corasick algorithm](https://en.wikipedia.org/wiki/Aho%E2%80%93Corasick_algorithm) 
 > - geeksforgeeks [Aho-Corasick Algorithm for Pattern Searching](https://www.geeksforgeeks.org/aho-corasick-algorithm-pattern-searching/) 
+> - cp-algorithms [Aho-Corasick algorithm](https://cp-algorithms.com/string/aho_corasick.html)
 
 ---
 
 tag-[automaton=自动机]-[Aho-Corasick-algorithm=AC-automaton]-[KMP-failure-function+trie]-BFS
+
+### Terminology
+
+proper suffix
+
+suffix link、failure link
+
+terminal link
 
 ### gpt-4-vision
 
