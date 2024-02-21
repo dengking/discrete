@@ -1,8 +1,14 @@
 # [Knuth–Morris–Pratt algorithm](https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm)、[Aho–Corasick algorithm](https://en.wikipedia.org/wiki/Aho%E2%80%93Corasick_algorithm)
 
-它们是典型的 [string-searching algorithm](https://en.wikipedia.org/wiki/String-searching_algorithm) :
+它们是典型的string-searching algorithm:
+
+wikipedia [string-searching algorithm](https://en.wikipedia.org/wiki/String-searching_algorithm) :
 
 > In [computer science](https://en.wikipedia.org/wiki/Computer_science), **string-searching algorithms**, sometimes called **string-matching algorithms**, are an important class of [string algorithms](https://en.wikipedia.org/wiki/String_algorithms) that try to find a place where one or several [strings](https://en.wikipedia.org/wiki/String_(computer_science)) (also called patterns) are found within a larger string or text.
+
+[stanford-cs166](https://web.stanford.edu/class/cs166/)
+
+![](./stanford-cs166-Slides02-The-String-Searching-Problem.png)
 
 
 
@@ -10,7 +16,13 @@
 
 - [Aho–Corasick algorithm](https://en.wikipedia.org/wiki/Aho%E2%80%93Corasick_algorithm): patterns、dictionary
 
+
+
+Common in the two algorithm:
+
 在 mismatch 的发生的时候，充分利用 pattern(proper prefix、proper suffix)、已匹配的substring(matched substring)的信息来加速匹配。
+
+两者在构建automaton的时候，都涉及recursion。
 
 ## [Knuth–Morris–Pratt algorithm](https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm) 
 

@@ -92,7 +92,13 @@ For example, let the trie be constructed by the strings  $ab$  and  $bc$�
 *Blue arrows are **suffix links**, green arrows are **terminal links**.*
 
 A **suffix link** for a vertex  $p$  is an edge that points to the **longest proper suffix** of the string corresponding to the vertex  
-$p$ . The only special case is the root of the trie, whose suffix link will point to itself. Now we can reformulate the statement about the transitions in the automaton like this: while there is no transition from the current vertex of the trie using the current letter (or until we reach the root), we follow the **suffix link**.
+$p$​ . The only special case is the root of the trie, whose suffix link will point to itself. Now we can reformulate the statement about the transitions in the automaton like this: while(当) there is no transition from the current vertex of the trie using the current letter (or until we reach the root), we follow the **suffix link**.
+
+> NOTE:
+>
+> 一、
+>
+> vertex  $p$ 所对应的substring的suffix可能是其它string的prefix，suffix link就是起到这个作用的。
 
 Thus we reduced the problem of constructing an **automaton** to the problem of finding **suffix links** for all vertices of the trie. However, we will build these **suffix links**, oddly enough, using the transitions constructed in the **automaton**.
 
@@ -100,5 +106,5 @@ The **suffix links** of the **root vertex** and all its immediate children point
 
 if  $p$  is the ancestor of  $v$  with  $c$  being the letter labeling the edge from  $p$  to  $v$ , go to  $p$ , then follow its **suffix link**, and perform the transition with the letter  $c$  from there.
 
-Thus, the problem of finding the transitions has been reduced to the problem of finding **suffix links**, and the problem of finding **suffix links** has been reduced to the problem of finding a **suffix link** and a transition, except for vertices closer to the root. So we have a recursive dependence that we can resolve in linear time.
+Thus, the problem of finding the transitions has been reduced to the problem of finding **suffix links**, and the problem of finding **suffix links** has been reduced to the problem of finding a **suffix link** and a transition, except for vertices closer to the root. So we have a **recursive dependence** that we can resolve in linear time.
 
