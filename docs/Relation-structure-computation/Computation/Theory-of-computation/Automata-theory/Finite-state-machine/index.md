@@ -80,6 +80,8 @@ A DAFSA is a special case of a [finite state recognizer](https://en.wikipedia.or
 
 
 
+
+
 ## Application
 
 ### [Finite-state-automaton-based string search algorithm](https://en.wikipedia.org/wiki/String-searching_algorithm#Finite-state-automaton-based_search) : 

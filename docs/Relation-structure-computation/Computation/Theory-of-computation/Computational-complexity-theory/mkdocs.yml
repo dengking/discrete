@@ -1,4 +1,5 @@
 nav:
     - Introduction: index.md
-    - TODO-NP-completeness: TODO-NP-completeness.md
-    - TODO-NP-hardness: TODO-NP-hardness.md
+    - NP-completeness: NP-completeness.md
+    - NP-hardness: NP-hardness.md
+    

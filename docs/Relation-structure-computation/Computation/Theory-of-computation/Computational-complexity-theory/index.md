@@ -6,6 +6,53 @@
 
 
 
+## Big *O* notation
+
+
+
+### wikipedia [Big *O* notation](https://en.wikipedia.org/wiki/Big_O_notation) 
+
+
+
+### [Big O and related notations in LaTeX](https://texblog.org/2014/06/24/big-o-and-related-notations-in-latex/)
+
+
+
+```latex
+\documentclass[11pt]{article}
+\newcommand{\bslash}{\char`\\}
+\begin{document}
+ 
+\section*{Big O notations}
+ 
+$\mathcal{O}(n\log{}n)$
+ 
+\section*{Family of Bachmann-Landau notations}
+\setlength{\tabcolsep}{12pt}
+\renewcommand*{\arraystretch}{1.2}
+\begin{tabular}{lcl}
+\hline
+Name&Notation&Command\\
+\hline
+{\bf Big O(micron)}&$\mathcal{O}$ or $O$&\texttt{\$\bslash mathcal\{O\}\$ or \$O\$}\\
+{\bf Big Omega}&$\Omega$&\texttt{\$\bslash Omega\$}\\
+{\bf Big Theta}&$\Theta$&\texttt{\$\bslash Theta\$}\\
+{\bf Small O(micron)}&$o$&\texttt{\$o\$}\\
+{\bf Small Omega}&$\omega$&\texttt{\$\bslash omega\$}\\
+{\bf On the order of}&$\sim$&\texttt{\$\bslash sim\$}\\
+\hline
+\end{tabular}
+ 
+\vspace{10pt}\hfill{\scriptsize Created by http://texblog.org}
+\end{document}
+```
+
+
+
+
+
+
+
 ## stackoverflow [What does O(log n) mean exactly?](https://stackoverflow.com/questions/2307283/what-does-olog-n-mean-exactly)
 
 I am learning about Big O Notation running times and amortized（分摊） times.  I understand the notion of *O(n)* linear time, meaning that the size of the input affects the growth of the algorithm proportionally...and the same goes for, for example, quadratic time $O(n^2)$ etc..even algorithms, such as permutation generators, with *O(n!)* times, that grow by factorials.
