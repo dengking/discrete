@@ -1,4 +1,4 @@
-# [Aho-Corasick Automata](https://web.stanford.edu/class/archive/cs/cs166/cs166.1166/lectures/02/Slides02.pdf)
+# [stanford-cs166.1166-Aho-Corasick Automata](https://web.stanford.edu/class/archive/cs/cs166/cs166.1166/lectures/02/Slides02.pdf)
 
 > 这是我在阅读 [cp-algorithms-Aho-Corasick algorithm](https://cp-algorithms.com/string/aho_corasick.html) 的时候发现的。
 
@@ -71,11 +71,7 @@ let *m* be the length of the text and *n* the total length of the pattern string
 
 For each character of the text string *T*, in the worst case, we scan over all *n* total characters in the patterns.
 
-Time complexity: O(mn).
-
-
-
-
+Time complexity: $\mathcal{O}(mn)$.
 
 
 

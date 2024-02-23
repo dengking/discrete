@@ -1,4 +1,4 @@
-# [Knuth–Morris–Pratt algorithm](https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm)、[Aho–Corasick algorithm](https://en.wikipedia.org/wiki/Aho%E2%80%93Corasick_algorithm)
+# [Knuth–Morris–Pratt algorithm](https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm)、[Aho–Corasick algorithm](https://en.wikipedia.org/wiki/Aho%E2%80%93Corasick_algorithm) 
 
 它们是典型的string-searching algorithm:
 
@@ -18,11 +18,7 @@ wikipedia [string-searching algorithm](https://en.wikipedia.org/wiki/String-sear
 
 
 
-Common in the two algorithm:
 
-在 mismatch 的发生的时候，充分利用 pattern(proper prefix、proper suffix)、已匹配的substring(matched substring)的信息来加速匹配。
-
-两者在构建automaton的时候，都涉及recursion。
 
 ## [Knuth–Morris–Pratt algorithm](https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm) 
 
@@ -537,6 +533,10 @@ Informally, the algorithm constructs a [finite-state machine](https://en.wikiped
 > NOTE:
 >
 > 一、上面这段话中的例子没有理解
+>
+> 二、在 [zhihu-Aho-Corasick算法纵览（AC自动机）](https://zhuanlan.zhihu.com/p/368184958) 中将该algorithm描述为:
+>
+> > 一棵带有“失配指针”的字典树(Trie) 
 
 #### Example
 
@@ -550,3 +550,20 @@ https://github.com/WojciechMula/pyahocorasick
 
 
 
+## [Knuth–Morris–Pratt algorithm](https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm)  VS [Aho–Corasick algorithm](https://en.wikipedia.org/wiki/Aho%E2%80%93Corasick_algorithm) 
+
+Common in the two algorithm:
+
+- 在 mismatch 的发生的时候，充分利用 pattern(proper prefix、proper suffix)、已匹配的substring(matched substring)的信息来加速匹配。
+
+- 两者在构建automaton的时候，都涉及recursion。
+
+
+
+[zhihu-Aho-Corasick算法纵览（AC自动机）](https://zhuanlan.zhihu.com/p/368184958)
+
+> AC自动机就是KMP算法拓展到多模式匹配之后的结果，是一棵带有“失配指针”的字典树。
+>
+> ![](./KMP-VS-Aho-Corasick.webp)
+
+非常好的对比。
