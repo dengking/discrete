@@ -443,7 +443,50 @@ suffix link、failure link
 
 terminal link
 
-### gpt-4-vision
+### 算法概述
+
+充分利用已经匹配的信息。
+
+$pattern_i$ 的后缀(suffix)和 $pattern_j$ 的prefix重合，则可构建fail link。
+
+
+
+#### Is [Aho–Corasick automaton](https://en.wikipedia.org/wiki/Aho%E2%80%93Corasick_algorithm) an [epsilon-NFA](https://en.wikipedia.org/wiki/Nondeterministic_finite_automaton#NFA_with_%CE%B5-moves) ?
+
+在 [zhihu-Aho-Corasick算法纵览（AC自动机）](https://zhuanlan.zhihu.com/p/368184958) 中，有这样一段评论:
+
+> 纠正一下：AC自动机不是DFA，而是epsilon-NFA，fail指针对应的就是空转换操作。
+
+思考: failure link对应的是 [epsilon transition](https://en.wikipedia.org/wiki/Epsilon_transition) ？
+
+gpt-4-vision: Is Aho–Corasick failure link a epsilon-transition?
+
+> No, the **failure link** in the **Aho–Corasick automaton** is not an **epsilon-transition**. In an **epsilon-NFA** (**epsilon-Non-deterministic Finite Automaton**), an **epsilon-transition** allows the automaton to change its state without consuming any input symbols. In contrast, the **Aho–Corasick automaton** is a **deterministic finite automaton** (DFA), and all **state transitions**, including those via **failure links**, are triggered by actual input symbols.
+>
+> The **failure link** in the **Aho–Corasick automaton** serves a different purpose. When the automaton is in a given state and reads an input symbol that does not match any outgoing transition from that state, it follows the **failure link** to another state. **This other state represents the longest proper suffix of the string recognized by the current state that is also a prefix of another pattern in the set of patterns being matched**. The automaton then checks for a transition from this new state using the same input symbol.
+>
+> The key point is that **failure links** are followed only after an input symbol has been read and no matching transition is found in the current state. This is fundamentally different from **epsilon-transitions**, which do not require any input symbol to be read.
+>
+> The **Aho–Corasick automaton** uses **failure links** to efficiently backtrack and find the next possible match without re-reading the input text, allowing the algorithm to perform multiple pattern matching in linear time relative to the length of the input text.
+
+gpt-4-vision: Is Aho–Corasick automaton a epsilon-NF?
+
+> No, the Aho–Corasick automaton is not an epsilon-NFA (epsilon-Non-deterministic Finite Automaton). The Aho–Corasick algorithm constructs a finite state machine that resembles a trie with additional links between the various internal nodes, which are called "failure links." These failure links allow the automaton to transition between different states efficiently when mismatches occur during string matching.
+>
+> The key characteristics of the Aho–Corasick automaton are:
+>
+> 1. **Deterministic**: Unlike epsilon-NFAs, the Aho–Corasick automaton is deterministic. For each state and input symbol, there is exactly one transition defined. This means that at any given state, given an input character, the automaton knows exactly which state to transition to without any ambiguity.
+> 2. **No Epsilon Transitions**: The Aho–Corasick automaton does not use epsilon transitions (transitions that occur without consuming any input symbols). All state transitions in the Aho–Corasick automaton are triggered by actual characters in the input text.
+> 3. **Failure Links**: The automaton uses failure links to redirect the search to previous states that represent the longest possible suffixes of the current string being matched. These links are followed when the current input character does not match any outgoing transition from the current state.
+> 4. **Output Links**: In addition to failure links, the Aho–Corasick automaton may also have output links that point to patterns that end at the current state. These links are used to report matches found in the input text.
+>
+> The Aho–Corasick automaton is specifically designed for efficient multiple pattern matching and is widely used in applications such as string searching algorithms, intrusion detection systems, and bioinformatics. It allows for simultaneous matching of multiple patterns against an input text in linear time relative to the length of the input plus the number of matched entries.
+
+output link的作用其实就是trie的 `is_end_of_word`。
+
+
+
+#### gpt-4-vision
 
 The **Aho-Corasick algorithm** is a string-searching algorithm that is used to find all occurrences of a set of substrings (patterns) within a text. It was invented by Alfred V. Aho and Margaret J. Corasick in 1975. The algorithm is particularly efficient when you need to search for many patterns simultaneously in a large body of text.
 
@@ -453,6 +496,34 @@ Here's a high-level overview of the algorithm:
 
 1. **Preprocessing Phase**: Construct a trie from the given patterns. Each node represents a character, and each path from the root to a leaf node represents a pattern. Add **failure links** to the **trie**, which are used to fall back to the longest possible **suffix** of the current string that is also a **prefix** of a pattern.
 2. **Search Phase**: Traverse the text using the trie. When a character in the text does not match any outgoing edge from the current node, follow the **failure link**. If a **leaf node** is reached, a match is found. Record the match and continue the search.
+
+
+
+### wikipedia [Aho–Corasick algorithm](https://en.wikipedia.org/wiki/Aho%E2%80%93Corasick_algorithm) 
+
+It is a kind of **dictionary-matching [algorithm](https://en.wikipedia.org/wiki/Algorithm)** that locates elements of a finite set of strings (the "dictionary") within an input text. 
+
+Informally, the algorithm constructs a [finite-state machine](https://en.wikipedia.org/wiki/Finite-state_machine) that resembles a [trie](https://en.wikipedia.org/wiki/Trie) with additional links between the various internal nodes. These extra internal links allow fast transitions between failed string matches (e.g. a search for `cart` in a trie that does not contain `cart`, but contains `art`, and thus would fail at the node prefixed by `car`), to other branches of the trie that share a common suffix (e.g., in the previous case, a branch for `attribute` might be the best lateral transition). This allows the automaton to transition between string matches without the need for backtracking.
+
+> NOTE:
+>
+> 一、上面这段话中的例子没有理解
+>
+> 二、在 [zhihu-Aho-Corasick算法纵览（AC自动机）](https://zhuanlan.zhihu.com/p/368184958) 中将该algorithm描述为:
+>
+> > 一棵带有“失配指针”的字典树(Trie) 
+
+#### Example
+
+In this example, we will consider a dictionary consisting of the following words: {`a`, `ab`, `bab`, `bc`, `bca`, `c`, `caa`}. 
+
+
+
+### Code
+
+https://github.com/WojciechMula/pyahocorasick
+
+#### gpt-4-vision
 
 The **Aho-Corasick algorithm** is not implemented in Python's standard library, but you can write your own implementation or use third-party libraries that provide it. Below is a simplified version of the Aho-Corasick algorithm in Python:
 
@@ -520,64 +591,7 @@ class AhoCorasickStringSearchAlgorithm(unittest.TestCase):
 
 ```
 
-### wikipedia [Aho–Corasick algorithm](https://en.wikipedia.org/wiki/Aho%E2%80%93Corasick_algorithm) 
 
-
-
-It is a kind of **dictionary-matching [algorithm](https://en.wikipedia.org/wiki/Algorithm)** that locates elements of a finite set of strings (the "dictionary") within an input text. 
-
-
-
-Informally, the algorithm constructs a [finite-state machine](https://en.wikipedia.org/wiki/Finite-state_machine) that resembles a [trie](https://en.wikipedia.org/wiki/Trie) with additional links between the various internal nodes. These extra internal links allow fast transitions between failed string matches (e.g. a search for `cart` in a trie that does not contain `cart`, but contains `art`, and thus would fail at the node prefixed by `car`), to other branches of the trie that share a common suffix (e.g., in the previous case, a branch for `attribute` might be the best lateral transition). This allows the automaton to transition between string matches without the need for backtracking.
-
-> NOTE:
->
-> 一、上面这段话中的例子没有理解
->
-> 二、在 [zhihu-Aho-Corasick算法纵览（AC自动机）](https://zhuanlan.zhihu.com/p/368184958) 中将该algorithm描述为:
->
-> > 一棵带有“失配指针”的字典树(Trie) 
-
-#### Example
-
-In this example, we will consider a dictionary consisting of the following words: {`a`, `ab`, `bab`, `bc`, `bca`, `c`, `caa`}. 
-
-
-
-### Code
-
-https://github.com/WojciechMula/pyahocorasick
-
-### Is [Aho–Corasick automaton](https://en.wikipedia.org/wiki/Aho%E2%80%93Corasick_algorithm) an [epsilon-NFA](https://en.wikipedia.org/wiki/Nondeterministic_finite_automaton#NFA_with_%CE%B5-moves) ?
-
-在 [zhihu-Aho-Corasick算法纵览（AC自动机）](https://zhuanlan.zhihu.com/p/368184958) 中，有这样一段评论:
-
-> 纠正一下：AC自动机不是DFA，而是epsilon-NFA，fail指针对应的就是空转换操作。
-
-思考: failure link对应的是 [epsilon transition](https://en.wikipedia.org/wiki/Epsilon_transition) ？
-
-gpt-4-vision: Is Aho–Corasick failure link a epsilon-transition?
-
-> No, the **failure link** in the **Aho–Corasick automaton** is not an **epsilon-transition**. In an **epsilon-NFA** (**epsilon-Non-deterministic Finite Automaton**), an **epsilon-transition** allows the automaton to change its state without consuming any input symbols. In contrast, the **Aho–Corasick automaton** is a **deterministic finite automaton** (DFA), and all **state transitions**, including those via **failure links**, are triggered by actual input symbols.
->
-> The **failure link** in the **Aho–Corasick automaton** serves a different purpose. When the automaton is in a given state and reads an input symbol that does not match any outgoing transition from that state, it follows the **failure link** to another state. **This other state represents the longest proper suffix of the string recognized by the current state that is also a prefix of another pattern in the set of patterns being matched**. The automaton then checks for a transition from this new state using the same input symbol.
->
-> The key point is that **failure links** are followed only after an input symbol has been read and no matching transition is found in the current state. This is fundamentally different from **epsilon-transitions**, which do not require any input symbol to be read.
->
-> The **Aho–Corasick automaton** uses **failure links** to efficiently backtrack and find the next possible match without re-reading the input text, allowing the algorithm to perform multiple pattern matching in linear time relative to the length of the input text.
-
-gpt-4-vision: Is Aho–Corasick automaton a epsilon-NF?
-
-> No, the Aho–Corasick automaton is not an epsilon-NFA (epsilon-Non-deterministic Finite Automaton). The Aho–Corasick algorithm constructs a finite state machine that resembles a trie with additional links between the various internal nodes, which are called "failure links." These failure links allow the automaton to transition between different states efficiently when mismatches occur during string matching.
->
-> The key characteristics of the Aho–Corasick automaton are:
->
-> 1. **Deterministic**: Unlike epsilon-NFAs, the Aho–Corasick automaton is deterministic. For each state and input symbol, there is exactly one transition defined. This means that at any given state, given an input character, the automaton knows exactly which state to transition to without any ambiguity.
-> 2. **No Epsilon Transitions**: The Aho–Corasick automaton does not use epsilon transitions (transitions that occur without consuming any input symbols). All state transitions in the Aho–Corasick automaton are triggered by actual characters in the input text.
-> 3. **Failure Links**: The automaton uses failure links to redirect the search to previous states that represent the longest possible suffixes of the current string being matched. These links are followed when the current input character does not match any outgoing transition from the current state.
-> 4. **Output Links**: In addition to failure links, the Aho–Corasick automaton may also have output links that point to patterns that end at the current state. These links are used to report matches found in the input text.
->
-> The Aho–Corasick automaton is specifically designed for efficient multiple pattern matching and is widely used in applications such as string searching algorithms, intrusion detection systems, and bioinformatics. It allows for simultaneous matching of multiple patterns against an input text in linear time relative to the length of the input plus the number of matched entries.
 
 ## [Knuth–Morris–Pratt algorithm](https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm)  VS [Aho–Corasick algorithm](https://en.wikipedia.org/wiki/Aho%E2%80%93Corasick_algorithm) 
 

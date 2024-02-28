@@ -1,4 +1,6 @@
 nav:
     - Introduction: index.md
-    - Knuth-Morris-Pratt-Aho-Corasick-algorithm: Knuth-Morris-Pratt-Aho-Corasick-algorithm
-        
+    - Prefix-tree-trie: Prefix-tree-trie
+    - Suffix-tree: Suffix-tree
+    - KMP+Aho-Corasick-automata: KMP+Aho-Corasick-automata
+            
