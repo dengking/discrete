@@ -259,4 +259,198 @@ text:
 sotat
 ```
 
+
+
 ![](failure-suffix-link-example5.png)
+
+
+
+
+
+## A Problem with our Optimization(Page-192)
+
+> NOTE:
+>
+> 一、这一节是为了引出output link
+
+patterns: 
+
+```
+i
+in
+tin
+sting
+```
+
+text:
+
+```
+sting
+```
+
+
+
+![](./failure-suffix-link-example6.png)
+
+![](failure-suffix-link-example6-1.png)
+
+### What Happened?(Page-206)
+
+Our heavily optimized string searcher no longer starts searching from each position in the string. As a result, we now might forget to output matches in certain cases. We need to figure out
+
+- when this happens, and
+- how to correct for it.
+
+> NOTE:
+>
+> 一、由于每个node有多条out edge，所以需要尝试所有的path才能够找出所有的match，但是这种方式存在的问题是低效，这在后面的"The Problem"章节中进行了说明
+
+
+
+### How do we address this?(Page-209)
+
+> NOTE:
+>
+> 一、原文这里只给出了一堆的图，并没有配上文字说明，所以它的具体的解决方式我也不能够百分之百地确定，但是根据graph的知识和"The Problem"章节的内容可知，它应该就是采用的BFS、DFS
+
+### The Problem
+
+The approach described previously will ensure that we don't miss any patterns, but it increases the complexity of the search. Specifically, we do $\mathcal{O}(L_{max})$ additional work at each character following suffix links backwards. This brings our search cost back up to $\mathcal{O}(L_{max})$ again – and that's too slow. **Can we do better?**
+
+> NOTE:
+>
+> 一、承上启下，引出output link
+
+
+
+## Output link(Page-240)
+
+
+
+### Output link example1(Page-243)
+
+![](output-link-example1.png)
+
+### Output link example2(Page-246)
+
+
+
+![](output-link-example2.png)
+
+![](output-link-example3.png)
+
+Even nodes that themselves correspond to are patterns might need output links if other patterns also end at the corresponding string.
+
+> NOTE:
+>
+> 一、上面这段话的意思是: 即使node是terminal node，它也可以有output link
+
+### Output link example2(Page-252)
+
+![](output-link-example5.png)
+
+Notice that the blue edges here form a linked list. If we visit this node, we need to output everything in the chain, not just the “tin” node we're immediately pointing at.
+
+
+
+## The Final Matching Algorithm(Page-270)
+
+```pseudocode
+Start at the root node in the trie.
+For each character c in the string:
+    While there is no edge labeled c:
+        If you're at the root, break out of this loop.
+        Otherwise, follow a suffix link.
+    If there is an edge labeled c, follow it.
+    If the current node corresponds to a pattern, output that pattern.
+    Output all words in the chain of output links originating at this node.
+```
+
+
+
+## The Runtime Impact(Page-271)
+
+> NOTE:
+>
+> 一、本节给出了一个非常极端的例子来说明 AC automaton的runtime受**output**个数的影响，即它是 [Output-sensitive algorithm](https://en.wikipedia.org/wiki/Output-sensitive_algorithm) 
+
+patterns: 
+
+```
+a
+aa
+aaa
+aaaa
+```
+
+text:
+
+```
+aaaaaaaa
+```
+
+
+
+## The Runtime(Page-303)
+
+In the worst case, we may have to spend a *huge* amount of time listing off all the matches in the string. This isn't the fault of the algorithm – *any* algorithm that matches strings this way would have to spend the time reporting matches. To account for this, let **z** denote the number of matches reported by our algorithm. The runtime of the match phase is then $\mathcal{O}(m + z)$, with the *m* term coming from the string scanning and the *z* term coming from the matches.
+
+You sometimes hear algorithms whose runtime depends on how much output is generated referred to as [**output-sensitive algorithms**](https://en.wikipedia.org/wiki/Output-sensitive_algorithm).
+
+
+
+## Where We Are(Page-304)
+
+Given the matching automaton (which is called an **Aho-Corasick automaton** or an **AC automaton**), we can find all occurrences of the pattern strings in any text of length *m* in time $\mathcal{O}(m + z)$.
+
+To see whether this is worthwhile, we need to see how quickly we can build the automaton.
+
+
+
+## Building the Aho-Corasick Automaton(Page-311)
+
+To construct the Aho-Corasick automaton, we need to
+
+- construct the trie,
+- construct suffix links, and
+- construct output links.
+
+We know we can build the trie in time $\mathcal{O}(n)$ using our logic from before.
+
+How quickly can we construct suffix and output links?
+
+
+
+## Constructing Suffix Links(Page-312)
+
+
+
+### An Initial Algorithm(Page-327)
+
+Here is a simple, brute-force approach for computing suffix links:
+
+```pseudocode
+For each node in the trie
+    Let α be the string that this particular node corresponds to.
+    For each proper suffix ω of α:
+        Look up ω in the trie.
+        If the search ends up at some trie node, point the suffix link there and stop.
+```
+
+This approach is not very efficient – that doubly- nested loop is exactly the sort of thing we're trying to avoid.
+
+**Can we do better?**
+
+
+
+### Fast Suffix Link Construction(Page-331)
+
+**Key insight**: Suppose we know the **suffix link** for a node labeled *w*. After following a trie edge labeled *a*, there are two possibilities.
+
+**Case 1**: $xa$ exists.
+
+![](construct-suffix-link-case1.png)
+
+**Case 2**: $xa$ does not exist.
+
+![](construct-suffix-link-case2.png)
