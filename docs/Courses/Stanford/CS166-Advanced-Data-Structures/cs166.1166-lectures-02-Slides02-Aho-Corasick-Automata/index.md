@@ -131,7 +131,9 @@ In the (reasonable) case where $L_{max}$ is much smaller than *n*, this is a hug
 
 **Claim:** Given a set of strings *P*1, ..., *Pₖ* of total length *n*, it's possible to build a trie for those strings in time $\mathcal{O}(n)$.
 
-
+> NOTE:
+>
+> 一、此处省略
 
 ## Our Strategies(Page-102)
 
@@ -148,9 +150,11 @@ We now have two approaches:
 
 **Can we do better?**
 
+## Aho-Corasick Automata
 
+## Suffix link
 
-## Suffix link example1(Page-103~121)
+#### Suffix link example1(Page-103~121)
 
 patterns: 
 
@@ -175,7 +179,7 @@ soars
 
 
 
-## Suffix link example2(Page-122~132)
+#### Suffix link example2(Page-122~132)
 
 patterns: 
 
@@ -196,7 +200,7 @@ oart
 
 ![](failure-suffix-link-example2.png)
 
-## Suffix link example3(Page-134~147)
+#### Suffix link example3(Page-134~147)
 
 patterns: 
 
@@ -217,7 +221,7 @@ soat
 
 ![](failure-suffix-link-example3.png)
 
-## Suffix link example4(Page-149~171)
+#### Suffix link example4(Page-149~171)
 
 patterns: 
 
@@ -242,7 +246,7 @@ In general, suffix links might jump the red cursor forward more than one step. T
 
 ![](failure-suffix-link-example4.png)
 
-## Suffix link example5(Page-172~189)
+#### Suffix link example5(Page-172~189)
 
 patterns: 
 
@@ -265,9 +269,7 @@ sotat
 
 
 
-
-
-## A Problem with our Optimization(Page-192)
+### A Problem with our Optimization(Page-192)
 
 > NOTE:
 >
@@ -323,15 +325,15 @@ The approach described previously will ensure that we don't miss any patterns, b
 
 
 
-## Output link(Page-240)
+### Output link(Page-240)
 
 
 
-### Output link example1(Page-243)
+#### Output link example1(Page-243)
 
 ![](output-link-example1.png)
 
-### Output link example2(Page-246)
+#### Output link example2(Page-246)
 
 
 
@@ -345,7 +347,7 @@ Even nodes that themselves correspond to are patterns might need output links if
 >
 > 一、上面这段话的意思是: 即使node是terminal node，它也可以有output link
 
-### Output link example2(Page-252)
+#### Output link example2(Page-252)
 
 ![](output-link-example5.png)
 
@@ -353,7 +355,7 @@ Notice that the blue edges here form a linked list. If we visit this node, we ne
 
 
 
-## The Final Matching Algorithm(Page-270)
+### The Final Matching Algorithm(Page-270)
 
 ```pseudocode
 Start at the root node in the trie.
@@ -368,7 +370,7 @@ For each character c in the string:
 
 
 
-## The Runtime Impact(Page-271)
+### The Runtime Impact(Page-271)
 
 > NOTE:
 >
@@ -391,7 +393,7 @@ aaaaaaaa
 
 
 
-## The Runtime(Page-303)
+### The Runtime(Page-303)
 
 In the worst case, we may have to spend a *huge* amount of time listing off all the matches in the string. This isn't the fault of the algorithm – *any* algorithm that matches strings this way would have to spend the time reporting matches. To account for this, let **z** denote the number of matches reported by our algorithm. The runtime of the match phase is then $\mathcal{O}(m + z)$, with the *m* term coming from the string scanning and the *z* term coming from the matches.
 
@@ -399,7 +401,7 @@ You sometimes hear algorithms whose runtime depends on how much output is genera
 
 
 
-## Where We Are(Page-304)
+### Where We Are(Page-304)
 
 Given the matching automaton (which is called an **Aho-Corasick automaton** or an **AC automaton**), we can find all occurrences of the pattern strings in any text of length *m* in time $\mathcal{O}(m + z)$.
 
@@ -445,6 +447,50 @@ This approach is not very efficient – that doubly- nested loop is exactly the 
 
 ### Fast Suffix Link Construction(Page-331)
 
+> NOTE:
+>
+> 一、这一段作者没有对于一些符合进行专门的解释，容易造成混淆: 
+>
+> - $x$: 其实结合图和"Page-335-Constructing Suffix Links"的内容是可以知道: $x$ 是沿着 $w$​ 的suffix link到达的node。
+> - $wa$ : 从graph的角度来看，它是一个节点，更加准确的说它是 $w$ 的子节点
+>
+> 二、原文的这一段讲得比较一般，作者没有阐述核心思想，下面内容源自 gpt-4-vision，我对它进行了稍微的整理:
+>
+> > The construction of **suffix links** (also known as **failure links** in the context of the **Aho-Corasick automaton**) is a crucial step in building the **Aho-Corasick trie** data structure. These links allow the automaton to fail gracefully when a character match is not found in the current node's children during pattern matching.
+> >
+> > The construction of **suffix links** is typically done in a **breadth-first** manner after the trie has been built from the set of patterns. Here's a high-level overview of the process:
+> >
+> > 1. **Initialize**: Start by creating a **root node**. All nodes at depth 1 (the children of the root) have their **suffix link** pointing back to the root because there's no proper non-empty suffix for them that's also a prefix of another pattern.
+> > 2. **Breadth-First Search (BFS)**: Perform a **BFS** starting from the **root node**. For each node, compute its **suffix link** based on the **suffix link** of its parent.
+> >
+> > 3. **Suffix Link Construction**:
+> >    - For the current node `u` with a parent `p`, let `c` be the character on the edge from `p` to `u`. 
+> >    - Find the suffix link of `p`, which is another node `q`. (`q` 是 `p` 沿着 suffix link 到达的node) 
+> >    - While `q` has no child with the character `c` and `q` is not the root, follow the **suffix link** of `q` to find such a child. 
+> >    - If `q` has a child `v` with the character `c`, then the **suffix link** of `u` should point to `v`. 
+> >    - If no such child exists and `q` is the root, then the suffix link of `u` points back to the root. 
+> > 4. **Output Link Construction** (optional, for pattern matching):
+> >    - In addition to the **suffix link**, an output link can be added to each node that represents the end of a pattern. This link points to the next node in the trie that also represents the end of a pattern. This is used to report all patterns that end at a given node.
+> >
+> > The construction of suffix links ensures that the Aho-Corasick automaton can quickly transition between states when mismatches occur, without having to restart the pattern matching process from the beginning of the text or the root of the trie.
+>
+> Fast Suffix Link Construction可以归入DP范畴，下面是 gpt-4-vision 对于 "Is Aho-Corasick automaton's Fast Suffix Link Construction a dynamic programing algorithm?" 的回答: 
+>
+> > The construction of **suffix links** in the **Aho-Corasick automaton** can be seen as an application of dynamic programming principles. Dynamic programming is a method for solving complex problems by breaking them down into simpler subproblems, solving each of these subproblems just once, and storing their solutions.
+> >
+> > In the context of the **Aho-Corasick automaton**, the construction of **suffix links** involves solving the problem of finding the longest proper suffix for each node in the trie that is also a prefix of another pattern. This is done by utilizing previously computed suffix links of parent nodes to efficiently compute the suffix link of the current node.
+> >
+> > Here's how the process aligns with dynamic programming principles:
+> >
+> > 1. **Optimal Substructure**: The problem of finding the longest proper suffix for a node that is also a prefix of another pattern can be broken down into finding the longest proper suffix for its parent node. This demonstrates the optimal substructure property, where the solution to a problem can be constructed from the solutions of its subproblems.
+> > 2. **Overlapping Subproblems**: As we traverse the trie to compute suffix links, we encounter overlapping subproblems. The suffix link of a parent node is used multiple times to compute the suffix links of its children. By storing the suffix links of the parent nodes, we avoid recomputing them, which is a hallmark of dynamic programming.
+> > 3. **Memoization**: The suffix links for each node are computed once and stored (or "memoized") for future use. This stored information is then used to compute the suffix links of descendant nodes more efficiently.
+> > 4. **Bottom-Up Approach**: The construction of suffix links typically follows a breadth-first search, which is a bottom-up approach. We start from the root (the base case, where the suffix link points to itself) and compute the suffix links level by level, using the information from the previous level (parent nodes) to inform the current level (child nodes).
+> >
+> > While the construction of suffix links in the **Aho-Corasick automaton** shares similarities with **dynamic programming**, it is not always explicitly categorized as such. It is more commonly described as a clever use of trie data structure properties and failure transitions to achieve efficient pattern matching. Nonetheless, the principles of dynamic programming are clearly at work in the algorithm's design.
+>
+> 将这种范式称为: graph-BFS-DP- optimization
+
 **Key insight**: Suppose we know the **suffix link** for a node labeled *w*. After following a trie edge labeled *a*, there are two possibilities.
 
 **Case 1**: $xa$ exists.
@@ -454,3 +500,46 @@ This approach is not very efficient – that doubly- nested loop is exactly the 
 **Case 2**: $xa$ does not exist.
 
 ![](construct-suffix-link-case2.png)
+
+
+
+To construct the suffix link for a node *wa*:
+
+- Follow *w*'s suffix link to node *x*.
+- If node *xa* exists, *wa* has a suffix link to *xa*.
+- Otherwise, follow *x*'s suffix link and repeat.
+- If you need to follow backwards from the root, then *wa*'s suffix link points to the root.
+
+
+
+**Observation 1:** **Suffix links** point from longer strings to shorter strings.
+
+> NOTE:
+>
+> 一、沿着suffix link，公共后缀前缀的长度逐步缩短
+
+**Observation 2:** If we precompute **suffix links** for nodes in ascending order of string length, all of the information needed for the above approach will be available at the time we need it.
+
+> NOTE:
+>
+> 一、自底向上
+
+### Example
+
+省略
+
+### Constructing Suffix Links
+
+Do a **breadth-first search** of the **trie**, performing the following operations:
+
+- If the node is the root, it has no **suffix link**.
+- If the node is one hop away from the root, its **suffix link** points to the root. 
+- Otherwise, the node corresponds to some string *wa*.
+- Let *x* be the node pointed at by *w*'s suffix link. Then, do the following:
+  - If the node *xa* exists, *wa*'s suffix link points to *xa*.
+  - Otherwise, if *x* is the root node, *wa*'s suffix link points to the root.
+  - Otherwise, set *x* to the node pointed at by *x*'s suffix link and repeat.
+
+
+
+## Computing Output Links
