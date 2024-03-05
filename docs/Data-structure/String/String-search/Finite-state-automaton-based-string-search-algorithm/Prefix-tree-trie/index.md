@@ -85,6 +85,16 @@ def insert(node: Node, key: str, value: Any) -> None:
     node.value = value
 ```
 
+### Implementation strategies
+
+#### Compressed tries
+
+*Main article:* [Radix tree](https://en.wikipedia.org/wiki/Radix_tree)
+
+##### Patricia trees
+
+
+
 ### Code
 
 #### Python
