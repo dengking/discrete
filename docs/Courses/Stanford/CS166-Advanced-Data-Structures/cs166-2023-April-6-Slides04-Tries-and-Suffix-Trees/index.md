@@ -76,6 +76,8 @@ We’re spending a lot of time scanning shared prefixes. Is there a way to avoid
 
 
 
+### Patricia trie
+
 
 
 ## Part II: **Suffix Trees**
