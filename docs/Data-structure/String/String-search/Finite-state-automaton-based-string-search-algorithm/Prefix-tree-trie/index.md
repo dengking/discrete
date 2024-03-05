@@ -152,6 +152,12 @@ class TestTrie(unittest.TestCase):
 
 
 
+### [Predictive text](https://en.wikipedia.org/wiki/Predictive_text) or [autocomplete](https://en.wikipedia.org/wiki/Autocomplete) dictionaries 
+
+> NOTE:
+>
+> 在 [stanford.-Tries and Suffix Trees](https://web.stanford.edu/class/cs166/lectures/04/Slides04.pdf) 中，有着很好的描述
+
 ### Sorting
 
 Lexicographic sorting of a set of keys can be accomplished by building a **trie** from them, and traversing it in [pre-order](https://en.wikipedia.org/wiki/Tree_traversal#Pre-order), printing only the leaves' values. This algorithm is a form of [radix sort](https://en.wikipedia.org/wiki/Radix_sort).[[10\]](https://en.wikipedia.org/wiki/Trie#cite_note-10)
