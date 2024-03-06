@@ -101,6 +101,40 @@ A: That’s a trickier question.
 > NOTE:
 >
 > 一、压缩能够带来时间和空间的优势
+>
+> 二、gpt-4-vision: Patricia tree
+>
+> > A Patricia tree (Practical Algorithm to Retrieve Information Coded in Alphanumeric), also known as a radix tree or compact prefix tree, is a space-optimized trie data structure where each node that is the only child is merged with its parent. The name "Patricia" is derived from the acronym PATRICIA, which stands for "Practical Algorithm To Retrieve Information Coded In Alphanumeric."
+> > The Patricia tree is used in situations where the trie is expected to have a large number of nodes with a single child, which is common in applications like IP routing, where the tree is used to store and search for IP addresses, or in dictionary implementations, where the tree stores a large set of strings (like words).
+> > Key features of a Patricia tree:
+> >
+> >
+> > Path Compression: Nodes with only one child are merged with their parents, which reduces the height of the tree and saves space.
+> >
+> >
+> > Edge Labels: Instead of storing characters on nodes, Patricia trees store them on the edges (or links) between nodes. Each edge represents a non-empty string, which could be a single character or a longer string.
+> >
+> >
+> > Binary or Multi-way: Patricia trees can be binary, where each node has at most two children (used for bit strings like IP addresses), or multi-way, where nodes can have many children (used for alphanumeric strings).
+> >
+> >
+> > Prefix Sharing: Nodes in the tree share common prefixes, which is a property inherited from the trie. This makes Patricia trees efficient for prefix searches and autocomplete features.
+> >
+> >
+> > Search Efficiency: The search operation in a Patricia tree is efficient because it takes advantage of the compact structure and skips over nodes that have been merged due to having only one child.
+> >
+> >
+> > Here's a simplified example of how a Patricia tree might look with the words "trie", "tree", "try", "tried", and "trick":
+> >           (root)
+> >            /  \
+> >         (tr)  (trie)
+> >         /  \
+> >      (ee)  (y)
+> >      /  \
+> >  (d)    (ick)
+> >
+> > In this example, the edge from the root to the "tr" node represents the common prefix "tr" for the words "tree", "try", "tried", and "trick". The "trie" node represents the word "trie". The "tr" node has two children, one for the "ee" suffix (leading to "tree") and one for the "y" suffix (leading to "try"). The "ee" node further branches into "d" (completing the word "tried") and "ick" (completing the word "trick").
+> > Patricia trees are particularly useful in applications where memory efficiency is important and where the data set has many common prefixes. They are widely used in networking for longest prefix matching, which is essential for IP routing.
 
 ## Part II: **Suffix Trees**
 
