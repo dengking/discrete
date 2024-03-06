@@ -32,7 +32,3 @@ b、disjoint-set(union-find-set)用于快速判断两个node是否属于同一�
 
 
 
-## wikipedia [Dynamic connectivity](https://en.wikipedia.org/wiki/Dynamic_connectivity)
-
-
-

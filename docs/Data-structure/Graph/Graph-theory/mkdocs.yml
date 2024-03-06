@@ -1,6 +1,3 @@
 nav:
     - Introduction: index.md
-    
     - Directed-graph: Directed-graph
-
-    - Graph-connectivity: Graph-connectivity
