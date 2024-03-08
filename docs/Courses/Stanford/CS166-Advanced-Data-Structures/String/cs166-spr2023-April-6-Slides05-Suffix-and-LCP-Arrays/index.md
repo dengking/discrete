@@ -1,5 +1,9 @@
 # [Suffix and LCP Arrays](https://web.stanford.edu/class/cs166/lectures/05/Slides05.pdf)
 
+> NOTE:
+>
+> 使用suffix array和LCP array来存储suffix tree
+
 ## Suffix Tree Space Usage
 
 ### Space complexity of suffix tree(Page-8)
@@ -220,9 +224,11 @@ The **LCP array**, often denoted **H**, is an array where `H[i]` is the length o
 
 ![](suffix-LCP-array-example.png)
 
-**Key intuition:** The **suffix array** gives the leaves of the **suffix tree**. The LCP array gives the internal nodes of the suffix tree.
+**Key intuition:** The **suffix array** gives the leaves of the **suffix tree**. The **LCP array** gives the internal nodes of the **suffix tree**.
 
-
+> NOTE:
+>
+> 一、使用suffix array和LCP array来存储suffix tree
 
 ### Using LCP Arrays
 
@@ -243,7 +249,7 @@ If you already have a suffix array and LCP array, you can solve longest repeated
 
 It never hurts to start with the naive algorithm and see what happens!
 
-**Algorithm:** For each consecutive pair of strings in the suffix array, compute the length of their longest common prefix.
+**Algorithm:** For each consecutive pair of strings in the suffix array, compute the length of their **longest common prefix**.
 
 We can upper-bound the runtime at O(**m**2).
 
@@ -279,10 +285,44 @@ As before, drop the first letter from each suffix.
 
 What can we say about the LCP of the resulting suffixes?
 
-![](Building-LCP-Arrays-Example-2.png)
+|                                        |                                        |
+| -------------------------------------- | -------------------------------------- |
+| ![](Building-LCP-Arrays-Example-3.png) | ![](Building-LCP-Arrays-Example-2.png) |
+
+
 
 
 
 
 
 Sometimes, in dropping the first letter, two adjacent suffixes get spread out.
+
+> NOTE:
+>
+> 一、翻译如下: "有时，在省略第一个字母时，两个相邻的后缀会分散开来。"
+
+**Claim:** Look at the second suffix in the pair. Its LCP with the suffix before it is at least the previous LCP minus one.
+
+Think about the **suffix tree**. The two shorter suffixes are in the same **subtree**, so everything between them is also in that **subtree**.
+
+We know that these two new suffixes must have an LCP of at least 1, because the two old suffixes have an LCP of 2.
+
+However, the LCP may be longer than 1, since we’ve never seen one of these two suffixes.
+
+We still need to some some scanning, but we won’t necessarily have to rescan the entire suffix.
+
+## Kasai’s Algorithm
+
+
+
+
+
+## More to Explore
+
+We could easily spend a whole quarter talking about suffix arrays. Here’s what we didn’t cover:
+
+**Bottom-up tree simulations:** Using **LCP arrays**, you can simulate any O(**m**)-time suffix tree algorithm that works with a bottom-up DFS in time O(**m**).
+
+**Faster substring searching:** Using LCP arrays, plus RMQ, you can improve the cost of a substring search to O(**n** + **z** + log **m**).
+
+**Burrows-Wheeler transforms:** Suffix arrays, plus LCP arrays, can be used to significantly improve the performance of text compressors.
