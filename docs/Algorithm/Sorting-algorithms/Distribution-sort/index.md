@@ -196,48 +196,50 @@ class TestCountingSort(unittest.TestCase):
 
 > In a [positional numeral system](https://en.wikipedia.org/wiki/Positional_numeral_system), the **radix** (pl.: **radices**) or **base** is the number of unique [digits](https://en.wikipedia.org/wiki/Numerical_digit), including the digit zero, used to represent numbers. For example, for the [decimal system](https://en.wikipedia.org/wiki/Decimal) (the most common system in use today) the **radix** is ten, because it uses the ten digits from 0 through 9.
 
-Radix sort 充分利用了 [positional numeral system](https://en.wikipedia.org/wiki/Positional_numeral_system) 的规律，它的原理很简单，下面以 gpt-4-vision 给出的一个例子来进行说明: 
+Radix sort 充分利用了 [positional numeral system](https://en.wikipedia.org/wiki/Positional_numeral_system) 的规律，它的原理很简单，下面以 gpt-4-vision 给出的一个例子来进行说明。
 
-> Radix Sort is a non-comparative integer sorting algorithm that sorts data with integer keys by grouping the keys by individual digits that share the same significant position and value ([radix](https://en.wikipedia.org/wiki/Radix)). It processes each digit from the **least significant** to the **most significant** (**LSD Radix Sort**) or vice versa (**MSD Radix Sort**).
->
-> Here's how LSD Radix Sort works:
->
-> 1. *Determine the **Maximum Number of Digits** (k)*: Find the largest number in the array to determine the maximum number of digits any number has.
->
-> 2. *Sorting by Each Digit*: For each digit `i` from the **least significant digit** to the **most significant digit** (1 to k):
->    a. Create buckets for each digit (0-9 if the numbers are in base 10).
->
->    b. Place each number in the corresponding bucket based on its i-th digit.
->
->    c. Collect the numbers from the buckets in order and replace the original array with these numbers, which are now sorted by the i-th digit.
->
->    > NOTE:
->    >
->    > 一、上述是使用 **counting sort**，wikipedia [Counting sort](https://en.wikipedia.org/wiki/Counting_sort) 中有介绍:
->    >
->    > > It is often used as a subroutine in [radix sort](https://en.wikipedia.org/wiki/Radix_sort), another sorting algorithm, which can handle larger keys more efficiently.
->
-> 3. Repeat: Repeat step 2 for each subsequent digit position until the most significant digit.
->
-> 4. Result: After processing all k digits, the array will be sorted.
->
-> Here is a step-by-step example of Radix Sort:
->
-> Suppose we have an array `A` with values `[170, 45, 75, 90, 802, 24, 2, 66]`.
->
-> 1. The maximum number of digits (k) is 3 (since 802 has three digits).
-> 2. Start with the **least significant digit** (ones place):
->    - Buckets after sorting by ones place: [170, 90, 802, 2, 24, 45, 75, 66]
->
-> 3. Move to the next digit (tens place):
->    - Buckets after sorting by tens place: [802, 2, 24, 45, 66, 170, 75, 90]
->
-> 4. Finally, sort by the most significant digit (hundreds place):
->    - Buckets after sorting by hundreds place: [2, 24, 45, 66, 75, 90, 170, 802]
->
-> 5. The array is now sorted.
->
-> **Radix Sort** has a time complexity of O(nk) for n keys with k digits. It is efficient for sorting large sets of data with a small range of key values. Unlike comparison-based sorting algorithms like quicksort or mergesort, Radix Sort's performance does not depend on the initial order of the elements. It is also [**stable**](https://en.wikipedia.org/wiki/Sorting_algorithm#Stability), which means that it maintains the relative order of equal elements, an important property when sorting data by multiple keys. 
+### gpt-4-vision
+
+Radix Sort is a non-comparative integer sorting algorithm that sorts data with integer keys by grouping the keys by individual digits that share the same significant position and value ([radix](https://en.wikipedia.org/wiki/Radix)). It processes each digit from the **least significant** to the **most significant** (**LSD Radix Sort**) or vice versa (**MSD Radix Sort**).
+
+Here's how LSD Radix Sort works:
+
+1. *Determine the **Maximum Number of Digits** (k)*: Find the largest number in the array to determine the maximum number of digits any number has.
+
+2. *Sorting by Each Digit*: For each digit `i` from the **least significant digit** to the **most significant digit** (1 to k):
+   a. Create buckets for each digit (0-9 if the numbers are in base 10).
+
+   b. Place each number in the corresponding bucket based on its i-th digit.
+
+   c. Collect the numbers from the buckets in order and replace the original array with these numbers, which are now sorted by the i-th digit.
+
+   > NOTE:
+   >
+   > 一、上述是使用 **counting sort**，wikipedia [Counting sort](https://en.wikipedia.org/wiki/Counting_sort) 中有介绍:
+   >
+   > > It is often used as a subroutine in [radix sort](https://en.wikipedia.org/wiki/Radix_sort), another sorting algorithm, which can handle larger keys more efficiently.
+
+3. Repeat: Repeat step 2 for each subsequent digit position until the most significant digit.
+
+4. Result: After processing all k digits, the array will be sorted.
+
+Here is a step-by-step example of Radix Sort:
+
+Suppose we have an array `A` with values `[170, 45, 75, 90, 802, 24, 2, 66]`.
+
+1. The maximum number of digits (k) is 3 (since 802 has three digits).
+2. Start with the **least significant digit** (ones place):
+   - Buckets after sorting by ones place: [170, 90, 802, 2, 24, 45, 75, 66]
+
+3. Move to the next digit (tens place):
+   - Buckets after sorting by tens place: [802, 2, 24, 45, 66, 170, 75, 90]
+
+4. Finally, sort by the most significant digit (hundreds place):
+   - Buckets after sorting by hundreds place: [2, 24, 45, 66, 75, 90, 170, 802]
+
+5. The array is now sorted.
+
+**Radix Sort** has a time complexity of O(nk) for n keys with k digits. It is efficient for sorting large sets of data with a small range of key values. Unlike comparison-based sorting algorithms like quicksort or mergesort, Radix Sort's performance does not depend on the initial order of the elements. It is also [**stable**](https://en.wikipedia.org/wiki/Sorting_algorithm#Stability), which means that it maintains the relative order of equal elements, an important property when sorting data by multiple keys. 
 
 
 
@@ -258,6 +260,7 @@ Radix sorts can be implemented to start at either the [most significant digit](h
 ### Code
 
 ```python
+import unittest
 from typing import MutableSequence
 
 
@@ -267,16 +270,17 @@ class RadixSort:
         # Find the maximum number to determine the number of digits
         max_num = max(arr)
         # Perform counting sort for every digit
-        exp = 1  # exponent
-        while max_num // exp > 0:
+        exp = 1  # exponent, LSB-radix-sort
+        while max_num // exp > 0:  # floor div
             cls.counting_sort(arr, exp)
             exp *= 10
+        return arr
 
     @classmethod
-    def counting_sort(cls, arr: MutableSequence[int], exp):
+    def counting_sort(cls, arr: MutableSequence[int], exp: int):
         n = len(arr)
         output = [0] * n
-        count = [0] * 10
+        count = [0] * 10  # radix=10
 
         # Count the occurrences of each digit
         for i in range(n):
@@ -298,6 +302,15 @@ class RadixSort:
         # Copy the sorted elements back to the original array
         for i in range(n):
             arr[i] = output[i]
+
+
+class TestRadixSort(unittest.TestCase):
+    def test_radix_sort(self):
+        arr = [999, 888, 777, 666, 555, 444, 333, 222, 111, 0]
+        sorted_arr = RadixSort.sort(arr)
+        for num in sorted_arr:
+            print(num)
+        self.assertEqual(sorted_arr, sorted(arr))
 
 ```
 
