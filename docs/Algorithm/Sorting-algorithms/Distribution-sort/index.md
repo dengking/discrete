@@ -171,3 +171,52 @@ Radix sorts can be implemented to start at either the [most significant digit](h
 ##### Tree-based radix sort
 
 **Radix sorting** can also be accomplished by building a [tree](https://en.wikipedia.org/wiki/Tree_(data_structure)) (or [radix tree](https://en.wikipedia.org/wiki/Radix_tree)) from the input set, and doing a [pre-order](https://en.wikipedia.org/wiki/Tree_traversal#Pre-order,_NLR) traversal. This is similar to the relationship between [heapsort](https://en.wikipedia.org/wiki/Heapsort) and the [heap](https://en.wikipedia.org/wiki/Heap_(data_structure)) data structure. This can be useful for certain data types, see [burstsort](https://en.wikipedia.org/wiki/Burstsort).
+
+
+
+### Code
+
+```python
+from typing import MutableSequence
+
+
+class RadixSort:
+    @classmethod
+    def sort(cls, arr: MutableSequence[int]):
+        # Find the maximum number to determine the number of digits
+        max_num = max(arr)
+        # Perform counting sort for every digit
+        exp = 1  # exponent
+        while max_num // exp > 0:
+            cls.counting_sort(arr, exp)
+            exp *= 10
+
+    @classmethod
+    def counting_sort(cls, arr: MutableSequence[int], exp):
+        n = len(arr)
+        output = [0] * n
+        count = [0] * 10
+
+        # Count the occurrences of each digit
+        for i in range(n):
+            index = arr[i] // exp
+            count[index % 10] += 1
+
+        # Calculate the cumulative count
+        for i in range(1, 10):
+            count[i] += count[i - 1]
+
+        # Build the output array
+        i = n - 1
+        while i >= 0:
+            index = arr[i] // exp
+            output[count[index % 10] - 1] = arr[i]
+            count[index % 10] -= 1
+            i -= 1
+
+        # Copy the sorted elements back to the original array
+        for i in range(n):
+            arr[i] = output[i]
+
+```
+
