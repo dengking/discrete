@@ -1,2 +1,6 @@
 nav:
-    - Introduction: index.md
+    - Introduction: index.md    
+    - cs166.1166-lectures-02-Slides02-Aho-Corasick-Automata: cs166.1166-lectures-02-Slides02-Aho-Corasick-Automata
+    - cs166-spr2023-April-6-Slides04-Tries-and-Suffix-Trees: cs166-spr2023-April-6-Slides04-Tries-and-Suffix-Trees
+    - cs166-spr2023-April-6-Slides05-Suffix-and-LCP-Arrays: cs166-spr2023-April-6-Slides05-Suffix-and-LCP-Arrays
+    

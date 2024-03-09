@@ -71,6 +71,28 @@ oart
 
 从最简单的naive approach介绍如何实现string search，然后介绍Aho-Corasick Automata是如何做的。
 
+## The String Searching Problem
+
+Consider the following problem:
+
+> Given a string $T$ and $k$ nonempty strings $P_1, \dots , P_k$, find all occurrences of $P_1, \dots , P_k$ in $T$​.
+
+*T* is called the **text string** and $P_1, \dots , P_k$​ are called **pattern strings**.
+
+This problem was originally studied in the context of **compiling indexes**, but has found applications in **computer security** and **computational genomics**.
+
+## Some Terminology
+
+Let $m = |T|$​, the length of the string to be searched.
+
+Let $n = |P_1| + |P_2| + \dots + |P_k$​| be the total length of all the pattern strings.
+
+Let $L_{max}$​ be the length of the longest pattern string.
+
+Assume that strings are drawn from an alphabet $\Sigma$, where $|\Sigma|$​ is some constant.
+
+We'll use these terms when talking about the runtime of the algorithms and data structures we'll explore over the next couple of days.
+
 
 
 ## Naïve approach(Page-9)
@@ -83,7 +105,7 @@ For each position in T:
           Check if Pᵢ appears at that position
 ```
 
-### Analyzing 
+### Analyzing Our Approach(Page-38)
 
 let *m* be the length of the text and *n* the total length of the pattern strings.
 
@@ -91,7 +113,13 @@ For each character of the text string *T*, in the worst case, we scan over all *
 
 Time complexity: $\mathcal{O}(mn)$.
 
+## Can we do better?(Page-40~54)
 
+> NOTE:
+>
+> 一、从Page-40到Page-54，所描述的其实就是后面即将介绍的 "Parallel Searching"，仔细看作者的配图可以发现端倪:
+>
+> - 比如Page-43匹配字符 `a`，它一次性得匹配了所有的以 `a` 打头的字符串，通过后面的内容可知，我们可以通过trie来实现类似的效果
 
 ## Parallel Searching(Page-60)
 
@@ -101,9 +129,15 @@ Intuitively, this should cut down on a lot of the unnecessary rescanning that we
 
 > NOTE:
 >
-> 一、如何理解标题的 "parallel" 的含义？下面是chatGPT对 Aho-Corasick Automata 的解释中的一段，其中的"simultaneous matching of multiple patterns against an input text"就是 "parallel"
+> 一、如何理解标题的 "Parallel Searching" 的含义？
+>
+> - 下面是chatGPT对 Aho-Corasick Automata 的解释中的一段，其中的"simultaneous matching of multiple patterns against an input text"就是 "parallel"
 >
 > > It allows for simultaneous matching of multiple patterns against an input text in linear time relative to the length of the input plus the number of matched entries.
+>
+> - "Can we do better?" 章节的例子就是最好的展示 
+
+
 
 ### Trie
 

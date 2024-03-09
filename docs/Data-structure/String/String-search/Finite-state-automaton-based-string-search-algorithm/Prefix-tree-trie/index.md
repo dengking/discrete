@@ -11,6 +11,7 @@
 >   - [宫水三叶【设计数据结构】实现 Trie (前缀树)](https://mp.weixin.qq.com/s/DBTQyNYsEgmN0Vb5fbolUg) 
 >   - [宫水三叶【设计数据结构】Trie 运用题](https://mp.weixin.qq.com/s/TPVBlNBLlUpQKXK_XkR-3Q) 
 > - geeksforgeeks [Trie | (Insert and Search)](https://www.geeksforgeeks.org/tag/trie/) 
+> - stanford [CS166](https://web.stanford.edu/class/cs166/) # [**Tries and Suffix Trees**](https://web.stanford.edu/class/cs166/) 
 
 ---
 
@@ -18,7 +19,7 @@
 
 ## Trie-is-DFA
 
-Trie本质上是DFA，它指定了每个节点在当前字符下的转移到下一个节点，它可以使用weighted-directed-graph来进行实现。
+Trie本质上是DFA，它指定了每个节点在当前字符下的转移到下一个节点，它可以使用**weighted-directed-graph**来进行实现。
 
 
 
@@ -46,7 +47,7 @@ A trie for keys "A", "to", "tea", "ted", "ten", "i", "in", and "inn". Note that 
 
 ​	
 
-### Algorithms
+### Operations
 
 The trie is a tree of nodes which supports `Find` and `Insert` operations. `Find` returns the value for a key string, and Insert inserts a string (the key) and a value into the trie. Both Insert and Find run in O(*n*) time, where `n` is the length of the key.
 
@@ -74,16 +75,23 @@ def find(node: Node, key: str) -> Any:
     return node.value
 ```
 
-Insertion proceeds by walking the trie according to the string to be inserted, then appending new nodes for the suffix of the string that is not contained in the trie:
+#### Insertion
 
-```python
-def insert(node: Node, key: str, value: Any) -> None:
-    for char in key:
-        if char not in node.children:
-            node.children[char] = Node()
-        node = node.children[char]
-    node.value = value
+Insertion into trie is guided by using the [character sets](https://en.wikipedia.org/wiki/Character_encoding#Character_sets,_character_maps_and_code_pages) as indexes to the **children array** until the last character of the string key is reached. Each node in the trie corresponds to one call of the [radix sorting](https://en.wikipedia.org/wiki/Radix_sorting) routine, as the trie structure reflects the execution of pattern of the top-down **radix sort**. 
+
+```pseudocode
+Trie-Insert(x, key, value)
+    for 0 ≤ i < key.length do
+        if x.Children[key[i]] = nil then
+            x.Children[key[i]] := Node()
+        end if
+        x := x.Children[key[i]]
+    repeat
+    x.Value := value
+    x.Is-Terminal := True
 ```
+
+
 
 ### Implementation strategies
 
