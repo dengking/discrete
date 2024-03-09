@@ -40,11 +40,9 @@ See also: [External sorting](https://infogalactic.com/info/External_sorting)
 
 ## Counting sort
 
-
-
 "counting sort"即"计数排序"，它是我在阅读 labuladong [小而美的算法技巧：前缀和数组](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247494095&idx=2&sn=19a2609f33eadbbda1f6b75e2298d931&scene=21#wechat_redirect) 时发现的，其中有这样的介绍:
 
-> 你可以先通过计数排序的方式计算每个分数具体有多少个同学，然后利用前缀和技巧来实现分数段查询的 API：
+> 你可以先通过**计数排序**的方式计算每个分数具体有多少个同学，然后利用前缀和技巧来实现分数段查询的 API：
 >
 > ```Java
 > int[] scores; // 存储着所有同学的分数
@@ -59,6 +57,49 @@ See also: [External sorting](https://infogalactic.com/info/External_sorting)
 > 
 > // 利用 count 这个前缀和数组进行分数段查询
 > ```
+
+### gpt-4-vision
+
+**Counting Sort** is an **integer sorting algorithm** that operates by counting the number of objects that have each distinct key value. It is a non-comparative sorting algorithm, meaning it does not compare the elements directly to sort them. Instead, it uses the actual values of the elements to index into an array. **Counting Sort** is most effective when the range of potential items (the keys) is not significantly greater than the number of items to be sorted.
+
+> NOTE:
+>
+> 一、"it uses the actual values of the elements to index into an array" 将element作为array的index，那么这就是在无形中进行排序，并且后续直接用element进行查询。借助于prefix sum，可以得到每个element的最终的次序(order、position)，由此可见这个算法的本质是首先得到每个element的最终的次序(order、position)。
+
+Here's how **Counting Sort** works:
+
+1. **Find the Range**: Determine the range of input values, i.e., the **minimum** and **maximum** values (min and max).
+
+2. **Create Count Array**: Create an array `count` of size `max - min + 1` to hold the count of each value in the input array. Initialize all elements of the `count` array to 0.
+
+3. **Count Occurrences**: Iterate through the input array and, for each element `x`, increment `count[x - min]`. This step counts the occurrences of each value.
+
+4. **Calculate Prefix Sum**: Modify the `count` array by replacing each element with the sum of the previous counts. This step accumulates the counts and determines the **position** of each value in the sorted array.
+
+   > NOTE:
+   >
+   > 一、上面这段话中的 "**position**" 所表示的就是**次序**、**位次**的意思
+
+5. **Sort**: Create an output array `sorted` of the same size as the input array. Iterate through the input array in **reverse order** (to maintain stability), and for each element `x`, place it in the sorted array at the index indicated by `count[x - min]`, then decrement `count[x - min]` by 1.
+
+   > NOTE:
+   >
+   > 一、典型的stack order: 装进去的时候是从前到后，取出来的时候需要从后往前才能够保证相同元素之间的stable。
+
+6. **Copy Back**: Copy the `sorted` array back into the original input array.
+
+Here is a step-by-step example of Counting Sort:
+
+Suppose we have an array `A` with values `[4, 2, 2, 8, 3, 3, 1]`.
+
+1. The range of values is 1 to 8 (min to max).
+2. We create a `count` array of size `8 - 1 + 1 = 8` and initialize it to `[0, 0, 0, 0, 0, 0, 0, 0]`.
+3. We count the occurrences: `[1, 2, 2, 1, 0, 0, 0, 1]`.
+4. We calculate the **prefix sum**: `[1, 3, 5, 6, 6, 6, 6, 7]`.
+5. We sort the array. Starting from the end of the input array, we place each element in its correct position in the sorted array and decrement the corresponding count.
+6. Finally, we copy the sorted array [1, 2, 2, 3, 3, 4, 8] back into the original array A.
+
+**Counting Sort** has a time complexity of `O(n + k)`, where `n` is the number of elements in the **input array** and `k` is the range of the input values. It is efficient when `k` is not significantly larger than `n`. It is also a **stable sort**, meaning that it maintains the relative order of equal elements, which is an important property when sorting data by multiple keys.
 
 
 
@@ -104,6 +145,46 @@ function CountingSort(input, k)
 > 一、key是单调递增的，因此可以作为排序的标准
 >
 > 二、上面这一版就是使用了prefix sum的
+
+### Code
+
+```python
+
+def counting_sort(arr: MutableSequence[int]):
+    # Find the maximum element in the array
+    min_val, max_val = min(arr), max(arr)
+
+    # Create a count array to store the count of each element
+    count = [0] * (max_val - min_val + 1)
+
+    # Count the occurrences of each element
+    for num in arr:
+        count[num - min_val] += 1
+
+    # Calculate the cumulative count
+    for i in range(1, len(count)):
+        count[i] += count[i - 1]
+
+    # Create an output array to store the sorted elements
+    output = [0] * len(arr)
+
+    # Build the output array in sorted order
+    for num in reversed(arr):
+        output[count[num] - 1] = num
+        count[num] -= 1
+
+    return output
+
+
+class TestCountingSort(unittest.TestCase):
+    def test_counting_sort(self):
+        arr = [999, 888, 777, 666, 555, 444, 333, 222, 111, 0]
+        sorted_arr = counting_sort(arr)
+        for num in sorted_arr:
+            print(num)
+        self.assertEqual(sorted_arr, sorted(arr))
+
+```
 
 
 
