@@ -39,7 +39,17 @@ In the example shown, keys are listed in the nodes and values below them. Each c
 >
 > 二、其实感觉trie更加类似于graph，因为trie的edge有label，类似于weighted directed graph，所以它的实现除了需要保存节点之间的edge，还需要保存每条edge的label，其实这就非常类似finite automata；
 
-Though tries can be keyed by character strings, they need not be. The same algorithms can be adapted to serve similar functions on **ordered lists** of any construct, e.g. permutations on a list of digits or shapes. In particular, a **bitwise trie** is keyed on the individual bits making up any fixed-length binary datum, such as an integer or memory address.
+Though tries can be keyed by character strings, they need not be. The same algorithms can be adapted for ordered lists of any underlying type, e.g. [permutations](https://en.wikipedia.org/wiki/Permutation) of digits or shapes. In particular, a **bitwise trie** is keyed on the individual bits making up a piece of fixed-length binary data, such as an integer or [memory address](https://en.wikipedia.org/wiki/Memory_address). The key lookup complexity of a trie remains proportional to the key size. Specialized trie implementations such as compressed tries are used to deal with the enormous space requirement of a trie in naive implementations.
+
+> NOTE:
+>
+> 一、trie-permutation: 
+>
+> trie-string
+>
+> trie-digital-radix-tree: radix sort
+>
+> 
 
 [![img](https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Trie_example.svg/250px-Trie_example.svg.png)](https://en.wikipedia.org/wiki/File:Trie_example.svg)
 
@@ -107,6 +117,8 @@ Trie-Insert(x, key, value)
 
 #### Python
 
+
+
 ```python
 import unittest
 from typing import Dict
@@ -152,17 +164,74 @@ class TestTrie(unittest.TestCase):
         # Example usage
         trie = Trie()
         trie.insert("apple")
-        print(trie.search("apple"))  # Returns True
-        print(trie.search("app"))  # Returns False
-        print(trie.starts_with("app"))  # Returns True
+        self.assertTrue(trie.search("apple"))  # Returns True
+        self.assertFalse(trie.search("app"))  # Returns False
+        self.assertTrue(trie.starts_with("app"))  # Returns True
         trie.insert("app")
-        print(trie.search("app"))  # Returns True
+        self.assertTrue(trie.search("app"))  # Returns True
 
 ```
 
 
 
 
+
+```python
+import unittest
+from typing import List
+
+
+class TrieNode:
+    def __init__(self):
+        self.children = [-1] * 26  # 共26个字母，-1表示null
+        self.is_end_of_word = False
+
+
+class Trie:
+    def __init__(self):
+        self.nodes: List[TrieNode] = [TrieNode()]
+
+    def insert(self, word: str):
+        node_idx = 0  # root node
+        for char in word:
+            char_idx = ord(char) - ord('a')
+            if self.nodes[node_idx].children[char_idx] == -1:
+                self.nodes[node_idx].children[char_idx] = len(self.nodes)
+                self.nodes.append(TrieNode())
+            node_idx = self.nodes[node_idx].children[char_idx]
+        self.nodes[node_idx].is_end_of_word = True
+
+    def search(self, word: str):
+        node_idx = 0
+        for char in word:
+            char_idx = ord(char) - ord('a')
+            if self.nodes[node_idx].children[char_idx] == -1:
+                return False
+            node_idx = self.nodes[node_idx].children[char_idx]
+        return self.nodes[node_idx].is_end_of_word
+
+    def starts_with(self, prefix: str):
+        node_idx = 0
+        for char in prefix:
+            char_idx = ord(char) - ord('a')
+            if self.nodes[node_idx].children[char_idx] == -1:
+                return False
+            node_idx = self.nodes[node_idx].children[char_idx]
+        return True
+
+
+class TestTrie(unittest.TestCase):
+    def test_trie(self):
+        # Example usage
+        trie = Trie()
+        trie.insert("apple")
+        self.assertTrue(trie.search("apple"))  # Returns True
+        self.assertFalse(trie.search("app"))  # Returns False
+        self.assertTrue(trie.starts_with("app"))  # Returns True
+        trie.insert("app")
+        self.assertTrue(trie.search("app"))  # Returns True
+
+```
 
 
 
@@ -176,9 +245,15 @@ class TestTrie(unittest.TestCase):
 >
 > 在 [stanford.-Tries and Suffix Trees](https://web.stanford.edu/class/cs166/lectures/04/Slides04.pdf) 中，有着很好的描述
 
+### [Longest prefix match](https://en.wikipedia.org/wiki/Longest_prefix_match) 
+
+> NOTE:
+>
+> trie非常适合于实现这种任务。
+
 ### Sorting
 
-Lexicographic sorting of a set of keys can be accomplished by building a **trie** from them, and traversing it in [pre-order](https://en.wikipedia.org/wiki/Tree_traversal#Pre-order), printing only the leaves' values. This algorithm is a form of [radix sort](https://en.wikipedia.org/wiki/Radix_sort).[[10\]](https://en.wikipedia.org/wiki/Trie#cite_note-10)
+[Lexicographic sorting](https://en.wikipedia.org/wiki/Lexicographic_order) of a set of keys can be accomplished by building a **trie** from them, and traversing it in [pre-order](https://en.wikipedia.org/wiki/Tree_traversal#Pre-order), printing only the leaves' values. This algorithm is a form of [radix sort](https://en.wikipedia.org/wiki/Radix_sort).
 
 A trie forms the fundamental data structure of [Burstsort](https://en.wikipedia.org/wiki/Burstsort), which (in 2007) was the fastest known string sorting algorithm.[[11\]](https://en.wikipedia.org/wiki/Trie#cite_note-cachestringsort-11) However, now there are faster string sorting algorithms.[[12\]](https://en.wikipedia.org/wiki/Trie#cite_note-stringradix-12)
 
@@ -191,8 +266,6 @@ A special kind of trie, called a [suffix tree](https://en.wikipedia.org/wiki/Suf
 
 
 ### [Aho–Corasick algorithm](https://en.wikipedia.org/wiki/Aho%E2%80%93Corasick_algorithm)
-
-KMP-failure-function+trie
 
 
 

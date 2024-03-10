@@ -85,6 +85,8 @@ Here's how **Counting Sort** works:
    > NOTE:
    >
    > 一、典型的stack order: 装进去的时候是从前到后，取出来的时候需要从后往前才能够保证相同元素之间的stable。
+   >
+   > Counting sort的过程可以形象地看作是将数字放到依次排开的柱子上(每个柱子可以看作是一个stack)，显然为了保持相对次序，取出的时候需要从后往前取出。
 
 6. **Copy Back**: Copy the `sorted` array back into the original input array.
 
@@ -255,7 +257,15 @@ Radix sorts can be implemented to start at either the [most significant digit](h
 
 **Radix sorting** can also be accomplished by building a [tree](https://en.wikipedia.org/wiki/Tree_(data_structure)) (or [radix tree](https://en.wikipedia.org/wiki/Radix_tree)) from the input set, and doing a [pre-order](https://en.wikipedia.org/wiki/Tree_traversal#Pre-order,_NLR) traversal. This is similar to the relationship between [heapsort](https://en.wikipedia.org/wiki/Heapsort) and the [heap](https://en.wikipedia.org/wiki/Heap_(data_structure)) data structure. This can be useful for certain data types, see [burstsort](https://en.wikipedia.org/wiki/Burstsort).
 
-
+> NOTE:
+>
+> 一、
+>
+> 将这种树称之为trie-digital-radix-tree
+>
+> 在 wikipedia [Trie#Sorting](https://en.wikipedia.org/wiki/Trie#Sorting) 中也有对上述主题的说明
+>
+> [LeetCode-386. Lexicographical Numbers-Medium](https://leetcode.cn/problems/lexicographical-numbers/) 
 
 ### Code
 
