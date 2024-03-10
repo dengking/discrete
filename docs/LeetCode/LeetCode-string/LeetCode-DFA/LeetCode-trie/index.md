@@ -1,5 +1,9 @@
 # Trie
 
+https://leetcode.com/tag/trie/
+
+[LeetCode-14. Longest Common Prefix-Easy](https://leetcode.com/problems/longest-common-prefix/) 
+
 [LeetCode-208. Implement Trie (Prefix Tree)-Middle](https://leetcode.cn/problems/implement-trie-prefix-tree/)
 
 [LeetCode-211. Design Add and Search Words Data Structure-Middle](https://leetcode.cn/problems/design-add-and-search-words-data-structure/)

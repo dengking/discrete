@@ -249,11 +249,21 @@ class TestTrie(unittest.TestCase):
 
 > NOTE:
 >
-> trie非常适合于实现这种任务。
+> 一、trie非常适合于实现这种任务。
+>
+> 二、[LeetCode-14. Longest Common Prefix-Easy](https://leetcode.com/problems/longest-common-prefix/) 
+>
+> 
 
 ### Sorting
 
 [Lexicographic sorting](https://en.wikipedia.org/wiki/Lexicographic_order) of a set of keys can be accomplished by building a **trie** from them, and traversing it in [pre-order](https://en.wikipedia.org/wiki/Tree_traversal#Pre-order), printing only the leaves' values. This algorithm is a form of [radix sort](https://en.wikipedia.org/wiki/Radix_sort).
+
+> NOTE:
+>
+> 一、[LeetCode-386. Lexicographical Numbers-Medium](https://leetcode.cn/problems/lexicographical-numbers/) 
+>
+> 
 
 A trie forms the fundamental data structure of [Burstsort](https://en.wikipedia.org/wiki/Burstsort), which (in 2007) was the fastest known string sorting algorithm.[[11\]](https://en.wikipedia.org/wiki/Trie#cite_note-cachestringsort-11) However, now there are faster string sorting algorithms.[[12\]](https://en.wikipedia.org/wiki/Trie#cite_note-stringradix-12)
 
@@ -272,4 +282,44 @@ A special kind of trie, called a [suffix tree](https://en.wikipedia.org/wiki/Suf
 ### [Huffman coding](https://en.wikipedia.org/wiki/Huffman_coding)
 
 Huffman coding tree也可以看作是一种trie
+
+
+
+## LeetCode
+
+参加 `LeetCode-trie` 章节。
+
+
+
+[LeetCode-386. Lexicographical Numbers-Medium](https://leetcode.cn/problems/lexicographical-numbers/) 
+
+```python
+import unittest
+from typing import *
+
+
+class Solution:
+    def lexicalOrder(self, n: int) -> List[int]:
+        ans = []
+        for digit in range(1, 10):
+            self.dfs(digit, n, ans)
+        return ans
+
+    def dfs(self, num, n, ans: List[int]):
+        if num > n:
+            return
+        ans.append(num)
+        for digit in range(0, 10):
+            self.dfs(num * 10 + digit, n, ans)
+
+
+class TestSolution(unittest.TestCase):
+    def test_solution(self):
+        solution = Solution()
+        ans = solution.lexicalOrder(13)
+        self.assertEqual(ans, [1, 10, 11, 12, 13, 2, 3, 4, 5, 6, 7, 8, 9])
+        ans = solution.lexicalOrder(2)
+        self.assertEqual(ans, [1, 2])
+
+```
 

@@ -6,6 +6,85 @@
 [1,10,100,101,102,103,104,105,106,107,108,109,11,110,111,112,113,12,13,14,15,16,17,18,19,2,20,21,22,23,24,25,26,27,28,29,3,30,31,32,33,34,35,36,37,38,39,4,40,41,42,43,44,45,46,47,48,49,5,50,51,52,53,54,55,56,57,58,59,6,60,61,62,63,64,65,66,67,68,69,7,70,71,72,73,74,75,76,77,78,79,8,80,81,82,83,84,85,86,87,88,89,9,90,91,92,93,94,95,96,97,98,99]
 ```
 
+[pre-order](https://en.wikipedia.org/wiki/Tree_traversal#Pre-order,_NLR)-trie-digital-radix-tree。
+
+使用trie来将所有的数字组织起来，然后preorder遍历trie。
+
+## Python
+
+```python
+import unittest
+from typing import *
+
+
+class Solution:
+    def lexicalOrder(self, n: int) -> List[int]:
+        ans = []
+        for digit in range(1, 10):
+            self.dfs(digit, n, ans)
+        return ans
+
+    def dfs(self, num, n, ans: List[int]):
+        if num > n:
+            return
+        ans.append(num)
+        for digit in range(0, 10):
+            self.dfs(num * 10 + digit, n, ans)
+
+
+class TestSolution(unittest.TestCase):
+    def test_solution(self):
+        solution = Solution()
+        ans = solution.lexicalOrder(13)
+        self.assertEqual(ans, [1, 10, 11, 12, 13, 2, 3, 4, 5, 6, 7, 8, 9])
+        ans = solution.lexicalOrder(2)
+        self.assertEqual(ans, [1, 2])
+
+```
+
+
+
+## C++
+
+```C++
+#include <bits/stdc++.h>
+using namespace std;
+
+class Solution
+{
+public:
+	vector<int> lexicalOrder(int n)
+	{
+		vector<int> ret; // 结果
+		for (int number = 1; number <= 9; ++number)
+		{
+			DFS(number, n, ret);
+		}
+		return ret;
+	}
+	void DFS(int number, int n, vector<int> &ret) // pre-order
+	{
+		if (number > n)
+		{
+			return;
+		}
+		ret.push_back(number);
+		for (int i = 0; i <= 9; ++i)
+		{
+			DFS(number * 10 + i, n, ret);
+		}
+	}
+};
+
+int main()
+{
+	Solution s;
+}
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -g
+
+
+```
+
 
 
 ## [PPPPjcute](https://leetcode.cn/u/ppppjcute/)  # [java 字典序的遍历](https://leetcode.cn/problems/lexicographical-numbers/solution/java-zi-dian-xu-de-bian-li-by-ppppjqute/)
@@ -230,46 +309,4 @@ class Solution {
 >
 > 
 
-
-
-## 我的解题
-
-```C++
-#include <bits/stdc++.h>
-using namespace std;
-
-class Solution
-{
-public:
-	vector<int> lexicalOrder(int n)
-	{
-		vector<int> ret; // 结果
-		for (int number = 1; number <= 9; ++number)
-		{
-			DFS(number, n, ret);
-		}
-		return ret;
-	}
-	void DFS(int number, int n, vector<int> &ret) // pre-order
-	{
-		if (number > n)
-		{
-			return;
-		}
-		ret.push_back(number);
-		for (int i = 0; i <= 9; ++i)
-		{
-			DFS(number * 10 + i, n, ret);
-		}
-	}
-};
-
-int main()
-{
-	Solution s;
-}
-// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -g
-
-
-```
 

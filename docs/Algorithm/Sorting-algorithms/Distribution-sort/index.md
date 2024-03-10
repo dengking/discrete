@@ -266,6 +266,38 @@ Radix sorts can be implemented to start at either the [most significant digit](h
 > 在 wikipedia [Trie#Sorting](https://en.wikipedia.org/wiki/Trie#Sorting) 中也有对上述主题的说明
 >
 > [LeetCode-386. Lexicographical Numbers-Medium](https://leetcode.cn/problems/lexicographical-numbers/) 
+>
+> ```python
+> import unittest
+> from typing import *
+> 
+> 
+> class Solution:
+>     def lexicalOrder(self, n: int) -> List[int]:
+>         ans = []
+>         for digit in range(1, 10):
+>             self.dfs(digit, n, ans)
+>         return ans
+> 
+>     def dfs(self, num, n, ans: List[int]):
+>         if num > n:
+>             return
+>         ans.append(num)
+>         for digit in range(0, 10):
+>             self.dfs(num * 10 + digit, n, ans)
+> 
+> 
+> class TestSolution(unittest.TestCase):
+>     def test_solution(self):
+>         solution = Solution()
+>         ans = solution.lexicalOrder(13)
+>         self.assertEqual(ans, [1, 10, 11, 12, 13, 2, 3, 4, 5, 6, 7, 8, 9])
+>         ans = solution.lexicalOrder(2)
+>         self.assertEqual(ans, [1, 2])
+> 
+> ```
+>
+> 
 
 ### Code
 
