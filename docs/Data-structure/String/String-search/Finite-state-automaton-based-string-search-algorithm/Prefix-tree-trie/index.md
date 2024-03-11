@@ -291,7 +291,51 @@ Huffman coding tree也可以看作是一种trie
 
 
 
-[LeetCode-386. Lexicographical Numbers-Medium](https://leetcode.cn/problems/lexicographical-numbers/) 
+
+
+### [LeetCode-14. 最长公共前缀](https://leetcode.cn/problems/longest-common-prefix/)
+
+
+
+```python
+from typing import *
+
+
+class TrieNode:
+    def __init__(self):
+        self.children: Dict[str, TrieNode] = {}
+        self.is_end_of_word = False
+
+
+class Solution:
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+        root = TrieNode()
+        for s in strs:
+            if not s:  # 空字符串直接返回空
+                return ""
+            node = root
+            for c in s:
+                if c not in node.children:
+                    node.children[c] = TrieNode()
+
+                node = node.children[c]
+            node.is_end_of_word = True
+        ans: str = ""
+        node = root
+        while node:
+            if not node.is_end_of_word and len(node.children) == 1:
+                c = list(node.children.keys())[0]
+                ans += c
+                node = node.children[c]
+            else:
+                break
+        return ans
+
+```
+
+
+
+### [LeetCode-386. Lexicographical Numbers-Medium](https://leetcode.cn/problems/lexicographical-numbers/) 
 
 ```python
 import unittest

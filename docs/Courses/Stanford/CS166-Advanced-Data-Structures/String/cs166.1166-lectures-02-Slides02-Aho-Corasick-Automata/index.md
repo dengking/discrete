@@ -135,11 +135,11 @@ Intuitively, this should cut down on a lot of the unnecessary rescanning that we
 >
 > > It allows for simultaneous matching of multiple patterns against an input text in linear time relative to the length of the input plus the number of matched entries.
 >
-> - "Can we do better?" 章节的例子就是最好的展示 
+> - 前面的"Can we do better?" 章节的例子就是最好的展示 
 
 
 
-### Trie
+### Trie(Page-58)
 
 这一节以trie为例，非常好的展示了finite-state-based-automata-string-search-algorithm的思路: 将text输入到Aho-Corasick Automata，text的每个character都将导致transition。
 
