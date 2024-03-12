@@ -577,3 +577,84 @@ Do a **breadth-first search** of the **trie**, performing the following operatio
 
 
 ## Computing Output Links
+
+
+
+## Code
+
+```python
+import unittest
+from collections import deque
+from typing import *
+
+
+class AhoCorasickAutomataNode:
+    def __init__(self, value: str = ''):
+        self.value: str = value  # 当前node对应的substring
+        self.next_states: Dict[str, AhoCorasickAutomataNode] = {}
+        self.fail_state: Optional[AhoCorasickAutomataNode] = None  # suffix link
+        self.output: List[str] = []
+
+
+class AhoCorasickAutomata:
+    def __init__(self):
+        self.root: AhoCorasickAutomataNode = AhoCorasickAutomataNode()
+
+    def add_word(self, word: str):
+        node = self.root
+        for char in word:
+            if char not in node.next_states:
+                node.next_states[char] = AhoCorasickAutomataNode(node.value + char)
+            node = node.next_states[char]
+        node.output.append(word)
+
+    def build_failure_states(self):
+        queue = deque()
+        for node in self.root.next_states.values():
+            queue.append(node)
+            node.fail_state = self.root
+
+        while queue:
+            current_node: AhoCorasickAutomataNode = queue.popleft()
+            for char, next_node in current_node.next_states.items():
+                queue.append(next_node)
+                fail_state_node: AhoCorasickAutomataNode = current_node.fail_state
+                while fail_state_node is not None and char not in fail_state_node.next_states:
+                    fail_state_node = fail_state_node.fail_state
+                next_node.fail_state = fail_state_node.next_states[char] if fail_state_node else self.root
+                next_node.output += next_node.fail_state.output
+
+    def search(self, text: str):
+        node = self.root
+        results = []
+        for i in range(len(text)):
+            while node is not None and text[i] not in node.next_states:
+                node = node.fail_state
+            if node is None:
+                node = self.root
+                continue
+            node = node.next_states[text[i]]
+            for pattern in node.output:
+                results.append((i - len(pattern) + 1, pattern))
+        return results
+
+
+class TestAhoCorasickAutomatae(unittest.TestCase):
+    def test_1(self):
+        aho_corasick = AhoCorasickAutomata()
+        patterns = ['a', 'ab', 'bc', 'aab', 'aac', 'bd']
+        for pattern in patterns:
+            aho_corasick.add_word(pattern)
+        aho_corasick.build_failure_states()
+        text = 'aabc'
+        matches = aho_corasick.search(text)
+        matches.sort()
+        print(matches)  # Output: [(0, 'a'), (1, 'ab'), (1, 'a'), (2, 'bc'), (1, 'aab')]
+
+        self.assertEqual(matches, [(0, 'a'), (0, 'aab'), (1, 'a'), (1, 'ab'), (2, 'bc')])
+
+```
+
+
+
+## [LeetCode-1032. Stream of Characters-Hard](https://leetcode.cn/problems/stream-of-characters/)
