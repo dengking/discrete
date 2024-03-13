@@ -32,7 +32,17 @@ wikipedia [string-searching algorithm](https://en.wikipedia.org/wiki/String-sear
 
 ---
 
-### Source code
+
+
+### wikipedia [Knuth–Morris–Pratt algorithm](https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm)
+
+In [computer science](https://en.wikipedia.org/wiki/Computer_science), the **Knuth–Morris–Pratt [string-searching algorithm](https://en.wikipedia.org/wiki/String-searching_algorithm)** (or **KMP algorithm**) searches for occurrences of a "word" `W` within a main "text string" `S` by employing the observation that when a mismatch occurs, the word itself embodies sufficient information to determine where the next match could begin, thus bypassing re-examination of previously matched characters.
+
+The [algorithm](https://en.wikipedia.org/wiki/Algorithm) was conceived by [James H. Morris](https://en.wikipedia.org/wiki/James_H._Morris) and independently discovered by [Donald Knuth](https://en.wikipedia.org/wiki/Donald_Knuth) "a few weeks later" from [automata theory](https://en.wikipedia.org/wiki/Automata_theory).[[1\]](https://en.wikipedia.org/wiki/Knuth–Morris–Pratt_algorithm#cite_note-knuth1977-2)[[2\]](https://en.wikipedia.org/wiki/Knuth–Morris–Pratt_algorithm#cite_note-3) Morris and [Vaughan Pratt](https://en.wikipedia.org/wiki/Vaughan_Pratt) published a technical report in 1970.[[3\]](https://en.wikipedia.org/wiki/Knuth–Morris–Pratt_algorithm#cite_note-4) The three also published the algorithm jointly in 1977.[[1\]](https://en.wikipedia.org/wiki/Knuth–Morris–Pratt_algorithm#cite_note-knuth1977-2) Independently, in 1969, [Matiyasevich](https://en.wikipedia.org/wiki/Yuri_Matiyasevich)[[4\]](https://en.wikipedia.org/wiki/Knuth–Morris–Pratt_algorithm#cite_note-5)[[5\]](https://en.wikipedia.org/wiki/Knuth–Morris–Pratt_algorithm#cite_note-6) discovered a similar algorithm, coded by a two-dimensional Turing machine, while studying a string-pattern-matching recognition problem over a binary alphabet. This was the first linear-time algorithm for string matching.
+
+
+
+### Code
 
 #### Python
 
@@ -429,7 +439,8 @@ public:
 >
 > - wikipedia [Aho–Corasick algorithm](https://en.wikipedia.org/wiki/Aho%E2%80%93Corasick_algorithm) 
 > - geeksforgeeks [Aho-Corasick Algorithm for Pattern Searching](https://www.geeksforgeeks.org/aho-corasick-algorithm-pattern-searching/) 
-> - cp-algorithms [Aho-Corasick algorithm](https://cp-algorithms.com/string/aho_corasick.html)
+> - cp-algorithms [Aho-Corasick algorithm](https://cp-algorithms.com/string/aho_corasick.html) 
+> - [stanford-cs166.1166-Aho-Corasick Automata](https://web.stanford.edu/class/archive/cs/cs166/cs166.1166/lectures/02/Slides02.pdf) (good)
 
 ---
 
@@ -528,66 +539,76 @@ https://github.com/WojciechMula/pyahocorasick
 The **Aho-Corasick algorithm** is not implemented in Python's standard library, but you can write your own implementation or use third-party libraries that provide it. Below is a simplified version of the Aho-Corasick algorithm in Python:
 
 ```python
-from collections import deque
 import unittest
-from typing import List
+from collections import deque
+from typing import *
 
 
-class TrieNode:
+class AhoCorasickAutomataNode:
+    def __init__(self, value: str = ''):
+        self.value: str = value  # 当前node对应的substring
+        self.next_states: Dict[str, AhoCorasickAutomataNode] = {}  # children
+        self.fail_state: Optional[AhoCorasickAutomataNode] = None  # suffix link
+        self.output: List[str] = []  # output link
+
+
+class AhoCorasickAutomata:
     def __init__(self):
-        self.children = {}
-        self.failure_link = None
-        self.output = []
+        self.root: AhoCorasickAutomataNode = AhoCorasickAutomataNode()
+
+    def add_word(self, word: str):
+        node = self.root
+        for char in word:
+            if char not in node.next_states:
+                node.next_states[char] = AhoCorasickAutomataNode(node.value + char)
+            node = node.next_states[char]
+        node.output.append(word)
+
+    def build_failure_states(self):
+        queue = deque()
+        for node in self.root.next_states.values():
+            queue.append(node)
+            node.fail_state = self.root
+
+        while queue:
+            current_node: AhoCorasickAutomataNode = queue.popleft()
+            for char, next_node in current_node.next_states.items():
+                queue.append(next_node)
+                fail_state_node: AhoCorasickAutomataNode = current_node.fail_state
+                # root node的fail_state_node是Node，所以下面的判定条件: fail_state_node is not None 表示的是到达了root node
+                while fail_state_node is not None and char not in fail_state_node.next_states:
+                    fail_state_node = fail_state_node.fail_state
+                next_node.fail_state = fail_state_node.next_states[char] if fail_state_node else self.root
+                next_node.output += next_node.fail_state.output
+
+    def search(self, text: str):
+        node = self.root
+        results = []
+        for i in range(len(text)):
+            while node is not None and text[i] not in node.next_states:
+                node = node.fail_state
+            if node is None:
+                node = self.root
+                continue
+            node = node.next_states[text[i]]
+            for pattern in node.output:
+                results.append((i - len(pattern) + 1, pattern))
+        return results
 
 
-def build_trie(patterns: List[str]):
-    root = TrieNode()
-    for pattern in patterns:
-        node = root
-        for char in pattern:
-            # https://www.w3schools.com/python/ref_dictionary_setdefault.asp
-            node = node.children.setdefault(char, TrieNode())
-        node.output.append(pattern)
-    return root
+class TestAhoCorasickAutomatae(unittest.TestCase):
+    def test_1(self):
+        aho_corasick = AhoCorasickAutomata()
+        patterns = ['a', 'ab', 'bc', 'aab', 'aac', 'bd']
+        for pattern in patterns:
+            aho_corasick.add_word(pattern)
+        aho_corasick.build_failure_states()
+        text = 'aabc'
+        matches = aho_corasick.search(text)
+        matches.sort()
+        print(matches)  # Output: [(0, 'a'), (1, 'ab'), (1, 'a'), (2, 'bc'), (1, 'aab')]
 
-
-def build_failure_links(root: TrieNode):
-    queue = deque([root])
-    while queue:
-        current_node = queue.popleft()
-        for char, child_node in current_node.children.items():
-            queue.append(child_node)
-            fallback = current_node.failure_link
-            while fallback and char not in fallback.children:
-                fallback = fallback.failure_link
-            child_node.failure_link = fallback.children[char] if fallback else root
-            child_node.output += child_node.failure_link.output if child_node.failure_link else []
-
-
-def aho_corasick_search(text, root):
-    matches = []
-    node = root
-    for i, char in enumerate(text):
-        while node and char not in node.children:
-            node = node.failure_link
-        if not node:
-            node = root
-            continue
-        node = node.children[char]
-        for pattern in node.output:
-            matches.append((i - len(pattern) + 1, pattern))
-    return matches
-
-
-class AhoCorasickStringSearchAlgorithm(unittest.TestCase):
-    def test_aho_corasick_string_search_algorithm(self):
-        # Example usage
-        patterns = ['a', 'ab', 'bc', 'bca', 'c', 'caa']
-        root = build_trie(patterns)
-        build_failure_links(root)
-        text = 'abccab'
-        matches = aho_corasick_search(text, root)
-        print(matches)
+        self.assertEqual(matches, [(0, 'a'), (0, 'aab'), (1, 'a'), (1, 'ab'), (2, 'bc')])
 
 ```
 
@@ -686,7 +707,7 @@ Common in the two algorithm:
 
 - 在 mismatch 的发生的时候，充分利用 pattern(proper prefix、proper suffix)、已匹配的substring(matched substring)的信息来加速匹配。
 
-- 两者在构建automaton的时候，都涉及recursion。
+- 两者构建fail link都使用的是**dynamic programming** algorithm，算法非常类似。
 
 
 
