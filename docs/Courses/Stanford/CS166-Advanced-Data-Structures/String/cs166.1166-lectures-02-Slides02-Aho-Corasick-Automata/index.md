@@ -186,7 +186,7 @@ We now have two approaches:
 
 ## Aho-Corasick Automata
 
-## Suffix link
+### Suffix link Examples
 
 #### Suffix link example1(Page-103~121)
 
@@ -272,9 +272,9 @@ text:
 soarsoars
 ```
 
+#### Page-164
 
-
-In general, suffix links might jump the red cursor forward more than one step. The number of steps taken is equal to the change of depth in the trie.
+In general, **suffix links** might jump the **red cursor** forward more than one step. The number of steps taken is equal to the change of depth in the **trie**.
 
 
 
@@ -301,9 +301,32 @@ sotat
 
 ![](failure-suffix-link-example5.png)
 
+### Suffix Link(Page-190) 
 
+A **suffix link** (sometimes called a **failure link**) is a **red edge** from a **trie node** corresponding to string $\alpha$ to the trie node corresponding to a string $\omega$ such that $\omega$ is the **longest proper suffix** of $\alpha$​ that is still in the trie.
 
-### A Problem with our Optimization(Page-192)
+**Intuition:** When we hit a part of the string where we cannot continue to read characters, we fall back by following suffix links to try to preserve as much context as possible.
+
+Every node in the trie, except the root (which corresponds to the empty string $\epsilon$​), will have a suffix link associated with it.
+
+### Why Suffix Links Matter(Page-191) 
+
+Suffix links can substantially improve the performance of our string search.
+
+At each step, we either
+
+- advance the black (end) pointer forward in the trie, or
+- advance the red (start) pointer forward.
+
+Each pointer can advance forward at most $\mathcal{O}(m)$​ times.
+
+This reduces the amount of time spent scanning characters from $\mathcal{O}(mL_{max})$ down to $\mathcal{O}(m)$​.
+
+This is only useful if we can compute suffix links quickly... which we'll see how to do later.
+
+### Output Link
+
+#### A Problem with our Optimization(Page-192)
 
 > NOTE:
 >
@@ -330,7 +353,7 @@ sting
 
 ![](failure-suffix-link-example6-1.png)
 
-### What Happened?(Page-206)
+#### What Happened?(Page-206)
 
 Our heavily optimized string searcher no longer starts searching from each position in the string. As a result, we now might forget to output matches in certain cases. We need to figure out
 
@@ -343,13 +366,13 @@ Our heavily optimized string searcher no longer starts searching from each posit
 
 
 
-### How do we address this?(Page-209)
+#### How do we address this?(Page-209)
 
 > NOTE:
 >
 > 一、原文这里只给出了一堆的图，并没有配上文字说明，所以它的具体的解决方式我也不能够百分之百地确定，但是根据graph的知识和"The Problem"章节的内容可知，它应该就是采用的BFS、DFS
 
-### The Problem
+#### The Problem(Page-239)
 
 The approach described previously will ensure that we don't miss any patterns, but it increases the complexity of the search. Specifically, we do $\mathcal{O}(L_{max})$ additional work at each character following suffix links backwards. This brings our search cost back up to $\mathcal{O}(L_{max})$ again – and that's too slow. **Can we do better?**
 
@@ -359,15 +382,15 @@ The approach described previously will ensure that we don't miss any patterns, b
 
 
 
-### Output link(Page-240)
+#### Output link(Page-240)
 
 
 
-#### Output link example1(Page-243)
+##### Output link example1(Page-243)
 
 ![](output-link-example1.png)
 
-#### Output link example2(Page-246)
+##### Output link example2(Page-246)
 
 
 
@@ -381,7 +404,7 @@ Even nodes that themselves correspond to are patterns might need output links if
 >
 > 一、上面这段话的意思是: 即使node是terminal node，它也可以有output link
 
-#### Output link example2(Page-252)
+##### Output link example2(Page-252)
 
 ![](output-link-example5.png)
 
@@ -483,7 +506,7 @@ This approach is not very efficient – that doubly- nested loop is exactly the 
 
 > NOTE:
 >
-> 一、这一段作者没有对于一些符合进行专门的解释，容易造成混淆: 
+> 一、这一段作者没有对于一些符号进行专门的解释，容易造成混淆: 
 >
 > - $x$: 其实结合图和"Page-335-Constructing Suffix Links"的内容是可以知道: $x$ 是沿着 $w$​ 的suffix link到达的node。
 > - $wa$ : 从graph的角度来看，它是一个节点，更加准确的说它是 $w$ 的子节点
@@ -504,15 +527,15 @@ This approach is not very efficient – that doubly- nested loop is exactly the 
 > >    - If `q` has a child `v` with the character `c`, then the **suffix link** of `u` should point to `v`. 
 > >    - If no such child exists and `q` is the root, then the suffix link of `u` points back to the root. 
 > > 4. **Output Link Construction** (optional, for pattern matching):
-> >    - In addition to the **suffix link**, an output link can be added to each node that represents the end of a pattern. This link points to the next node in the trie that also represents the end of a pattern. This is used to report all patterns that end at a given node.
+> >    - In addition to the **suffix link**, an **output link** can be added to each node that represents the end of a pattern. This link points to the next node in the trie that also represents the end of a pattern. This is used to report all patterns that end at a given node.
 > >
 > > The construction of suffix links ensures that the Aho-Corasick automaton can quickly transition between states when mismatches occur, without having to restart the pattern matching process from the beginning of the text or the root of the trie.
 >
 > Fast Suffix Link Construction可以归入DP范畴，下面是 gpt-4-vision 对于 "Is Aho-Corasick automaton's Fast Suffix Link Construction a dynamic programing algorithm?" 的回答: 
 >
-> > The construction of **suffix links** in the **Aho-Corasick automaton** can be seen as an application of dynamic programming principles. Dynamic programming is a method for solving complex problems by breaking them down into simpler subproblems, solving each of these subproblems just once, and storing their solutions.
+> > The construction of **suffix links** in the **Aho-Corasick automaton** can be seen as an application of **dynamic programming** principles. **Dynamic programming** is a method for solving complex problems by breaking them down into simpler subproblems, solving each of these subproblems just once, and storing their solutions.
 > >
-> > In the context of the **Aho-Corasick automaton**, the construction of **suffix links** involves solving the problem of finding the longest proper suffix for each node in the trie that is also a prefix of another pattern. This is done by utilizing previously computed suffix links of parent nodes to efficiently compute the suffix link of the current node.
+> > In the context of the **Aho-Corasick automaton**, the construction of **suffix links** involves solving the problem of finding the longest proper suffix for each node in the trie that is also a prefix of another pattern. This is done by utilizing previously computed **suffix links** of parent nodes to efficiently compute the **suffix link** of the current node.
 > >
 > > Here's how the process aligns with dynamic programming principles:
 > >
@@ -591,9 +614,9 @@ from typing import *
 class AhoCorasickAutomataNode:
     def __init__(self, value: str = ''):
         self.value: str = value  # 当前node对应的substring
-        self.next_states: Dict[str, AhoCorasickAutomataNode] = {}
+        self.next_states: Dict[str, AhoCorasickAutomataNode] = {}  # children
         self.fail_state: Optional[AhoCorasickAutomataNode] = None  # suffix link
-        self.output: List[str] = []
+        self.output: List[str] = []  # output link
 
 
 class AhoCorasickAutomata:
@@ -619,6 +642,7 @@ class AhoCorasickAutomata:
             for char, next_node in current_node.next_states.items():
                 queue.append(next_node)
                 fail_state_node: AhoCorasickAutomataNode = current_node.fail_state
+                # root node的fail_state_node是Node，所以下面的判定条件: fail_state_node is not None 表示的是到达了root node
                 while fail_state_node is not None and char not in fail_state_node.next_states:
                     fail_state_node = fail_state_node.fail_state
                 next_node.fail_state = fail_state_node.next_states[char] if fail_state_node else self.root
@@ -655,6 +679,3 @@ class TestAhoCorasickAutomatae(unittest.TestCase):
 
 ```
 
-
-
-## [LeetCode-1032. Stream of Characters-Hard](https://leetcode.cn/problems/stream-of-characters/)
