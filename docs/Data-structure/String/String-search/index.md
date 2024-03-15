@@ -10,38 +10,6 @@
 
 
 
-String search algorithm所要解决的问题是在字符串 `text` 中搜索 `patten` (substring)，对于这类问题，可以double pointer( `first=i` 指向`text`; ` second=j` 指向 `pattern` ) 来进行描述。最为对照，下面是naive string search algorithm:
-
-```python
-class StringSearchAlgorithms:
-    """字符串搜索算法"""
-
-    @classmethod
-    def naive_search_algorithm(cls, text: str, pattern: str) -> int:
-        """
-        在text中搜索pattern
-        :param text:
-        :param pattern:
-        :return:
-        """
-        i, j = 0, 0
-        while i < len(text) and j < len(pattern):
-            if text[i] == pattern[j]:
-                i += 1
-                j += 1
-            else:
-                # mismatch，则从头再来
-                i += 1
-                j = 0
-        if j == len(pattern):
-            return i - j
-        else:
-            return -1
-
-```
-
-
-
 ## wikipedia [String-searching algorithm](https://en.wikipedia.org/wiki/String-searching_algorithm) 
 
 In [computer science](https://en.wikipedia.org/wiki/Computer_science), **string-searching algorithms**, sometimes called **string-matching algorithms**, are an important class of [string algorithms](https://en.wikipedia.org/wiki/String_algorithms) that try to find a place where one or several [strings](https://en.wikipedia.org/wiki/String_(computer_science)) (also called patterns) are found within a larger string or text.
@@ -111,7 +79,39 @@ Another one classifies the algorithms by their matching strategy:[[9\]](https://
 
 A simple and inefficient way to see where one string occurs inside another is to check each place it could be, one by one, to see if it's there. So first we see if there's a copy of the needle in the first character of the haystack; if not, we look to see if there's a copy of the needle starting at the second character of the haystack; if not, we look starting at the third character, and so forth. In the normal case, we only have to look at one or two characters for each wrong position to see that it is a wrong position, so in the average case, this takes [O](https://en.wikipedia.org/wiki/Big_O_notation)(*n* + *m*) steps, where *n* is the length of the haystack and *m* is the length of the needle; but in the worst case, searching for a string like "aaaab" in a string like "aaaaaaaaab", it takes [O](https://en.wikipedia.org/wiki/Big_O_notation)(*nm*)
 
-
+> Draft:
+>
+> String search algorithm所要解决的问题是在字符串 `text` 中搜索 `patten` (substring)，对于这类问题，可以double pointer( `first=i` 指向`text`; ` second=j` 指向 `pattern` ) 来进行描述。最为对照，下面是naive string search algorithm:
+>
+> ```python
+> class StringSearchAlgorithms:
+>     """字符串搜索算法"""
+> 
+>     @classmethod
+>     def naive_search_algorithm(cls, text: str, pattern: str) -> int:
+>         """
+>         在text中搜索pattern
+>         :param text:
+>         :param pattern:
+>         :return:
+>         """
+>         i, j = 0, 0
+>         while i < len(text) and j < len(pattern):
+>             if text[i] == pattern[j]:
+>                 i += 1
+>                 j += 1
+>             else:
+>                 # mismatch，则从头再来
+>                 i += 1
+>                 j = 0
+>         if j == len(pattern):
+>             return i - j
+>         else:
+>             return -1
+> 
+> ```
+>
+> 
 
 ### Finite-state-automaton-based search
 

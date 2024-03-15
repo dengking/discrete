@@ -2,7 +2,7 @@
 
 
 
-## String Matching
+## String Matching Searching
 
 https://leetcode.com/tag/string-matching/
 
