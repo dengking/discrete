@@ -1,4 +1,4 @@
-# emory [Computing the KMP failure function (f(k))](http://www.mathcs.emory.edu/~cheung/Courses/323/Syllabus/Text/Matching-KMP2.html)
+# emory [Computing the KMP failure function (f(k))](http://www.mathcs.emory.edu/~cheung/Courses/323/Syllabus/Text/Matching-KMP2.html) 
 
 > NOTE: 
 >

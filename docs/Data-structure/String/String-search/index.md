@@ -10,6 +10,10 @@
 
 
 
+## [stanford-cs166](https://web.stanford.edu/class/cs166/)
+
+![](./stanford-cs166-Slides02-The-String-Searching-Problem.png)
+
 ## wikipedia [String-searching algorithm](https://en.wikipedia.org/wiki/String-searching_algorithm) 
 
 In [computer science](https://en.wikipedia.org/wiki/Computer_science), **string-searching algorithms**, sometimes called **string-matching algorithms**, are an important class of [string algorithms](https://en.wikipedia.org/wiki/String_algorithms) that try to find a place where one or several [strings](https://en.wikipedia.org/wiki/String_(computer_science)) (also called patterns) are found within a larger string or text.

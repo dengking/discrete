@@ -1,22 +1,10 @@
 # [Knuth–Morris–Pratt algorithm](https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm)、[Aho–Corasick algorithm](https://en.wikipedia.org/wiki/Aho%E2%80%93Corasick_algorithm) 
 
-它们是典型的string-searching algorithm:
-
-wikipedia [string-searching algorithm](https://en.wikipedia.org/wiki/String-searching_algorithm) :
-
-> In [computer science](https://en.wikipedia.org/wiki/Computer_science), **string-searching algorithms**, sometimes called **string-matching algorithms**, are an important class of [string algorithms](https://en.wikipedia.org/wiki/String_algorithms) that try to find a place where one or several [strings](https://en.wikipedia.org/wiki/String_(computer_science)) (also called patterns) are found within a larger string or text.
-
-[stanford-cs166](https://web.stanford.edu/class/cs166/)
-
-![](./stanford-cs166-Slides02-The-String-Searching-Problem.png)
-
-
+它们是典型的string-searching algorithm: 
 
 - [Knuth–Morris–Pratt algorithm](https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm): pattern
 
 - [Aho–Corasick algorithm](https://en.wikipedia.org/wiki/Aho%E2%80%93Corasick_algorithm): patterns、dictionary
-
-
 
 
 
@@ -26,9 +14,11 @@ wikipedia [string-searching algorithm](https://en.wikipedia.org/wiki/String-sear
 
 > References: 
 >
-> cnblogs [详解KMP算法](https://www.cnblogs.com/yjiyjige/p/3263858.html) 
+> - cnblogs [详解KMP算法](https://www.cnblogs.com/yjiyjige/p/3263858.html) 
 >
-> wikipedia [Knuth–Morris–Pratt algorithm](https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm) 
+> - wikipedia [Knuth–Morris–Pratt algorithm](https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm) 
+> - [百度百科-kmp算法](https://baike.baidu.com/item/kmp%E7%AE%97%E6%B3%95/10951804?fr=aladdin) 
+> - emory [Computing the KMP failure function (f(k))](http://www.mathcs.emory.edu/~cheung/Courses/323/Syllabus/Text/Matching-KMP2.html) 
 
 ---
 
@@ -195,7 +185,7 @@ KMP的核心思想是: 充分利用已匹配的substring(matched substring)的�
 
 指针i不回溯，意味着它是一直增大的，这样的做法能够保证跳过无意义的匹配过程。
 
-- 百度百科[kmp算法](https://baike.baidu.com/item/kmp%E7%AE%97%E6%B3%95/10951804?fr=aladdin)中的总结：
+- [百度百科-kmp算法](https://baike.baidu.com/item/kmp%E7%AE%97%E6%B3%95/10951804?fr=aladdin) 中的总结：
 
 > 用暴力算法匹配字符串过程中，我们会把`T[0]` 跟 `W[0]` 匹配，如果相同则匹配下一个字符，直到出现不相同的情况，此时我们会丢弃前面的匹配信息，然后把`T[1]` 跟 `W[0]`匹配，循环进行，直到主串结束，或者出现匹配成功的情况。这种丢弃前面的匹配信息的方法，极大地降低了匹配效率。
 >
@@ -230,13 +220,9 @@ prefix可以看作是pattern、suffix可以看作是text
 
 一、Failure array以array的方式非常紧凑地来存储DFA，它的DFA的完整形式在 zhihu [KMP 算法详解](https://zhuanlan.zhihu.com/p/83334559) 中有展示。
 
-
-
 二、明确数组的定义:
 
 `next[i]` 表示的是: 最长公共前缀后缀的长度( `k` )，因此在计算failure array的时候是涉及到长度和下标的转换的。
-
-
 
 三、计算 next/failure array 的过程其实与匹配 `txt` 和 `pattern` 的过程非常类似: 寻找最长公共**前缀**和**后缀**其实就是匹配**前缀子字符串** 和 **后缀子字符串**，**前缀子字符串**相当于`pattern`，**后缀子字符串** 相当于 `txt`，下面的图就非常形象地展示了这个过程，这就告诉我们在计算 next/failure array 的时候，是可以使用kmp的思想来进行实现的:
 
@@ -250,13 +236,13 @@ prefix可以看作是pattern、suffix可以看作是text
 
 > 当`P[k] != P[j]`时，如下图所示：
 >
-> ![img](/Users/kaideng/Documents/GitHub/discrete/docs/Data-structure/String/String-search/Finite-state-automaton-based-string-search-algorithm/Knuth-Morris-Pratt-Aho-Corasick-algorithm/Knuth-Morris-Pratt-algorithm/17122358-fd7e52dd382c4268a8ff52b85bff465d.png) 
+> ![img](./17122358-fd7e52dd382c4268a8ff52b85bff465d.png) 
 >
 > 
 >
 > 像这种情况，如果你从代码上看应该是这一句：`k = next[k];`为什么是这样子？你看下面应该就明白了。
 >
-> ![img](/Users/kaideng/Documents/GitHub/discrete/docs/Data-structure/String/String-search/Finite-state-automaton-based-string-search-algorithm/Knuth-Morris-Pratt-Aho-Corasick-algorithm/Knuth-Morris-Pratt-algorithm/17122439-e349fed25e974e7886a27d18871ae48a.png)
+> ![img](./17122439-e349fed25e974e7886a27d18871ae48a.png)
 >
 > 现在你应该知道为什么要`k = next[k]`了吧！像上边的例子，我们已经不可能找到`[ A，B，A，B ]`这个最长的后缀串了，但我们还是可能找到`[ A，B ]`、`[ A ]`这样的前缀串的。所以这个过程像不像在定位`[ A，B，A，C ]`这个串，当`C`和主串不一样了（也就是`k`位置不一样了），那当然是把指针移动到`next[k]`啦。
 
@@ -326,11 +312,7 @@ def get_failure_array(pattern: str):
 
 
 
-
-
 #### Examples
-
-
 
 Example1
 
