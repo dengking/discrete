@@ -24,128 +24,75 @@
 
 
 
+### Code
+
+```python
+import unittest
+from typing import *
+
+
+class KMP:
+    @classmethod
+    def get_failure_array_verbose(cls, pattern: str) -> List:
+        """
+        这种实现方式比较verbose，但是思路清晰，和分析过程一致
+        使用double pointer的方式
+        """
+        failure_array = [0]  # length of common prefix and suffix
+        slow, fast = 0, 1
+        while fast < len(pattern):
+            if pattern[slow] == pattern[fast]:
+                slow += 1  # length of common prefix and suffix
+                fast += 1
+                failure_array.append(slow)
+            else:  # pattern[slow] != pattern[fast]
+                if slow > 0:
+                    # 失配的时候(此时的操作和KMP失配的时候保持i指针不懂，j指针回溯的做法是一致的):
+                    # 保持fast指针不动，移动slow指针;
+                    # slow指针移动到failure_array[slow - 1]，然后继续匹配;
+                    # 这个过程可以看作是回溯
+                    slow = failure_array[slow - 1]
+                    continue
+                else:
+                    # slow == 0
+                    fast += 1
+                    failure_array.append(slow)
+        return failure_array
+
+    @classmethod
+    def kmp_search(cls, pattern: str, text: str) -> int:
+        failure_array = cls.get_failure_array_verbose(pattern)
+        i, j = 0, 0
+        while i < len(text):
+            if text[i] == pattern[j]:
+                if j == len(pattern) - 1:
+                    return i - len(pattern) + 1
+                i += 1
+                j += 1
+            else:
+                if j > 0:
+                    j = failure_array[j - 1]
+                else:
+                    # j == 0
+                    i += 1
+        return -1
+
+
+class TestKMP(unittest.TestCase):
+    def test1(self):
+        text = "sadbutsad"
+        pattern = "sad"
+        self.assertEqual(KMP.kmp_search(pattern, text), 0)
+
+```
+
+
+
 ### wikipedia [Knuth–Morris–Pratt algorithm](https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm)
 
 In [computer science](https://en.wikipedia.org/wiki/Computer_science), the **Knuth–Morris–Pratt [string-searching algorithm](https://en.wikipedia.org/wiki/String-searching_algorithm)** (or **KMP algorithm**) searches for occurrences of a "word" `W` within a main "text string" `S` by employing the observation that when a mismatch occurs, the word itself embodies sufficient information to determine where the next match could begin, thus bypassing re-examination of previously matched characters.
 
 The [algorithm](https://en.wikipedia.org/wiki/Algorithm) was conceived by [James H. Morris](https://en.wikipedia.org/wiki/James_H._Morris) and independently discovered by [Donald Knuth](https://en.wikipedia.org/wiki/Donald_Knuth) "a few weeks later" from [automata theory](https://en.wikipedia.org/wiki/Automata_theory).[[1\]](https://en.wikipedia.org/wiki/Knuth–Morris–Pratt_algorithm#cite_note-knuth1977-2)[[2\]](https://en.wikipedia.org/wiki/Knuth–Morris–Pratt_algorithm#cite_note-3) Morris and [Vaughan Pratt](https://en.wikipedia.org/wiki/Vaughan_Pratt) published a technical report in 1970.[[3\]](https://en.wikipedia.org/wiki/Knuth–Morris–Pratt_algorithm#cite_note-4) The three also published the algorithm jointly in 1977.[[1\]](https://en.wikipedia.org/wiki/Knuth–Morris–Pratt_algorithm#cite_note-knuth1977-2) Independently, in 1969, [Matiyasevich](https://en.wikipedia.org/wiki/Yuri_Matiyasevich)[[4\]](https://en.wikipedia.org/wiki/Knuth–Morris–Pratt_algorithm#cite_note-5)[[5\]](https://en.wikipedia.org/wiki/Knuth–Morris–Pratt_algorithm#cite_note-6) discovered a similar algorithm, coded by a two-dimensional Turing machine, while studying a string-pattern-matching recognition problem over a binary alphabet. This was the first linear-time algorithm for string matching.
-
-
-
-### Code
-
-#### Python
-
-```python
-def get_failure_array(pattern: str):
-    failure = [0]  # 初始条件
-    i = 0  
-    j = 1  
-    while j < len(pattern):
-        if pattern[i] == pattern[j]:
-            i += 1
-        elif i > 0:
-            i = failure[i - 1]
-            continue
-        j += 1
-        failure.append(i)
-    return failure
-
-
-def kmp_search(pattern: str, text: str):
-    """
-
-    :param pattern:
-    :param text:
-    :return:
-    """
-    # 1) Construct the failure array
-    failure = get_failure_array(pattern)
-
-    # 2) Step through text searching for pattern
-    i, j = 0, 0  # index into text, pattern
-    while i < len(text):
-        if pattern[j] == text[i]:
-            if j == (len(pattern) - 1):
-                return True
-            j += 1
-        elif j > 0:
-            # if this is a prefix in our pattern
-            # just go back far enough to continue
-            j = failure[j - 1]
-            continue
-        i += 1
-    return False
-
-
-if __name__ == "__main__":
-    pass
-
-```
-
-
-
-#### C++
-
-```c++
-class Solution
-{
-public:
-  int strStr(string haystack, string needle)
-  {
-    if (needle.empty())
-    {
-      return 0;
-    }
-    else
-    {
-      return kmp(haystack, needle);
-    }
-  }
-  int kmp(const string &haystack, const string &needle)
-  {
-    auto failureArray = getFailureArray(needle);
-    int i = 0, j = 0;
-    while (i < haystack.size())
-    {
-      if (haystack[i] == needle[j])
-      {
-        if (j == needle.size() - 1)
-        {
-          return i - j;
-        }
-        ++j;
-      }
-      else if (j > 0)
-      {
-        j = failureArray[j - 1];
-        continue;
-      }
-      ++i;
-    }
-    return -1;
-  }
-  std::vector<int> getFailureArray(const string &needle)
-  {
-    std::vector<int> failureArray(needle.size());
-    int i = 0, j = 1;
-    while (j < needle.size())
-    {
-      if (needle[i] == needle[j])
-      {
-        ++i;
-      }
-      else if (i > 0)
-      {
-        i = failureArray[i - 1];
-        continue;
-      }
-      failureArray[j++] = i;
-    }
-    return failureArray;
-  }
-};
-```
 
 
 
@@ -250,9 +197,7 @@ prefix可以看作是pattern、suffix可以看作是text
 
 上述第二行的图，就是以"KMP匹配" 的过程来展示计算 next/failure array 的过程: 
 
-当  `P[k] != P[j]`，显然就是失配了，因此 `[ A，B，A，B ]` 不可能是最长的后缀串，那下次从什么地方开始匹配呢？即如何进行转移呢？显然这个匹配过程是可以转换为"KMP匹配"过程，正如上述第二行的图所展示的，显然我们要充分运用KMP的思想: 此时 `[0-k-1]`部分 和 `[j-k, j-1]`部分是已经匹配的，为了充分运用已经匹配的信息，我们应该转移到 `next[k]` 处进行匹配，就是上述第三张图所展示的。上述过程其实使用了KMP的思想，也就是说，在计算next/failure array的时候，其实也使用了KMP的思想。
-
-
+当  `P[k] != P[j]`，显然就是失配了，因此 `[ A，B，A，B ]` 不可能是最长的后缀串，那下次从什么地方开始匹配呢？即如何进行转移呢？显然这个匹配过程是可以转换为"KMP匹配"过程，正如上述第二行的图所展示的，显然我们要充分运用KMP的思想: 此时 `[0-k-1]`部分 和 `[j-k, j-1]` 部分是已经匹配的(即两者是一模一样的，因此 `[0-k-1]`部分的公共前缀和后缀 与  `[j-k, j-1]` 部分是相同的)，为了充分运用已经匹配的信息，我们应该转移到 `next[k]` 处进行匹配，就是上述第三张图所展示的。上述过程其实使用了KMP的思想，也就是说，在计算next/failure array的时候，其实也使用了KMP的思想。
 
 关于这一点，另外一种验证方式是通过代码来进行验证，阅读完整的KMP算法可知: `get_failure_array` 和 `kmp_search` 在失配时的处理逻辑一模一样。
 
