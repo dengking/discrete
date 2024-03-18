@@ -1,12 +1,14 @@
 # [LeetCode-214. 最短回文串-困难](https://leetcode.cn/problems/shortest-palindrome/) 
 
+## [LeetCode-Clean KMP solution with super detailed explanation](https://leetcode.com/problems/shortest-palindrome/discuss/60113/clean-kmp-solution-with-super-detailed-explanation)  
+
 
 
 ## 我的解题
 
 是参考的 [LeetCode-Clean KMP solution with super detailed explanation](https://leetcode.com/problems/shortest-palindrome/discuss/60113/clean-kmp-solution-with-super-detailed-explanation) 写的，下面是我的总结:
 
-一、题目要求只能在字符串的前面添加字符来将它转换为回文串，按照这种方式，直接的做法是: 找到从0开始的最长回文串，然后在head出添加剩余串的reverse，这样就现成了一个回文串了。
+一、题目要求只能在字符串的前面添加字符来将它转换为回文串，按照这种方式，直接的做法是: 找到从0开始的最长回文串，然后在head处添加剩余串的reverse，这样就现成了一个回文串了。
 
 二、如何查找最长回文子串？回文串的特性是: 正着读和反着读都是一样的，那我就可以将原串和它的reverse拼接起来，使用KMP查找它们的公共前缀后缀，这样就能够得到它的长度。
 

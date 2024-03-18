@@ -313,51 +313,6 @@ P:           ABACDABABC
 
 
 
-### LeetCode
-
-
-
-#### [LeetCode-1392. 最长快乐前缀-困难](https://leetcode.cn/problems/longest-happy-prefix/) 
-
-一、这道题就是纯粹的使用KMP failure array。
-
-二、这道题给我的一新认知是: KMP求解的最长公共前缀后缀是可以相交的，下面是一个典型的例子: 
-
-```
-输入：s = "ababab"
-输出："abab"
-```
-
-
-
-```c++
-class Solution
-{
-public:
-    string longestPrefix(string s)
-    {
-        vector<int> failure_array(s.size(), 0);
-        int i = 0, j = 1;
-        while (j < s.size())
-        {
-            if (s[i] == s[j])
-            {
-                i += 1;
-            }
-            else if (i > 0)
-            {
-                i = failure_array[i - 1];
-                continue;
-            }
-            failure_array[j++] = i;
-        }
-        return s.substr(0, failure_array.back());
-    }
-};
-```
-
-
-
 ## [Aho–Corasick algorithm](https://en.wikipedia.org/wiki/Aho%E2%80%93Corasick_algorithm) 
 
 ---
@@ -543,11 +498,15 @@ class TestAhoCorasickAutomatae(unittest.TestCase):
 
 
 
-### LeetCode
+## LeetCode
 
 
 
-#### [LeetCode-1032. Stream of Characters-Hard](https://leetcode.cn/problems/stream-of-characters/)
+https://leetcode.com/tag/string-matching/
+
+
+
+### [LeetCode-1032s. Stream of Characters-Hard](https://leetcode.cn/problems/stream-of-characters/)
 
 ```Python
 import unittest
