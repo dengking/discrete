@@ -10,7 +10,7 @@
 
 ### KMP LPS
 
-这个algorithm是在 [LeetCode-Clean KMP solution with super detailed explanation](https://leetcode.com/problems/shortest-palindrome/discuss/60113/clean-kmp-solution-with-super-detailed-explanation) 中发现的，它仅限于"find the **longest palindrome substring** starts from index 0"，它充分运用回文串的特性对称的特性，显然经过reverse后依然维持不变:
+这个algorithm是在 [LeetCode-Clean KMP solution with super detailed explanation](https://leetcode.com/problems/shortest-palindrome/discuss/60113/clean-kmp-solution-with-super-detailed-explanation) 中发现的，它仅限于"find the **longest palindrome substring** starts from index 0"，它充分运用回文串的特性对称的特性，显然经过reverse后依然维持不变，那么按照如下描述的拼接方式就可以将它转化为"KMP common prefix and suffix":
 
 > The trick is to build a temp string like this:
 >
@@ -23,8 +23,6 @@
 > What we do in KMP here is trying to find a match between prefix in s and a postfix in reverse(s). The match part will be palindrome substring.
 
 为什么加上一个 '#' 符合呢？这是因为KMP求解的最长公共前后缀是可以重叠的，而这道题中，由于temp string是有s构造出来的，我们的目标是求解s的palindrome substring，它是不允许重叠的，加上 '#' 能够有效的避免重叠。
-
-进行拼接，从而将它转换为 KMP common prefix+suffix。
 
 
 
