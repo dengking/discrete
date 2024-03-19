@@ -1,4 +1,4 @@
-# [LeetCode-5. 最长回文子串](https://leetcode.cn/problems/longest-palindromic-substring/) 中等
+# [LeetCode-5. 最长回文子串-中等](https://leetcode.cn/problems/longest-palindromic-substring/) 
 
 
 
