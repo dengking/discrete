@@ -30,3 +30,10 @@ In this approach, we avoid backtracking by constructing a [deterministic finite 
 
 - [Regex engine](https://en.wikipedia.org/wiki/Comparison_of_regular_expression_engines)
 
+
+
+## Data structure
+
+trie: prefix
+
+suffix-tree: substring

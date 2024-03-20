@@ -1,5 +1,9 @@
 # [CS166 String](https://web.stanford.edu/class/cs166/)
 
+Tries and Suffix Trees、Suffix and LCP Arrays、[stanford-cs166.1166-Aho-Corasick Automata](https://web.stanford.edu/class/archive/cs/cs166/cs166.1166/lectures/02/Slides02.pdf) 都是基于trie的，由此可见trie的强大之处，那trie的什么特性使得它能够适用于string呢？[CS166 String](https://web.stanford.edu/class/cs166/) # [Tries and Suffix Trees](https://web.stanford.edu/class/cs166/lectures/04/Slides04.pdf) 中的下面一段话能够带来一些启发:
+
+> ... [**tries**](https://en.wikipedia.org/wiki/Trie) and **suffix trees**, two powerful data structures for exposing **shared structures** in strings.
+
 
 
 ## Tries and Suffix Trees
@@ -42,3 +46,7 @@ Readings:
 
 - Manber, Udi and Myers, Gene *[Suffix Arrays: A New Method for On-Line String Searches](https://web.stanford.edu/class/cs166/restricted/papers/ManberMyersSuffixArrays.pdf)*
 - Kasai, Toru et al. *[Linear-Time Longest-Common-Prefix Computation in Suffix Arrays and Its Applications](https://web.stanford.edu/class/cs166/restricted/papers/KasaiEtAlLCP.pdf)*
+
+
+
+## [stanford-cs166.1166-Aho-Corasick Automata](https://web.stanford.edu/class/archive/cs/cs166/cs166.1166/lectures/02/Slides02.pdf) 

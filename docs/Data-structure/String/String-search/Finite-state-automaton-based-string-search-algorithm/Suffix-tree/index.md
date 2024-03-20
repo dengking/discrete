@@ -24,6 +24,16 @@
 
 
 
+### gpt-4-vision Ukkonen's algorithm
+
+Building a suffix tree is a more complex task than building a suffix array. A suffix tree is a compressed trie containing all the suffixes of the given text as their keys and positions in the text as their values. Suffix trees are a powerful data structure for many string processing and computational biology tasks.
+
+Here's a basic Python implementation of a suffix tree using Ukkonen's algorithm, which builds the suffix tree in O(n) time complexity:
+
+
+
+
+
 ## Suffix array
 
 

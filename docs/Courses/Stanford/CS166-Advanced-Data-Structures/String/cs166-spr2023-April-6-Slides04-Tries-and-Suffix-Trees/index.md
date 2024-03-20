@@ -112,7 +112,7 @@ A: That’s a trickier question.
 > > Path Compression: Nodes with only one child are merged with their parents, which reduces the height of the tree and saves space.
 > >
 > >
-> > Edge Labels: Instead of storing characters on nodes, Patricia trees store them on the edges (or links) between nodes. Each edge represents a non-empty string, which could be a single character or a longer string.
+> > Edge Labels: Instead of storing characters on nodes, Patricia trees store them on the edges (or links) between nodes. Each edge represents a non-empty string, which could be a single character or a longer string.(和trie是一致的)
 > >
 > >
 > > Binary or Multi-way: Patricia trees can be binary, where each node has at most two children (used for bit strings like IP addresses), or multi-way, where nodes can have many children (used for alphanumeric strings).
@@ -136,25 +136,65 @@ A: That’s a trickier question.
 > > In this example, the edge from the root to the "tr" node represents the common prefix "tr" for the words "tree", "try", "tried", and "trick". The "trie" node represents the word "trie". The "tr" node has two children, one for the "ee" suffix (leading to "tree") and one for the "y" suffix (leading to "try"). The "ee" node further branches into "d" (completing the word "tried") and "ick" (completing the word "trick").
 > > Patricia trees are particularly useful in applications where memory efficiency is important and where the data set has many common prefixes. They are widely used in networking for longest prefix matching, which is essential for IP routing.
 
-## Part II: **Suffix Trees**
+#### Sentinel or endmarker(Page-22)
+
+The `$` symbol is called the ***sentinel*** or ***endmarker***. It’s a special character that can only appear at the ends of words. (Think “null 
+terminator,” Theoryland edition.)
+
+By convention, the sentinel `$` precedes all other characters.(It really is like a null terminator!)
+
+Nodes now fall into one of two classes:
+
+- Leaf nodes correspond to words in the trie.
+- Internal nodescorrespond to routing structure.
+
+
+
+#### Silly node(Page-25)
+
+A node is a silly nodeif it is a non-root node that only has one child.
+
+
+
+#### Patricia trie(Page-26)
+
+A **Patricia trie** is a trie where silly nodes are merged into their parents.
+
+Observation 1: Every internal node in a Patricia trie (except possibly the root) has  two or more children.
+
+Observation 2:Leaves correspond to words; internal nodes are there for routing purposes.
+
+
+
+#### Theorem(Page-31)
+
+Theorem: The number of nodes in a Patricia trie with k words is always O(k), regardless of what those words are.
+
+##### Proof Sketch(Page-38)
+
+There are k leaves, one per word. Remove all internal nodes, leaving a forest of k trees.Add the internal nodes back one at 
+a time. Each addition (except possibly root) decreases the number of trees in the forest by at least one, since each (non-root) 
+internal node has at least two children. This means there are at most k internal nodes, for a total of O(k) nodes.
+
+## Part II: Suffix Trees(Page-42)
 
 ### Two Motivating Problems
 
 
 
-**Patricia tries** are great tools for finding **prefixes**. These problems involve looking for **substrings**. Can we use what we’ve developed so far?
+**Patricia tries** are great tools for finding **prefixes**. These problems involve looking for **substrings**. Can we use what we’ve developed so far?(Page-46)
 
-### A Fundamental Theorem
+### A Fundamental Theorem(Page-47)
 
 The **fundamental theorem of stringology** says that, given two strings *w* and *x*, that
 
 > w **is a substring of** x if and only if **w** **is a prefix of a suffix of** **x**
 
+> NOTE:
+>
+> 一、上述定理将substring、prefix、suffix结合在一起了
 
-
-
-
-To find all matches of *w* in *x*, we just need to find all suffixes of *x* that start with *w*.
+To find all matches of *w* in *x*, we just need to find all suffixes of *x* that start with *w*.(Page-53)
 
 > NOTE:
 >
@@ -164,7 +204,7 @@ To find all matches of *w* in *x*, we just need to find all suffixes of *x* that
 
 ### Suffix Trees
 
-A **suffix tree** for a string *T* is a Patricia trie of all suffixes of T.
+A **suffix tree** for a string *T* is a **Patricia trie** of all suffixes of T.
 
 Each leaf is labeled with the starting index of that suffix.
 
@@ -173,7 +213,9 @@ Two facts:
 - It’s possible to build a **suffix tree** from a string of length **m** in time O(**m**). (Yes, really!) 
 - It’s possible to store a **suffix tree** for a string of length **m** using O(**m**) words of memory. (Yes, really!)
 
-
+> NOTE:
+>
+> 一、这些在 [Suffix and LCP Arrays](https://web.stanford.edu/class/cs166/lectures/05/Slides05.pdf) 中会进行介绍
 
 ![](suffix-tree-example-0.png)
 
