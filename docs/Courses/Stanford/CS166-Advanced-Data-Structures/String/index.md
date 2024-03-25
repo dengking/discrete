@@ -33,7 +33,7 @@ April 20
 What makes **suffix trees** so useful as a data structure? Surprisingly, much of their utility and flexibility can be attributed purely to two facts: 
 
 1. they keep the suffixes sorted, and 
-2. they expose the branching words in the string. 
+2. they expose the **branching words** in the string. 
 
 By representing this information in a different way, we can get much of the benefit of suffix trees without the huge space cost.
 
