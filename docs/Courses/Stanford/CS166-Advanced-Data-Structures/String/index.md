@@ -6,6 +6,26 @@ Tries and Suffix Trees、Suffix and LCP Arrays、[stanford-cs166.1166-Aho-Corasi
 
 
 
+从trie到 Patricia trie: 
+
+1. sentinel or end marker
+2. silly node
+3. A **Patricia trie** is a trie where silly nodes are merged into their parents.
+
+Patricia trie的internal node就是branching word(exposing **shared structures**、for routing purposes)
+
+
+
+suffix tree = Patricia trie of all suffix
+
+substring = prefix of suffix
+
+那么这就决定了suffix tree非常适合于substring algorithm
+
+
+
+[Longest repeated substring](https://en.wikipedia.org/wiki/Longest_repeated_substring_problem) 和 suffix tree的对应关系: [Longest repeated substring](https://en.wikipedia.org/wiki/Longest_repeated_substring_problem) 肯定是suffix tree的internal node，因为它至少需要出现两次。
+
 ## Tries and Suffix Trees
 
 April 18

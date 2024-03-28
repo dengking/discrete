@@ -96,7 +96,7 @@ A: That’s a trickier question.
 
 
 
-### Patricia trie
+### Patricia trie(Page-21)
 
 > NOTE:
 >
@@ -202,7 +202,7 @@ To find all matches of *w* in *x*, we just need to find all suffixes of *x* that
 
 
 
-### Suffix Trees
+### Suffix Trees(Page-55)
 
 A **suffix tree** for a string *T* is a **Patricia trie** of all suffixes of T.
 
@@ -221,9 +221,9 @@ Two facts:
 
 
 
-### Substring Search
+### Substring Search(Page-56)
 
-**Claim:** Once we have a suffix tree for a string *T*, we canfindall matches of a pattern*P*oflength **n** in time O(**n** + **z**), where **z** is the number of matches.
+**Claim:** Once we have a **suffix tree** for a string *T*, we can find all matches of a pattern *P* of length **n** in time O(**n** + **z**), where **z** is the number of matches.
 
 **Idea:** Use the **standard Patricia trie search** from before!
 
@@ -235,7 +235,7 @@ Looking up the pattern takes time O(**n**).
 
 Finding all matches takes time O(**z**).
 
-### [Longest repeated substring problem](https://en.wikipedia.org/wiki/Longest_repeated_substring_problem)
+#### [Longest repeated substring problem](https://en.wikipedia.org/wiki/Longest_repeated_substring_problem) (Page-58)
 
 ![](longest-repeated-substring-problem-suffix-tree-example-0.png)
 
@@ -247,14 +247,16 @@ Finding all matches takes time O(**z**).
 
 Think back to **Cartesian trees**. We can describe them in two ways.
 
-- **Mechnically:** Hoist(提升) the minimum element up to the root, then recursively process the two subarrays.
-- **Operationally:** It’s a min-heap whose inorder traversal gives the original array.
+- **Mechnically:**(原理) Hoist(提升) the minimum element up to the root, then recursively process the two subarrays.
+- **Operationally:**(操作实现) It’s a min-heap whose inorder traversal gives the original array.
 
 **Question:** We now have a **mechanical** definition of a suffix tree. Can we get can **operational** one?
 
 **A:** The leaves of a suffix tree correspond to the suffixes of the text string *T*.
 
 
+
+#### Internal Node、Branching word
 
 **Question:** What do the *internal* nodes of the suffix tree correspond to?
 
@@ -266,11 +268,9 @@ Think back to **Cartesian trees**. We can describe them in two ways.
 
 **Question:** why is there an **internal node** for the substring `n`, but isn’t there an internal node for the substring `ns`?
 
-**A:** *Every* occurrence of **ns**canbeextendedby appending the same character (**e**). *Not all* occurrences of **n** can be extended by appending the same character.
+**A:** *Every* occurrence of **ns** can be extended by appending the same character (**e**). *Not all* occurrences of **n** can be extended by appending the same character.
 
-
-
-### **Branching word**
+#### Branching word
 
 A **branching word** in `T$` is a string ω such that there are characters *a*≠*b* where ω*a* and ω*b* are substrings of `T$`.
 
@@ -280,7 +280,7 @@ Edge case:the empty string is always considered branching.
 
 
 
-### Operational definition of a suffix tree
+#### Operational definition of a suffix tree
 
 The leaves of a suffix tree for T correspond to suffixes of `T$`, and the internal nodes of a suffix tree for T correspond to branching words of `T$`.
 
