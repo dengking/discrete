@@ -1,4 +1,8 @@
-# cs166.1196 [Building Suffix Arrays](https://web.stanford.edu/class/archive/cs/cs166/cs166.1196/lectures/04/Small04.pdf)
+# cs166.1196 [Building Suffix Arrays](https://web.stanford.edu/class/archive/cs/cs166/cs166.1196/lectures/04/Small04.pdf) 
+
+[Slides04](https://web.stanford.edu/class/archive/cs/cs166/cs166.1196/lectures/04/Slides04.pdf)
+
+[Small04](https://web.stanford.edu/class/archive/cs/cs166/cs166.1196/lectures/04/Small04.pdf)
 
 
 
@@ -8,6 +12,16 @@ The efficiency in a suffix tree is largely due to
 
 1. keeping the suffixes in sorted order, and 
 2. exposing branching words.
+
+## New Stuff!(Page-8)
+
+![](./DFS-Patricia-tree.png)
+
+> NOTE:
+>
+> 一、DFS Patricia tree
+>
+> 上图非常地揭示了suffix tree 和 suffix array+LCP array的对应关系，细致入微。
 
 ## Suffix Arrays(Page-4)
 

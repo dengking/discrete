@@ -26,6 +26,23 @@ substring = prefix of suffix
 
 [Longest repeated substring](https://en.wikipedia.org/wiki/Longest_repeated_substring_problem) 和 suffix tree的对应关系: [Longest repeated substring](https://en.wikipedia.org/wiki/Longest_repeated_substring_problem) 肯定是suffix tree的internal node，因为它至少需要出现两次。
 
+
+
+suffix tree的劣势在于空间复杂度太高。**Key Question:** Can we get the benefits of a suffix tree without the space penalty?
+
+ The efficiency in a suffix tree is largely due to
+
+1. keeping the suffixes in sorted order, and
+2. exposing branching words.
+
+
+
+**Suffix arrays** distill out(提炼出) just the first component of suffix trees: they store suffixes in sorted order.
+
+
+
+
+
 ## Tries and Suffix Trees
 
 April 18

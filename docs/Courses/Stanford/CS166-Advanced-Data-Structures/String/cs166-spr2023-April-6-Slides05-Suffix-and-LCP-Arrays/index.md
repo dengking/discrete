@@ -2,9 +2,13 @@
 
 > NOTE:
 >
-> 使用suffix array和LCP array来存储suffix tree
+> 使用suffix array和LCP array来存储suffix tree 
 
-## Suffix Tree Space Usage
+## Representing Suffix Trees(Page-7)
+
+
+
+## Suffix Tree Space Usage(Page-13)
 
 ### Space complexity of suffix tree(Page-8)
 
@@ -69,7 +73,7 @@ Example: a human genome is about three billion characters long.
 
 
 
-## What is it about suffix trees that make them so useful algorithmically?
+## What is it about suffix trees that make them so useful algorithmically?(Page-16)
 
 ### Theorem
 
@@ -95,8 +99,8 @@ Example: a human genome is about three billion characters long.
 
 The efficiency in a suffix tree is largely due to 
 
-1. keeping the suffixes in sorted order, and
-2. exposing branching words.
+1. keeping the **suffixes** in sorted order, and
+2. exposing **branching words**.
 
 
 
@@ -113,7 +117,7 @@ Together, they’ll provide algorithms that match or are comparable to the time 
 
 
 
-## Suffix Arrays
+## Suffix Arrays(Page-23)
 
 A **suffix array** for a string *T* is a sorted array of the suffixes of the string `T$`.
 
