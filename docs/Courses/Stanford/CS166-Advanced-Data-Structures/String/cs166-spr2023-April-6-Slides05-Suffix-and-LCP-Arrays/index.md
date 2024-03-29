@@ -157,6 +157,12 @@ This is just to build intuition; we wouldn’t actually do that in practice.
 >
 > 一、主要使用binary-search
 
+### Find/search a substring
+
+> NOTE:
+>
+> 一、原文的例子是: 在 `ABANANABANDANA$` 中找 `ANAN` 
+
 Last time, we saw how to find all instances of a pattern **P** in a text **T** using suffix *trees*. How could we do that with suffix *arrays*?
 
 - **Reminder:** Our text string **T** has length **m**. Our pattern string **P** has length **n**. 
@@ -165,6 +171,20 @@ Last time, we saw how to find all instances of a pattern **P** in a text **T** u
   - Each probe takes time O(**n**).
 - This bound can be made tight.*(How?)*
 - Figure that **m** is often much bigger than **n**, so this is a huge win over a raw scan.
+
+### Find/search all matchs
+
+> NOTE:
+>
+> 一、原文的例子是: 在 `ABANANABANDANA$` 中找 `NA`
+>
+> 二、思考: 为什么复杂度是 O(**n** log **m** + **z**) ？
+
+**Claim:** With a suffix array, we can find all matches of a pattern **P** in **T** in time O(**n** log **m** + **z**), where **z** is the number of matches.
+
+**Idea:** Binary search can be used to find a range of values equal to some key. Adapt that idea to find all suffixes beginning with the same prefix.
+
+
 
 ## The Story So Far
 
@@ -178,9 +198,11 @@ What else are suffix trees doing?
 
 
 
-## Branching Words And LCP
+## Branching Words And LCP(Page-49)
 
+### Branching Words(Page-62)
 
+**Recall:** If *T* is a string, then ω is a **branching word** in `T$` if there are characters *a* ≠ *b* such that ω*a* and ω*b* are substrings of `T$`.
 
 Notice that, by sorting suffixes, we’ve made it easier to spot branching words.
 
@@ -188,11 +210,11 @@ Specifically, all suffixes starting with a branching word will be adjacent in th
 
 The branching word will be the **longest common prefix** (or **LCP**) of those adjacent suffixes.
 
-### Theorem
+### Theorem(Page-69)
 
-**Theorem:** A string ω is a branching word in string `T$` if and only if it’s the longest common prefix of two adjacent suffixes in *T*’s suffix array.
+**Theorem:** A string ω is a branching word in string `T$` if and only if it’s the **longest common prefix** of two adjacent suffixes in *T*’s suffix array.
 
-**Proof idea:** If ω is the longest common prefix of two adjacent suffixes, let *a* and *b* be the characters immediately following ω in those two suffixes. Then ω*a* and ω*b* are substrings of `T$`.
+**Proof idea:** If ω is the **longest common prefix** of two adjacent suffixes, let *a* and *b* be the characters immediately following ω in those two suffixes. Then ω*a* and ω*b* are substrings of `T$`.
 
 If ω is branching, choose the lexicographically smallest *a* and *b* making the definition work. Then the last suffix starting with ω*a* and the first suffix starting with ω*b* are adjacent in the suffix array.
 
