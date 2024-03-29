@@ -41,6 +41,10 @@ suffix tree的劣势在于空间复杂度太高。**Key Question:** Can we get t
 
 
 
+>  **Suffix arrays** can be built in time O(**m**). We can cover this later in the quarter if you’re interested. 
+
+这是一个非常了不起的事情。
+
 
 
 ## Tries and Suffix Trees

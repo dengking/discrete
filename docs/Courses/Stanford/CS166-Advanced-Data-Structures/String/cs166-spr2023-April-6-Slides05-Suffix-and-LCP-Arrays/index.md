@@ -125,6 +125,10 @@ A **suffix array** for a string *T* is a sorted array of the suffixes of the str
 
 **Non-obvious fact:** Suffix arrays can be built in time O(**m**). We can cover this later in the quarter if you’re interested.
 
+> NOTE:
+>
+> 一、这是一个非常了不起的事情
+
 
 
 ![](suffix-array-example-1.png)
@@ -141,6 +145,10 @@ Space: Θ(**m**), and with only one machine word used per character of input.
 
 
 
+Although the picture to the right is how we’d represent the suffix array in memory for this lecture we’ll draw things out the longer way.
+
+This is just to build intuition; we wouldn’t actually do that in practice.
+
 
 
 ## Using Suffix Arrays(Page-33)
@@ -149,7 +157,14 @@ Space: Θ(**m**), and with only one machine word used per character of input.
 >
 > 一、主要使用binary-search
 
+Last time, we saw how to find all instances of a pattern **P** in a text **T** using suffix *trees*. How could we do that with suffix *arrays*?
 
+- **Reminder:** Our text string **T** has length **m**. Our pattern string **P** has length **n**. 
+- **Claim:** With a suffix array, we can determine whether **P** appears in **T** in time O(**n** log **m**).
+  - Binary search has O(log **m**) rounds.
+  - Each probe takes time O(**n**).
+- This bound can be made tight.*(How?)*
+- Figure that **m** is often much bigger than **n**, so this is a huge win over a raw scan.
 
 ## The Story So Far
 
