@@ -47,6 +47,8 @@ suffix tree的劣势在于空间复杂度太高。**Key Question:** Can we get t
 
 
 
+suffix tree = suffix array + LCP array
+
 ## Tries and Suffix Trees
 
 April 18
