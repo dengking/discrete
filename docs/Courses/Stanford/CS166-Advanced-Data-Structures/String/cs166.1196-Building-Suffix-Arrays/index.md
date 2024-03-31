@@ -163,24 +163,121 @@ These suffixes are called LMS suffixes (LeftMost S-type). A suffix is an LMS suf
 
 ![](./LMS-suffixes.png)
 
+#### Induced sorting(Page-134)
 
+Key Theorem: If we can get the **LMS suffixes** - and just the **LMS suffixes** - in sorted order, then we can, in time O(m), get all the other suffixes in order as well.
 
-Key Theorem: If we can get the LMS suffixes - and just the LMS suffixes - in sorted order, then we can, in time O(m), get all the other suffixes in order as well.
+The algorithm for doing this is called **induced sorting**. This is the "IS" in SA-IS.
 
-The algorithm for doing this is called induced sorting. This is the "IS" in SA-IS.
+> NOTE:
+>
+> 一、通过LMS，将原来的字符串切分位多段 ，然后使用  **induced sorting** ，将它们排序成前面提到的 bucket 的形式。
 
-#### LMS suffixes sorting(Page-133)
+#### LMS suffixes induced sorting(Page-155)
 
 
 
 ![](./K-way-merge-LMS-suffixes-example-1.png)
 
+> NOTE:
+>
+> 一、上面这段话中的list指的是左侧的、用`>`串联起来的部分，它们是有序的，显然这部分是可以通过K-way merge的方式进行排序的。需要注意的是: 为了便于理解后的example，首先引入 **当前列(current column)** 的概念，后面的操作始终是集中在 **当前列(current column)** ，它会同时显示 current column 的index、suffix label。
+>
+> ![](./induced-sorting-example-1-current-column.png)
+>
+> 
+
+#### Induced sorting example(Page-158~208)
+
+![](./induced-sorting-example-1.png)
+
+##### Page-161
+
+![](./induced-sorting-example-1-K-way-merge-1.png)
+
+##### Page-167
+
+![](./induced-sorting-example-1-K-way-merge-2.png)
+
+These other suffixes starting with A are S-type, but suffix 19 is L-type. Therefore, suffix 19 wins on tiebreaks.
+
+##### Page-169~170
+
+![](./induced-sorting-example-1-K-way-merge-3.png)
 
 
-#### Induced sorting
 
-Key Theorem: If we can get the **LMS suffixes** – and just the LMS suffixes – in sorted order, then we can, in time O(m), get all the other suffixes in order as well.
+This needs to go with the other G suffixes. Suffix 18 is L-type and the others are S-type, so suffix 18 wins on tiebreaks.
 
-The algorithm for doing this is called **induced sorting**. This is the “IS” in SA-IS.
 
-This is a multiway merge! Each list is sorted, and we want to unify them all together.
+
+![](./induced-sorting-example-1-K-way-merge-4.png)
+
+
+
+##### Page-171~177
+
+![](./induced-sorting-example-1-K-way-merge-5.png)
+
+
+
+![](./induced-sorting-example-1-K-way-merge-6.png)
+
+
+
+![](./induced-sorting-example-1-K-way-merge-7.png)
+
+Suffix 15 needs to go with the other C suffixes. Again, it's L-type and the others are S-type, so suffix 15 winson tiebreaks.
+
+##### Page-179~
+
+
+
+![](./induced-sorting-example-1-K-way-merge-8.png)
+
+
+
+![](./induced-sorting-example-1-K-way-merge-9.png)
+
+###### Dynamic programming(Page-192)
+
+![](./induced-sorting-example-1-K-way-merge-10.png)
+
+#### Some Observations(Page-209)
+
+- All the new suffixes we uncover are L-type.
+- Whenever we uncover a new suffix:
+  - that suffix comes before all S-type suffixes in the list with the same first character, and
+  - that suffix comes after all L-type suffixes in the list with the same first character.
+- Notice that we never make any string comparisons in the course of carrying out this multiway merge!
+- If we can maintain these buckets efficiently, we could complete this merge in time O(m).
+
+
+
+#### Maintain these buckets efficiently(Page-209)
+
+> NOTE:
+>
+> 一、通过LMS来构建bucket boundary
+
+Okay, this next part is pretty cool. Props to Ko and Aluru for figuring it out.
+
+
+
+We can compute the bucket boundaries in time O(m) by just counting up how frequently each character appears in the string. If we store those boundaries in an array indexed by character, we can put each element in the right place in time O(1).
+
+
+
+#### To Recap(Page-341)
+
+-  Suppose that - somehow - we can sort the LMS suffixes.
+-  We can then make three linear scans to sort all the suffixes:
+  - one reverse pass over the sorted LMS suffixes, placing them at the ends of their buckets;
+  - one forward pass over the suffix array, placing L-type suffixes at the fronts of their buckets; and
+  - one reverse pass over the suffix array, placing S-type suffix at the ends of their buckets (making sure to reset
+    the end positions of each bucket first.)
+- This runs in time O(m) and has excellent locality of reference. It's incredibly fast in practice.
+
+
+
+### Second(Page-347)
