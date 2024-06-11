@@ -83,4 +83,10 @@ This code will output the in-order traversal of the binary tree: `4 2 5 1 3 6`.
 
 > NOTE:
 >
-> 一、过河拆桥
+> 一、DFS-two-direction=top-down~reduce~pre-order~action+bottom-up~produce~post-order~action
+>
+> DFS有向下、向上的两个过程，因此一个node肯定会两次被access到。
+>
+> top-down:   建桥
+>
+> bottom-up: 过河拆桥
