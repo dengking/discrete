@@ -20,7 +20,7 @@
 
 比如说**「队列」**、**「栈」**这两种数据结构既可以使用链表也可以使用数组实现。用数组实现，就要处理扩容缩容的问题；用链表实现，没有这个问题，但需要更多的内存空间存储节点指针。
 
-**「图」**的两种表示方法，邻接表就是链表，邻接矩阵就是二维数组。邻接矩阵判断连通性迅速，并可以进行矩阵运算解决一些问题，但是如果图比较稀疏的话很耗费空间。邻接表比较节省空间，但是很多操作的效率上肯定比不过邻接矩阵。
+**「图」**的两种表示方法，**邻接表**就是链表，**邻接矩阵**就是二维数组。邻接矩阵判断连通性迅速，并可以进行矩阵运算解决一些问题，但是如果图比较稀疏的话很耗费空间。邻接表比较节省空间，但是很多操作的效率上肯定比不过邻接矩阵。
 
 ...
 
@@ -47,6 +47,14 @@
 
 
 ## 二、数据结构的基本操作
+
+> NOTE:
+>
+> 一、下面的遍历框架正好体现了random access VS sequencial access
+>
+> array random access
+>
+> linked-list sequencial access
 
 对于任何数据结构，其基本操作无非遍历 + 访问，再具体一点就是：增删查改。
 
@@ -135,11 +143,11 @@ N 叉树的遍历又可以扩展为图的遍历，因为图就是好几 N 叉棵
 
 > NOTE: 
 >
-> [LeetCode-124. 二叉树中的最大路径和](https://leetcode.cn/problems/binary-tree-maximum-path-sum/) 困难
+> [LeetCode-124. 二叉树中的最大路径和-Hard](https://leetcode.cn/problems/binary-tree-maximum-path-sum/) 
 >
 > [LeetCode-105. 从前序与中序遍历序列构造二叉树](https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)
 >
-> [LeetCode-99. 恢复二叉搜索树](https://leetcode.cn/problems/recover-binary-search-tree/) 困难
+> [LeetCode-99. 恢复二叉搜索树-Hard](https://leetcode.cn/problems/recover-binary-search-tree/) 
 
 
 
