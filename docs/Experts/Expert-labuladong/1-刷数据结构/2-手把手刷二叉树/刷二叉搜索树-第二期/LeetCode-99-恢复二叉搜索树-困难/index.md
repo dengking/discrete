@@ -1,6 +1,72 @@
-# [LeetCode-99. 恢复二叉搜索树](https://leetcode.cn/problems/recover-binary-search-tree/)
+# [LeetCode-99. 恢复二叉搜索树-中等](https://leetcode.cn/problems/recover-binary-search-tree/) 
 
 阅读 labuladong [原创 | 手把手刷二叉搜索树（第二期）](https://mp.weixin.qq.com/s/SuGAvV9zOi4viaeyjWhzDw) 时发现的这道题。
+
+注意审题: 只有一对nodes被调换了位置: "the values of **exactly** two nodes of the tree were swapped by mistake"
+
+## Flat the tree to sorted list by inorder-DFS and find the inverse-order-pair
+
+通过inorder-DFS(中序遍历)得到一个有序数组，这样将这个问题转换为有序数组中中调换两个数，找出被调换的两个数字(逆序对)。
+
+那如何找出被调换的两个数字呢？
+
+被调换的两个数字，显然它们和它前后的两个数字都不符合序列关系。由于只有一对数字被交换，先找到第一个不满足大小关系的数字，然后找它应该被插入的位置，显然这个位置目前放的是跟它进行调换的数字。
+
+```python
+from typing import *
+
+
+# Definition for a binary tree node.
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+
+class Solution:
+    def recoverTree(self, root: Optional[TreeNode]) -> None:
+        """
+        Do not return anything, modify root in-place instead.
+        """
+        nodes: List[TreeNode] = []
+
+        def dfs(root_node: Optional[TreeNode]):
+            """
+            中序遍历
+            :param root_node:
+            :return:
+            """
+            if root_node is None:
+                return
+            dfs(root_node.left)
+            nodes.append(root_node)
+            dfs(root_node.right)
+
+        dfs(root)
+        # x,y表示被调换的一对TreeNode
+        x: Optional[TreeNode] = None
+        y: Optional[TreeNode] = None
+        for i in range(1, len(nodes)):
+            if x is None and nodes[i - 1].val > nodes[i].val:
+                x = nodes[i - 1]
+            if x is not None and nodes[i].val > x.val:
+                y = nodes[i - 1]
+                break
+        if y is None:  # x 需要和最后一个元素交换
+            y = nodes[-1]
+        x.val, y.val = y.val, x.val  # 交换x,y的val
+
+
+if __name__ == '__main__':
+    n1 = TreeNode(val=1)
+    n3 = TreeNode(val=3)
+    n2 = TreeNode(val=2)
+    n1.left = n3
+    n3.right = n2
+    Solution().recoverTree(n1)
+
+```
 
 
 
