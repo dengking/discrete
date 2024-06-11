@@ -14,6 +14,20 @@ linked-list 、tree、graph都是concrete strucutre，而state/solution space是
 
 2、recursion、function activation frame对应node、选择对应边来生成的，在实际运行过程中，通过一条path来保存状态。
 
+## Random access VS sequencial access
+
+---
+素材:
+
+labuladong [数据结构和算法学习指南](https://mp.weixin.qq.com/s/ZYaXOSVM3YBIeRWm7E_jcQ) 
+
+
+---
+
+array:         random     access
+
+linked-list: sequential access
+
 
 
 ## *Traverse* Linked-list VS Tree VS Graph VS State/Solution space
@@ -62,7 +76,7 @@ tree   是不可能存在circle，因此在各种algorithm中，不需要考虑c
 
 三、disconnect
 
-graph是可能存在disconnect。
+graph是   可能存在disconnect。
 
 tree   是不可能存在disconnect。
 

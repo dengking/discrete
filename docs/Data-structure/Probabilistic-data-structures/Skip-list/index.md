@@ -323,3 +323,19 @@ public class SkipList{
 
 ```
 
+
+
+
+
+## Redis skip list
+
+redis使用skip list来实现有序集合
+
+相关：https://www.infoq.com/articles/redis-time-series
+
+https://jameshfisher.com/2018/04/22/redis-sorted-set/
+
+http://ticki.github.io/blog/skip-lists-done-right/
+
+[std::multiset vs. std::priority_queue speed comparision](https://stackoverflow.com/questions/5895792/stdmultiset-vs-stdpriority-queue-speed-comparision?rq=1)
+

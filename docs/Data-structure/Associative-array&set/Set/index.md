@@ -60,3 +60,12 @@ The Boolean set operations can be implemented in terms of more elementary operat
  [union-find data structure](https://en.wikipedia.org/wiki/Union-find_algorithm)
 
  [tries](https://en.wikipedia.org/wiki/Trie)
+
+
+
+## Multiset
+
+[`std::multiset`](https://en.cppreference.com/w/cpp/container/multiset)
+
+https://en.wikipedia.org/wiki/Multiset
+
