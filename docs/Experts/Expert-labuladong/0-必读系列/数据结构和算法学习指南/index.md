@@ -157,7 +157,7 @@ LeetCode 99 题，难度 Hard，恢复一棵 BST，主要代码如下：
 
 ![Image](https://mmbiz.qpic.cn/sz_mmbiz_jpg/gibkIz0MVqdHFLNbFyicB9ENe5Gbt9CrrMm8NQJaFMebRAr0mxmnUkBxEZDcxFOicNTbEgiaiaIGE5dEpoKh7uDwlsg/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
-这不就是个中序遍历嘛，对于一棵 BST 中序遍历意味着什么，应该不需要解释了吧。
+这不就是个**中序遍历**嘛，对于一棵 BST 中序遍历意味着什么，应该不需要解释了吧。
 
 > NOTE: 
 >

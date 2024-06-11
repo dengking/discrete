@@ -47,8 +47,6 @@ The Boolean set operations can be implemented in terms of more elementary operat
 
 
 
-
-
 ## Implementation
 
  [self-balancing binary search tree](https://en.wikipedia.org/wiki/Self-balancing_binary_search_tree) 
