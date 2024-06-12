@@ -169,8 +169,6 @@ Trees can also be traversed in *level-order*, where we visit every node on a lev
 
 
 
-
-
 ### Other types
 
 There are also tree traversal algorithms that classify as neither depth-first search nor breadth-first search. One such algorithm is [Monte Carlo tree search](https://en.wikipedia.org/wiki/Monte_Carlo_tree_search), which concentrates on analyzing the most promising moves, basing the expansion of the [search tree](https://en.wikipedia.org/wiki/Search_tree) on [random sampling](https://en.wikipedia.org/wiki/Monte_Carlo_method) of the search space.
