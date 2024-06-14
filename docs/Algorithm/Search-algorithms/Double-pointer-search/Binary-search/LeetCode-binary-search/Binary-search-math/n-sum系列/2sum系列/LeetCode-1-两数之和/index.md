@@ -1,6 +1,6 @@
 # [LeetCode-1. 两数之和](https://leetcode.cn/problems/two-sum/) 
 
-
+这个题考察了hash map、multiple hash map，nums中是可以出现重复元素，但是题目明确要求"you may not use the same element twice"，所以需要考虑在map中找到自己、与自己相同的元素的情况，所以可以看到在循环体中有对两个数是否相同的判断，如果相同，则需要进行特殊处理。
 
 ## 解法1: 暴力搜索
 
@@ -55,7 +55,9 @@ int main()
 
 
 
-## 解法2: 先hash index，然后loop: `std::unordered_map<int, std::vector<int>>`
+## 解法2: 先hash index，然后loop: `std::unordered_map<int, std::vector<int>>` 
+
+### C++
 
 使用 `std::unordered_map<int, std::vector<int>>` 来处理相同值。
 
@@ -120,6 +122,36 @@ int main()
     s.twoSum(nums, 6);
     int debug = 0;
 }
+```
+
+### Python
+
+```python
+from typing import *
+
+
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        num2index: Dict[int, List] = {}
+        for index in range(0, len(nums)):
+            num = nums[index]
+            if num not in num2index:
+                num2index[num] = []
+            num2index[num].append(index)
+
+        for index in range(0, len(nums)):
+            num1 = nums[index]
+            num2 = target - num1
+            if num2 not in num2index:
+                continue
+            if num1 == num2:
+                if len(num2index[num1]) == 1:
+                    continue
+                else:
+                    return [index, num2index[num2][1]]
+            else:
+                return [index, num2index[num2][0]]
+
 ```
 
 
@@ -189,13 +221,9 @@ int main()
 
 
 
-
-
-
-
 ## 解法4: loop内进行hash index
 
-
+### C++
 
 典型的以空间换时间。
 
@@ -277,4 +305,25 @@ int main()
 通过上述程序可以看出，它并没有按照 labuladong [Two Sum 问题的核心思想](https://mp.weixin.qq.com/s/3CMQaY1mO1Iqt4j30bUVcA) 中的做法，提前index，而是在`for`中，对于已经access过的element才添加到hash map中，另外题目要求是two sum，即只会涉及两个数，因此，如果第一次已经access了一个，第二次再次遇到相同值的时候，也能够取到第一次的元素的准确位置。
 
 上述这种策略，对于更多的数，貌似是行不通的。
+
+
+
+### Python
+
+```python
+from typing import *
+
+
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        num2index: Dict[int, int] = {}
+        for index in range(0, len(nums)):
+            num = nums[index]
+            num1 = target - num
+            if num1 in num2index:
+                return [index, num2index[num1]]
+            num2index[num] = index
+        return []
+
+```
 

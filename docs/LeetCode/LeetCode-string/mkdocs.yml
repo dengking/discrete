@@ -5,3 +5,5 @@ nav:
     - LeetCode-DFA: LeetCode-DFA
     - LeetCode-Integer&string: LeetCode-Integer&string # int&string 和 DFA 是密切相关的，要将两者放到一起
     - LeetCode-parse-expression: LeetCode-parse-expression
+    - LeetCode-Anagrams: LeetCode-Anagrams
+    
