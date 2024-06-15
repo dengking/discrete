@@ -1,8 +1,6 @@
 # [LeetCode-27. 移除元素](https://leetcode.cn/problems/remove-element/)
 
-
-
-## 我的解答
+用slow来表示非0区域(合法区域)，fast去probe(打探)
 
 
 

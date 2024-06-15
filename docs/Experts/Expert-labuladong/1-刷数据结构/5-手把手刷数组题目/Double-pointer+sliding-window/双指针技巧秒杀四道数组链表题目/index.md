@@ -1,4 +1,4 @@
-# labuladong  [双指针技巧秒杀四道数组/链表题目](https://mp.weixin.qq.com/s/55UPwGL0-Vgdh8wUEPXpMQ)
+# labuladong  [双指针技巧秒杀四道数组/链表题目](https://mp.weixin.qq.com/s/55UPwGL0-Vgdh8wUEPXpMQ) 
 
 > NOTE: 
 >
@@ -26,7 +26,7 @@
 >
 > 1、其实它的实现思路是非常简单的: 将所有不等于待删除值的元素(需要保留的元素)都移到`[0, slow]`内
 
-### [LeetCode-27. 移除元素](https://leetcode.cn/problems/remove-element/)
+### [LeetCode-27. 移除元素](https://leetcode.cn/problems/remove-element/) 
 
 
 
@@ -52,7 +52,7 @@ int removeElement(int[] nums, int val) {
 
 ## 移动零
 
-### [LeetCode-283. 移动零](https://leetcode.cn/problems/move-zeroes/)
+### [LeetCode-283. 移动零](https://leetcode.cn/problems/move-zeroes/) 
 
 这是力扣第 283 题，我来描述下题目：
 
