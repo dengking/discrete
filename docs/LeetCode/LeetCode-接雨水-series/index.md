@@ -173,26 +173,6 @@ int main()
 
 
 
-## 从搜索空间的角度来分析O(n) 的双指针解法
-
-[LeetCode-11. 盛最多水的容器-Medium](https://leetcode.cn/problems/container-with-most-water/) 
-
-[LeetCode-167. Two Sum II - Input array is sorted-Medium](https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted/)
-
-[LeetCode-240. Search a 2D Matrix II-Medium](https://leetcode.cn/problems/search-a-2d-matrix-ii/) 
-
-相同点:
-
-- 解空间都是 upper triangular square matrix(上三角方阵)
-- 解都是满足相同约束条件的一对数字
-- 都要求找出 $O(n)$ 解法
-
-[nettee](https://leetcode.cn/u/nettee/) [一张图告诉你 O(n) 的双指针解法的本质原理（C++/Java）](https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted/solutions/87919/yi-zhang-tu-gao-su-ni-on-de-shuang-zhi-zhen-jie-fa/)
-
-
-
-
-
 ## [LeetCode-42. 接雨水](https://leetcode.cn/problems/trapping-rain-water/)
 
 
