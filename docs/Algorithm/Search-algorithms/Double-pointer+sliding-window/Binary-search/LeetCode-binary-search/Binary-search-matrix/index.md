@@ -2,13 +2,20 @@
 
 [LeetCode-74. Search a 2D Matrix](https://leetcode.cn/problems/search-a-2d-matrix/) 中，整个matrix是递增的，因此使用一次binary search即可。
 
-[LeetCode-240. Search a 2D Matrix II](https://leetcode.cn/problems/search-a-2d-matrix-ii/) 中，整个matrix不是递增的，因此无法使用binary search。
+[LeetCode-240. Search a 2D Matrix II](https://leetcode.cn/problems/search-a-2d-matrix-ii/) 中，整个matrix不是递增的，因此无法使用binary search，但是:
+
+> 将矩阵逆时针旋转 45° ，并将其转化为图形式，发现其类似于 二叉搜索树 ，即对于每个元素，其左分支元素更小、右分支元素更大。因此，通过从 “根节点” 开始搜索，遇到比 target 大的元素就向左，反之向右，即可找到目标值 target 。
+>
+> 作者：Krahets
+> 链接：https://leetcode.cn/problems/search-a-2d-matrix-ii/solutions/2361487/240-sou-suo-er-wei-ju-zhen-iitan-xin-qin-7mtf/
+> 来源：力扣（LeetCode）
+> 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 ## [LeetCode-74. Search a 2D Matrix](https://leetcode.cn/problems/search-a-2d-matrix/) 
 
 ### Binary search C++
 
-
+整个matrix是递增的，因此使用一次binary search即可。
 
 ```c++
 #include <vector>
@@ -76,9 +83,50 @@ int main()
 
 ## [LeetCode-240. Search a 2D Matrix II](https://leetcode.cn/problems/search-a-2d-matrix-ii/) 
 
+### [Krahets](https://leetcode.cn/u/jyd/) # [240. 搜索二维矩阵 II（贪心，清晰图解）](https://leetcode.cn/problems/search-a-2d-matrix-ii/solutions/2361487/240-sou-suo-er-wei-ju-zhen-iitan-xin-qin-7mtf/)
+
+如下图所示，我们将矩阵逆时针旋转 45° ，并将其转化为图形式，发现其类似于 二叉搜索树 ，即对于每个元素，其左分支元素更小、右分支元素更大。因此，通过从 “根节点” 开始搜索，遇到比 target 大的元素就向左，反之向右，即可找到目标值 `target` 。
+
+![Picture1.png](https://pic.leetcode-cn.com/6584ea93812d27112043d203ea90e4b0950117d45e0452d0c630fcb247fbc4af-Picture1.png)
+
+“根节点” 对应的是矩阵的 “左下角” 和 “右上角” 元素，本文称之为 标志数 ，以 matrix 中的 左下角元素 为标志数 flag ，则有:
+
+- 若 flag > target ，则 target 一定在 flag 所在 行的上方 ，即 flag 所在行可被消去。
+
+- 若 flag < target ，则 target 一定在 flag 所在 列的右方 ，即 flag 所在列可被消去。
+
+#### 算法流程：
+
+1. 从矩阵 matrix 左下角元素（索引设为 (i, j) ）开始遍历，并与目标值对比：
+
+- 当 `matrix[i][j] > target` 时，执行 `i--` ，即消去第 i 行元素。
+- 当 `matrix[i][j] < target` 时，执行 `j++` ，即消去第 j 列元素。
+- 当 `matrix[i][j] = target` 时，返回 true ，代表找到目标值。
+
+2. 若行索引或列索引越界，则代表矩阵中无目标值，返回 false 。
+
+#### Python
+
+```python
+from typing import *
+
+class Solution:
+    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+        i, j = len(matrix) - 1, 0
+        while i >= 0 and j < len(matrix[0]):
+            if matrix[i][j] > target: i -= 1
+            elif matrix[i][j] < target: j += 1
+            else: return True
+        return False
 
 
-### Binary-search-dead-loop
+```
+
+
+
+### Binary-search
+
+#### dead-loop
 
 ```c++
 #include <vector>
@@ -175,7 +223,7 @@ int main() {
 
 
 
-### Binary-search-通过
+#### 通过
 
 ```c++
 class Solution
