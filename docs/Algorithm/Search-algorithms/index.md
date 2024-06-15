@@ -137,15 +137,15 @@ There are also search methods designed for [quantum computers](https://en.wikipe
 
 如何优化search algorithm？
 
-### 剪枝
+### 缩减搜索空间
 
-一、素材
+1、 [LeetCode-11. 盛最多水的容器](https://leetcode.cn/problems/container-with-most-water/)  # [nettee](https://leetcode.cn/u/nettee/) [一张图告诉你 O(n) 的双指针解法的本质原理（C++/Java）](https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted/solutions/87919/yi-zhang-tu-gao-su-ni-on-de-shuang-zhi-zhen-jie-fa/)  
 
-1、 [nettee](https://leetcode.cn/u/nettee/) [一张图告诉你 O(n) 的双指针解法的本质原理（C++/Java）](https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted/solutions/87919/yi-zhang-tu-gao-su-ni-on-de-shuang-zhi-zhen-jie-fa/)  
-
-[LeetCode-11. 盛最多水的容器](https://leetcode.cn/problems/container-with-most-water/) 
+这个解法非常好的阐述了这种思想
 
 [LeetCode-167. Two Sum II - Input array is sorted](https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted/)
 
-2、binary search就是典型的剪枝来加速搜索
+2、binary search就是典型的通过缩减搜索空间来加速搜索
+
+3、DFS-backtrack剪枝
 

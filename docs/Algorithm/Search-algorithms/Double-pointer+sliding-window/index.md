@@ -37,7 +37,13 @@
 
 可以解决linked list、array相关的问题;
 
-Array、linked-list去重、array、linked-list移除、移动指定元素类问题，使用slow守护合法区域，fast去probe(打探)。
+#### fast-slow-double-pointer-erase-remove-move-idiom
+
+Array、linked-list去重、移除、移动指定元素类问题，使用slow守护合法区域，fast去probe(打探)，遇到目标元素，就移到合法区域，遇到非目标元素，直接省略过，下面是
+
+
+
+![283_2.gif](https://pic.leetcode-cn.com/36d1ac5d689101cbf9947465e94753c626eab7fcb736ae2175f5d87ebc85fdf0-283_2.gif)
 
 #### Array、linked-list去重
 
