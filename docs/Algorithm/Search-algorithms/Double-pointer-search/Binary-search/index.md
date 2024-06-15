@@ -1,6 +1,6 @@
-# binary-search
+# Binary-search
 
-素材:
+## 素材
 
 一、LeetCode
 
@@ -32,13 +32,9 @@
 
 四、wikipedia [Binary search algorithm](https://en.wikipedia.org/wiki/Binary_search_algorithm) 
 
-这是权威
-
 
 
 五、programmingpraxis [Binary Search With Duplicates](https://programmingpraxis.com/2017/11/07/binary-search-with-duplicates/)
-
-还未阅读
 
 
 
@@ -54,7 +50,7 @@
 
 
 
-## binary-search-逼近
+## Binary-search-逼近
 
 在一定范围内搜索符合条件的数(可能多个数)，这是binary search的典型应用，有两种变形：
 
@@ -72,13 +68,15 @@
 
 
 
-## binary-search-子序列
+## Binary-search-子序列
 
 素材:
 
 一、labuladong [二分查找的妙用：判定子序列](https://mp.weixin.qq.com/s/hWi2hTrQewL_YKioGkXQJg)
 
 二、labuladong  [动态规划设计之最长递增子序列 # 二分查找解法](https://mp.weixin.qq.com/s/02o_OPgePjaz3dXnw9TA1w)
+
+
 
 ### LeetCode
 
@@ -88,13 +86,15 @@
 
 
 
-## binary-search-virtual-solution-space
+## Binary-search-virtual-solution-space
 
 这种类型的问题，它的virtual-3s-space是需要由programmer挖掘的，它的virtual-3s-space是sorted的，因此可以使用binary-search-algorithm，下面是素材:
 
 一、labuladong [二分搜索只能用来查找元素吗？](https://mp.weixin.qq.com/s/QC24hyg0ZgjR7-LgnEzMYg) 
 
-### binary-search-逼近-求最值
+
+
+### Binary-search-逼近-求最值
 
 一、逼近原理求解最小值
 
@@ -118,7 +118,7 @@
 
 
 
-### binary-search-rank
+### Binary-search-rank
 
 素材:
 
@@ -129,8 +129,6 @@
 [LeetCode-878. 第 N 个神奇数字-困难](https://leetcode.cn/problems/nth-magical-number/)
 
 [LeetCode-1201 丑数 III-中等](https://leetcode.cn/problems/ugly-number-iii/)
-
-
 
 
 
