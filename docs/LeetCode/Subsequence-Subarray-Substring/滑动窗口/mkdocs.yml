@@ -1,7 +1,0 @@
-nav:
-    - Introduction: index.md
-    - 定长滑动窗口: 定长滑动窗口
-    - LeetCode-1100-长度为K的无重复字符子串: LeetCode-1100-长度为K的无重复字符子串    
-    - LeetCode-424-替换后的最长重复字符: LeetCode-424-替换后的最长重复字符
-    - LeetCode-1839-所有元音按顺序排布的最长子字符串: LeetCode-1839-所有元音按顺序排布的最长子字符串
-    

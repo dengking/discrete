@@ -1,18 +1,29 @@
-# 滑动窗口解子串、子序列问题
+# Sliding window
 
 
 
 ## 素材
 
-一、labuladong [我写了套框架，把滑动窗口算法变成了默写题](https://mp.weixin.qq.com/s/ioKXTMZufDECBUwRRp3zaA) 
+一. labuladong 
+
+- [我写了套框架，把滑动窗口算法变成了默写题](https://mp.weixin.qq.com/s/ioKXTMZufDECBUwRRp3zaA) 
+
+- [滑动窗口算法解决子串问题](https://mp.weixin.qq.com/s/nJHIxQ2BbqhDv5jZ9NgXrQ)
+- [单调队列解决滑动窗口问题](https://mp.weixin.qq.com/s/GqehrBu9m7qf5FgFqlV-Uw)
 
 
 
-## 前提条件
 
-使用滑动窗口的前提是: "向右滑动的时候，是寻找一个可行解，向左滑动是优化解"
 
-使用滑动窗口解决连续子数组、连续子串的最值问题的前提是问题需要具备单调性，如果问题不具备单调性，则不能够使用滑动窗口，这在下面的文章中进行了非常好的讨论:
+### 前提条件
+
+使用滑动窗口解决连续子数组、连续子串的最值问题的**前提**是问题需要具备单调性：
+
+> "向右滑动的时候，是寻找一个可行解，向左滑动是优化解"
+
+如果问题不具备单调性，则不能够使用滑动窗口，这在下面的文章中进行了非常好的讨论:
+
+### 无法使用滑动窗口
 
 一、labuladong [动态规划套路：最大子数组和](https://mp.weixin.qq.com/s/nrULqCsRsrPKi3Y-nUfnqg) 
 
@@ -34,21 +45,19 @@
 
 三、[LeetCode-560. 和为 K 的子数组](https://leetcode.cn/problems/subarray-sum-equals-k/)
 
-这个问题就是典型的不能够使用滑动窗口的
+这个问题就是典型的不能够使用**滑动窗口**的
 
-## 问题分类
+### 问题分类
 
 这类问题有多种分类方式：
 
-### 一、窗口是否定长？
+一、窗口是否定长？
 
 参见`定长滑动窗口`章节。
 
-### 二、连续还是不连续？
+二、连续还是不连续？
 
-
-
-### 三、
+三、
 
 1、存在性问题
 
@@ -56,9 +65,9 @@
 
 3、最优值问题
 
+## Algo framework
 
-
-## 窗口表示与比较
+### 窗口表示与比较
 
 一、目标值和窗口的比较这是滑动窗口算法的一个common issue
 
@@ -109,7 +118,69 @@ if (need == window)
 
 
 
-## 子串、子数组 LeetCode例题
+
+
+## Sliding window VS 暴力搜索
+
+滑动窗口相较于暴力搜索，优势何在？如何减少搜索空间？
+
+1、滑动窗口，能够较快地判断窗口中，是否包含子串
+
+2、暴力搜索，子串使用`str[i:j]`来表示，它使用嵌套for来给出所有的`i`、`j`组合
+
+3、滑动窗口，基于上一次的位置开始进行expand、shrink，它不必每次重头再来。
+
+> NOTE: 
+>
+> 以空间换时间
+
+
+
+### stackoverflow [Is two pointer problem same as sliding window](https://stackoverflow.com/questions/64078162/is-two-pointer-problem-same-as-sliding-window)
+
+
+
+#### [A](https://stackoverflow.com/a/64078338)
+
+**Sliding window algorithms** can be implemented with a single pointer and a variable for **window size**. Typically we use all of the elements within the window for the problem (for eg - sum of all elements in the window).
+
+Two pointer technique is quite similar but we usually compare the value at the two pointers instead of all the elements between the pointers.
+
+Two pointers can also have variations like fast-slow pointer.
+
+Hope it answers your question.
+
+
+
+## Sliding window VS KMP  
+
+第一次看到滑动窗口，我就联想到了KMP，下面的文章中，对此进行了说明:
+
+- zhihu [谈一谈“滑动窗口”](https://zhuanlan.zhihu.com/p/113352663)
+
+KMP算法是应用了滑动窗口最典型的例子
+
+
+
+## TODO
+
+fatalerrors [LC algorithm skills summary: double pointer and sliding window skills](https://www.fatalerrors.org/a/lc-algorithm-skills-summary-double-pointer-and-sliding-window-skills.html)
+
+> NOTE: 
+>
+> 1、LC algorithm的含义是什么？
+
+
+
+## Application
+
+滑动窗口解子串、子序列问题
+
+[LeetCode-Sliding Window](https://leetcode.cn/tag/sliding-window/) 
+
+
+
+### 子串、子数组 
 
 素材:
 
@@ -381,4 +452,34 @@ public:
 
 
 ### [LeetCode-1839. 所有元音按顺序排布的最长子字符串](https://leetcode.cn/problems/longest-substring-of-all-vowels-in-order/) 中等
+
+
+
+## 定长滑动窗口
+
+对于定长窗口的滑动窗口问题，下面是解题模板：
+
+一、Leetcode [1100. 长度为 K 的无重复字符子串](https://leetcode.cn/problems/find-k-length-substrings-with-no-repeated-characters/) 中等
+
+计数
+
+二、Leetcode [567. 字符串的排列](https://leetcode.cn/problems/permutation-in-string/) 中等
+
+存在性
+
+
+
+## 尺取法
+
+尺取法其实就是滑动窗口，下面是一些素材：
+
+一、
+
+zhihu [尺取法（一）](https://zhuanlan.zhihu.com/p/31425915)
+
+zhihu [尺取法（二）](https://zhuanlan.zhihu.com/p/31427570)
+
+二、acwing [尺取法](https://www.acwing.com/blog/content/4409/)
+
+三、[LeetCode-567. 字符串的排列](https://leetcode.cn/problems/permutation-in-string/)  
 
