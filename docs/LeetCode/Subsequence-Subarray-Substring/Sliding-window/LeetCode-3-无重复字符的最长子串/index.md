@@ -1,8 +1,8 @@
-# [LeetCode-3. 无重复字符的最长子串](https://leetcode.cn/problems/longest-substring-without-repeating-characters/) 中等
+## [LeetCode-3. 无重复字符的最长子串-中等](https://leetcode.cn/problems/longest-substring-without-repeating-characters/) 
 
 
 
-## 我的解题
+### C++
 
 ```C++
 #include <iostream>
@@ -58,6 +58,69 @@ int main()
     solu.lengthOfLongestSubstring(s);
 }
 // g++ test.cpp --std=c++11 -pedantic -Wall -Wextra
+
+```
+
+### Python
+
+错误写法: 
+
+```python
+
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        def is_window_duplicate(w: Dict[str, int]) -> bool:
+            return any(cnt > 1 for cnt in w.values())
+
+        left, right = 0, 0
+        window: Dict[str, int] = defaultdict(int)
+        ans = 0
+        while right < len(s):
+            c_right = s[right]
+            right += 1
+            window[c_right] += 1
+            while is_window_duplicate(window):
+                c_left = s[left]
+                left += 1
+                window[c_left] -= 1
+
+            ans = max(ans, len(window))
+        return ans
+
+```
+
+上述计算当前 `window` 的长度的方式是错误的，因为 `window` 的实现是dict，当一个字符的计数为0的时候，它并不会将它从dict中删除，这就导致了无法准确的计算出当前窗口中有多少个字符。
+
+
+
+正确写法:
+
+```python
+
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        def is_window_duplicate(w: Dict[str, int]) -> bool:
+            return any(cnt > 1 for cnt in w.values())
+
+        left, right = 0, 0
+        window_stat: Dict[str, int] = defaultdict(int)
+        ans = 0
+        while right < len(s):
+            c_right = s[right]
+            right += 1
+            window_stat[c_right] += 1
+            while is_window_duplicate(window_stat):
+                c_left = s[left]
+                left += 1
+                window_stat[c_left] -= 1
+
+            ans = max(ans, len(window_stat))
+        return ans
+
+
+if __name__ == '__main__':
+    solu = Solution()
+    solu.lengthOfLongestSubstring("pwwkew")
 
 ```
 

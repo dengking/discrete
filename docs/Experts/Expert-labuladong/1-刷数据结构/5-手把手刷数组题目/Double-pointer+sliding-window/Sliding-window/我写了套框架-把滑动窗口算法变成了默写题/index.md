@@ -107,18 +107,41 @@ void slidingWindow(string s, string t) {
 > 嵌套`while`，外层`while`用于expand right，内存while用于shrink left，它们都会引起滑动窗口的更新，因此都会执行"进行窗口内数据的一系列更新"。
 >
 > ```python
+> 
 > def sliding_window(s: str, t: str):
 >     """
 >     滑动窗口算法框架
 >     在 s 中搜索 t
->     :param s:
->     :param t:
+>     :param s: 从s中搜索t
+>     :param t: 目标
 >     :return:
 >     """
->     need: Dict[str, int] = defaultdict(int)
->     window: Dict[str, int] = defaultdict(int)
+> 
+>     def is_window_needs_shrink(win: Dict[str, int]) -> bool:
+>         """
+>         :param win: window
+>         :return: 判定window是否需要收缩
+>         """
+>         return True
+> 
+>     need: Dict[str, int] = defaultdict(int)  # 需要的
+>     window: Dict[str, int] = defaultdict(int)  # 当前子串的
 >     for c in t:
 >         need[c] += 1
+>     left, right = 0, 0
+>     while right < len(s):
+>         c = s[right]  # c 是将移入窗口的字符
+>         right += 1  # 向右移动窗口
+>         # 进行窗口内数据的一系列更新
+>         pass  # ....
+>         # debug 输出的位置
+>         pass  # ...
+>         # 判断左侧窗口是否要收缩
+>         while is_window_needs_shrink(window):
+>             d = s[left]  # d 是将移出窗口的字符
+>             left += 1  # 左移窗口
+>             # 进行窗口内数据的一系列更新
+>             pass  # ....
 > 
 > ```
 >

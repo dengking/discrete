@@ -13,9 +13,103 @@
 
 
 
+## Algo framework
 
 
-### 前提条件
+
+```python
+
+
+def sliding_window(s: str, t: str):
+    """
+    滑动窗口算法框架
+    在 s 中搜索 t
+    :param s: 从s中搜索t
+    :param t: 目标
+    :return:
+    """
+
+    def is_window_needs_shrink(win: Dict[str, int]) -> bool:
+        """
+        :param win: window
+        :return: 判定window是否需要收缩
+        """
+        return True
+
+    need_stat: Dict[str, int] = defaultdict(int)  # 需要子串的统计
+    window_stat: Dict[str, int] = defaultdict(int)  # 当前窗口的统计
+    for c in t:
+        need_stat[c] += 1
+    left, right = 0, 0
+    while right < len(s):
+        c = s[right]  # c 是将移入窗口的字符
+        right += 1  # 向右移动窗口
+        # 进行窗口内数据的一系列更新
+        pass  # ....
+        # debug 输出的位置
+        pass  # ...
+        # 判断左侧窗口是否要收缩
+        while is_window_needs_shrink(window_stat):
+            d = s[left]  # d 是将移出窗口的字符
+            left += 1  # 左移窗口
+            # 进行窗口内数据的一系列更新
+            pass  # ....
+        # 更新答案
+        pass  # ....
+
+
+```
+
+- left   是 window 的起始
+
+  right是 window 的终止
+
+  `window_stat` 是对窗口中的元素的统计(stat)，使用它能够快速地进行判断(比如判定 window 中是否contain need)。
+
+- nested while：
+
+  - 外层while 用于expand right( `++right` )
+
+  - 内层while用于shrink left( `++left` )
+
+​	它们都会引起滑动窗口的更新，因此都会执行"进行窗口内数据的一系列更新"。
+
+​	其中两处`...`表示的更新窗口数据(window)的地方，需要结合具体的问题填入相应的代码。
+
+​	这两个`...`处的操作分别是右移和左移窗口更新操作，等会你会发现它们操作是完全**对称**的。
+
+
+
+### Q: window 和 `left`、`right` 的对应关系？
+
+为什么要思考这个问题？因为很多时候，当更新答案的时候，可能需要比如:
+
+- 如何计算window中元素的准确个数？( [LeetCode-3. 无重复字符的最长子串-中等](https://leetcode.cn/problems/longest-substring-without-repeating-characters/) 中需要)
+
+需要注意的是，window中元素的准确个数 不一定等于 `len(window_stat)`，这是因为(TODO: 补充在做 [LeetCode-3. 无重复字符的最长子串-中等](https://leetcode.cn/problems/longest-substring-without-repeating-characters/) 时踩过的坑)。
+
+sliding window是比较复杂的iteration，因为它有两个iterator: `left`、`right`，并且它还是nested loop，两个iterator的迭代( `move to next` )是不同步的(可以看到后面对它们的关系的是分是否移动了`left`的)，所以这就引发了我对 window 和 `left`、`right` 的对应关系的思考，结合做题和纯代码分析可知:
+
+由于在循环体内，当执行到 `更新答案` 处的时候，right肯定是已经被迭代( `move to next` )了，而`next`的可能更新也可能没有更新，需要注意的是: `next` 始终指向的是window的起始位置(这是通过分析得到的)，无论它是否被更新。下面结合  [LeetCode-3. 无重复字符的最长子串-中等](https://leetcode.cn/problems/longest-substring-without-repeating-characters/) 中的具体例子分情况来进行说明:
+
+一、`left` 没有被更新
+
+`abcdef`: 显然 `left` 一直是0，所以窗口的长度 = `(right -1) - left + 1` = `right - left`
+
+说明:
+
+- `right - 1` 是进行回退
+- 由于`left`、`right` 都是下标，因此计算长度的时候需要最后 `+1`
+
+二、`left`被更新了
+
+窗口的长度 = `(right -1) - left + 1` = `right - left`
+
+综上: 窗口的长度 = `(right -1) - left + 1` = `right - left` .
+
+
+
+### 使用条件
 
 使用滑动窗口解决连续子数组、连续子串的最值问题的**前提**是问题需要具备单调性：
 
@@ -23,7 +117,7 @@
 
 如果问题不具备单调性，则不能够使用滑动窗口，这在下面的文章中进行了非常好的讨论:
 
-### 无法使用滑动窗口
+#### 无法使用的情况
 
 一、labuladong [动态规划套路：最大子数组和](https://mp.weixin.qq.com/s/nrULqCsRsrPKi3Y-nUfnqg) 
 
@@ -47,82 +141,17 @@
 
 这个问题就是典型的不能够使用**滑动窗口**的
 
-### 问题分类
-
-这类问题有多种分类方式：
-
-一、窗口是否定长？
-
-参见`定长滑动窗口`章节。
-
-二、连续还是不连续？
-
-三、
-
-1、存在性问题
-
-2、计数问题
-
-3、最优值问题
-
-## Algo framework
-
 ### 窗口表示与比较
 
-一、目标值和窗口的比较这是滑动窗口算法的一个common issue
+目标值和窗口当前值的比较这是滑动窗口算法的一个common issue，为了高效进行，往往需要对它们进行统计
 
-一般，将目标值称为`need`，将窗口称之为`window`。
+一般: 将目标值称为`need` (`need_stat`)，将窗口称之为`window` (`window_stat`)。
 
-二、使用lambda来表示窗口的比较
+## Complexity
 
-比如 Leetcode [1100. 长度为 K 的无重复字符子串](https://leetcode.cn/problems/find-k-length-substrings-with-no-repeated-characters/) 
+sliding window 相对于 暴力搜索 time complexity的优势: $O(n^2)$ -> $O(n)$
 
-### 窗口的表示
-
-一、对于字符串相关的问题
-
-1、Leetcode [567. 字符串的排列](https://leetcode.cn/problems/permutation-in-string/) # [官方解题](https://leetcode.cn/problems/permutation-in-string/solution/zi-fu-chuan-de-pai-lie-by-leetcode-solut-7k7u/)
-
-```c++
-vector<int> cnt1(26), cnt2(26);
-for (int i = 0; i < n; ++i) {
-  ++cnt1[s1[i] - 'a'];
-  ++cnt2[s2[i] - 'a'];
-}
-if (need == window)
-  return true;
-```
-
-上述直接使用vector来表示need和window。
-
-2、Leetcode [1100. 长度为 K 的无重复字符子串](https://leetcode.cn/problems/find-k-length-substrings-with-no-repeated-characters/)
-
-```c++
-    unordered_map<char, int> window;
-    for (int i = 0; i < k; ++i)
-    {
-      ++window[s[i]];
-    }
-    auto isNotRepeat = [&]() -> bool
-    {
-      for (auto &&item : window)
-      {
-        if (item.second > 1)
-        {
-          return false;
-        }
-      }
-      return true;
-    };
-```
-
-
-
-
-
-## Sliding window VS 暴力搜索
-
-滑动窗口相较于暴力搜索，优势何在？如何减少搜索空间？
+进一步滑动窗口相较于暴力搜索，优势何在？如何减少搜索空间？
 
 1、滑动窗口，能够较快地判断窗口中，是否包含子串
 
@@ -132,7 +161,7 @@ if (need == window)
 
 > NOTE: 
 >
-> 以空间换时间
+> 典型的以空间换时间
 
 
 
@@ -152,68 +181,40 @@ Hope it answers your question.
 
 
 
-## Sliding window VS KMP  
-
-第一次看到滑动窗口，我就联想到了KMP，下面的文章中，对此进行了说明:
-
-- zhihu [谈一谈“滑动窗口”](https://zhuanlan.zhihu.com/p/113352663)
-
-KMP算法是应用了滑动窗口最典型的例子
-
-
-
-## TODO
-
-fatalerrors [LC algorithm skills summary: double pointer and sliding window skills](https://www.fatalerrors.org/a/lc-algorithm-skills-summary-double-pointer-and-sliding-window-skills.html)
-
-> NOTE: 
->
-> 1、LC algorithm的含义是什么？
-
 
 
 ## Application
-
-滑动窗口解子串、子序列问题
 
 [LeetCode-Sliding Window](https://leetcode.cn/tag/sliding-window/) 
 
 
 
-### 子串、子数组 
+这类问题有多种分类方式：
 
-素材:
+一、窗口是否定长？
 
-1、[LeetCode-1004. 最大连续1的个数 III](https://leetcode.cn/problems/max-consecutive-ones-iii/) # [一个模板解决最大滑动窗口问题（同类型题目收集）](https://leetcode.cn/problems/max-consecutive-ones-iii/solution/jidao-by-iamysw-bs2s/)
+参见`定长滑动窗口`章节。
 
+二、连续还是不连续？
 
+三、
 
-### 习题分类
+1、存在性问题
 
-一、简单:
+2、计数问题
 
-1、[LeetCode-剑指 Offer 57 - II. 和为s的连续正数序列](https://leetcode.cn/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/) 
+3、最优值问题
 
-最好的滑动窗口例题
+## Application: 数学
 
-二、修改K次
+### [LeetCode-剑指 Offer 57 - II. 和为s的连续正数序列-简单](https://leetcode.cn/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/) 
 
-[LeetCode-1004. 最大连续1的个数 III](https://leetcode.cn/problems/max-consecutive-ones-iii/) 中等
+1. 穷举: "输出所有和为 `target` 的连续正整数序列（至少含有两个数）"
+2. 这其实也是子串问题
 
-[LeetCode-424. 替换后的最长重复字符](https://leetcode.cn/problems/longest-repeating-character-replacement/) 中等
-
-[LeetCode-1493. 删掉一个元素以后全为 1 的最长子数组](https://leetcode.cn/problems/longest-subarray-of-1s-after-deleting-one-element/) 
-
-K为1
-
-
-
-### [LeetCode-剑指 Offer 57 - II. 和为s的连续正数序列](https://leetcode.cn/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/) 简单
-
-穷举: "输出所有和为 `target` 的连续正整数序列（至少含有两个数）"
+C++
 
 ```c++
-
 class Solution
 {
 public:
@@ -249,6 +250,43 @@ public:
 
 
 ```
+
+Python:
+
+```
+```
+
+
+
+## Application: 子串、子数组 
+
+滑动窗口解子串、子序列问题
+
+素材:
+
+1、[LeetCode-1004. 最大连续1的个数 III](https://leetcode.cn/problems/max-consecutive-ones-iii/) # [一个模板解决最大滑动窗口问题（同类型题目收集）](https://leetcode.cn/problems/max-consecutive-ones-iii/solution/jidao-by-iamysw-bs2s/)
+
+
+
+### 习题分类
+
+一、简单:
+
+1、[LeetCode-剑指 Offer 57 - II. 和为s的连续正数序列](https://leetcode.cn/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/) 
+
+最好的滑动窗口例题
+
+二、修改K次
+
+[LeetCode-1004. 最大连续1的个数 III](https://leetcode.cn/problems/max-consecutive-ones-iii/) 中等
+
+[LeetCode-424. 替换后的最长重复字符](https://leetcode.cn/problems/longest-repeating-character-replacement/) 中等
+
+[LeetCode-1493. 删掉一个元素以后全为 1 的最长子数组](https://leetcode.cn/problems/longest-subarray-of-1s-after-deleting-one-element/) 
+
+K为1
+
+
 
 
 
@@ -455,6 +493,18 @@ public:
 
 
 
+## Application: KMP  
+
+第一次看到滑动窗口，我就联想到了KMP，下面的文章中，对此进行了说明:
+
+- zhihu [谈一谈“滑动窗口”](https://zhuanlan.zhihu.com/p/113352663)
+
+KMP算法是应用了滑动窗口最典型的例子
+
+
+
+
+
 ## 定长滑动窗口
 
 对于定长窗口的滑动窗口问题，下面是解题模板：
@@ -482,4 +532,14 @@ zhihu [尺取法（二）](https://zhuanlan.zhihu.com/p/31427570)
 二、acwing [尺取法](https://www.acwing.com/blog/content/4409/)
 
 三、[LeetCode-567. 字符串的排列](https://leetcode.cn/problems/permutation-in-string/)  
+
+
+
+## TODO
+
+fatalerrors [LC algorithm skills summary: double pointer and sliding window skills](https://www.fatalerrors.org/a/lc-algorithm-skills-summary-double-pointer-and-sliding-window-skills.html)
+
+> NOTE: 
+>
+> 1、LC algorithm的含义是什么？
 
