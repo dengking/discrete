@@ -13,7 +13,7 @@
 
 
 
-## Algo framework1
+## Algo framework1(左闭右开)
 
 
 
@@ -172,7 +172,7 @@ sliding window是比较复杂的iteration，因为它有两个iterator: `left`�
 
 
 
-## Algo framework2
+## Algo framework2(左闭右闭)
 
 [负雪明烛](https://leetcode.cn/u/fuxuemingzhu/) # [分享滑动窗口模板，秒杀滑动窗口问题](https://leetcode.cn/problems/max-consecutive-ones-iii/solution/fen-xiang-hua-dong-chuang-kou-mo-ban-mia-f76z/) 中提出的:
 
@@ -359,21 +359,13 @@ public:
 
 滑动窗口解子串、子序列问题
 
-素材:
-
-1、[LeetCode-1004. 最大连续1的个数 III](https://leetcode.cn/problems/max-consecutive-ones-iii/) # [一个模板解决最大滑动窗口问题（同类型题目收集）](https://leetcode.cn/problems/max-consecutive-ones-iii/solution/jidao-by-iamysw-bs2s/)
 
 
+### 题目类型: 允许修改window `k`次
 
-### 习题分类
+[LeetCode-1004. 最大连续1的个数 III-中等](https://leetcode.cn/problems/max-consecutive-ones-iii/) 
 
-
-
-二、修改K次
-
-[LeetCode-1004. 最大连续1的个数 III](https://leetcode.cn/problems/max-consecutive-ones-iii/) 中等
-
-[LeetCode-424. 替换后的最长重复字符](https://leetcode.cn/problems/longest-repeating-character-replacement/) 中等
+[LeetCode-424. 替换后的最长重复字符中等](https://leetcode.cn/problems/longest-repeating-character-replacement/) 
 
 [LeetCode-1493. 删掉一个元素以后全为 1 的最长子数组](https://leetcode.cn/problems/longest-subarray-of-1s-after-deleting-one-element/) 
 
@@ -382,6 +374,8 @@ K为1
 
 
 ### [LeetCode-3. 无重复字符的最长子串-中等](https://leetcode.cn/problems/longest-substring-without-repeating-characters/) 
+
+[LeetCode-剑指 Offer 48. 最长不含重复字符的子字符串](https://leetcode.cn/problems/zui-chang-bu-han-zhong-fu-zi-fu-de-zi-zi-fu-chuan-lcof/)
 
 
 
@@ -568,6 +562,7 @@ public:
 #### Sliding window Python
 
 ```python
+
 class Solution:
     def longestOnes(self, nums: List[int], k: int) -> int:
         left, right = 0, 0
@@ -581,7 +576,7 @@ class Solution:
                 if nums[left] == 0:
                     window_stat -= 1
                 left += 1
-            ans = max(ans, right - left)
+            ans = max(ans, right - left) # 显然，执行到这里window中至多有k个0，由于可以将它们翻转为1，且它们是相连的，因此此时window的长度是right - left
         return ans
 
 ```

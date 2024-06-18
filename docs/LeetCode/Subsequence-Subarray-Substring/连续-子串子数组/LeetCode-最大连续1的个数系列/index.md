@@ -9,8 +9,16 @@
 | [LeetCode-1004. 最大连续1的个数 III-中等](https://leetcode.cn/problems/max-consecutive-ones-iii/) | 翻转K个 | 滑动窗口 |
 
 - 这三道题是 LeetCode 典型的出题套路
+
 - 连续1的个数，显然要么连在一起要么自成一派
-- TODO: [LeetCode-487. 最大连续1的个数 II-中等](https://leetcode.cn/problems/max-consecutive-ones-ii/) 能否使用和 [LeetCode-1004. 最大连续1的个数 III-中等](https://leetcode.cn/problems/max-consecutive-ones-iii/) 相同的sliding window算法？我觉得应该是可以的
+
+- Q: [LeetCode-487. 最大连续1的个数 II-中等](https://leetcode.cn/problems/max-consecutive-ones-ii/) 能否使用和 [LeetCode-1004. 最大连续1的个数 III-中等](https://leetcode.cn/problems/max-consecutive-ones-iii/) 相同的sliding window算法？
+
+  A: 如果不考虑无限流的话，是可以的，如果考虑无限流，则不可以
+
+- [LeetCode-487. 最大连续1的个数 II-中等](https://leetcode.cn/problems/max-consecutive-ones-ii/) 强调的是无限流
+
+  [LeetCode-1004. 最大连续1的个数 III-中等](https://leetcode.cn/problems/max-consecutive-ones-iii/) 强调的是可以翻转k个0
 
 ## [LeetCode-485. 最大连续 1 的个数-简单](https://leetcode.cn/problems/max-consecutive-ones/) 
 
@@ -321,7 +329,7 @@ class Solution:
                 if nums[left] == 0:
                     window_stat -= 1
                 left += 1
-            ans = max(ans, right - left)
+            ans = max(ans, right - left) # 显然，执行到这里window中至多有k个0，由于可以将它们翻转为1，且它们是相连的，因此此时window的长度是right - left
         return ans
 
 ```
@@ -359,7 +367,9 @@ public:
                     --zeros;
                 }
             }
-            res = max(res, right - left); // 打擂台择优
+            // 显然，执行到这里window中至多有k个0，由于可以将它们翻转为1，且它们是相连的，因此此时window的长度是right - left
+            // 打擂台择优
+            res = max(res, right - left); 
         }
         return res;
     }
