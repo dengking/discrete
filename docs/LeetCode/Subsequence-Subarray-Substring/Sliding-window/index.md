@@ -60,37 +60,60 @@ def sliding_window(s: str, t: str):
 
 ```
 
-- left   是 window 的起始
-
-  right是 window 的终止
-
-  `window_stat` 是对窗口中的元素的统计(stat)，使用它能够快速地进行判断(比如判定 window 中是否contain need)。
-
-- nested while：
-
-  - 外层while 用于expand right( `++right` )
-
-  - 内层while用于shrink left( `++left` )
-
-​	它们都会引起滑动窗口的更新，因此都会执行"进行窗口内数据的一系列更新"。
-
-​	其中两处`...`表示的更新窗口数据(window)的地方，需要结合具体的问题填入相应的代码。
-
-​	这两个`...`处的操作分别是右移和左移窗口更新操作，等会你会发现它们操作是完全**对称**的。
+### Sliding(滑动)、update `window_stat`
 
 
 
-### Q: window 和 `left`、`right` 的对应关系？
+Q: 既然是滑动窗口，那么窗口是如何滑动的呢？
+
+A: 滑动窗口的重要性质是：窗口的左边界(`left`)和右边界(`right`)永远只能向右移动，而不能向左移动。这是为了保证**滑动窗口**的时间复杂度是 $O(n)$。如果左右边界向左移动的话，这叫做“回溯”，算法的时间复杂度就可能不止 $O(n)$。
+
+滑动窗口只有 **右边界向右移动（扩大窗口）** 和 **左边界向右移动（缩小窗口）** 两个操作(实际上非常简单): 
+
+nested while：
+
+- 外层while 用于expand right( `++right` )
+
+- 内层while用于shrink left( `++left` )
+
+
+
+Q: how to update `window_stat`？
+
+A: 它们都会引起滑动窗口的更新，因此都会执行"进行窗口内数据的一系列更新"。
+
+上述algo framework中两处`...`表示的更新窗口数据(window)的地方，需要结合具体的问题填入相应的代码。
+
+这两个`...`处的操作分别是右移和左移窗口更新操作，等会你会发现它们操作是完全**对称**的。
+
+
+
+### window 和 `left`、`right` 的对应关系？
 
 为什么要思考这个问题？因为很多时候，当更新答案的时候，可能需要比如:
 
 - 如何计算window中元素的准确个数？( [LeetCode-3. 无重复字符的最长子串-中等](https://leetcode.cn/problems/longest-substring-without-repeating-characters/) 中需要)
+- [LCR 180. 文件组合](https://leetcode.cn/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/)
+
+A: 
+
+我们设滑动窗口的左边界为 `left`，右边界为 `right`，则滑动窗口框起来的是一个左闭右开区间 `[left,right)`。注意，为了编程的方便，滑动窗口一般表示成一个**左闭右开区间**。在一开始，滑动窗口位于序列的最左侧，窗口大小为零(将 `left`、`right`设置为相同的最小值 )。
+
+> NOTE:
+>
+> 一、上面这段话的内容源自: [nettee](https://leetcode.cn/u/nettee/) # [什么是滑动窗口，以及如何用滑动窗口解这道题（C++/Java/Python）](https://leetcode.cn/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/solutions/133768/shi-yao-shi-hua-dong-chuang-kou-yi-ji-ru-he-yong-h/) 
+
+
+
+`window_stat` 是对窗口中的元素的统计(stat)，使用它能够快速地进行判断(比如判定 window 中是否contain need)。
+
+#### 如何计算window中元素的个数？
 
 需要注意的是，window中元素的准确个数 不一定等于 `len(window_stat)`，这是因为(TODO: 补充在做 [LeetCode-3. 无重复字符的最长子串-中等](https://leetcode.cn/problems/longest-substring-without-repeating-characters/) 时踩过的坑)。
 
 sliding window是比较复杂的iteration，因为它有两个iterator: `left`、`right`，并且它还是nested loop，两个iterator的迭代( `move to next` )是不同步的(可以看到后面对它们的关系的是分是否移动了`left`的)，所以这就引发了我对 window 和 `left`、`right` 的对应关系的思考，结合做题和纯代码分析可知:
 
-由于在循环体内，当执行到 `更新答案` 处的时候，right肯定是已经被迭代( `move to next` )了，而`next`的可能更新也可能没有更新，需要注意的是: `next` 始终指向的是window的起始位置(这是通过分析得到的)，无论它是否被更新。下面结合  [LeetCode-3. 无重复字符的最长子串-中等](https://leetcode.cn/problems/longest-substring-without-repeating-characters/) 中的具体例子分情况来进行说明:
+由于在循环体内，当执行到 `更新答案` 处的时候，right肯定是已经被迭代( `move to next` )了，而`left`的可能更新也可能没有更新，需要注意的是: `left` 始终指向的是window的起始位置(这是通过分析得到的)，无论它是否被更新。下面结合  [LeetCode-3. 无重复字符的最长子串-中等](https://leetcode.cn/problems/longest-substring-without-repeating-characters/) 中的具体例子分情况来进行说明:
 
 一、`left` 没有被更新
 
@@ -207,10 +230,53 @@ Hope it answers your question.
 
 ## Application: 数学
 
-### [LeetCode-剑指 Offer 57 - II. 和为s的连续正数序列-简单](https://leetcode.cn/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/) 
+### [LeetCode-剑指 Offer 57 - II. 和为s的连续正数序列-简单](https://leetcode.cn/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/) / [LCR 180. 文件组合-简单](https://leetcode.cn/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/) 
 
 1. 穷举: "输出所有和为 `target` 的连续正整数序列（至少含有两个数）"
-2. 这其实也是子串问题
+
+2. 这其实也是子数组和问题
+
+3. [nettee](https://leetcode.cn/u/nettee/) # [什么是滑动窗口，以及如何用滑动窗口解这道题（C++/Java/Python）](https://leetcode.cn/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/solutions/133768/shi-yao-shi-hua-dong-chuang-kou-yi-ji-ru-he-yong-h/) 
+
+   > 当窗口的和恰好等于 target 的时候，我们需要记录此时的结果。设此时的窗口为 `[i,j)`，那么我们已经找到了一个 `i` 开头的序列，也是唯一一个 `i` 开头的序列，接下来需要找 `i+1` 开头的序列，所以窗口的左边界要向右移动
+   >
+   > 作者：nettee
+   > 链接：https://leetcode.cn/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/solutions/133768/shi-yao-shi-hua-dong-chuang-kou-yi-ji-ru-he-yong-h/
+   > 来源：力扣（LeetCode）
+   > 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+Python:
+
+```python
+class Solution:
+    def fileCombination(self, target: int) -> List[List[int]]:
+        l = 1  # 滑动窗口的左边界
+        r = 1  # 滑动窗口的右边界
+        sum = 0  # 滑动窗口中数字的和
+        ans = []
+
+        while l <= target // 2: # 题目要求和为target且至少有两个元素，因此l最大只能到这里
+            if sum < target:
+                # 右边界向右移动
+                sum += r
+                r += 1
+            elif sum > target:
+                # 左边界向右移动
+                sum -= l
+                l += 1
+            else:
+                # 记录结果
+                arr = list(range(l, r))
+                ans.append(arr)
+                # 左边界向右移动
+                sum -= l
+                l += 1
+
+        return ans
+
+```
+
+
 
 C++
 
@@ -249,11 +315,6 @@ public:
 };
 
 
-```
-
-Python:
-
-```
 ```
 
 
