@@ -1,4 +1,4 @@
-# [1100. 长度为 K 的无重复字符子串](https://leetcode.cn/problems/find-k-length-substrings-with-no-repeated-characters/) 中等
+# [1100. 长度为 K 的无重复字符子串-中等](https://leetcode.cn/problems/find-k-length-substrings-with-no-repeated-characters/) 
 
 
 

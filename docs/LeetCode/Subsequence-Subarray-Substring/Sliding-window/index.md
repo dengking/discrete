@@ -200,6 +200,8 @@ def findSubArray(nums):
 
 
 
+相较于Algo framework1，Algo framework2计算窗口size是更加符合直觉的。
+
 ## Complexity
 
 sliding window 相对于 暴力搜索 time complexity的优势: $O(n^2)$ -> $O(n)$
@@ -361,18 +363,6 @@ public:
 
 
 
-### 题目类型: 允许修改window `k`次
-
-[LeetCode-1004. 最大连续1的个数 III-中等](https://leetcode.cn/problems/max-consecutive-ones-iii/) 
-
-[LeetCode-424. 替换后的最长重复字符中等](https://leetcode.cn/problems/longest-repeating-character-replacement/) 
-
-[LeetCode-1493. 删掉一个元素以后全为 1 的最长子数组](https://leetcode.cn/problems/longest-subarray-of-1s-after-deleting-one-element/) 
-
-K为1
-
-
-
 ### [LeetCode-3. 无重复字符的最长子串-中等](https://leetcode.cn/problems/longest-substring-without-repeating-characters/) 
 
 [LeetCode-剑指 Offer 48. 最长不含重复字符的子字符串](https://leetcode.cn/problems/zui-chang-bu-han-zhong-fu-zi-fu-de-zi-zi-fu-chuan-lcof/)
@@ -496,45 +486,6 @@ if __name__ == '__main__':
 
 
 
-### [LeetCode-424. 替换后的最长重复字符](https://leetcode.cn/problems/longest-repeating-character-replacement/) 中等
-
-修改K次: 最多翻转K次，"返回包含相同字母的最长子字符串的长度"。
-
-```C++
-
-class Solution
-{
-public:
-    int characterReplacement(string s, int k)
-    {
-        std::unordered_map<char, int> cnt;
-        using pair_type = decltype(cnt)::value_type;
-        // https://stackoverflow.com/a/9371137/10173843
-        auto max_of_cnt_func = [&]() -> int
-        {
-            return std::max_element(cnt.begin(), cnt.end(), [](const pair_type &left, const pair_type &right)
-                                    { return left.second < right.second; })
-                ->second;
-        };
-        int ret = 0;
-        int len = s.size();
-        for (int left = 0, right = 0; right < len; ++right)
-        {
-            cnt[s[right]]++;
-            // int window_size = right - left + 1;
-            while (right - left + 1 - max_of_cnt_func() > k)
-            {
-                cnt[s[left++]]--;
-            }
-            ret = max(ret, right - left + 1);
-        }
-        return ret;
-    }
-};
-```
-
-上述code非常简介，是典型的模板。
-
 ### [LeetCode-438. 找到字符串中所有字母异位词](https://leetcode.cn/problems/find-all-anagrams-in-a-string/) 中等
 
 
@@ -544,42 +495,6 @@ public:
 ### [LeetCode-567. 字符串的排列](https://leetcode.cn/problems/permutation-in-string/) 中等
 
 
-
-
-
-### [LeetCode-1004. 最大连续1的个数 III](https://leetcode.cn/problems/max-consecutive-ones-iii/) 中等
-
-要求最大连续1的个数，并且允许翻转K 个0 为 1，显然贪心的思想就是将它们全部都翻转为1即可；
-
-[负雪明烛](https://leetcode.cn/u/fuxuemingzhu/) # [分享滑动窗口模板，秒杀滑动窗口问题](https://leetcode.cn/problems/max-consecutive-ones-iii/solution/fen-xiang-hua-dong-chuang-kou-mo-ban-mia-f76z/) 
-
-> 重点：题意转换。把「最多可以把 K 个 0 变成 1，求仅包含 1 的最长子数组的长度」转换为 「找出一个最长的子数组，该子数组内最多允许有 K 个 0 」。
->
-> 经过上面的题意转换，我们可知本题是求**最大连续子区间**，可以使用**滑动窗口**方法。**滑动窗口**的限制条件是：窗口内最多有 K 个 0。
-
-"最大连续子区间"是这道题的点题之语。
-
-#### Sliding window Python
-
-```python
-
-class Solution:
-    def longestOnes(self, nums: List[int], k: int) -> int:
-        left, right = 0, 0
-        ans = 0
-        window_stat = 0
-        while right < len(nums):
-            if nums[right] == 0:
-                window_stat += 1
-            right += 1
-            while window_stat > k:
-                if nums[left] == 0:
-                    window_stat -= 1
-                left += 1
-            ans = max(ans, right - left) # 显然，执行到这里window中至多有k个0，由于可以将它们翻转为1，且它们是相连的，因此此时window的长度是right - left
-        return ans
-
-```
 
 
 
@@ -631,6 +546,129 @@ public:
 
 
 
+
+
+### 题目类型: 允许修改window `k`次
+
+[LeetCode-1004. 最大连续1的个数 III-中等](https://leetcode.cn/problems/max-consecutive-ones-iii/) 
+
+[LeetCode-424. 替换后的最长重复字符中等](https://leetcode.cn/problems/longest-repeating-character-replacement/) 
+
+[LeetCode-1493. 删掉一个元素以后全为 1 的最长子数组](https://leetcode.cn/problems/longest-subarray-of-1s-after-deleting-one-element/) 
+
+
+
+#### [LeetCode-424. 替换后的最长重复字符-中等](https://leetcode.cn/problems/longest-repeating-character-replacement/) 
+
+> 给你一个字符串 `s` 和一个整数 `k` 。你可以选择字符串中的任一字符，并将其更改为任何其他大写英文字符。该操作最多可执行 `k` 次。
+
+从贪心的角度来说，将窗口中的所有的元素都翻转为和窗口中数量最多的元素一样即可，由于最多只能翻转`k`次，所以**滑动窗口的限制条件**: 窗口中，可以翻转的字符的数量至多为`k` ，那如何计算"可以翻转的字符的数量"? 使用窗口的数量 - 众数的数量。
+
+参考:
+
+- [migoo](https://leetcode.cn/u/migoo/) # [通过此题了解一下什么是滑动窗口 Java 题解](https://leetcode.cn/problems/longest-repeating-character-replacement/solution/tong-guo-ci-ti-liao-jie-yi-xia-shi-yao-shi-hua-don/) 写的。
+
+```C++
+#include <string>
+#include <unordered_map>
+#include <algorithm>
+using namespace std;
+
+class Solution
+{
+public:
+    int characterReplacement(string s, int k)
+    {
+        std::unordered_map<char, int> window_stat;
+        using pair_type = decltype(window_stat)::value_type;
+        // https://stackoverflow.com/a/9371137/10173843
+        // 计算众数的个数
+        auto cal_cnt_of_majority_func = [&]() -> int
+        {
+            return std::max_element(window_stat.begin(), window_stat.end(), [](const pair_type &left, const pair_type &right)
+                                    { return left.second < right.second; })
+                ->second;
+        };
+        int ret = 0;
+        int len = s.size();
+        for (int left = 0, right = 0; right < len; ++right)
+        {
+            window_stat[s[right]]++;
+            int window_size = right - left + 1;
+            while (window_size - cal_cnt_of_majority_func() > k)
+            {
+                window_stat[s[left++]]--;
+            }
+            ret = max(ret, right - left + 1);
+        }
+        return ret;
+    }
+};
+
+int main()
+{
+}
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra
+
+```
+
+上述code非常简介，是典型的模板。
+
+
+
+#### [LeetCode-1004. 最大连续1的个数 III](https://leetcode.cn/problems/max-consecutive-ones-iii/) 中等
+
+要求最大连续1的个数，并且允许翻转K 个0 为 1，显然贪心的思想就是将它们全部都翻转为1即可；
+
+[负雪明烛](https://leetcode.cn/u/fuxuemingzhu/) # [分享滑动窗口模板，秒杀滑动窗口问题](https://leetcode.cn/problems/max-consecutive-ones-iii/solution/fen-xiang-hua-dong-chuang-kou-mo-ban-mia-f76z/) 
+
+> 重点：题意转换。把「最多可以把 K 个 0 变成 1，求仅包含 1 的最长子数组的长度」转换为 「找出一个最长的子数组，该子数组内最多允许有 K 个 0 」。
+>
+> 经过上面的题意转换，我们可知本题是求**最大连续子区间**，可以使用**滑动窗口**方法。**滑动窗口**的限制条件是：窗口内最多有 K 个 0。
+
+"最大连续子区间"是这道题的点题之语。
+
+##### Sliding window Python
+
+```python
+class Solution:
+    def longestOnes(self, nums: List[int], k: int) -> int:
+        left, right = 0, 0
+        ans = 0
+        window_stat = 0
+        while right < len(nums):
+            if nums[right] == 0:
+                window_stat += 1
+            right += 1
+            while window_stat > k:
+                if nums[left] == 0:
+                    window_stat -= 1
+                left += 1
+            ans = max(ans, right - left) # 显然，执行到这里window中至多有k个0，由于可以将它们翻转为1，且它们是相连的，因此此时window的长度是right - left
+        return ans
+
+```
+
+
+
+
+
+
+
+### 题目类型: 定长滑动窗口
+
+对于定长窗口的滑动窗口问题，下面是解题模板：
+
+一、[Leetcode-1100. 长度为 K 的无重复字符子串-中等](https://leetcode.cn/problems/find-k-length-substrings-with-no-repeated-characters/) 
+
+计数
+
+二、[Leetcode-567. 字符串的排列-中等](https://leetcode.cn/problems/permutation-in-string/) 
+
+存在性
+
+
+
 ## Application: KMP  
 
 第一次看到滑动窗口，我就联想到了KMP，下面的文章中，对此进行了说明:
@@ -638,22 +676,6 @@ public:
 - zhihu [谈一谈“滑动窗口”](https://zhuanlan.zhihu.com/p/113352663)
 
 KMP算法是应用了滑动窗口最典型的例子
-
-
-
-
-
-## 定长滑动窗口
-
-对于定长窗口的滑动窗口问题，下面是解题模板：
-
-一、Leetcode [1100. 长度为 K 的无重复字符子串](https://leetcode.cn/problems/find-k-length-substrings-with-no-repeated-characters/) 中等
-
-计数
-
-二、Leetcode [567. 字符串的排列](https://leetcode.cn/problems/permutation-in-string/) 中等
-
-存在性
 
 
 
