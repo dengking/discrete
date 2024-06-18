@@ -13,7 +13,7 @@
 
 
 
-## Algo framework
+## Algo framework1
 
 
 
@@ -170,6 +170,36 @@ sliding window是比较复杂的iteration，因为它有两个iterator: `left`�
 
 一般: 将目标值称为`need` (`need_stat`)，将窗口称之为`window` (`window_stat`)。
 
+
+
+## Algo framework2
+
+[负雪明烛](https://leetcode.cn/u/fuxuemingzhu/) # [分享滑动窗口模板，秒杀滑动窗口问题](https://leetcode.cn/problems/max-consecutive-ones-iii/solution/fen-xiang-hua-dong-chuang-kou-mo-ban-mia-f76z/) 中提出的:
+
+```python
+def findSubArray(nums):
+    N = len(nums) # 数组/字符串长度
+    left, right = 0, 0 # 双指针，表示当前遍历的区间[left, right]，闭区间
+    sums = 0 # 用于统计 子数组/子区间 是否有效，根据题目可能会改成求和/计数
+    res = 0 # 保存最大的满足题目要求的 子数组/子串 长度
+    while right < N: # 当右边的指针没有搜索到 数组/字符串 的结尾
+        sums += nums[right] # 增加当前右边指针的数字/字符的求和/计数
+        while 区间[left, right]不符合题意: # 此时需要一直移动左指针，直至找到一个符合题意的区间
+            sums -= nums[left] # 移动左指针前需要从counter中减少left位置字符的求和/计数
+            left += 1 # 真正的移动左指针，注意不能跟上面一行代码写反
+        # 到 while 结束时，我们找到了一个符合题意要求的 子数组/子串
+        res = max(res, right - left + 1) # 需要更新结果
+        right += 1 # 移动右指针，去探索新的区间
+    return res
+
+作者：负雪明烛
+链接：https://leetcode.cn/problems/max-consecutive-ones-iii/solutions/609055/fen-xiang-hua-dong-chuang-kou-mo-ban-mia-f76z/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+```
+
+
+
 ## Complexity
 
 sliding window 相对于 暴力搜索 time complexity的优势: $O(n^2)$ -> $O(n)$
@@ -210,8 +240,6 @@ Hope it answers your question.
 
 [LeetCode-Sliding Window](https://leetcode.cn/tag/sliding-window/) 
 
-
-
 这类问题有多种分类方式：
 
 一、窗口是否定长？
@@ -220,6 +248,8 @@ Hope it answers your question.
 
 二、连续还是不连续？
 
+滑动窗口只能够解连续区间问题
+
 三、
 
 1、存在性问题
@@ -227,6 +257,10 @@ Hope it answers your question.
 2、计数问题
 
 3、最优值问题
+
+四、"最大连续子区间"
+
+这是在 [负雪明烛](https://leetcode.cn/u/fuxuemingzhu/) # [分享滑动窗口模板，秒杀滑动窗口问题](https://leetcode.cn/problems/max-consecutive-ones-iii/solution/fen-xiang-hua-dong-chuang-kou-mo-ban-mia-f76z/) 中提出的
 
 ## Application: 数学
 
@@ -245,7 +279,9 @@ Hope it answers your question.
    > 来源：力扣（LeetCode）
    > 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
-Python:
+4. 这道题是最好的滑动窗口例题
+
+#### Python
 
 ```python
 class Solution:
@@ -278,7 +314,7 @@ class Solution:
 
 
 
-C++
+#### C++
 
 ```c++
 class Solution
@@ -331,11 +367,7 @@ public:
 
 ### 习题分类
 
-一、简单:
 
-1、[LeetCode-剑指 Offer 57 - II. 和为s的连续正数序列](https://leetcode.cn/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/) 
-
-最好的滑动窗口例题
 
 二、修改K次
 
@@ -349,28 +381,16 @@ K为1
 
 
 
+### [LeetCode-3. 无重复字符的最长子串-中等](https://leetcode.cn/problems/longest-substring-without-repeating-characters/) 
 
 
-### [LeetCode-3. 无重复字符的最长子串](https://leetcode.cn/problems/longest-substring-without-repeating-characters/) 中等
 
-最优值: 寻找 "不含有重复字符的 **最长子串** 的长度"
+#### C++ algo framework2
 
 ```C++
-#include <iostream>
 #include <string>
-#include <unordered_map>
-#include <array>
-#include <vector>
-#include <string>
-#include <iostream>
-#include <variant>
-#include <typeinfo>
-#include <limits>
-
-#include <iostream>
-#include <vector>
 #include <algorithm>
-#include <iterator>
+#include <unordered_map>
 using namespace std;
 
 class Solution
@@ -409,6 +429,70 @@ int main()
     solu.lengthOfLongestSubstring(s);
 }
 // g++ test.cpp --std=c++11 -pedantic -Wall -Wextra
+
+```
+
+#### Python algo framework1
+
+错误写法: 
+
+```python
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        def is_window_duplicate(w: Dict[str, int]) -> bool:
+            return any(cnt > 1 for cnt in w.values())
+
+        left, right = 0, 0
+        window: Dict[str, int] = defaultdict(int)
+        ans = 0
+        while right < len(s):
+            c_right = s[right]
+            right += 1
+            window[c_right] += 1
+            while is_window_duplicate(window):
+                c_left = s[left]
+                left += 1
+                window[c_left] -= 1
+
+            ans = max(ans, len(window))
+        return ans
+
+```
+
+上述计算当前 `window` 的长度的方式是错误的，因为 `window` 的实现是dict，当一个字符的计数为0的时候，它并不会将它从dict中删除，这就导致了无法准确的计算出当前窗口中有多少个字符。
+
+
+
+正确写法:
+
+```python
+from typing import *
+from collections import defaultdict
+
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        def is_window_duplicate(w: Dict[str, int]) -> bool:
+            return any(cnt > 1 for cnt in w.values())
+
+        left, right = 0, 0
+        window: Dict[str, int] = defaultdict(int)
+        ans = 0
+        while right < len(s):
+            c_right = s[right]
+            right += 1
+            window[c_right] += 1
+            while is_window_duplicate(window):
+                c_left = s[left]
+                left += 1
+                window[c_left] -= 1
+
+            ans = max(ans, right - left)
+        return ans
+
+
+if __name__ == '__main__':
+    solu = Solution()
+    solu.lengthOfLongestSubstring("pwwkew")
 
 ```
 
@@ -471,36 +555,34 @@ public:
 
 ### [LeetCode-1004. 最大连续1的个数 III](https://leetcode.cn/problems/max-consecutive-ones-iii/) 中等
 
-修改K次: "「找出一个最长的子数组，该子数组内最多允许有 K 个 0 」"
+要求最大连续1的个数，并且允许翻转K 个0 为 1，显然贪心的思想就是将它们全部都翻转为1即可；
 
-```c++
-class Solution
-{
-public:
-  int longestOnes(vector<int> &A, int K)
-  {
-    int res = 0,   // 结果
-        zeros = 0, // 区间中0的个数
-        left = 0;
-    for (int right = 0; right < A.size(); ++right) //将元素移入区间
-    {
-      if (A[right] == 0)
-      {
-        ++zeros;
-      }
-      while (zeros > K) // 这个while循环一定要放在后面的打擂台择优之前，它保证窗口内最多有K个0
-      {
-        if (A[left++] == 0) // 需要注意的是: A[left++] 相对于 A[left]; left = left + 1
-        {                   // 它相当于将A[left]移出区间，显然之后left就需要自增1
-          --zeros;
-        }
-      }
-      res = max(res, right - left + 1); // 打擂台择优
-    }
-    return res;
-  }
-};
+[负雪明烛](https://leetcode.cn/u/fuxuemingzhu/) # [分享滑动窗口模板，秒杀滑动窗口问题](https://leetcode.cn/problems/max-consecutive-ones-iii/solution/fen-xiang-hua-dong-chuang-kou-mo-ban-mia-f76z/) 
 
+> 重点：题意转换。把「最多可以把 K 个 0 变成 1，求仅包含 1 的最长子数组的长度」转换为 「找出一个最长的子数组，该子数组内最多允许有 K 个 0 」。
+>
+> 经过上面的题意转换，我们可知本题是求**最大连续子区间**，可以使用**滑动窗口**方法。**滑动窗口**的限制条件是：窗口内最多有 K 个 0。
+
+"最大连续子区间"是这道题的点题之语。
+
+#### Sliding window Python
+
+```python
+class Solution:
+    def longestOnes(self, nums: List[int], k: int) -> int:
+        left, right = 0, 0
+        ans = 0
+        window_stat = 0
+        while right < len(nums):
+            if nums[right] == 0:
+                window_stat += 1
+            right += 1
+            while window_stat > k:
+                if nums[left] == 0:
+                    window_stat -= 1
+                left += 1
+            ans = max(ans, right - left)
+        return ans
 
 ```
 

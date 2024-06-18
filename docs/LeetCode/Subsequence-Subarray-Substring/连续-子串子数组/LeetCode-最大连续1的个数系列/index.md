@@ -10,7 +10,7 @@
 
 - 这三道题是 LeetCode 典型的出题套路
 - 连续1的个数，显然要么连在一起要么自成一派
-- TODO: [LeetCode-487. 最大连续1的个数 II-中等](https://leetcode.cn/problems/max-consecutive-ones-ii/) 能否使用和 [LeetCode-1004. 最大连续1的个数 III-中等](https://leetcode.cn/problems/max-consecutive-ones-iii/) 相同的sliding window算法？
+- TODO: [LeetCode-487. 最大连续1的个数 II-中等](https://leetcode.cn/problems/max-consecutive-ones-ii/) 能否使用和 [LeetCode-1004. 最大连续1的个数 III-中等](https://leetcode.cn/problems/max-consecutive-ones-iii/) 相同的sliding window算法？我觉得应该是可以的
 
 ## [LeetCode-485. 最大连续 1 的个数-简单](https://leetcode.cn/problems/max-consecutive-ones/) 
 
