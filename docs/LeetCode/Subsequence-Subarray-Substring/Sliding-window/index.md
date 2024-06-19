@@ -19,7 +19,6 @@
 
 ```python
 
-
 def sliding_window(s: str, t: str):
     """
     滑动窗口算法框架
@@ -148,7 +147,9 @@ sliding window是比较复杂的iteration，因为它有两个iterator: `left`�
 
 因为: **滑动窗口算法**无非就是双指针形成的扫描整个数组/子串的"**窗口**"，**滑动窗口算法** 需要根据 `window_stat` (指标) 来决定是否收缩窗口，收缩窗口意味着window size减少，如果`window_stat` (指标)不能同步变化，那么内层循环就无法退出，依赖于  `window_stat` (指标) ，算法能够非常清楚地知道什么时候应该移动右侧指针来扩大窗口，什么时候移动左侧指针来减小窗口。
 
-> "向右滑动的时候，是寻找一个可行解，向左滑动是优化解"
+> "向右滑动的时候，是寻找一个**可行解**，向左滑动是**优化解**"
+
+结合后面的题目可知上面这段话是一语中的。
 
 如果问题满足"**滑动窗口单调性要求**"，则不能够使用滑动窗口，关于此的最经典问题是**子数组和问题**:
 
@@ -299,6 +300,8 @@ Hope it answers your question.
 
 4. 这道题是最好的滑动窗口例题
 
+5. 这道题其实和 [LeetCode-11. 盛最多水的容器-Medium](https://leetcode.cn/problems/container-with-most-water/) 有点类似
+
 #### Python
 
 ```python
@@ -411,11 +414,11 @@ public:
         for (int left = 0, right = 0; right < len; ++right)
         {
             window[s[right]]++;
-            // int window_size = right - left + 1;
             while (has_repeat())
             {
                 window[s[left++]]--;
             }
+            // int window_size = right - left + 1;
             ret = max(ret, right - left + 1);
         }
         return ret;
@@ -496,17 +499,231 @@ if __name__ == '__main__':
 
 ```
 
-
-
-### [LeetCode-76. 最小覆盖子串](https://leetcode.cn/problems/minimum-window-substring/) 困难
-
-
-
-### [LeetCode-438. 找到字符串中所有字母异位词](https://leetcode.cn/problems/find-all-anagrams-in-a-string/) 中等
+### [LeetCode-76. 最小覆盖子串-困难](https://leetcode.cn/problems/minimum-window-substring/) 
 
 
 
+#### Python
 
+```python
+from typing import *
+from collections import defaultdict
+import sys
+
+
+class Solution:
+    def minWindow(self, s: str, t: str) -> str:
+        window_stat: Dict[str, int] = defaultdict(int)
+        t_stat: Dict[str, int] = defaultdict(int)
+        for c in t:
+            t_stat[c] += 1
+
+        def is_contain_t() -> bool:
+            """
+
+            :return:
+            """
+            for k, v in t_stat.items():
+                if k in window_stat:
+                    if window_stat[k] < v:
+                        return False
+                else:
+                    return False
+            return True
+
+        left = 0
+        min_len = sys.maxsize
+        min_str = ''
+        for right in range(0, len(s)):
+            right_c = s[right]
+            window_stat[right_c] += 1
+
+            while is_contain_t():  # 优化解
+                window_size = right - left + 1
+                if window_size < min_len:
+                    min_len = window_size
+                    min_str = s[left:right + 1]
+                left_c = s[left]
+                window_stat[left_c] -= 1
+                left += 1
+
+        return min_str
+
+
+if __name__ == '__main__':
+    solu = Solution()
+    print(solu.minWindow("ADOBECODEBANC", 'ABC'))
+
+```
+
+
+
+#### C++
+
+```C++
+#include <string>
+#include <unordered_map>
+#include <algorithm>
+#include <random>
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+class Solution {
+public:
+	string minWindow(string s, string t) {
+		unordered_map<char, int> need, window;
+		for (auto&& c : t) {
+			need[c]++;
+		}
+		int left = 0, right = 0;
+		int validCount = 0; // window中已经符合预期的字符数量的字符的个数
+		int subStrMinLen = INT_MAX;
+		int subStrStartIndex = 0;
+		while (right < s.size()) {
+			char inChar = s[right++];
+			if (need.count(inChar)) {
+				window[inChar]++;
+				if (window[inChar] == need[inChar]) {
+					++validCount;
+				}
+			}
+			while (validCount == need.size())
+			{
+				int subStrLen = right - left; // 左开右闭区间
+				if (subStrLen < subStrMinLen) {
+					subStrMinLen = subStrLen;
+					subStrStartIndex = left;
+				}
+				char outChar = s[left++];
+				if (need.count(outChar)) {
+					
+					if (window[outChar] == need[outChar]) {
+						--validCount;
+					}
+					window[outChar]--;
+				}
+			}
+		}
+		return subStrMinLen == INT_MAX ? "" : s.substr(subStrStartIndex, subStrMinLen);
+	}
+};
+
+int main()
+{
+	Solution s;
+}
+
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -Werror
+
+```
+
+
+
+### [LeetCode-438. 找到字符串中所有字母异位词-中等](https://leetcode.cn/problems/find-all-anagrams-in-a-string/) 
+
+#### Python
+
+```python
+
+from typing import *
+from collections import defaultdict, Counter
+
+
+class Solution:
+    def findAnagrams(self, s: str, p: str) -> List[int]:
+        p_stat = Counter(p)
+        window_stat = defaultdict(int)
+        ans = []
+        left = 0
+        for right in range(len(s)):
+            right_c = s[right]
+            window_stat[right_c] += 1
+            while right - left + 1 >= len(p):
+                if p_stat == window_stat:
+                    ans.append(left)
+                left_c = s[left]
+                left += 1
+                window_stat[left_c] -= 1
+                if window_stat[left_c] == 0:
+                    del window_stat[left_c]
+        return ans
+
+
+```
+
+
+
+#### C++
+
+```C++
+#include <bits/stdc++.h>
+using namespace std;
+class Solution
+{
+public:
+	vector<int> findAnagrams(string s, string p)
+	{
+
+		unordered_map<char, int> need, window;
+		for (auto &&c : p)
+		{
+			++need[c];
+		}
+		int str_len = s.size();
+		int p_len = p.size();
+		int left = 0, right = 0;
+		int valid = 0; //window中，有效字符的个数
+		int start = 0;
+		vector<int> res;
+		while (right < str_len)
+		{
+			char c = s[right]; // 新进入的字符
+			++right;
+			if (need.count(c))
+			{
+				++window[c];
+				if (window[c] == need[c])
+				{
+					++valid;
+				}
+			}
+			while (right - left >= p_len) //
+			{
+				if (valid == need.size())
+				{
+					res.push_back(left);
+				}
+				char d = s[left];
+				++left;
+				if (window[d] > 0) // c是目标字符
+				{
+					if (window[d] == need[d])
+					{
+						--valid;
+					}
+					--window[d];
+				}
+			}
+		}
+		return res;
+	}
+};
+int main()
+{
+	std::string s { "cbaebabacd" };
+	std::string p { "abc" };
+	Solution solu;
+	auto res = solu.findAnagrams(s, p);
+	for (auto &&v : res)
+	{
+		cout << v << endl;
+	}
+}
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -g
+
+```
 
 ### [LeetCode-567. 字符串的排列](https://leetcode.cn/problems/permutation-in-string/) 中等
 
@@ -610,8 +827,8 @@ public:
         for (int left = 0, right = 0; right < len; ++right)
         {
             window_stat[s[right]]++;
-            int window_size = right - left + 1;
-            while (window_size - cal_cnt_of_majority_func() > k)
+            // int window_size = right - left + 1;
+            while ((right - left + 1) - cal_cnt_of_majority_func() > k)
             {
                 window_stat[s[left++]]--;
             }
