@@ -91,7 +91,11 @@ TODO
 
 参见 `Binary-search` 章节。
 
+### 中心扩散法
 
+[LeetCode-5. 最长回文子串-中等](https://leetcode.cn/problems/longest-palindromic-substring/) 
+
+LeetCode 5中心扩散法也可以看做是一种left-right double pointer
 
 ## First-second double pointer
 
