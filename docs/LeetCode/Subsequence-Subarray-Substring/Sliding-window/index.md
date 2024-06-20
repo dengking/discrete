@@ -11,6 +11,194 @@
 - [滑动窗口算法解决子串问题](https://mp.weixin.qq.com/s/nJHIxQ2BbqhDv5jZ9NgXrQ)
 - [单调队列解决滑动窗口问题](https://mp.weixin.qq.com/s/GqehrBu9m7qf5FgFqlV-Uw)
 
+二. [Eason](https://leetcode.cn/u/eason734/) # [[滑动窗口真滴简单!] 闪电五连鞭带你秒杀12道中档题 (附详情解析)](https://leetcode.cn/problems/longest-substring-without-repeating-characters/solutions/876061/yi-ge-mo-ban-miao-sha-10dao-zhong-deng-n-sb0x/)
+
+三. [土豆](https://leetcode.cn/u/nuo-nuo-zi-4/) # [一招搞定滑动窗口类型所有题目](https://leetcode.cn/problems/find-all-anagrams-in-a-string/solutions/2492245/yi-zhao-gao-ding-hua-dong-chuang-kou-lei-2vyw/)
+
+
+
+## Application
+
+sliding window非常适合于 找满足特定条件的 **连续子数组**/**子串**，比如:
+
+- 最大连续子区间
+
+  这是在 [负雪明烛](https://leetcode.cn/u/fuxuemingzhu/) # [分享滑动窗口模板，秒杀滑动窗口问题](https://leetcode.cn/problems/max-consecutive-ones-iii/solution/fen-xiang-hua-dong-chuang-kou-mo-ban-mia-f76z/) 中提出的，具体来说就是"连续子数组、连续子串的最值问题"。
+
+
+
+进一步来说这类问题有多种分类方式：
+
+- 窗口是否定长？
+  - `定长滑动窗口`
+  - `定长滑动窗口`
+- 求解的值
+  - 存在性问题
+  - 计数问题
+  - 最优值问题
+
+
+
+### LeetCode
+
+[LeetCode-Sliding Window](https://leetcode.cn/tag/sliding-window/) 
+
+
+
+## 定长滑动窗口
+
+对于定长窗口的滑动窗口问题，下面是解题模板：
+
+一、[Leetcode-1100. 长度为 K 的无重复字符子串-中等-会员题](https://leetcode.cn/problems/find-k-length-substrings-with-no-repeated-characters/) 
+
+计数
+
+二、[Leetcode-567. 字符串的排列-中等](https://leetcode.cn/problems/permutation-in-string/) 
+
+存在性
+
+
+
+### [LeetCode-643. 子数组最大平均数 I-简单](https://leetcode.cn/problems/maximum-average-subarray-i/)
+
+#### Python
+
+```python
+from typing import *
+
+
+class Solution:
+    def findMaxAverage(self, nums: List[int], k: int) -> float:
+        """
+        题目说明: n == nums.length, 1 <= k <= n <= 10^5
+        因此不用考虑k>n的情况
+        :param nums:
+        :param k:
+        :return:
+        """
+        max_sum = window_sum = sum(nums[:k])
+        for i in range(k, len(nums)):
+            window_sum = window_sum - nums[i - k] + nums[i]
+            max_sum = max(max_sum, window_sum)
+        return max_sum / k
+
+```
+
+非常典型的定长滑动窗口
+
+#### [LeetCode-438. 找到字符串中所有字母异位词-中等](https://leetcode.cn/problems/find-all-anagrams-in-a-string/) 
+
+以窗口长度作为指标
+
+##### Python
+
+```python
+from typing import *
+from collections import defaultdict, Counter
+
+
+class Solution:
+    def findAnagrams(self, s: str, p: str) -> List[int]:
+        p_stat = Counter(p)
+        window_stat = defaultdict(int)
+        ans = []
+        left = 0
+        for right in range(len(s)):
+            right_c = s[right]
+            window_stat[right_c] += 1
+            while right - left + 1 >= len(p):
+                if p_stat == window_stat:
+                    ans.append(left)
+                left_c = s[left]
+                left += 1
+                window_stat[left_c] -= 1
+                if window_stat[left_c] == 0:
+                    del window_stat[left_c]
+        return ans
+
+
+```
+
+
+
+##### C++
+
+```C++
+#include <bits/stdc++.h>
+using namespace std;
+class Solution
+{
+public:
+	vector<int> findAnagrams(string s, string p)
+	{
+
+		unordered_map<char, int> need, window;
+		for (auto &&c : p)
+		{
+			++need[c];
+		}
+		int str_len = s.size();
+		int p_len = p.size();
+		int left = 0, right = 0;
+		int valid = 0; //window中，有效字符的个数
+		int start = 0;
+		vector<int> res;
+		while (right < str_len)
+		{
+			char c = s[right]; // 新进入的字符
+			++right;
+			if (need.count(c))
+			{
+				++window[c];
+				if (window[c] == need[c])
+				{
+					++valid;
+				}
+			}
+			while (right - left >= p_len) //
+			{
+				if (valid == need.size())
+				{
+					res.push_back(left);
+				}
+				char d = s[left];
+				++left;
+				if (window[d] > 0) // c是目标字符
+				{
+					if (window[d] == need[d])
+					{
+						--valid;
+					}
+					--window[d];
+				}
+			}
+		}
+		return res;
+	}
+};
+int main()
+{
+	std::string s { "cbaebabacd" };
+	std::string p { "abc" };
+	Solution solu;
+	auto res = solu.findAnagrams(s, p);
+	for (auto &&v : res)
+	{
+		cout << v << endl;
+	}
+}
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -g
+
+```
+
+
+
+#### [LeetCode-567. 字符串的排列-中等](https://leetcode.cn/problems/permutation-in-string/) 
+
+
+
+
+
 
 
 ## Algo framework1(左闭右开)
@@ -253,34 +441,6 @@ Hope it answers your question.
 
 
 
-## Application
-
-[LeetCode-Sliding Window](https://leetcode.cn/tag/sliding-window/) 
-
-这类问题有多种分类方式：
-
-一、窗口是否定长？
-
-参见`定长滑动窗口`章节。
-
-二、连续还是不连续？
-
-滑动窗口只能够解连续区间问题
-
-三、
-
-1、存在性问题
-
-2、计数问题
-
-3、最优值问题
-
-四、"最大连续子区间"
-
-这是在 [负雪明烛](https://leetcode.cn/u/fuxuemingzhu/) # [分享滑动窗口模板，秒杀滑动窗口问题](https://leetcode.cn/problems/max-consecutive-ones-iii/solution/fen-xiang-hua-dong-chuang-kou-mo-ban-mia-f76z/) 中提出的，具体来说就是"连续子数组、连续子串的最值问题"。
-
-
-
 ## Application: 数学
 
 ### [LeetCode-剑指 Offer 57 - II. 和为s的连续正数序列-简单](https://leetcode.cn/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/) / [LCR 180. 文件组合-简单](https://leetcode.cn/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/) 
@@ -501,7 +661,7 @@ if __name__ == '__main__':
 
 ### [LeetCode-76. 最小覆盖子串-困难](https://leetcode.cn/problems/minimum-window-substring/) 
 
-
+以窗口长度作为窗口指标
 
 #### Python
 
@@ -618,116 +778,6 @@ int main()
 // g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -Werror
 
 ```
-
-
-
-### [LeetCode-438. 找到字符串中所有字母异位词-中等](https://leetcode.cn/problems/find-all-anagrams-in-a-string/) 
-
-#### Python
-
-```python
-
-from typing import *
-from collections import defaultdict, Counter
-
-
-class Solution:
-    def findAnagrams(self, s: str, p: str) -> List[int]:
-        p_stat = Counter(p)
-        window_stat = defaultdict(int)
-        ans = []
-        left = 0
-        for right in range(len(s)):
-            right_c = s[right]
-            window_stat[right_c] += 1
-            while right - left + 1 >= len(p):
-                if p_stat == window_stat:
-                    ans.append(left)
-                left_c = s[left]
-                left += 1
-                window_stat[left_c] -= 1
-                if window_stat[left_c] == 0:
-                    del window_stat[left_c]
-        return ans
-
-
-```
-
-
-
-#### C++
-
-```C++
-#include <bits/stdc++.h>
-using namespace std;
-class Solution
-{
-public:
-	vector<int> findAnagrams(string s, string p)
-	{
-
-		unordered_map<char, int> need, window;
-		for (auto &&c : p)
-		{
-			++need[c];
-		}
-		int str_len = s.size();
-		int p_len = p.size();
-		int left = 0, right = 0;
-		int valid = 0; //window中，有效字符的个数
-		int start = 0;
-		vector<int> res;
-		while (right < str_len)
-		{
-			char c = s[right]; // 新进入的字符
-			++right;
-			if (need.count(c))
-			{
-				++window[c];
-				if (window[c] == need[c])
-				{
-					++valid;
-				}
-			}
-			while (right - left >= p_len) //
-			{
-				if (valid == need.size())
-				{
-					res.push_back(left);
-				}
-				char d = s[left];
-				++left;
-				if (window[d] > 0) // c是目标字符
-				{
-					if (window[d] == need[d])
-					{
-						--valid;
-					}
-					--window[d];
-				}
-			}
-		}
-		return res;
-	}
-};
-int main()
-{
-	std::string s { "cbaebabacd" };
-	std::string p { "abc" };
-	Solution solu;
-	auto res = solu.findAnagrams(s, p);
-	for (auto &&v : res)
-	{
-		cout << v << endl;
-	}
-}
-// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -g
-
-```
-
-### [LeetCode-567. 字符串的排列](https://leetcode.cn/problems/permutation-in-string/) 中等
-
-
 
 
 
@@ -884,23 +934,9 @@ class Solution:
 
 
 
+## 多指针滑动窗口
 
-
-
-
-### 题目类型: 定长滑动窗口
-
-对于定长窗口的滑动窗口问题，下面是解题模板：
-
-一、[Leetcode-1100. 长度为 K 的无重复字符子串-中等](https://leetcode.cn/problems/find-k-length-substrings-with-no-repeated-characters/) 
-
-计数
-
-二、[Leetcode-567. 字符串的排列-中等](https://leetcode.cn/problems/permutation-in-string/) 
-
-存在性
-
-
+[灵茶山艾府](https://leetcode.cn/u/endlesscheng/) # [分享丨【题单】滑动窗口（定长/不定长/多指针）](https://leetcode.cn/circle/discuss/0viNMK/) 
 
 ## Application: KMP  
 
