@@ -1,6 +1,5 @@
 nav:
     - Introduction: index.md
-    - wikipedia-Search-algorithm: wikipedia-Search-algorithm
     - Double-pointer+sliding-window: Double-pointer+sliding-window        
     - State-space-search: State-space-search # 可以看做是search       
 

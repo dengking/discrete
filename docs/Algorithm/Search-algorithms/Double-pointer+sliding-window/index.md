@@ -39,7 +39,7 @@
 
 #### fast-slow-double-pointer-erase-remove-move-idiom
 
-Array、linked-list去重、移除、移动指定元素类问题，使用slow守护合法区域，fast去probe(打探)，遇到目标元素，就移到合法区域，遇到非目标元素，直接省略过，下面是
+Array、linked-list去重、移除、移动指定元素类问题，使用slow守护合法区域，fast去probe(打探)，遇到目标元素，就移到合法区域，遇到非目标元素，直接省略过，下面是图示: 
 
 
 
@@ -106,3 +106,28 @@ K-way merge
 ## Sliding window
 
 参加 `Sliding-window` 章节。
+
+
+
+## Left right double pointer search algorithm
+
+upper triangular square matrix(上三角方阵)
+
+| 问题/算法                                                    | 搜索目标 | 问题的搜索空间                          | 优化后的复杂度 |
+| ------------------------------------------------------------ | -------- | --------------------------------------- | -------------- |
+| [LeetCode-11. 盛最多水的容器-Medium](https://leetcode.cn/problems/container-with-most-water/) | 一对数字 | $O(n^2)$ upper triangular square matrix | $O(n)$         |
+| [LeetCode-167. Two Sum II - Input array is sorted-Medium](https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted/) | 一对数字 | $O(n^2)$ upper triangular square matrix | $O(n)$         |
+| [LeetCode-240. Search a 2D Matrix II-Medium](https://leetcode.cn/problems/search-a-2d-matrix-ii/) | 一个数字 | $O(n^2)$ matrix                         | $O(n)$         |
+| [LeetCode-剑指 Offer 57 - II. 和为s的连续正数序列-简单](https://leetcode.cn/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/) / [LCR 180. 文件组合-简单](https://leetcode.cn/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/) | 一个数字 | $O(n^2)$ upper triangular square matrix | $O(n)$         |
+| Binary search                                                | 一个数字 | $O(n)$                                  | $O(lg_2(n))$   |
+
+算法思想: 取一个**pivot观测值**，以此来作为优化的参考，然后进行**剪枝**，从而达到优化搜索空间的目的: 
+
+- Binary search 充分运用sorted的特性，选取**middle point**来作为**pivot观测值**; 每次移动left/right可以丢弃一半的搜索空间;
+- [LeetCode-11. 盛最多水的容器-Medium](https://leetcode.cn/problems/container-with-most-water/): 选取left、right的面积作为观测值；每次移动left丢弃一行、每次移动right丢弃一列;
+
+- [LeetCode-240. Search a 2D Matrix II-Medium](https://leetcode.cn/problems/search-a-2d-matrix-ii/): 充分运用sorted的特性， 选取左下角元素 为标志数 flag；search space是$O(N^2)$ matrix，它有binary search tree的思想
+
+[nettee](https://leetcode.cn/u/nettee/) # [一张图告诉你 O(n) 的双指针解法的本质原理（C++/Java）](https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted/solutions/87919/yi-zhang-tu-gao-su-ni-on-de-shuang-zhi-zhen-jie-fa/) 中总结得非常形象的一句话："每次移动一下指针，相当于丢弃**搜索空间**中的一行或者一列" 从而将复杂度显著降低。
+
+[LeetCode-240. 搜索二维矩阵 II（贪心，清晰图解）](https://leetcode.cn/problems/search-a-2d-matrix-ii/solutions/2361487/240-sou-suo-er-wei-ju-zhen-iitan-xin-qin-7mtf/)
