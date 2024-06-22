@@ -47,17 +47,17 @@ sliding window非常适合于 找满足特定条件的 **连续子数组**/**子
 
 ## 定长滑动窗口
 
-对于定长窗口的滑动窗口问题，下面是解题模板：
+### Algo framework
 
-一、[Leetcode-1100. 长度为 K 的无重复字符子串-中等-会员题](https://leetcode.cn/problems/find-k-length-substrings-with-no-repeated-characters/) 
+TODO
 
-计数
+### LeetCode
 
-二、[Leetcode-567. 字符串的排列-中等](https://leetcode.cn/problems/permutation-in-string/) 
+- [Leetcode-1100. 长度为 K 的无重复字符子串-中等-会员题](https://leetcode.cn/problems/find-k-length-substrings-with-no-repeated-characters/) 
 
-存在性
+- [LeetCode-438. 找到字符串中所有字母异位词-中等](https://leetcode.cn/problems/find-all-anagrams-in-a-string/) 、[Leetcode-567. 字符串的排列-中等](https://leetcode.cn/problems/permutation-in-string/) 
 
-
+  两道题本质上是一样的
 
 ### [LeetCode-643. 子数组最大平均数 I-简单](https://leetcode.cn/problems/maximum-average-subarray-i/)
 
@@ -88,40 +88,74 @@ class Solution:
 
 ### [LeetCode-438. 找到字符串中所有字母异位词-中等](https://leetcode.cn/problems/find-all-anagrams-in-a-string/) 
 
-以窗口长度作为指标
 
-##### Python
+
+#### Python
 
 ```python
+
 from typing import *
-from collections import defaultdict, Counter
 
 
 class Solution:
     def findAnagrams(self, s: str, p: str) -> List[int]:
-        p_stat = Counter(p)
-        window_stat = defaultdict(int)
-        ans = []
-        left = 0
-        for right in range(len(s)):
-            right_c = s[right]
-            window_stat[right_c] += 1
-            while right - left + 1 >= len(p):
-                if p_stat == window_stat:
-                    ans.append(left)
-                left_c = s[left]
-                left += 1
-                window_stat[left_c] -= 1
-                if window_stat[left_c] == 0:
-                    del window_stat[left_c]
-        return ans
+        def char_ord2index(c: str):
+            return ord(c) - ord('a')
 
+        s_len, p_len = len(s), len(p)
+
+        if s_len < p_len:
+            return []
+
+        ans = []
+        # 记录need和window的各个字符差距的个数
+        # count[i] == 0: 表示need 和 window相同
+        # count[i] >  0: 表示need 比 window多
+        # count[i] <  0: 表示need 比 window少
+        count = [0] * 26
+        for i in range(p_len):
+            count[char_ord2index(s[i])] += 1  # 要求则加1
+            count[char_ord2index(p[i])] -= 1  # 满足了要求则减去1
+
+        # window 和 need 中，不匹配(字符数量不相同)的字符的个数
+        differ = [c != 0 for c in count].count(True)
+
+        if differ == 0:
+            ans.append(0)
+
+        for left in range(s_len - p_len):
+            left_c = s[left]  # 即将移出window
+            left_c_idx = char_ord2index(left_c)  # 即将移出window
+            # count[left_c_idx] == 1表示:
+            # need中的left_c的个数比window中的left_c的个数多一个，此时left_c即将移入到window中，显然这个字符的差异即将消除
+            if count[left_c_idx] == 1:
+                differ -= 1
+            # count[left_c_idx] == 0表示:
+            # need中的left_c的个数和window中的left_c的个数相同
+            elif count[left_c_idx] == 0:
+                differ += 1
+            count[left_c_idx] -= 1
+
+            right_c = s[left + p_len]  # 即将移入window
+            right_c_idx = char_ord2index(right_c)  # 即将移入window
+            if count[right_c_idx] == -1:  # 窗口中字母 s[i+p_len] 的数量与字符串 p 中的数量从不同变得相同
+                differ -= 1
+            elif count[right_c_idx] == 0:  # 窗口中字母 s[i+p_len] 的数量与字符串 p 中的数量从相同变得不同
+                differ += 1
+            count[right_c_idx] += 1
+
+            if differ == 0:
+                ans.append(left + 1)
+
+        return ans
 
 ```
 
 
 
-##### C++
+#### C++
+
+以窗口长度作为指标
 
 ```C++
 #include <bits/stdc++.h>
@@ -193,11 +227,154 @@ int main()
 
 
 
-#### [LeetCode-567. 字符串的排列-中等](https://leetcode.cn/problems/permutation-in-string/) 
+### [LeetCode-567. 字符串的排列-中等](https://leetcode.cn/problems/permutation-in-string/) 
+
+#### Python
+
+```python
+from collections import Counter
+
+class Solution:
+    def checkInclusion(self, s1: str, s2: str) -> bool:
+        if len(s2) < len(s1):
+            return False
+        window_stat = Counter(s2[:len(s1)])
+        s1_stat = Counter(s1)
+        if window_stat == s1_stat:
+            return True
+        for right in range(len(s1), len(s2)):
+            right_c = s2[right]
+            window_stat[right_c] += 1
+            left_c = s2[right - len(s1)]
+            window_stat[left_c] -= 1
+            if window_stat[left_c] == 0:
+                del window_stat[left_c]
+            if window_stat == s1_stat:
+                return True
+        return False
+
+```
 
 
 
+#### C++
 
+官方解题 # [滑动窗口](https://leetcode.cn/problems/permutation-in-string/solution/zi-fu-chuan-de-pai-lie-by-leetcode-solut-7k7u/)
+
+
+
+```C++
+class Solution {
+public:
+bool checkInclusion(string s1, string s2)
+	{
+		int len1 = s1.length(), len2 = s2.length();
+		if (len1 > len2)
+		{
+			return false;
+		}
+		vector<int> count1(26), count2(26);
+		for (int i = 0; i < len1; ++i)
+		{
+			++count1[s1[i] - 'a'];
+			++count2[s2[i] - 'a'];
+		}
+		if (count1 == count2)
+		{
+			return true;
+		}
+		for (int i = len1; i < len2; ++i)
+		{
+			char in = s2[i]; // 新进入的字符
+			char out = s2[i - len1]; // 退出的字符
+			--count2[out - 'a'];
+			++count2[in - 'a'];
+			if (count1 == count2)
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+};
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -g
+
+```
+
+显然上述写法非常简单易懂，在面试过程中，这种简单易懂的程序能够节省更多的时间。
+
+
+
+### [LeetCode1100. 长度为 K 的无重复字符子串-中等](https://leetcode.cn/problems/find-k-length-substrings-with-no-repeated-characters/) 
+
+这是典型的定长窗口，和leetcode  [567. 字符串的排列](https://leetcode.cn/problems/permutation-in-string/) 类似。
+
+#### C++
+
+```c++
+#include <iostream>
+#include <vector>
+#include <queue>
+#include <utility> // std::pair
+#include <unordered_map>
+#include <string>
+#include <set>
+#include <map>
+#include <climits> // INT_MAX
+using namespace std;
+
+class Solution
+{
+public:
+  int numKLenSubstrNoRepeats(string s, int k)
+  {
+    int N = s.size();
+    if (N < k)
+    {
+      return false;
+    }
+    unordered_map<char, int> window;
+    for (int i = 0; i < k; ++i)
+    {
+      ++window[s[i]];
+    }
+    auto isNotRepeat = [&]() -> bool
+    {
+      for (auto &&item : window)
+      {
+        if (item.second > 1)
+        {
+          return false;
+        }
+      }
+      return true;
+    };
+    int res = 0;
+    if (isNotRepeat())
+    {
+      ++res;
+    }
+    for (int i = k; i < N; ++i)
+    {
+      ++window[s[i]];
+      --window[s[i - k]];
+      if (isNotRepeat())
+      {
+        ++res;
+      }
+    }
+    return res;
+  }
+};
+
+int main()
+{
+  Solution s;
+}
+
+```
+
+## 不定长滑动窗口
 
 
 
@@ -823,9 +1000,55 @@ public:
 
 
 
+### [LeetCode-1839. 所有元音按顺序排布的最长子字符串-中等](https://leetcode.cn/problems/longest-substring-of-all-vowels-in-order/)  
+
+```python
+
+from typing import *
 
 
-### [LeetCode-1839. 所有元音按顺序排布的最长子字符串](https://leetcode.cn/problems/longest-substring-of-all-vowels-in-order/) 中等
+class Solution:
+    def longestBeautifulSubstring(self, word: str) -> int:
+        vowels = 'aeiou'
+        window_stat: Dict[str, int] = {}  # 元音 : 最大index
+
+        def is_disorder() -> bool:
+            """
+            :return: 判断window中的元音是否乱序
+            """
+            if len(window_stat) == 0:
+                return False
+            # 然后从第一个元音开始，到window中的最大的元音
+            # 判断两个相邻的元音是否满足顺序要求
+            for i in range(0, vowels.index(max(window_stat.keys()))):
+                v1 = vowels[i]
+                v2 = vowels[i + 1]
+                if v1 in window_stat and v2 in window_stat and window_stat[v1] < window_stat[v2]:
+                    continue
+                else:
+                    return True
+            return False
+
+        def is_window_contain_vowels():
+            """判断window中，是否包含所有的元音"""
+            return len(window_stat) == len(vowels)
+
+        left = 0
+        ans = 0
+        for right in range(0, len(word)):
+            right_c = word[right]
+            if right_c in vowels:
+                window_stat[right_c] = right
+            while is_disorder():
+                left_c = word[left]
+                if left_c in window_stat and left == window_stat[left_c]:
+                    del window_stat[left_c]
+                left += 1
+            if is_window_contain_vowels():
+                ans = max(ans, right - left + 1)
+        return ans
+
+```
 
 
 
