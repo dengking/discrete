@@ -1,5 +1,4 @@
 nav:
     - Introduction: index.md
     - Binary-search: Binary-search # 可以看做是search       
-    - LeetCode-fast-slow-double-pointer: LeetCode-fast-slow-double-pointer
-    
+    - LeetCode-fast-slow-double-pointer-erase-remove-move-idiom: LeetCode-fast-slow-double-pointer-erase-remove-move-idiom
