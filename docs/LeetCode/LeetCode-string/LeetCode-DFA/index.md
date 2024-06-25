@@ -129,6 +129,7 @@ public:
         if (state == "in_number")
         {
             ans = ans * 10 + c - '0';
+            // 需要注意: -(long long)INT_MIN 是一个正数，因为此时ans没有加上符号，一直是正数
             ans = sign == 1 ? min(ans, (long long)INT_MAX) : min(ans, -(long long)INT_MIN);
         }
         else if (state == "signed")
