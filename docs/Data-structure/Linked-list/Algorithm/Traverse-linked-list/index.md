@@ -6,7 +6,7 @@ linked list的结构非常简单，并且只支持 [sequential access](https://e
 
 
 
-## 两种最基本的traverse方式
+## 最基本的traverse方式
 
 
 
@@ -21,17 +21,48 @@ linked list的结构非常简单，并且只支持 [sequential access](https://e
 
 2. 上述两个递归版可以扩张对递归的认知，在后面会进行详细的对比
 
+3. [LeetCode-206. 反转链表](https://leetcode.cn/problems/reverse-linked-list/) 是最好的例子，其中可以使用上述这些例子
+
    
 
-### 从左到右-从首到尾-迭代
+### 从左到右-从首到尾-迭代(iteration)
 
-foreach-node
+#### Foreach-node
 
-
+TODO: 这种方式是最简单的迭代
 
 #### Pattern: dummy node+prev cur next三指针
 
 TODO: 总结这种算法模式
+
+[LeetCode-206. 反转链表](https://leetcode.cn/problems/reverse-linked-list/) 是最好的例子:
+
+```python
+from typing import *
+
+
+class ListNode:
+    """
+    Definition for singly-linked list.
+    """
+
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+
+class Solution:
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        prev, cur, next_node = None, head, None
+        while cur:
+            next_node = cur.next  # 先保存next node，因为等一下cur.next会被更新
+            cur.next = prev  # 反转current node
+            # 向后滑动一个节点
+            prev = cur
+            cur = next_node
+        return prev  # 需要注意的是，返回值是prev，因为上述while退出的时候，cur为nullptr
+
+```
 
 
 
@@ -39,19 +70,31 @@ TODO: 总结这种算法模式
 
 ### 从右到左-从尾到首-explici-stack
 
+#### Practice
+
 在下面题目中使用了这种technique:
 
-1、 [LeetCode-剑指 Offer 06. 从尾到头打印链表](https://leetcode.cn/problems/cong-wei-dao-tou-da-yin-lian-biao-lcof/)  
-
-2、[LeetCode-445. 两数相加 II](https://leetcode.cn/problems/add-two-numbers-ii/) 
+[LeetCode-剑指 Offer 06. 从尾到头打印链表](https://leetcode.cn/problems/cong-wei-dao-tou-da-yin-lian-biao-lcof/)  
 
 
 
-### 递归
+[LeetCode-445. 两数相加 II](https://leetcode.cn/problems/add-two-numbers-ii/) 
 
-有两种写法:
 
-#### 一、从左到右-从首到尾-DFS-pre-order
+
+### DFS
+
+对于linked list，它的结构非常简单，它只有DFS，也就是常说的递归方式
+
+素材: 
+
+- labuladong [递归反转链表：如何拆解复杂问题](https://mp.weixin.qq.com/s/5wz_YJ3lTkDH3nWfVDi5SA) 
+
+- labuladong [如何高效判断回文单链表？](https://mp.weixin.qq.com/s/tCgEoOlZKS_ohuTx1VxJ-Q) 
+
+
+
+#### 从左到右-从首到尾-DFS-pre-order
 
 1、这种写法是比较容易理解的，因为它符合"previous-current-next-three-pointer-iteration"
 
@@ -59,7 +102,7 @@ TODO: 总结这种算法模式
 
 
 
-#### 二、从右到左-从尾到首-DFS-post-order
+#### 从右到左-从尾到首-DFS-post-order
 
 1、最最简单的例题就是: [LeetCode-剑指 Offer 06. 从尾到头打印链表](https://leetcode.cn/problems/cong-wei-dao-tou-da-yin-lian-biao-lcof/) ，这道题要求将linked list逆序装入到vector中，它将此放到了post-order-acion中
 
@@ -101,6 +144,56 @@ b、只能够采用action-2，从右向左-从尾到首修改linked-list的结�
 
 
 
+
+
+#### Practice
+
+[LeetCode-21. 合并两个有序链表](https://leetcode.cn/problems/merge-two-sorted-lists/) 
+
+```python
+from typing import *
+
+
+class ListNode:
+    """
+    Definition for singly-linked list.
+    """
+
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+
+class Solution:
+    def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
+        """
+        两个链表头部值较小的一个节点与剩下元素的 `merge` 操作结果合并。
+        """
+        if list1 is None:
+            return list2
+        if list2 is None:
+            return list1
+        if list1.val < list2.val:
+            list1.next = self.mergeTwoLists(list1.next, list2)
+            return list1
+        else:
+            list2.next = self.mergeTwoLists(list1, list2.next)
+            return list2
+
+```
+
+
+
+[LeetCode-206. 反转链表](https://leetcode.cn/problems/reverse-linked-list/) 
+
+
+
+[LeetCode-234. 回文链表-简单](https://leetcode.cn/problems/palindrome-linked-list/) 
+
+
+
+
+
 ### 对比: 从右到左-从尾到首
 
 1、这种本质上都是基于stack: 
@@ -111,41 +204,25 @@ explicit stack VS recursion implicit stack
 
 
 
-### Traverse by iteration
-
-一. previous-current-next-three-pointer
-
-对linked list的很多操作，都是基于previous pointer+current pointer+next pointer，这是最最基本的方式。
-
-二. fast-slow-double-pointer
-
-快慢双指针
 
 
 
-### Traverse by recursion
-
-对于linked list，它的结构非常简单，它只有DFS。
-
-素材: 
-
-- labuladong [递归反转链表：如何拆解复杂问题](https://mp.weixin.qq.com/s/5wz_YJ3lTkDH3nWfVDi5SA) 
-
-- labuladong [如何高效判断回文单链表？](https://mp.weixin.qq.com/s/tCgEoOlZKS_ohuTx1VxJ-Q) 
-
-### Practice
-
-- `Reverse-linked-list` 章节
-
-  [LeetCode-206. 反转链表](https://leetcode.cn/problems/reverse-linked-list/) 
-
-- `Palindrome-linked-list` 章节
-
-- `Merge-sorted-linked-list` 章节
 
 
 
 ## 高级的traverse方式
+
+
+
+### Fast-slow-double-pointer
+
+快慢双指针
+
+TODO: 需要补充相关内容
+
+#### Practice
+
+[LeetCode-19. 删除链表的倒数第 N 个结点](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/) 
 
 ### k-step步长-span跨度-stride跨度-traverse
 

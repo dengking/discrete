@@ -2,7 +2,7 @@
 
 
 
-## [LeetCode-21. 合并两个有序链表](https://leetcode.cn/problems/merge-two-sorted-lists/)
+## [LeetCode-21. 合并两个有序链表](https://leetcode.cn/problems/merge-two-sorted-lists/) 
 
 相同题： [LCR 142. 训练计划 IV](https://leetcode.cn/problems/he-bing-liang-ge-pai-xu-de-lian-biao-lcof/)
 
