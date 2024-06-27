@@ -1,28 +1,14 @@
 # [LeetCode-23. 合并K个升序链表](https://leetcode.cn/problems/merge-k-sorted-lists/)
 
-1、假设`k`个linked list共有`n`个元素
 
-2、每次从各个linked list 取得它们的 `head`，然后对这个k个`head`进行排序，取得 min、max 元素。
 
-3、然后将min/max插入到output中
+### 暴力解法
 
-4、显然上述过程需要执行n次
-
-## [官方解题](https://leetcode.cn/problems/merge-k-sorted-lists/solution/he-bing-kge-pai-xu-lian-biao-by-leetcode-solutio-2/)
-
-> NOTE: 
->
-> 1、下面并没有按照原文的方式组织的，而是结合原文视频中的内容、文字内容进行的组织
-
-### 方式一: 暴力解法
-
-#### 思路
-
-将所有的k个linked list输出到一个array中，然后对array进行排序，然后输出为linked list；
+思路: 将所有的k个linked list输出到一个array中，然后对array进行排序，然后输出为linked list；
 
 
 
-#### 完整程序 Python
+#### Python
 
 ```python
 class ListNode:
@@ -44,11 +30,9 @@ class Solution:
         return head.next
 ```
 
-> NOTE: 
->
-> 1、在 geeksforgeeks [Merge k sorted arrays | Set 1](https://www.geeksforgeeks.org/merge-k-sorted-arrays/) 中，给出了C++ 版的类似代码
->
-> 2、上述code中，使用了"dummy node-技巧-create创建linked list"
+- 在 geeksforgeeks [Merge k sorted arrays | Set 1](https://www.geeksforgeeks.org/merge-k-sorted-arrays/) 中，给出了C++ 版的类似代码
+
+- 上述code中，使用了"dummy node-技巧-create创建linked list"
 
 #### 复杂度分析
 
@@ -56,17 +40,50 @@ class Solution:
 
 上述算法的复杂度是由它的排序算法而决定的。
 
-### 方式二: 顺序合并/ Iterative 2-Way merge
+### 顺序合并/ Iterative 2-Way merge
 
-> NOTE: 
->
-> 1、在 wanweibaike [k-way merge algorithm](https://en.wanweibaike.com/wiki-K-Way%20Merge%20Algorithms) 中，将这种方式称为 "Iterative 2-Way merge"
+在 wikipedia [k-way merge algorithm](https://en.wikipedia.org/wiki/K-way_merge_algorithm) 中，将这种方式称为 "Iterative 2-Way merge"
+
+#### Python
+
+```python
+from typing import *
+
+
+class ListNode:
+    """
+    Definition for singly-linked list.
+    """
+
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+
+class Solution:
+    def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
+        ans: Optional[ListNode] = None
+        for l in lists:
+            ans = self.merge2Lists(ans, l)
+        return ans
+
+    def merge2Lists(self, a: Optional[ListNode], b: Optional[ListNode]) -> Optional[ListNode]:
+        if a is None:
+            return b
+        if b is None:
+            return a
+        if a.val < b.val:
+            a.next = self.merge2Lists(a.next, b)
+            return a
+        else:
+            b.next = self.merge2Lists(a, b.next)
+            return b
+
+```
 
 
 
-#### 完整程序C++
-
-
+#### C++
 
 ```C++
 #include <bits/stdc++.h>
@@ -187,8 +204,6 @@ int main()
 
 ### 方法三：分治合并
 
-#### 思路
-
 考虑优化方法一，用分治的方法进行合并。
 
 1、将 $k$ 个链表配对并将同一对中的链表合并；
@@ -221,7 +236,38 @@ int main()
 
 
 
-#### 完整程序C++
+#### Python
+
+```python
+class Solution:
+    def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
+        return self.mergeLists(lists, 0, len(lists) - 1)
+
+    def mergeLists(self, lists: List[Optional[ListNode]], left, right) -> Optional[ListNode]:
+        if left == right:
+            return lists[left]
+        if left > right:
+            return None
+        mid = (left + right) // 2
+        return self.merge2Lists(self.mergeLists(lists, left, mid), self.mergeLists(lists, mid + 1, right))
+
+    def merge2Lists(self, a: Optional[ListNode], b: Optional[ListNode]) -> Optional[ListNode]:
+        if a is None:
+            return b
+        if b is None:
+            return a
+        if a.val < b.val:
+            a.next = self.merge2Lists(a.next, b)
+            return a
+        else:
+            b.next = self.merge2Lists(a, b.next)
+            return b
+
+```
+
+
+
+#### C++
 
 ```C++
 #include <bits/stdc++.h>
@@ -334,11 +380,61 @@ int main()
 
 
 
-### 方法四: 使用优先队列合并
+### 使用优先队列合并
+
+#### Python
+
+```
+
+class Solution:
+    def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
+        def __lt__(self: ListNode, other: ListNode):
+            return self.val < other.val
+
+        ListNode.__lt__ = __lt__
+        heap = []
+        for l in filter(lambda node: node is not None, lists):
+            heapq.heappush(heap, l)
+        while heap:
+            node = heapq.heappop(heap)
+        dummy = ListNode(-1)
+        tail = dummy
+
+        return dummy.next
+
+```
 
 
 
-#### 完整程序C++
+```
+class Solution:
+    def mergeKLists(self, lists: List[ListNode]) -> ListNode:
+
+        def __lt__(self, other):
+            return self.val < other.val
+        ListNode.__lt__ = __lt__
+        
+        import heapq
+        heap = []
+        dummy = ListNode(-1)
+        p = dummy
+
+        for l in lists:
+            if l:
+                heapq.heappush(heap, l)
+        while heap:
+            node = heapq.heappop(heap)
+            p.next = ListNode(node.val)
+            p = p.next
+            if node.next:
+                heapq.heappush(heap, node.next)
+        
+        return dummy.next
+```
+
+https://leetcode.cn/problems/merge-k-sorted-lists/solutions/3787/leetcode-23-he-bing-kge-pai-xu-lian-biao-by-powcai/
+
+#### C++
 
 ```C++
 #include <bits/stdc++.h>
