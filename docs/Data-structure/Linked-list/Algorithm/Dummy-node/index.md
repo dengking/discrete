@@ -47,7 +47,7 @@ LeetCode中single-linked-list类题目主要有如下两种模式:
 - 使用head-node来表示完整的single-linked-list、将head-node作为入参来表示完整的single-linked-list
 - 如果修改single-linked-list，返回新的head-node
 
-对于大多数修改single-linked-list题目，我们都是基于"previous-current-next-three-pointer-iteration"来进行解决，但是对于head-node，相较于internel-node，它没有predecessor node(前驱节点)，通过使用dummy node，它的 $\textit{next}$ 指针指向链表的头节点，这样一来，我们就不需要对头节点进行特殊的判断了，保证能够以相同的逻辑来处理所有的节点；并且dummy node还能够保证无论哪种情况，新的linked-list始终都是 `dummy->next` 。
+对于大多数修改single-linked-list题目，我们都是基于"previous-current-next-three-pointer-iteration"来进行解决，但是对于head-node，相较于internel-node，它没有predecessor node(前驱节点)，通过使用dummy node，它的 $\textit{next}$ 指针指向链表的头节点，这样一来，我们就不需要对头节点进行特殊的判断了，保证能够以相同的逻辑来处理所有的节点；并且dummy node还能够保证无论哪种情况，新的linked-list始终都是 `dummy->next` 。体现这个技巧的作用的最好的例子是: [LeetCode-19. 删除链表的倒数第 N 个结点](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/) 。
 
 
 
@@ -133,9 +133,53 @@ ListNode findFromEnd(ListNode head, int k) {
 
 
 
+```Python
+from typing import *
 
 
-## 二、创建一个新的single-linked-list
+class ListNode:
+    """
+    Definition for singly-linked list.
+    """
+
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+
+class Solution:
+    def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
+        dummy = ListNode(-1, head)  # 虚拟头节点
+        prev = self.getNthFromEnd(dummy, n + 1)  # 删除倒数第 n 个，要先找倒数第 n + 1 个节点，即它的前驱节点
+        prev.next = prev.next.next  # 删掉倒数第 n 个节点
+        return dummy.next
+
+    def getNthFromEnd(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
+        """
+        返回链表的倒数第 n 个节点
+        :param head:
+        :param k:
+        :return:
+        """
+        fast = head
+        # fast 先走 k 步
+        for _ in range(0, k):
+            fast = fast.next
+        slow = head
+        # fast 和 slow 同时走 n - k 步
+        while fast:
+            fast = fast.next
+            slow = slow.next
+        # slow现在指向第 n - k 个节点
+        return slow
+
+```
+
+
+
+
+
+## 二. 创建一个新的single-linked-list
 
 create linked list pattern: dummy node+append to tail
 
