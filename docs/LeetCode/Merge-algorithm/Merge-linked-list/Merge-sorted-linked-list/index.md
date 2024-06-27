@@ -356,7 +356,7 @@ int main()
 
 3、重复这一过程，直到我们得到了最终的有序链表
 
-![img](/Users/kai/Documents/GitHub/discrete/docs/LeetCode/Merge-algorithm/Merge-linked-list/Merge-sorted-linked-list/LeetCode-23-合并K个升序链表-Hard/recursive-bottom-up-2-way-merge-build-binary-tree.png)
+![img](./recursive-bottom-up-2-way-merge-build-binary-tree.png)
 
 #### 复杂度分析
 
@@ -409,7 +409,7 @@ class Solution:
 
 ```
 
-
+tag-DFS-recursion-two-direction=top-down~reduce~pre-order~action+bottom-up~produce~post-order~action-merge-k-sorted-linked-list
 
 #### C++
 
