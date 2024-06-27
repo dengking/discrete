@@ -29,7 +29,9 @@ foreach-node
 
 
 
-previous-current-next-three-pointer-iteration
+#### Pattern: dummy node+prev cur next三指针
+
+TODO: 总结这种算法模式
 
 
 

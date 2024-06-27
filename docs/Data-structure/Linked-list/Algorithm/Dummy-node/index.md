@@ -1,66 +1,53 @@
 # Dummy node技巧
 
+"dummy node"翻译为"虚拟头节点"，按照字面意思"dummy"的意思是"虚设的、形式的"，其实本质上来说，"dummy node"的确是"虚设的头节点"，它相当于一个**占位符**，包装总是有这样的一个节点在，在 labuladong [单链表的六大解题套路，你都见过么？](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247492022&idx=1&sn=35f6cb8ab60794f8f52338fab3e5cda5&scene=21#wechat_redirect)  中，将其称之为"虚拟头节点"，这个翻译更加准确。
+
+
+
 LeetCode中single-linked-list类题目主要有如下两种模式:
 
-一、对已有的single-linked-list进行修改并返回修改后的single-linked-list
+一. 对已有的single-linked-list进行修改并返回修改后的single-linked-list
 
-二、创建一个新的single-linked-list
+二. 创建一个新的single-linked-list
 
-对于上述两种情况，都可以使用dummy-node技巧来简化代码:
+对于上述两种情况，都可以使用dummy-node技巧来简化代码: 
 
-1、新的linked-list始终都是 `dummy->next` 
-
-2、避免对空指针进行讨论
-
-3、凑齐 "prev-cur-next-三指针-iteration" (简称"dummy node+prev cur next三指针")
-
-## "dummy node"翻译为"虚拟头节点"
-
-按照字面意思"dummy"的意思是"虚设的、形式的"，其实本质上来说，"dummy node"的确是"虚设的头节点"，它相当于一个**占位符**，包装总是有这样的一个节点在，在 labuladong [单链表的六大解题套路，你都见过么？](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247492022&idx=1&sn=35f6cb8ab60794f8f52338fab3e5cda5&scene=21#wechat_redirect)  中，将其称之为"虚拟头节点"，这个翻译更加准确。
+- 新的linked-list始终都是 `dummy->next` 
+- 避免对空指针进行讨论
+- 凑齐 "previous-current-next-three-pointer-iteration" (简称"dummy-node+previous-current-next-three-pointer")
 
 
 
 ## 素材
 
-1、[LeetCode-19. 删除链表的倒数第 N 个结点](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/) # [官方解题](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/solution/shan-chu-lian-biao-de-dao-shu-di-nge-jie-dian-b-61/) 
+- [LeetCode-19. 删除链表的倒数第 N 个结点](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/) # [官方解题](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/solution/shan-chu-lian-biao-de-dao-shu-di-nge-jie-dian-b-61/) 
 
-2、 labuladong [单链表的六大解题套路，你都见过么？](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247492022&idx=1&sn=35f6cb8ab60794f8f52338fab3e5cda5&scene=21#wechat_redirect) 
+- labuladong [单链表的六大解题套路，你都见过么？](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247492022&idx=1&sn=35f6cb8ab60794f8f52338fab3e5cda5&scene=21#wechat_redirect) 
 
-
-
-> **代码中还用到一个链表的算法题中是很常见的「虚拟头节点」技巧，也就是`dummy`节点**。你可以试试，如果不使用`dummy`虚拟节点，代码会复杂很多，而有了`dummy`节点这个**占位符**，可以避免处理空指针的情况，降低代码的复杂性。
-
-
-
-> 不过注意我们又使用了虚拟头结点的技巧，也是为了防止出现空指针的情况，比如说链表总共有 5 个节点，题目就让你删除倒数第 5 个节点，也就是第一个节点，那按照算法逻辑，应该首先找到倒数第 6 个节点。但第一个节点前面已经没有节点了，这就会出错。
->
-> 但有了我们虚拟节点`dummy`的存在，就避免了这个问题，能够对这种情况进行正确的删除。
+  > **代码中还用到一个链表的算法题中是很常见的「虚拟头节点」技巧，也就是`dummy`节点**。你可以试试，如果不使用`dummy`虚拟节点，代码会复杂很多，而有了`dummy`节点这个**占位符**，可以避免处理空指针的情况，降低代码的复杂性。
+  >
+  > 不过注意我们又使用了虚拟头结点的技巧，也是为了防止出现空指针的情况，比如说链表总共有 5 个节点，题目就让你删除倒数第 5 个节点，也就是第一个节点，那按照算法逻辑，应该首先找到倒数第 6 个节点。但第一个节点前面已经没有节点了，这就会出错。
+  >
+  > 但有了我们虚拟节点`dummy`的存在，就避免了这个问题，能够对这种情况进行正确的删除。
 
 
 
-3、stackoverflow [Dummy nodes in linked lists](https://stackoverflow.com/questions/22952882/dummy-nodes-in-linked-lists)
+- stackoverflow [Dummy nodes in linked lists](https://stackoverflow.com/questions/22952882/dummy-nodes-in-linked-lists)
 
-4、yuanbin [Linked List - 链表](https://algorithm.yuanbin.me/zh-hans/basics_data_structure/linked_list.html#dummy-node)
-
-5、reddit [[C+] In a linked list what is a dummy node?](https://www.reddit.com/r/learnprogramming/comments/20e0yc/c_in_a_linked_list_what_is_a_dummy_node/)
-
-6、stackoverflow [What is a Dummy Head?](https://stackoverflow.com/questions/37324972/what-is-a-dummy-head)
+- yuanbin [Linked List - 链表](https://algorithm.yuanbin.me/zh-hans/basics_data_structure/linked_list.html#dummy-node)
+- reddit [[C+] In a linked list what is a dummy node?](https://www.reddit.com/r/learnprogramming/comments/20e0yc/c_in_a_linked_list_what_is_a_dummy_node/)
+- stackoverflow [What is a Dummy Head?](https://stackoverflow.com/questions/37324972/what-is-a-dummy-head)
 
 
 
-## 一、对已有的single-linked-list进行修改
+## 一. 对已有的single-linked-list进行修改
 
-在LeetCode中，大多数single-linked-list题目的pattern是使用head-node来表示完整的single-linked-list:
+在LeetCode中，大多数single-linked-list题目的pattern是:
 
-1、将head-node作为入参来表示完整的single-linked-list
+- 使用head-node来表示完整的single-linked-list、将head-node作为入参来表示完整的single-linked-list
+- 如果修改single-linked-list，返回新的head-node
 
-2、返回新的head-node
-
-对于大多数single-linked-list题目，我们都是基于"prev-cur-next-三指针-iteration"来进行解决，但是对于head-node，相较于internel-node，它具有如下特殊之处:
-
-1、head node没有predecessor node(前驱节点)
-
-对于上述两种情况，新的linked-list始终都是 `dummy->next` 。
+对于大多数修改single-linked-list题目，我们都是基于"previous-current-next-three-pointer-iteration"来进行解决，但是对于head-node，相较于internel-node，它没有predecessor node(前驱节点)，通过使用dummy node，它的 $\textit{next}$ 指针指向链表的头节点，这样一来，我们就不需要对头节点进行特殊的判断了，保证能够以相同的逻辑来处理所有的节点；并且dummy node还能够保证无论哪种情况，新的linked-list始终都是 `dummy->next` 。
 
 
 
@@ -90,15 +77,20 @@ In algorithms questions, we always pass the head of the linked list as the argum
 
 
 
-### LeetCode
 
 
-
-#### [LeetCode-19. 删除链表的倒数第 N 个结点](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/) # [官方解题](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/solution/shan-chu-lian-biao-de-dao-shu-di-nge-jie-dian-b-61/) 
+### [LeetCode-19. 删除链表的倒数第 N 个结点](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/) # [官方解题](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/solution/shan-chu-lian-biao-de-dao-shu-di-nge-jie-dian-b-61/) 
 
 > NOTE:
 >
-> 1、是在阅读这篇文章的时候，发现的
+> 1. 是在阅读这篇文章的时候，发现的
+>
+> 2. 题目条件:
+>
+>    > - 链表中结点的数目为 `sz`
+>    > - `1 <= n <= sz` 
+>
+>    因此无需考虑n大于sz的情况，但是需要考虑`n == sz`的情况
 
 在对链表进行操作时，一种常用的技巧是添加一个哑节点（dummy node），它的 $\textit{next}$ 指针指向链表的头节点。这样一来，我们就不需要对头节点进行特殊的判断了。
 

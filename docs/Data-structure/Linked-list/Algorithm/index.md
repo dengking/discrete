@@ -30,13 +30,9 @@
 
 ## Techniques
 
-1、traverse-linked-list
+- traverse-linked-list
 
-2、dummy-node
+- dummy-node
 
 
-
-### Pattern: dummy node+prev cur next三指针
-
-TODO: 总结这种算法模式
 

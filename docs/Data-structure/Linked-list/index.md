@@ -44,4 +44,3 @@ Listing 6.5 A simple queue with a dummy node
 
 Listing 6.6 A thread-safe queue with fine-grained locking (在6.5的基础上修改而来，支持并发)
 
-
