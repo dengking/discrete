@@ -64,7 +64,7 @@ class Solution:
 
 ```
 
-
+stop condition: 遍历完了整个list，即最终`cur`指向的是null。
 
 
 
@@ -96,9 +96,43 @@ class Solution:
 
 #### 从左到右-从首到尾-DFS-pre-order
 
-1、这种写法是比较容易理解的，因为它符合"previous-current-next-three-pointer-iteration"
+1. 这种写法是比较容易理解的，因为它符合"previous-current-next-three-pointer-iteration"
 
-2、pre-order-action: 对cur进行修改: 将cur的next替换位`pre`，这样就完成了反转。
+2. pre-order-action
+
+##### Practice
+
+[LeetCode-206. 反转链表](https://leetcode.cn/problems/reverse-linked-list/) 
+
+```python
+from typing import *
+
+
+class ListNode:
+    """
+    Definition for singly-linked list.
+    """
+
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+
+class Solution:
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        return self.dfsPreOrder(None, head)
+
+    def dfsPreOrder(self, prev: Optional[ListNode], cur: Optional[ListNode]):
+        if cur:
+            next_node = cur.next
+            cur.next = prev
+            return self.dfsPreOrder(cur, next_node)
+        else:
+            return prev  # 需要注意的是，返回值是prev，因为此时cur为nullptr，这和迭代版是对应的
+
+```
+
+
 
 
 

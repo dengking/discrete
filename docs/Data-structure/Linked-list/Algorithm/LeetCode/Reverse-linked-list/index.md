@@ -21,8 +21,6 @@
 
 反转整个linked list
 
-
-
 ### Previous-current-next-three-pointer-iteration
 
 思路: 基于"previous-current-next-three-pointer-iteration"；让current node的next指向它的previous node。
@@ -245,6 +243,8 @@ int main()
 
 下面递归版本的实现，相较于 [官方解题](https://leetcode.cn/problems/reverse-linked-list/solution/fan-zhuan-lian-biao-by-leetcode-solution-d1k2/) 中的递归版本是更加容易理解的，它和迭代版本有着较好的对应。
 
+这种做法本质上是: 从前往后逐个反转。
+
 #### Python
 
 ```python
@@ -332,7 +332,47 @@ int main()
 
 ### DFS-post-order
 
+不更改未access过的node的结构，显然，当执行到current node的时候，它的successors已经被access过了，因此可以修改successor的结构，因此使用action-2: 让current node的next node指向current node; 
 
+这种做法本质上是: 从后往前逐个反转。先将所有的node都堆到系统栈中，然后逐个修改；
+
+#### Python
+
+```python
+from typing import *
+
+
+class ListNode:
+    """
+    Definition for singly-linked list.
+    """
+
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+
+class Solution:
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        return self.dfsPostOrder(head)
+
+    def dfsPostOrder(self, node: Optional[ListNode]) -> Optional[ListNode]:
+        if node:
+            if node.next:  # head node + internal node
+                head = self.dfsPostOrder(node.next)
+                node.next.next = node
+                node.next = None
+                return head
+            else:
+                return node  # tail node，它将成为新的head node
+        else:  # 其实这个分支永远也执行不到
+            return node
+
+```
+
+
+
+#### C++
 
 ```c++
 #include <iostream>
@@ -368,7 +408,7 @@ public:
             if (cur->next) // internal node
             {
                 auto *tail = dfsPostOrder(cur->next);
-                cur->next->next = cur;
+                cur->next->next = cur; //  让current node的next node指向current node
                 cur->next = nullptr; // 将当前节点作为tail，这一步非常重要，否则构造出的linked-list就没有tail了
                 return tail;
             }
@@ -412,3 +452,161 @@ k个一组反转
 2、[LeetCode-25. K 个一组翻转链表](https://leetcode.cn/problems/reverse-nodes-in-k-group/)
 
 在labuladong的两篇文章中都涉及这个内容。
+
+
+
+## [LeetCode-剑指 Offer 06. 从尾到头打印链表](https://leetcode.cn/problems/cong-wei-dao-tou-da-yin-lian-biao-lcof/)
+
+
+
+这道题的下面解法是最最能够体现: explicit stack VS recursion implicit stack 的。
+
+
+
+### DFS-post-order
+
+在post action中，执行insert。
+
+#### Python
+
+```python
+from typing import *
+
+
+class ListNode:
+    """
+    Definition for singly-linked list.
+    """
+
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+
+class Solution:
+    def reverseBookList(self, head: Optional[ListNode]) -> List[int]:
+        ans = []
+        self.dfsPostOrder(head, ans)
+        return ans
+
+    def dfsPostOrder(self, node: Optional[ListNode], ans: List[int]):
+        if node:
+            self.dfsPostOrder(node.next, ans)
+            ans.append(node.val)
+
+```
+
+
+
+#### C++
+
+```C++
+#include <bits/stdc++.h>
+using namespace std;
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+struct ListNode
+{
+	int val;
+	ListNode *next;
+	ListNode(int x) :
+					val(x), next(NULL)
+	{
+	}
+};
+
+class Solution
+{
+public:
+	vector<int> reversePrint(ListNode *head)
+	{
+		vector<int> res;
+		reversePrintRecursion(head, res);
+		return res;
+	}
+	void reversePrintRecursion(ListNode *head, vector<int> &res)
+	{
+		if (head)
+		{
+			reversePrintRecursion(head->next, res);
+			res.push_back(head->val);
+		}
+		else
+		{
+			return;
+		}
+	}
+};
+
+int main()
+{
+
+}
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra
+
+
+```
+
+### Reverse by explicit stack
+
+#### C++
+
+```C++
+#include <bits/stdc++.h>
+using namespace std;
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+struct ListNode
+{
+	int val;
+	ListNode *next;
+	ListNode(int x) :
+					val(x), next(NULL)
+	{
+	}
+};
+
+class Solution
+{
+public:
+	vector<int> reversePrint(ListNode *head)
+	{
+		stack<ListNode*> st;
+		while (head)
+		{
+			st.push(head);
+			head = head->next;
+		}
+		vector<int> res;
+		while (!st.empty())
+		{
+			res.push_back(st.top()->val);
+			st.pop();
+		}
+		return res;
+	}
+};
+
+int main()
+{
+
+}
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra
+
+
+```
+
