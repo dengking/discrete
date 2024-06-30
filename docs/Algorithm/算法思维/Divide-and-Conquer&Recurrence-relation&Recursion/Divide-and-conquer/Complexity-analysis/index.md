@@ -1,0 +1,167 @@
+# Complexity of Divide-and-Conquer Algorithms
+
+
+
+## wikipedia [Master theorem (analysis of algorithms)](https://en.wikipedia.org/wiki/Master_theorem_(analysis_of_algorithms))
+
+
+
+### Application to common algorithms
+
+
+
+
+
+## 读物
+
+stackoverflow [algorithms: how do divide-and-conquer and time complexity O(nlogn) relate?](https://stackoverflow.com/questions/29927439/algorithms-how-do-divide-and-conquer-and-time-complexity-onlogn-relate)
+
+zhihu [主定理 Master Theorem](https://zhuanlan.zhihu.com/p/100531135)
+
+zhihu [如何理解算法时间复杂度的表示法，例如 O(n²)、O(n)、O(1)、O(nlogn) 等？](https://www.zhihu.com/question/21387264)
+
+https://www.cs.cornell.edu/courses/cs3110/2012sp/lectures/lec20-master/mm-proof.pdf
+
+zhihu [主定理(Master Theorem)](https://www.zhihu.com/people/lewis-3-99)
+
+YSC2229 [4.4. Complexity of Divide-and-Conquer Algorithms](https://ilyasergey.net/YSC2229/week-04-divide-and-conquer-complexity.html#complexity-of-divide-and-conquer-algorithms)
+
+
+
+# O(logN)
+
+这是在complexity analysis中经常碰到的一种，它总是和binary一起。
+
+
+
+## stackoverflow [What does O(log n) mean exactly?](https://stackoverflow.com/questions/2307283/what-does-olog-n-mean-exactly)
+
+I am learning about Big O Notation running times and amortized（分摊） times.  I understand the notion of *O(n)* linear time, meaning that the size of the input affects the growth of the algorithm proportionally...and the same goes for, for example, quadratic time $O(n^2)$ etc..even algorithms, such as permutation generators, with *O(n!)* times, that grow by factorials.
+
+For example, the following function is *O(n)* because the algorithm grows in proportion to its input *n*:  
+
+```c
+f(int n) {
+  int i;
+  for (i = 0; i < n; ++i)
+    printf("%d", i);
+}
+```
+
+Similarly, if there was a nested loop, the time would be $O(n^2)$.
+
+But what exactly is *O(log n)*?  For example, what does it mean to say that the height of a **complete binary tree** is *O(log n)*?
+
+I do know (maybe not in great detail) what Logarithm is, in the sense that:  $log_{10}{ 100} = 2$, but I cannot understand how to identify a function with a logarithmic time.
+
+
+
+### [A](https://stackoverflow.com/questions/2307283/what-does-olog-n-mean-exactly/2307314#2307314)
+
+> I cannot understand how to identify a function with a log time.
+
+ 
+
+The most common attributes of logarithmic running-time function are that:  
+
+- the choice of the next element on which to perform some action is one of several possibilities, and
+- only one will need to be chosen.
+
+or
+
+- the elements on which the action is performed are digits of n
+
+  
+
+This is why, for example, looking up people in a phone book is O(log n). You don't need to check *every* person in the phone book to find the right one; instead, you can simply **divide-and-conquer** by looking based on where their name is alphabetically, and in every section you only need to explore a subset of each section before you eventually find someone's phone number.
+
+  
+
+Of course, a bigger phone book will still take you a longer time, but it won't grow as quickly as the proportional increase in the additional size.
+
+  
+
+------
+
+We can expand the phone book example to compare other kinds of operations and *their* running time. We will assume our phone book has *businesses*（企业） (the "Yellow Pages") which have unique names and *people* (the "White Pages") which may not have unique names. A phone number is assigned to at most one person or business. We will also assume that it takes constant time to flip to a specific page.
+
+  
+
+Here are the running times of some operations we might perform on the phone book, from best to worst:
+
+  
+
+- **O(1) (best case):** Given the page that a business's name is on and the business name, find the phone number.
+
+- **O(1) (average case):** Given the page that a person's name is on and their name, find the phone number.
+
+- **O(log n):** Given a person's name, find the phone number by picking a random point about halfway through the part of the book you haven't searched yet, then checking to see whether the person's name is at that point. Then repeat the process about halfway through the part of the book where the person's name lies. (This is a binary search for a person's name.)
+
+- **O(n):** Find all people whose phone numbers contain the digit "5".
+
+- **O(n):** Given a phone number, find the person or business with that number.
+
+- **O(n log n):** There was a mix-up at the printer's office, and our phone book had all its pages inserted in a random order. Fix the ordering so that it's correct by looking at the first name on each page and then putting that page in the appropriate spot in a new, empty phone book.
+
+  
+
+For the below examples, we're now at the printer's office. Phone books are waiting to be mailed to each resident or business, and there's a sticker on each phone book identifying where it should be mailed to. Every person or business gets one phone book.
+
+  
+
+- **O(n log n):** We want to personalize the phone book, so we're going to find each person or business's name in their designated copy, then circle their name in the book and write a short thank-you note for their patronage.
+
+- **O(n2):** A mistake occurred at the office, and every entry in each of the phone books has an extra "0" at the end of the phone number. Take some white-out and remove each zero.
+
+- **O(n · n!):** We're ready to load the phonebooks onto the shipping dock. Unfortunately, the robot that was supposed to load the books has gone haywire: it's putting the books onto the truck in a random order! Even worse, it loads all the books onto the truck, then checks to see if they're in the right order, and if not, it unloads them and starts over. (This is the dreaded **bogo sort**.)
+
+- **O(nn):** You fix the robot so that it's loading things correctly. The next day, one of your co-workers plays a prank on you and wires the loading dock robot to the automated printing systems. Every time the robot goes to load an original book, the factory printer makes a duplicate run of all the phonebooks! Fortunately, the robot's bug-detection systems are sophisticated enough that the robot doesn't try printing even more copies when it encounters a duplicate book for loading, but it still has to load every original and duplicate book that's been printed.
+
+  
+
+For more mathematical explanation you can checkout how the time complexity arrives to `log n` here. https://hackernoon.com/what-does-the-time-complexity-o-log-n-actually-mean-45f94bb5bfbf
+
+
+
+## Binary search complexity analysis
+
+
+
+### stackoverflow [how to calculate binary search complexity](https://stackoverflow.com/questions/8185079/how-to-calculate-binary-search-complexity)
+
+I heard somebody say that since binary search halves the input required to search hence it is log(n) algorithm. Since I am not from a mathematics background I am not able to relate to it. Can somebody explain it in a little more detail? does it have to do something with the logarithmic series? 
+
+#### [A](https://stackoverflow.com/questions/8185079/how-to-calculate-binary-search-complexity/8185382#8185382)
+
+Here a more mathematical way of seeing it, though not really complicated. IMO much clearer as informal ones:
+
+  
+
+The question is, how many times can you divide N by 2 until you have 1? This is essentially saying, do a binary search (half the elements) until you found it. In a formula this would be this:
+
+
+$$
+1 = N / 2^x
+$$
+
+
+multiply by 2x:
+
+
+$$
+2^x = N
+$$
+
+
+now do the $log_2$:
+
+
+$$
+log_2{(2^x)}    = log_2{ N} \\
+    x * log_2{(2)} = log_2{ N} \\
+    x * 1         = log_2{ N}\\
+$$
+
+
+this means you can divide log N times until you have everything divided. Which means you have to divide $log N$ ("do the binary search step") until you found your element.
+

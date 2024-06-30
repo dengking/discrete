@@ -12,7 +12,7 @@ In [computer science](https://en.wikipedia.org/wiki/Computer_science), **divide 
 >
 > 1、"multi-branched recursion"如何理解
 >
-> 典型的，当"multi=2"的时候，就二分法了，这是经常采用的。
+> 典型的，当"multi=2"的时候，就二分算法了，这是经常采用的。
 >
 > 2、显然，"divide"几份，就对应了几个branch
 
@@ -79,11 +79,10 @@ These algorithms can be implemented more efficiently than general divide-and-con
 
 ## Divide-and-conquer-and-merge 算法的框架
 
-这种算法的典型是merge-sort，这种算法的实现一般基于DFS-recursion-two-direction:
+这种算法的典型是**merge-sort**，这种算法的实现一般基于DFS-recursion-two-direction:
 
-1、top-down~reduce~pre-order~action
-
-2、bottom-up~produce~post-order~action
+1. top-down~reduce~pre-order~action
+2. bottom-up~produce~post-order~action
 
 
 
@@ -162,6 +161,113 @@ Parallel computing、distributed computing能够加速divide-and-conquer的性�
 2、工程"Parallel-computing"的`Fork–join-model`章节
 
 3、stackoverflow [difference of divide and conquer & fork and join](https://stackoverflow.com/questions/29686964/difference-of-divide-and-conquer-fork-and-join)
+
+
+
+
+
+## Algorithm example: 二分算法
+
+下面是一些典型的二分算法，即取k=2。
+
+### [二分搜索](https://en.wikipedia.org/wiki/Binary_search_algorithm)
+
+$$
+T(n) = 2T(n/2) = \log_2 n
+$$
+
+
+wikipedia [二分搜索](https://en.wikipedia.org/wiki/Binary_search_algorithm)
+
+
+
+
+### [合并排序](https://en.wikipedia.org/wiki/Merge_sort)
+
+$$
+T(n) =
+\begin{cases}
+O(1),  & n \le 1 \\
+2T(n/2) + O(n), & n \gt 1
+\end{cases}
+$$
+
+解上述递归方程，可知
+$$
+T(n) = O(n\log n)
+$$
+
+
+
+wikipedia [合并排序](https://en.wikipedia.org/wiki/Merge_sort)
+
+
+### [快速排序](https://en.wikipedia.org/wiki/Quicksort)
+
+$$
+T(n) =
+\begin{cases}
+O(1),  & n \le 1 \\
+2T(n/2) + O(n), & n \gt 1
+\end{cases}
+$$
+
+解上述递归方程，可知
+$$
+T(n) = O(n\log n)
+$$
+
+wikipedia [快速排序](https://en.wikipedia.org/wiki/Quicksort) 
+
+### Segment tree
+
+和merge sort非常类似
+
+## Algorithm example: [External sorting](https://en.wanweibaike.com/wiki-External%20sorting)
+
+TODO
+
+
+
+## Algorithm example: LeetCode
+
+[LeetCode-23. 合并K个升序链表](https://leetcode.cn/problems/merge-k-sorted-lists/)  # 方法三：分治合并
+
+自顶向下
+
+
+
+两数之和、三数之和
+
+参见 labuladong [双指针技巧汇总](https://mp.weixin.qq.com/s/yLc7-CZdti8gEMGWhd0JTg) 
+
+
+
+[LeetCode-213. 打家劫舍 II-中等](https://leetcode.cn/problems/house-robber-ii/) 
+
+题目要求不能抢相邻的，并且题目给出的环形数组，所以就可以分为三种情况:<br>1、`[1, n-2]`<br>2、`[0, n-2]`<br>3、`[1, n-1]`<br>然后从上述三种情况中进行择优录取。
+
+
+
+[LeetCode-321. 拼接最大数-困难](https://leetcode.cn/problems/create-maximum-number/) 
+
+题目要求从两个数组中共取出k个数，找出最大的数，该算法依次取出所有的k个数，并进行择优录取。
+
+
+
+## Balanced
+
+merge-sort 自己主动就保持了平衡
+
+quick-sort要通过特殊的操作来保持平衡
+
+TODO: unbalanced partition、divide导致的退化
+
+TODO: 构建树的时候保持balanced的方式
+
+union-find set中保持balanced的方式
+
+
 
 
 

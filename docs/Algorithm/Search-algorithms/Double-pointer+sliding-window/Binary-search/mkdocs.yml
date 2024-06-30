@@ -1,7 +1,6 @@
 nav:
     - Introduction: index.md
     - wikipedia-Binary-search-algorithm: wikipedia-Binary-search-algorithm
-    - Complexity-analysis: Complexity-analysis
     - src: src
     - LeetCode-binary-search: LeetCode-binary-search
 
