@@ -1,68 +1,28 @@
 # **labuladong** [我作了首诗，保你闭着眼睛也能写对二分查找](https://mp.weixin.qq.com/s/M1KfTfNlu4OCK8i9PSAmug) 
 
-> 一、为了描述方便，使用range来表示**搜索区间**，原文中始终强调range，因为while的条件是基于range，while循环体也是对range进行操作
+> 一、
 >
-> 二、二分搜索能够保证，`left`、`right`不断地向target(**逼近** approximation)，这是binary search的核心特性，后续的三种形式都是以此为前提的。
+> 二、
 >
-> 三、由于是双指针(left、right)，即存在两个元素，渐渐地range的长度会缩减为2(即此时left pointer 和 right pointer**相遇**)，然后缩减为1(即此时left pointer 和 right pointer**重叠**)。
+> 三、
 >
 > 1、寻找左边界的二分搜索和寻找右边界的二分搜索就是利用的这个特性。
 >
-> 2、寻找左边界的二分搜索和寻找右边界的二分搜索中，当`nums[mid] == target`时，它会将`nums[mid]`从range中剔除，因此，当while退出的时候，肯定是因为range为0了，即`left == right`
+> 2、
 >
 > 3、对于寻找左侧边界的二分搜索，当while退出的时候，如果存在target，那么它就指向target。
 >
 > 
 >
-> 四、`while`的编写: `while`的条件是区间非空，即当搜索区间非空的时候(只有一个元素也是非空的)，需要进行搜索，`while`的退出:
+> 四、
 >
-> 1、未找到target，最终循环条件不满足，range为空
->
-> 2、找到target，从循环中break
->
-> 其实以只有一个元素的数组来思考while循环的编写是最最方便的: 
->
-> 1、左闭右闭, 区间非空的条件是 left <= right
->
-> 初始化: left=0, right=0
->
-> 2、左闭右开, 区间非空的条件是 left < right，需要注意是不能够取等于的，因为是左闭右开，当取等于的时候，区间已经空了
->
-> 初始化: left=0, right=1
->
-> **搜索区间的界定是要统一的，在开始搜索前和搜索中，在搜索中，需要不断地变化搜索区间，需要始终保持区间策略的一致**
+> 
 >
 > 六、最终统一为**左闭右闭**的形式，在最后面给出了完整的程序，下面是一些分析:
 >
 > 对于区间，非常容易理解；
 >
-> 对于基本的二分搜索，非常容易理解；
->
-> 难点是left bound 和 right bound的return value的处理；
->
-> 1、要么存在
->
-> 最终left、right肯定会逼近目标元素，最终的终止条件是left > right，即left ==  right + 1 ，即left在right的右侧；
->
-> 对于**left bound**: 当命中target的时候，不断地缩小right，最终，right错过target，指向target的左侧，当循环条件不满足，即left ==  right + 1，left指向target，因此最终返回left；由于算法最终返回left，并且算法中执行left + 1，当target不存在的时候是可能越界的，因此在返回left之前是需要进行越界保护的，因此需要考虑left超过array的范围（overflow）。
->
-> 对于**right bound**: 当命中target的时候，不断地增大left，最终，left错过target，指向target的右侧，当循环条件不满足，即left ==  right + 1，right指向target，因此最终返回right；由于算法最终返回right，并且算法中执行right - 1，当target不存在的时候是可能越界的，因此在返回right之前是需要进行越界保护的，因此需要考虑right超过array的范围（underflow）。
->
-> 2、要么不存在: 
->
-> target比所有的都小，因此最终left、right都位于左侧
->
-> 对于**left bound**: 最终返回的是left，此时left是安全的，不会越界；
->
-> 对于**right bound**: 最终返回的是right，此时right是不安全的，可能越界(比如left为0，那么right就是-1)，显然这是越界；
->
-> target比所有的都大，因此最终left、right都位于右侧
->
-> 对于**left bound**: 最终返回的是left，此时left是不安全的，可能越界；
->
-> 对于**right bound**: 最终返回的是right，此时right是安全的，不会越界
->
-> 可以看到: 可能的情况是非常多的
+> 
 
 本文就来探究几个最常用的二分查找场景：寻找一个数、寻找左侧边界、寻找右侧边界。而且，我们就是要深入细节，比如不等号是否应该带等号，`mid` 是否应该加一等等。
 
