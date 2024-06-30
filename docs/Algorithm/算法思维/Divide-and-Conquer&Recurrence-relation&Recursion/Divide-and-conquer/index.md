@@ -168,7 +168,29 @@ Parallel computing、distributed computing能够加速divide-and-conquer的性�
 
 ## Algorithm example: 二分算法
 
-下面是一些典型的二分算法，即取k=2。
+k=2是最最常见的case，后面将这类算法统称为: 二分算法。
+
+首页一个问题: 为什么往往是二分，而不是更多的呢？softwareengineering.stackexchange [Divide and Conquer algorithms – Why not split in more parts than two?](https://softwareengineering.stackexchange.com/questions/197107/divide-and-conquer-algorithms-why-not-split-in-more-parts-than-two) # [A](https://softwareengineering.stackexchange.com/a/197111)  
+
+> > It does make sense to me that this makes it faster to solve a problem if the two halves takes less than half the work of dealing with the whole data set.
+>
+> That is *not* the essence of divide-and-conquer algorithms. Usually the point is that the algorithms cannot "deal with the whole data set" at all. Instead, it is divided into pieces that are trivial to solve (like sorting two numbers), then those are solved trivially and the results recombined in a way that yields a solution for the full data set.
+>
+> > But why not split the data set in three parts? Four? n?
+>
+> Mainly because splitting it into more than two parts and recombining more than two results results in a more complex implementation but doesn't change the fundamental (Big O) characteristic of the algorithm - the difference is a constant factor, and may result in a slowdown if the division and recombination of more than 2 subsets creates additional overhead.
+>
+> For example, if you do a 3-way merge sort, then in the recombination phase you now have to find the biggest of 3 elements for every element, which requires 2 comparisons instead of 1, so you'll do twice as many comparisons overall. In exchange, you reduce the recursion depth by a factor of ln(2)/ln(3) == 0.63, so you have 37% fewer swaps, but 2*0.63 == 26% more comparisons (and memory accesses). Whether that is good or bad depends on which is more expensive in your hardware.
+>
+> > I have also seen many references to 3-way quicksort. When is this faster?
+>
+> Apparently a [dual pivot variant of quicksort](http://permalink.gmane.org/gmane.comp.java.openjdk.core-libs.devel/2628) can be proven to require the same number of comparisons but on average 20% fewer swaps, so it's a net gain.
+>
+> > What is used in practice?
+>
+> These days hardly anyone programs their own sorting algorithms anymore; they use one provided by a library. For example, the [Java 7 API](http://docs.oracle.com/javase/7/docs/api/java/util/Arrays.html#sort(long[])) actually uses the dual-pivot quicksort.
+>
+> People who actually do program their own sorting algorithm for some reason will tend to stick to the simple 2-way variant because less potential for errors beats 20% better performance most of the time. Remember: by far the most important performance improvement is when the code goes from "not working" to "working".
 
 ### [二分搜索](https://en.wikipedia.org/wiki/Binary_search_algorithm)
 
@@ -178,6 +200,16 @@ $$
 
 
 wikipedia [二分搜索](https://en.wikipedia.org/wiki/Binary_search_algorithm)
+
+
+
+### [Binary search tree](https://en.wikipedia.org/wiki/Binary_search_tree)
+
+$$
+\log_2 n
+$$
+
+
 
 
 
@@ -222,6 +254,10 @@ wikipedia [快速排序](https://en.wikipedia.org/wiki/Quicksort)
 ### Segment tree
 
 和merge sort非常类似
+
+### [Exponentiation by squaring](https://en.wikipedia.org/wiki/Exponentiation_by_squaring)
+
+
 
 ## Algorithm example: [External sorting](https://en.wanweibaike.com/wiki-External%20sorting)
 
@@ -269,8 +305,6 @@ union-find set中保持balanced的方式
 
 
 
-
-
 ## 重叠子问题
 
 对于重叠子问题，我们可以将它们的解保存下来，用于后续的使用，从而提高性能。
@@ -283,20 +317,14 @@ union-find set中保持balanced的方式
 
 ## 素材
 
-一、labuladong [手把手搞懂接雨水问题的多种解法](https://mp.weixin.qq.com/s/mFqrlhqYEPhRa9p4ewl3Xw)
+labuladong [手把手搞懂接雨水问题的多种解法](https://mp.weixin.qq.com/s/mFqrlhqYEPhRa9p4ewl3Xw)
 
 > 对于这种问题，我们不要想整体，而应该去想局部；就像之前的文章写的动态规划问题处理字符串问题，不要考虑如何处理整个字符串，而是去思考应该如何处理每一个字符。
 >
 > 这么一想，可以发现这道题的思路其实很简单。具体来说，仅仅对于位置`i`，能装下多少水呢？
 
+programiz [Divide and Conquer Algorithm](https://www.programiz.com/dsa/divide-and-conquer) 
 
 
-二、programiz [Divide and Conquer Algorithm](https://www.programiz.com/dsa/divide-and-conquer) 
-
-三、softwareengineering.stackexchange [Divide and Conquer algorithms – Why not split in more parts than two?](https://softwareengineering.stackexchange.com/questions/197107/divide-and-conquer-algorithms-why-not-split-in-more-parts-than-two) # [A](https://softwareengineering.stackexchange.com/a/197111)  
-
-非常好的解释
-
-
-四、https://www.khanacademy.org/computing/computer-science/algorithms/merge-sort/a/divide-and-conquer-algorithms
+https://www.khanacademy.org/computing/computer-science/algorithms/merge-sort/a/divide-and-conquer-algorithms
 
