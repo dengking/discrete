@@ -1,5 +1,17 @@
 # Binary-search
 
+`nums`中可能存在0个、1个、多个target。
+
+left bound
+
+right bound
+
+小于target的最大的数、大于target的最小的数
+
+等于target的最左边的数、等于target的最右边的数
+
+left bound和right bound相较于exact，应用范围是更加广泛的
+
 ## 素材
 
 一、LeetCode

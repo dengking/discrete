@@ -9,3 +9,5 @@ quotient = dividend // divisor
 quotient * divisor <= dividend
 ```
 
+即求解最大的满足上述条件的quotient。
+

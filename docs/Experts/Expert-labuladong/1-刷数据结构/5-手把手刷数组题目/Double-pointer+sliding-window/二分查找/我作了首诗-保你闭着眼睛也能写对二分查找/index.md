@@ -4,7 +4,7 @@
 >
 > 二、二分搜索能够保证，`left`、`right`不断地向target(**逼近** approximation)，这是binary search的核心特性，后续的三种形式都是以此为前提的。
 >
-> 三、由于是双指针(left、right)，即存在两个元素，最终range的长度缩减为2，即此时left pointer 和 right pointer**相遇**，然后缩减为1，即此时left pointer 和 right pointer**重叠**。
+> 三、由于是双指针(left、right)，即存在两个元素，渐渐地range的长度会缩减为2(即此时left pointer 和 right pointer**相遇**)，然后缩减为1(即此时left pointer 和 right pointer**重叠**)。
 >
 > 1、寻找左边界的二分搜索和寻找右边界的二分搜索就是利用的这个特性。
 >
