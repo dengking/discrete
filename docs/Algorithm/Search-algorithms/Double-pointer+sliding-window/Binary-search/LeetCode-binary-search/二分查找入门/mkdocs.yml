@@ -1,7 +1,0 @@
-nav:
-    # - Introduction: index.md
-    - LeetCode-34-在排序数组中查找元素的第一个和最后一个位置-中等: LeetCode-34-在排序数组中查找元素的第一个和最后一个位置-中等
-    - LeetCode-35-搜索插入位置-简单: LeetCode-35-搜索插入位置-简单
-    - LeetCode-704-二分查找: LeetCode-704-二分查找
-    - LeetCode-852-山脉数组的峰顶索引: LeetCode-852-山脉数组的峰顶索引
-    

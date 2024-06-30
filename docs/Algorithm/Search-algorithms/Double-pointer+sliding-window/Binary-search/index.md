@@ -184,7 +184,6 @@ The above procedure only performs ***exact* matches**, finding the position of a
 >
 > 一. 对binary search的complexity-analysis在 `O(logN)` 中也有描述
 >
-> 
 
 ### Library support
 
@@ -291,11 +290,12 @@ while的条件是基于range，while循环体也是对range进行操作。
 
 
 
-[LeetCode-34. Find First and Last Position of Element in Sorted Array](https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array/) 
+#### Code
+
+[LeetCode-34. Find First and Last Position of Element in Sorted Array](https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array/)  
 
 ```python
 from typing import *
-
 
 class Solution:
     def searchRange(self, nums: List[int], target: int) -> List[int]:
@@ -343,7 +343,7 @@ if __name__ == '__main__':
 
 
 
-### Binary-search-逼近
+### Binary-search-approximation
 
 在一定范围内搜索符合条件的数(可能多个数)，这是binary search的典型应用，有两种变形：
 

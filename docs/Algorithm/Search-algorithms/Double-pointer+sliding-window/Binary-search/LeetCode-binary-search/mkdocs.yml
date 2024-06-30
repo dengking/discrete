@@ -1,6 +1,6 @@
 nav:
     - Introduction: index.md
-    - 二分查找入门: 二分查找入门
+    - 入门: 入门
     - Binary-search-math: Binary-search-math
     - Binary-search-peak-elment: Binary-search-peak-elment
     - Binary-search-旋转数组: Binary-search-旋转数组
