@@ -1,4 +1,30 @@
-# [LeetCode-50. Pow(x, n)-中等](https://leetcode.cn/problems/powx-n/)
+# [LeetCode-50. Pow(x, n)-中等](https://leetcode.cn/problems/powx-n/) 
+
+
+
+## Recursion
+
+### Python
+
+```python
+from typing import *
+
+
+class Solution:
+    def myPow(self, x: float, n: int) -> float:
+        def quick_exponentiation(N):
+            if N == 0:
+                return 1.0
+            y = quick_exponentiation(N // 2)
+            return y * y if N % 2 == 0 else y * y * x
+
+        return quick_exponentiation(n) if n >= 0 else 1.0 / quick_exponentiation(-n)
+
+```
+
+
+
+## Iteration
 
 [Akshaya Amar](https://leetcode.com/u/akshayaamar05/) # [[JAVA / C++] : Simple | O log(n) | Easy | Faster than 100% | Explained](https://leetcode.com/problems/powx-n/solutions/1337794/java-c-simple-o-log-n-easy-faster-than-100-explained/)
 
@@ -76,12 +102,12 @@ public:
 >
 > ```c++
 > while (num) { 
->     if (num & 1) { 
->         // ...;
->     }
+>  if (num & 1) { 
+>      // ...;
+>  }
 > 
->     x *= x;
->     num >>= 1;
+>  x *= x;
+>  num >>= 1;
 > }
 > ```
 >
@@ -91,3 +117,4 @@ public:
 >
 > `x *= x`​ 即binary exponentiation，它表示当前位是几次幂，它相当于十进制的 `base *= 10` 
 
+​	

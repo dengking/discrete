@@ -2,8 +2,6 @@
 
 ## [LeetCode-1. 两数之和](https://leetcode.cn/problems/two-sum/)
 
-
-
 这个题考察了hash map、multiple hash map，nums中是可以出现重复元素，但是题目明确要求"you may not use the same element twice"，所以需要考虑在map中找到自己、与自己相同的元素的情况，所以可以看到在循环体中有对两个数是否相同的判断，如果相同，则需要进行特殊处理。
 
 ### 解法1: 暴力搜索
