@@ -8,7 +8,7 @@
 
 > NOTE: 
 >
-> [LeetCode-875. 爱吃香蕉的珂珂](https://leetcode.cn/problems/koko-eating-bananas/) 中等
+> [LeetCode-875. 爱吃香蕉的珂珂-中等](https://leetcode.cn/problems/koko-eating-bananas/) 
 
 那么我们先抛开二分查找技巧，**想想如何暴力解决这个问题呢？**
 
@@ -58,5 +58,5 @@ int minEatingSpeed(int[] piles, int H) {
 
 > NOTE: 
 >
-> [LeetCode-1011. 在 D 天内送达包裹的能力](https://leetcode.cn/problems/capacity-to-ship-packages-within-d-days/) 中等
+> [LeetCode-1011. 在 D 天内送达包裹的能力-中等](https://leetcode.cn/problems/capacity-to-ship-packages-within-d-days/) 
 

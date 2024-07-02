@@ -9,9 +9,32 @@
    - 搜索区间可以根据题目意思推断出来
    - 单调函数，单调意味着是sorted的，因此可以使用binary search来进行搜索
 
+2. BS approximation
 
+   - left、right可以取到target: 直接返回`mid`
 
-## [LeetCode-29. Divide Two Integers-middle](https://leetcode.cn/problems/divide-two-integers/)
+   - left、right无法取到target(比如left、right是整数、target是小数):
+
+     BS保证不断地向target逼近:
+
+     - 在退出loop前到最后一次循环，肯定满足: `left == right` 
+
+     - 当退出循环的时候，`left > right`
+
+   
+
+   | LeetCode                                                     |                        |             |
+   | ------------------------------------------------------------ | ---------------------- | ----------- |
+   | [LeetCode-29. Divide Two Integers-middle](https://leetcode.cn/problems/divide-two-integers/) | 搜索满足条件最大的数字 | right bound |
+   | [LeetCode-69. x 的平方根 ](https://leetcode.cn/problems/sqrtx/) / [LeetCode-剑指 Offer II 072. 求平方根-简单](https://leetcode.cn/problems/jJ0w9p/) |                        |             |
+   | [LeetCode-875. 爱吃香蕉的珂珂-中等](https://leetcode.cn/problems/koko-eating-bananas/) | 搜索满足条件最小的数字 | left bound  |
+   | [LeetCode-1011. 在 D 天内送达包裹的能力-中等](https://leetcode.cn/problems/capacity-to-ship-packages-within-d-days/) | 搜索满足条件最小的数字 | left bound  |
+
+   
+
+   
+
+## [LeetCode-29. Divide Two Integers-middle](https://leetcode.cn/problems/divide-two-integers/) 
 
 这道题所考察的是binary search、quick multiplication。
 
@@ -21,6 +44,8 @@
 quotient = dividend // divisor 
 quotient * divisor <= dividend
 ```
+
+显然这是在搜索满足条件的最大的数字，可以使用right bound
 
 可以将负数转换为正数来保证 $quotient * divisor$ 单调，求解满足条件的最大的数，显然这是可以使用binary search的。
 
@@ -82,7 +107,7 @@ if __name__ == '__main__':
 
 
 
-## [LeetCode-69. x 的平方根 ](https://leetcode.cn/problems/sqrtx/) / [LeetCode-剑指 Offer II 072. 求平方根-简单](https://leetcode.cn/problems/jJ0w9p/)
+## [LeetCode-69. x 的平方根 ](https://leetcode.cn/problems/sqrtx/) / [LeetCode-剑指 Offer II 072. 求平方根-简单](https://leetcode.cn/problems/jJ0w9p/) 
 
 
 
@@ -98,7 +123,7 @@ if __name__ == '__main__':
 
 由于题目要求是向下取整，因此最终的返回值是`right`。
 
-寻找target的predecessor，BS保证不断地向target逼近，保证一直位于target的左侧，当退出循环的时候，`left > right`，此时`left`已经越过了target，而`right`依然小于target
+
 
 ```c++
 class Solution {
@@ -135,3 +160,263 @@ int main() {
 
 
 ## [LeetCode-367. 有效的完全平方数](https://leetcode.cn/problems/valid-perfect-square/)
+
+```python
+class Solution:
+    def isPerfectSquare(self, num: int) -> bool:
+        left, right = 1, num
+        while left <= right:
+            mid = left + (right - left) // 2
+            square = mid * mid
+            if square == num:
+                return True
+            elif square > num:
+                right = mid - 1
+            else:
+                left = mid + 1
+        return False
+
+```
+
+
+
+## [LeetCode-875. 爱吃香蕉的珂珂-中等](https://leetcode.cn/problems/koko-eating-bananas/) 
+
+- 在阅读 labuladong [二分搜索只能用来查找元素吗？](https://mp.weixin.qq.com/s/QC24hyg0ZgjR7-LgnEzMYg) 时发现的这道题
+
+- > 每个小时，她将会选择一堆香蕉，从中吃掉 `k` 根。如果这堆香蕉少于 `k` 根，她将吃掉这堆的所有香蕉，然后这一小时内不会再吃更多的香蕉。 
+
+  表示向上取整
+
+- 搜索满足条件的最小的数字，显然使用left bound
+
+### Python
+
+```python
+import math
+from typing import *
+
+
+class Solution:
+    def minEatingSpeed(self, piles: List[int], h: int) -> int:
+        def can_finish(speed):
+            return sum(math.ceil(p / speed) for p in piles) <= h
+
+        left, right = 1, max(piles)
+        while left <= right:
+            mid = (left + right) // 2
+            if can_finish(mid):
+                right = mid - 1
+            else:
+                left = mid + 1
+        return left
+
+```
+
+
+
+### C++
+
+```C++
+#include <bits/stdc++.h>
+using namespace std;
+
+class Solution
+{
+public:
+	int minEatingSpeed(vector<int> &piles, int h)
+	{
+		int left = 1; // 最小速度
+		int right = *max_element(std::begin(piles), std::end(piles)); // 最大速度
+		while (left <= right)
+		{
+			int mid = left + (right - left) / 2;
+			/**
+			 * 以mid为speed可以吃完，但是目标是寻找最小speed，
+			 * 因此，需要继续在左侧区间寻找，这好比找最左侧元素
+			 */
+			if (canFinish(piles, h, mid))
+			{
+				right = mid - 1;
+			}
+			else
+			{
+				left = mid + 1;
+			}
+		}
+		return left;
+	}
+
+	bool canFinish(vector<int> &piles, int h, int speed)
+	{
+		int total = 0; // 总耗时
+		for (auto &&p : piles)
+		{
+			total += timeOf(p, speed);
+			if (total > h)
+			{
+				return false;
+			}
+		}
+		return true;
+	}
+	int timeOf(int p, int speed)
+	{
+		// 三元条件运算符必须要加括号，因为它的优先级较低
+		return p / speed + (p % speed > 0 ? 1 : 0);
+	}
+};
+
+int main()
+{
+	vector<int> nums = { 30, 11, 23, 4, 20 };
+	Solution s;
+	s.minEatingSpeed(nums, 6);
+}
+
+```
+
+
+
+#### [官方解题](https://leetcode.cn/problems/koko-eating-bananas/solution/ai-chi-xiang-jiao-de-ke-ke-by-leetcode/)
+
+```C++
+#include <bits/stdc++.h>
+using namespace std;
+class Solution
+{
+public:
+	int minEatingSpeed(vector<int> &piles, int H)
+	{
+		int lo = 1, hi = pow(10, 9);
+		while (lo < hi)
+		{
+			int mi = lo + (hi - lo) / 2;
+			if (!possible(piles, H, mi))
+				lo = mi + 1;
+			else
+				hi = mi;
+		}
+
+		return lo;
+	}
+
+	// Can Koko eat all bananas in H hours with eating speed K?
+	bool possible(vector<int> &piles, int H, int K)
+	{
+		int time = 0;
+		for (int p : piles)
+			time += (p - 1) / K + 1;
+		return time <= H;
+	}
+};
+
+int main()
+{
+	vector<int> nums = { 30, 11, 23, 4, 20 };
+	Solution s;
+	s.minEatingSpeed(nums, 6);
+}
+
+```
+
+需要学习的是向上取整公式。
+
+
+
+## [LeetCode-1011. 在 D 天内送达包裹的能力-中等](https://leetcode.cn/problems/capacity-to-ship-packages-within-d-days/) 
+
+在阅读 labuladong [二分搜索只能用来查找元素吗？](https://mp.weixin.qq.com/s/QC24hyg0ZgjR7-LgnEzMYg) 时发现的这道题
+
+### Python
+
+```python
+from typing import *
+
+
+class Solution:
+    def shipWithinDays(self, weights: List[int], days: int) -> int:
+        def can_finish(capacity):
+            # need 为需要运送的天数，默认值为1是因为不足一船也需要跑一趟
+            # cur 为当前这一天已经运送的包裹重量之和
+            need, cur = 1, 0
+            for weight in weights:
+                if cur + weight > capacity:
+                    need += 1
+                    cur = 0
+                cur += weight
+            return need <= days
+
+        left, right = max(weights), sum(weights) - 1
+        while left <= right:
+            mid = (left + right) // 2
+            if can_finish(mid):
+                right -= 1
+            else:
+                left += 1
+        return left
+
+```
+
+
+
+### C++
+
+```C++
+#include <bits/stdc++.h>
+using namespace std;
+class Solution
+{
+public:
+	int shipWithinDays(vector<int> &weights, int days)
+	{
+		int left = *max_element(begin(weights), end(weights));
+		int right = accumulate(begin(weights), end(weights), 0);
+		while (left <= right)
+		{
+			int mid = left + (right - left) / 2;
+			if (possible(weights, days, mid))
+			{
+				right = mid - 1;
+			}
+			else
+			{
+				left = mid + 1;
+			}
+		}
+		return left;
+	}
+	bool possible(vector<int> &weights, int days, int cap)
+	{
+		int sum = 0;
+		int real_days = 0;
+		for (auto &&w : weights)
+		{
+			sum += w;
+			if (sum > cap)
+			{
+				++real_days;
+				sum = w;
+			}
+			else if (sum == cap)
+			{
+				++real_days;
+				sum = 0;
+			}
+		}
+		if (sum > 0)
+		{
+			++real_days;
+		}
+		return real_days <= days;
+	}
+};
+int main()
+{
+	vector<int> nums = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+	Solution s;
+	s.shipWithinDays(nums, 5);
+}
+
+```
+
