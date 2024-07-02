@@ -103,13 +103,15 @@ public:
 > 一、上述计算方法是使用的类似于 positional numeral system 计算值的方法
 >
 > ```c++
-> while (num) { 
->  if (num & 1) { 
->      // ...;
->  }
+> while (num)
+> {
+>     if (num & 1)
+>     {
+>         // ...;
+>     }
 > 
->  x *= x;
->  num >>= 1;
+>     x *= x;
+>     num >>= 1;
 > }
 > ```
 >

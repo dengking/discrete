@@ -1,16 +1,36 @@
-# Math、number
+# Math&number
 
 
 
 ## 基础操作
 
+### number=>digits
+
+Extract digits from integer/split an int into its digits
+
+```c++
+/**
+ * 将数num转换为base进制
+ * @param num 
+ * @param base 
+ * @return 
+ */
+std::vector<int> getDigits(int num, int base) {
+    std::vector<int> digits;
+    while (num) {
+        digits.push_back(num % base);
+        num /= base;
+    }
+    return digits;
+}
+
+```
 
 
-### Extract digits from integer/split an int into its digits
 
-#### C++
 
-一、stackoverflow [How do I split an int into its digits?](https://stackoverflow.com/questions/4261589/how-do-i-split-an-int-into-its-digits)
+
+stackoverflow [How do I split an int into its digits?](https://stackoverflow.com/questions/4261589/how-do-i-split-an-int-into-its-digits)
 
 [A](https://stackoverflow.com/a/4261638)
 
@@ -57,35 +77,43 @@ while (!sd.empty())
 }
 ```
 
-二、geeksforgeeks [C Program to Print all digits of a given number](https://www.geeksforgeeks.org/c-program-to-print-all-digits-of-a-given-number/)
+geeksforgeeks [C Program to Print all digits of a given number](https://www.geeksforgeeks.org/c-program-to-print-all-digits-of-a-given-number/)
 
+### number=>bits
 
-
-三、
+[LeetCode-50. Pow(x, n)-中等](https://leetcode.cn/problems/powx-n/) 
 
 ```c++
-/**
- * 将数num转换为base进制
- * @param num 
- * @param base 
- * @return 
- */
-std::vector<int> getDigits(int num, int base) {
-    std::vector<int> digits;
-    while (num) {
-        digits.push_back(num % base);
-        num /= base;
-    }
-    return digits;
-}
+#include <cstdlib>
 
+class Solution {
+public:
+    double myPow(double x, int n) {
+        if (n < 0) {
+            x = 1 / x;
+        }
+        long num = labs(n);
+        double pow = 1;
+
+        while (num) { // equivalent to while(num != 0)
+            if (num & 1) { // equivalent to if((num & 1) != 0)
+                pow *= x;
+            }
+
+            x *= x;
+            num >>= 1;
+        }
+
+        return pow;
+    }
+};
 ```
 
 
 
+### digits=>number:  create number
 
 
-### Create number
 
 [LeetCode-9. 回文数-简单](https://leetcode.cn/problems/palindrome-number/) 
 
