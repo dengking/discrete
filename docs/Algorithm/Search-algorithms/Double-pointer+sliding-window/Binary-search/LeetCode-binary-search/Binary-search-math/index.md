@@ -98,6 +98,8 @@ if __name__ == '__main__':
 
 由于题目要求是向下取整，因此最终的返回值是`right`。
 
+寻找target的predecessor，BS保证不断地向target逼近，保证一直位于target的左侧，当退出循环的时候，`left > right`，此时`left`已经越过了target，而`right`依然小于target
+
 ```c++
 class Solution {
 public:
