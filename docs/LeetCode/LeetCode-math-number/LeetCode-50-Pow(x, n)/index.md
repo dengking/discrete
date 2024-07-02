@@ -66,7 +66,9 @@ We will use very **1st example of 1st Approach** i.e. x = 7, n = 11 and pow = 1,
 $2^3$  $2^2$ $2^1$ $2^0$  <-- Corresponding **place values** of each bit
 
 Now, **$7^8 × 7^2 × 7^1 == 7^{11}$** as **$7^{(8 + 2 + 1)} == 7^{11}$**
-**NOTE:** We have not considered **74** in this case as the **4th place bit is OFF**
+**NOTE:** We have not considered **74** in this case as the **4th place bit is OFF** 
+
+### C++
 
 ```c++
 #include <cstdlib>
@@ -118,3 +120,23 @@ public:
 > `x *= x`​ 即binary exponentiation，它表示当前位是几次幂，它相当于十进制的 `base *= 10` 
 
 ​	
+
+### Python
+
+```python
+
+class Solution:
+    def myPow(self, x: float, n: int) -> float:
+        def quick_exponentiation(base, expo):
+            ret = 1
+            while expo:
+                if expo & 1:
+                    ret *= base
+                base *= base
+                expo >>= 1
+            return ret
+
+        return quick_exponentiation(x, n) if n > 0 else 1 / quick_exponentiation(x, -n)
+
+```
+
