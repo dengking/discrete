@@ -13,7 +13,7 @@ quotient * divisor <= dividend
 
 单调，求解满足条件的最大的数，这是binary search的典型应用。
 
-
+### Python
 
 ```python
 class Solution:
