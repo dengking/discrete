@@ -76,11 +76,73 @@ int main()
 
 ## [LeetCode-25. K 个一组翻转链表](https://leetcode.cn/problems/reverse-nodes-in-k-group/) 
 
-基本操作: 找到一个K group的head、tail，通过head、tail来反转这个K group。
+属于典型的"k-step步长-span跨度-stride跨度-traverse"
 
-通用的
+基本操作: 找到一个K group的head、stop node，反转这个K group得到new head、new tail，new tail的next是下一个K group的new head，显然这是一个递归调用。
 
-### C++
+
+
+### DFS-pre-order-action
+
+#### Python
+
+```python
+from typing import *
+
+
+class ListNode:
+    """
+    Definition for singly-linked list.
+    """
+
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+
+class Solution:
+    def reverseKGroup(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
+        """
+        DFS-pre-order-action
+        返回反转后的linked list的head
+        """
+        stop_node = head  # 当前k group的stop node()
+        for _ in range(k):
+            if stop_node:
+                stop_node = stop_node.next
+            else:  # 题目要求: 不足k个则不反转，所以直接返回
+                return head
+        # 此时stop_node指向的是第k+1个node
+        # 左闭右开[head, stop_node)
+        new_head = self.reverse_linked_list(head, stop_node)
+        new_tail = head  # 原来的head在经过反转后成为了tail
+        new_tail.next = self.reverseKGroup(stop_node, k)  # 与原链表连接在一起
+        return new_head
+
+    @staticmethod
+    def reverse_linked_list(head: Optional[ListNode], stop_node: Optional[ListNode]):
+        """
+        左闭右开[head, stop_node)
+        """
+        prev, cur, next_node = None, head, None
+        while cur != stop_node:
+            next_node = cur.next
+            cur.next = prev
+            prev = cur
+            cur = next_node
+        return prev
+
+
+if __name__ == '__main__':
+    head = ListNode(1, ListNode(2, ListNode(3, ListNode(4, ListNode(5)))))
+    solu = Solution()
+    solu.reverseKGroup(head, 2)
+
+```
+
+
+
+#### C++
 
 这是参考的labuladong [递归思维：k 个一组反转链表](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247484597&idx=1&sn=c603f1752e33cb2701e371d84254aee2&scene=21#wechat_redirect) 写的
 
