@@ -14,7 +14,7 @@ linked list的结构非常简单，并且只支持 [sequential access](https://e
 
 array支持random access，可以通过index进行access，因此它的范围一般都是通过start index(begin)、stop index(end)来进行界定，既然使用了**区间**的概念，那么就需要考虑**区间**是**左闭右闭**还是**左闭右开**，并且区间的定义需要在程序中始终保持统一(典型的例子就是binary search)；
 
-具体到linked list，它的范围一般使用 start node(begin) 和stop  node(end)来进行界，一般使用的是 **左闭右开**；比如
+具体到linked list，它的范围一般使用 start node(begin) 和stop  node(end)来进行界，一般使用的是 **左闭右开**；比如处理整个linked list的算法，显然它使用head作为start node，这种情况的stop  node显然就是null。
 
 
 
