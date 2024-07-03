@@ -76,7 +76,9 @@ int main()
 
 ## [LeetCode-25. K 个一组翻转链表](https://leetcode.cn/problems/reverse-nodes-in-k-group/) 
 
+基本操作: 找到一个K group的head、tail，通过head、tail来反转这个K group。
 
+通用的
 
 ### C++
 

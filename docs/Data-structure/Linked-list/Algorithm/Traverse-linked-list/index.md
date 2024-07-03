@@ -4,9 +4,17 @@
 
 linked list的结构非常简单，并且只支持 [sequential access](https://en.wikipedia.org/wiki/Sequential_access)，因此它的很多算法都是基于traverse的，所以本节首先介绍linked list的traverse的技巧。
 
-
-
 ## 最基本的traverse方式
+
+### 范围区间 / 起和止
+
+我们平常遇到的大多数都是对整个linked list进行操作，但是是存在对linked list的部分操作的(比如 [LeetCode-25. K 个一组翻转链表](https://leetcode.cn/problems/reverse-nodes-in-k-group/) )，因此需要考虑最通用的情况，总结出能够处理这两种case的通用的框架；这正如对整个array、部分array进行操作。
+
+我们可以进行类比: 
+
+array支持random access，可以通过index进行access，因此它的范围一般都是通过start index(begin)、stop index(end)来进行界定，既然使用了**区间**的概念，那么就需要考虑**区间**是**左闭右闭**还是**左闭右开**，并且区间的定义需要在程序中始终保持统一(典型的例子就是binary search)；
+
+具体到linked list，它的范围一般使用 start node(begin) 和stop  node(end)来进行界，一般使用的是 **左闭右开**；比如
 
 
 
@@ -30,6 +38,8 @@ linked list的结构非常简单，并且只支持 [sequential access](https://e
 #### Foreach-node
 
 TODO: 这种方式是最简单的迭代
+
+书写迭代的时候，一个很重要的点就是stop condition，由于linked list是由node构成，并且这种pattern的名称为"foreach-node"，所以使用"stop node"这个词，显然当使用这种模式来处理整个linked list的时候，stop node是null。
 
 #### Pattern: dummy node+prev cur next三指针
 
@@ -263,6 +273,12 @@ TODO: 需要补充相关内容
 一、linked-list-k-step步长-span跨度-stride跨度-iteration
 
 同样是可以使用prev-cur-next三指针
+
+k个一组 k group
+
+
+
+[LeetCode-25. K 个一组翻转链表](https://leetcode.cn/problems/reverse-nodes-in-k-group/) 
 
 
 
