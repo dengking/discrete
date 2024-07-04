@@ -67,7 +67,7 @@ DFA是一个graph，DFA的构成:
 
 
 
-### [LeetCode 8 字符串转换整数 (atoi)-中等](https://leetcode.cn/problems/string-to-integer-atoi/description/)
+## [LeetCode 8 字符串转换整数 (atoi)-中等](https://leetcode.cn/problems/string-to-integer-atoi/description/)
 
 `regex=[ ]*[+-]*[0-9]+`，DFA如下：
 
@@ -159,7 +159,15 @@ int main()
 
 
 
-### [LeetCode-393. UTF-8 编码验证](https://leetcode.cn/problems/utf-8-validation/) # [Edward Elric](https://leetcode.cn/u/zdxiq125/) # [[Java] DFA](https://leetcode.cn/problems/utf-8-validation/solution/java-dfa-by-zdxiq125/) 
+
+
+## [LeetCode-65. 有效数字](https://leetcode.cn/problems/valid-number/) 
+
+
+
+
+
+## [LeetCode-393. UTF-8 编码验证](https://leetcode.cn/problems/utf-8-validation/) # [Edward Elric](https://leetcode.cn/u/zdxiq125/) # [[Java] DFA](https://leetcode.cn/problems/utf-8-validation/solution/java-dfa-by-zdxiq125/) 
 
 
 
@@ -176,12 +184,6 @@ int main()
 | **4**     |            |            |            |            | end        |
 | **5**     |            |            |            |            | 6          |
 | **6**     |            |            |            |            | end        |
-
-
-
-### [LeetCode-65. 有效数字](https://leetcode.cn/problems/valid-number/) # [官方解题](https://leetcode.cn/problems/valid-number/solution/you-xiao-shu-zi-by-leetcode-solution-298l/)
-
-
 
 
 
