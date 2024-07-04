@@ -328,6 +328,10 @@ int main()
 
 在阅读 labuladong [二分搜索只能用来查找元素吗？](https://mp.weixin.qq.com/s/QC24hyg0ZgjR7-LgnEzMYg) 时发现的这道题
 
+
+
+> 我们不能「拆分」一个包裹，因此船的运载能力不能小于所有包裹中最重的那个的重量，即左边界为数组 *weights* 中元素的最大值。
+
 ### Python
 
 ```python
@@ -337,14 +341,18 @@ from typing import *
 class Solution:
     def shipWithinDays(self, weights: List[int], days: int) -> int:
         def can_finish(capacity):
-            # need 为需要运送的天数，默认值为1是因为不足一船也需要跑一趟
-            # cur 为当前这一天已经运送的包裹重量之和
+            # 模拟往船上装货并进行运输
+            # need 为需要运送的天数，它的初始值为1是因为可以想象船正停留在港口，此时往上面装货物，显然这是需要一天的
+            # cur 为当前这一天已经装到船上的包裹重量之和
             need, cur = 1, 0
             for weight in weights:
-                if cur + weight > capacity:
+                if need > days:
+                    return False
+                if cur + weight > capacity:  # 尝试看weight能否放到当前这艘船，如果不能，则当前这艘船已经装满，可以发船了
                     need += 1
                     cur = 0
                 cur += weight
+
             return need <= days
 
         left, right = max(weights), sum(weights) - 1
@@ -411,6 +419,7 @@ public:
 		return real_days <= days;
 	}
 };
+
 int main()
 {
 	vector<int> nums = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
