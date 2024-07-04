@@ -67,7 +67,7 @@ DFA是一个graph，DFA的构成:
 
 
 
-## [LeetCode 8 字符串转换整数 (atoi)-中等](https://leetcode.cn/problems/string-to-integer-atoi/description/)
+## [LeetCode 8 字符串转换整数 (atoi)-中等](https://leetcode.cn/problems/string-to-integer-atoi/description/) 
 
 `regex=[ ]*[+-]*[0-9]+`，DFA如下：
 
@@ -159,11 +159,192 @@ int main()
 
 
 
+## [LeetCode-65. 有效数字-困难](https://leetcode.cn/problems/valid-number/) 
+
+在 [LeetCode 8 字符串转换整数 (atoi)-中等](https://leetcode.cn/problems/string-to-integer-atoi/description/) 的基础上增加了难度
+
+regex: 
+
+```
+(+|-)?([0-9]+)?(\.(+|-)?[0-9]+)?((e|E)?[0-9]+)?
+```
+
+划分为:
+
+- 符号位
+
+- 整数部分
+- 小数部分
+- 指数部分
+
+将输入进行分类:
+
+- 符号字符（`'+'` 或 `'-'`）
+
+- `'e'` 或 `'E'` 
+
+- `.`
+
+- 数字 `[0-9]`
+
+- 其他字符
+
+参考:
+
+- [LeetCode-65. 有效数字](https://leetcode.cn/problems/valid-number/) # [表驱动法](https://leetcode.cn/problems/valid-number/solution/biao-qu-dong-fa-by-user8973/) 
+- [LeetCode-65. 有效数字](https://leetcode.cn/problems/valid-number/) # [官方解题](https://leetcode.cn/problems/valid-number/solution/you-xiao-shu-zi-by-leetcode-solution-298l/) 
 
 
-## [LeetCode-65. 有效数字](https://leetcode.cn/problems/valid-number/) 
+
+### DFA+table-driven-parse
+
+![fig1](https://assets.leetcode.cn/solution-static/65/1.png)
+
+> 源自: [LeetCode-65. 有效数字](https://leetcode.cn/problems/valid-number/) # [官方解题](https://leetcode.cn/problems/valid-number/solution/you-xiao-shu-zi-by-leetcode-solution-298l/) 
+
+一. 上述DFA中有两个"小数点"状态：
+
+- 小数点(左无整数)
+
+- 小数点(左有整数)
+
+两者的差异在于"小数点(左无整数)"是**非接收状态**，"小数点(左有整数)"是**接收状态**，必须要进行严格区分，否则无法进行判断。
+
+这提示我们，为了能够cover所有的状态，需要进行扩充
+
+二. edge corner case
+
+这个题目的corner case就是`"4."`
+
+这种corner case其实是出题人为了增加题目的难度，其实main case就已经cover来大部分的情况了。
+
+上述基于DFA的方式是非常容易扩充的
 
 
+
+#### C++
+
+```C++
+// #include <bits/stdc++.h>
+#include <string>
+#include <unordered_map>
+
+using namespace std;
+
+class Solution {
+public:
+    enum State {
+        STATE_INITIAL,           // 初始状态
+        STATE_INT_SIGN,          // 符号位
+        STATE_INTEGER,           // 整数部分
+        STATE_POINT,             // 小数点(左有整数)
+        STATE_POINT_WITHOUT_INT, // 小数点(左无整数)
+        STATE_FRACTION,          // 小数部分
+        STATE_EXP,               // 字符e、指数部分
+        STATE_EXP_SIGN,          // 指数符号
+        STATE_EXP_NUMBER,        // 指数数字
+        STATE_END
+    };
+
+    enum CharType {
+        CHAR_NUMBER, // 数字
+        CHAR_EXP,    // e E
+        CHAR_POINT,  // 小数点
+        CHAR_SIGN,   // 符号位
+        CHAR_ILLEGAL
+    };
+
+    CharType toCharType(char ch) {
+        if (ch >= '0' && ch <= '9') {
+            return CHAR_NUMBER;
+        } else if (ch == 'e' || ch == 'E') {
+            return CHAR_EXP;
+        } else if (ch == '.') {
+            return CHAR_POINT;
+        } else if (ch == '+' || ch == '-') {
+            return CHAR_SIGN;
+        } else {
+            return CHAR_ILLEGAL;
+        }
+    }
+
+    bool isNumber(string s) {
+        // tag-hybrid-ds-[graph-weighted-directed]=DFA-[adjacency-list]=[2D-dict=map]=[std-unordered_map-of-std-unordered_map]
+        unordered_map<State, unordered_map<CharType, State>> transfer{
+                {STATE_INITIAL,           {{CHAR_NUMBER, STATE_INTEGER},    {CHAR_POINT, STATE_POINT_WITHOUT_INT}, {CHAR_SIGN,  STATE_INT_SIGN}}}, //
+                {STATE_INT_SIGN,          {{CHAR_NUMBER, STATE_INTEGER},    {CHAR_POINT, STATE_POINT_WITHOUT_INT}}},                             //
+                {STATE_INTEGER,           {{CHAR_NUMBER, STATE_INTEGER},    {CHAR_EXP,   STATE_EXP},               {CHAR_POINT, STATE_POINT}}},                   //
+                {STATE_POINT,             {{CHAR_NUMBER, STATE_FRACTION},   {CHAR_EXP,   STATE_EXP}}},                                               //
+                {STATE_POINT_WITHOUT_INT, {{CHAR_NUMBER, STATE_FRACTION}}},                                                          //
+                {STATE_FRACTION,          {{CHAR_NUMBER, STATE_FRACTION},   {CHAR_EXP,   STATE_EXP}}},                                            //
+                {STATE_EXP,               {{CHAR_NUMBER, STATE_EXP_NUMBER}, {CHAR_SIGN,  STATE_EXP_SIGN}}},                                         //
+                {STATE_EXP_SIGN,          {{CHAR_NUMBER, STATE_EXP_NUMBER}}},                                                                 //
+                {STATE_EXP_NUMBER,        {{CHAR_NUMBER, STATE_EXP_NUMBER}}}                                                                //
+        };
+
+        int len = s.length();
+        State st = STATE_INITIAL;
+
+        for (int i = 0; i < len; i++) {
+            CharType typ = toCharType(s[i]);
+            if (transfer[st].find(typ) == transfer[st].end()) {
+                return false;
+            } else {
+                st = transfer[st][typ];
+            }
+        }
+        return st == STATE_INTEGER || st == STATE_POINT || st == STATE_FRACTION || st == STATE_EXP_NUMBER ||
+               st == STATE_END;
+    }
+};
+
+int main() {
+    Solution s;
+}
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -g
+
+```
+
+
+
+#### Python
+
+```python
+from enum import Enum, auto
+
+
+class State(Enum):
+    Init = auto()  # 初始状态
+    IntSign = auto()  # 符号位
+    Int = auto()  # 整数部分
+    Point = auto()  # 小数点(左有整数)
+    PointWithoutInt = auto()  # 小数点(左无整数)
+    Fraction = auto()  # 小数部分
+    Exp = auto()  # 字符e、指数部分
+    ExpSign = auto()  # 指数符号
+    ExpNumber = auto()  # 指数数字
+    End = auto()  # 结束状态
+
+
+class CharType(Enum):
+    Number = auto()  # 数字
+    Exp = auto()  # e E
+    Point = auto()  # 小数点
+    Sign = auto()  # 符号位
+    Illegal = auto()  # 非法符号
+
+
+class Solution:
+
+    def isNumber(self, s: str) -> bool:
+        transfer = {
+            State.Init: {
+                CharType.Number: State.Int,
+                CharType.Point: State.PointWithoutInt,
+            }
+        }
+
+```
 
 
 
