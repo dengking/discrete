@@ -52,8 +52,6 @@
 
 
 
-
-
 ## [Automata theory](https://en.wikipedia.org/wiki/Automata_theory)和[Formal language](https://en.wikipedia.org/wiki/Formal_language)
 
 [Chomsky hierarchy](https://en.wikipedia.org/wiki/Chomsky_hierarchy)将[Automata theory](https://en.wikipedia.org/wiki/Automata_theory)和[formal language](https://en.wikipedia.org/wiki/Formal_language)进行了关联和对应。需要注意的是，[Automata theory](https://en.wikipedia.org/wiki/Automata_theory)在其他领域有着非常广泛的应用。

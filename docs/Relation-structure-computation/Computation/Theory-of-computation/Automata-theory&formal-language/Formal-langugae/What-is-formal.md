@@ -1,14 +1,12 @@
-# Formal and formal language
 
-Formal在computer science中有着非常重要的地位，计算机科学家门围绕着它创建了很多理论。
 
-## Formal
+# What is "formal"?
 
-所以我们需要首先搞清楚它的含义。下面我们先通过一些例子来认识formal，然后再来进行总结。
+首先搞清楚它的含义，下面我们先通过一些例子来认识"formal"，然后再来进行总结。
 
-### Examples of formal 
+## Examples of formal 
 
-#### example 1
+### Example 1
 
 [Deep Learning](http://www.deeplearningbook.org/front_matter.pdf)的Chapter 1 Introduction的如下描述：
 
@@ -17,7 +15,7 @@ Formal在computer science中有着非常重要的地位，计算机科学家门�
 
 可以使用“formal， mathematical rules“描述的问题，具备着固定的rule，所以使用computer program是非常任意实现的。而与它相反的一类问题，是无法使用rule进行描述的，这类问题，在上面这段话中使用”intuitive“来表示，解决这类问题的方法是AI。
 
-#### example 2
+### Example 2
 
 [Deep Learning](http://www.deeplearningbook.org/front_matter.pdf)的Chapter 5.1 Learning Algorithms的如下描述：
 
@@ -27,7 +25,7 @@ formal language-》 formal definition
 
 natural language-》intuitive description
 
-#### examples
+### Examples
 
 Examples of formal description
 
@@ -83,14 +81,7 @@ https://www.yourdictionary.com/formal
 
 
 
-## Formal language的优势
-
-Formal language的优势在于它的formal，即有固定的rule。在逻辑学，rule对于的是推导规则，所以formal language是可以进行推导。
-
-
-
-
-
 ## 思考：Formal与人工智能
 
 deep learning book的chapter one
+

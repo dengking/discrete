@@ -1,4 +1,4 @@
-# 关于本章
+# Automata-theory&formal-language
 
 本章节，首先描述上面是"formal"，引出[Formal language](https://en.wikipedia.org/wiki/Formal_language)， 然后对它进行详细的分析。维基百科的[Formal language](https://en.wikipedia.org/wiki/Formal_language)内容是非常好的（全面，深入浅出），需要仔细阅读。
 
@@ -31,7 +31,25 @@
 
 
 
-## [Formal language](https://en.wikipedia.org/wiki/Formal_language)
+### 入门读物
+
+入门读物推荐：
+
+- [Formal Languages, Grammars, and Automata](http://www.sti.uniurb.it/aldini/publications/lfga.pdf)
+
+除此之外，推荐阅读如下巨著：
+
+- [Introduction to Automata and Language Theory(aka ***Cinderella Book***)](http://infolab.stanford.edu/~ullman/ialc.html)
+
+#### Cinderella Book VS Dragon Book
+
+[Introduction to Automata and Language Theory(aka ***Cinderella Book***)](http://infolab.stanford.edu/~ullman/ialc.html)是该领域的经典书籍。
+
+[Introduction to Automata and Language Theory(aka ***Cinderella Book***)](http://infolab.stanford.edu/~ullman/ialc.html)和[Compilers: Principles, Techniques, and Tools (aka "***Dragon Book***")](http://en.wikipedia.org/wiki/Compilers:_Principles,_Techniques,_and_Tools)中的内容其实是紧密关联的，这不仅仅是因为Jeffrey D.Ullman参与了这两本书的编写，而是因为programming language是一种formal language，而Cinderella Book和Dragon Book其实都是在讲述和formal language相关的内容，当然，这些内容仅仅书中的一部分。Cinderella Book专注于讲述automata and language theory，而dragon book的内容则可以分为两个部分front end和back end，显然front end所讲述的内容就和automata and language theory紧密相关了。
+
+
+
+## [Formal language](https://en.wikipedia.org/wiki/Formal_language) 概览
 
 提及[formal language](https://en.wikipedia.org/wiki/Formal_language)，就得请出[Noam Chomsky](https://en.wikipedia.org/wiki/Noam_Chomsky)，因为下面的理论框架是由他所建立的，该theory framework的是按照[Chomsky hierarchy](https://en.wikipedia.org/wiki/Chomsky_hierarchy)来进行组织的：
 
@@ -65,22 +83,6 @@ relation越来越复杂，structure越来越复杂；
 Expressive power逐渐增强；
 
 
-
-## 入门读物
-
-入门读物推荐：
-
-- [Formal Languages, Grammars, and Automata](http://www.sti.uniurb.it/aldini/publications/lfga.pdf)
-
-除此之外，推荐阅读如下巨著：
-
-- [Introduction to Automata and Language Theory(aka ***Cinderella Book***)](http://infolab.stanford.edu/~ullman/ialc.html)
-
-### Cinderella Book VS Dragon Book
-
-[Introduction to Automata and Language Theory(aka ***Cinderella Book***)](http://infolab.stanford.edu/~ullman/ialc.html)是该领域的经典书籍。
-
-[Introduction to Automata and Language Theory(aka ***Cinderella Book***)](http://infolab.stanford.edu/~ullman/ialc.html)和[Compilers: Principles, Techniques, and Tools (aka "***Dragon Book***")](http://en.wikipedia.org/wiki/Compilers:_Principles,_Techniques,_and_Tools)中的内容其实是紧密关联的，这不仅仅是因为Jeffrey D.Ullman参与了这两本书的编写，而是因为programming language是一种formal language，而Cinderella Book和Dragon Book其实都是在讲述和formal language相关的内容，当然，这些内容仅仅书中的一部分。Cinderella Book专注于讲述automata and language theory，而dragon book的内容则可以分为两个部分front end和back end，显然front end所讲述的内容就和automata and language theory紧密相关了。
 
 ## 参考
 

@@ -1,6 +1,12 @@
-# wikipedia [Formal language](https://en.wikipedia.org/wiki/Formal_language)
+# Formal language
 
-> NOTE: 充分理解本文的前提是对[Mathematical logic](https://en.wikipedia.org/wiki/Mathematical_logic)有基本的认知，参见上一章节。
+
+
+## wikipedia [Formal language](https://en.wikipedia.org/wiki/Formal_language)
+
+> NOTE: 
+>
+> 充分理解本文的前提是对[Mathematical logic](https://en.wikipedia.org/wiki/Mathematical_logic)有基本的认知
 
 In [mathematics](https://en.wikipedia.org/wiki/Mathematics), [computer science](https://en.wikipedia.org/wiki/Computer_science), and [linguistics](https://en.wikipedia.org/wiki/Linguistics), a **formal language** consists of [words](https://en.wikipedia.org/wiki/String_(computer_science)) whose [letters](https://en.wikipedia.org/wiki/Symbol_(formal)) are taken from an [alphabet](https://en.wikipedia.org/wiki/Alphabet_(computer_science)) and are [well-formed](https://en.wikipedia.org/wiki/Well-formedness) according to a specific set of rules. 
 
@@ -20,7 +26,7 @@ In [logic](https://en.wikipedia.org/wiki/Logic) and the [foundations of mathemat
 
 
 
-## Words over an alphabet
+### Words over an alphabet
 
 An **alphabet**, in the context of formal languages, can be any [set](https://en.wikipedia.org/wiki/Set_(mathematics)), although it often makes sense to use an [alphabet](https://en.wikipedia.org/wiki/Alphabet) in the usual sense of the word, or more generally a [character set](https://en.wikipedia.org/wiki/Character_set) such as [ASCII](https://en.wikipedia.org/wiki/ASCII) or [Unicode](https://en.wikipedia.org/wiki/Unicode). The elements of an alphabet are called its **letters**. An alphabet may contain an [infinite](https://en.wikipedia.org/wiki/Countable_set) number of elements; however, most definitions in formal language theory specify alphabets with a finite number of elements, and most results apply only to them.
 
@@ -28,15 +34,19 @@ A **word** over an alphabet can be any finite sequence (i.e., [string](https://e
 
 In some applications, especially in [logic](https://en.wikipedia.org/wiki/Logic), the alphabet is also known as the *vocabulary* and words are known as *formulas* or *sentences*; this breaks the letter/word metaphor and replaces it by a word/sentence metaphor.
 
-> NOTE: 在formal language理论中，**alphabet**、 [character set](https://en.wikipedia.org/wiki/Character_set)  、vocabulary可以认为是同义词。
+> NOTE: 
+>
+> 在formal language理论中，**alphabet**、 [character set](https://en.wikipedia.org/wiki/Character_set)  、vocabulary可以认为是同义词。
 
 
 
-## Definition
+### Definition
 
 A **formal language** *L* over an alphabet Σ is a [subset](https://en.wikipedia.org/wiki/Subset) of Σ*, that is, a set of [words](https://en.wikipedia.org/wiki/Formal_language#Words_over_an_alphabet) over that alphabet. Sometimes the sets of words are grouped into expressions, whereas rules and constraints may be formulated for the creation of 'well-formed expressions'.
 
-> NOTE: 所谓的rules其实就是grammar。
+> NOTE: 
+>
+> 所谓的rules其实就是grammar。
 
 In computer science and mathematics, which do not usually deal with [natural languages](https://en.wikipedia.org/wiki/Natural_language), the adjective "formal" is often omitted as redundant.
 
@@ -44,11 +54,13 @@ In computer science and mathematics, which do not usually deal with [natural lan
 
 While formal language theory usually concerns itself with formal languages that are described by some syntactical rules, the actual definition of the concept "formal language" is only as above: a (possibly infinite) set of finite-length strings composed from a given alphabet, no more and no less. In practice, there are many languages that can be described by **rules**, such as [regular languages](https://en.wikipedia.org/wiki/Regular_language) or [context-free languages](https://en.wikipedia.org/wiki/Context-free_language). The notion of a [formal grammar](https://en.wikipedia.org/wiki/Formal_grammar) may be closer to the intuitive concept of a "language," one described by syntactic rules. By an abuse of the definition, a particular formal language is often thought of as being equipped with a **formal grammar** that describes it.
 
-> NOTE: 上面这段话所强调的是formal language的准确定义中是不包含rules（grammar）的。但是实际中，要想准确的定义一门语言是离不开rules的。以programming language为例的话，它需要词法和语法才能够正确地描述该语言。
+> NOTE: 
+>
+> 上面这段话所强调的是formal language的准确定义中是不包含rules（grammar）的。但是实际中，要想准确的定义一门语言是离不开rules的。以programming language为例的话，它需要词法和语法才能够正确地描述该语言。
 
 
 
-### Constructions
+#### Constructions
 
 For finite languages, one can explicitly **enumerate** all well-formed words. For example, we can describe a language *L* as just *L* = {a, b, ab, cba}. The [degenerate](https://en.wikipedia.org/wiki/Degeneracy_(mathematics)) case of this construction is the **empty language**, which contains no words at all (*L* = [∅](https://en.wikipedia.org/wiki/∅)).
 
@@ -63,7 +75,7 @@ However, even over a finite (non-empty) alphabet such as Σ = {a, b} there are a
 
 
 
-## Language-specification formalisms
+### Language-specification formalisms
 
 Formal languages are used as tools in multiple disciplines. However, **formal language theory** rarely concerns itself with particular languages (except as examples), but is mainly concerned with the study of various types of **formalisms** to describe languages. For instance, a language can be given as
 
@@ -82,15 +94,7 @@ Surprisingly often, the answer to these decision problems is "it cannot be done 
 
 
 
-## [Operations on languages](https://en.wikipedia.org/wiki/Formal_language#Operations_on_languages)
+## Formal language的优势
 
-
-
-## Applications
-
-### Programming languages
-
-*Main articles:* [Compiler compiler](https://en.wikipedia.org/wiki/Compiler_compiler) and [Syntax (programming languages)](https://en.wikipedia.org/wiki/Syntax_(programming_languages))
-
-### [Formal theories, systems, and proofs](https://en.wikipedia.org/wiki/Formal_language#Formal_theories,_systems,_and_proofs)
+Formal language的优势在于它的formal，即有固定的rule。在逻辑学，rule对于的是推导规则，所以formal language是可以进行推导。
 

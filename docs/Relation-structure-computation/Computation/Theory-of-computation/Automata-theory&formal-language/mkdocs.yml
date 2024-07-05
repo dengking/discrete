@@ -1,7 +1,11 @@
 nav:
     - Introduction: index.md
-    - Formal-and-formal-langugae: Formal-and-formal-langugae
-    - wikipedia-Formal-language: wikipedia-Formal-language
-    - Intermediate-language: Intermediate-language
+    - Formal-langugae: Formal-langugae
     - Formal-grammar: Formal-grammar
+    - Type-0-Recursively-enumerable-language: Type-0-Recursively-enumerable-language
+    - Type-1-Context-sensitive-language: Type-1-Context-sensitive-language
+    - Type-2-Context-free-language: Type-2-Context-free-language
+    - Type-3-Regular-language: Type-3-Regular-language
     - Summary-of-theory: Summary-of-theory
+    - Formal-language-processing: Formal-language-processing
+    
