@@ -2,5 +2,4 @@ nav:
     - Introduction: index.md
     - Regular-expressions.info: Regular-expressions.info
     - Stephen-Cole-Kleene: Stephen-Cole-Kleene
-    - Thompson's-construction: Thompson's-construction    
     - Powerset-construction: Powerset-construction
