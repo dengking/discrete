@@ -1,0 +1,7 @@
+nav:
+    - Introduction: index.md
+    - Type-0-Recursively-enumerable-language: Type-0-Recursively-enumerable-language
+    - Type-1-Context-sensitive-language: Type-1-Context-sensitive-language
+    - Type-2-Context-free-language: Type-2-Context-free-language
+    - Type-3-Regular-language: Type-3-Regular-language
+    

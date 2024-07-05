@@ -1,5 +1,11 @@
 # LeetCode-DFA
 
+KMP
+
+DFA
+
+Regex
+
 
 
 ## 核心思想

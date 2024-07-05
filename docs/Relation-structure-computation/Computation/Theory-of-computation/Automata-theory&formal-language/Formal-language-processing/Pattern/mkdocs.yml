@@ -1,0 +1,5 @@
+nav:
+    - Introduction: index.md
+    - Composite-pattern: Composite-pattern
+    - Interpreter-pattern: Interpreter-pattern
+    - Translator-Pattern: Translator-Pattern
