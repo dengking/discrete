@@ -1,5 +1,0 @@
-nav:
-    - Introduction: index.md
-    - LeetCode-trie: LeetCode-trie
-    - LeetCode-regex: LeetCode-regex
-    - LeetCode-393-UTF-8编码验证-中等: LeetCode-393-UTF-8编码验证-中等

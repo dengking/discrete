@@ -1,10 +1,6 @@
-# LeetCode-DFA
+# LeetCode-NFA-DFA
 
-KMP
 
-DFA
-
-Regex
 
 
 
@@ -23,7 +19,7 @@ Regex
 
 
 
-核心思想: 使用regex描述抽象结构，然后使用DFA进行实现。DFA本质上是graph，匹配的过程是沿着path进行，只要匹配了一个path，则表示复合pattern。
+核心思想: 使用regex描述抽象结构，然后使用NFA/DFA进行实现。DFA本质上是graph，匹配的过程是沿着path进行，只要匹配了一个path，则表示复合pattern。
 
 ## Implementation: table-driven parse
 

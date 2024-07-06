@@ -1,0 +1,8 @@
+nav:
+    - Introduction: index.md
+    - LeetCode-DFA-table-driven-parse: LeetCode-DFA-table-driven-parse
+    - LeetCode-regex-epsilon-NFA: LeetCode-regex-epsilon-NFA
+    - LeetCode-trie: LeetCode-trie
+    - LeetCode-KMP: LeetCode-KMP
+    - LeetCode-Aho-Corasick-automata: LeetCode-Aho-Corasick-automata
+    
