@@ -3,76 +3,52 @@
 | 题目                                                         | 需要实现的 |      |
 | ------------------------------------------------------------ | ---------- | ---- |
 | [LeetCode-10. Regular Expression Matching-hard](https://leetcode.cn/problems/regular-expression-matching/) | `.`, `*`   |      |
-| [LeetCode-44. Wildcard Matching-hard](https://leetcode.cn/problems/wildcard-matching/) | `?`, `*`   |      |
+| [LeetCode-44. Wildcard Matching-hard](https://leetcode.cn/problems/wildcard-matching/) | `.`, `.*`  |      |
 
-这两道题所考察的其实是 [Thompson's construction](https://en.wikipedia.org/wiki/Thompson%27s_construction) 
 
-## [LeetCode-10. Regular Expression Matching-hard](https://leetcode.cn/problems/regular-expression-matching/) 
 
-### DFA/NFA
+## Regex $\epsilon$-NFA
 
-对于regex，首先想到的就是DFA/NFA
+对于regex，首先想到的就是NFA，这两道题的一个相同点是: [Kleene star](https://en.wikipedia.org/wiki/Kleene_star) `*` ，根据 [Thompson's construction algorithm](https://en.wikipedia.org/wiki/Thompson%27s_construction) 中的内容可知，[Kleene star](https://en.wikipedia.org/wiki/Kleene_star) `*` 对应的NFA如下: 
 
-Q: 如何实现`*`？
+> The **[Kleene star](https://en.wikipedia.org/wiki/Kleene_star) expression** $s^*$ is converted to
+>
+> [![inline](503px-Thompson-kleene-star.svg.png)](https://en.wikipedia.org/wiki/File:Thompson-kleene-star.svg)
 
-A: 对于每一步，都有两个选择:
+那在答题的时候，我们要实现  [Thompson's construction algorithm](https://en.wikipedia.org/wiki/Thompson%27s_construction) 吗？显示是不需要的，我们可以不显示地构建一个NFA而是等价模拟实现它的功能。
+
+Q: 如何模拟实现 regex [Kleene star](https://en.wikipedia.org/wiki/Kleene_star) `*` NFA? 
+
+A: current state set: 记录当前所处的状体，每一步执行如下transition:
 
 - character transition
 
+
 - epsilon transition
 
+从下面的实现可以看出，对于`*`，character transition 和 epsilon transition的做法是不同的:
 
+- epsilon transition: 直接跳过
+- character transition: 回到自身
 
-一. epsilon transition保证能够找到所有的可能性。
+需要注意: epsilon transition是往 current state set 中添加新的state，而 character transition 则是从current state set中挑选出在character下才能够进行transition的state。
 
-epsilon transition 是为了找到所有可能的**起始状态**，这样后续的匹配可以从这些可能的起始状态开始匹配。
+Q: 如何枚举所有的可能？
 
-这种方式直接将regex看做是NFA，它不需要显示地构造出一个DFA，这样避免对 undeterministic 的讨论: 对于同一状态，遇到相同字符的时候，出现多种转换方式的讨论。
+A: 对比 LeetCode [六硝基六氮杂三环十四](https://leetcode.cn/u/liu-xiao-ji-liu-dan-za-san-huan-shi-si-wan-dui-er-fu-zan/) [10、 正则表达式匹配：有限自动机（FA）算法](https://leetcode.cn/problems/regular-expression-matching/solutions/1532116/10-zheng-ze-biao-da-shi-pi-pei-by-liu-xi-wi4p/) 中的写法，是可以不消耗字符，直接通过 epsilon transition 进行转换，我之前的写法没有加入这种 transition，所以无法穷举所有的可能性。
 
-````
-/**
-* 在匹配完成后，如果node有epsilon transition，则不断执行epsilon transition
-* 一、因为可能出现字符串比pattern短的情况，比如:
-* s = "a"
-* p = "ab*"
-* 二、最后的"c*a*"都不在匹配
-* s = "cbaacacaaccbaabcb"
-* p = "c*b*b*.*ac*.*bc*a*"
-*/
-````
+Q: 
 
+A: BFS、DFS
 
+## [LeetCode-10. Regular Expression Matching-hard](https://leetcode.cn/problems/regular-expression-matching/) 
 
-二. DFA VS NFA
+- `'.'` Matches any single character.
+- `'*'` Matches zero or more of the preceding element.
 
-```
-/**
- * 1、处理诸如 "a*a" 的case，这种case是本程序不支持的形式，因为本程序是DFA，而这种case在一个状态下，从"a"有两种transition，
- * 本程序的做法是将它转换为 "a+" 的形式
- * 2、"a*a*" => "a*"
- */
-```
+### BFS regex $\epsilon$-NFA
 
-在 DFA 的写法中，是通过分别调用 epsilon transition 和 character transition 来实现存储 DFA 是会出现的类似上述的问题
-
-三. 我之前的DFA的写法如下:
-
-```
-    bool dfsDFA(const string &s, int i, Node *&node)
-    {
-         char c = s[i];
-    }
-```
-
-
-
-对比 LeetCode [六硝基六氮杂三环十四](https://leetcode.cn/u/liu-xiao-ji-liu-dan-za-san-huan-shi-si-wan-dui-er-fu-zan/) [10、 正则表达式匹配：有限自动机（FA）算法](https://leetcode.cn/problems/regular-expression-matching/solutions/1532116/10-zheng-ze-biao-da-shi-pi-pei-by-liu-xi-wi4p/) 中的写法，是可以不消耗字符，直接通过 epsilon transition 进行转换，我之前的写法没有加入这种 transition，所以无法穷举所有的可能性。
-
-### BFS 
-
-
-
-### LeetCode [六硝基六氮杂三环十四](https://leetcode.cn/u/liu-xiao-ji-liu-dan-za-san-huan-shi-si-wan-dui-er-fu-zan/) # [10、 正则表达式匹配：有限自动机（FA）算法](https://leetcode.cn/problems/regular-expression-matching/solutions/1532116/10-zheng-ze-biao-da-shi-pi-pei-by-liu-xi-wi4p/)
+LeetCode [六硝基六氮杂三环十四](https://leetcode.cn/u/liu-xiao-ji-liu-dan-za-san-huan-shi-si-wan-dui-er-fu-zan/) # [10、 正则表达式匹配：有限自动机（FA）算法](https://leetcode.cn/problems/regular-expression-matching/solutions/1532116/10-zheng-ze-biao-da-shi-pi-pei-by-liu-xi-wi4p/)
 
 例子:
 
@@ -94,15 +70,75 @@ epsilon transition 是为了找到所有可能的**起始状态**，这样后续
 
 1. 设**当前状态集合**为 $\left\{ 0 \right\} $
 2. 什么字符都不读，根据p更新一下**当前状态集合** (epsilon transition)
-3. 读取s的下一个字符，根据p更新一下**当前状态集合**。如果更新之后**当前状态集合**为空集，即匹配失败，直接返回False. 如果s已经读完了，执行第6步。
-   什么字符都不读，根据p更新一下当前状态集合。
-   循环，回到第3步执行。
-   此时s已经读完了，如果当前状态集合里面有终止状态，则至少有一种状态跳转路径可以匹配成功，返回True，否则返回False.
+3. 读取s的下一个字符，根据p更新一下**当前状态集合**。如果更新之后**当前状态集合**为空集，即匹配失败，直接返回False. 如果s已经读完了，执行第6步 (character transition)
+4. 什么字符都不读，根据p更新一下**当前状态集合** (epsilon transition)
+5. 循环，回到第3步执行。
+6. 此时s已经读完了，如果**当前状态集合**里面有**终止状态**，则至少有一种状态跳转路径可以匹配成功，返回True，否则返回False.
 
-作者：六硝基六氮杂三环十四
-链接：https://leetcode.cn/problems/regular-expression-matching/solutions/1532116/10-zheng-ze-biao-da-shi-pi-pei-by-liu-xi-wi4p/
-来源：力扣（LeetCode）
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+> NOTE: 
+>
+> 需要首先执行一次 epsilon transition( 实际计算的是**epsilon closure** )，这是对automaton的初始化
+>
+> 它的这种搜索方式更加类似于BFS，它在每一步骤都加入了epsilon transition。
+>
+> 它的这种搜索方式，能够穷举出所有的可能性，即使相同的字符有两种transition，它都会去尝试。
+>
+>  
+
+#### Python0
+
+```python
+class Solution:
+    def isMatch(self, s: str, p: str) -> bool:
+        cur_state_set = {0}  # 当前状态集合
+
+        def epsilon_transition():
+            """
+            计算epsilon closure
+            往 cur_state_set 中添加通过epsilon transition能够到达的状态
+            由于set不支持一边循环一边修改所以下面采取的写法是先copy now_state_set
+            然后往其中添加新的元素
+            """
+            nonlocal cur_state_set
+            for state in cur_state_set.copy():
+                next_state = state
+                while next_state + 1 < len(p) and p[next_state + 1] == '*':
+                    next_state += 2
+                    cur_state_set.add(next_state)
+
+        def char_transition(char: str):
+            nonlocal cur_state_set
+            tmp_state_set = set()  # 用一个临时变量tmp_state_set记录结果
+            for state in cur_state_set:
+                if state >= len(p) or p[state] not in {char, '.'}:
+                    # state是终止状态，或者p[state]不匹配，此时匹配失败。
+                    continue
+                if state + 1 < len(p) and p[state + 1] == '*':
+                    # 从状态state开始，匹配了一个char*之后，还可以停留在该状态。
+                    tmp_state_set.add(state)
+                else:
+                    tmp_state_set.add(state + 1)
+            cur_state_set = tmp_state_set
+
+        epsilon_transition()
+        for char in s:
+            char_transition(char)  # 首先尝试
+            epsilon_transition()
+
+        if len(p) in cur_state_set:
+            # 如果now_state可能是终止状态len(p)，即存在一种方法进行匹配，返回True.
+            return True
+        return False
+
+
+if __name__ == '__main__':
+    pass
+
+```
+
+需要注意: 在for loop中，需要先执行 `char_transition()` 再执行 `epsilon_transition()` 。
+
+#### Python1
 
 ```python
 class Solution:
@@ -161,19 +197,9 @@ if __name__ == '__main__':
 
 
 
-它的这种搜索方式更加类似于BFS，它在每一步骤都加入了epsilon transition。
-
-它的这种搜索方式，能够穷举出所有的可能性，即使相同的字符有两种transition，它都会去尝试。
 
 
-
-
-
-思考: 能否DFS来实现呢？
-
-
-
-## C++
+#### C++
 
 ```c++
 #include <algorithm>
@@ -269,4 +295,51 @@ int main() {
 
 
 
-## [LeetCode-44. Wildcard Matching](https://leetcode.cn/problems/wildcard-matching/) 
+## [LeetCode-44. Wildcard Matching-hard](https://leetcode.cn/problems/wildcard-matching/) 
+
+题目要求:
+
+> - `'?'` Matches any single character.
+> - `'*'` Matches any sequence of characters (including the empty sequence).
+
+### BFS regex $\epsilon$-NFA
+
+#### Python
+
+```python
+class Solution:
+    def isMatch(self, s: str, p: str) -> bool:
+        cur_state_set = {0}
+
+        def epsilon_transition():
+            for state in cur_state_set.copy():
+                next_state = state
+                while next_state < len(p) and p[next_state] == '*':
+                    next_state += 1
+                    cur_state_set.add(next_state)
+
+        def char_transition(c: str):
+            nonlocal cur_state_set
+            tmp_state_set = set()
+            for state in cur_state_set:
+                if state >= len(p):
+                    continue
+                if p[state] in {'?', c}:
+                    tmp_state_set.add(state + 1)
+                if p[state] == '*':
+                    tmp_state_set.add(state + 1)
+                    tmp_state_set.add(state)
+            cur_state_set = tmp_state_set
+
+        epsilon_transition()
+        for char in s:
+            char_transition(char)
+            epsilon_transition()
+        return len(p) in cur_state_set
+
+
+if __name__ == '__main__':
+    pass
+
+```
+

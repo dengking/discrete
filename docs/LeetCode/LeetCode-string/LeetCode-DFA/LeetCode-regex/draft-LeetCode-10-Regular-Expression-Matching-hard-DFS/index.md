@@ -1,7 +1,5 @@
 # [LeetCode-10. Regular Expression Matching-hard](https://leetcode.cn/problems/regular-expression-matching/) 
 
-
-
 一、对于`*`，需要实现: 
 
 0个
@@ -11,10 +9,6 @@
 多个
 
 等情况。
-
-
-
-
 
 ## 版本1
 

@@ -204,7 +204,7 @@ regex:
 
 ### DFA+table-driven-parse
 
-![fig1](https://assets.leetcode.cn/solution-static/65/1.png)
+![fig1](./LeetCode-65-DFA.png)
 
 > 源自: [LeetCode-65. 有效数字](https://leetcode.cn/problems/valid-number/) # [官方解题](https://leetcode.cn/problems/valid-number/solution/you-xiao-shu-zi-by-leetcode-solution-298l/) 
 
@@ -358,7 +358,7 @@ class Solution:
 
 
 
-![image_1580299754.png](https://pic.leetcode.cn/c10666acd2caef8235c204a12941fd74d87fd4ffb39ed747d35eaaf1f69772f6-image_1580299754.png)
+![image_1580299754.png](./LeetCode-393-DFA.png)
 
 
 

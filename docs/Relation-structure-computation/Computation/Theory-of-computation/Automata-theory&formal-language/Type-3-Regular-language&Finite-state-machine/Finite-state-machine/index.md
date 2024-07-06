@@ -2,8 +2,6 @@
 
 FSA可以使用weighted-directed-graph来进行实现。
 
-
-
 ## wikipedia [Finite-state machine](https://en.wikipedia.org/wiki/Finite-state_machine)
 
 > TIPS: In Chinese, [Finite-state machine](https://en.wikipedia.org/wiki/Finite-state_machine) means 有穷自动机
@@ -79,7 +77,7 @@ wikipedia [Nondeterministic finite automaton](https://en.wikipedia.org/wiki/Nond
 | ------------------------------------------------------------ | ------------------------------ | ------------------------------ |
 | Formal definition                                            | ![](formal-definition-NFA.png) | ![](formal-definition-DFA.png) |
 | 是否支持 [epsilon transition](https://en.wikipedia.org/wiki/Epsilon_transition) | yes                            | no                             |
-|                                                              |                                |                                |
+| Current state                                                | current state set              | current state只有一个          |
 
 
 
@@ -180,7 +178,29 @@ Since the set ${\displaystyle \delta (p,1)}$ contains more than one state, ${\di
 
 ## Epsilon transition
 
+[LeetCode-10. Regular Expression Matching-hard](https://leetcode.cn/problems/regular-expression-matching/) 
 
+epsilon transition保证能够找到所有的可能性。
+
+epsilon transition 是为了找到所有可能的**起始状态**，这样后续的匹配可以从这些可能的起始状态开始匹配。
+
+这种方式直接将regex看做是NFA，它不需要显示地构造出一个DFA，这样避免对 undeterministic 的讨论: 对于同一状态，遇到相同字符的时候，出现多种转换方式的讨论。
+
+````
+/**
+* 在匹配完成后，如果node有epsilon transition，则不断执行epsilon transition
+* 一、因为可能出现字符串比pattern短的情况，比如:
+* s = "a"
+* p = "ab*"
+* 二、最后的"c*a*"都不在匹配
+* s = "cbaacacaaccbaabcb"
+* p = "c*b*b*.*ac*.*bc*a*"
+*/
+````
+
+stackoverflow [What does an NFA with epsilon transitions let us do?](https://stackoverflow.com/questions/29401562/what-does-an-nfa-with-epsilon-transitions-let-us-do)
+
+其中的例子很好
 
 ### wikipedia [Epsilon transition](https://en.wikipedia.org/wiki/Epsilon_transition) 
 
@@ -192,7 +212,5 @@ An **epsilon transition** (also **epsilon move** or **lambda transition**) allow
 
 
 
-stackoverflow [What does an NFA with epsilon transitions let us do?](https://stackoverflow.com/questions/29401562/what-does-an-nfa-with-epsilon-transitions-let-us-do)
 
-其中的例子很好
 

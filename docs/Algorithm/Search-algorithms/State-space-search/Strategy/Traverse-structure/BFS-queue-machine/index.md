@@ -35,9 +35,9 @@ Queue machine算法都非常类似于一个机器，加入一点原料后，开�
 
 ### Queue machine steps:
 
-1、initialization
+1. initialization
 
-2、expand
+2. expand
 
 
 
