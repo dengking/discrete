@@ -1,4 +1,8 @@
-# LeetCode-finite-state-automaton
+# LeetCode-automaton
+
+stack machine
+
+queue machine
 
 DFA table-driven-parse
 
@@ -7,6 +11,4 @@ Regex-epsilon-NFA
 Trie
 
 KMP
-
-
 

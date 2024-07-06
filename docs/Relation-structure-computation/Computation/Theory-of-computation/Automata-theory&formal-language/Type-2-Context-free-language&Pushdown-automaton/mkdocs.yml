@@ -1,4 +1,5 @@
 nav:
     - Introduction: index.md
+    - Dyck-language: Dyck-language
     - Pushdown-automaton: Pushdown-automaton
     
