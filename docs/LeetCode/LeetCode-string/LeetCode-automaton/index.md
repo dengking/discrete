@@ -1,6 +1,6 @@
 # LeetCode-automaton
 
-stack machine
+PDA/stack machine
 
 queue machine
 

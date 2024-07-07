@@ -1,5 +1,5 @@
 nav:
     - Introduction: index.md
-    - Dyck-language: Dyck-language
     - Pushdown-automaton: Pushdown-automaton
+    - Dyck-language&Catalan-number&Narayana-number: Dyck-language&Catalan-number&Narayana-number
     
