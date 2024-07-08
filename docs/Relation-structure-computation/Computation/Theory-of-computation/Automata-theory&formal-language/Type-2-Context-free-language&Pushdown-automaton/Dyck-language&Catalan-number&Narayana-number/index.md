@@ -381,7 +381,13 @@ There are many counting problems in [combinatorics](https://en.wikipedia.org/wik
 >
 > 1. 其实就是matched parentheses , 很多问题都可以转换为Matched parentheses 
 
-$C_n$ is the number of [Dyck words](https://en.wikipedia.org/wiki/Dyck_word)[[3\]](https://en.wikipedia.org/wiki/Catalan_number#cite_note-3) of length $2n$​. A Dyck word is a [string](https://en.wikipedia.org/wiki/String_(computer_science)) consisting of *n* X's and *n* Y's such that no initial segment of the string has more Y's than X's. For example, the following are the Dyck words of length 6:
+$C_n$ is the number of [Dyck words](https://en.wikipedia.org/wiki/Dyck_word)[[3\]](https://en.wikipedia.org/wiki/Catalan_number#cite_note-3) of length $2n$​​​. A Dyck word is a [string](https://en.wikipedia.org/wiki/String_(computer_science)) consisting of *n* X's and *n* Y's such that no initial segment of the string has more Y's than X's. 
+
+> NOTE:
+>
+> 1. 上面这段话中的"no initial segment of the string has more Y's than X's"的含义其实就是"所有前缀中Y出现的次数不能超过X出现的次数"
+
+For example, the following are the Dyck words of length 6:
 
 ![](Catalan-number-Dyck-word-example.png)
 
@@ -451,20 +457,6 @@ A [convex polygon](https://en.wanweibaike.com/wiki-Convex_polygon) with *n* + 2 
 
 
 
-## 计算机算法设计与分析 # 3.1 矩阵连乘问题
-
-> NOTE: 
->
-> 1、是在阅读这篇文章的时候，其中提及了Catalan number，并且结合"矩阵连乘问题"，Catalan number的递归方程是非常容易理解的。
->
-> 
-
-![](Catalan-number-计算机算法设计与分析.jpg)
-
-
-
-
-
 ## 如何理解、分析Catalan [recurrence relations](https://en.wikipedia.org/wiki/Recurrence_relation)？
 
 wikipedia [Catalan number](https://en.wikipedia.org/wiki/Catalan_number) :
@@ -488,6 +480,12 @@ wikipedia [Catalan number](https://en.wikipedia.org/wiki/Catalan_number) :
 1、expression tree、Parenthese-and-tree
 
 2、noncrossing partition
+
+
+
+## Catalan's triangle
+
+### wikipedia [Catalan's triangle](https://en.wikipedia.org/wiki/Catalan%27s_triangle) 
 
 
 

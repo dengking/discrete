@@ -135,3 +135,25 @@ Since we used a single representation of Catalan combinations the next step is t
 - monotonic paths
 - tiling a stair step .
 
+
+
+### Full Binary Trees
+
+> NOTE:
+>
+> 1. 将`P[i]`解释为index
+
+![](Algorithm-3-Creating-a-full-binary-tree-from-Catalan-combination-P.png)
+
+
+
+![](Table 3-Building-full-binary-tree-from-combination11.png)
+
+
+
+### Monotonic Paths on an n × n Grid
+
+The decoding algorithm from a combination into a path is very simple. Every number in a combination describes **step right** and its value **the height of a movement**. The decoding process reads the combination from **the left to the right**. The decoding process for n = 4 and combination11 is shown in Table 4.3. The first step in the decoding process is always to move right (first row in the table). The second move can be move right or move up and right. Because we have a 1 in the second place, we move up and right. In the third step we move just right (because we are already at height 1) and in the last step we move up and right (since we have to reach height 2). At the end of decoding we need to move to the top of the grid by simple up moves (in our case two up moves) (Table 4.3).
+
+![](Table-5-Creating-monotonic-path-from-combination11.png)
+

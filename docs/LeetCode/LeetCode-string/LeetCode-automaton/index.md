@@ -12,3 +12,4 @@ Trie
 
 KMP
 
+Aho-Corasick-automata
