@@ -101,3 +101,96 @@ void TraceBack(int i, int j, int **s){
 ## 素材
 
 geeksforgeeks [Matrix Chain Multiplication | DP-8](https://www.geeksforgeeks.org/matrix-chain-multiplication-dp-8/) 
+
+
+
+## gpt-4o
+
+Matrix Chain Multiplication is a classic optimization problem that can be solved using dynamic programming. The goal is to determine the most efficient way to multiply a given sequence of matrices. The problem is not to perform the multiplications but to decide the order in which to perform the multiplications.
+
+### Problem Statement
+
+Given a sequence of matrices \( A_1, A_2, \ldots, A_n \), where the dimensions of matrix \( A_i \) are \( p_{i-1} \times p_i \), the task is to find the minimum number of scalar multiplications needed to compute the product \( A_1A_2 \ldots A_n \).
+
+### Dynamic Programming Approach
+
+We use a table `m` where `m[i][j]` represents the minimum number of scalar multiplications needed to compute the matrix \( A_i \) to \( A_j \). The table is filled in a bottom-up manner.
+
+### Python Implementation
+
+Here is a Python function to solve the Matrix Chain Multiplication problem using dynamic programming:
+
+```python
+def matrix_chain_order(p):
+    n = len(p) - 1  # Number of matrices
+    m = [[0 for _ in range(n)] for _ in range(n)]
+    s = [[0 for _ in range(n)] for _ in range(n)]
+
+    # m[i][i] = 0 for all i
+    for i in range(n):
+        m[i][i] = 0
+
+    # l is the chain length
+    for l in range(2, n + 1):
+        for i in range(n - l + 1):
+            j = i + l - 1
+            m[i][j] = float('inf')
+            for k in range(i, j):
+                q = m[i][k] + m[k + 1][j] + p[i] * p[k + 1] * p[j + 1]
+                if q < m[i][j]:
+                    m[i][j] = q
+                    s[i][j] = k
+
+    return m, s
+
+def print_optimal_parens(s, i, j):
+    if i == j:
+        print(f"A{i+1}", end="")
+    else:
+        print("(", end="")
+        print_optimal_parens(s, i, s[i][j])
+        print_optimal_parens(s, s[i][j] + 1, j)
+        print(")", end="")
+
+# Example usage
+p = [30, 35, 15, 5, 10, 20, 25]  # Dimensions of matrices
+m, s = matrix_chain_order(p)
+
+print("Minimum number of multiplications is:", m[0][len(p) - 2])
+print("Optimal parenthesization is:", end=" ")
+print_optimal_parens(s, 0, len(p) - 2)
+print()
+```
+
+### Explanation:
+
+1. **Initialization**:
+   - `n = len(p) - 1`: Number of matrices.
+   - `m = [[0 for _ in range(n)] for _ in range(n)]`: Table to store the minimum number of multiplications.
+   - `s = [[0 for _ in range(n)] for _ in range(n)]`: Table to store the split points.
+
+2. **Base Case**:
+   - `m[i][i] = 0`: No cost to multiply one matrix.
+
+3. **Filling the Table**:
+   - `for l in range(2, n + 1)`: Iterate over the chain length.
+   - `for i in range(n - l + 1)`: Iterate over the starting index of the chain.
+   - `j = i + l - 1`: Ending index of the chain.
+   - `m[i][j] = float('inf')`: Initialize the cost to infinity.
+   - `for k in range(i, j)`: Iterate over the possible split points.
+   - `q = m[i][k] + m[k + 1][j] + p[i] * p[k + 1] * p[j + 1]`: Calculate the cost of multiplying the matrices.
+   - `if q < m[i][j]`: Update the minimum cost and the split point.
+
+4. **Printing the Optimal Parenthesization**:
+   - `print_optimal_parens(s, i, j)`: Recursively print the optimal parenthesization.
+
+### Example Output:
+
+For the input dimensions `p = [30, 35, 15, 5, 10, 20, 25]`:
+
+```
+Minimum number of multiplications is: 15125
+Optimal parenthesization is: ((A1(A2A3))((A4A5)A6))
+```
+
+This output
