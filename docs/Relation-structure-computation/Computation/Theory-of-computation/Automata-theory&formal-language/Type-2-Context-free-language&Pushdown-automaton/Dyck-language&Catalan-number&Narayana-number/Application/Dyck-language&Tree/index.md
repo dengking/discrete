@@ -6,7 +6,7 @@ tree是可以使用Dyck-language来表示，反之亦然，匹配的括号表达
 
 - [i-programmer-Parentheses Are Trees](https://www.i-programmer.info/programming/theory/3458-brackets-are-trees.html) 
 
-### Use parenthese to represent tree
+## Use parenthese to represent tree
 
 括号表示的 "contain/nest" 关系，tree中，parent node "contain/nest" children node，因此最外层括号对应的是root node。
 
@@ -97,3 +97,10 @@ stack的入栈与出栈是一对互逆的操作，所以stack非常适合于解�
 
 
 
+## LeetCode
+
+[LeetCode-95. Unique Binary Search Trees II-middle](https://leetcode.cn/problems/unique-binary-search-trees-ii/) 
+
+[LeetCode-96. Unique Binary Search Trees-middle](https://leetcode.cn/problems/unique-binary-search-trees/) 
+
+[LeetCode-536. 从字符串生成二叉树-中等](https://leetcode.cn/problems/construct-binary-tree-from-string/) 

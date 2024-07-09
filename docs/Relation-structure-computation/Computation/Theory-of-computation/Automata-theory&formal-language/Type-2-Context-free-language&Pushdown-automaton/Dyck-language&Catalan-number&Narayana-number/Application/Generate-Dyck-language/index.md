@@ -102,7 +102,7 @@ if __name__ == '__main__':
 
 > NOTE:
 >
-> [LeetCode-【最简单易懂的】动态规划](https://leetcode.cn/problems/generate-parentheses/solutions/9251/zui-jian-dan-yi-dong-de-dong-tai-gui-hua-bu-lun-da/) 
+> 一. [LeetCode-【最简单易懂的】动态规划](https://leetcode.cn/problems/generate-parentheses/solutions/9251/zui-jian-dan-yi-dong-de-dong-tai-gui-hua-bu-lun-da/) 
 >
 > > 考虑 `i=n` 时相比 `n-1` 组括号增加的那一组括号的位置
 >
@@ -116,7 +116,9 @@ if __name__ == '__main__':
 > >
 > > 事实上，当上述 p 从 0 取到 n-1，q 从 n-1 取到 0 后，所有情况就遍历完了。
 >
-> 
+> 二. 乘法原理
+>
+> 内部嵌套的left-right循环实现的是乘法
 
 #### Explanation of the Code:
 
@@ -153,11 +155,11 @@ For \( n = 3 \):
 
 
 
-### [LeetCode-22. Generate Parentheses-middle](https://leetcode.cn/problems/generate-parentheses/)
+## [LeetCode-22. Generate Parentheses-middle](https://leetcode.cn/problems/generate-parentheses/)
 
 
 
-#### DFS+backtrack+path+prunc
+### DFS+backtrack+path+prunc
 
 Python
 
@@ -252,7 +254,7 @@ int main() {
 
 
 
-#### DP
+### DP
 
 ```python
 class Solution:
@@ -269,5 +271,95 @@ class Solution:
                     dp[i].append("(" + left + ")" + right)
 
     return dp[n]
+```
+
+
+
+## LeetCode Unique Binary Search Trees Serial
+
+
+
+### [LeetCode-96. Unique Binary Search Trees-middle](https://leetcode.cn/problems/unique-binary-search-trees/) 
+
+#### DP
+
+
+
+[LeetCode-画手大鹏](https://leetcode.cn/u/guanpengchn/) # [画解算法：96. 不同的二叉搜索树](https://leetcode.cn/problems/unique-binary-search-trees/solutions/6693/hua-jie-suan-fa-96-bu-tong-de-er-cha-sou-suo-shu-b/) 
+
+假设 `n` 个节点存在二叉排序树的个数是 `G (n)`，令 `f(i)` 为以 `i` 为根的二叉搜索树的个数，则
+$$
+G(n) = f(1) + f(2) + f(3) + f(4) + \dots + f(n)  
+$$
+当 `i` 为**根节点**时，其**左子树**节点个数为 `i-1` 个，**右子树**节点为 `n-i`，则
+$$
+f(i) = G(i-1) \times G(n-i)
+$$
+综合两个公式可以得到 [卡特兰数](https://leetcode.cn/link/?target=https%3A%2F%2Fbaike.baidu.com%2Fitem%2F卡特兰数) 公式
+$$
+G(n) = G(0) \times G(n-1) + G(1) \times G(n-2) + \dots + G(n-1) \times G(0)
+$$
+
+
+```python
+class Solution:
+    def numTrees(self, n: int) -> int:
+        dp = [0] * (n + 1) # G (n)
+        dp[0] = 1
+        dp[1] = 1
+        for i in range(2, n + 1):
+            for j in range(1, i + 1):  # 枚举root node
+                dp[i] += dp[j - 1] * dp[i - j]
+        return dp[n]
+
+```
+
+
+
+### [LeetCode-95. Unique Binary Search Trees II-middle](https://leetcode.cn/problems/unique-binary-search-trees-ii/) 
+
+
+
+#### DP
+
+
+
+```python
+from typing import *
+
+
+class TreeNode:
+    """Definition for a binary tree node."""
+
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+
+class Solution:
+    def generateTrees(self, n: int) -> List[Optional[TreeNode]]:
+        # dp[i, j] 表示用 i .. j 构建的二叉搜索树的所有根节点列表
+        # 枚举树根节点k in range(i, j + 1)
+        # dp[i, k - 1] 为所有左子树可能的根节点列表
+        # dp[k + 1, j] 为所有右子树可能的根节点列表
+        dp: List[List[List[Optional[TreeNode]]]] = [[[None] for _ in range(n + 2)] for _ in range(n + 2)]
+        for seq_len in range(1, n + 1):  # length of sequence
+            # i + seq_len <= n + 1 ==> i <= n + 1 - seq_en
+            for i in range(1, n + 2 - seq_len):
+                j = i + seq_len - 1
+                dp[i][j] = []  # 初始化值
+                for root in range(i, j + 1):
+                    for left in dp[i][root - 1]:
+                        for right in dp[root + 1][j]:
+                            dp[i][j].append(TreeNode(root, left, right))
+
+        return dp[1][n]
+
+
+if __name__ == '__main__':
+    solu = Solution()
+    solu.generateTrees(4)
+
 ```
 
