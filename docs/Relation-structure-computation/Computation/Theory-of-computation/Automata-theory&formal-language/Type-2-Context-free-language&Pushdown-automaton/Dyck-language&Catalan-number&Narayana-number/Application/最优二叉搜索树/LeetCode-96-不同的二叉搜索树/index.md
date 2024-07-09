@@ -1,2 +1,0 @@
-# [LeetCode-96. 不同的二叉搜索树](https://leetcode.cn/problems/unique-binary-search-trees/)
-
