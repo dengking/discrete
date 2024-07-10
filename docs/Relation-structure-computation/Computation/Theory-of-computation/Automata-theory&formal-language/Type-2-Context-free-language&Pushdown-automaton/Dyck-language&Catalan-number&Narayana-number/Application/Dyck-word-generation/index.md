@@ -157,15 +157,23 @@ For \( n = 3 \):
 
 ## LeetCode
 
+Type: 单纯的计算数量
+
 [LeetCode-22. Generate Parentheses-middle](https://leetcode.cn/problems/generate-parentheses/) 
 
-由于括号都相同，因此只和长度有关，因此它的dp array是一维的
+由于括号都相同，因此只和subsequence的长度有关，因此它的dp array是一维的
 
 [LeetCode-96. Unique Binary Search Trees-middle](https://leetcode.cn/problems/unique-binary-search-trees/) 
 
-它仅仅计数，数量之和长度有关，因此它的dp array是一维的
+它仅仅计数，数量之和subsequence的长度有关，因此它的dp array是一维的
 
+Type: 枚举所有解
 
+[LeetCode-95. Unique Binary Search Trees II-middle](https://leetcode.cn/problems/unique-binary-search-trees-ii/) 
+
+Type: 计算最优解 
+
+Matrix chain multiplication
 
 ## [LeetCode-22. Generate Parentheses-middle](https://leetcode.cn/problems/generate-parentheses/)
 
@@ -382,6 +390,69 @@ class Solution:
 if __name__ == '__main__':
     solu = Solution()
     solu.generateTrees(4)
+
+```
+
+
+
+## [LeetCode-894. All Possible Full Binary Trees-Medium](https://leetcode.cn/problems/all-possible-full-binary-trees/) 
+
+[力扣官方题解](https://leetcode.cn/u/leetcode-solution/) # [所有可能的真二叉树](https://leetcode.cn/problems/all-possible-full-binary-trees/solutions/2713780/suo-you-ke-neng-de-zhen-er-cha-shu-by-le-1uku/)
+
+### 方法一：分治
+
+**真二叉树**中的每个结点的子结点数是 0 或 2，此时可以推出**真二叉树**中的结点数 *n* 为奇数，可以使用数学归纳法证明：
+
+- 当**真二叉树**中只有 1 个结点时，此时 1 为**奇数**，树中唯一的结点是**根结点**
+- 当**真二叉树**中有 *n* 个结点时，根据**真二叉树**的定义，此时可将其中一个叶结点增加两个子结点之后仍为**真二叉树**，新的**真二叉树**中有 *n*+2 个结点，由于 *n* 是奇数，此时 *n*+2 也是奇数
+
+由于**真二叉树**中的结点数一定是奇数，因此当给定的节点数 *n* 是偶数时，此时无法构成真二叉树，返回空值即可。当**真二叉树**节点数目 *n* 大于 1 时，此时**真二叉树**的左子树与右子树也一定为**真二叉树**，则此时左子树的节点数目与右子树的节点数目也一定为**奇数**。
+
+当 *n* 是奇数时，*n* 个结点的**真二叉树**满足左子树和右子树的结点数都是奇数，此时左子树和右子树的结点数之和是 *n*−1，假设左子树的数目为 *i*，则左子树的节点数目则为 *n*−1−*i*，则可以推出**左子树**与**右子树**的节点数目序列为：
+
+[(1,*n*−2),(3,*n*−4),(5,*n*−6),⋯,(*n*−2,1)]
+
+假设我们分别构节点数目为 *i* 和节点数目为 *n*−1−*i* 的**真二叉树**，即可构造出 *n* 个结点的**真二叉树**。我们可以利用分治来构造**真二叉树**，分治的终止条件是 *n*=1。
+
+
+
+```python
+class Solution:
+    def allPossibleFBT(self, n: int) -> List[Optional[TreeNode]]:
+        full_binary_trees = []
+        if n % 2 == 0:
+            return full_binary_trees
+        if n == 1:
+            full_binary_trees.append(TreeNode(0))
+            return full_binary_trees
+        for i in range(1, n, 2):
+            left_subtrees = self.allPossibleFBT(i)
+            right_subtrees = self.allPossibleFBT(n - 1 - i)
+            for left_subtree in left_subtrees:
+                for right_subtree in right_subtrees:
+                    root = TreeNode(0, left_subtree, right_subtree)
+                    full_binary_trees.append(root)
+        return full_binary_trees
+
+```
+
+### 方法二：动态规划
+
+```python
+class Solution:
+    def allPossibleFBT(self, n: int) -> List[Optional[TreeNode]]:
+        if n % 2 == 0:
+            return []
+    
+        dp = [[] for _ in range(n + 1)]
+        dp[1] = [TreeNode(0)]
+        for i in range(3, n + 1, 2):
+            for j in range(1, i, 2):
+                for leftSubtree in dp[j]:
+                    for rightSubtree in dp[i - 1 - j]:
+                        root = TreeNode(0, leftSubtree, rightSubtree)
+                        dp[i].append(root)
+        return dp[n]
 
 ```
 

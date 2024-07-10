@@ -44,4 +44,3 @@ make the invalid parentheses valid:
 
 [LeetCode-921. Minimum Add to Make Parentheses Valid-Medium](https://leetcode.cn/problems/minimum-add-to-make-parentheses-valid/) 和 [LeetCode-2116. Check if a Parentheses String Can Be Valid-Medium](https://leetcode.cn/problems/check-if-a-parentheses-string-can-be-valid/) 表述相同。
 
-
