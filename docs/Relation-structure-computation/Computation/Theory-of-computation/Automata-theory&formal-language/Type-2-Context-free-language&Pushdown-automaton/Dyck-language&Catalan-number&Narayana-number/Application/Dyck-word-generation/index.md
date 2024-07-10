@@ -691,3 +691,6 @@ class Solution:
 
 ```
 
+### DP
+
+[京城打工人](https://leetcode.cn/u/capital-worker/) # [为运算表达式设计优先级【递归+动态规划】](https://leetcode.cn/problems/different-ways-to-add-parentheses/solutions/1636760/wei-yun-suan-biao-da-shi-she-by-jiang-hu-0pf0/)
