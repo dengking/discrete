@@ -4,7 +4,11 @@
 
 ## Algo: DFS backtrack
 
+gpt-4o Dyck path
 
+> Never falls below the x-axis, meaning that at any point in the path, the number of "down" steps does not exceed the number of "up" steps
+
+利用上述特性来进行剪枝
 
 ## Algo: DP
 
@@ -12,17 +16,9 @@
 
 > 考虑 `i=n` 时相比 `n-1` 组括号增加的那一组括号的位置
 
-draft: given a linear sequence of objects, enumerate the position to split/separate the sequence into two subsequences, 在断开位置的左侧subsequence括上一对括号, 右侧subsequence括上一对括号，从而将它们连接起来
+draft: given a linear sequence of objects, enumerate the position to split/separate the sequence into two subsequences, 在断开位置插入internal operator node将左侧subsequence和右侧subsequence连接起来，最经典的例子就是 [Matrix chain multiplication](https://en.wikipedia.org/wiki/Matrix_chain_multiplication) 。
 
-wikipedia [Matrix chain multiplication](https://en.wikipedia.org/wiki/Matrix_chain_multiplication) example:
-
-```
-(A)(BCD)
-(AB)(CD)
-(ABC)(D)
-```
-
-draft: binary operator、二分: 将sequence一分为二(left、right)
+draft: binary operator、二分: 将sequence一分为二(left、right)，插入binary operator
 
 draft: 乘法原理
 
@@ -111,6 +107,20 @@ if __name__ == '__main__':
 > 二. 乘法原理
 >
 > 内部嵌套的left-right循环实现的是乘法
+>
+> 三. Q: 为什么新增的一组括号需要括住 left或者right，否则错误？ 
+>
+> ```python
+> dp[i].append("(" + left + ")" + right) # OK
+> dp[i].append(left + "(" + right + ")") # OK
+> dp[i].append("(" + left + right + ")") # NOT OK
+> ```
+>
+> A: 本质上是需要枚举所有可能的插入位置，括号是成对出现的，由于括号都相同(相当于高中排列组合颜色相同的小球)，因此只和subsequence的长度有关。
+>
+> "新增的一组括号需要括住 left或者right"的做法，相当于在断开位置将sequence分为left subsequence和right subsequence，然后为left subsequence或者right subsequence括上括号，由于只增加一对括号，因此选择加在left subsequence或者right subsequence都可以。
+>
+> p + q = n-1
 
 #### Explanation of the Code:
 
