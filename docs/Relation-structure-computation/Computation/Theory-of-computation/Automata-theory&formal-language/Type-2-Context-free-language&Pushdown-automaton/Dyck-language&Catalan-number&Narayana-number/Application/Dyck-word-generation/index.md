@@ -6,11 +6,11 @@ wikipedia [Matrix chain multiplication](https://en.wikipedia.org/wiki/Matrix_cha
 
 > The matrix chain multiplication problem generalizes to solving a more abstract problem: given a linear sequence of objects, an **associative binary operation** on those objects, and a way to compute the **cost** of performing that operation on any two given objects (as well as all partial results), compute the minimum cost way to group the objects to apply the operation over the sequence.
 
-draft: 其实就是expression tree
+draft: 其实就是binary expression tree
 
 draft: 括号和binary operator对应
 
-
+draft: 括号和binary expression tree之间的对应关系
 
 ## Algo: DFS backtrack
 
