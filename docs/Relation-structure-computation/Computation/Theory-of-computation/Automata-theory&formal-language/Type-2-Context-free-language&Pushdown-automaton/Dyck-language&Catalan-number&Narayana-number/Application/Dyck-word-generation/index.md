@@ -582,6 +582,7 @@ def matrix_chain_order(p: List[int]):
     # $A_i$ = p[i] * p[i+1]
     # 矩阵是从0开始编号的
     dp: List[List[int]] = [[0 for _ in range(n)] for _ in range(n)]
+    # solution[i][j]记录的是在哪里断开并且插入一个operator，它相当于构建了一个internal node
     solution: List[List[int]] = [[0 for _ in range(n)] for _ in range(n)]
 
     # m[i][i] = 0 for all i
@@ -610,13 +611,15 @@ def matrix_chain_order(p: List[int]):
     return dp, solution
 
 
-def print_optimal_parens(s: List[List[int]], i: int, j: int):
+def print_optimal_parens(solution: List[List[int]], i: int, j: int):
+    """single matrix不加括号，否则插入operator并且用括号将它给括起来"""
     if i == j:
         print(f"A{i + 1}", end="")
     else:
         print("(", end="")
-        print_optimal_parens(s, i, s[i][j])
-        print_optimal_parens(s, s[i][j] + 1, j)
+        print_optimal_parens(solution, i, solution[i][j])
+        print("*", end="")
+        print_optimal_parens(solution, solution[i][j] + 1, j)
         print(")", end="")
 
 
@@ -672,7 +675,7 @@ if __name__ == '__main__':
 > $$
 > A[1,3]=35 \times 10
 > $$
-> 
+>
 >
 > | `A[i][j]`        | 0,3  | $dp[0][3]$                                 |
 > | ---------------- | ---- | ------------------------------------------ |
@@ -681,16 +684,15 @@ if __name__ == '__main__':
 > | `dp[i][j]`       | k=2  | $A[0,2]*(A[3,3])=7875 + 1500=9375$         |
 > | `solution[i][j]` |      | 2                                          |
 >
+> ```
 > Minimum number of multiplications is: 9375
-> Optimal parenthesization is: ((A1(A2A3))A4)
+> Optimal parenthesization is: ((A1*(A2*A3))*A4)
+> ```
 >
-> k=2,k=0
+> k=2,k=0,k=1
 >
-> single matrix不加括号
+> 
 >
-> 一个括号对应的是一个internal node，相对于operator
->
-> `solution[i][j]`记录的是在哪里断开并且插入一个operator，它相当于构建了一个internal node
 
 #### Explanation:
 
