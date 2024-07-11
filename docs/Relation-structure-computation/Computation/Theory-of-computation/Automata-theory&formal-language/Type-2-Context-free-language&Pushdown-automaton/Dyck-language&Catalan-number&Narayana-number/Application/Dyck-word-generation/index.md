@@ -1,16 +1,6 @@
-# Generate-Dyck-language
+# Dyck word generation
 
-生成Dyck language，等价于加括号，很多问题都可以转换为生成Dyck language:
-
-wikipedia [Matrix chain multiplication](https://en.wikipedia.org/wiki/Matrix_chain_multiplication) # [Generalizations](https://en.wikipedia.org/wiki/Matrix_chain_multiplication#Generalizations)
-
-> The matrix chain multiplication problem generalizes to solving a more abstract problem: given a linear sequence of objects, an **associative binary operation** on those objects, and a way to compute the **cost** of performing that operation on any two given objects (as well as all partial results), compute the minimum cost way to group the objects to apply the operation over the sequence.
-
-draft: 其实就是binary expression tree
-
-draft: 括号和binary operator对应
-
-draft: 括号和binary expression tree之间的对应关系
+生成Dyck word，等价于生成binary tree(比如binary expression tree)、binary operator加括号(典型例子就是Matrix Chain Multiplication)，很多问题都可以转换为生成Dyck word。
 
 ## Algo: DFS backtrack
 
@@ -462,16 +452,26 @@ class Solution:
 
 
 
-## Matrix Chain Multiplication/矩阵连乘的最优计算次序问题
+## Matrix Chain Multiplication & Binary expression tree
 
 素材
 
 - geeksforgeeks [Matrix Chain Multiplication | DP-8](https://www.geeksforgeeks.org/matrix-chain-multiplication-dp-8/) 
 - wikipedia [Matrix chain multiplication](https://en.wikipedia.org/wiki/Matrix_chain_multiplication) 
 
+矩阵连乘的最优计算次序问题
+
+### Generalizations
+
+wikipedia [Matrix chain multiplication](https://en.wikipedia.org/wiki/Matrix_chain_multiplication) # [Generalizations](https://en.wikipedia.org/wiki/Matrix_chain_multiplication#Generalizations)
+
+> The matrix chain multiplication problem generalizes to solving a more abstract problem: given a linear sequence of objects, an **associative binary operation** on those objects, and a way to compute the **cost** of performing that operation on any two given objects (as well as all partial results), compute the minimum cost way to group the objects to apply the operation over the sequence.
+
+插入的 **associative binary operation** 相对于是一个**internal operator node**，它将left subsequence(tree)、right subsequence(tree)连接起来，这其实就是binary expression tree
+
 ### 问题描述
 
-**矩阵连乘的最优次序问题**解决的是多个矩阵连乘次数的问题，可以将这些矩阵看做是一个**矩阵链**；对它进行递归就可以将原长的矩阵链切割为两个**子链**，然后将两个**子链**相乘；不同的切割方案导致**子链**的长度问题，不同长度的子链它们的乘法次数也是不同的；可以根据它得到更长的**矩阵链**的乘法次数；
+**矩阵连乘的最优次序问题**解决的是多个矩阵连乘次数的问题，可以将这些矩阵看做是一个**矩阵链**；对它进行递归就可以将原长的矩阵链切割为两个**子链**，然后将两个**子链**相乘(等价于插入一个乘号、internal operator node将left subsequence(tree)和right subsequence(tree)连接起来)；不同的切割方案导致**子链**的长度问题，不同长度的子链它们的乘法次数也是不同的；可以根据它得到更长的**矩阵链**的乘法次数；
 
 ### step1分析最优解的结构
 
@@ -496,7 +496,10 @@ $$
 
 $m[i][j]$给出了最优解，同时还确定了$A[i:j]$的最优次序中的断开位置$k$，若将对应于$m[i][j]$的断开位置$k$记为$s[i][j]$，在计算出最优值$m[i][j]$后，可递归地由$s[i][j]$构造出相应的最优解。
 
-> NOTE: $i=j$是递归关系中的base case，是递归的终止条件；
+> NOTE: 
+>
+> 1. $i=j$​是递归关系中的base case，是递归的终止条件；
+> 2. 在断开位置k后面插入一个operator
 
 在矩阵连乘问题中，如何来定义和保存子问题的解呢？使用二维表来保存的是不同长度的矩阵链的乘法次数，二维表的第一维是矩阵链的起始位置，第二维是矩阵链的终止位置；
 
@@ -551,10 +554,6 @@ void TraceBack(int i, int j, int **s){
 }
 ```
 
-> NOTE: 
->
-> 1、二叉树的深度优先搜索
-
 
 
 ### gpt-4o
@@ -579,6 +578,9 @@ from typing import *
 
 def matrix_chain_order(p: List[int]):
     n = len(p) - 1  # Number of matrices
+    # dp[i][j] = minimum number of scalar multiplications needed to compute the matrix $A_i$  to $A_j$
+    # $A_i$ = p[i] * p[i+1]
+    # 矩阵是从0开始编号的
     dp: List[List[int]] = [[0 for _ in range(n)] for _ in range(n)]
     solution: List[List[int]] = [[0 for _ in range(n)] for _ in range(n)]
 
@@ -588,10 +590,18 @@ def matrix_chain_order(p: List[int]):
 
     # l is the chain length
     for l in range(2, n + 1):
+        #
+        # 下面计算dp[i][j]的值
+        # chain length是l，那i的取值范围是什么呢?
+        # 显然起始值肯定是2，那终止值呢？
+        # 设终止值是x，最后一个矩阵的下标: n - 1, 则 l = n - 1 - x + 1 => x = n - l
+        # 所以x的终止值是n - l
         for i in range(n - l + 1):
             j = i + l - 1
             dp[i][j] = float('inf')
             for k in range(i, j):
+                # 矩阵[i,   k] = p[i  ] * p[k + 1]
+                # 矩阵[k+1, j] = p[i+1] * p[j + 1]
                 q = dp[i][k] + dp[k + 1][j] + p[i] * p[k + 1] * p[j + 1]
                 if q < dp[i][j]:
                     dp[i][j] = q
@@ -600,7 +610,7 @@ def matrix_chain_order(p: List[int]):
     return dp, solution
 
 
-def print_optimal_parens(s, i, j):
+def print_optimal_parens(s: List[List[int]], i: int, j: int):
     if i == j:
         print(f"A{i + 1}", end="")
     else:
