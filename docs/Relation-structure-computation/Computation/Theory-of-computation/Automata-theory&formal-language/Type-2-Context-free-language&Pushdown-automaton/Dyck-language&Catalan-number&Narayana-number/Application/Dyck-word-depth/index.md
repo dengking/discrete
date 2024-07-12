@@ -2,7 +2,7 @@
 
 
 
-## geeksforgeeks [Find maximum depth of nested parenthesis in a string](https://www.geeksforgeeks.org/find-maximum-depth-nested-parenthesis-string/)
+## geeksforgeeks [Find maximum depth of nested parenthesis in a string](https://www.geeksforgeeks.org/find-maximum-depth-nested-parenthesis-string/) 
 
 
 
@@ -173,4 +173,20 @@ public:
 
 
 ## [LeetCode-1614. 括号的最大嵌套深度](https://leetcode.cn/problems/maximum-nesting-depth-of-the-parentheses/)
+
+仿照 geeksforgeeks [Find maximum depth of nested parenthesis in a string](https://www.geeksforgeeks.org/find-maximum-depth-nested-parenthesis-string/) 写的
+
+```python
+class Solution:
+    def maxDepth(self, s: str) -> int:
+        depth, max_depth = 0, 0
+        for c in s:
+            if c == '(':
+                depth += 1
+                max_depth = max(max_depth, depth)
+            elif c == ')' and depth:
+                depth -= 1
+        return max_depth
+
+```
 
