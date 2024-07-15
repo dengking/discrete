@@ -129,8 +129,7 @@ class Solution:
    $$
    dp[i]=dp[i−2]+2
    $$
-    
-
+   
 2. $s[i]=)$ 且 $s[i−1]=)$，也就是字符串形如 “……))”，我们可以推出：如果 $s[i−dp[i−1]−1]=($，那么 
    $$
    dp[i]=dp[i−1]+dp[i−dp[i−1]−2]+2
@@ -168,11 +167,19 @@ public:
 
 
 
-## [LeetCode-1111. 有效括号的嵌套深度](https://leetcode.cn/problems/maximum-nesting-depth-of-two-valid-parentheses-strings/)
+## [LeetCode-1111. 有效括号的嵌套深度](https://leetcode.cn/problems/maximum-nesting-depth-of-two-valid-parentheses-strings/) 
 
+```
+((()))=>()(())
+```
 
+将 `(A)` 型转换为 `AB` 型
 
-## [LeetCode-1614. 括号的最大嵌套深度](https://leetcode.cn/problems/maximum-nesting-depth-of-the-parentheses/)
+`(A)` 型特征: 至少连续两个 `((` 
+
+ 
+
+## [LeetCode-1614. 括号的最大嵌套深度](https://leetcode.cn/problems/maximum-nesting-depth-of-the-parentheses/) 
 
 仿照 geeksforgeeks [Find maximum depth of nested parenthesis in a string](https://www.geeksforgeeks.org/find-maximum-depth-nested-parenthesis-string/) 写的
 
