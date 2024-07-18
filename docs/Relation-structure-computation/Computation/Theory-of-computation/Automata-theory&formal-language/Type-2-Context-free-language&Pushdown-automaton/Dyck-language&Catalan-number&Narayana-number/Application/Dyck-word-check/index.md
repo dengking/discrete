@@ -77,3 +77,90 @@ public:
 
 ```
 
+
+
+## Make balance
+
+### [LeetCode-921. 使括号有效的最少添加-中等](https://leetcode.cn/problems/minimum-add-to-make-parentheses-valid/)
+
+
+
+#### PDA
+
+能够匹配，则消除，不能够匹配则留下来，最终剩下的个数就是不匹配 ，显然它们是需要通过添加来使之平衡的。该算法是借助栈实现的
+
+```c++
+// #include <bits/stdc++.h>
+#include <string>
+#include <stack>
+using namespace std;
+
+class Solution
+{
+public:
+    int minAddToMakeValid(string s)
+    {
+        stack<char> sk;
+        for (auto &&c : s)
+        {
+            if (c == '(')
+            {
+                sk.push(c);
+            }
+            else
+            {
+                if (sk.empty())
+                {
+                    sk.push(c);
+                }
+                else if (sk.top() == '(')
+                {
+                    sk.pop();
+                }
+                else
+                {
+                    sk.push(c);
+                }
+            }
+        }
+        return sk.size();
+    }
+};
+
+int main()
+{
+    Solution s;
+}
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -g
+
+```
+
+#### 隐式PDA
+
+[可以先用栈模拟的思路想，然后发现并不需要这个栈](https://leetcode.cn/problems/minimum-add-to-make-parentheses-valid/solutions/1/ke-yi-xian-yong-zhan-mo-ni-de-si-lu-xian-1pmj/) 
+
+[官方解题](https://leetcode.cn/problems/minimum-add-to-make-parentheses-valid/solutions/1855025/shi-gua-hao-you-xiao-de-zui-shao-tian-ji-gcxu/) 
+
+[labuladong-手把手解决三道括号相关的算法题](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247487246&idx=1&sn=4a514020ce9dc8777e2d1d503188b62b&scene=21#wechat_redirect) 
+
+
+
+```python
+class Solution:
+    def minAddToMakeValid(self, s: str) -> int:
+        need_left_cnt = 0  # 需要的左括号的次数
+        need_right_cnt = 0  # 需要的右括号的次数
+        for c in s:
+            if c == '(':
+                need_right_cnt += 1
+            if c == ')':
+                need_right_cnt -= 1
+                if need_right_cnt == -1:
+                    need_left_cnt += 1
+                    need_right_cnt = 0
+        return need_left_cnt + need_right_cnt
+
+```
+
+
+
