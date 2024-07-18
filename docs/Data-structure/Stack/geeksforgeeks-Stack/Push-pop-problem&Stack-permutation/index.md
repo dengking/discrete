@@ -1,10 +1,17 @@
 # 前言
 
-1、最近在catalan数的相关问题，发现这个问题经常作为一个例子出现，所以有必要对它好好地进行分析；
+最近在catalan数的相关问题，发现这个问题经常作为一个例子出现，所以有必要对它好好地进行分析；
 
-2、使用parenthesis来进行分析:
+使用parenthesis来进行分析: 入栈对应的是正括号，出栈对应的是反括号
 
-入栈对应的是正括号，出栈对应的是反括号。
+下面文章所讨论的是同一个问题:
+
+1. geeksforgeeks [Stack Permutations (Check if an array is stack permutation of other)](https://www.geeksforgeeks.org/stack-permutations-check-if-an-array-is-stack-permutation-of-other/) 
+2. geeksforgeeks [Check if the given push and pop sequences of Stack is valid or not](https://www.geeksforgeeks.org/check-if-the-given-push-and-pop-sequences-of-stack-is-valid-or-not/) 
+
+计数: 
+
+入栈为开括号、出栈为闭括号，对于stack而言，它必须要括号匹配，因此，所有可能的入栈、出栈就是Catalan number。
 
 
 
@@ -107,12 +114,55 @@ print(validateStackSequence(pushed, popped))
 
 
 
+## [LeetCode-946. 验证栈序列](https://leetcode.cn/problems/validate-stack-sequences/) 
+
+[LeetCode-剑指 Offer 31. 栈的压入、弹出序列](https://leetcode.cn/problems/zhan-de-ya-ru-dan-chu-xu-lie-lcof/)
+
+
+
+### C++
+
+是参考 geeksforgeeks [Check if the given push and pop sequences of Stack is valid or not](https://www.geeksforgeeks.org/check-if-the-given-push-and-pop-sequences-of-stack-is-valid-or-not/) 中给出的算法写出的。
+
+```C++
+#include <bits/stdc++.h>
+using namespace std;
+
+class Solution
+{
+public:
+	bool validateStackSequences(vector<int> &pushed, vector<int> &popped)
+	{
+		int len = pushed.size();
+		stack<int> st;
+		int popped_index = 0;
+		for (int i = 0; i < len; ++i)
+		{
+			st.push(pushed[i]);
+			while (!st.empty() && st.top() == popped[popped_index])
+			{
+				st.pop();
+				++popped_index;
+			}
+		}
+		return popped_index == len;
+	}
+};
+
+// Driver code
+int main()
+{
+
+	return 0;
+}
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -g
+
+
+```
+
 
 
 ## csdn [出栈入栈顺序规律](https://blog.csdn.net/qq_1932568757/article/details/82752325)
 
 
 
-## 计数
-
-入栈为开括号、出栈为闭括号，对于stack而言，它必须要括号匹配，因此，所有可能的入栈、出栈就是Catalan number。

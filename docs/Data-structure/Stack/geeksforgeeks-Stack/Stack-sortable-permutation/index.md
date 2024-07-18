@@ -1,10 +1,12 @@
 # Stack-sortable permutation
 
-一、由于栈的操作只有`push`、`pop`、`top`，无法进行swap，因此对于栈排序的核心是: 
+stack-sortable permutation的含义是: 给定一个permutation，它可以通过stack来对它进行排序。
 
-1、坚持"monotonic order"，即让当前stack中的element保持"monotonic"，一旦，待`push`的element和`top`之间不满足"monotonic order"，那么就需要将当前stack全部"pop and append" 到array中。因此，栈排序是可能需要分多次"pop and append" 的。
+一. 由于栈的操作只有`push`、`pop`、`top`，无法进行swap，因此对于栈排序的核心是: 
 
-2、对于一个排好序的stack，"pop and append" 到一个array中，这个array是能够保持和stack相同的顺序的，这个过程好比是将一个叠有盘子的竖直柱子(stack)的横过来(array)。
+1. 坚持"monotonic order"，即让当前stack中的element保持"monotonic"，一旦，待`push`的element和`top`之间不满足"monotonic order"，那么就需要将当前stack全部"pop and append" 到array中。因此，栈排序是可能需要分多次"pop and append" 的。
+
+2. 对于一个排好序的stack，"pop and append" 到一个array中，这个array是能够保持和stack相同的顺序的，这个过程好比是将一个叠有盘子的竖直柱子(stack)的横过来(array)。
 
 
 
@@ -22,27 +24,26 @@ In [mathematics](https://en.wikipedia.org/wiki/Mathematics) and [computer scienc
 
 > NOTE: 
 >
-> 1、这个algorithm是有缺陷的，它无法处理 "2,3,1 pattern"，因此在实际application中，是无法直接使用这个algorithm的。
+> 1. 这个algorithm是有缺陷的，它无法处理 "2,3,1 pattern"，因此在实际application中，是无法直接使用这个algorithm的。
 
 The problem of sorting an input sequence using a stack was first posed by [Knuth (1968)](https://en.wikipedia.org/wiki/Stack-sortable_permutation#CITEREFKnuth1968), who gave the following [linear time](https://en.wikipedia.org/wiki/Linear_time) algorithm (closely related to algorithms for the later [all nearest smaller values](https://en.wikipedia.org/wiki/All_nearest_smaller_values) problem): 
 
-1、Initialize an empty stack
+1. Initialize an empty stack
 
-2、For each input value x:
+2. For each input value x:
 
-​    2.1、While the stack is nonempty and *x* is larger than the top item on the stack, pop the stack to the output
+   1. While the stack is nonempty and *x* is larger than the top item on the stack, pop the stack to the output
 
-> NOTE: 
->
-> 栈顶到栈底是升序的，显然这个algorithm的输出是一个ascending array。
-
-​    2.2、Push *x* onto the stack
-
-> NOTE: 
->
-> 栈中的元素，自栈顶开始是升序的
-
-3、While the stack is nonempty, pop it to the output
+      > NOTE: 
+      >
+      > 栈顶到栈底是升序的，显然这个algorithm的输出是一个ascending array。
+      >
+   2. Push *x* onto the stack
+      > NOTE: 
+      >
+      > 栈中的元素，自栈顶开始是升序的
+   
+3. While the stack is nonempty, pop it to the output
 
 #### 2,3,1 pattern
 
@@ -52,7 +53,6 @@ Knuth observed that this algorithm correctly sorts some input sequences, and fai
 >
 > 1、思考: 如何设计算法能够实现快速地判断？后面给出了判定算法
 >
-> 
 
 
 
@@ -65,6 +65,102 @@ Because this algorithm is a [comparison sort](https://en.wanweibaike.com/wiki-Co
 > NOTE: 
 >
 > 1、没有读懂
+
+The sequence of pushes and pops performed by Knuth's sorting algorithm as it sorts a stack-sortable permutation form a [Dyck language](https://en.wikipedia.org/wiki/Dyck_language): reinterpreting a **push** as a **left parenthesis** and a **pop** as a **right parenthesis** produces a string of balanced parentheses. Moreover, every Dyck string comes from a stack-sortable permutation in this way, and every two different stack-sortable permutations produce different Dyck strings. For this reason, the number of stack-sortable permutations of length *n* is the same as the number of Dyck strings of length 2*n*, the [Catalan number](https://en.wikipedia.org/wiki/Catalan_number) 
+
+> NOTE:
+>
+> gpt-4-vision: 
+>
+> A Dyck path is a staircase walk from `(0, 0)` to `(2n, 0)` that lies strictly above (or on) the x-axis and consists of steps that are either up `(1, 1)` or down `(1, -1)`. A Dyck path must always return to the x-axis and never go below it.
+>
+> The bijection between stack-sortable permutations and Dyck paths is established by interpreting the stack-sorting process as a sequence of up and down steps that form a Dyck path. Here's how the bijection works:
+>
+> 1. Start with an empty Dyck path and an empty stack.
+> 2. Read the permutation from left to right.
+> 3. For each element `x` in the permutation:
+>    - Add an up step `(1, 1)` to the Dyck path for each element pushed onto the stack.
+>    - Add a down step `(1, -1)` to the Dyck path for each element popped from the stack and added to the output sequence.
+> 4. After processing all elements of the permutation, the stack should be empty, and the resulting path should be a valid Dyck path.
+>
+> The key observation is that each time an element is pushed onto the stack, it corresponds to an up step, and each time an element is popped from the stack, it corresponds to a down step. Since the stack never goes below zero (which would correspond to the path going below the x-axis), the resulting path is a Dyck path.
+>
+> Here's an example to illustrate the bijection:
+>
+> Consider the stack-sortable permutation `[3, 2, 1, 4]`. The corresponding Dyck path is constructed as follows:
+>
+> - Push 3 onto the stack: Up step (U)
+> - Push 2 onto the stack: Up step (U)
+> - Push 1 onto the stack: Up step (U)
+> - Pop 1 from the stack: Down step (D)
+> - Pop 2 from the stack: Down step (D)
+> - Pop 3 from the stack: Down step (D)
+> - Push 4 onto the stack: Up step (U)
+> - Pop 4 from the stack: Down step (D)
+>
+> The resulting Dyck path is `UUUDDDUD`, which is a valid Dyck path.
+>
+> Conversely, given a Dyck path, you can construct a stack-sortable permutation by interpreting up steps as pushes onto the stack and down steps as pops from the stack, assigning the next available integer in increasing order to each pop operation.
+>
+> This bijection shows that the number of stack-sortable permutations of length `n` is equal to the `n`-th Catalan number, which also counts the number of Dyck paths of semi-length `n`.
+
+
+
+
+
+Stack-sortable permutations may also be translated directly to and from (unlabeled) [binary trees](https://en.wikipedia.org/wiki/Binary_tree), another [combinatorial class](https://en.wikipedia.org/wiki/Combinatorial_class) whose [counting function](https://en.wikipedia.org/wiki/Enumerative_combinatorics) is the sequence of Catalan numbers. A binary tree may be transformed into a stack-sortable permutation by numbering its nodes in [left-to-right order](https://en.wikipedia.org/wiki/Inorder), and then listing these numbers in the order they would be visited by a [preorder traversal](https://en.wikipedia.org/wiki/Preorder) of the tree: the root first, then the left subtree, then the right subtree, continuing [recursively](https://en.wikipedia.org/wiki/Recursion) within each subtree. In the reverse direction, a stack-sortable permutation may be decoded into a tree in which the first value *x* of the permutation corresponds to the root of the tree, the next *x* − 1 values are decoded recursively to give the left child of the root, and the remaining values are again decoded recursively to give the right child.
+
+> NOTE:
+>
+> gpt-4-vision: 
+>
+> The bijection between stack-sortable permutations and binary trees is also related to the concept of Catalan numbers, which count various combinatorial structures, including binary trees and stack-sortable permutations.
+>
+> Here's how the bijection works:
+>
+> 1. **From Stack-sortable Permutation to Binary Tree:**
+>    - Start with an empty binary tree.
+>    - Read the permutation from left to right.
+>    - For each element `x` in the permutation, insert it into the binary tree as follows:
+>      - If the tree is empty, `x` becomes the root.
+>      - If `x` is smaller than the current node, go to the left child; if there is no left child, insert `x` here.
+>      - If `x` is greater than the current node, go to the right child; if there is no right child, insert `x` here.
+>
+>    The resulting binary tree will have the property that an in-order traversal of the tree will yield the original stack-sortable permutation.
+>
+> 2. **From Binary Tree to Stack-sortable Permutation:**
+>    - Perform an in-order traversal of the binary tree (visit left subtree, root, then right subtree).
+>    - Record the nodes as they are visited during the traversal.
+>    - The recorded sequence of nodes will be a stack-sortable permutation.
+>
+> The reason this bijection holds is that the stack-sorting process essentially builds a binary search tree. When you push elements onto the stack, you're effectively building the left subtree, and when you pop elements from the stack, you're visiting the root and then building the right subtree.
+>
+> Here's an example to illustrate the bijection:
+>
+> Consider the stack-sortable permutation `[3, 2, 1, 4]`. The corresponding binary tree is constructed as follows:
+>
+> - Insert 3: It becomes the root.
+> - Insert 2: It is smaller than 3, so it becomes the left child of 3.
+> - Insert 1: It is smaller than 3 and 2, so it becomes the left child of 2.
+> - Insert 4: It is greater than 3, so it becomes the right child of 3.
+>
+> The resulting binary tree is:
+>
+> ```
+>     3
+>    / \
+>   2   4
+>  /
+> 1
+> ```
+>
+> An in-order traversal of this tree yields the original permutation `[3, 2, 1, 4]`.
+>
+> Conversely, given a binary tree, performing an in-order traversal will give you a stack-sortable permutation, as the elements will be visited in the order they would be popped from the stack during the sorting process.
+>
+> This bijection shows that the number of stack-sortable permutations of length `n` is equal to the number of binary trees with `n` nodes, which is the `n`-th Catalan number.
+
+
 
 ## 判断算法
 
