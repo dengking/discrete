@@ -38,8 +38,6 @@ The conversion can be done via the intermediate form of a sequence of numbers $d
 
 
 
-
-
 ### Lehmer code
 
 
@@ -155,7 +153,7 @@ csdn [全排列及相关扩展算法（三）——利用中介数求排列在�
 
 在下面文章中，描述了这种算法:
 
-1、[LeetCode-47. 全排列 II](https://leetcode.cn/problems/permutations-ii/) 中等
+1、[LeetCode-47. 全排列 II-中等](https://leetcode.cn/problems/permutations-ii/) 
 
 ```C++
 #include <bits/stdc++.h>
@@ -497,5 +495,4 @@ void SJT(int *a, int n)
 
 
 ### wikipedia [Steinhaus–Johnson–Trotter algorithm](https://en.wikipedia.org/wiki/Steinhaus%E2%80%93Johnson%E2%80%93Trotter_algorithm)
-
 
