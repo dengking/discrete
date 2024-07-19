@@ -1,9 +1,6 @@
 nav:
     - Introduction: index.md
-    - wikipedia-Stack(abstract-data-type): wikipedia-Stack(abstract-data-type)
     - geeksforgeeks-Stack: geeksforgeeks-Stack
     - Monotonic-stack: Monotonic-stack # 单调栈
-    - Reverse-by-stack: Reverse-by-stack # 使用栈来进行反转    
     - Stack-machine: Stack-machine
-    - Application: Application
     
