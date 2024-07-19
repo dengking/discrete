@@ -30,23 +30,16 @@
 
 monotonic stack其实可以看做是一种算法模式，下面是基于它的algorithm:
 
-一、shunting yard algorithm
+| algorithm                                                    |                                                              |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| shunting yard algorithm                                      |                                                              |
+| precedence climbing algorithm                                |                                                              |
+| [Graham scan](https://en.wikipedia.org/wiki/Graham_scan) convex hull | wikipedia [Stack (abstract data type)](https://en.wikipedia.org/wiki/Stack_(abstract_data_type)) : [Graham scan](https://en.wikipedia.org/wiki/Graham_scan), an algorithm for the [convex hull](https://en.wikipedia.org/wiki/Convex_hull) of a two-dimensional system of points. A convex hull of a subset of the input is maintained in a stack, which is used to find and remove concavities(凹陷) in the boundary when a new point is added to the hull. |
+| Monotone chain                                               | wikibook [Algorithm Implementation/Geometry/Convex hull/Monotone chain](https://en.wikibooks.org/wiki/Algorithm_Implementation/Geometry/Convex_hull/Monotone_chain) |
+| [All nearest smaller values](https://en.wikipedia.org/wiki/All_nearest_smaller_values) |                                                              |
+| stack- sortable permutation                                  |                                                              |
 
-二、precedence climbing algorithm
 
-三、convex hull
-
-1、[Graham scan](https://en.wikipedia.org/wiki/Graham_scan)
-
-wikipedia [Stack (abstract data type)](https://en.wikipedia.org/wiki/Stack_(abstract_data_type)) 
-
-> [Graham scan](https://en.wikipedia.org/wiki/Graham_scan), an algorithm for the [convex hull](https://en.wikipedia.org/wiki/Convex_hull) of a two-dimensional system of points. A convex hull of a subset of the input is maintained in a stack, which is used to find and remove concavities(凹陷) in the boundary when a new point is added to the hull.
-
-2、Monotone chain
-
-wikibook [Algorithm Implementation/Geometry/Convex hull/Monotone chain](https://en.wikibooks.org/wiki/Algorithm_Implementation/Geometry/Convex_hull/Monotone_chain)
-
-四、[All nearest smaller values](https://en.wikipedia.org/wiki/All_nearest_smaller_values) 
 
 
 
@@ -63,9 +56,9 @@ wikibook [Algorithm Implementation/Geometry/Convex hull/Monotone chain](https://
 
 ## 素材
 
-一、[Expert-labuladong 单调栈解题模板秒杀三道算法题](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247487704&idx=1&sn=eb9ac24c644aa0950638c9b20384e982&scene=21#wechat_redirect) 
+1. [Expert-labuladong 单调栈解题模板秒杀三道算法题](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247487704&idx=1&sn=eb9ac24c644aa0950638c9b20384e982&scene=21#wechat_redirect) 
 
-二、gitbook [Expert-liuzhenglaichn **Monotonic Stack**](https://liuzhenglaichn.gitbook.io/algorithm/monotonic-stack)
+2. gitbook [Expert-liuzhenglaichn **Monotonic Stack**](https://liuzhenglaichn.gitbook.io/algorithm/monotonic-stack)
 
 
 
