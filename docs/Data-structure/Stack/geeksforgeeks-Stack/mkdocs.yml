@@ -1,8 +1,0 @@
-nav:
-    - Introduction: index.md
-    - Design&&Impl: Design&&Impl
-    - Stack&queue: Stack&queue
-    - Sort-stack: Sort-stack # 对栈进行排序
-    - Reverse-stack: Reverse-stack
-
-    

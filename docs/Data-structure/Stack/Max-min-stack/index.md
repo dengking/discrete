@@ -10,9 +10,9 @@
 
 参考:
 
-1、geeksforgeeks [Design and Implement Special Stack Data Structure | Added Space Optimized Version](https://www.geeksforgeeks.org/design-and-implement-special-stack-data-structure/)
+1. geeksforgeeks [Design and Implement Special Stack Data Structure | Added Space Optimized Version](https://www.geeksforgeeks.org/design-and-implement-special-stack-data-structure/)
 
-2、[LeetCode-155. 最小栈](https://leetcode.cn/problems/min-stack/) 简单
+2. [LeetCode-155. 最小栈-简单](https://leetcode.cn/problems/min-stack/) 
 
 ### 巧妙的函数映射
 
@@ -20,9 +20,9 @@
 
 参考文章:
 
-1、geeksforgeeks [Design a stack that supports getMin() in O(1) time and O(1) extra space](https://www.geeksforgeeks.org/design-a-stack-that-supports-getmin-in-o1-time-and-o1-extra-space/)
+1. geeksforgeeks [Design a stack that supports getMin() in O(1) time and O(1) extra space](https://www.geeksforgeeks.org/design-a-stack-that-supports-getmin-in-o1-time-and-o1-extra-space/)
 
-2、geeksforgeeks [Find maximum in a stack in O(1) time and O(1) extra space](https://www.geeksforgeeks.org/find-maximum-in-a-stack-in-o1-time-and-o1-extra-space/)
+2. geeksforgeeks [Find maximum in a stack in O(1) time and O(1) extra space](https://www.geeksforgeeks.org/find-maximum-in-a-stack-in-o1-time-and-o1-extra-space/)
 
 ## geeksforgeeks [Design a stack that supports getMin() in O(1) time and O(1) extra space](https://www.geeksforgeeks.org/design-a-stack-that-supports-getmin-in-o1-time-and-o1-extra-space/)
 

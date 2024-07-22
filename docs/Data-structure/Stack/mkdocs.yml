@@ -4,3 +4,7 @@ nav:
     - Monotonic-stack: Monotonic-stack # 单调栈
     - Stack-machine: Stack-machine
     - Stack-permutation: Stack-permutation
+    - Max-min-stack: Max-min-stack
+    - Stack&queue: Stack&queue
+    - Sort-stack: Sort-stack # 对栈进行排序
+    - Reverse-stack: Reverse-stack
