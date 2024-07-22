@@ -238,7 +238,7 @@ class Solution:
                 ans.append(track[:])
             else:
                 for num in nums:
-                    if num in visited:
+                    if num in visited: # 剪枝
                         continue
                     visited.add(num)
                     track[left] = num
