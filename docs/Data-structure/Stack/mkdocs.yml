@@ -3,4 +3,4 @@ nav:
     - geeksforgeeks-Stack: geeksforgeeks-Stack
     - Monotonic-stack: Monotonic-stack # 单调栈
     - Stack-machine: Stack-machine
-    
+    - Stack-permutation: Stack-permutation

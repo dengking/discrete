@@ -3,8 +3,6 @@ nav:
     - Design&&Impl: Design&&Impl
     - Stack&queue: Stack&queue
     - Sort-stack: Sort-stack # 对栈进行排序
-    - Push-pop-problem&Stack-permutation: Push-pop-problem&Stack-permutation
     - Reverse-stack: Reverse-stack
-    - Stack-sortable-permutation: Stack-sortable-permutation
-    
+
     

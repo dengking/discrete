@@ -79,15 +79,15 @@ The sequence of pushes and pops performed by Knuth's sorting algorithm as it sor
 > 1. Start with an empty Dyck path and an empty stack.
 > 2. Read the permutation from left to right.
 > 3. For each element `x` in the permutation:
->    - Add an up step `(1, 1)` to the Dyck path for each element pushed onto the stack.
->    - Add a down step `(1, -1)` to the Dyck path for each element popped from the stack and added to the output sequence.
-> 4. After processing all elements of the permutation, the stack should be empty, and the resulting path should be a valid Dyck path.
+>    - Add an up step `(1, 1)` to the **Dyck path** for each element ***pushed*** onto the stack.(入栈开括号)
+>    - Add a down step `(1, -1)` to the **Dyck path** for each element ***popped*** from the stack and added to the output sequence.(出栈闭括号)
+> 4. After processing all elements of the permutation, the stack should be empty, and the resulting path should be a valid **Dyck path**.
 >
-> The key observation is that each time an element is pushed onto the stack, it corresponds to an up step, and each time an element is popped from the stack, it corresponds to a down step. Since the stack never goes below zero (which would correspond to the path going below the x-axis), the resulting path is a Dyck path.
+> The key observation is that each time an element is pushed onto the stack, it corresponds to an up step, and each time an element is popped from the stack, it corresponds to a down step. Since the stack never goes below zero (which would correspond to the path going below the x-axis), the resulting path is a **Dyck path**.
 >
 > Here's an example to illustrate the bijection:
 >
-> Consider the stack-sortable permutation `[3, 2, 1, 4]`. The corresponding Dyck path is constructed as follows:
+> Consider the stack-sortable permutation `[3, 2, 1, 4]`. The corresponding **Dyck path** is constructed as follows:
 >
 > - Push 3 onto the stack: Up step (U)
 > - Push 2 onto the stack: Up step (U)
@@ -98,11 +98,11 @@ The sequence of pushes and pops performed by Knuth's sorting algorithm as it sor
 > - Push 4 onto the stack: Up step (U)
 > - Pop 4 from the stack: Down step (D)
 >
-> The resulting Dyck path is `UUUDDDUD`, which is a valid Dyck path.
+> The resulting **Dyck path** is `UUUDDDUD`, which is a valid **Dyck path**.
 >
-> Conversely, given a Dyck path, you can construct a stack-sortable permutation by interpreting up steps as pushes onto the stack and down steps as pops from the stack, assigning the next available integer in increasing order to each pop operation.
+> Conversely, given a **Dyck path**, you can construct a **stack-sortable permutation** by interpreting **up steps** as **pushes** onto the stack and **down steps** as **pops** from the stack, assigning the next available integer in increasing order to each pop operation.
 >
-> This bijection shows that the number of stack-sortable permutations of length `n` is equal to the `n`-th Catalan number, which also counts the number of Dyck paths of semi-length `n`.
+> This bijection shows that the number of stack-sortable permutations of length `n` is equal to the `n`-th Catalan number, which also counts the number of **Dyck paths** of semi-length `n`.
 
 
 
