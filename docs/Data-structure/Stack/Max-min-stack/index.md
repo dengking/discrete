@@ -86,7 +86,6 @@ Inserts `x` at the top of stack.
 >
 > 一、因为`x`是小于`minEle`的，所以 `(2*x – minEle)` 是小于`x`的
 >
-> 二、
 
 
 
