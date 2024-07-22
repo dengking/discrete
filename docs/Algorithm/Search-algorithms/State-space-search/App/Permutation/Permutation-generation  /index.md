@@ -1,6 +1,8 @@
 # Generate permutations 
 
-生成全排列，需要考虑的问题:
+生成排列，需要考虑的问题:
+
+- 全排列还是部分排列
 
 - 次序: 这和 (wikipedia [Permutation](https://en.wikipedia.org/wiki/Permutation) # Numbering permutations)相对应
   - 字典序
@@ -11,17 +13,17 @@
 
 
 
+## 鸽笼模型
+
+按照鸽笼模型的思想，将生成全排列看作有 *n* 个并排列成一行的空格(**鸽笼**)，我们需要从左往右依此往这些空格中填入题目给定的 *n* 个数/字符(......)(**鸽子**)，每个数/字符(......)(**鸽子**)只能使用一次。
 
 
 
+## 全排列: DFS+swap+inplace+不去重
 
-## DFS+swap+inplace+不去重
+这是最常见的一种算法，我们可以将题目给定的 *n* 个数的数组 *nums* 划分成**左右两个部分**，**左边**的表示已经填过的数，**右边**表示待填的数，我们在回溯的时候只要动态维护这个数组即可(从后面的内容可知: 通过index来进行维护)。
 
-这是最常见的一种算法，它将生成全排列看作有 *n* 个并排列成一行的空格，我们需要从左往右依此往这些空格中填入题目给定的 *n* 个数，每个数只能使用一次。
-
-我们可以将题目给定的 *n* 个数的数组 *nums* 划分成**左右两个部分**，**左边**的表示已经填过的数，**右边**表示待填的数，我们在回溯的时候只要动态维护这个数组即可(从后面的内容可知: 通过index来进行维护)。
-
-具体来说，假设我们已经填到第 *first* 个位置，那么 *nums* 数组中 [0,*first*−1] 是已填过的数的集合，[*first*,*n*−1] 是待填的数的集合。我们肯定是尝试用 [*first*,*n*−1] 里的数去填第 *first* 个数，假设待填的数的下标为 *i*，那么填完以后我们将第 *i* 个数和第 *first* 个数交换，这样能使得在填第 *first*+1 个数的时候 *nums* 数组的 [0,*first*] 部分为已填过的数，[*first*+1,*n*−1] 为待填的数，回溯的时候交换回来即能完成撤销操作。
+具体来说，假设我们现在要填第 *first* 个位置，那么 *nums* 数组中 [0,*first*−1] 是已填过的数的集合，[*first*,*n*−1] 是待填的数的集合。我们肯定是尝试用 [*first*,*n*−1] 里的数去填第 *first* 个数，假设待填的数的下标为 *i*，那么填完以后我们将第 *i* 个数和第 *first* 个数交换，这样能使得在填第 *first*+1 个数的时候 *nums* 数组的 [0,*first*] 部分为已填过的数，[*first*+1,*n*−1] 为待填的数，回溯的时候交换回来即能完成撤销操作。
 
 > Reference: 上述内容参考自: [LeetCode-46. 全排列](https://leetcode.cn/problems/permutations/) # [官方解题](https://leetcode.cn/problems/permutations/solutions/218275/quan-pai-lie-by-leetcode-solution-2/)
 
@@ -100,7 +102,7 @@ class Solution:
                 ans.append(nums[:])
             else:
                 for i in range(left, right + 1):
-                    nums[left], nums[i] = nums[i], nums[left]
+                    nums[left], nums[i] = nums[i], nums[left] # swap
                     dfs(left + 1, right)
                     nums[i], nums[left] = nums[left], nums[i]
 
@@ -154,13 +156,56 @@ int main() {
 
 ```
 
-## DFS+swap+inplace+去重
 
-当它将生成全排列看作有 *n* 个并排列成一行的空格，我们需要从左往右依此往这些空格中填入题目给定的 *n* 个数，每个数只能使用一次。
+
+## 全排列: DFS+swap+inplace+去重
+
+对于包含重复元素的待排列的数组，如果要去重的话，如何实现呢？
+
+![Picture2.png](./LeetCode-47-Permutation-122-v3s=virtual-search-state-solution-space.png)
 
 > Reference: [Krahets](https://leetcode.cn/u/jyd/) # [47. 全排列 II（回溯，清晰图解）](https://leetcode.cn/problems/permutations-ii/solutions/2363888/47-quan-pai-lie-iihui-su-qing-xi-tu-jie-7ry7t/) 
 
-## DFS+n-ary tree+visited prunc
+在每个鸽笼，保证“每只鸽子只出现一次”，**即遇到重复元素时不交换，直接跳过**，从而将生成重复排列的搜索分支进行“剪枝” 。
+
+### [LeetCode-47. Permutations II](https://leetcode.cn/problems/permutations-ii/) 
+
+#### Python
+
+```python
+from typing import *
+
+
+class Solution:
+    def permuteUnique(self, nums: List[int]) -> List[List[int]]:
+        ans: List[List[int]] = []
+
+        def dfs(left: int):
+            if left == len(nums) - 1:
+                ans.append(nums[:])
+            else:
+                visited = set()
+                for right in range(left, len(nums)):
+                    if nums[right] in visited:
+                        continue
+                    visited.add(nums[right])
+                    nums[left], nums[right] = nums[right], nums[left]
+                    dfs(left + 1)
+                    nums[right], nums[left] = nums[left], nums[right]
+
+        dfs(0)
+        return ans
+
+
+if __name__ == "__main__":
+    solu = Solution()
+    solu.permuteUnique([1, 2, 2])
+
+```
+
+
+
+## 全排列: DFS+n-ary tree+visited prunc
 
 将完全N叉树通过剪枝的方式，修建为一颗排列树；
 
@@ -168,139 +213,101 @@ int main() {
 
 这是比较原始但是简单的方式；
 
+素材:
+
+- CSDN [全排列—含重复元素](https://blog.csdn.net/drawlessonsfrom/article/details/108936498) 
 
 
-在下面文章中，描述了这种算法:
 
-1、[LeetCode-47. 全排列 II-中等](https://leetcode.cn/problems/permutations-ii/) 
+### [LeetCode-46. 全排列](https://leetcode.cn/problems/permutations/) 
+
+#### Python
+
+```python
+from typing import *
+
+
+class Solution:
+    def permute(self, nums: List[int]) -> List[List[int]]:
+        ans = []
+        visited = set()
+        track: List[int] = [0] * len(nums)
+
+        def dfs(left: int):
+            if left == len(nums):
+                ans.append(track[:])
+            else:
+                for num in nums:
+                    if num in visited:
+                        continue
+                    visited.add(num)
+                    track[left] = num
+                    dfs(left + 1)
+                    visited.remove(num)
+
+        dfs(0)
+        return ans
+
+
+if __name__ == "__main__":
+    solu = Solution()
+    solu.permute([1, 2, 3])
+
+```
+
+
+
+### [LeetCode-47. 全排列 II-中等](https://leetcode.cn/problems/permutations-ii/) 
+
+#### C++
 
 ```C++
-#include <bits/stdc++.h>
+//#include <bits/stdc++.h>
+#include <vector>
+
 using namespace std;
-class Solution
-{
-	vector<int> vis; // 元素是否被放入到排列中，1-是、0-否
+
+class Solution {
+    vector<int> vis; // 元素是否被放入到排列中，1-是、0-否
 
 public:
-	void backtrack(vector<int> &nums, vector<vector<int>> &ans, int idx, vector<int> &perm)
-	{
-		if (idx == nums.size())
-		{
-			ans.emplace_back(perm);
-			return;
-		}
-		for (int i = 0; i < (int) nums.size(); ++i)
-		{
-			/**
-			 * 1、vis[i] 为 1 ，表示第 i 个元素已经放入到了排列中
-			 * 2、nums[i] == nums[i - 1] && !vis[i - 1] 对应的是 01 模式，这种模式是需要剪枝的
-			 */
-			if (vis[i] || (i > 0 && nums[i] == nums[i - 1] && !vis[i - 1]))
-			{
-				continue;
-			}
-			perm.emplace_back(nums[i]);
-			vis[i] = 1;
-			backtrack(nums, ans, idx + 1, perm);
-			vis[i] = 0;
-			perm.pop_back();
-		}
-	}
+    void backtrack(vector<int> &nums, vector<vector<int>> &ans, int idx, vector<int> &perm) {
+        if (idx == nums.size()) {
+            ans.emplace_back(perm);
+            return;
+        }
+        for (int i = 0; i < (int) nums.size(); ++i) {
+            /**
+             * 1、vis[i] 为 1 ，表示第 i 个元素已经放入到了排列中
+             * 2、nums[i] == nums[i - 1] && !vis[i - 1] 对应的是 01 模式，这种模式是需要剪枝的
+             */
+            if (vis[i] || (i > 0 && nums[i] == nums[i - 1] && !vis[i - 1])) {
+                continue;
+            }
+            perm.emplace_back(nums[i]);
+            vis[i] = 1;
+            backtrack(nums, ans, idx + 1, perm);
+            vis[i] = 0;
+            perm.pop_back();
+        }
+    }
 
-	vector<vector<int>> permuteUnique(vector<int> &nums)
-	{
-		vector<vector<int>> ans;
-		vector<int> perm;
-		vis.resize(nums.size());
-		sort(nums.begin(), nums.end());
-		backtrack(nums, ans, 0, perm);
-		return ans;
-	}
+    vector<vector<int>> permuteUnique(vector<int> &nums) {
+        vector<vector<int>> ans;
+        vector<int> perm;
+        vis.resize(nums.size());
+        sort(nums.begin(), nums.end());
+        backtrack(nums, ans, 0, perm);
+        return ans;
+    }
 };
 
-int main()
-{
-	Solution s;
+int main() {
+    Solution s;
 }
 // g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -g
 
-
 ```
-
-
-
-2、CSDN [全排列—含重复元素](https://blog.csdn.net/drawlessonsfrom/article/details/108936498) 
-
-```C++
-#include <bits/stdc++.h>
-using namespace std;
-int number = 0;
-int vis[15] = { 0 }; //表示未被访问过
-void f(string a, int n, char b[], int p)
-{
-	if (p == n)
-	{
-		cout << b << endl;
-		number++;
-		return;
-	}
-	//在对字符串进行有序排列中，也可以开始就对他进行有序排列，因为在每次进行追加中其vis[i]均会被置为0，回到其初始状态
-	for (int i = 0; i < n; i++)
-	{
-		if (i > 0 && a[i] == a[i - 1] && !vis[i - 1]) //进行去重，在去重需要是原来的字符串有序，同时保证a[i-1]未被访问过
-		{
-			continue;
-		}
-		if (!vis[i])
-		{
-			b[p] = a[i];
-			vis[i] = 1;
-			f(a, n, b, p + 1);
-			vis[i] = 0;
-		}
-	}
-}
-int main()
-{
-	string str = "baba";
-	sort(str.begin(), str.end()); //对字符串进行有序排列
-	char b[15] = "";
-	f(str, str.length(), b, 0);
-	cout << number << endl;
-	return 0;
-}
-
-```
-
-
-
-### 抽取法 VS 交换法
-
-#### 相同点
-
-1、两种方法都是基于回溯法的
-
-#### 不同点
-
-1、
-
-**抽取法**是将完全二叉树通过剪枝的方式，修建为一颗排列树；
-
-```C++
-for (int i = 0; i < (int) nums.size(); ++i)
-```
-
-它需要记录每个元素是否在排列中；
-
-
-
-**交换法**是直接生成排列树，它没有剪枝的过程；
-
-```C++
-for (int i = first; i < len; ++i)
-```
-
-
 
 
 

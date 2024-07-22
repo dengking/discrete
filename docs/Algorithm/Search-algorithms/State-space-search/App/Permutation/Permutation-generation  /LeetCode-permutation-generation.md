@@ -1,8 +1,16 @@
-# [LeetCode-47. 全排列 II](https://leetcode.cn/problems/permutations-ii/)
+# LeetCode-permutation-generation
 
 
 
-## 我的分析
+## [LeetCode-46. 全排列](https://leetcode.cn/problems/permutations/)
+
+
+
+## [LeetCode-47. 全排列 II](https://leetcode.cn/problems/permutations-ii/)
+
+
+
+### 我的分析
 
 ### 不能够简单地将重复元素看做是一个整体
 
@@ -18,11 +26,11 @@
 
 
 
-## 重复的情况(需要剪枝)
+### 重复的情况(需要剪枝)
 
 
 
-### 最最基本的情况
+#### 最最基本的情况
 
 | 情况一 | 重复   |
 | ------ | ------ |
@@ -31,7 +39,7 @@
 
 
 
-### 一些比较复杂的情况
+#### 一些比较复杂的情况
 
 | 情况1     | 情况2(重复) | 情况3(重复) |
 | --------- | ----------- | ----------- |
@@ -39,7 +47,7 @@
 
 
 
-## 解题思路
+### 解题思路
 
 观察上面的"重复的情况"，自然而然的思路是: 在所有的情况中选择一个，将其他重复的情况剪枝掉；那问题是: 如何来进行有效的甄别？
 
@@ -61,66 +69,7 @@
 
 
 
-## [官方解题](https://leetcode.cn/problems/permutations-ii/solution/quan-pai-lie-ii-by-leetcode-solution/)
-
-> NOTE: 
->
-> 官方解题给出的是"抽取法"算法来生成排列
-
-
-
-```C++
-#include <bits/stdc++.h>
-using namespace std;
-
-class Solution
-{
-	vector<int> vis;
-
-public:
-	void backtrack(vector<int> &nums, vector<vector<int>> &ans, int idx, vector<int> &perm)
-	{
-		if (idx == nums.size())
-		{
-			ans.emplace_back(perm);
-			return;
-		}
-		for (int i = 0; i < (int) nums.size(); ++i)
-		{
-			if (vis[i] || (i > 0 && nums[i] == nums[i - 1] && !vis[i - 1]))
-			{
-				continue;
-			}
-			perm.emplace_back(nums[i]);
-			vis[i] = 1;
-			backtrack(nums, ans, idx + 1, perm);
-			vis[i] = 0;
-			perm.pop_back();
-		}
-	}
-
-	vector<vector<int>> permuteUnique(vector<int> &nums)
-	{
-		vector<vector<int>> ans;
-		vector<int> perm;
-		vis.resize(nums.size());
-		sort(nums.begin(), nums.end());
-		backtrack(nums, ans, 0, perm);
-		return ans;
-	}
-};
-
-int main()
-{
-	Solution s;
-}
-// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -g
-
-```
-
-
-
-## [LeetCode-[HOT 100]47.全排列II Python3 回溯 考虑重复 --> 46.全排列](https://leetcode.cn/problems/permutations-ii/solution/hot-100-47quan-pai-lie-ii-python3-hui-su-kao-lu-zh/)
+### [LeetCode-[HOT 100]47.全排列II Python3 回溯 考虑重复 --> 46.全排列](https://leetcode.cn/problems/permutations-ii/solution/hot-100-47quan-pai-lie-ii-python3-hui-su-kao-lu-zh/)
 
 > NOTE: 
 >
@@ -148,7 +97,7 @@ int main()
 
 3、但是如果只选一个，那么选哪一个都可以，因为和选择另一个是相同情况，**所以只有这种情况我们需要剪枝**
 
-### 又到了小 trick 时间：
+#### 又到了小 trick 时间：
 
 **考虑重复元素一定要优先排序**，将重复的都放在一起，便于找到**重复元素**和**剪枝**！！！
 
@@ -168,7 +117,7 @@ int main()
 
 
 
-## 我的解题
+### C++
 
 ```C++
 #include <bits/stdc++.h>
