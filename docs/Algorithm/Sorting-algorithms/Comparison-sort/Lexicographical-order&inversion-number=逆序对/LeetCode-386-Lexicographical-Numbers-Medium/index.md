@@ -10,6 +10,8 @@
 
 使用trie来将所有的数字组织起来，然后preorder遍历trie。
 
+trie: 所有以1打头的、所有以2打头的、所有以3打头的
+
 ## Python
 
 ```python

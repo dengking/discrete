@@ -88,7 +88,3 @@ hanoi(4)     = 2*hanoi(3) + 1
 
 
 
-## 递归函数的复杂性分析
-
-### geeksforgeeks [Analysis of Algorithm | Set 4 (Solving Recurrences)](https://www.geeksforgeeks.org/analysis-algorithm-set-4-master-method-solving-recurrences/)
-
