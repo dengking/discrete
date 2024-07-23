@@ -482,49 +482,40 @@ void SJT(int *a, int n)
 
 ### [LeetCode-31. 下一个排列](https://leetcode.cn/problems/next-permutation/)
 
-cppreference [std::next_permutation](https://en.cppreference.com/w/cpp/algorithm/next_permutation) 
+1. cppreference [std::next_permutation](https://en.cppreference.com/w/cpp/algorithm/next_permutation) 
 
-以数字序列 `[1,2,3] `为例，其排列按照字典序依次为：
+2. 以数字序列 `[1,2,3,4] `为例，其排列按照字典序依次为：
 
 ```c++
-[1,2,3]
-[1,3,2]
-[2,1,3]
-[2,3,1]
-[3,1,2]
-[3,2,1]
+1234
+1243
+1324
+1342
+1423
+1432
+2134
+2143
+2314
+2341
+2413
+2431
+3124
+3142  
 ```
 
+3. 需要注意的是: "如果不存在下一个更大的排列，那么这个数组必须重排为字典序最小的排列（即，其元素按升序排列）"，即这道题要求wrap around
 
+4. 由将原来的  **升序** 逐步变为 **降序**: 升序+降序+分水岭/分界点
+
+   采取贪心思想，思路是: 自**右(低位)**向**左(高位)**进行扫描，一旦发现有相邻两个数是升序的(最后一个)，显然下一个排列的生成就从它开始(显然是最小的，所以符合next要求)，逐步(位)将原来的  **升序** 逐步变为 **降序** 
+
+5. 思考: 对重复元素的处理
+
+6. 只有完全地理解这个算法，才能够写出符合原理的程序
 
 #### [LeetCode-下一个排列算法详解：思路+推导+步骤，看不懂算我输！](https://leetcode.cn/problems/next-permutation/solution/xia-yi-ge-pai-lie-suan-fa-xiang-jie-si-lu-tui-dao-/) 
 
-> NOTE: 
->
-> 由将原来的  **升序** 逐步变为 **降序**，下面是一个简单的例子:
->
-> ```C++
-> 1234
-> 1243
-> 1324
-> 1342
-> 1423
-> 1432
-> 2134
-> 2143
-> 2314
-> 2341
-> 2413
-> 2431
-> 3124
-> 3142  
-> ```
->
-> 升序+降序+分水岭/分界点
->
-> 采取贪心思想，思路是: 自**右(低位)**向**左(高位)**进行扫描，一旦发现有相邻两个数是升序的，显然下一个排列的生成就从它开始(显然是最小的，所以符合next要求)，逐步(位)将原来的  **升序** 逐步变为 **降序**
->
-> 
+
 
 ##### 算法推导
 
@@ -572,25 +563,31 @@ using namespace std;
 class Solution {
 public:
     void nextPermutation(vector<int> &nums) {
-        int i = nums.size() - 1 - 1;             // 让i指向倒数第二个元素
+        // 让i指向倒数第二个元素
+        int i = nums.size() - 1 - 1;
         //比较第i个元素和第i+1个元素，具体例子 53421，找出 34
+        //需要注意: nums[i] >= nums[i + 1]是带等号的，因此对于相等的元素，它会略过
         while (i >= 0 && nums[i] >= nums[i + 1]) {
             --i;
         }
         // 如果nums已经是最大的sequence，那么它就是递减的，那么当上述while循环退出的时候，i就是-1
         if (i >= 0) {
             int j = i + 1;
-            // 此时 [i+1, -1] 是单调递减的，选择需要找到大于 nums[i]的最小的数，只需要从i+1开始寻找直到最后一个，循环退出的时候，
-            while (j < nums.size() && nums[j] >
-                                      nums[i]) {                                            // 需要注意:  nums[j] >= nums[i] 是错误的，带一个例子即可知晓：534421，如果带上=，则j会指向2
+            // 此时[i+1,-1]是单调递减的，选择需要找到大于nums[i]的最小的数，只需要从i+1开始寻找直到最后一个，循环退出的时候
+            // 需要注意:nums[j]>=nums[i] 是错误的，
+            // 举一个例子:151，它的next permutation是511,如果带上等号，则会错误地计算成115
+            // 所以使用>能够保证找到一个严格大于的数字
+            while (j < nums.size() && nums[j] > nums[i]) {
                 ++j;
             }
-            std::swap(nums[i], nums[j - 1]); // 注意：交换之后，[i+1, -1] 依然是单调递减的，因为 nums[j] < nums[i]
+            // 注意：交换之后，[i+1, -1] 依然是单调递减的，因为 nums[j] < nums[i]
+            std::swap(nums[i], nums[j - 1]);
         } else {
             // 已经是最大的排列了，此时i的值为-1
             // 不需要做什么
         }
-        std::reverse(nums.begin() + i + 1, nums.end()); // 将[i+1, -1]reverse一下，这样就是单调递增的了
+        // 将[i+1, -1]reverse一下，这样不仅能够保证获得next permutation，也能够wrap around
+        std::reverse(nums.begin() + i + 1, nums.end());
     }
 };
 
@@ -609,6 +606,33 @@ int main() {
 首先需要搞清楚目的: 让 `[nums.begin() + i + 1, nums.end()]` 范围内的元素为增序；显然通过 `std::sort` 是可以实现的；但是，考虑到，此时  `[nums.begin() + i + 1, nums.end()]`  内的元素是降序的，因此，通过复杂的更低的 `std::reverse` 可以实现让 `[nums.begin() + i + 1, nums.end()]` 范围内的元素为增序的目的；
 
 
+
+##### Python
+
+```python
+from typing import *
+
+
+class Solution:
+    def nextPermutation(self, nums: List[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        i = len(nums) - 2
+        while i >= 0 and nums[i] >= nums[i + 1]:
+            i -= 1
+        if i >= 0:
+            j = i + 1
+            while j < len(nums) and nums[j] > nums[i]:
+                j += 1
+            nums[i], nums[j - 1] = nums[j - 1], nums[i]
+        nums[i + 1:] = nums[i + 1:][::-1]
+
+
+if __name__ == "__main__":
+    solu = Solution()
+
+```
 
 
 
