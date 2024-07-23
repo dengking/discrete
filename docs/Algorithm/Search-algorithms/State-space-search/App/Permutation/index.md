@@ -116,3 +116,13 @@ if __name__ == '__main__':
 ```
 
 
+
+### 中介数
+
+素材:
+
+baike [中介数](https://baike.baidu.com/item/%E4%B8%AD%E4%BB%8B%E6%95%B0/12796689?fr=aladdin) 
+
+csdn [全排列及相关扩展算法（三）——利用中介数求排列在字典序排位算法](https://blog.csdn.net/sm9sun/article/details/77258384) 
+
+[ryderfang-中介数](https://ryderfang.com/leetcode/lehmer_code/) 
