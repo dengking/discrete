@@ -478,12 +478,6 @@ void SJT(int *a, int n)
 
 字典序法
 
-
-
-### [LeetCode-31. 下一个排列](https://leetcode.cn/problems/next-permutation/)
-
-1. cppreference [std::next_permutation](https://en.cppreference.com/w/cpp/algorithm/next_permutation) 
-
 2. 以数字序列 `[1,2,3,4] `为例，其排列按照字典序依次为：
 
 ```c++
@@ -509,15 +503,21 @@ void SJT(int *a, int n)
 
    采取贪心思想，思路是: 自**右(低位)**向**左(高位)**进行扫描，一旦发现有相邻两个数是升序的(最后一个)，显然下一个排列的生成就从它开始(显然是最小的，所以符合next要求)，逐步(位)将原来的  **升序** 逐步变为 **降序** 
 
-5. 思考: 对重复元素的处理
+5. 对重复元素的处理: 这种算法能够轻松实现对重复元素的处理
 
 6. 只有完全地理解这个算法，才能够写出符合原理的程序
 
-#### [LeetCode-下一个排列算法详解：思路+推导+步骤，看不懂算我输！](https://leetcode.cn/problems/next-permutation/solution/xia-yi-ge-pai-lie-suan-fa-xiang-jie-si-lu-tui-dao-/) 
+### [LeetCode-31. 下一个排列](https://leetcode.cn/problems/next-permutation/)
+
+1. cppreference [std::next_permutation](https://en.cppreference.com/w/cpp/algorithm/next_permutation) 
 
 
 
-##### 算法推导
+[LeetCode-下一个排列算法详解：思路+推导+步骤，看不懂算我输！](https://leetcode.cn/problems/next-permutation/solution/xia-yi-ge-pai-lie-suan-fa-xiang-jie-si-lu-tui-dao-/) 
+
+
+
+#### 算法推导
 
 如何得到这样的排列顺序？这是本文的重点。我们可以这样来分析：
 
@@ -532,7 +532,7 @@ void SJT(int *a, int n)
 
 以 `123465` 为例：首先按照上一步，交换 `5` 和 `4`，得到 `123564`；然后需要将 `5` 之后的数重置为升序，得到 `123546`。显然 `123546` 比 `123564` 更小，`123546` 就是 `123465` 的下一个排列
 
-##### 算法过程
+#### 算法过程
 
 标准的“下一个排列”算法可以描述为：
 
@@ -548,7 +548,7 @@ void SJT(int *a, int n)
 
 
 
-##### C++
+#### C++
 
 
 
@@ -607,7 +607,7 @@ int main() {
 
 
 
-##### Python
+#### Python 
 
 ```python
 from typing import *
@@ -631,6 +631,83 @@ class Solution:
 
 if __name__ == "__main__":
     solu = Solution()
+
+```
+
+
+
+### [LeetCode-46. 全排列](https://leetcode.cn/problems/permutations/) 
+
+
+
+#### Python 
+
+
+
+```python
+from typing import *
+
+
+class Solution:
+    def permute(self, nums: List[int]) -> List[List[int]]:
+        ans = []
+        nums.sort()
+        ans.append(nums[:])
+        while self.next_perm(nums):
+            ans.append(nums[:])
+        return ans
+
+    def next_perm(self, nums: List[int]) -> bool:
+        i = len(nums) - 2
+        while i >= 0 and nums[i] >= nums[i + 1]:
+            i -= 1
+        if i < 0:
+            return False
+        j = i + 1
+        while j < len(nums) and nums[j] > nums[i]:
+            j += 1
+        nums[i], nums[j - 1] = nums[j - 1], nums[i]
+        nums[i + 1:] = nums[i + 1:][::-1]
+        return True
+
+
+if __name__ == "__main__":
+    solu = Solution()
+    solu.permute([1, 2, 3])
+
+```
+
+### [LeetCode-47. 全排列 II-中等](https://leetcode.cn/problems/permutations-ii/) 
+
+
+
+#### Python
+
+
+
+```python
+
+class Solution:
+    def permuteUnique(self, nums: List[int]) -> List[List[int]]:
+        ans = []
+        nums.sort()
+        ans.append(nums[:])
+        while self.next_perm(nums):
+            ans.append(nums[:])
+        return ans
+
+    def next_perm(self, nums: List[int]) -> bool:
+        i = len(nums) - 2
+        while i >= 0 and nums[i] >= nums[i + 1]:
+            i -= 1
+        if i < 0:
+            return False
+        j = i + 1
+        while j < len(nums) and nums[j] > nums[i]:
+            j += 1
+        nums[i], nums[j - 1] = nums[j - 1], nums[i]
+        nums[i + 1:] = nums[i + 1:][::-1]
+        return True
 
 ```
 
