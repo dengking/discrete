@@ -6,17 +6,27 @@ inversion-number: 逆序对
 
 ## Lexicographical order
 
-### baike [字典序](https://baike.baidu.com/item/%E5%AD%97%E5%85%B8%E5%BA%8F/7786229?fr=aladdin)
+素材: 
+
+[LeetCode-下一个排列算法详解：思路+推导+步骤，看不懂算我输！](https://leetcode.cn/problems/next-permutation/solution/xia-yi-ge-pai-lie-suan-fa-xiang-jie-si-lu-tui-dao-/) 
+
+[baike-字典序](https://baike.baidu.com/item/%E5%AD%97%E5%85%B8%E5%BA%8F/7786229?fr=aladdin) 
+
+[wikipedia-Lexicographical order](https://en.wikipedia.org/wiki/Lexicographic_order) 
+
+[stackoverflow0What is lexicographical order?](https://stackoverflow.com/questions/45950646/what-is-lexicographical-order) 
+
+### [baike-字典序](https://baike.baidu.com/item/%E5%AD%97%E5%85%B8%E5%BA%8F/7786229?fr=aladdin) 
 
 对于数字1、2、3......n的排列，不同排列的先后关系是从左到右逐个比较对应的数字的先后来决定的。例如对于5个数字的排列 12354和12345，排列12345在前，排列12354在后。按照这样的规定，5个数字的所有的排列中最前面的是12345，最后面的是 54321。
 
 
 
-### [wikipedia-Lexicographical order](https://en.wikipedia.org/wiki/Lexicographic_order)
+### [wikipedia-Lexicographical order](https://en.wikipedia.org/wiki/Lexicographic_order) 
 
 
 
-### stackoverflow [What is lexicographical order?](https://stackoverflow.com/questions/45950646/what-is-lexicographical-order)
+### [stackoverflow0What is lexicographical order?](https://stackoverflow.com/questions/45950646/what-is-lexicographical-order)
 
 
 
@@ -36,9 +46,11 @@ Those values are in lexicographical order. 10 comes after 2 in numerical order, 
 
 https://leetcode.cn/problemset/all/?search=%E5%AD%97%E5%85%B8%E5%BA%8F
 
+如何按照字典序来生成排列
+
 ### Lexicographical order tree
 
-典型的就是 [LeetCode-386. 字典序排数](https://leetcode.cn/problems/lexicographical-numbers/) 中等，理解"Lexicographical order tree"，是解决基于它的问题的基础。
+典型的就是 [LeetCode-386. 字典序排数-中等](https://leetcode.cn/problems/lexicographical-numbers/) ，理解"Lexicographical order tree"，是解决基于它的问题的基础。
 
 ### Monotonic-stack解Max-min字典序subsequence(子序列)
 
