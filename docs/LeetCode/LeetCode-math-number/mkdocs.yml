@@ -3,6 +3,7 @@ nav:
     - 数位DP: 数位DP
     - 大整数算术: 大整数算术
     - Bitwise-operation: Bitwise-operation
+    - Digitwise-operation: Digitwise-operation
     - Factorization: Factorization
     - Count: Count
     - LeetCode-丑数系列: LeetCode-丑数系列
