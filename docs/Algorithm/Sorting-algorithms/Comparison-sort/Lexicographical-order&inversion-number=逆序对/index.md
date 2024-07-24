@@ -14,7 +14,34 @@ inversion-number: 逆序对
 
 [wikipedia-Lexicographical order](https://en.wikipedia.org/wiki/Lexicographic_order) 
 
-[stackoverflow0What is lexicographical order?](https://stackoverflow.com/questions/45950646/what-is-lexicographical-order) 
+[stackoverflow0What is lexicographical order?](https://stackoverflow.com/questions/45950646/what-is-lexicographical-order) # [A](https://stackoverflow.com/a/45950665) 
+
+> lexicographical order **is** alphabetical order. The other type is numerical ordering. Consider the following values,
+>
+> ```
+> 1, 10, 2
+> ```
+>
+> Those values are in lexicographical order. 10 comes after 2 in numerical order, but 10 comes before 2 in "alphabetical" order.
+>
+
+例子:
+
+```c++
+[
+1,10,100,101,102,103,104,105,106,107,108,109,11,110,111,112,113,12,13,14,15,16,17,18,19,
+2,20,21,22,23,24,25,26,27,28,29,
+3,30,31,32,33,34,35,36,37,38,39,
+4,40,41,42,43,44,45,46,47,48,49,
+5,50,51,52,53,54,55,56,57,58,59,
+6,60,61,62,63,64,65,66,67,68,69,
+7,70,71,72,73,74,75,76,77,78,79,
+8,80,81,82,83,84,85,86,87,88,89,
+9,90,91,92,93,94,95,96,97,98,99
+]
+```
+
+
 
 ### [baike-字典序](https://baike.baidu.com/item/%E5%AD%97%E5%85%B8%E5%BA%8F/7786229?fr=aladdin) 
 
@@ -26,19 +53,145 @@ inversion-number: 逆序对
 
 
 
-### [stackoverflow0What is lexicographical order?](https://stackoverflow.com/questions/45950646/what-is-lexicographical-order)
 
 
+### Lexicographical order trie(digital tree) 
 
-[A](https://stackoverflow.com/a/45950665)
+理解"lexicographical order trie(digital tree)"，是解决基于它的问题的基础。
 
-lexicographical order **is** alphabetical order. The other type is numerical ordering. Consider the following values,
+"lexicographical order trie(digital tree)"使用trie来将所有的数字组织起来: 所有以1打头的数字位于同一棵子树、所有以2打头的数字位于同一棵子树、所有以3打头的数字位于同一棵子树......
+
+![](./[lexicographic-order=字典序-trie](digital-radix-tree)-LeetCode-386-Lexicographical-Numbers-Medium.png)
+
+> Reference: [PPPPjcute](https://leetcode.cn/u/ppppjcute/)  # [java 字典序的遍历](https://leetcode.cn/problems/lexicographical-numbers/solution/java-zi-dian-xu-de-bian-li-by-ppppjqute/) 
+
+[pre-order](https://en.wikipedia.org/wiki/Tree_traversal#Pre-order,_NLR) DFS "lexicographical order trie(digital tree)"就能够得到所有以字典序排列的序列。
+
+#### [LeetCode-386. 字典序排数-中等](https://leetcode.cn/problems/lexicographical-numbers/) 
+
+[PPPPjcute](https://leetcode.cn/u/ppppjcute/)  # [java 字典序的遍历](https://leetcode.cn/problems/lexicographical-numbers/solution/java-zi-dian-xu-de-bian-li-by-ppppjqute/) 
+
+- 这个算法的本质是通过**剪枝**一棵完全十叉树来生成字典树，它的第一棵子树是所有以1打头的，第二棵子树是所有以2打头的; 需要注意的是，这个tree的特殊性: 它的第一层节点的范围是1-9，后面的是0-9
+
+- 它采用的是pre-order即先序遍历，它的模式非常类似于append-to-tail模式，即将每个node（一个数）append到result中去
+
+##### 递归
+
+python
+
+```python
+import unittest
+from typing import *
+
+
+class Solution:
+    def lexicalOrder(self, n: int) -> List[int]:
+        ans = []
+        for digit in range(1, 10):
+            self.dfs(digit, n, ans)
+        return ans
+
+    def dfs(self, num, n, ans: List[int]):
+        if num > n:
+            return
+        ans.append(num)
+        for digit in range(0, 10):
+            self.dfs(num * 10 + digit, n, ans)
+
+
+class TestSolution(unittest.TestCase):
+    def test_solution(self):
+        solution = Solution()
+        ans = solution.lexicalOrder(13)
+        self.assertEqual(ans, [1, 10, 11, 12, 13, 2, 3, 4, 5, 6, 7, 8, 9])
+        ans = solution.lexicalOrder(2)
+        self.assertEqual(ans, [1, 2])
+
+
+if __name__ == "__main__":
+    solu = Solution()
+    solu.lexicalOrder(10)
 
 ```
-1, 10, 2
+
+
+
+C++
+
+```C++
+//#include <bits/stdc++.h>
+#include <vector>
+
+using namespace std;
+
+class Solution {
+public:
+    vector<int> lexicalOrder(int n) {
+        vector<int> ret; // 结果
+        for (int number = 1; number <= 9; ++number) {
+            DFS(number, n, ret);
+        }
+        return ret;
+    }
+
+    void DFS(int number, int n, vector<int> &ret) // pre-order
+    {
+        if (number > n) {
+            return;
+        }
+        ret.push_back(number);
+        for (int i = 0; i <= 9; ++i) {
+            DFS(number * 10 + i, n, ret);
+        }
+    }
+};
+
+int main() {
+    Solution s;
+}
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -g
+
+
 ```
 
-Those values are in lexicographical order. 10 comes after 2 in numerical order, but 10 comes before 2 in "alphabetical" order.
+
+
+##### 迭代
+
+```c++
+// #include <bits/stdc++.h>
+#include <vector>
+
+using namespace std;
+
+class Solution {
+public:
+    vector<int> lexicalOrder(int n) {
+        vector<int> res;
+        int curr = 1;
+        // 10叉树的先序遍历
+        for (int i = 0; i < n; i++) {
+            res.push_back(curr);
+            if (curr * 10 <= n) {
+                curr *= 10; //进入下一层
+            } else {
+                if (curr >= n)
+                    curr /= 10; //如果这一层结束了
+                curr += 1;
+                while (curr % 10 == 0)
+                    curr /= 10; //如果>10就要返回上一层
+            }
+        }
+        return res;
+    }
+};
+
+int main() {
+    Solution s;
+}
+// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -g
+
+```
 
 
 
@@ -48,9 +201,7 @@ https://leetcode.cn/problemset/all/?search=%E5%AD%97%E5%85%B8%E5%BA%8F
 
 如何按照字典序来生成排列
 
-### Lexicographical order tree
 
-典型的就是 [LeetCode-386. 字典序排数-中等](https://leetcode.cn/problems/lexicographical-numbers/) ，理解"Lexicographical order tree"，是解决基于它的问题的基础。
 
 ### Monotonic-stack解Max-min字典序subsequence(子序列)
 
