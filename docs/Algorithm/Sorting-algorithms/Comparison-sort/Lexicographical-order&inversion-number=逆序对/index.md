@@ -195,14 +195,6 @@ int main() {
 
 
 
-### LeetCode 字典序
-
-https://leetcode.cn/problemset/all/?search=%E5%AD%97%E5%85%B8%E5%BA%8F
-
-如何按照字典序来生成排列
-
-
-
 ### Monotonic-stack解Max-min字典序subsequence(子序列)
 
 [LeetCode-316. 去除重复字母](https://leetcode.cn/problems/remove-duplicate-letters/) ( LeetCode [1081. 不同字符的最小子序列](https://leetcode.cn/problems/smallest-subsequence-of-distinct-characters/) )
@@ -225,22 +217,15 @@ https://leetcode.cn/problemset/all/?search=%E5%AD%97%E5%85%B8%E5%BA%8F
 
 ### 生成字典序序列
 
+如何按照字典序来生成排列？
 
+[LeetCode-31. 下一个排列](https://leetcode.cn/problems/next-permutation/) 
 
-| 题目                                                         |      |
-| ------------------------------------------------------------ | ---- |
-| [LeetCode-31. 下一个排列](https://leetcode.cn/problems/next-permutation/) |      |
-| [LeetCode-556. 下一个更大元素 III](https://leetcode.cn/problems/next-greater-element-iii/) |      |
+[LeetCode-556. 下一个更大元素 III](https://leetcode.cn/problems/next-greater-element-iii/)  
 
+[LeetCode-386. 字典序排数](https://leetcode.cn/problems/lexicographical-numbers/)  
 
-
-| 题目                                                         |      |
-| ------------------------------------------------------------ | ---- |
-| [LeetCode-386. 字典序排数](https://leetcode.cn/problems/lexicographical-numbers/) |      |
-| [LeetCode-440. 字典序的第K小数字](https://leetcode.cn/problems/k-th-smallest-in-lexicographical-order/) |      |
-|                                                              |      |
-
-
+[LeetCode-440. 字典序的第K小数字](https://leetcode.cn/problems/k-th-smallest-in-lexicographical-order/) 
 
 
 
