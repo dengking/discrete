@@ -61,7 +61,7 @@ inversion-number: 逆序对
 
 "lexicographical order trie(digital tree)"使用trie来将所有的数字组织起来: 所有以1打头的数字位于同一棵子树、所有以2打头的数字位于同一棵子树、所有以3打头的数字位于同一棵子树......
 
-![](./[lexicographic-order=字典序-trie](digital-radix-tree)-LeetCode-386-Lexicographical-Numbers-Medium.png)
+![](./[lexicographic-order=字典序-trie-digital-radix-tree]-LeetCode-386-Lexicographical-Numbers-Medium.png)
 
 > Reference: [PPPPjcute](https://leetcode.cn/u/ppppjcute/)  # [java 字典序的遍历](https://leetcode.cn/problems/lexicographical-numbers/solution/java-zi-dian-xu-de-bian-li-by-ppppjqute/) 
 
@@ -74,6 +74,8 @@ inversion-number: 逆序对
 - 这个算法的本质是通过**剪枝**一棵完全十叉树来生成字典树，它的第一棵子树是所有以1打头的，第二棵子树是所有以2打头的; 需要注意的是，这个tree的特殊性: 它的第一层节点的范围是1-9，后面的是0-9
 
 - 它采用的是pre-order即先序遍历，它的模式非常类似于append-to-tail模式，即将每个node（一个数）append到result中去
+
+- draft: non-terminal=internal node;expand
 
 ##### 递归
 
@@ -193,6 +195,24 @@ int main() {
 
 ```
 
+### LeetCode
+
+出题套路: 按照字典序
+
+生成:
+
+[LeetCode-386. 字典序排数](https://leetcode.cn/problems/lexicographical-numbers/)  
+
+next: 
+
+[LeetCode-31. 下一个排列](https://leetcode.cn/problems/next-permutation/) 
+
+[LeetCode-556. 下一个更大元素 III](https://leetcode.cn/problems/next-greater-element-iii/)  
+
+Top K:
+
+[LeetCode-440. 字典序的第K小数字](https://leetcode.cn/problems/k-th-smallest-in-lexicographical-order/) 
+
 
 
 ### Monotonic-stack解Max-min字典序subsequence(子序列)
@@ -215,17 +235,7 @@ int main() {
 
 
 
-### 生成字典序序列
 
-如何按照字典序来生成排列？
-
-[LeetCode-31. 下一个排列](https://leetcode.cn/problems/next-permutation/) 
-
-[LeetCode-556. 下一个更大元素 III](https://leetcode.cn/problems/next-greater-element-iii/)  
-
-[LeetCode-386. 字典序排数](https://leetcode.cn/problems/lexicographical-numbers/)  
-
-[LeetCode-440. 字典序的第K小数字](https://leetcode.cn/problems/k-th-smallest-in-lexicographical-order/) 
 
 
 
