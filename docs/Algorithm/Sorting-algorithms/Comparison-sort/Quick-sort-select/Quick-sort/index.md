@@ -22,11 +22,11 @@ Quicksort can operate [in-place](https://en.wikipedia.org/wiki/In-place_algorith
 
 Quicksort is a [divide and conquer algorithm](https://en.wikipedia.org/wiki/Divide_and_conquer_algorithm). Quicksort first divides a large array into two smaller sub-arrays: the low elements and the high elements. Quicksort can then recursively sort the sub-arrays. The steps are:
 
-1、Pick an element, called a *pivot*（基准）, from the array.
+1. Pick an element, called a *pivot*（基准）, from the array.
 
-2、*Partitioning*: reorder the array so that all elements with values less than the pivot come before the pivot, while all elements with values greater than the pivot come after it (equal values can go either way). After this partitioning, the pivot is in its final position. This is called the *partition* operation.
+2. *Partitioning*: reorder the array so that all elements with values less than the pivot come before the pivot, while all elements with values greater than the pivot come after it (equal values can go either way). After this partitioning, the pivot is in its final position. This is called the *partition* operation.
 
-3、[Recursively](https://en.wikipedia.org/wiki/Recursion_(computer_science)) apply the above steps to the sub-array of elements with smaller values and separately to the sub-array of elements with greater values.
+3. [Recursively](https://en.wikipedia.org/wiki/Recursion_(computer_science)) apply the above steps to the sub-array of elements with smaller values and separately to the sub-array of elements with greater values.
 
 The base case of the recursion is arrays of size zero or one, which are in order by definition, so they never need to be sorted.
 
@@ -56,7 +56,7 @@ The choice of partition routine (including the **pivot selection**) and other de
 
 > NOTE:
 >
-> 一、这在后面进行了说明
+> 一. 这在后面进行了说明
 
 
 
@@ -94,41 +94,223 @@ divide-and-conquer
 
 partition-and-exchange
 
-## Partition implementation
+## Partition scheme
 
-一、下面两种实现方式，其实都使用了double pointer: 
+两种partition scheme，其实都使用了double pointer，两者本质上所所实现的是给定pivot，将array划分为两个部分(partition)，下面是对它们的总结:  
 
-1、double pointer: left pointer+right pointer
+| Partition scheme        | Double pointer |               |                                                              |
+| ----------------------- | -------------- | ------------- | ------------------------------------------------------------ |
+| Lomuto partition scheme | fast slow      | 简单/耗时更大 |                                                              |
+| Hoare partition scheme  | left right     | 复杂/耗时更小 | 根据labuladong [快排亲兄弟：快速选择算法详解](https://mp.weixin.qq.com/s/TRO3FOKT90Mpvn3hQWVBAQ) 中的解释可知，这种写法是源自《算法4》的 |
 
-相比之下，这种方法是更加容易理解的，根据labuladong [快排亲兄弟：快速选择算法详解](https://mp.weixin.qq.com/s/TRO3FOKT90Mpvn3hQWVBAQ) 中的解释可知，这种写法是源自《算法4》的。
+test case:
 
-2、double pointer: fast pointer+slow pointer
+1. 无序
+
+2. 正序
+
+3. 逆序
+
+4. 等值
 
 
 
-二、分三段，只需要两个boundary，分别对应`i`和`j`。
 
-三、test case:
 
-1、无序
+### Lomuto partition scheme/Fast slow double pointer
 
-2、正序
+参考: 
 
-3、逆序
+- hackerearth [Quick Sort](https://www.hackerearth.com/zh/practice/algorithms/sorting/quick-sort/tutorial/)
 
-4、等值
+
+
+```c++
+int partition ( int A[],int start ,int end) {
+    int i = start + 1;
+    int piv = A[start] ;            //make the first element as pivot element.
+    for(int j =start + 1; j <= end ; j++ )  {
+    /*rearrange the array by putting elements which are less than pivot
+       on one side and which are greater that on other. */
+
+          if ( A[ j ] < piv) {
+                 swap (A[ i ],A [ j ]);
+            i += 1;
+        }
+   }
+   swap ( A[ start ] ,A[ i-1 ] ) ;  //put the pivot element in its proper place.
+   return i-1;                      //return the position of the pivot
+}
+```
+
+`i`是用于定界的。
+
+函数的返回值是分割位置。
+
+##### 使用fast、slow pointer来解释partition
+
+```C++
+/**
+ * @brief
+ * 我们让慢指针`slow`走在后面，快指针`fast`走在前面探路，找到一个不重复的元素就告诉`slow`并让`slow`前进一步。
+ * 这样当`fast`指针遍历完整个数组`nums`后，**`nums[0..slow]`就是不重复元素**。
+ * slow指向的是右侧大于pivot的第一个元素，显然，它记录的是右半段的左侧边界；
+ * pivot的过程其实是不断地将右侧区间中的不属于它的元素、即属于左侧区间的元素拿到左侧区间，
+ * 那么它如何实现呢？其实方法非常简答: 让出一个位置的元素给左侧区间来存放刚刚找到的这个元素
+ * 这个函数，被调用的前提是 start > end，因此最少的情况: end = start + 1
+ * 刚开始的时候，fast 和 slow的值是相等的，这是必须的，因为可能只有start、end两个元素，如果让end指向start后的一个元素，则存在如下可能性:
+ * 1、数组越界
+ * 2、无法进入到后面的交换环节，即使只有两个元素，这也是需要进行交换的
+ * @param A
+ * @param start
+ * @param end
+ * @return
+ */
+int partition(int A[], int start, int end)
+{
+	int slow = start + 1;
+	int piv = A[start];            //make the first element as pivot element.
+	for (int fast = start + 1; fast <= end; fast++)
+	{
+		/*rearrange the array by putting elements which are less than pivot
+		 on one side and which are greater that on other. */
+		if (A[fast] < piv)
+		{
+			swap(A[slow], A[fast]);
+			slow += 1;
+		}
+	}
+	swap(A[start], A[slow - 1]);  //put the pivot element in its proper place.
+	return slow - 1;                      //return the position of the pivot
+}
+
+
+```
+
+#### 完整程序
+
+Now, let us see the recursive function Quick_sort :
+
+
+
+```c++
+void quick_sort ( int A[ ] ,int start , int end ) {
+   if( start < end ) {
+        //stores the position of pivot element
+         int piv_pos = partition (A,start , end ) ;     
+         quick_sort (A,start , piv_pos -1);    //sorts the left side of pivot.
+         quick_sort ( A,piv_pos +1 , end) ; //sorts the right side of pivot.
+   }
+}
+```
+
+
+
+完整程序如下：
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+/*Displays the array, passed to this method*/
+void display(int arr[], int n)
+{
+
+    int i;
+    for (i = 0; i < n; i++)
+    {
+        printf("%d ", arr[i]);
+    }
+
+    printf("\n");
+}
+
+/*Swap function to swap two values*/
+void swap(int *first, int *second)
+{
+
+    int temp = *first;
+    *first = *second;
+    *second = temp;
+}
+
+
+
+int partition ( int A[],int start ,int end) {
+    int i = start + 1;
+    int piv = A[start] ;            //make the first element as pivot element.
+    for(int j =start + 1; j <= end ; j++ )  {
+    /*rearrange the array by putting elements which are less than pivot
+       on one side and which are greater that on other. */
+
+          if ( A[ j ] < piv) {
+                 swap (A[ i ],A [ j ]);
+            i += 1;
+        }
+   }
+   swap ( A[ start ] ,A[ i-1 ] ) ;  //put the pivot element in its proper place.
+   return i-1;                      //return the position of the pivot
+}
+
+/*This is where the sorting of the array takes place
+	arr[] --- Array to be sorted
+	lower --- Starting index
+	upper --- Ending index
+*/
+void quickSort(int arr[], int lower, int upper)
+{
+
+    if (upper > lower)
+    {
+
+        // partitioning index is returned by the partition method , partition element is at its correct poition
+
+        int partitionIndex = partition(arr, lower, upper);
+
+        // Sorting elements before and after the partition index
+        quickSort(arr, lower, partitionIndex - 1);
+        quickSort(arr, partitionIndex + 1, upper);
+    }
+}
+
+int main()
+{
+
+    int n;
+    printf("Enter size of array:\n");
+    scanf("%d", &n); // E.g. 8
+
+    printf("Enter the elements of the array\n");
+    int i;
+    int *arr = (int *)malloc(sizeof(int) * n);
+    for (i = 0; i < n; i++)
+    {
+        scanf("%d", &arr[i]);
+    }
+
+    printf("Original array: ");
+    display(arr, n); // Original array : 10 11 9 8 4 7 3 8
+
+    quickSort(arr, 0, n - 1);
+
+    printf("Sorted array: ");
+    display(arr, n); // Sorted array : 3 4 7 8 8 9 10 11
+    getchar();
+    return 0;
+}
+```
+
+
 
 ### Double pointer: left pointer+right pointer
 
+1. 由两端向中间走(双端)
 
+   需要注意极端情况: 一端直接走到底，所以需要加上越界保护
 
-1、由两端向中间走(双端)
+2. stop when left meet right
 
-需要注意极端情况: 一端直接走到底，所以需要加上越界保护
-
-2、stop when left meet right
-
-3、循环体内部不断地调整
+3. 循环体内部不断地调整
 
 #### Java
 
@@ -350,193 +532,6 @@ int main() {
 
 // g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -Werror
 
-```
-
-
-
-### Double pointer: fast pointer+slow pointer
-
-#### hackerearth [Quick Sort](https://www.hackerearth.com/zh/practice/algorithms/sorting/quick-sort/tutorial/)
-
-讲解地非常不错。
-
-“hackerearth [Quick Sort](https://www.hackerearth.com/zh/practice/algorithms/sorting/quick-sort/tutorial/)”中的实现方式的思路是：自左向右进行扩展、fast-slow double pointer。
-
-##### `partition`
-
-```c++
-int partition ( int A[],int start ,int end) {
-    int i = start + 1;
-    int piv = A[start] ;            //make the first element as pivot element.
-    for(int j =start + 1; j <= end ; j++ )  {
-    /*rearrange the array by putting elements which are less than pivot
-       on one side and which are greater that on other. */
-
-          if ( A[ j ] < piv) {
-                 swap (A[ i ],A [ j ]);
-            i += 1;
-        }
-   }
-   swap ( A[ start ] ,A[ i-1 ] ) ;  //put the pivot element in its proper place.
-   return i-1;                      //return the position of the pivot
-}
-```
-
-`i`是用于定界的。
-
-函数的返回值是分割位置。
-
-##### 使用fast、slow pointer来解释partition
-
-```C++
-/**
- * @brief
- * 我们让慢指针`slow`走在后面，快指针`fast`走在前面探路，找到一个不重复的元素就告诉`slow`并让`slow`前进一步。
- * 这样当`fast`指针遍历完整个数组`nums`后，**`nums[0..slow]`就是不重复元素**。
- * slow指向的是右侧大于pivot的第一个元素，显然，它记录的是右半段的左侧边界；
- * pivot的过程其实是不断地将右侧区间中的不属于它的元素、即属于左侧区间的元素拿到左侧区间，
- * 那么它如何实现呢？其实方法非常简答: 让出一个位置的元素给左侧区间来存放刚刚找到的这个元素
- * 这个函数，被调用的前提是 start > end，因此最少的情况: end = start + 1
- * 刚开始的时候，fast 和 slow的值是相等的，这是必须的，因为可能只有start、end两个元素，如果让end指向start后的一个元素，则存在如下可能性:
- * 1、数组越界
- * 2、无法进入到后面的交换环节，即使只有两个元素，这也是需要进行交换的
- * @param A
- * @param start
- * @param end
- * @return
- */
-int partition(int A[], int start, int end)
-{
-	int slow = start + 1;
-	int piv = A[start];            //make the first element as pivot element.
-	for (int fast = start + 1; fast <= end; fast++)
-	{
-		/*rearrange the array by putting elements which are less than pivot
-		 on one side and which are greater that on other. */
-		if (A[fast] < piv)
-		{
-			swap(A[slow], A[fast]);
-			slow += 1;
-		}
-	}
-	swap(A[start], A[slow - 1]);  //put the pivot element in its proper place.
-	return slow - 1;                      //return the position of the pivot
-}
-
-
-```
-
-#### 完整程序
-
-Now, let us see the recursive function Quick_sort :
-
-
-
-```c++
-void quick_sort ( int A[ ] ,int start , int end ) {
-   if( start < end ) {
-        //stores the position of pivot element
-         int piv_pos = partition (A,start , end ) ;     
-         quick_sort (A,start , piv_pos -1);    //sorts the left side of pivot.
-         quick_sort ( A,piv_pos +1 , end) ; //sorts the right side of pivot.
-   }
-}
-```
-
-
-
-完整程序如下：
-
-```c
-#include <stdio.h>
-#include <stdlib.h>
-
-/*Displays the array, passed to this method*/
-void display(int arr[], int n)
-{
-
-    int i;
-    for (i = 0; i < n; i++)
-    {
-        printf("%d ", arr[i]);
-    }
-
-    printf("\n");
-}
-
-/*Swap function to swap two values*/
-void swap(int *first, int *second)
-{
-
-    int temp = *first;
-    *first = *second;
-    *second = temp;
-}
-
-
-
-int partition ( int A[],int start ,int end) {
-    int i = start + 1;
-    int piv = A[start] ;            //make the first element as pivot element.
-    for(int j =start + 1; j <= end ; j++ )  {
-    /*rearrange the array by putting elements which are less than pivot
-       on one side and which are greater that on other. */
-
-          if ( A[ j ] < piv) {
-                 swap (A[ i ],A [ j ]);
-            i += 1;
-        }
-   }
-   swap ( A[ start ] ,A[ i-1 ] ) ;  //put the pivot element in its proper place.
-   return i-1;                      //return the position of the pivot
-}
-
-/*This is where the sorting of the array takes place
-	arr[] --- Array to be sorted
-	lower --- Starting index
-	upper --- Ending index
-*/
-void quickSort(int arr[], int lower, int upper)
-{
-
-    if (upper > lower)
-    {
-
-        // partitioning index is returned by the partition method , partition element is at its correct poition
-
-        int partitionIndex = partition(arr, lower, upper);
-
-        // Sorting elements before and after the partition index
-        quickSort(arr, lower, partitionIndex - 1);
-        quickSort(arr, partitionIndex + 1, upper);
-    }
-}
-
-int main()
-{
-
-    int n;
-    printf("Enter size of array:\n");
-    scanf("%d", &n); // E.g. 8
-
-    printf("Enter the elements of the array\n");
-    int i;
-    int *arr = (int *)malloc(sizeof(int) * n);
-    for (i = 0; i < n; i++)
-    {
-        scanf("%d", &arr[i]);
-    }
-
-    printf("Original array: ");
-    display(arr, n); // Original array : 10 11 9 8 4 7 3 8
-
-    quickSort(arr, 0, n - 1);
-
-    printf("Sorted array: ");
-    display(arr, n); // Sorted array : 3 4 7 8 8 9 10 11
-    getchar();
-    return 0;
-}
 ```
 
 

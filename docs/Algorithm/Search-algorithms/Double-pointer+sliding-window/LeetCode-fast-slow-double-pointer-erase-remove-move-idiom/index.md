@@ -91,13 +91,13 @@ class Solution:
 
 ### [LeetCode-26. 删除有序数组中的重复项](https://leetcode.cn/problems/remove-duplicates-from-sorted-array/) 
 
-1、在 labuladong  [双指针技巧秒杀四道数组/链表题目](https://mp.weixin.qq.com/s/55UPwGL0-Vgdh8wUEPXpMQ) 中发现的这道题
+1. 在 labuladong  [双指针技巧秒杀四道数组/链表题目](https://mp.weixin.qq.com/s/55UPwGL0-Vgdh8wUEPXpMQ) 中发现的这道题
 
-2、fast slow double pointer
+2. fast slow double pointer
 
-slow保存有序、无重复的合法区域，fast不断去试探。
+   slow保存有序、无重复的合法区域，fast不断去试探。
 
-3、存在重复写的情况
+3. 存在重复写的情况
 
 #### C++
 

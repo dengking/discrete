@@ -14,7 +14,7 @@ zhihu [【算法分析选例】快速排序（1）](https://zhuanlan.zhihu.com/p
 >
 > 二、为了便于分析，可以以quick sort一个长度为5的array为例来进行说明
 >
-> ![](./quick-sort-activation-tree.jpg)
+> ![](./quick-sort-call-activation-tree.jpg)
 >
 > 
 
