@@ -1,6 +1,6 @@
 # Segment tree
 
-一、
+一. 
 
 segment=线段
 
@@ -8,13 +8,13 @@ interval=区间
 
 借助segment tree，可以实现关于区间统计的一类问题。
 
-二、
+二. 
 
 左右两个节点的区间不重叠
 
 
 
-三、线段树是否只能够处理离散的点？使用segment tree之前需要考虑如何定义区间，最最典型的例子是range sum query，它是基于array的，它的range是array index。
+三. 线段树是否只能够处理离散的点？使用segment tree之前需要考虑如何定义区间，最最典型的例子是range sum query，它是基于array的，它的range是array index。
 
 sweep line algorithm也是将line segment离散化后进行处理的
 
