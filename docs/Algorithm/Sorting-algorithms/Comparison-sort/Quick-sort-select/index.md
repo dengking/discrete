@@ -554,38 +554,43 @@ function select(list, left, right, k) is
 
 
 
-### C++
+### [LeetCode-215. 数组中的第K个最大元素](https://leetcode.cn/problems/kth-largest-element-in-an-array/) 
 
-
+#### Python
 
 ```c++
-#include<iostream>
+import random
+from typing import *
 
-int RandomizedPartition(int a[], int p, int r) {
-    int i = Random(p, r);
-    std::swap(a[i], a[p]);
-    return Patiton(a, p, r);
-}
 
-/**
- * 元素选择问题：查找序列a中第k大的元素，p是起始下标，r是终止下标
- * @param a
- * @param p
- * @param r
- * @param k
- * @return
- */
-int RandomizedSelect(int a[], int p, int r, int k) {
-    //如果仅有一个元素，则第k大的元素就是这个元素
-    if (p == r) return a[p];
-    int i = RandomizedPartition(a, p, r);//首先随机地对a中元素进行分组，返回基准的下标
-    int j = i - p + 1;//从a[p]到a[i]的长度，表示有多少个元素比a[i]小
-    if (k <= j) {
-        //如果k比j要小，则k肯定出现在i的左半段。注意此处千万要和快速排序的函数区分开来：此处i必须为i，切记写成i-1.因为需要求的是第k小的元素，前面的判断条件是k〈=j，如果k=j，那么a[i]即为所求
-        return RandomizedSelect(a, p, i, k);
-    } else {
-        return RandomizedSelect(a, i, k, k - j);
-    }
-}
+class Solution:
+    def findKthLargest(self, nums: List[int], k: int) -> int:
+        random.shuffle(nums)
+        return self.__quick_select_impl__(nums, 0, len(nums) - 1, len(nums) - k + 1)
+
+    def __quick_select_impl__(self, nums: List[int], lo: int, hi: int, k: int) -> int:
+        if hi <= lo:
+            return nums[hi]
+
+        p = self.__lomute_partition__(nums, lo, hi)
+        if p + 1 == k:
+            return nums[p]
+        elif p + 1 > k:
+            return self.__quick_select_impl__(nums, lo, p - 1, k)
+        else:
+            return self.__quick_select_impl__(nums, p + 1, hi, k)
+
+    def __lomute_partition__(self, nums: List[int], lo: int, hi: int) -> int:
+        if lo == hi:
+            return lo
+        pivot = nums[lo]
+        slow = lo + 1
+        for fast in range(lo + 1, hi + 1):
+            if nums[fast] < pivot:
+                nums[slow], nums[fast] = nums[fast], nums[slow]
+                slow += 1
+        nums[lo], nums[slow - 1] = nums[slow - 1], nums[lo]
+        return slow - 1
+
 ```
 

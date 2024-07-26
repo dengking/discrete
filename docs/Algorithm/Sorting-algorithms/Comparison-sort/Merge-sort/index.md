@@ -1,12 +1,12 @@
 # Merge sort
 
-一、merge sort 和 segment tree非常类似: 
+一. merge sort 和 segment tree非常类似: 
 
-1、它不需要考虑balanced问题，因为它的一分为二是等分
+1. 它不需要考虑balanced问题，因为它的一分为二是等分
 
-2、merge sort是典型的一分为二(top-down-pre-order-action)然后两两组和(bottom-up-post-order-action)，它是dfs recursion的典型的模板，这一点它和segment tree非常类似。
+2. merge sort是典型的一分为二(top-down-pre-order-action)然后两两组和(bottom-up-post-order-action)，它是dfs recursion的典型的模板，这一点它和segment tree非常类似。
 
-二、labuladong [东哥手把手带你套框架刷通二叉树|第一期](https://mp.weixin.qq.com/s/izZ5uiWzTagagJec6Y7RvQ) 
+二. labuladong [东哥手把手带你套框架刷通二叉树|第一期](https://mp.weixin.qq.com/s/izZ5uiWzTagagJec6Y7RvQ) 
 
 再说说归并排序的逻辑，若要对`nums[lo..hi]`进行排序，我们先对`nums[lo..mid]`排序，再对`nums[mid+1..hi]`排序，最后把这两个有序的子数组合并，整个数组就排好序了。
 
@@ -37,11 +37,13 @@ void sort(int[] nums, int lo, int hi) {
 
 
 
-## Implementation
 
-### 递归的实现方式
 
-[LeetCode-912. 排序数组](https://leetcode.cn/problems/sort-an-array/) # Merge sort
+## [LeetCode-912. 排序数组](https://leetcode.cn/problems/sort-an-array/) 
+
+### 递归
+
+#### C++
 
 ```C++
 #include <algorithm>
@@ -100,6 +102,63 @@ private:
     }
 };
 ```
+
+
+
+#### Python
+
+```python
+from typing import *
+
+
+class Solution:
+    def sort(self, nums: List[int]):
+        self.merge_sort(nums, 0, len(nums) - 1)
+
+    def merge_sort(self, nums: List[int], lo: int, hi: int):
+        if hi > lo:
+            mid = (lo + hi) // 2
+            self.merge_sort(nums, lo, mid)
+            self.merge_sort(nums, mid + 1, hi)
+            self.merge(nums, lo, mid, mid + 1, hi)
+        else:
+            return
+
+    def merge(self, nums: List[int], lo_1: int, hi_1: int, lo_2: int, hi_2: int):
+        l = []
+        first = lo_1
+        second = lo_2
+        while first <= hi_1 and second <= hi_2:
+            if nums[first] < nums[second]:
+                l.append(nums[first])
+                first += 1
+            else:
+                l.append(nums[second])
+                second += 1
+        if first <= hi_2:
+            l += nums[first:hi_1 + 1]
+        if second <= hi_2:
+            l += nums[first:hi_2 + 1]
+        nums[lo_1:hi_2 + 1] = l
+
+
+if __name__ == "__main__":
+    solu = Solution()
+    l = [4, 3, 2, 1]
+    solu.sort(l)
+    print(l)
+
+    l = [2, 1]
+    solu.sort(l)
+    print(l)
+
+    l = [1]
+    solu.sort(l)
+    print(l)
+
+```
+
+
 
 ### 非递归的实现方式
 
