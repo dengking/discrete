@@ -253,7 +253,7 @@ int BFS(Node start) {
 
 
 
-#### Lazy mark explored
+#### Lazy mark visited
 
 这种写法我时在使用chatGTP发现的，相比于eager，它更加简单，它采用的是"If the node has not been visited, add it to the visited list"。
 
@@ -263,9 +263,15 @@ int BFS(Node start) {
 
 #### Eager VS Lazy
 
-最能体现两种BFS的差异: 使用BFS构建 [spanning tree](https://en.wikipedia.org/wiki/Spanning_tree) 
+(visit node、expand node to queue(explore))，因此可以在这两个地方进行去重:
 
-eager mode的优势:
+Eager 是在expand node to queue的地方进行去重，它是只要碰到node，就将它放到eexploded set中，它能够避免node重复进入到queue中；
+
+Lazy 是在visit node的时候进行去重；
+
+它们两者之间的差异最能够在使用BFS构建 [spanning tree](https://en.wikipedia.org/wiki/Spanning_tree) 中显现出来: 一个node，如果能够通过多个node到达，由于lazy写法只有当这个node被vista的时候才会将它进行标记，那么它可能多次进入到queue中，对于向spanning tree construction问题，它就不适用了。而eager写法中，只要被explore，就将它进行标记，即使有多个node能够到达它，那么它依然只会被处理一次。
+
+Eager mode的优势:
 
 - queue中的元素都是explored状态的; queue和explored状态保持一致
 - 能够正确实现"BFS构建 [spanning tree](https://en.wikipedia.org/wiki/Spanning_tree)"算法

@@ -24,7 +24,7 @@ A collection of disjoint (unconnected) trees is described as a *[forest](https:/
 
 ## Algorithms
 
-
+> NOTE: 保证graph中的每个node只会被access一次
 
 ### Construction
 
@@ -136,23 +136,13 @@ Expected :4
 Actual   :5
 ```
 
-上述 `construct_spanning_tree_by_bfs_lazy_mark_visited` 存在错误，从上述运行结果也可以看出 `construct_spanning_tree_by_bfs1`、`construct_spanning_tree_by_bfs2` 两种BFS方式之间的差异: 
+上述 `construct_spanning_tree_by_bfs_lazy_mark_visited` 存在错误，从上述运行结果也可以看出 Eager mark explored BFS、Lazy mark visited BFS 两种BFS方式之间的差异: 
 
-eager:
+从node1可以到达node0、node2、node3，因此就构建了`[(1, 0), (1, 2), (1, 3)]` 同时将`[node0, node2, node3]`，在visit node1后就将它标记为visited; 然后从queue中取出node0，它能够达到node1、node2，由于node1已经被标记为visited，所以通过它只能够构建`(0, 2)`，然后将node2加入到queue中，需要注意的是，此时已经出现问题了:
 
-lazy   : 
+`[(1, 0), (1, 2), (1, 3), (0, 2)]` 已经成环了，因为node2它既能够从node1到达又能够从node0到达，所以它两次被构建边、两次进入到queue中。
 
-(visit node、expand node to queue)，因此可以在这两个地方进行去重:
-
-`bfs1`是在expand node to queue的地方进行去重，它是只要碰到node，就将它放到visited set中，它能够避免node重复进入到queue中；
-
-`bfs2`是在visit node的时候进行去重；
-
-显然它们两者之间的差异在spanning tree construction中显现出来了。
-
-每个node都需要access一遍，但是当将它们用于spanning tree construction的时候，`bfs2`就不适用了。
-
-expand node to queue的时候将edge存到结果集中。
+这其实就体现了lazy写法的一个弊端: 一个node，如果能够通过多个node到达，那么它可能多次进入到queue中，对于向spanning tree construction问题，它就不适用了。
 
 #### DFS
 
