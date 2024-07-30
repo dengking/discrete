@@ -1,4 +1,4 @@
-# Graph traversal
+# Traverse graph
 
 素材一:wikipedia [Transitive closure](https://en.wikipedia.org/wiki/Transitive_closure) :
 

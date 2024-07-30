@@ -1,5 +1,17 @@
 # Topological sorting
 
+素材: 
+
+labuladong [拓扑排序，YYDS！](https://mp.weixin.qq.com/s/7nP92FhCTpTKIAplj_xWpA)
+
+jianshu [拓扑排序(一)——有向图成环检测](https://www.jianshu.com/p/d6042b659f70)
+
+csdn [[ZZ]如何判断有向图是否成环](https://blog.csdn.net/leonsc/article/details/5973209)
+
+csdn [数据结构 图 有向无环图](https://blog.csdn.net/nomad2/article/details/1559664)
+
+csdn [拓扑排序判断有向图是否成环](https://blog.csdn.net/qq_40642465/article/details/80670269)
+
 
 
 ## Guide: DFS VS BFS
@@ -8,7 +20,7 @@
 
 使用 "入度" 和 "长度"概念来对DFS和BFS进行理解:
 
-|                 | DFS                                                          | BFS                                                          |
+|                 | BFS                                                          | DFS                                                          |
 | --------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 |                 | 一个node，如果它的 "入度"  为0，则表示它没有依赖其他节点，它是**低阶课程**，应该优先学习 | 一个node，如果它的 "出度"  为0，则表示没有其它节点依赖它，它是**高阶课程**，应该最后学习 |
 |                 | BFS优先寻找**低阶课程**，将它放到**队首**；                  | DFS优先寻找**高阶课程**，将它放到**栈底**；                  |
@@ -20,7 +32,7 @@
 
 
 
-### dependency graph
+### Dependency graph
 
 首先需要根据 `prerequisites` 数组构建出dependency graph，这样能够找到它的相邻节点，原味给出的解法中都是使用的**adjacent list**，题目描述如下:
 
@@ -30,19 +42,15 @@
 
 ## [LeetCode-207. 课程表](https://leetcode.cn/problems/course-schedule/) # [力扣官方题解](https://leetcode.cn/problems/course-schedule/solution/ke-cheng-biao-by-leetcode-solution/)
 
-> NOTE: 
+> NOTE: 这个题只需要判断是否存在circle，即circle detection
 >
-> 这个题只需要判断是否存在circle，即circle detection
 
 1、如果图 `G` 中存在环（即图 `G` 不是「有向无环图」），那么图 `G` 不存在**拓扑排序**。
 
 这是因为假设图中存在环 $x_1, x_2, \cdots, x_n, x_1$ ，那么 $x_1$ 在排列中必须出现在 $x_n$的前面，但 $x_n$ 同时也必须出现在 $x_1$  的前面，因此不存在一个满足要求的排列，也就不存在拓扑排序；
 
-> NOTE: 
+> NOTE: 上述使用的是反证法: 自相矛盾，在实现topological sorting的时候，一个非常重要的问题是circle，一旦有circle则无法进行topological sorting
 >
-> 一、上述使用的是反证法: 自相矛盾
->
-> 二、在实现topological sorting的时候，一个非常重要的问题是circle，一旦有circle则无法进行topological sorting
 
 2、如果图 $G$ 是有向无环图，那么它的拓扑排序可能不止一种。举一个最极端的例子，如果图 $G$ 值包含 $n$ 个节点却没有任何边，那么任意一种编号的排列都可以作为拓扑排序。
 
@@ -241,27 +249,13 @@ int main()
 
 In [computer science](https://en.wikipedia.org/wiki/Computer_science), a **topological sort** or **topological ordering** of a [directed graph](https://en.wikipedia.org/wiki/Directed_graph) is a [linear ordering](https://en.wikipedia.org/wiki/Total_order) of its [vertices](https://en.wikipedia.org/wiki/Vertex_(graph_theory)) such that for every directed edge *uv* from vertex *u* to vertex *v*, *u* comes before *v* in the ordering. 
 
-> NOTE: 
-> 1、linear ordering是一个logical structure
+> NOTE: linear ordering是一个logical structure
 
 For instance, the vertices of the graph may represent tasks to be performed, and the edges may represent constraints that one task must be performed before another; in this application, a topological ordering is just a valid sequence for the tasks. 
 
-> NOTE: 
-> 1、上述是典型的dependency graph
+> NOTE: 上述是典型的dependency graph
 
 A topological ordering is possible if and only if the graph has no [directed cycles](https://en.wikipedia.org/wiki/Directed_cycle), that is, if it is a [directed acyclic graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph) (DAG). Any DAG has at least one topological ordering, and [algorithms](https://en.wikipedia.org/wiki/Algorithm) are known for constructing a topological ordering of any DAG in [linear time](https://en.wikipedia.org/wiki/Linear_time). Topological sorting has many applications especially in ranking problems such as [feedback arc set](https://en.wikipedia.org/wiki/Feedback_arc_set).
-
-## 素材
-
-labuladong [拓扑排序，YYDS！](https://mp.weixin.qq.com/s/7nP92FhCTpTKIAplj_xWpA)
-
-jianshu [拓扑排序(一)——有向图成环检测](https://www.jianshu.com/p/d6042b659f70)
-
-csdn [[ZZ]如何判断有向图是否成环](https://blog.csdn.net/leonsc/article/details/5973209)
-
-csdn [数据结构 图 有向无环图](https://blog.csdn.net/nomad2/article/details/1559664)
-
-csdn [拓扑排序判断有向图是否成环](https://blog.csdn.net/qq_40642465/article/details/80670269)
 
 
 
@@ -273,9 +267,4 @@ https://leetcode.cn/problems/course-schedule-ii/solution/ke-cheng-biao-ii-by-lee
 
 https://leetcode.cn/problems/course-schedule-iv/
 
-
-
-## Implementation
-
-github [Algo-Tree](https://github.com/Algo-Phantoms/Algo-Tree)/[Code](https://github.com/Algo-Phantoms/Algo-Tree/tree/main/Code)/[C++](https://github.com/Algo-Phantoms/Algo-Tree/tree/main/Code/C%2B%2B)/[Topological_sort.cpp](https://github.com/Algo-Phantoms/Algo-Tree/blob/main/Code/C%2B%2B/Topological_sort.cpp)
 
