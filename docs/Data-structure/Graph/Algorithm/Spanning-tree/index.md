@@ -146,6 +146,63 @@ Actual   :5
 
 #### DFS
 
+```python
+import unittest
+from typing import *
+
+
+class DirectedUnweightedGraphInAdjacencyList:
+    """
+    1、以adjacency list实现directed unweighted graph
+    2、https://www.python.org/doc/essays/graphs/
+    """
+
+    def __init__(self, graph: Dict[Union[str, int], List[Union[str, int]]]):
+        self.graph = graph
+
+    def construct_spanning_tree_by_dfs(self,
+                                       start: Union[str, int],
+                                       visited_set=None,
+                                       spanning_tree=None) -> List[Tuple]:
+
+        if visited_set is None:
+            visited_set = set()
+        if spanning_tree is None:
+            spanning_tree = []
+
+        if start not in visited_set:
+            visited_set.add(start)
+            for adj_node in filter(lambda next_node: next_node not in visited_set, self.graph.get(start, [])):
+                spanning_tree.append((start, adj_node))
+                self.construct_spanning_tree_by_dfs(adj_node, visited_set, spanning_tree)
+
+        return spanning_tree
+
+
+class TestSpanningTreeConstructionAlgorithm(unittest.TestCase):
+    def test_spanning_tree_constructed_by_bfs(self):
+        # Graph represented as an adjacency list
+        graph = {
+            0: [1, 2],
+            1: [0, 2, 3],
+            2: [0, 1, 4],
+            3: [1],
+            4: [2]
+        }
+        directed_unweighted_graph_in_adj_list = DirectedUnweightedGraphInAdjacencyList(graph)
+        source = 1
+        spanning_tree1 = directed_unweighted_graph_in_adj_list.construct_spanning_tree_by_dfs(
+            source)
+        print(f'spanning_tree1:{spanning_tree1}')
+
+        self.assertEqual(len(spanning_tree1), 4)
+
+
+if __name__ == '__main__':
+    unittest.main()
+
+```
+
 
 
 ### Optimization(Minimum-spanning-tree)

@@ -1,5 +1,39 @@
 # Graph traversal
 
+素材一:wikipedia [Transitive closure](https://en.wikipedia.org/wiki/Transitive_closure) :
+
+> The problem can also be solved by the [Floyd–Warshall algorithm](https://en.wikipedia.org/wiki/Floyd–Warshall_algorithm), or by repeated [breadth-first search](https://en.wikipedia.org/wiki/Breadth-first_search) or [depth-first search](https://en.wikipedia.org/wiki/Depth-first_search) starting from each node of the graph.
+
+其实上面这段话总结了三种travers graph的algorithm paradigms: 
+
+- [Floyd–Warshall algorithm](https://en.wikipedia.org/wiki/Floyd–Warshall_algorithm) 所代表的"node-wise-$O(N^2)$ traverse"
+- repeated-BFS
+- repeated-DFS
+
+素材二: 又联想到 [LeetCode-743. 网络延迟时间](https://leetcode.cn/problems/network-delay-time/) # [五种最短路径算法总结](https://leetcode.cn/problems/network-delay-time/solution/dirkdtra-by-happysnaker-vjii/) 中总结了多种解决单源最短路径的算法，其中包括  [Floyd–Warshall algorithm](https://en.wikipedia.org/wiki/Floyd–Warshall_algorithm)、Dijkstra(BFS)、DFS。
+
+"穷举是解决所有问题的基石"，对于graph的各种问题亦是如此，从目前接触的各种graph algorithm，它们大多数都是基于对graph的traverse，所不同的是travers的方式不同，总的来说，是可以归入到如下paradigm的:
+
+一. node-wise-$O(N^2)$ traverse
+
+这是最最暴力的穷举方式，典型的代表是Floyd–Warshall-algorithm
+
+二. repeated-BFS-queue-machine
+
+1. [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra's_algorithm)
+
+三. repeated-DFS-stack-machine	
+
+
+
+|                                                              |                  |                                                              | data structure   |
+| ------------------------------------------------------------ | ---------------- | ------------------------------------------------------------ | ---------------- |
+|                                                              |                  |                                                              |                  |
+| [Prim算法](https://leetcode.cn/problems/min-cost-to-connect-all-points/solution/prim-and-kruskal-by-yexiso-c500/) | 以**顶点**为基础 | 和Dijkstra's algorithm非常类似，以greedy的方式不断地扩展，并且它也可以使用`priority_queue`来进行优化。 | `priority_queue` |
+| [Kruskal](https://leetcode.cn/problems/min-cost-to-connect-all-points/solution/prim-and-kruskal-by-yexiso-c500/) | 以**边**为基础   |                                                              | union-find-set   |
+
+
+
 
 
 ## wikipedia [Graph traversal](https://en.wikipedia.org/wiki/Graph_traversal)
@@ -362,9 +396,9 @@ Breadth-first search can be used to solve many problems in graph theory, for exa
 
 
 
-## Depth-first search
+## DFS
 
-
+DFS graph的时候，recursion 的 stop condition是visited set
 
 ### wikipedia [Depth-first search](https://en.wikipedia.org/wiki/Depth-first_search)
 
@@ -428,7 +462,7 @@ The recursive implementation will visit the nodes from the example graph in the 
 
 The non-recursive implementation will visit the nodes as: A, E, F, B, D, C, G.
 
-![](/Users/kai/Documents/GitHub/discrete/docs/Data-structure/Graph/Algorithm/Traverse-graph/DFS-graph/300px-Graph.traversal.example.svg.png)
+![](./300px-Graph.traversal.example.svg.png)
 
 
 
@@ -518,7 +552,7 @@ Finding [biconnectivity in graphs](https://en.wikipedia.org/wiki/Biconnected_gra
 
 ### Implementation
 
-DFS graph的时候，recursion 的 stop condition是visited set
+
 
 #### Spanning tree
 
@@ -626,6 +660,10 @@ if __name__ == '__main__':
     solu.cloneGraph(n1)
 
 ```
+
+
+
+## Node-wise-$O(N^2)$​ traverse
 
 
 
