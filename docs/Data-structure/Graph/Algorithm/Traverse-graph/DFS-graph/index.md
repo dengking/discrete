@@ -114,23 +114,17 @@ Algorithms that use depth-first search as a building block include:
 
 #### Connected components
 
-1、Finding [connected components](https://en.wikipedia.org/wiki/Connected_component_(graph_theory)).
+1. Finding [connected components](https://en.wikipedia.org/wiki/Connected_component_(graph_theory)).
 
-> NOTE: 
->
-> 1、暂时没有接触
+2. Finding 2-(edge or vertex)-connected components.
 
+3. Finding 3-(edge or vertex)-connected components.
 
-
-2、Finding 2-(edge or vertex)-connected components.
-
-3、Finding 3-(edge or vertex)-connected components.
-
-4、Finding [strongly connected components](https://en.wikipedia.org/wiki/Strongly_connected_components).
+4. Finding [strongly connected components](https://en.wikipedia.org/wiki/Strongly_connected_components).
 
 #### Topological sorting
 
-1、[Topological sorting](https://en.wikipedia.org/wiki/Topological_sorting)
+[Topological sorting](https://en.wikipedia.org/wiki/Topological_sorting)
 
 > NOTE: 
 >
@@ -138,7 +132,7 @@ Algorithms that use depth-first search as a building block include:
 
 #### Bridges
 
-1、Finding the [bridges](https://en.wikipedia.org/wiki/Bridge_(graph_theory)#Bridge-finding_algorithm) of a graph.
+Finding the [bridges](https://en.wikipedia.org/wiki/Bridge_(graph_theory)#Bridge-finding_algorithm) of a graph.
 
 #### Generating words
 
@@ -151,8 +145,6 @@ Generating words in order to plot the [limit set](https://en.wikipedia.org/wiki/
 #### Backtracking
 
 Solving puzzles with only one solution, such as [mazes](https://en.wikipedia.org/wiki/Maze). (DFS can be adapted to find all solutions to a maze by only including nodes on the current path in the visited set.)
-
-
 
 > NOTE: 
 >
@@ -173,10 +165,4 @@ Solving puzzles with only one solution, such as [mazes](https://en.wikipedia.org
 Finding [biconnectivity in graphs](https://en.wikipedia.org/wiki/Biconnected_graph).
 
 
-
-## LeetCode
-
-
-
-迷宫系列
 

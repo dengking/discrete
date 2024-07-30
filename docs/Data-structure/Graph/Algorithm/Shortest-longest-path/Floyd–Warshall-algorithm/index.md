@@ -19,9 +19,11 @@
 
 > NOTE:
 >
-> 一、从算法思想、算法原理到实现
+> 一. 从算法思想、算法原理到实现
+>
+> Floyd–Warshall-algorithm-interval-DP-graph-DP-greedy-algorithm-穷枚举断点+更新区间+edge-relaxation-approximation=逼近
 
-Floyd–Warshall-algorithm-interval-DP-graph-DP-greedy-algorithm-穷枚举断点+更新区间+edge-relaxation-approximation=逼近
+
 
 Floyd–Warshall algorithm的思想非常简单: **穷举**，对于包含N个节点的graph，显然穷举/遍历需要 $O(N^3)$ 。
 
@@ -31,23 +33,24 @@ Floyd–Warshall-algorithm: 枚举经过一个**点**、两个点...的所有的
 
 > "the algorithm calculates **shortest paths** in a **bottom-up** manner. It first calculates the shortest distances which have at-most one point in the path. Then, it calculates the shortest paths with at-most 2 points, and so on. "
 
-> NOTE:
+> Reference: 上面这段话源自: geeksforgeeks [Bellman–Ford Algorithm | DP-23](https://www.geeksforgeeks.org/bellman-ford-algorithm-dp-23/) 
 >
-> 一、上面这段话源自: geeksforgeeks [Bellman–Ford Algorithm | DP-23](https://www.geeksforgeeks.org/bellman-ford-algorithm-dp-23/) 
 
 Floyd–Warshall algorithm的pseudocode看得比较简答，但是解释清楚为什么它能够成功计算出最短距离？如何解释outermost loop？等问题却并不容易，下面是一些很好的素材: 
 
 stackoverflow [Why does Floyd Warshall's algorithm succeed?](https://stackoverflow.com/questions/63385915/why-does-floyd-warshalls-algorithm-succeed) # [A](https://stackoverflow.com/a/63386129) 
 
-> I think that you have a misunderstanding of how the Floyd-Warshall algorithm works. For reference, here's an implementation (from cp-algorithms [Floyd-Warshall Algorithm](https://cp-algorithms.com/graph/all-pair-shortest-path-floyd-warshall.html)):
+> I think that you have a misunderstanding of how the **Floyd-Warshall algorithm** works. For reference, here's an implementation (from cp-algorithms [Floyd-Warshall Algorithm](https://cp-algorithms.com/graph/all-pair-shortest-path-floyd-warshall.html)):
 >
 > ```c
-> for (int k = 0; k < n; ++k) {
->  for (int i = 0; i < n; ++i) {
->      for (int j = 0; j < n; ++j) {
->          d[i][j] = min(d[i][j], d[i][k] + d[k][j]); 
->      }
->  }
+> void floyd_warshall_algo() {
+>     for (int k = 0; k < n; ++k) {
+>         for (int i = 0; i < n; ++i) {
+>             for (int j = 0; j < n; ++j) {
+>                 d[i][j] = min(d[i][j], d[i][k] + d[k][j]);
+>             }
+>         }
+>     }
 > }
 > ```
 >
@@ -57,13 +60,13 @@ stackoverflow [Why does Floyd Warshall's algorithm succeed?](https://stackoverfl
 >
 > > NOTE:
 > >
-> > 1、基于子问题的解才能够bottom-up地计算得到更大问题的解
+> > 1. 基于子问题的解才能够bottom-up地计算得到更大问题的解
 >
 > Now to answer your question directly more directly, it doesn't matter if a newly computed path using the set `{1, 2, ..., k}` uses the results from the previous iteration of the outermost loop. This is true because the set `{1, 2, ..., k - 1}` is a subset of `{1, 2, ..., k}`, so it would be perfectly fine if we did reuse our previously shorted computed path. The key idea is that we have the *option* to use the newly added vertex `k`.
 >
 > > NOTE:
 > >
-> > 一、这段话是正解，它所表达的含义其实是基于之前的最优解构建新的解
+> > 一. 这段话是正解，它所表达的含义其实是基于之前的最优解构建新的解
 
 
 
@@ -275,13 +278,11 @@ procedure Path(u, v)
 
 
 
-## Implementation
 
 
+## [LeetCode-743. 网络延迟时间-中等](https://leetcode.cn/problems/network-delay-time/) 
 
-### [LeetCode-743. 网络延迟时间-中等](https://leetcode.cn/problems/network-delay-time/) 
-
-#### 写法一: 正确写法
+### 写法一: 正确写法
 
 ```c++
 #include <vector>
@@ -373,7 +374,7 @@ dp[3][3]=min(dp[3][3], dp[3][3]+dp[3][3])
 
 
 
-#### 写法二: 错误写法
+### 写法二: 错误写法
 
 下面代码则无法正常工作:
 

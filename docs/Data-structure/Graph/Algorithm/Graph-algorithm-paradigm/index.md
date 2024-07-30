@@ -4,25 +4,25 @@
 
 > The problem can also be solved by the [Floyd–Warshall algorithm](https://en.wikipedia.org/wiki/Floyd–Warshall_algorithm), or by repeated [breadth-first search](https://en.wikipedia.org/wiki/Breadth-first_search) or [depth-first search](https://en.wikipedia.org/wiki/Depth-first_search) starting from each node of the graph.
 
-其实上面这段话总结了三种graph algorithm paradigm。其中  [Floyd–Warshall algorithm](https://en.wikipedia.org/wiki/Floyd–Warshall_algorithm) 是典型的"穷举"，repeated-BFS，repeated-DFS。
+其实上面这段话总结了三种穷举graph的algorithm paradigms： [Floyd–Warshall algorithm](https://en.wikipedia.org/wiki/Floyd–Warshall_algorithm) 所代表的"穷举"，repeated-BFS，repeated-DFS。
 
 素材二: 又联想到 [LeetCode-743. 网络延迟时间](https://leetcode.cn/problems/network-delay-time/) # [五种最短路径算法总结](https://leetcode.cn/problems/network-delay-time/solution/dirkdtra-by-happysnaker-vjii/) 中总结了多种解决单源最短路径的算法，其中包括  [Floyd–Warshall algorithm](https://en.wikipedia.org/wiki/Floyd–Warshall_algorithm)、Dijkstra(BFS)、DFS。
 
-总的来说: 解决同一个问题，可以使用多种graph algorithm，而各种graph algorithm其实是可以归入到如下paradigm的:
+总的来说: 穷举是解决所有问题的基础，对于graph的各种问题亦是如此，从目前接触的各种graph algorithm，它们大多数都是基于穷举的，所不同的是穷举的方式不同，总的来说，是可以归入到如下paradigm的:
 
-一、穷举
+一. node-wise-$O(N^2)$ 穷举
 
-Floyd–Warshall-algorithm
+典型的代表是Floyd–Warshall-algorithm
+
+这是最最简单的穷举方式
+
+二. repeated-BFS-queue-machine
+
+1. [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra's_algorithm)
 
 
 
-二、graph-repeated-BFS-queue-machine
-
-1、[Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra's_algorithm)
-
-
-
-三、graph-repeated-DFS-stack-machine	
+三. repeated-DFS-stack-machine	
 
 
 

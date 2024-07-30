@@ -39,7 +39,7 @@ A single **spanning tree** of a graph can be found in [linear time](https://en.w
 ```python
 import unittest
 from collections import deque
-from typing import Dict, List, Tuple, Union
+from typing import *
 
 
 class DirectedUnweightedGraphInAdjacencyList:
@@ -51,7 +51,7 @@ class DirectedUnweightedGraphInAdjacencyList:
     def __init__(self, graph: Dict[Union[str, int], List[Union[str, int]]]):
         self.graph = graph
 
-    def construct_spanning_tree_by_bfs1(self, start: Union[str, int]) -> List[Tuple[Union[str, int], Union[str, int]]]:
+    def construct_spanning_tree_by_bfs_eager_mark_explored(self, start: Union[str, int]) -> List[Tuple]:
         """
 
         :param start:
@@ -60,21 +60,20 @@ class DirectedUnweightedGraphInAdjacencyList:
         spanning_tree = []
 
         q = deque()
-        visited_set = set()
+        explored_set = set()
         q.append(start)
-        visited_set.add(start)
+        explored_set.add(start)
         while q:
             size = len(q)
             for _ in range(size):
-                node = q.popleft()
-                for adj_node in filter(lambda adjacent_node: adjacent_node not in visited_set,
-                                       self.graph.get(node, [])):
+                cur_node = q.popleft()
+                for adj_node in filter(lambda next_node: next_node not in explored_set, self.graph.get(cur_node, [])):
                     q.append(adj_node)
-                    visited_set.add(adj_node)
-                    spanning_tree.append((node, adj_node))
+                    explored_set.add(adj_node)
+                    spanning_tree.append((cur_node, adj_node))
         return spanning_tree
 
-    def construct_spanning_tree_by_bfs2(self, start: Union[str, int]) -> List[Tuple[Union[str, int], Union[str, int]]]:
+    def construct_spanning_tree_by_bfs_lazy_mark_visited(self, start: Union[str, int]) -> List[Tuple]:
         """
 
         :param start:
@@ -87,15 +86,12 @@ class DirectedUnweightedGraphInAdjacencyList:
 
         q.append(start)
         while q:
-            size = len(q)
-            for _ in range(size):
-                node = q.popleft()
-                if node not in visited_set:
-                    visited_set.add(node)
-                    for adj_node in filter(lambda adjacent_node: adjacent_node not in visited_set,
-                                           self.graph.get(node, [])):
-                        q.append(adj_node)
-                        spanning_tree.append((node, adj_node))
+            cur_node = q.popleft()
+            if cur_node not in visited_set:
+                visited_set.add(cur_node)
+                for adj_node in filter(lambda next_node: next_node not in visited_set, self.graph.get(cur_node, [])):
+                    q.append(adj_node)
+                    spanning_tree.append((cur_node, adj_node))
 
         return spanning_tree
 
@@ -112,8 +108,9 @@ class TestSpanningTreeConstructionAlgorithm(unittest.TestCase):
         }
         directed_unweighted_graph_in_adj_list = DirectedUnweightedGraphInAdjacencyList(graph)
         source = 1
-        spanning_tree1 = directed_unweighted_graph_in_adj_list.construct_spanning_tree_by_bfs1(source)
-        spanning_tree2 = directed_unweighted_graph_in_adj_list.construct_spanning_tree_by_bfs2(source)
+        spanning_tree1 = directed_unweighted_graph_in_adj_list.construct_spanning_tree_by_bfs_eager_mark_explored(
+            source)
+        spanning_tree2 = directed_unweighted_graph_in_adj_list.construct_spanning_tree_by_bfs_lazy_mark_visited(source)
         print(f'spanning_tree1:{spanning_tree1}')
         print(f'spanning_tree2:{spanning_tree2}')
 
@@ -139,7 +136,7 @@ Expected :4
 Actual   :5
 ```
 
-上述 `construct_spanning_tree_by_bfs2` 存在错误，从上述运行结果也可以看出 `construct_spanning_tree_by_bfs1`、`construct_spanning_tree_by_bfs2` 两种BFS方式之间的差异: 
+上述 `construct_spanning_tree_by_bfs_lazy_mark_visited` 存在错误，从上述运行结果也可以看出 `construct_spanning_tree_by_bfs1`、`construct_spanning_tree_by_bfs2` 两种BFS方式之间的差异: 
 
 eager:
 

@@ -4,7 +4,7 @@
 
 “closure"是”close“的名词形式。这个词在阅读过程中经常碰到，本文对它进行总结:
 
-1、需要注意的是 [Closure (mathematics)](https://en.wikipedia.org/wiki/Closure_(mathematics)) 和 [Closure (computer programming)](https://en.wikipedia.org/wiki/Closure_(computer_programming)) 是两个完全不同的概念，不能够弄混。 
+需要注意的是 [Closure (mathematics)](https://en.wikipedia.org/wiki/Closure_(mathematics)) 和 [Closure (computer programming)](https://en.wikipedia.org/wiki/Closure_(computer_programming)) 是两个完全不同的概念，不能够弄混。 
 
 
 
@@ -71,16 +71,13 @@ The problem can also be solved by:
 - [Floyd–Warshall algorithm](https://en.wikipedia.org/wiki/Floyd–Warshall_algorithm) 
 - repeated [breadth-first search](https://en.wikipedia.org/wiki/Breadth-first_search) or [depth-first search](https://en.wikipedia.org/wiki/Depth-first_search) starting from each node of the graph 
 
-> NOTE: 
->
-> 一、
->
+
 
 Closures of Relations(从relation-structure的角度来进行分析)
 
-1、沿着relation不断地进行expand
+1. 沿着relation不断地进行expand
 
-2、one-by-one
+2. one-by-one
 
 
 
@@ -110,9 +107,9 @@ wikipedia [Transitive_closure](https://en.wikipedia.org/wiki/Transitive_closure)
 
 Graph-repeated-BFS-flood-fill-transitive-closure
 
-1、BFS flood fill的方式来找到connected component
+1. BFS flood fill的方式来找到connected component
 
-2、repeated执行上述步骤，保证能够找到所有的connected component
+2. repeated执行上述步骤，保证能够找到所有的connected component
 
 注意，需要为每个node都执行一次。
 

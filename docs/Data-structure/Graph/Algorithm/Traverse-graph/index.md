@@ -8,7 +8,7 @@ In [computer science](https://en.wikipedia.org/wiki/Computer_science), **graph t
 
 > NOTE: 
 >
-> 1、其实traversal就是search 
+> 1. 其实traversal就是search 
 
 ### Redundancy
 
@@ -16,19 +16,19 @@ Unlike tree traversal, graph traversal may require that some vertices be visited
 
 > NOTE: 
 >
-> 1、dense and sparse
+> 1. dense and sparse
 
 Thus, it is usually necessary to remember which vertices have already been explored by the algorithm, so that vertices are revisited as infrequently as possible (or in the worst case, to prevent the traversal from continuing indefinitely(其实就是**dead loop**)). This may be accomplished by associating each vertex of the graph with a "color" or "visitation" state during the traversal, which is then checked and updated as the algorithm visits each vertex. If the vertex has already been visited, it is ignored and the path is pursued(追踪) no further; otherwise, the algorithm checks/updates the vertex and continues down its current path.
 
 > NOTE: 
 >
-> 1、在graph traversal中，为了避免由于circle而导致的dead loop，graph traversal algorithm普遍采用的是“标记已经visit过的vertex，对于已经visit过的vertex，再次遇到的时候，直接pass掉”。
+> 1. 在graph traversal中，为了避免由于circle而导致的dead loop，graph traversal algorithm普遍采用的是“标记已经visit过的vertex，对于已经visit过的vertex，再次遇到的时候，直接pass掉”。
 
 Several special cases of graphs imply(蕴含) the visitation of other vertices in their structure, and thus do not require that visitation be explicitly recorded during the traversal. An important example of this is a tree: during a traversal it may be assumed that all "ancestor" vertices of the current vertex (and others depending on the algorithm) have already been visited. Both the [depth-first](https://en.wikipedia.org/wiki/Depth-first_search) and [breadth-first graph searches](https://en.wikipedia.org/wiki/Breadth-first_search) are adaptations of tree-based algorithms, distinguished primarily by the lack of a structurally determined "root" vertex and the addition of a data structure to record the traversal's visitation state.
 
 > NOTE: 
 >
-> 1、翻译如下:
+> 1. 翻译如下:
 >
 > "图的一些特殊情况暗示了对其结构中的其他顶点的访问，因此不需要在遍历过程中明确地记录访问。
 > 一个重要的例子是树:在遍历过程中，可以假设当前顶点的所有“祖先”顶点(以及其他取决于算法的顶点)都已经访问过了。
@@ -36,17 +36,9 @@ Several special cases of graphs imply(蕴含) the visitation of other vertices i
 
 ### Graph traversal algorithms
 
+- DFS=Depth-first search
 
-
-#### Depth-first search
-
-*Main article:* [Depth-first search](https://en.wikipedia.org/wiki/Depth-first_search)
-
-
-
-#### Breadth-first search
-
-*Main article:* [Breadth-first search](https://en.wikipedia.org/wiki/Breadth-first_search)
+- BFS=Breadth-first search
 
 
 
@@ -78,6 +70,8 @@ Several special cases of graphs imply(蕴含) the visitation of other vertices i
 
 ### wikipedia [Breadth-first search](https://en.wikipedia.org/wiki/Breadth-first_search) 
 
+
+
 #### Pseudocode
 
 **Input**: A graph *G* and a *starting vertex* *root* of *G*
@@ -100,9 +94,19 @@ Several special cases of graphs imply(蕴含) the visitation of other vertices i
 13                  Q.enqueue(w)
 ```
 
-### Code
+> NOTE: 典型的eager mode
 
-在使用BFS构建 [spanning tree](https://en.wikipedia.org/wiki/Spanning_tree) 的时候是最能够体现两种BFS实现的差异
+### Implementation
+
+根据是否将`adj_node`/queue中的node设置为explored状态(visited set来实现，为了便于区分使用explored而非visited这个词语)，将BFS算法分为eager、lazy两种实现方式:
+
+|      | Eager                                 | Lazy                                            |
+| ---- | ------------------------------------- | ----------------------------------------------- |
+| 1    | Eager mark explored                   | Lazy mark explored                              |
+| 2    | 将`adj_node`直接设置为explored状态    | 在执行visitor后，将`adj_node` 设置为visited状态 |
+| 3    | 只允许explored状态的node进入到queue中 |                                                 |
+
+
 
 ```python
 import unittest
@@ -119,7 +123,7 @@ class DirectedUnweightedGraphInAdjacencyList:
     def __init__(self, graph: Dict[str, List[str]]):
         self.graph = graph
 
-    def bfs1(self, start: str, visitor: Callable = print) -> List[str]:
+    def bfs_eager_mark_visited(self, start: str, visitor: Callable = print) -> List[str]:
         """
 
         :param visitor:
@@ -127,40 +131,46 @@ class DirectedUnweightedGraphInAdjacencyList:
         :return:
         """
         q = deque()
-        visited_set = set()
-        visited_nodes = []
+        explored_set = set()
+        visited_nodes = []  # 按照visitor顺序保存所有的node
 
         q.append(start)
-        visited_set.add(start)
+        explored_set.add(start)
+
         while q:
             size = len(q)
             for _ in range(size):
-                node = q.popleft()
-                visitor(node)
-                visited_nodes.append(node)
-                for adj_node in filter(lambda adj_node: adj_node not in visited_set, self.graph[node]):
+                cur_node = q.popleft()
+                visitor(cur_node)
+                visited_nodes.append(cur_node)
+                # 使用self.graph.get(cur_node, [])保证cur_node没有adj nodes时程序正常运行
+                for adj_node in filter(lambda next_node: next_node not in explored_set, self.graph.get(cur_node, [])):
                     q.append(adj_node)
-                    visited_set.add(adj_node)
+                    explored_set.add(adj_node)
         return visited_nodes
 
-    def bfs2(self, start: str) -> List[str]:
+    def bfs_lazy_mark_visited(self, start: str, visitor: Callable = print) -> List[str]:
         # Create a queue and enqueue the starting node
-        queue = deque([start])
+        q = deque([start])
         # This list will keep track of all visited nodes
-        visited = []
+        visited_set = set()
+        visited_nodes = []
+
         # Loop as long as there are nodes in the queue
-        while queue:
+        while q:
             # Dequeue a node from the queue
-            current_node = queue.popleft()
+            cur_node = q.popleft()
             # If the node has not been visited, add it to the visited list
-            if current_node not in visited:
-                visited.append(current_node)
+            if cur_node not in visited_set:
+                visited_set.add(cur_node)
+                visitor(cur_node)
+                visited_nodes.append(cur_node)
                 # Enqueue all neighboring nodes
-                for neighbor in self.graph[current_node]:
-                    queue.append(neighbor)
+                for adj_node in self.graph.get(cur_node, []):
+                    q.append(adj_node)
 
         # Return the list of visited nodes
-        return visited
+        return visited_nodes
 
 
 class TestBFSAlgorithm(unittest.TestCase):
@@ -176,8 +186,8 @@ class TestBFSAlgorithm(unittest.TestCase):
         }
         directed_unweighted_graph_in_adj_list = DirectedUnweightedGraphInAdjacencyList(graph)
         source = 'A'
-        nodes1 = directed_unweighted_graph_in_adj_list.bfs1(source)
-        nodes2 = directed_unweighted_graph_in_adj_list.bfs2(source)
+        nodes1 = directed_unweighted_graph_in_adj_list.bfs_eager_mark_visited(source)
+        nodes2 = directed_unweighted_graph_in_adj_list.bfs_lazy_mark_visited(source)
         self.assertEqual(len(nodes1), 6)
         self.assertEqual(nodes1, ['A', 'B', 'C', 'D', 'E', 'F'])
         self.assertEqual(nodes1, nodes2)
@@ -190,21 +200,24 @@ if __name__ == '__main__':
 
 上面展示了两种BFS的写法，两种往visited set中添加节点的方式。
 
-#### bfs1: eager mode
 
-一、bfs1的写法源自于 labuladong [我写了一个模板，把 Dijkstra 算法变成了默写题](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247492167&idx=1&sn=bc96c8f97252afdb3973c7d760edb9c0&scene=21#wechat_redirect) 
 
-- 其中对queue machine有着非常好的描述
+#### Eager mark explored
 
-- 其中对while-从上到下+for-同层从左到右到解释非常好
+在下面文章中，展示了这种写法:
 
-- 这篇文章对BFS binary tree、BFS multiple tree、BFS graph都进行了介绍
+- wikipedia [Breadth-first search](https://en.wikipedia.org/wiki/Breadth-first_search) 
+- [labuladong 我写了一个模板，把 Dijkstra 算法变成了默写题](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247492167&idx=1&sn=bc96c8f97252afdb3973c7d760edb9c0&scene=21#wechat_redirect) 
+
+
+
+[labuladong 我写了一个模板，把 Dijkstra 算法变成了默写题](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247492167&idx=1&sn=bc96c8f97252afdb3973c7d760edb9c0&scene=21#wechat_redirect):  
+
+其中对queue machine有着非常好的描述，下面的图展示了"while-从上到下+for-同层从左到右"，这篇文章对BFS binary tree、BFS multiple tree、BFS graph都进行了介绍
 
 ![image](./BFS-traverse.png)
 
 
-
-- 这篇文章中给出来具体的code
 
 ```java
 // 输入起点，进行 BFS 搜索
@@ -238,16 +251,25 @@ int BFS(Node start) {
 
 再加上 BFS 算法利用`for`循环一层一层向外扩散的逻辑和`visited`集合防止走回头路的逻辑，当你每次从队列中拿出节点`cur`的时候，从`start`到`cur`的最短权重就是`step`记录的步数。
 
-二、上述写法可以总结为:
-
-- nested-loop
-- 同时进入queue、visited-set
 
 
+#### Lazy mark explored
 
-#### bfs2: lazy mode
+这种写法我时在使用chatGTP发现的，相比于eager，它更加简单，它采用的是"If the node has not been visited, add it to the visited list"。
 
-bfs2源自chatGTP，相比于bfs1，它更加简单，它采用的是"If the node has not been visited, add it to the visited list"。
+虽然explored state的node可以重复进入到queue中，但是它使用visited set避免了重复visit一个node
+
+
+
+#### Eager VS Lazy
+
+最能体现两种BFS的差异: 使用BFS构建 [spanning tree](https://en.wikipedia.org/wiki/Spanning_tree) 
+
+eager mode的优势:
+
+- queue中的元素都是explored状态的; queue和explored状态保持一致
+- 能够正确实现"BFS构建 [spanning tree](https://en.wikipedia.org/wiki/Spanning_tree)"算法
+- 能够正确实现BFS shortest path，能够准确计算"最短步数"
 
 
 
@@ -257,15 +279,15 @@ Breadth-first search can be used to solve many problems in graph theory, for exa
 
 - Copying [garbage collection](https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)), [Cheney's algorithm](https://en.wikipedia.org/wiki/Cheney's_algorithm)
 
-- Finding the [shortest path](https://en.wikipedia.org/wiki/Shortest_path) between two nodes *u* and *v*, with path length measured by number of edges (an advantage over [depth-first search](https://en.wikipedia.org/wiki/Depth-first_search))[[12\]](https://en.wikipedia.org/wiki/Breadth-first_search#cite_note-12)
+- Finding the [shortest path](https://en.wikipedia.org/wiki/Shortest_path) between two nodes *u* and *v*, with path length measured by number of edges (an advantage over [depth-first search](https://en.wikipedia.org/wiki/Depth-first_search))[[12\]](https://en.wikipedia.org/wiki/Breadth-first_search#cite_note-12) 
 
-> NOTE: 
->
-> 一、关于此，参见:
->
-> 1、`BFS-shortest-path` 章节
->
-> 二、[Dijkstra’s algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm) 可以看作是一种BFS
+  > NOTE: 
+  >
+  > 一. 关于此，参见:
+  >
+  > 1. `BFS-shortest-path` 章节
+  >
+  > 二. [Dijkstra’s algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm) 可以看作是一种BFS 
 
 - [(Reverse) Cuthill–McKee](https://en.wikipedia.org/wiki/Cuthill–McKee_algorithm) mesh numbering
 
@@ -281,7 +303,7 @@ Breadth-first search can be used to solve many problems in graph theory, for exa
 
 > NOTE:
 >
-> 一、这是最适合用graph BFS的问题
+> 一. 这是最适合用graph BFS的问题
 
 - 需要验证只有沿着一条边才能够进入到目标边，使用BFS进行反向查找 
 
@@ -377,6 +399,4 @@ b、对于BFS: 对于current node的所有的descendant，只要没有被标准�
 4、将它标注为visited，就相当于在tree traversal中，调用了visit function。
 
 
-
-## LeetCode
 
