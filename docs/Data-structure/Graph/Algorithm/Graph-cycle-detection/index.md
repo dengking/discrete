@@ -196,3 +196,9 @@ In this example, the `dfs_cycle_detection` function takes the graph, the current
 The `has_cycle` function iterates over all nodes in the graph and starts DFS from each unvisited node. If any DFS call returns `True`, it means a cycle is detected, and the function returns `True`. If no cycles are detected after visiting all nodes, the function returns `False`.
 
 The key difference between cycle detection in directed and undirected graphs is the use of the recursion stack to keep track of the nodes in the current DFS path. If a node is revisited while it's still in the recursion stack, it indicates the presence of a cycle.
+
+
+
+
+
+## [LeetCode-684. Redundant Connection](https://leetcode.cn/problems/redundant-connection/)
