@@ -1,6 +1,16 @@
 # Graph algorithm
 
+素材:
 
+- wikipedia [Graph algorithms](https://en.wikipedia.org/wiki/Category:Graph_algorithms) 
+
+- wikipedia [Reachability](https://en.wikipedia.org/wiki/Reachability) 
+
+- [Directed graph traversal, orderings and applications to data-flow analysis](https://eli.thegreenplace.net/2015/directed-graph-traversal-orderings-and-applications-to-data-flow-analysis/)
+
+- [Control-flow graph](https://en.wikipedia.org/wiki/Control-flow_graph)
+
+  
 
 ## wikipedia [Graph operations](https://en.wikipedia.org/wiki/Graph_operations)
 
@@ -52,8 +62,6 @@ Binary operations create a new graph from two initial ones *G*1 = (*V*1, *E*1) a
 
 [Pre-topological order](https://en.wikipedia.org/wiki/Pre-topological_order)
 
-
-
 [C3 linearization](https://en.wikipedia.org/wiki/C3_linearization)
 
 
@@ -90,27 +98,5 @@ Binary operations create a new graph from two initial ones *G*1 = (*V*1, *E*1) a
 
 
 
-## wikipedia [Graph algorithms](https://en.wikipedia.org/wiki/Category:Graph_algorithms)
-
-**Graph algorithms** solve problems related to [graph theory](https://en.wikipedia.org/wiki/Graph_theory).
-
-
-
-## wikipedia [Reachability](https://en.wikipedia.org/wiki/Reachability)
-
-
-
-
-
-## Graph algorithm paradigm
-
-参见 `Graph-algorithm-paradigm` 章节。
-
-
-
 ## TODO
-
-[Directed graph traversal, orderings and applications to data-flow analysis](https://eli.thegreenplace.net/2015/directed-graph-traversal-orderings-and-applications-to-data-flow-analysis/)
-
-[Control-flow graph](https://en.wikipedia.org/wiki/Control-flow_graph)
 

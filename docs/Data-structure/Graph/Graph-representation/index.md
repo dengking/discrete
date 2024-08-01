@@ -14,7 +14,7 @@
 
 
 
-一、从relation的角度来分析graph representation
+一. 从relation的角度来分析graph representation
 
 可以使用graph来表示relation，而graph representation同样需要是基于vertex、edge之间的**relation**，graph的各种representation主要是基于如下两种relation:
 
@@ -29,7 +29,7 @@
 
 
 
-二、
+二. 
 
 graph star: 
 
@@ -92,7 +92,7 @@ An adjacency list representation for a graph associates each vertex in the graph
 
 > NOTE:
 >
-> 一、[Python Patterns - Implementing Graphs](https://www.python.org/doc/essays/graphs/)
+> 一. [Python Patterns - Implementing Graphs](https://www.python.org/doc/essays/graphs/)
 
 2、Cormen et al. suggest an implementation in which the vertices are represented by index numbers.[[2\]](https://en.wikipedia.org/wiki/Adjacency_list#cite_note-2) Their representation uses an array indexed by vertex number, in which the array cell for each vertex points to a [singly linked list](https://en.wikipedia.org/wiki/Singly_linked_list) of the neighboring vertices of that vertex. In this representation, the nodes of the singly linked list may be interpreted as edge objects; however, they do not store the full information about each edge (they only store one of the two endpoints of the edge) and in undirected graphs there will be two different linked list nodes for each edge (one within the lists for each of the two endpoints of the edge).
 
