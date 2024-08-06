@@ -400,11 +400,35 @@ Breadth-first search can be used to solve many problems in graph theory, for exa
 
 DFS graph的时候，recursion 的 stop condition是visited set
 
-### wikipedia [Depth-first search](https://en.wikipedia.org/wiki/Depth-first_search)
+### wikipedia [Depth-first search](https://en.wikipedia.org/wiki/Depth-first_search) 
 
 **Depth-first search** (**DFS**) is an [algorithm](https://en.wikipedia.org/wiki/Algorithm) for traversing or searching [tree](https://en.wikipedia.org/wiki/Tree_data_structure) or [graph](https://en.wikipedia.org/wiki/Graph_(data_structure)) data structures. The algorithm starts at the [root node](https://en.wikipedia.org/wiki/Tree_(data_structure)#Terminology) (selecting some arbitrary node as the root node in the case of a graph) and explores as far as possible along each branch before **backtracking**.
 
+#### Vertex orderings
 
+It is also possible to use depth-first search to linearly order the vertices of a graph or tree. There are four possible ways of doing this:
+
+> NOTE: flatten
+
+| Vertex ordering          |                                                              |      |
+| ------------------------ | ------------------------------------------------------------ | ---- |
+| **preordering**          | A **preordering** is a list of the vertices in the order that they were first visited by the depth-first search algorithm. This is a compact and natural way of describing the progress of the search, as was done earlier in this article. A preordering of an [expression tree](https://en.wikipedia.org/wiki/Parse_tree) is the expression in [Polish notation](https://en.wikipedia.org/wiki/Polish_notation). |      |
+| **postordering**         | A **postordering** is a list of the vertices in the order that they were *last* visited by the algorithm. A postordering of an expression tree is the expression in [reverse Polish notation](https://en.wikipedia.org/wiki/Reverse_Polish_notation). |      |
+| **reverse preordering**  | A **reverse preordering** is the reverse of a preordering, i.e. a list of the vertices in the opposite order of their first visit. Reverse preordering is not the same as postordering. |      |
+| **reverse postordering** | A **reverse postordering** is the reverse of a postordering, i.e. a list of the vertices in the opposite order of their last visit. Reverse postordering is not the same as preordering. |      |
+
+For [binary trees](https://en.wikipedia.org/wiki/Binary_trees) there is additionally **in-ordering** and **reverse in-ordering**.
+
+
+
+Reverse postordering produces a [topological sorting](https://en.wikipedia.org/wiki/Topological_sorting) of any [directed acyclic graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph). This ordering is also useful in [control-flow analysis](https://en.wikipedia.org/wiki/Control-flow_graph) as it often represents a natural linearization of the control flows. The graph above might represent the flow of control in the code fragment below, and it is natural to consider this code in the order A B C D or A C B D but not natural to use the order A B D C or A C D B.
+
+> NOTE: 补充内容:
+>
+> - eli.thegreenplace [Directed graph traversal, orderings and applications to data-flow analysis](https://eli.thegreenplace.net/2015/directed-graph-traversal-orderings-and-applications-to-data-flow-analysis/) 
+>
+> - [stackoverflow-What is the reverse postorder?](https://stackoverflow.com/questions/36131500/what-is-the-reverse-postorder)  
+> - [stackexchange-Are reversed reverse preorder traversals equivalent to a postorder traversal?](https://cs.stackexchange.com/questions/151687/are-reversed-reverse-preorder-traversals-equivalent-to-a-postorder-traversal) 
 
 #### Pseudocode
 
@@ -424,10 +448,6 @@ procedure DFS(G, v) is
             recursively call DFS(G, w)
 ```
 
-> NOTE: 
->
-> 1、上述code，并没有使用algorithm，仅仅是traverse
-
 The order in which the vertices are discovered by this algorithm is called the [lexicographic order](https://en.wikipedia.org/wiki/Lexicographical_order).
 
 ##### Non-recursive implementation 
@@ -436,9 +456,9 @@ A non-recursive implementation of DFS with worst-case space complexity $O(|E|)$,
 
 > NOTE: 
 >
-> 1、"duplicate vertices on the stack"要如何理解？后面会进行分析
+> 1. "duplicate vertices on the stack"要如何理解？后面会进行分析
 >
-> 2、对于已经标注过的node
+> 2. 对于已经标注过的node
 
 ```pseudocode
 procedure DFS_iterative(G, v) is
@@ -468,13 +488,9 @@ The non-recursive implementation will visit the nodes as: A, E, F, B, D, C, G.
 
 The non-recursive implementation is similar to [breadth-first search](https://en.wikipedia.org/wiki/Breadth-first_search) but differs from it in two ways:
 
-1、it uses a stack instead of a queue, and
+1. it uses a stack instead of a queue, and
 
-2、it delays checking whether a vertex has been discovered until the vertex is popped from the stack rather than making this check before adding the vertex.
-
-> NOTE: 
->
-> 1、如果"making this check before adding the vertex"会怎样？
+2. it delays checking whether a vertex has been discovered until the vertex is popped from the stack rather than making this check before adding the vertex.
 
 If *G* is a [tree](https://en.wikipedia.org/wiki/Tree_(data_structure)), replacing the queue of the breadth-first search algorithm with a stack will yield a depth-first search algorithm. For general graphs, replacing the stack of the iterative depth-first search implementation with a queue would also produce a breadth-first search algorithm, although a somewhat nonstandard one.[[7\]](https://en.wikipedia.org/wiki/Depth-first_search#cite_note-7)
 
@@ -498,11 +514,13 @@ procedure DFS_iterative(G, v) is
 
 
 
-#### Applications
+### Applications
+
+wikipedia [Depth-first search](https://en.wikipedia.org/wiki/Depth-first_search) 
 
 Algorithms that use depth-first search as a building block include:
 
-##### Connected components
+#### Connected components
 
 1. Finding [connected components](https://en.wikipedia.org/wiki/Connected_component_(graph_theory)).
 
@@ -512,35 +530,35 @@ Algorithms that use depth-first search as a building block include:
 
 4. Finding [strongly connected components](https://en.wikipedia.org/wiki/Strongly_connected_components).
 
-##### Topological sorting
+#### Topological sorting
 
 [Topological sorting](https://en.wikipedia.org/wiki/Topological_sorting)
 
 > NOTE: 参见`Topological-sorting`章节
 
-##### Bridges
+#### Bridges
 
 Finding the [bridges](https://en.wikipedia.org/wiki/Bridge_(graph_theory)#Bridge-finding_algorithm) of a graph.
 
-##### Generating words
+#### Generating words
 
 Generating words in order to plot the [limit set](https://en.wikipedia.org/wiki/Limit_set) of a [group](https://en.wikipedia.org/wiki/Group_(mathematics)).
 
-##### Planarity testing
+#### Planarity testing
 
 [Planarity testing](https://en.wikipedia.org/wiki/Planarity_testing).[[9\]](https://en.wikipedia.org/wiki/Depth-first_search#cite_note-9)[[10\]](https://en.wikipedia.org/wiki/Depth-first_search#cite_note-10)
 
-##### Backtracking
+#### Backtracking
 
 Solving puzzles with only one solution, such as [mazes](https://en.wikipedia.org/wiki/Maze). (DFS can be adapted to find all solutions to a maze by only including nodes on the current path in the visited set.)
 
 > NOTE: 其实就是回溯法，参见`Backtracking`章节
 
-##### Maze generation
+#### Maze generation
 
 [Maze generation](https://en.wikipedia.org/wiki/Maze_generation) may use a randomized depth-first search.
 
-##### Biconnectivity 
+#### Biconnectivity 
 
 > NOTE: 
 >
@@ -549,8 +567,6 @@ Solving puzzles with only one solution, such as [mazes](https://en.wikipedia.org
 Finding [biconnectivity in graphs](https://en.wikipedia.org/wiki/Biconnected_graph).
 
 
-
-### Implementation
 
 
 
@@ -677,11 +693,12 @@ if __name__ == '__main__':
 
 相较于tree，graph的一个特点是: 它允许出现cycle，因此在对graph进行traverse的时候，需要对circle进行特殊处理，在某些情况下，如果处理不当，则会陷入dead loop，但是需要注意的是: 并不是所有的情况下都需要处理circle，一个典型的情况就是在求解最优值的时候(比如最短路径)，如果edge都是positive的，那么这种情况下其实并不需要显式地处理circle，因为最优值的目标就能够避免重复选择路径。当需要处理circle的时候，有如下方式: 
 
-| techniques               | 说明                                                         |
-| ------------------------ | ------------------------------------------------------------ |
-| visited set/explored set | 相关章节:<br>1. BFS的Eager mark explored、Lazy mark visited  |
-| current path             | 显然通过**track current path**能够避免因为circle而陷入dead loop，显然circle对应的是一条path，当再次遇到current path中的node后，说明已经成环了<br>在find path中，说过了这种technique |
-| `new_node_map`           | 这是我在做 [LeetCode-133. Clone Graph-Medium](https://leetcode.cn/problems/clone-graph/) 想到的一种方式，它其实是基于visited set/explored set修改而来 |
+| techniques               | 说明                                                         |      |
+| ------------------------ | ------------------------------------------------------------ | ---- |
+| visited set/explored set | 相关章节:<br>1. BFS的Eager mark explored、Lazy mark visited  |      |
+| current path             | 显然通过**track current path**能够避免因为circle而陷入dead loop，显然circle对应的是一条path，当再次遇到current path中的node后，说明已经成环了<br>在find path中，说过了这种technique |      |
+| `new_node_map`           | 这是我在做 [LeetCode-133. Clone Graph-Medium](https://leetcode.cn/problems/clone-graph/) 想到的一种方式，它其实是基于visited set/explored set修改而来 |      |
+| visited set as dp table  | 在graph BFS shortest path中使用了这种technique， 显然它其实是基于visited set/explored set修改而来 |      |
 
 
 

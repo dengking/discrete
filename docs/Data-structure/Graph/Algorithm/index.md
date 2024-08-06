@@ -6,9 +6,9 @@
 
 - wikipedia [Reachability](https://en.wikipedia.org/wiki/Reachability) 
 
-- [Directed graph traversal, orderings and applications to data-flow analysis](https://eli.thegreenplace.net/2015/directed-graph-traversal-orderings-and-applications-to-data-flow-analysis/)
+- [thegreenplace-Directed graph traversal, orderings and applications to data-flow analysis](https://eli.thegreenplace.net/2015/directed-graph-traversal-orderings-and-applications-to-data-flow-analysis/)
 
-- [Control-flow graph](https://en.wikipedia.org/wiki/Control-flow_graph)
+- wikipedia [Control-flow graph](https://en.wikipedia.org/wiki/Control-flow_graph)
 
   
 
@@ -97,6 +97,4 @@ Binary operations create a new graph from two initial ones *G*1 = (*V*1, *E*1) a
 [Junction tree algorithm](https://en.wikipedia.org/wiki/Junction_tree_algorithm)
 
 
-
-## TODO
 
