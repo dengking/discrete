@@ -2,7 +2,6 @@ nav:
     - Introduction: index.md
     - Graph-algorithm-paradigm: Graph-algorithm-paradigm
     - Traverse-graph: Traverse-graph
-    - Shortest-longest-path: Shortest-longest-path
     - Spanning-tree: Spanning-tree    
     - Graph-cycle-detection: Graph-cycle-detection
     - Dominator: Dominator
