@@ -1,10 +1,97 @@
-# BFS-shortest-path
+# BFS-shortest-path-for-unweighted-directed-graph
 
-素材:
+## Code
 
-一、labuladong 
+首次到达的距离肯定是最近的，因此不需要进行relaxation。
 
-1、labuladong [我写了一个模板，把 Dijkstra 算法变成了默写题](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247492167&idx=1&sn=bc96c8f97252afdb3973c7d760edb9c0&scene=21#wechat_redirect)
+`distance` 既充当visited set又记录path
+
+```python
+import unittest
+from collections import deque
+from typing import *
+
+
+class DirectedUnweightedGraphInAdjacencyList:
+    """
+    1、以adjacency list实现directed unweighted graph
+    2、https://www.python.org/doc/essays/graphs/
+    """
+
+    def __init__(self, graph: Dict[str, List[str]]):
+        self.graph = graph
+
+    def find_shortest_path_bfs1(self, start, end) -> List:
+        distance = {start: [start]}  # 既充当visited set又记录path
+        q = deque(start)
+        while len(q):
+            node = q.popleft()
+            for adj_node in filter(lambda neighbor: neighbor not in distance, self.graph.get(node, [])):
+                distance[adj_node] = distance[node] + [adj_node]  # 首次到达的距离肯定是最近的
+                q.append(adj_node)
+        return distance.get(end)
+
+    def find_shortest_path_bfs2(self, start, end) -> int:
+        distance: Dict[str, int] = {start: 0}  # 既充当visited set又记录path
+        q = deque(start)
+        while len(q):
+            node = q.popleft()
+            for adj_node in filter(lambda neighbor: neighbor not in distance, self.graph.get(node, [])):
+                distance[adj_node] = distance[node] + 1  # 首次到达的距离肯定是最近的
+                q.append(adj_node)
+        return distance.get(end)
+
+    def find_shortest_path_bfs3(self, start, end) -> int:
+        distance: Dict[str, int] = {start: 0}  # 既充当visited set又记录path
+        q = deque(start)
+        step_cnt = 0
+        while len(q):
+            size = len(q)
+            for _ in range(size):
+                node = q.popleft()
+                for adj_node in filter(lambda neighbor: neighbor not in distance, self.graph.get(node, [])):
+                    distance[adj_node] = step_cnt  # 首次到达的距离肯定是最近的
+                    q.append(adj_node)
+            step_cnt += 1
+        return distance.get(end)
+
+
+class TestStringMethods(unittest.TestCase):
+
+    def test_find_shortest_path_bfs(self):
+        self.graph = DirectedUnweightedGraphInAdjacencyList(
+            {'A': ['B', 'C'],
+             'B': ['C', 'D'],
+             'C': ['D'],
+             'D': ['C'],
+             'E': ['F'],
+             'F': ['C']}
+        )
+        start = 'A'
+        end = 'C'
+        path = self.graph.find_shortest_path_bfs1(start, end)
+        print(path)
+        path_len2 = self.graph.find_shortest_path_bfs2(start, end)
+        path_len3 = self.graph.find_shortest_path_bfs2(start, end)
+
+        self.assertEqual(len(path) - 1, path_len2)
+        self.assertEqual(len(path) - 1, path_len3)
+        self.assertEqual(path[0], start)
+        self.assertEqual(path[-1], end)
+
+
+if __name__ == '__main__':
+    unittest.main()
+
+```
+
+
+
+## 素材
+
+### labuladong 
+
+labuladong [我写了一个模板，把 Dijkstra 算法变成了默写题](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247492167&idx=1&sn=bc96c8f97252afdb3973c7d760edb9c0&scene=21#wechat_redirect)
 
 > NOTE: 这篇文章中给出来具体的code
 
@@ -40,13 +127,15 @@ int BFS(Node start) {
 
 再加上 BFS 算法利用`for`循环一层一层向外扩散的逻辑和`visited`集合防止走回头路的逻辑，当你每次从队列中拿出节点`cur`的时候，从`start`到`cur`的最短权重就是`step`记录的步数。
 
-2、labuladong [BFS 算法框架套路详解](https://mp.weixin.qq.com/s/WH_XGm1-w5882PnenymZ7g) 
+labuladong [BFS 算法框架套路详解](https://mp.weixin.qq.com/s/WH_XGm1-w5882PnenymZ7g) 
 
-3、labuladong [益智游戏克星：BFS暴力搜索算法](https://mp.weixin.qq.com/s/Xn-oW7QRu8spYzL3B6zLxw)
+labuladong [益智游戏克星：BFS暴力搜索算法](https://mp.weixin.qq.com/s/Xn-oW7QRu8spYzL3B6zLxw)
 
-二、wikipedia [Breadth-first search](https://en.wikipedia.org/wiki/Breadth-first_search)
+### wikipedia [Breadth-first search](https://en.wikipedia.org/wiki/Breadth-first_search)
 
-> Finding the [shortest path](https://en.wikipedia.org/wiki/Shortest_path) between two nodes *u* and *v*, with path length measured by number of edges (an advantage over [depth-first search](https://en.wikipedia.org/wiki/Depth-first_search))[[12\]](https://en.wikipedia.org/wiki/Breadth-first_search#cite_note-12)
+Finding the [shortest path](https://en.wikipedia.org/wiki/Shortest_path) between two nodes *u* and *v*, with path length measured by number of edges (an advantage over [depth-first search](https://en.wikipedia.org/wiki/Depth-first_search))
+
+
 
 
 
@@ -102,12 +191,6 @@ https://leetcode.com/problems/perfect-squares/discuss/1736365/C%2B%2B-Bidirectio
 |                                                              |      |                                                              |
 |                                                              |      |                                                              |
 |                                                              |      |                                                              |
-
-
-
-[LeetCode-127. 单词接龙-困难](https://leetcode.cn/problems/word-ladder/) 
-
-[LeetCode-752. 打开转盘锁-中等](https://leetcode.cn/problems/open-the-lock/) 
 
 
 

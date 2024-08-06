@@ -85,7 +85,7 @@ class DirectedUnweightedGraphInAdjacencyList:
                     shortest = new_path
         return shortest
 
-    def find_shortest_path_bfs(self, start, end):
+    def find_shortest_path_bfs1(self, start, end) -> List:
         distance = {start: [start]}  # 既充当visited set又记录path
         q = deque(start)
         while len(q):
@@ -93,6 +93,30 @@ class DirectedUnweightedGraphInAdjacencyList:
             for adj_node in filter(lambda neighbor: neighbor not in distance, self.graph.get(node, [])):
                 distance[adj_node] = distance[node] + [adj_node]  # 首次到达的距离肯定是最近的
                 q.append(adj_node)
+        return distance.get(end)
+
+    def find_shortest_path_bfs2(self, start, end) -> int:
+        distance: Dict[str, int] = {start: 0}  # 既充当visited set又记录path
+        q = deque(start)
+        while len(q):
+            node = q.popleft()
+            for adj_node in filter(lambda neighbor: neighbor not in distance, self.graph.get(node, [])):
+                distance[adj_node] = distance[node] + 1  # 首次到达的距离肯定是最近的
+                q.append(adj_node)
+        return distance.get(end)
+
+    def find_shortest_path_bfs3(self, start, end) -> int:
+        distance: Dict[str, int] = {start: 0}  # 既充当visited set又记录path
+        q = deque(start)
+        step_cnt = 0
+        while len(q):
+            size = len(q)
+            for _ in range(size):
+                node = q.popleft()
+                for adj_node in filter(lambda neighbor: neighbor not in distance, self.graph.get(node, [])):
+                    distance[adj_node] = step_cnt  # 首次到达的距离肯定是最近的
+                    q.append(adj_node)
+            step_cnt += 1
         return distance.get(end)
 
 
@@ -147,6 +171,27 @@ class TestStringMethods(unittest.TestCase):
         path = self.graph.find_shortest_path_dfs(start, end)
         print(path)
         self.assertEqual(len(path), 2)
+        self.assertEqual(path[0], start)
+        self.assertEqual(path[-1], end)
+
+    def test_find_shortest_path_bfs(self):
+        self.graph = DirectedUnweightedGraphInAdjacencyList(
+            {'A': ['B', 'C'],
+             'B': ['C', 'D'],
+             'C': ['D'],
+             'D': ['C'],
+             'E': ['F'],
+             'F': ['C']}
+        )
+        start = 'A'
+        end = 'C'
+        path = self.graph.find_shortest_path_bfs1(start, end)
+        print(path)
+        path_len2 = self.graph.find_shortest_path_bfs2(start, end)
+        path_len3 = self.graph.find_shortest_path_bfs2(start, end)
+
+        self.assertEqual(len(path) - 1, path_len2)
+        self.assertEqual(len(path) - 1, path_len3)
         self.assertEqual(path[0], start)
         self.assertEqual(path[-1], end)
 
