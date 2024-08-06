@@ -1,6 +1,8 @@
 # Find path
 
+wikipedia [Pathfinding](https://en.wikipedia.org/wiki/Pathfinding)
 
+## Directed unweighed graph
 
 对于directed unweighed graph: 
 
@@ -89,7 +91,7 @@ class DirectedUnweightedGraphInAdjacencyList:
         while len(q):
             node = q.popleft()
             for adj_node in filter(lambda neighbor: neighbor not in distance, self.graph.get(node, [])):
-                distance[adj_node] = [distance[node], adj_node]  # 首次到达的距离肯定是最近的
+                distance[adj_node] = distance[node] + [adj_node]  # 首次到达的距离肯定是最近的
                 q.append(adj_node)
         return distance.get(end)
 
