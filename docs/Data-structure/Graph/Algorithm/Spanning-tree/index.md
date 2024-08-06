@@ -12,9 +12,8 @@ In general, a graph may have several spanning trees, but a graph that is not [co
 
 Several [pathfinding](https://en.wikipedia.org/wiki/Pathfinding) algorithms, including [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra's_algorithm) and the [A* search algorithm](https://en.wikipedia.org/wiki/A*_search_algorithm), internally build a **spanning tree** as an intermediate step in solving the problem.
 
-> NOTE:
+> NOTE: [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra's_algorithm) 的解称之为 [shortest-path-tree](https://en.wikipedia.org/wiki/Shortest-path_tree) 
 >
-> 一、 [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra's_algorithm) 的解称之为 [shortest-path-tree](https://en.wikipedia.org/wiki/Shortest-path_tree) 
 
 
 

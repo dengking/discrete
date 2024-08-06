@@ -2,13 +2,15 @@
 
 
 
-## DFS
+对于directed unweighed graph: 
 
-
-
-一、backtrack find 
+- find a path
+- find all path
+- find shortest path
 
 [Python Patterns - Implementing Graphs](https://www.python.org/doc/essays/graphs/) 
+
+
 
 ```python
 import unittest
@@ -40,28 +42,22 @@ class DirectedUnweightedGraphInAdjacencyList:
         path = path + [start]
         if start == end:
             return path
-        if start not in self.graph:
-            return None
-        for adj_node in self.graph[start]:  # move next
-            if adj_node not in path:
-                new_path = self.__find_path_dfs_impl__(adj_node, end, path)
-                if new_path:
-                    return new_path
+        for adj_node in filter(lambda neighbor: neighbor not in path, self.graph.get(start, [])):  # move next
+            new_path = self.__find_path_dfs_impl__(adj_node, end, path)
+            if new_path:
+                return new_path
         return None
 
     def find_all_paths_dfs(self, start, end) -> List[List[str]]:
         return self.__find_all_paths_dfs_impl__(start, end)
 
-    def __find_all_paths_dfs_impl__(self, start, end, path=[]):
+    def __find_all_paths_dfs_impl__(self, start, end, path=[]) -> List[List[str]]:
         path = path + [start]
         if start == end:
             return [path]
-        if start not in self.graph:
-            return []
         paths = []
-        for node in self.graph[start]:  # move next
-            if node not in path:
-                paths.append(self.__find_path_dfs_impl__(node, end, path))
+        for adj_node in filter(lambda neighbor: neighbor not in path, self.graph.get(start, [])):  # move next
+            paths += self.__find_all_paths_dfs_impl__(adj_node, end, path)  # 合并两个linked list
         return paths
 
     def find_shortest_path_dfs(self, start: str, end: str):
@@ -80,32 +76,22 @@ class DirectedUnweightedGraphInAdjacencyList:
         if start not in self.graph:
             return None
         shortest = None
-        for node in self.graph[start]:
-            if node not in path:
-                new_path = self.__find_shortest_path_dfs_impl__(node, end, path)
-                if new_path:
-                    if not shortest or len(new_path) < len(shortest):
-                        shortest = new_path
+        for adj_node in filter(lambda neighbor: neighbor not in path, self.graph.get(start, [])):  # move next
+            new_path = self.__find_shortest_path_dfs_impl__(adj_node, end, path)
+            if new_path:
+                if not shortest or len(new_path) < len(shortest):
+                    shortest = new_path
         return shortest
 
-    def find_path_bfs(self, start: str, end: str) -> Optional[List[str]]:
-        """
-
-        :param start:
-        :param end:
-        :return:
-        """
-
     def find_shortest_path_bfs(self, start, end):
-        dist = {start: [start]}
+        distance = {start: [start]}  # 既充当visited set又记录path
         q = deque(start)
         while len(q):
-            at = q.popleft()
-            for next_node in self.graph[at]:
-                if next_node not in dist:
-                    dist[next_node] = [dist[at], next_node]
-                    q.append(next_node)
-        return dist.get(end)
+            node = q.popleft()
+            for adj_node in filter(lambda neighbor: neighbor not in distance, self.graph.get(node, [])):
+                distance[adj_node] = [distance[node], adj_node]  # 首次到达的距离肯定是最近的
+                q.append(adj_node)
+        return distance.get(end)
 
 
 class TestStringMethods(unittest.TestCase):
@@ -167,6 +153,10 @@ if __name__ == '__main__':
     unittest.main()
 
 ```
+
+上述code是典范
+
+
 
 ## BFS
 

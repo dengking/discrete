@@ -35,7 +35,7 @@ graph star:
 
 保存图时，需要考虑的一个问题是: 一个点可以关联多条边/点，即 [star](https://en.wikipedia.org/wiki/Star_(graph_theory))  。
 
-三、根据问题灵活的选择graph representation
+三. 根据问题灵活的选择graph representation
 
 1、以vertex视角:
 

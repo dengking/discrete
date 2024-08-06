@@ -297,9 +297,9 @@ int BFS(Node start) {
 
 #### Eager VS Lazy
 
-(visit node、expand node to queue(explore))，因此可以在这两个地方进行去重:
+(**visit**(visit node)、explore|expand(explore expand node to queue))，因此可以在这两个地方进行去重:
 
-Eager 是在expand node to queue的地方进行去重，它是只要碰到node，就将它放到eexploded set中，它能够避免node重复进入到queue中；
+Eager 是在expand node to queue的地方进行去重，它是只要碰到node，就将它放到exploded set中，它能够避免node重复进入到queue中；
 
 Lazy 是在visit node的时候进行去重；
 
@@ -675,37 +675,32 @@ if __name__ == '__main__':
 
 ## Circle
 
-并不是所有的情况下都需要处理circle
+相较于tree，graph的一个特点是: 它允许出现cycle，因此在对graph进行traverse的时候，需要对circle进行特殊处理，在某些情况下，如果处理不当，则会陷入dead loop，但是需要注意的是: 并不是所有的情况下都需要处理circle，一个典型的情况就是在求解最优值的时候(比如最短路径)，如果edge都是positive的，那么这种情况下其实并不需要显式地处理circle，因为最优值的目标就能够避免重复选择路径。当需要处理circle的时候，有如下方式: 
 
-dead loop
+| techniques               | 说明                                                         |
+| ------------------------ | ------------------------------------------------------------ |
+| visited set/explored set | 相关章节:<br>1. BFS的Eager mark explored、Lazy mark visited  |
+| current path             | 显然通过**track current path**能够避免因为circle而陷入dead loop，显然circle对应的是一条path，当再次遇到current path中的node后，说明已经成环了<br>在find path中，说过了这种technique |
+| `new_node_map`           | 这是我在做 [LeetCode-133. Clone Graph-Medium](https://leetcode.cn/problems/clone-graph/) 想到的一种方式，它其实是基于visited set/explored set修改而来 |
 
-visited path
 
-visted set
-
-在求解最优值的时候，比如最短路径，如果edge都是positive的，那么这种情况下其实并不需要显式地处理circle，因为最优值的目标就能够避免重复选择路径。
 
 ### Visited set/Explored set
 
-1、在graph traversal中，为了避免由于circle而导致的dead loop，graph traversal algorithm普遍采用的是“标记已经visited vertex，对于visited vertex，再次遇到的时候，直接pass掉”。
+在graph traversal中，为了避免由于circle而导致的dead loop，graph traversal algorithm普遍采用的是: 标记已经visited的vertex，对于已经visited的vertex，再次遇到的时候，直接pass掉。
 
-2、对于graph中的一个node，可能有多条path通向它，在对它进行traverse的时候，为了避免重复，因此需要标注它是否已经被访问了。
+对于graph中的一个node，可能有多条path通向它，在对它进行traverse的时候，为了避免重复，因此需要标注它是否已经被访问了。
 
-> NOTE: 
+> NOTE:  在tree中，到达一个node，仅仅只有一条path，这是唯一的。
 >
-> 1、在tree中，到达一个node，仅仅只有一条path，这是唯一的。
 
-3、采用哪种标注策略呢？
+采用哪种标注策略呢？
 
 对于采用recursive implementation，由于它本身就是深度优先的，因此，它的标注策略是非常简单的；
 
 对于采用iterative implementation，因此，需要由programmer进行控制:
 
-a、对于DFS: 如果current node没有被标注，则将它的所有的descendant全部都push到explicit stack中后，才算这个node被visit了
+a. 对于DFS: 如果current node没有被标注，则将它的所有的descendant全部都push到explicit stack中后，才算这个node被visit了
 
-b、对于BFS: 对于current node的所有的descendant，只要没有被标准，就enqueue。
-
-4、将它标注为visited，就相当于在tree traversal中，调用了visit function。
-
-
+b. 对于BFS: 对于current node的所有的descendant，只要没有被标准，就enqueue。
 
