@@ -4,7 +4,9 @@
 
 geeksforgeeks [Detect Cycle in a Directed Graph](https://www.geeksforgeeks.org/detect-cycle-in-a-graph/)
 
+在每个node，知道它的parent、children
 
+back edge
 
 ## DFS
 
@@ -61,7 +63,7 @@ print(has_cycle(graph))  # Output: True
 
 In this example, the `dfs_cycle_detection` function takes the graph, the current node, a set of **visited nodes**, and the **parent node** of the current node. It returns `True` if a cycle is detected and `False` otherwise.
 
-The `has_cycle` function iterates over all nodes in the graph and starts **DFS** from each **unvisited node**. If any DFS call returns `True`, it means a cycle is detected, and the function returns `True`. If no cycles are detected after visiting all nodes, the function returns `False`.
+The `has_cycle` function iterates over all nodes in the graph and starts **DFS** from each **unvisited node**. If any **DFS** call returns `True`, it means a **cycle** is detected, and the function returns `True`. If no cycles are detected after visiting all nodes, the function returns `False`.
 
 Note that this implementation is for **undirected graphs**. For **directed graphs**, **cycle detection** would require additional logic to handle **back edges** and **cross edges**.
 
@@ -141,7 +143,7 @@ if __name__ == '__main__':
 
 #### gpt-4-vision
 
-**Cycle detection** in a **directed graph** can be done using **Depth-First Search (DFS)** with an additional "recursion stack" (or "ancestors stack") to keep track of the nodes currently in the recursion stack. If a node is encountered that is already in the recursion stack, then a cycle exists.
+**Cycle detection** in a **directed graph** can be done using **Depth-First Search (DFS)** with an additional "**recursion stack**" (or "ancestors stack") to keep track of the nodes currently in the **recursion stack**. If a node is encountered that is already in the recursion stack, then a cycle exists.
 
 Here's an example implementation of cycle detection in a directed graph using DFS in Python:
 
