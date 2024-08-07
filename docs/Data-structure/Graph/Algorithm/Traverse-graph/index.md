@@ -1,3 +1,4 @@
+
 # Traverse graph
 
 素材一:wikipedia [Transitive closure](https://en.wikipedia.org/wiki/Transitive_closure) :
@@ -404,7 +405,9 @@ DFS graph的时候，recursion 的 stop condition是visited set
 
 **Depth-first search** (**DFS**) is an [algorithm](https://en.wikipedia.org/wiki/Algorithm) for traversing or searching [tree](https://en.wikipedia.org/wiki/Tree_data_structure) or [graph](https://en.wikipedia.org/wiki/Graph_(data_structure)) data structures. The algorithm starts at the [root node](https://en.wikipedia.org/wiki/Tree_(data_structure)#Terminology) (selecting some arbitrary node as the root node in the case of a graph) and explores as far as possible along each branch before **backtracking**.
 
-#### Vertex orderings
+
+
+### Vertex orderings
 
 It is also possible to use depth-first search to linearly order the vertices of a graph or tree. There are four possible ways of doing this:
 
@@ -430,13 +433,13 @@ Reverse postordering produces a [topological sorting](https://en.wikipedia.org/w
 > - [stackoverflow-What is the reverse postorder?](https://stackoverflow.com/questions/36131500/what-is-the-reverse-postorder)  
 > - [stackexchange-Are reversed reverse preorder traversals equivalent to a postorder traversal?](https://cs.stackexchange.com/questions/151687/are-reversed-reverse-preorder-traversals-equivalent-to-a-postorder-traversal) 
 
-#### Pseudocode
+### Pseudocode
 
 **Input**: A graph *G* and a vertex *v* of G
 
 **Output**: All vertices reachable from *v* labeled as discovered
 
-##### Recursive implementation 
+#### Recursive implementation 
 
 A recursive implementation of DFS:[[5\]](https://en.wikipedia.org/wiki/Depth-first_search#cite_note-5)
 
@@ -450,7 +453,7 @@ procedure DFS(G, v) is
 
 The order in which the vertices are discovered by this algorithm is called the [lexicographic order](https://en.wikipedia.org/wiki/Lexicographical_order).
 
-##### Non-recursive implementation 
+#### Non-recursive implementation 
 
 A non-recursive implementation of DFS with worst-case space complexity $O(|E|)$, with the possibility of duplicate vertices on the stack:[[6\]](https://en.wikipedia.org/wiki/Depth-first_search#cite_note-6)
 
@@ -472,7 +475,7 @@ procedure DFS_iterative(G, v) is
                 S.push(w)
 ```
 
-##### 比较
+#### 比较
 
 These two variations of DFS visit the neighbors of each vertex in the opposite order from each other: 
 
@@ -511,6 +514,96 @@ procedure DFS_iterative(G, v) is
         else
             S.pop()
 ```
+
+
+
+### Implementation
+
+```python
+import unittest
+from typing import *
+
+
+def dfs(graph: Dict, node, visited: Set = None):
+    """
+    Perform DFS on the graph starting from the given node.
+
+    :param graph: Dictionary representing the adjacency list of the graph.
+    :param node: The starting node for DFS.
+    :param visited: Set to keep track of visited nodes.
+    """
+    if visited is None:
+        visited = set()
+    if node not in visited:
+        print(node)  # Process the node (e.g., print it)
+        visited.add(node)  # Mark the node as visited
+        for neighbor in graph[node]:
+            dfs(graph, neighbor, visited)  # Recursively visit all neighbors
+
+
+class TestSpanningTreeConstructionAlgorithm(unittest.TestCase):
+    def test_bfs_undirected_graph(self):
+        # Graph represented as an adjacency list
+        graph = {
+            0: [1, 2],
+            1: [0, 2, 3],
+            2: [0, 1, 4],
+            3: [1],
+            4: [2]
+        }
+        start_node = 1  # Starting node for DFS
+        print("DFS traversal starting from node", start_node)
+        dfs(graph, start_node)
+
+    def test_bfs_directed_graph(self):
+        # Graph represented as an adjacency list
+        graph = {
+            0: [1, 2],
+            1: [3, 4],
+            2: [1, 4],
+            3: [1],
+            4: [2]
+        }
+        start_node = 1  # Starting node for DFS
+        print("DFS traversal starting from node", start_node)
+        dfs(graph, start_node)
+
+
+if __name__ == '__main__':
+    unittest.main()
+
+```
+
+上述实现方式支持directed graph和undirected graph。
+
+tips: 对于undirected graph，由于它的两个相连node能够到达彼此，显然这是一个环，如果不使用visited set，就会陷入dead loop。
+
+### Output of DFS
+
+#### wikipedia [Depth-first search](https://en.wikipedia.org/wiki/Depth-first_search) 
+
+The result of a DFS of a graph can be conveniently described in terms of a [spanning tree](https://en.wikipedia.org/wiki/Spanning_tree_(mathematics)) of the vertices reached during the search. Based on this **spanning tree**, the edges of the original graph can be divided into three classes: 
+
+**forward edges**, which point from a node of the tree to one of its descendants, 
+
+**back edges**, which point from a node to one of its ancestors,  
+
+**cross edges**, which do neither. 
+
+Sometimes **tree edges**, edges which belong to the **spanning tree** itself, are classified separately from **forward edges**. If the original graph is undirected then all of its edges are tree edges or back edges.
+
+
+
+#### [geeksforgeeks-Tree, Back, Edge and Cross Edges in DFS of Graph](https://www.geeksforgeeks.org/tree-back-edge-and-cross-edges-in-dfs-of-graph/)
+
+![](./Untitled-drawing-2-4.jpg)
+
+| **Edge**         |                                                              |
+| ---------------- | ------------------------------------------------------------ |
+| **Tree Edge**    | It is an edge which is present in the tree obtained after applying DFS on the graph. All the **Green edges** are **tree edges**. |
+| **Forward Edge** | It is an edge (u, v) such that v is a descendant but not part of the DFS tree. An edge from **1 to 8** is a **forward edge**. |
+| **Back edge**    | It is an edge (u, v) such that v is the ancestor of node u but is not part of the DFS tree. Edge from **6 to 2** is a back edge. [Presence of back edge indicates a cycle in directed graph](https://www.geeksforgeeks.org/detect-cycle-in-a-graph/). <br>说明: "v is the ancestor of node u"同时存在"edge (u, v)"说明 u 是 v的ancestor，显然它们之间构成了环 |
+| **Cross Edge**   | It is an edge that connects two nodes such that they do not have any ancestor and a descendant relationship between them. The edge from node **5 to 4** is a cross edge. |
 
 
 
@@ -696,7 +789,7 @@ if __name__ == '__main__':
 | techniques               | 说明                                                         |      |
 | ------------------------ | ------------------------------------------------------------ | ---- |
 | visited set/explored set | 相关章节:<br>1. BFS的Eager mark explored、Lazy mark visited  |      |
-| current path             | 显然通过**track current path**能够避免因为circle而陷入dead loop，显然circle对应的是一条path，当再次遇到current path中的node后，说明已经成环了<br>在find path中，说过了这种technique |      |
+| current path             | 显然通过**track current path**能够避免因为circle而陷入dead loop，显然circle对应的是一条path，当再次遇到current path中的node后，说明已经成环了(directed graph cycle detection)<br>在find path中，说过了这种technique |      |
 | `new_node_map`           | 这是我在做 [LeetCode-133. Clone Graph-Medium](https://leetcode.cn/problems/clone-graph/) 想到的一种方式，它其实是基于visited set/explored set修改而来 |      |
 | visited set as dp table  | 在graph BFS shortest path中使用了这种technique， 显然它其实是基于visited set/explored set修改而来 |      |
 

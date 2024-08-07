@@ -2,15 +2,29 @@
 
 素材:
 
-geeksforgeeks [Detect Cycle in a Directed Graph](https://www.geeksforgeeks.org/detect-cycle-in-a-graph/)
+[geeksforgeeks-Detect Cycle in a Directed Graph](https://www.geeksforgeeks.org/detect-cycle-in-a-graph/) 
 
-在每个node，知道它的parent、children
+[geeksforgeeks-Detect cycle in an undirected graph](https://www.geeksforgeeks.org/detect-cycle-undirected-graph/) 
 
-back edge
+## 思路
+
+draft: back edge，一个node，由多条边可以到达它
+
+## Directed graph VS undirected graph
+
+Directed graph和undirected graph的cycle detection的实现有着明显的差别，一个典型的例子是对于相邻的两个node(NodeA、NodeB):
+
+对于undirected graph，因为这两个node可以通过彼此到达对方，当使用adjacent list进行存储的时候，会存储两条边，但是在undirected graph中，两个相连的node是不构成环的，在undirected graph中，不存在两个node的环；
+
+对于directed graph，它对方向有着严格的定义；如果它们之间存在着到达对方的边，那么它们就构成了环，因此在directed graph中，允许由两个node构成的环；
 
 ## DFS
 
 ### Undirected graph
+
+draft: 三指针: parent、current、children；在每个node，知道它的parent、children
+
+draft: 
 
 #### gpt-4-vision
 
@@ -69,73 +83,111 @@ Note that this implementation is for **undirected graphs**. For **directed graph
 
 
 
-```python
-import unittest
-from typing import *
+#### gpt-4-vision: why use parent in cycle detection of undirected graph by dfs
 
+In **cycle detection** for an undirected graph using Depth-First Search (DFS), the concept of a "parent" node is crucial to correctly identify cycles. Here's why:
 
-class DirectedUnweightedGraphInAdjacencyList:
-    """
-    1、以adjacency list实现directed unweighted graph
-    2、https://www.python.org/doc/essays/graphs/
-    """
+##### Understanding the Role of the Parent Node
 
-    def __init__(self, graph: Dict[Union[str, int], List[Union[str, int]]]):
-        self.graph = graph
+When performing DFS on an undirected graph, each edge is traversed twice (once from each end). This can lead to false positives in **cycle detection** if we don't account for(理解) the direction from which we arrived at a node. The **parent node** helps us distinguish between a legitimate cycle and a simple backtracking to the previous node.
 
-    def __dfs_cycle_detection__(self, node, visited: Set, parent):
-        """
-        Function to perform DFS and detect a cycle
-        """
-        # Mark the current node as visited
-        visited.add(node)
+##### How the Parent Node Helps
 
-        # Visit all the neighbors of the current node
-        for adj_node in self.graph[node]:
-            # If the neighbor is not visited, visit it recursively
-            if adj_node not in visited:
-                if self.__dfs_cycle_detection__(adj_node, visited, node):
-                    return True
-            # If the neighbor is visited and is not the parent, a cycle is detected
-            elif adj_node != parent:
-                return True
+1. **Avoid False Positives**:
+   - When you visit a node `v` from its **parent node** `u`, you mark `v` as visited.
+   - If you encounter a visited node `w` during the DFS, you need to check if `w` is the parent of `v`.
+   - If `w` is the parent of `v`, it means you are simply backtracking to the node you came from, which is not a cycle.
+   - If `w` is not the parent of `v`, it indicates that there is another path to `w`, forming a cycle.
 
-        # No cycle detected
-        return False
+2. **Correct Cycle Detection**:
+   - By keeping track of the parent node, you ensure that you only detect cycles that involve more than two nodes.
+   - This helps in correctly identifying cycles in the graph.
 
-    def has_cycle(self):
-        """
-        function to check if the graph contains a cycle
-        """
-        visited = set()
-        for node in self.graph:
-            # If the node is not visited, start DFS from it
-            if node not in visited:
-                if self.__dfs_cycle_detection__(node, visited, None):
-                    return True
-        return False
+##### Example
 
-
-class TestSpanningTreeConstructionAlgorithm(unittest.TestCase):
-    def test_spanning_tree_constructed_by_bfs(self):
-        # Graph represented as an adjacency list
-        graph = {
-            'A': ['B', 'C'],
-            'B': ['A', 'D', 'E'],
-            'C': ['A', 'F'],
-            'D': ['B'],
-            'E': ['B', 'F'],
-            'F': ['C', 'E']
-        }
-        directed_unweighted_graph_in_adj_list = DirectedUnweightedGraphInAdjacencyList(graph)
-        flag = directed_unweighted_graph_in_adj_list.has_cycle()
-        self.assertTrue(flag)
-
-
-if __name__ == '__main__':
-    unittest.main()
+Consider the following undirected graph:
 
 ```
+  1 -- 2
+  |  / |
+  | /  |
+  3 -- 4
+```
+
+##### DFS with Parent Tracking
+
+1. Start DFS from node `1`:
+   - Mark `1` as visited.
+   - Move to node `2` (parent of `2` is `1`).
+
+2. From node `2`:
+   - Mark `2` as visited.
+   - Move to node `3` (parent of `3` is `2`).
+
+3. From node `3`:
+   - Mark `3` as visited.
+   - Move to node `4` (parent of `4` is `3`).
+
+4. From node `4`:
+   - Mark `4` as visited.
+   - Move to node `2` (already visited, but parent of `4` is `3` and not `2`), indicating a cycle.
+
+##### Code Example
+
+Here is a Python implementation of cycle detection in an undirected graph using DFS with parent tracking:
+
+```python
+def dfs(graph, node, visited, parent):
+    visited[node] = True
+    for neighbor in graph[node]:
+        if not visited[neighbor]:
+            if dfs(graph, neighbor, visited, node):
+                return True
+        elif neighbor != parent:
+            return True
+    return False
+
+def has_cycle(graph):
+    visited = {node: False for node in graph}
+    for node in graph:
+        if not visited[node]:
+            if dfs(graph, node, visited, -1):
+                return True
+    return False
+
+# Example graph represented as an adjacency list
+graph = {
+    1: [2, 3],
+    2: [1, 3, 4],
+    3: [1, 2, 4],
+    4: [2, 3]
+}
+
+print(has_cycle(graph))  # Output: True
+```
+
+##### Explanation
+
+- **`dfs` Function**:
+  - Takes the graph, current node, visited dictionary, and parent node as arguments.
+  - Marks the current node as visited.
+  - Recursively visits all unvisited neighbors.
+  - If a visited neighbor is found that is not the parent, a cycle is detected.
+
+- **`has_cycle` Function**:
+  - Initializes the visited dictionary.
+  - Iterates through all nodes, starting a DFS from each unvisited node.
+  - Returns `True` if any DFS call detects a cycle.
+
+##### Summary
+
+Using the parent node in cycle detection for an undirected graph with DFS helps to:
+- Avoid false positives by distinguishing between backtracking and actual cycles.
+- Correctly identify cycles by ensuring that a visited node is not simply the parent of the current node.
+
+This approach ensures accurate cycle detection in undirected graphs.
+
+
 
 
 
