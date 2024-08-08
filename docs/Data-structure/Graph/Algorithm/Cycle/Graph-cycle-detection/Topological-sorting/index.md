@@ -14,6 +14,162 @@ csdn [拓扑排序判断有向图是否成环](https://blog.csdn.net/qq_40642465
 
 
 
+## wikipedia [Topological sorting](https://en.wikipedia.org/wiki/Topological_sorting)
+
+In [computer science](https://en.wikipedia.org/wiki/Computer_science), a **topological sort** or **topological ordering** of a [directed graph](https://en.wikipedia.org/wiki/Directed_graph) is a [linear ordering](https://en.wikipedia.org/wiki/Total_order) of its [vertices](https://en.wikipedia.org/wiki/Vertex_(graph_theory)) such that for every directed edge *uv* from vertex *u* to vertex *v*, *u* comes before *v* in the ordering. 
+
+> NOTE: linear ordering是一个logical structure
+
+For instance, the vertices of the graph may represent tasks to be performed, and the edges may represent constraints that one task must be performed before another; in this application, a topological ordering is just a valid sequence for the tasks. 
+
+> NOTE: 上述是典型的dependency graph
+
+A topological ordering is possible if and only if the graph has no [directed cycles](https://en.wikipedia.org/wiki/Directed_cycle), that is, if it is a [directed acyclic graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph) (DAG). Any DAG has at least one topological ordering, and [algorithms](https://en.wikipedia.org/wiki/Algorithm) are known for constructing a topological ordering of any DAG in [linear time](https://en.wikipedia.org/wiki/Linear_time). Topological sorting has many applications especially in ranking problems such as [feedback arc set](https://en.wikipedia.org/wiki/Feedback_arc_set).
+
+## Algorithms
+
+### BFS / Kahn's algorithm
+
+One of these algorithms, first described by [Kahn (1962)](https://en.wikipedia.org/wiki/Topological_sorting#CITEREFKahn1962), works by choosing vertices in the same order as the eventual topological sort.[[2\]](https://en.wikipedia.org/wiki/Topological_sorting#cite_note-Kahn-2) First, find a list of **"start nodes"** that have no incoming edges and insert them into a set S; at least one such node must exist in a non-empty (finite) acyclic graph. Then:
+
+```pseudocode
+L ← Empty list that will contain the sorted elements
+S ← Set of all nodes with no incoming edge
+
+while S is not empty do
+    remove a node n from S
+    add n to L
+    for each node m with an edge e from n to m do
+        remove edge e from the graph
+        if m has no other incoming edges then
+            insert m into S
+
+if graph has edges then
+    return error   (graph has at least one cycle)
+else 
+    return L   (a topologically sorted order)
+```
+
+If the graph is a [DAG](https://en.wikipedia.org/wiki/Directed_acyclic_graph), a solution will be contained in the list L (although the solution is not necessarily unique). Otherwise, the graph must have at least one cycle and therefore a topological sort is impossible.
+
+#### gpt-4o
+
+Kahn's Algorithm is a popular method for performing topological sorting on a Directed Acyclic Graph (DAG). Topological sorting is a linear ordering of vertices such that for every directed edge \( u \rightarrow v \), vertex \( u \) comes before vertex \( v \) in the ordering.
+
+### Steps of Kahn's Algorithm
+
+1. **Calculate In-Degree**:
+   - Compute the in-degree (number of incoming edges) for each vertex in the graph.
+
+2. **Initialize Queue**:
+   - Initialize a queue and enqueue all vertices with in-degree 0 (i.e., vertices with no incoming edges).
+
+3. **Process Queue**:
+   - While the queue is not empty:
+     - Dequeue a vertex \( u \) from the queue and add it to the topological order.
+     - For each outgoing edge \( u \rightarrow v \):
+       - Decrease the in-degree of vertex \( v \) by 1.
+       - If the in-degree of vertex \( v \) becomes 0, enqueue \( v \).
+
+4. **Check for Cycles**:
+   - If the number of vertices in the topological order is less than the total number of vertices in the graph, the graph contains a cycle, and topological sorting is not possible.
+
+### Example Code
+
+Here is a Python implementation of Kahn's Algorithm:
+
+```python
+from collections import deque, defaultdict
+
+def kahn_topological_sort(graph):
+    # Step 1: Calculate in-degree of each vertex
+    in_degree = {u: 0 for u in graph}
+    for u in graph:
+        for v in graph[u]:
+            in_degree[v] += 1
+
+    # Step 2: Initialize queue with vertices having in-degree 0
+    queue = deque([u for u in graph if in_degree[u] == 0])
+
+    topological_order = []
+
+    # Step 3: Process the queue
+    while queue:
+        u = queue.popleft()
+        topological_order.append(u)
+
+        # Decrease the in-degree of all adjacent vertices
+        for v in graph[u]:
+            in_degree[v] -= 1
+            if in_degree[v] == 0:
+                queue.append(v)
+
+    # Step 4: Check for cycles
+    if len(topological_order) == len(graph):
+        return topological_order
+    else:
+        raise ValueError("The graph contains a cycle, and topological sorting is not possible.")
+
+def main():
+    # Example graph represented as an adjacency list
+    graph = {
+        'A': ['C'],
+        'B': ['C', 'D'],
+        'C': ['E'],
+        'D': ['F'],
+        'E': ['H', 'F'],
+        'F': ['G'],
+        'G': [],
+        'H': []
+    }
+
+    try:
+        topological_order = kahn_topological_sort(graph)
+        print("Topological Order:", topological_order)
+    except ValueError as e:
+        print(e)
+
+if __name__ == "__main__":
+    main()
+```
+
+### Explanation
+
+1. **Graph Representation**:
+   - The graph is represented as an adjacency list using a dictionary where each key is a vertex, and the corresponding value is a list of adjacent vertices.
+
+2. **Calculate In-Degree**:
+   - Initialize the in-degree of each vertex to 0.
+   - Iterate through the graph to compute the in-degree of each vertex.
+
+3. **Initialize Queue**:
+   - Use a deque (double-ended queue) to store vertices with in-degree 0.
+
+4. **Process Queue**:
+   - Dequeue a vertex, add it to the topological order, and decrease the in-degree of its adjacent vertices.
+   - If the in-degree of an adjacent vertex becomes 0, enqueue it.
+
+5. **Check for Cycles**:
+   - If the length of the topological order is less than the number of vertices in the graph, a cycle exists, and topological sorting is not possible.
+
+### Running the Code
+
+When you run the code, it will output the topological order of the given graph:
+
+```
+Topological Order: ['A', 'B', 'C', 'D', 'E', 'H', 'F', 'G']
+```
+
+### Summary
+
+- **Kahn's Algorithm**: A method for topological sorting of a DAG using in-degree and a queue.
+- **Steps**: Calculate in-degree, initialize queue, process queue, and check for cycles.
+- **Implementation**: The provided Python code demonstrates the algorithm with an example graph.
+
+This implementation provides a clear and efficient way to perform topological sorting on a DAG using Kahn's Algorithm.
+
+
+
 ## Guide: DFS VS BFS
 
 两种算法:DFS和BFS，相比之下，BFS是更加容易理解的，因为它是符合我们直接进行topological sorting的顺序的。
@@ -245,20 +401,6 @@ int main()
 
 
 
-## wikipedia [Topological sorting](https://en.wikipedia.org/wiki/Topological_sorting)
-
-In [computer science](https://en.wikipedia.org/wiki/Computer_science), a **topological sort** or **topological ordering** of a [directed graph](https://en.wikipedia.org/wiki/Directed_graph) is a [linear ordering](https://en.wikipedia.org/wiki/Total_order) of its [vertices](https://en.wikipedia.org/wiki/Vertex_(graph_theory)) such that for every directed edge *uv* from vertex *u* to vertex *v*, *u* comes before *v* in the ordering. 
-
-> NOTE: linear ordering是一个logical structure
-
-For instance, the vertices of the graph may represent tasks to be performed, and the edges may represent constraints that one task must be performed before another; in this application, a topological ordering is just a valid sequence for the tasks. 
-
-> NOTE: 上述是典型的dependency graph
-
-A topological ordering is possible if and only if the graph has no [directed cycles](https://en.wikipedia.org/wiki/Directed_cycle), that is, if it is a [directed acyclic graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph) (DAG). Any DAG has at least one topological ordering, and [algorithms](https://en.wikipedia.org/wiki/Algorithm) are known for constructing a topological ordering of any DAG in [linear time](https://en.wikipedia.org/wiki/Linear_time). Topological sorting has many applications especially in ranking problems such as [feedback arc set](https://en.wikipedia.org/wiki/Feedback_arc_set).
-
-
-
 ## LeetCode 课程表系列
 https://leetcode.cn/problems/course-schedule/solution/ke-cheng-biao-by-leetcode-solution/
 
@@ -266,5 +408,4 @@ https://leetcode.cn/problems/course-schedule-ii/solution/ke-cheng-biao-ii-by-lee
 
 
 https://leetcode.cn/problems/course-schedule-iv/
-
 
