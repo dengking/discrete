@@ -342,11 +342,51 @@ Breadth-first search can be used to solve many problems in graph theory, for exa
 
 - Testing [bipartiteness of a graph](https://en.wikipedia.org/wiki/Bipartite_graph#Testing_bipartiteness).
 
-- [Topological sorting](https://en.wikipedia.org/wiki/Topological_sorting)
+#### [Topological sorting](https://en.wikipedia.org/wiki/Topological_sorting)
 
   > NOTE: 这是最适合用graph BFS的问题
 
-- 需要验证只有沿着一条边才能够进入到目标边，使用BFS进行反向查找 
+
+
+[LeetCode-210. 课程表 II](https://leetcode.cn/problems/course-schedule-ii/)
+
+
+
+````python
+from collections import defaultdict, deque
+from typing import *
+
+
+class Solution:
+    def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:
+        topo_order = []
+        graph = defaultdict(list)
+        in_degree = [0] * numCourses
+        for prep in prerequisites:
+            graph[prep[1]].append(prep[0])
+            in_degree[prep[0]] += 1
+        q = deque([node for node in range(numCourses) if in_degree[node] == 0])
+        while q:
+            node = q.popleft()
+            topo_order.append(node)
+            for adj_node in graph.get(node, []):
+                in_degree[adj_node] -= 1
+                if in_degree[adj_node] == 0:
+                    q.append(adj_node)
+        if len(topo_order) == numCourses:
+            return topo_order
+        else:
+            return []
+
+````
+
+
+
+
+
+#### Find path
+
+ 需要验证只有沿着一条边才能够进入到目标边，使用BFS进行反向查找 
 
 ```Java
     private boolean isInLinkLaneGroupValid() {

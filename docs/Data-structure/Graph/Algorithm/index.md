@@ -98,3 +98,6 @@ Binary operations create a new graph from two initial ones *G*1 = (*V*1, *E*1) a
 
 
 
+## Spanning tree VS transitive closure
+
+虽然两者的含义并不相同，但是来着本质上都是基于graph的联通性，因此来着的实现复出类似。

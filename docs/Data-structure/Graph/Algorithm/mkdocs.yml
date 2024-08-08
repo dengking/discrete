@@ -2,7 +2,8 @@ nav:
     - Introduction: index.md
     - Graph-algorithm-paradigm: Graph-algorithm-paradigm
     - Traverse-graph: Traverse-graph
-    - Spanning-tree: Spanning-tree    
+    - Spanning-tree: Spanning-tree  
+    - Topological-sorting: Topological-sorting      
     - Graph-cycle-detection: Graph-cycle-detection
     - Dominator: Dominator
     - Connected-component: Connected-component
