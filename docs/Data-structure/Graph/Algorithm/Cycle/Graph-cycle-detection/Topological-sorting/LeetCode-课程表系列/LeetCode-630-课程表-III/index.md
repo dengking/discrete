@@ -1,1 +1,0 @@
-# [LeetCode-630. 课程表 III](https://leetcode.cn/problems/course-schedule-iii/)

@@ -28,7 +28,29 @@ A topological ordering is possible if and only if the graph has no [directed cyc
 
 ## Algorithms
 
+### DFS VS BFS
+
+两种算法:DFS和BFS，相比之下，BFS是更加容易理解的，因为它是符合我们直接进行topological sorting的顺序的。
+
+使用 "入度" 和 "长度"概念来对DFS和BFS进行理解:
+
+|                 | BFS                                                          | DFS                                                          |
+| --------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+|                 | 一个node，如果它的 "入度"  为0，则表示它没有依赖其他节点，它是**低阶课程**，应该优先学习 | 一个node，如果它的 "出度"  为0，则表示没有其它节点依赖它，它是**高阶课程**，应该最后学习 |
+|                 | BFS优先寻找**低阶课程**，将它放到**队首**；                  | DFS优先寻找**高阶课程**，将它放到**栈底**；                  |
+|                 | BFS中只需要**入度**即可: 它根据**入度**来寻找**低阶课程**；某个节点的入度如果非0，则表示它存在依赖； | DFS中只需要**出度**即可: 它根据**出度**来寻找**高阶课程**；  |
+| data structure  | BFS使用queue；                                               | DFS使用stack；                                               |
+| circle deadloop | BFS不需要处理circle deadloop                                 | DFS需要处理circle deadloop: 如果存在circle，那么在DFS circle的时候，肯定会回到原点，因此可以据此来判定是否有circle，一旦有circle，则直接break即可。 |
+|                 | BFS其实是**正向排序**，它借助queue；                         | DFS其实是**逆向排序**，再借助stack进行逆向，从而可以得到正确的顺序 |
+|                 |                                                              |                                                              |
+
+
+
 ### BFS / Kahn's algorithm
+
+Q: 为什么不需要visited set？
+
+A: 它可以检测是否有环(cycle detection)
 
 One of these algorithms, first described by [Kahn (1962)](https://en.wikipedia.org/wiki/Topological_sorting#CITEREFKahn1962), works by choosing vertices in the same order as the eventual topological sort.[[2\]](https://en.wikipedia.org/wiki/Topological_sorting#cite_note-Kahn-2) First, find a list of **"start nodes"** that have no incoming edges and insert them into a set S; at least one such node must exist in a non-empty (finite) acyclic graph. Then:
 
@@ -54,36 +76,38 @@ If the graph is a [DAG](https://en.wikipedia.org/wiki/Directed_acyclic_graph), a
 
 #### gpt-4o
 
-Kahn's Algorithm is a popular method for performing topological sorting on a Directed Acyclic Graph (DAG). Topological sorting is a linear ordering of vertices such that for every directed edge \( u \rightarrow v \), vertex \( u \) comes before vertex \( v \) in the ordering.
+**Kahn's Algorithm** is a popular method for performing **topological sorting** on a **Directed Acyclic Graph (DAG)**. **Topological sorting** is a linear ordering of vertices such that for every directed edge \( $u \rightarrow v$ \), vertex \( u \) comes before vertex \( v \) in the ordering.
 
-### Steps of Kahn's Algorithm
+##### Steps of Kahn's Algorithm
 
 1. **Calculate In-Degree**:
-   - Compute the in-degree (number of incoming edges) for each vertex in the graph.
+   - Compute the **in-degree** (number of **incoming edges**) for each vertex in the graph.
 
 2. **Initialize Queue**:
    - Initialize a queue and enqueue all vertices with in-degree 0 (i.e., vertices with no incoming edges).
 
 3. **Process Queue**:
    - While the queue is not empty:
-     - Dequeue a vertex \( u \) from the queue and add it to the topological order.
-     - For each outgoing edge \( u \rightarrow v \):
-       - Decrease the in-degree of vertex \( v \) by 1.
+     - Dequeue a vertex \( u \) from the queue and add it to the **topological order**.
+     - For each outgoing edge \( $u \rightarrow v$ \):
+       - Decrease the **in-degree** of vertex \( v \) by 1.
        - If the in-degree of vertex \( v \) becomes 0, enqueue \( v \).
 
 4. **Check for Cycles**:
-   - If the number of vertices in the topological order is less than the total number of vertices in the graph, the graph contains a cycle, and topological sorting is not possible.
+   - If the number of vertices in the **topological order** is less than the total number of vertices in the graph, the graph contains a cycle, and **topological sorting** is not possible.
 
 ### Example Code
 
 Here is a Python implementation of Kahn's Algorithm:
 
 ```python
-from collections import deque, defaultdict
+from collections import deque
+from typing import *
 
-def kahn_topological_sort(graph):
+
+def kahn_topological_sort(graph: Dict):
     # Step 1: Calculate in-degree of each vertex
-    in_degree = {u: 0 for u in graph}
+    in_degree: Dict = {u: 0 for u in graph}
     for u in graph:
         for v in graph[u]:
             in_degree[v] += 1
@@ -110,6 +134,7 @@ def kahn_topological_sort(graph):
     else:
         raise ValueError("The graph contains a cycle, and topological sorting is not possible.")
 
+
 def main():
     # Example graph represented as an adjacency list
     graph = {
@@ -129,8 +154,10 @@ def main():
     except ValueError as e:
         print(e)
 
+
 if __name__ == "__main__":
     main()
+
 ```
 
 ### Explanation
@@ -170,25 +197,20 @@ This implementation provides a clear and efficient way to perform topological so
 
 
 
-## Guide: DFS VS BFS
+## LeetCode-课程表系列
 
-两种算法:DFS和BFS，相比之下，BFS是更加容易理解的，因为它是符合我们直接进行topological sorting的顺序的。
-
-使用 "入度" 和 "长度"概念来对DFS和BFS进行理解:
-
-|                 | BFS                                                          | DFS                                                          |
-| --------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-|                 | 一个node，如果它的 "入度"  为0，则表示它没有依赖其他节点，它是**低阶课程**，应该优先学习 | 一个node，如果它的 "出度"  为0，则表示没有其它节点依赖它，它是**高阶课程**，应该最后学习 |
-|                 | BFS优先寻找**低阶课程**，将它放到**队首**；                  | DFS优先寻找**高阶课程**，将它放到**栈底**；                  |
-|                 | BFS中只需要**入度**即可: 它根据**入度**来寻找**低阶课程**；某个节点的入度如果非0，则表示它存在依赖； | DFS中只需要**出度**即可: 它根据**出度**来寻找**高阶课程**；  |
-| data structure  | BFS使用queue；                                               | DFS使用stack；                                               |
-| circle deadloop | BFS不需要处理circle deadloop                                 | DFS需要处理circle deadloop: 如果存在circle，那么在DFS circle的时候，肯定会回到原点，因此可以据此来判定是否有circle，一旦有circle，则直接break即可。 |
-|                 | BFS其实是**正向排序**，它借助queue；                         | DFS其实是**逆向排序**，再借助stack进行逆向，从而可以得到正确的顺序 |
-|                 |                                                              |                                                              |
+| LeetCode                                                     | 算法 |
+| ------------------------------------------------------------ | ---- |
+| [LeetCode-207. 课程表](https://leetcode.cn/problems/course-schedule/) |      |
+| [LeetCode-210. 课程表 II](https://leetcode.cn/problems/course-schedule-ii/) |      |
+| [LeetCode-630. 课程表 III](https://leetcode.cn/problems/course-schedule-iii/) |      |
+| [LeetCode-1462. 课程表 IV](https://leetcode.cn/problems/course-schedule-iv/) |      |
 
 
 
-### Dependency graph
+## [LeetCode-207. 课程表](https://leetcode.cn/problems/course-schedule/) 
+
+Dependency graph
 
 首先需要根据 `prerequisites` 数组构建出dependency graph，这样能够找到它的相邻节点，原味给出的解法中都是使用的**adjacent list**，题目描述如下:
 
@@ -196,7 +218,9 @@ This implementation provides a clear and efficient way to perform topological so
 
 则说明在dependency graph中，存在从bi->ai的边，也就说明ai位于bi的adjacency list中
 
-## [LeetCode-207. 课程表](https://leetcode.cn/problems/course-schedule/) # [力扣官方题解](https://leetcode.cn/problems/course-schedule/solution/ke-cheng-biao-by-leetcode-solution/)
+
+
+### [力扣官方题解](https://leetcode.cn/problems/course-schedule/solution/ke-cheng-biao-by-leetcode-solution/)
 
 > NOTE: 这个题只需要判断是否存在circle，即circle detection
 >
@@ -210,7 +234,7 @@ This implementation provides a clear and efficient way to perform topological so
 
 2、如果图 $G$ 是有向无环图，那么它的拓扑排序可能不止一种。举一个最极端的例子，如果图 $G$ 值包含 $n$ 个节点却没有任何边，那么任意一种编号的排列都可以作为拓扑排序。
 
-### 方法一：深度优先搜索
+#### 方法一：深度优先搜索
 
 #### **算法**
 
@@ -312,100 +336,47 @@ int main()
 
 
 
-### 方法二: 广度优先搜索
+### BFS
 
-> NOTE: 
->
-> 二、广度优先搜索的含义是: 在算法中，对于所有入度为0的节点，找到它的所有的邻接节点，对每个邻接节点进行处理: 降低它们的入度
->
-> 三、一些note: 
->
-> 1、找到没有被依赖的
->
-> 2、使用dependency relation构建的structure，如果能够进行**topological sorting**，则会形成**hierarchy structure**。
->
-> 3、沿着relation的分析不断地向下寻找，直到找到一个没有任何依赖的
->
-> 4、这让我想起了topological sorting中，找到没有任何依赖的那个节点，然后反向不断地删减；其实，它和析构一个linked list是非常类似的，它们本质上都是对依赖关系的删除
+```python
+from collections import defaultdict, deque
+from typing import *
 
-方法一的深度优先搜索是一种「逆向思维」：最先被放入栈中的节点是在拓扑排序中最后面的节点。我们也可以使用正向思维，顺序地生成拓扑排序，这种方法也更加直观。
 
-> NOTE: 
->
-> 这种方式是更加容易理解的
-
-上面的想法类似于**广度优先搜索**，因此我们可以将**广度优先搜索**的流程与**拓扑排序**的求解联系起来。
-
-#### **算法**
-
-我们使用一个队列来进行**广度优先搜索**。初始时，所有入度为 0 的节点都被放入队列中，它们就是可以作为拓扑排序最前面的节点，并且它们之间的相对顺序是无关紧要的。
-
-```C++
-#include <vector>
-#include <queue>
-#include <iostream>
-using namespace std;
-
-class Solution {
-private:
-	vector<vector<int>> edges; // adjacency list
-	vector<int> indeg; // 节点的入度
-
-public:
-	bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
-		edges.resize(numCourses);
-		indeg.resize(numCourses);
-		for (const auto& info : prerequisites) {
-			edges[info[1]].push_back(info[0]);
-			++indeg[info[0]];
-		}
-
-		queue<int> q;
-		// 将入度为0的节点放入到queue中
-		// 这个for循环非常有必要，因为graph可能是非联通图，加上这个for能够保证graph中的每个节点被access到
-		for (int i = 0; i < numCourses; ++i) {
-			if (indeg[i] == 0) {
-				q.push(i);
-			}
-		}
-
-		int visited = 0;// 答案、已经sort的节点个数
-		while (!q.empty()) {
-			++visited;
-			int u = q.front();
-			q.pop();
-			for (int v : edges[u]) {
-				--indeg[v];
-				if (indeg[v] == 0) {
-					q.push(v);
-				}
-			}
-		}
-
-		return visited == numCourses;
-	}
-};
-
-int main()
-{
-	Solution s;
-	int numCourses = 2;
-	vector<vector<int>> prerequisites{ {1,0} };
-	cout << s.canFinish(numCourses, prerequisites) << endl;
-}
-// g++ test.cpp --std=c++11 -pedantic -Wall -Wextra -Werror
+class Solution:
+    def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
+        graph = defaultdict(list)
+        for prep in prerequisites:
+            graph[prep[1]].append(prep[0])
+        for i in range(numCourses):
+            if i not in graph:
+                graph[i] = []
+        in_degree = {node: 0 for node in graph}
+        for node in graph:
+            for adj_node in graph[node]:
+                in_degree[adj_node] += 1
+        q = deque([node for node in graph if in_degree[node] == 0])
+        cnt = 0
+        while q:
+            node = q.popleft()
+            cnt += 1
+            for adj_node in graph[node]:
+                in_degree[adj_node] -= 1
+                if in_degree[adj_node] == 0:
+                    q.append(adj_node)
+        return cnt == numCourses
 
 ```
 
 
 
+## [LeetCode-210. 课程表 II](https://leetcode.cn/problems/course-schedule-ii/)
 
 
-## LeetCode 课程表系列
-https://leetcode.cn/problems/course-schedule/solution/ke-cheng-biao-by-leetcode-solution/
 
-https://leetcode.cn/problems/course-schedule-ii/solution/ke-cheng-biao-ii-by-leetcode-solution/
+## [LeetCode-630. 课程表 III](https://leetcode.cn/problems/course-schedule-iii/)
 
 
-https://leetcode.cn/problems/course-schedule-iv/
+
+## [LeetCode-1462. 课程表 IV](https://leetcode.cn/problems/course-schedule-iv/)
 
