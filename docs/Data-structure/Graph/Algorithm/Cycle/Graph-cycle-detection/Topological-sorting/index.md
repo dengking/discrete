@@ -50,7 +50,9 @@ A topological ordering is possible if and only if the graph has no [directed cyc
 
 Q: 为什么不需要visited set？
 
-A: 它可以检测是否有环(cycle detection)
+A: Kahn's algorithm往队列中增加node是有条件的: 只有当in-degree为0的时候它才会往队列中插入node，而不是像普通的BFS那样碰到就插入，对于存在circle的graph，in-degree永远都不可能为0，所以会导致算法直接退出，所以它可以检测是否有环(cycle detection)。
+
+在dependency graph中，in-degree就表示依赖。
 
 One of these algorithms, first described by [Kahn (1962)](https://en.wikipedia.org/wiki/Topological_sorting#CITEREFKahn1962), works by choosing vertices in the same order as the eventual topological sort.[[2\]](https://en.wikipedia.org/wiki/Topological_sorting#cite_note-Kahn-2) First, find a list of **"start nodes"** that have no incoming edges and insert them into a set S; at least one such node must exist in a non-empty (finite) acyclic graph. Then:
 
@@ -96,7 +98,7 @@ If the graph is a [DAG](https://en.wikipedia.org/wiki/Directed_acyclic_graph), a
 4. **Check for Cycles**:
    - If the number of vertices in the **topological order** is less than the total number of vertices in the graph, the graph contains a cycle, and **topological sorting** is not possible.
 
-### Example Code
+##### Example Code
 
 Here is a Python implementation of Kahn's Algorithm:
 
@@ -160,7 +162,7 @@ if __name__ == "__main__":
 
 ```
 
-### Explanation
+##### Explanation
 
 1. **Graph Representation**:
    - The graph is represented as an adjacency list using a dictionary where each key is a vertex, and the corresponding value is a list of adjacent vertices.
@@ -179,7 +181,7 @@ if __name__ == "__main__":
 5. **Check for Cycles**:
    - If the length of the topological order is less than the number of vertices in the graph, a cycle exists, and topological sorting is not possible.
 
-### Running the Code
+##### Running the Code
 
 When you run the code, it will output the topological order of the given graph:
 
@@ -187,7 +189,7 @@ When you run the code, it will output the topological order of the given graph:
 Topological Order: ['A', 'B', 'C', 'D', 'E', 'H', 'F', 'G']
 ```
 
-### Summary
+##### Summary
 
 - **Kahn's Algorithm**: A method for topological sorting of a DAG using in-degree and a queue.
 - **Steps**: Calculate in-degree, initialize queue, process queue, and check for cycles.
@@ -206,17 +208,17 @@ This implementation provides a clear and efficient way to perform topological so
 | [LeetCode-630. 课程表 III](https://leetcode.cn/problems/course-schedule-iii/) |      |
 | [LeetCode-1462. 课程表 IV](https://leetcode.cn/problems/course-schedule-iv/) |      |
 
-
-
-## [LeetCode-207. 课程表](https://leetcode.cn/problems/course-schedule/) 
-
-Dependency graph
+Dependency graph模型:
 
 首先需要根据 `prerequisites` 数组构建出dependency graph，这样能够找到它的相邻节点，原味给出的解法中都是使用的**adjacent list**，题目描述如下:
 
 > 在选修某些课程之前需要一些先修课程。 先修课程按数组 prerequisites 给出，其中 prerequisites[i] = [ai, bi] ，表示如果要学习课程 ai 则 必须 先学习课程  bi 。
 
-则说明在dependency graph中，存在从bi->ai的边，也就说明ai位于bi的adjacency list中
+则说明在dependency graph中，存在从bi->ai的边，也就说明ai位于bi的adjacency list中，在dependency graph中，in-degree就表示依赖。
+
+
+
+## [LeetCode-207. 课程表](https://leetcode.cn/problems/course-schedule/) 
 
 
 
@@ -371,6 +373,38 @@ class Solution:
 
 
 ## [LeetCode-210. 课程表 II](https://leetcode.cn/problems/course-schedule-ii/)
+
+
+
+### BFS
+
+````python
+from collections import defaultdict, deque
+from typing import *
+
+
+class Solution:
+    def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:
+        topo_order = []
+        graph = defaultdict(list)
+        in_degree = [0] * numCourses
+        for prep in prerequisites:
+            graph[prep[1]].append(prep[0])
+            in_degree[prep[0]] += 1
+        q = deque([node for node in range(numCourses) if in_degree[node] == 0])
+        while q:
+            node = q.popleft()
+            topo_order.append(node)
+            for adj_node in graph.get(node, []):
+                in_degree[adj_node] -= 1
+                if in_degree[adj_node] == 0:
+                    q.append(adj_node)
+        if len(topo_order) == numCourses:
+            return topo_order
+        else:
+            return []
+
+````
 
 
 
