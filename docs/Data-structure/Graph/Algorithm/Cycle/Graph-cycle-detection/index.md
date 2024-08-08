@@ -20,6 +20,8 @@ Directed graph和undirected graph的cycle detection的实现有着明显的差�
 
 ## DFS
 
+Q: 为什么directed graph需要recursion stack，但是undirected graph不需要呢？
+
 ### Undirected graph
 
 draft: 三指针: parent、current、children；在每个node，知道它的parent、children
@@ -197,7 +199,7 @@ This approach ensures accurate cycle detection in undirected graphs.
 
 **Cycle detection** in a **directed graph** can be done using **Depth-First Search (DFS)** with an additional "**recursion stack**" (or "ancestors stack") to keep track of the nodes currently in the **recursion stack**. If a node is encountered that is already in the recursion stack, then a cycle exists.
 
-Here's an example implementation of cycle detection in a directed graph using DFS in Python:
+Here's an example implementation of **cycle detection** in a directed graph using DFS in Python:
 
 ```python
 # Directed graph represented as an adjacency list
@@ -249,9 +251,13 @@ In this example, the `dfs_cycle_detection` function takes the graph, the current
 
 The `has_cycle` function iterates over all nodes in the graph and starts DFS from each unvisited node. If any DFS call returns `True`, it means a cycle is detected, and the function returns `True`. If no cycles are detected after visiting all nodes, the function returns `False`.
 
-The key difference between cycle detection in directed and undirected graphs is the use of the recursion stack to keep track of the nodes in the current DFS path. If a node is revisited while it's still in the recursion stack, it indicates the presence of a cycle.
+The key difference between **cycle detection** in directed and undirected graphs is the use of the recursion stack to keep track of the nodes in the current DFS path. If a node is revisited while it's still in the recursion stack, it indicates the presence of a cycle.
 
 
+
+## BFS: Kahn's algorithm topological sorting
+
+TODO
 
 
 

@@ -199,6 +199,152 @@ This implementation provides a clear and efficient way to perform topological so
 
 
 
+### DFS
+
+eli.thegreenplace [Directed graph traversal, orderings and applications to data-flow analysis](https://eli.thegreenplace.net/2015/directed-graph-traversal-orderings-and-applications-to-data-flow-analysis/) 
+
+> In fact, the RPO of a DAG has another name - *topological sort*.
+
+#### gpt-4o: topological sorting with cycle detection by dfs  python
+
+**Topological sorting** of a **Directed Acyclic Graph (DAG)** can be performed using **Depth-First Search (DFS)**. However, if the graph contains cycles, topological sorting is not possible. Therefore, we need to include **cycle detection** in our DFS-based topological sorting algorithm.
+
+##### Steps of Topological Sorting with Cycle Detection Using DFS
+
+1. **Initialize Data Structures**:
+   - Use a set to keep track of visited vertices.
+   - Use a set to keep track of vertices in the current recursion stack (to detect cycles).
+   - Use a list to store the topological order.
+
+2. **DFS Function with Cycle Detection**:
+   - Implement a recursive DFS function that visits each vertex and its adjacent vertices.
+   - If a vertex is encountered that is already in the current recursion stack, a cycle is detected.
+   - Once all adjacent vertices of a vertex are visited, add the vertex to the topological order list.
+
+3. **Main Function**:
+   - Iterate through all vertices and call the DFS function for each unvisited vertex.
+   - If a cycle is detected during the DFS, raise an exception or handle it appropriately.
+   - After all vertices are processed, the topological order list will contain the vertices in reverse order.
+
+##### Example Code
+
+Here is a Python implementation of topological sorting with cycle detection using DFS:
+
+```python
+def dfs(graph, node, visited, rec_stack, topological_order):
+    """
+    Perform DFS on the graph starting from the given node with cycle detection.
+
+    :param graph: Dictionary representing the adjacency list of the graph.
+    :param node: The starting node for DFS.
+    :param visited: Set to keep track of visited nodes.
+    :param rec_stack: Set to keep track of nodes in the current recursion stack.
+    :param topological_order: List to store the topological order.
+    :return: True if a cycle is detected, False otherwise.
+    """
+    visited.add(node)  # Mark the node as visited
+    rec_stack.add(node)  # Add the node to the recursion stack
+
+    for neighbor in graph[node]:
+        if neighbor not in visited:
+            if dfs(graph, neighbor, visited, rec_stack, topological_order):
+                return True
+        elif neighbor in rec_stack:
+            return True  # Cycle detected
+
+    rec_stack.remove(node)  # Remove the node from the recursion stack
+    topological_order.append(node)  # Add the node to the topological order
+    return False
+
+def topological_sort_dfs(graph):
+    """
+    Perform topological sorting on the graph using DFS with cycle detection.
+
+    :param graph: Dictionary representing the adjacency list of the graph.
+    :return: List representing the topological order.
+    :raises ValueError: If the graph contains a cycle.
+    """
+    visited = set()  # Set to keep track of visited nodes
+    rec_stack = set()  # Set to keep track of nodes in the current recursion stack
+    topological_order = []  # List to store the topological order
+
+    # Call DFS for each unvisited vertex
+    for node in graph:
+        if node not in visited:
+            if dfs(graph, node, visited, rec_stack, topological_order):
+                raise ValueError("The graph contains a cycle, and topological sorting is not possible.")
+
+    # The topological order list contains the topological order in reverse
+    return topological_order[::-1]
+
+def main():
+    # Example graph represented as an adjacency list
+    graph = {
+        'A': ['C'],
+        'B': ['C', 'D'],
+        'C': ['E'],
+        'D': ['F'],
+        'E': ['H', 'F'],
+        'F': ['G'],
+        'G': [],
+        'H': []
+    }
+
+    try:
+        topological_order = topological_sort_dfs(graph)
+        print("Topological Order:", topological_order)
+    except ValueError as e:
+        print(e)
+
+if __name__ == "__main__":
+    main()
+```
+
+##### Explanation
+
+1. **Graph Representation**:
+   - The graph is represented as an adjacency list using a dictionary where each key is a vertex, and the corresponding value is a list of adjacent vertices.
+
+2. **DFS Function with Cycle Detection**:
+   - The `dfs` function takes the graph, the current node, the set of visited nodes, the recursion stack, and the topological order list as arguments.
+   - It marks the current node as visited and adds it to the recursion stack.
+   - It recursively visits all unvisited neighbors. If a neighbor is already in the recursion stack, a cycle is detected.
+   - After visiting all neighbors, it removes the current node from the recursion stack and adds it to the topological order list.
+
+3. **Topological Sort Function**:
+   - The `topological_sort_dfs` function initializes the visited set, the recursion stack, and the topological order list.
+   - It iterates through all vertices and calls the `dfs` function for each unvisited vertex.
+   - If a cycle is detected during the DFS, it raises a `ValueError`.
+   - The topological order list contains the topological order in reverse, so it returns the reversed list.
+
+4. **Main Function**:
+   - Initializes the graph and calls the `topological_sort_dfs` function.
+   - Prints the topological order or the error message if a cycle is detected.
+
+##### Running the Code
+
+When you run the code, it will output the topological order of the given graph:
+
+```
+Topological Order: ['B', 'D', 'A', 'C', 'E', 'H', 'F', 'G']
+```
+
+If the graph contains a cycle, it will raise an exception and print the error message:
+
+```
+The graph contains a cycle, and topological sorting is not possible.
+```
+
+##### Summary
+
+- **Topological Sorting with Cycle Detection Using DFS**: A method for topological sorting of a DAG with cycle detection using a recursive DFS approach.
+- **Steps**: Initialize data structures, implement DFS function with cycle detection, and call DFS for each unvisited vertex.
+- **Implementation**: The provided Python code demonstrates the algorithm with an example graph.
+
+This implementation provides a clear and efficient way to perform topological sorting on a DAG with cycle detection using a DFS approach.
+
+
+
 ## LeetCode-课程表系列
 
 | LeetCode                                                     | 算法 |
