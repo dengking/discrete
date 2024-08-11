@@ -191,8 +191,6 @@ This approach ensures accurate cycle detection in undirected graphs.
 
 
 
-
-
 ### Directed graph
 
 #### gpt-4-vision

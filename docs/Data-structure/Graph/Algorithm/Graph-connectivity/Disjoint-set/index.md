@@ -1,8 +1,12 @@
-# Disjoint-set data structure、union–find data structure
+# Disjoint-set/union–find data structure
 
-一、我们平时所见的tree都是children pointer，但是disjoint-set data structure比较特殊，它是 [parent pointer tree](https://en.wikipedia.org/wiki/Parent_pointer_tree) ，一般的实现方式会使用array来保存 [parent pointer tree](https://en.wikipedia.org/wiki/Parent_pointer_tree) ，这和 heap一样。
+## 素材
 
-二、disjoint-set中的set正好和connected-component相对应
+1. baike [并查集](https://baike.baidu.com/item/%E5%B9%B6%E6%9F%A5%E9%9B%86/9388442?fr=aladdin)
+
+2. zhuanlan.zhihu [算法学习笔记(1) : 并查集](https://zhuanlan.zhihu.com/p/93647900/)
+
+3. labuladong [Union-Find 并查集算法详解](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247484751&idx=1&sn=a873c1f51d601bac17f5078c408cc3f6&scene=21#wechat_redirect)
 
 
 
@@ -10,9 +14,8 @@
 
 In [computer science](https://en.wanweibaike.com/wiki-Computer_science), a **disjoint-set data structure**, also called a **union–find data structure** or **merge–find set**, is a data structure that stores a collection of [disjoint](https://en.wanweibaike.com/wiki-Disjoint_sets) (non-overlapping) sets. Equivalently, it stores a [partition of a set](https://en.wanweibaike.com/wiki-Partition_of_a_set) into disjoint subsets. 
 
-> NOTE: 
+> NOTE: 显然它是由"a collection of [disjoint](https://en.wanweibaike.com/wiki-Disjoint_sets) (non-overlapping) sets"组成
 >
-> 一、显然它是由"a collection of [disjoint](https://en.wanweibaike.com/wiki-Disjoint_sets) (non-overlapping) sets"组成
 
 
 
@@ -22,13 +25,14 @@ While there are several ways of implementing **disjoint-set data structures**, i
 
 Each node in a **disjoint-set forest** consists of a pointer and some auxiliary information, either a size or a rank (but not both). 
 
-The pointers are used to make [parent pointer trees](https://en.wikipedia.org/wiki/Parent_pointer_tree), where each node that is not the root of a tree points to its parent. To distinguish root nodes from others, their parent pointers have invalid values, such as a circular reference to the node or a sentinel value. 
+The pointers are used to make [parent pointer trees](https://en.wikipedia.org/wiki/Parent_pointer_tree), where each node that is not the root of a tree points to its parent. To distinguish root nodes from others, their parent pointers have invalid values, such as a **circular reference** to the node or a **sentinel value**. 
+
+> NOTE. 我们平时所见的tree都是children pointer，但是disjoint-set data structure比较特殊，它是 [parent pointer tree](https://en.wikipedia.org/wiki/Parent_pointer_tree) ，一般的实现方式会使用array来保存 [parent pointer tree](https://en.wikipedia.org/wiki/Parent_pointer_tree) ，这和 heap一样。
 
 Each tree represents a set stored in the forest, with the members of the set being the nodes in the tree. Root nodes provide **set representatives**: Two nodes are in the same set if and only if the roots of the trees containing the nodes are equal.
 
-> NOTE:
+> NOTE: "set representative"是一个非常重要的概念，它其实就是disjoint set、subset、sub tree的root node，这是因为union-find set 需要使用**set representative** (**root node**) 来判断两个元素是否属于同一个set，因此它就需要验证path逆流而上去找到它们的root node，即它们的set representative，所以union-find set使用parent pointer。
 >
-> 一、"set representative"是一个非常重要的概念，它其实就是disjoint set、subset、sub tree的root node，这是因为union-find set 需要使用**set representative** (**root node**) 来判断两个元素是否属于同一个set，因此它就需要验证path逆流而上去找到它们的root node，即它们的set representative，所以union-find set使用parent pointer。
 
 Nodes in the forest can be stored in any way convenient to the application, but a common technique is to store them in an array. In this case, parents can be indicated by their array index.
 
@@ -38,21 +42,27 @@ Nodes in the forest can be stored in any way convenient to the application, but 
 
 It provides operations for :
 
-1、adding new sets
+1. adding new sets
 
-2、merging sets (replacing them by their [union](https://en.wanweibaike.com/wiki-Union_(set_theory))), 
+2. merging sets (replacing them by their [union](https://en.wanweibaike.com/wiki-Union_(set_theory))), 
 
-3、finding a representative member of a set. 
+3. finding a representative member of a set. 
 
 > NOTE:
 >
-> 一、"set representative"是一个非常重要的概念
+> 一. "set representative"是一个非常重要的概念
 
-4、find out efficiently if any two elements are in the same or different sets.
+4. find out efficiently if any two elements are in the same or different sets.
 
 
 
-Disjoint-set data structures support three operations: Making a new set containing a new element; Finding the representative of the set containing a given element; and Merging two sets.
+Disjoint-set data structures support three operations: 
+
+Making a new set containing a new element; 
+
+Finding the representative of the set containing a given element; 
+
+Merging two sets.
 
 #### Making new sets
 
@@ -76,11 +86,11 @@ The `Find` operation follows the chain of parent pointers from a specified query
 
 > NOTE:
 >
-> 一、stop-condition:
+> 一. stop-condition:
 >
-> 1、top-down: leaf node
+> 1. top-down: leaf node
 >
-> 2、bottom-up: root node
+> 2. bottom-up: root node
 
 Performing a `Find` operation presents an important opportunity for improving the forest. The time in a `Find` operation is spent chasing parent pointers, so a flatter tree leads to faster `Find` operations. When a `Find` is executed, there is no faster way to reach the root than by following each parent pointer in succession. However, the parent pointers visited during this search can be updated to point closer to the root. Because every element visited on the way to a root is part of the same set, this does not change the sets stored in the forest. But it makes future `Find` operations faster, not only for the nodes between the query node and the root, but also for their descendants. This updating is an important part of the disjoint-set forest's amortized performance guarantee.
 
@@ -105,7 +115,7 @@ end function
 
 > NOTE:
 >
-> 一、bottom-up
+> 一. bottom-up
 >
 > 需要注意的是，上述写法其实并没有优化tree
 
@@ -115,9 +125,8 @@ end function
 
 This implementation makes two passes, one up the tree and one back down. It requires enough scratch memory to store the path from the query node to the root (in the above pseudocode, the path is implicitly represented using the call stack). This can be decreased to a constant amount of memory by performing both passes in the same direction. The constant memory implementation walks from the query node to the root twice, once to find the root and once to update pointers:
 
-> NOTE:
+> NOTE: 上面的这段话是对下面的算法进行的解释，这个实现是two passes
 >
-> 一、上面的这段话是对下面的算法进行的解释，这个实现是two passes
 
 ```pseudocode
 function Find(x) is
@@ -146,9 +155,8 @@ end function
 
 ##### 实现方式三: one-pass-**Path splitting** 
 
-> NOTE:
+> NOTE: 其实方式一、方式二、方式三都属于"**path splitting**"，它是每次都走一步
 >
-> 一、其实方式一、方式二、方式三都属于"**path splitting**"，它是每次都走一步
 
 **Path splitting** replaces every parent pointer on that path by a pointer to the node's grandparent:
 
@@ -249,29 +257,104 @@ function Union(x, y) is
 end function
 ```
 
+#### Retrieve all members of a set
+
+如何获得disjoint-set中的各个set(connected component)? 这是我在做 [LeetCode-130. Surrounded Regions-中等](https://leetcode.cn/problems/surrounded-regions/) 的时候想到的一个问题。
+
+素材:
+
+- stackoverflow [Printing out nodes in a disjoint-set data structure in linear time](https://stackoverflow.com/questions/22945058/printing-out-nodes-in-a-disjoint-set-data-structure-in-linear-time) # [A](https://stackoverflow.com/a/22945492/23877800) : 详细阐明了思路 
+
+  > Each node should have a `next` pointer to the **next node** in the set it is in. The nodes in a set should form a *circular linked list*.
+  >
+  > When a singleton set is first created, the node's `next` pointer points to itself.
+  >
+  > When you merge set with node `X` and set with node `Y` (and you've already checked that those sets are different by normalizing to set representatives), you merge the **circular linked lists**, which you can do by simply swapping `X.next` and `Y.next`; so this is a `O(1)` operation.
+  >
+  > To list all the elements in the set containing node `X`, traverse the **circular linked list** starting from `X`.
+
+- stackoverflow [Union-Find: retrieve all members of a set efficiently](https://stackoverflow.com/questions/23055236/union-find-retrieve-all-members-of-a-set-efficiently) # [A](https://stackoverflow.com/a/23061520) : 按照前面的思路给出了伪代码 
+
+  > 
+  >
+  > ```pseudocode
+  > MAKE-SET(x)
+  >     x.p = x
+  >     x.rank = 0
+  >     x.link = x        # Circular linked list
+  > 
+  > UNION(x,y)
+  >     sx = FIND-SET(x)
+  >     sy = FIND-SET(y)
+  >     if sx != sy
+  >         LINK(sx, sy)
+  > 
+  > LINK(x,y)             # x,y都是之前的set的root
+  >     temp = y.link     # Concatenation
+  >     y.link = x.link   # of the two
+  >     x.link = temp     # circular lists，新形成的list也是circular list
+  >     if x.rank > y.rank
+  >         y.p = x
+  >     else x.p = y
+  >          if x.rank == y.rank
+  >              y.rank = y.rank + 1
+  > 
+  > FIND-SET(x)
+  >     if x != x.p
+  >         x.p = FIND-SET(x.p)
+  >     return x.p
+  > 
+  > PRINT-SET(x)
+  >     root = x
+  >     PRINT(x)
+  >     while x.link != root
+  >         x = x.link
+  >         PRINT(x)
+  > ```
+  >
+  > 
+
+#### Deletion of edges
+
+Note that the implementation as disjoint-set forests doesn't allow the deletion of edges, even without path compression or the rank heuristic. However, there exist modern implementations that allow for constant-time deletion.
+
+Sharir and Agarwal report connections between the worst-case behavior of disjoint-sets and the length of [Davenport–Schinzel sequences](https://en.wanweibaike.com/wiki-Davenport–Schinzel_sequence), a combinatorial structure from computational geometry.
 
 
-### Applications
 
-Disjoint-set data structures model the [partitioning of a set](https://en.wikipedia.org/wiki/Partition_of_a_set), for example to keep track of the [connected components](https://en.wikipedia.org/wiki/Connected_component_(graph_theory)) of an [undirected graph](https://en.wikipedia.org/wiki/Undirected_graph). This model can then be used to determine whether two vertices belong to the same component, or whether adding an edge between them would result in a cycle. 
+## Applications
+
+### [Connected components](https://en.wikipedia.org/wiki/Connected_component_(graph_theory)) of an [undirected graph](https://en.wikipedia.org/wiki/Undirected_graph) 
 
 > NOTE: 
 >
-> 一、在labuladong [Union-Find 并查集算法详解](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247484751&idx=1&sn=a873c1f51d601bac17f5078c408cc3f6&scene=21#wechat_redirect) 将这种application称之为 "动态连通性"
+> disjoint-set中的set正好和connected-component相对应
+>
+> 在labuladong [Union-Find 并查集算法详解](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247484751&idx=1&sn=a873c1f51d601bac17f5078c408cc3f6&scene=21#wechat_redirect) 将这种application称之为 "动态连通性"
+
+**Disjoint-set** data structures model the [partitioning of a set](https://en.wikipedia.org/wiki/Partition_of_a_set), for example to keep track of the [connected components](https://en.wikipedia.org/wiki/Connected_component_(graph_theory)) of an [undirected graph](https://en.wikipedia.org/wiki/Undirected_graph). This model can then be used to determine whether two vertices belong to the same component, or whether adding an edge between them would result in a cycle. 
+
+> NOTE: 
+>
+> 一. "whether adding an edge between them would result in a cycle" [LeetCode-684. Redundant Connection](https://leetcode.cn/problems/redundant-connection/) 考察的正是这个应用 
+
+### [Unification](https://en.wikipedia.org/wiki/Unification_(computer_science))
 
 The Union–Find algorithm is used in high-performance implementations of [unification](https://en.wikipedia.org/wiki/Unification_(computer_science)).
+
+### [Kruskal's algorithm](https://en.wikipedia.org/wiki/Kruskal's_algorithm) for finding the [minimum spanning tree](https://en.wikipedia.org/wiki/Minimum_spanning_tree) of a graph
 
 Disjoint-set data structures play a key role in [Kruskal's algorithm](https://en.wikipedia.org/wiki/Kruskal's_algorithm) for finding the [minimum spanning tree](https://en.wikipedia.org/wiki/Minimum_spanning_tree) of a graph. The importance of minimum spanning trees means that disjoint-set data structures underlie a wide variety of algorithms. 
 
 In addition, disjoint-set data structures also have applications to symbolic computation, as well in compilers, especially for [register allocation](https://en.wikipedia.org/wiki/Register_allocation) problems.
 
-
-
 This data structure is used by the [Boost Graph Library](https://en.wanweibaike.com/wiki-Boost_Graph_Library) to implement its [Incremental Connected Components](http://www.boost.org/libs/graph/doc/incremental_components.html) functionality. It is also a key component in implementing [Kruskal's algorithm](https://en.wanweibaike.com/wiki-Kruskal's_algorithm) to find the [minimum spanning tree](https://en.wanweibaike.com/wiki-Minimum_spanning_tree) of a graph.
 
-Note that the implementation as disjoint-set forests doesn't allow the deletion of edges, even without path compression or the rank heuristic. However, there exist modern implementations that allow for constant-time deletion.
+### [Hoshen-Kopelman algorithm](https://en.wikipedia.org/wiki/Hoshen–Kopelman_algorithm) 
 
-Sharir and Agarwal report connections between the worst-case behavior of disjoint-sets and the length of [Davenport–Schinzel sequences](https://en.wanweibaike.com/wiki-Davenport–Schinzel_sequence), a combinatorial structure from computational geometry.
+The [Hoshen-Kopelman algorithm](https://en.wikipedia.org/wiki/Hoshen–Kopelman_algorithm) uses a Union-Find in the algorithm.
+
+> NOTE: [LeetCode-130. Surrounded Regions-中等](https://leetcode.cn/problems/surrounded-regions/)
 
 
 
@@ -283,91 +366,20 @@ Sharir and Agarwal report connections between the worst-case behavior of disjoin
 
 对于由transitive relation组成的connected-component。
 
-## 如何获得disjoint-set中的各个set(connected component)
-
-这是我在做 [LeetCode-130. Surrounded Regions-中等](https://leetcode.cn/problems/surrounded-regions/) 的时候想到的一个问题。
-
-### stackoverflow [Union-Find: retrieve all members of a set efficiently](https://stackoverflow.com/questions/23055236/union-find-retrieve-all-members-of-a-set-efficiently)
-
-I'm working with an `union-find` algorithm. In the first part of my program, the algorithm computes a partition of a big set `E`.
-
-After that, I want to retrieve all the members of the set `S`, which contains a given node `x`.
-
-Until now, naively, I was testing membership of all elements of `E` to the set `S`. But yesterday I was reading "Introduction to Algorithms" (by CLRS, 3rd edition, ex. 21.3-4), and, in the exercises, I found that:
-
-> Suppose that we wish to add the operation `PRINT-SET(x)`, which is given a node `x` and prints all the members of `x`'s set, in any order. Show how we can add just a single attribute to each node in a disjoint-set forest so that `PRINT-SET(x)` takes time linear in the number of members of `x`'s set, and the asymptotic running times of the other operations are unchanged.
-
-"linear in the number of members of `x`'s set" would be a great improvement for my problem! So, I'm trying to solve this exersice... and after some unsuccessful tries, I'm asking help on Stack Overflow!
-
-#### [A](https://stackoverflow.com/a/23061520)
-
-```pseudocode
-MAKE-SET(x)
-    x.p = x
-    x.rank = 0
-    x.link = x        # Circular linked list
-
-UNION(x,y)
-    sx = FIND-SET(x)
-    sy = FIND-SET(y)
-    if sx != sy
-        LINK(sx, sy)
-
-LINK(x,y)             # x,y都是之前的set的root
-    temp = y.link     # Concatenation
-    y.link = x.link   # of the two
-    x.link = temp     # circular lists，新形成的list也是circular list
-    if x.rank > y.rank
-        y.p = x
-    else x.p = y
-         if x.rank == y.rank
-             y.rank = y.rank + 1
-
-FIND-SET(x)
-    if x != x.p
-        x.p = FIND-SET(x.p)
-    return x.p
-
-PRINT-SET(x)
-    root = x
-    PRINT(x)
-    while x.link != root
-        x = x.link
-        PRINT(x)
-```
-
-
-
-### stackoverflow [Printing out nodes in a disjoint-set data structure in linear time](https://stackoverflow.com/questions/22945058/printing-out-nodes-in-a-disjoint-set-data-structure-in-linear-time)
-
-
-
-[A](https://stackoverflow.com/a/22945492)
-
-
-
-## 素材
-
-1、baike [并查集](https://baike.baidu.com/item/%E5%B9%B6%E6%9F%A5%E9%9B%86/9388442?fr=aladdin)
-
-2、zhuanlan.zhihu [算法学习笔记(1) : 并查集](https://zhuanlan.zhihu.com/p/93647900/)
-
-3、labuladong [Union-Find 并查集算法详解](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247484751&idx=1&sn=a873c1f51d601bac17f5078c408cc3f6&scene=21#wechat_redirect)
-
 
 
 ## LeetCode
 
 https://leetcode.cn/tag/union-find/problemset/
 
-一、[LeetCode-128. Longest Consecutive Sequence-中等](https://leetcode.cn/problems/longest-consecutive-sequence/)
+[LeetCode-128. Longest Consecutive Sequence-中等](https://leetcode.cn/problems/longest-consecutive-sequence/)
 
-1、对于非连续的数，parent关系使用map来进行存储。
+1. 对于非连续的数，parent关系使用map来进行存储。
 
-2、连续的数就是一个set
+2. 连续的数就是一个set
 
 
-
-二、[Hoshen–Kopelman algorithm](https://en.wikipedia.org/wiki/Hoshen%E2%80%93Kopelman_algorithm) 
 
 [LeetCode-130. Surrounded Regions-中等](https://leetcode.cn/problems/surrounded-regions/)
+
+[Hoshen–Kopelman algorithm](https://en.wikipedia.org/wiki/Hoshen%E2%80%93Kopelman_algorithm) 
