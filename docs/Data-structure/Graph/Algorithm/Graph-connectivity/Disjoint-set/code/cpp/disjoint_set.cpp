@@ -3,6 +3,7 @@
 /// @brief
 class DisjointSet {
     std::vector<int> parent_;
+    std::vector<int> next_; // 构成circular linked list
     std::vector<int> size_;
     std::vector<int> rank_;
     std::size_t set_cnt_{0}; // disjoint set的个数
@@ -12,6 +13,7 @@ public:
             parent_[i] = i; // 初始化的时候，每个节点都是一棵单点树
             size_[i] = 1;
             rank_[i] = 0;
+            next_[i] = i;// 构成circular linked list
         }
     }
 
@@ -121,6 +123,13 @@ public:
             }
             --set_cnt_;
         }
+    }
+
+private:
+    void link(int i, int j){
+        int tmp = next_[j];
+        next_[j] = next_[i];
+        next_[i] = tmp;
     }
 };
 

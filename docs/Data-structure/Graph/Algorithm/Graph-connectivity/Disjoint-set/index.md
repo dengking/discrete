@@ -259,7 +259,10 @@ end function
 
 #### Retrieve all members of a set
 
-如何获得disjoint-set中的各个set(connected component)? 这是我在做 [LeetCode-130. Surrounded Regions-中等](https://leetcode.cn/problems/surrounded-regions/) 的时候想到的一个问题。
+如何获得disjoint-set中的各个set(connected component)? 这是我在做 [LeetCode-130. Surrounded Regions-中等](https://leetcode.cn/problems/surrounded-regions/) 的时候想到的一个问题。实现方式是circular linked list，具体实现涉及如下操作:
+
+- 将两个环形linked list合并为一个大的环形linked list: 可以想象有两个旋转方向相同的circular linked list，分别给定两者中的任何一个node，让这两个node分别指向对方的next的就可以构成一个更大的、旋转方向相同的circular linked list。
+- 遍历circular linked list
 
 素材:
 
@@ -383,3 +386,5 @@ https://leetcode.cn/tag/union-find/problemset/
 [LeetCode-130. Surrounded Regions-中等](https://leetcode.cn/problems/surrounded-regions/)
 
 [Hoshen–Kopelman algorithm](https://en.wikipedia.org/wiki/Hoshen%E2%80%93Kopelman_algorithm) 
+
+[LeetCode-684. Redundant Connection](https://leetcode.cn/problems/redundant-connection/) 

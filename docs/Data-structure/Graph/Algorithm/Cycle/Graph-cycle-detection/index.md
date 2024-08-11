@@ -259,4 +259,6 @@ TODO
 
 
 
-## [LeetCode-684. Redundant Connection](https://leetcode.cn/problems/redundant-connection/)
+## Disjoint set
+
+### [LeetCode-684. Redundant Connection](https://leetcode.cn/problems/redundant-connection/)
