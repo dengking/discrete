@@ -201,7 +201,11 @@ The choice of which node becomes the parent has consequences for the complexity 
 
 In an efficient implementation, tree height is controlled using **union by size** or **union by rank**. Both of these require a node to store information besides just its **parent pointer**. This information is used to decide which root becomes the new parent. Both strategies ensure that trees do not become too deep.
 
+> NOTE: 目标是让树的高度尽可能地小
+
 ##### Union by size
+
+In the case of union by size, a node stores its size, which is simply its number of descendants (including the node itself). When the trees with roots *x* and *y* are merged, the node with more descendants becomes the parent. If the two nodes have the same number of descendants, then either one can become the parent. In both cases, the size of the new parent node is set to its new total number of descendants.
 
 ```pseudocode
 function Union(x, y) is
@@ -230,7 +234,9 @@ end function
 
 ##### Union by rank
 
+> NOTE: 需要注意: rank不是height的，rank所表达的是"upper bound for its height"，并且"The height of a node can change during a `Find` operation"
 
+For union by rank, a node stores its *rank*, which is an **upper bound for its height**. When a node is initialized, its rank is set to zero. To merge trees with roots *x* and *y*, first compare their ranks. If the ranks are different, then the larger rank tree becomes the parent, and the ranks of *x* and *y* do not change. If the ranks are the same, then either one can become the parent, but the new parent's rank is incremented by one. While the rank of a node is clearly related to its height, storing ranks is more efficient than storing heights. The height of a node can change during a `Find` operation, so storing ranks avoids the extra effort of keeping the height correct. 
 
 ```pseudocode
 function Union(x, y) is
@@ -711,4 +717,48 @@ https://leetcode.cn/tag/union-find/problemset/
 
 [Hoshen–Kopelman algorithm](https://en.wikipedia.org/wiki/Hoshen%E2%80%93Kopelman_algorithm) 
 
-[LeetCode-684. Redundant Connection](https://leetcode.cn/problems/redundant-connection/) 
+### [LeetCode-684. Redundant Connection](https://leetcode.cn/problems/redundant-connection/) 
+
+n个节点至少有n-1条边才能够将它们连接起来，而这道题中，至少存在一条冗余的边，因此边的个数至少为n，所以可以将disjoint set的节点的个数设置为边的个数+1
+
+```python
+from typing import *
+
+
+class DisjointSet:
+    def __init__(self, n: int):
+        self.parent = [i for i in range(n)]
+        self.size = [1] * n
+
+    def union(self, i, j) -> bool:
+        i_root = self.find(i)
+        j_root = self.find(j)
+        if i_root != j_root:
+            if self.size[i_root] < self.size[j_root]:
+                i_root, j_root = j_root, i_root
+            # 始终用i_root表示新的root
+            self.parent[j_root] = i_root
+            self.size[i_root] += self.size[j_root]
+            return True
+        else:
+            return False
+
+    def find(self, i) -> int:
+        if self.parent[i] != i:
+            self.parent[i] = self.find(self.parent[i])
+        return self.parent[i]
+
+
+class Solution:
+    def findRedundantConnection(self, edges: List[List[int]]) -> List[int]:
+        disjoint_set = DisjointSet(len(edges) + 1)
+        redundant_edges = []
+        for edge in edges:
+            if not disjoint_set.union(edge[0], edge[1]):
+                redundant_edges.append(edge)
+        if len(redundant_edges) > 0:
+            return redundant_edges[-1]
+        return []
+
+```
+
