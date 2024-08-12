@@ -88,9 +88,9 @@ The `Find` operation follows the chain of parent pointers from a specified query
 >
 > 一. stop-condition:
 >
-> 1. top-down: leaf node
+> 1. top-down: leaf node; `child` pointer is null
 >
-> 2. bottom-up: root node
+> 2. bottom-up: root node; `parent` pointer is self
 
 Performing a `Find` operation presents an important opportunity for improving the forest. The time in a `Find` operation is spent chasing parent pointers, so a flatter tree leads to faster `Find` operations. When a `Find` is executed, there is no faster way to reach the root than by following each parent pointer in succession. However, the parent pointers visited during this search can be updated to point closer to the root. Because every element visited on the way to a root is part of the same set, this does not change the sets stored in the forest. But it makes future `Find` operations faster, not only for the nodes between the query node and the root, but also for their descendants. This updating is an important part of the disjoint-set forest's amortized performance guarantee.
 
@@ -177,9 +177,9 @@ end function
 
 > NOTE:
 >
-> 一、**halving** 的意思是 **二等分** 
+> 一. **halving** 的意思是 "**二等分**"、"减半" 
 >
-> 二、"路径减半的工作原理类似，但只替换所有其他父指针"，它是一次走两步，由于root node是self-reference，因此它能够保证最终肯定能够在root node停止下来
+> 二. "路径减半的工作原理类似，但只替换所有其他父指针"，它是一次走两步，由于root node是self-reference，因此它能够保证最终肯定能够在root node停止下来
 
 ```pseudocode
 function Find(x) is
@@ -323,11 +323,195 @@ Note that the implementation as disjoint-set forests doesn't allow the deletion 
 
 Sharir and Agarwal report connections between the worst-case behavior of disjoint-sets and the length of [Davenport–Schinzel sequences](https://en.wanweibaike.com/wiki-Davenport–Schinzel_sequence), a combinatorial structure from computational geometry.
 
+## Implementation
+
+### C++
+
+````C++
+#include <vector>
+
+/// @brief
+class DisjointSet {
+    std::vector<int> parent_;
+    std::vector<int> next_; // 构成circular linked list
+    std::vector<int> size_;
+    std::vector<int> rank_;
+    std::size_t set_cnt_{0}; // disjoint set的个数
+public:
+    DisjointSet(std::size_t n) : parent_(n), set_cnt_{n} {
+        for (int i = 0; i < n; ++i) {
+            parent_[i] = i; // 初始化的时候，每个节点都是一棵单点树
+            size_[i] = 1;
+            rank_[i] = 0;
+            next_[i] = i;// 构成circular linked list
+        }
+    }
+
+    /// @brief 使用recursion的方式实现find set representative/root
+    /// @param idex
+    /// @return
+    int find_by_recursion(int idx) {
+        if (parent_[idx] != idx) {
+            // 在向上寻找的过程中同时进行优化: 它会将从idx到set representative/root的这条路上的所有的节点都设置为指向set representative/root
+            parent_[idx] = find_by_recursion(parent_[idx]);
+        }
+        // 需要注意，它返回的是修改后的值
+        return parent_[idx];
+
+    }
+
+    /// @brief 使用iteration的方式实现find set representative/root
+    /// @param idx
+    /// @return
+    int find_by_two_pass_iteration(int idx) {
+        int root = idx;
+        while (parent_[root] != root) // 找到set representative/root
+        {
+            root = parent_[root];
+        }
+        // 优化: 它会将从idx到set representative/root的这条路上的所有的节点都设置为指向set representative/root
+        while (parent_[idx] != idx) {
+            int parent = parent_[idx];
+            parent_[idx] = root;
+            idx = parent;
+        }
+        return root;
+    }
+
+    /// @brief
+    /// @param idx
+    /// @return
+    int find_by_path_split(int idx) {
+        while (parent_[idx] != idx) {
+            int grandparent = parent_[parent_[idx]];
+            int parent = parent_[idx];
+            // Path splitting replaces every parent pointer on that path by a pointer to the node's grandparent
+            parent_[idx] = grandparent;
+            idx = parent;               // iteration
+        }
+        return idx;
+    }
+
+    int find_by_path_halving(int idx) {
+        while (parent_[idx] != idx) {
+            int grandparent = parent_[parent_[idx]];
+            // Path halving works similarly but replaces only every other parent pointer
+            parent_[idx] = grandparent;
+            idx = parent_[idx];         // iteration
+        }
+        return idx;
+    }
+
+    /// @brief 判断idx是否是set representative/root
+    /// @param
+    /// @return
+    bool is_root(int idx) {
+        return parent_[idx] == idx;
+    }
+
+    void Union(int i, int j) {
+        int i_root = find_by_path_split(i);
+        int j_root = find_by_path_split(j);
+        if (i_root != j_root) {
+            link(i_root, j_root);
+            parent_[i_root] = j_root;
+            --set_cnt_;
+        }
+    }
+
+    /// @brief union by size
+    /// @param i
+    /// @param j
+    void union_by_size(int i, int j) {
+        int i_root = find_by_path_split(i);
+        int j_root = find_by_path_split(j);
+        if (i_root != j_root) {
+            link(i_root, j_root);
+            if (size_[i_root] < size_[j_root]) {
+                parent_[i_root] = j_root;
+                size_[j_root] += size_[i_root];
+            } else {
+                parent_[j_root] = i_root;
+                size_[i_root] += size_[j_root];
+            }
+            --set_cnt_;
+        }
+    }
+
+    /// @brief union by rank
+    /// @param i
+    /// @param j
+    void union_by_rank(int i, int j) {
+        int i_root = find_by_path_split(i);
+        int j_root = find_by_path_split(j);
+        if (i_root != j_root) {
+            link(i_root, j_root);
+            if (rank_[i_root] < rank_[j_root]) {
+                parent_[i_root] = j_root;
+            } else if (rank_[i_root] > rank_[j_root]) {
+                parent_[j_root] = i_root;
+            } else {
+                parent_[j_root] = i_root;
+                rank_[i_root] += 1;
+            }
+            --set_cnt_;
+        }
+    }
+
+private:
+    /// 合并ihej所在地的circular linked list
+    /// \param i
+    /// \param j
+    void link(int i, int j) {
+        int tmp = next_[j];
+        next_[j] = next_[i];
+        next_[i] = tmp;
+    }
+};
+
+int main() {
+}
+
+````
+
+### Python
+
+```python
+class DisjointSet:
+    def __init__(self, n):
+        self.parent = list(range(n))
+        self.rank = [0] * n
+
+    def find(self, u):
+        if self.parent[u] != u:
+            self.parent[u] = self.find(self.parent[u])  # Path compression
+        return self.parent[u]
+
+    def union(self, u, v):
+        root_u = self.find(u)
+        root_v = self.find(v)
+        if root_u != root_v:
+            if self.rank[root_u] > self.rank[root_v]:
+                self.parent[root_v] = root_u
+            elif self.rank[root_u] < self.rank[root_v]:
+                self.parent[root_u] = root_v
+            else:
+                self.parent[root_v] = root_u
+                self.rank[root_u] += 1
+
+```
+
 
 
 ## Applications
 
-### [Connected components](https://en.wikipedia.org/wiki/Connected_component_(graph_theory)) of an [undirected graph](https://en.wikipedia.org/wiki/Undirected_graph) 
+### Application of disjoint set in graph theory
+
+> NOTE: 本段内容融合了 wikipedia [Disjoint-set data structure](https://en.wikipedia.org/wiki/Disjoint-set_data_structure) 和 gpt-4o
+
+The **Disjoint Set (or Union-Find) algorithm** is a versatile and efficient data structure used in various graph-related problems. Here are some common applications of the **Disjoint Set algorithm** in graph theory:
+
+#### [Connected components](https://en.wikipedia.org/wiki/Connected_component_(graph_theory)) of an [undirected graph](https://en.wikipedia.org/wiki/Undirected_graph) 
 
 > NOTE: 
 >
@@ -337,21 +521,157 @@ Sharir and Agarwal report connections between the worst-case behavior of disjoin
 
 **Disjoint-set** data structures model the [partitioning of a set](https://en.wikipedia.org/wiki/Partition_of_a_set), for example to keep track of the [connected components](https://en.wikipedia.org/wiki/Connected_component_(graph_theory)) of an [undirected graph](https://en.wikipedia.org/wiki/Undirected_graph). This model can then be used to determine whether two vertices belong to the same component, or whether adding an edge between them would result in a cycle. 
 
+Finding connected components in an undirected graph using the Disjoint Set (Union-Find) algorithm involves iterating through all edges and using the Union-Find structure to group vertices into connected components.
+
+```python
+class DisjointSet:
+    def __init__(self, n):
+        self.parent = list(range(n))
+        self.rank = [0] * n
+
+    def find(self, u):
+        if self.parent[u] != u:
+            self.parent[u] = self.find(self.parent[u])  # Path compression
+        return self.parent[u]
+
+    def union(self, u, v):
+        root_u = self.find(u)
+        root_v = self.find(v)
+        if root_u != root_v:
+            if self.rank[root_u] > self.rank[root_v]:
+                self.parent[root_v] = root_u
+            elif self.rank[root_u] < self.rank[root_v]:
+                self.parent[root_u] = root_v
+            else:
+                self.parent[root_v] = root_u
+                self.rank[root_u] += 1
+
+def find_connected_components(edges, n):
+    ds = DisjointSet(n)
+    
+    # Perform union operation for each edge
+    for u, v in edges:
+        ds.union(u, v)
+    
+    # Find the root of each vertex
+    components = {}
+    for vertex in range(n):
+        root = ds.find(vertex)
+        if root not in components:
+            components[root] = []
+        components[root].append(vertex)
+    
+    return list(components.values())
+
+# Example usage
+edges = [(0, 1), (1, 2), (3, 4)]
+n = 5  # Number of vertices
+connected_components = find_connected_components(edges, n)
+print("Connected Components:", connected_components)
+```
+
+
+
+#### Cycle Detection in Undirected Graphs
+
 > NOTE: 
 >
-> 一. "whether adding an edge between them would result in a cycle" [LeetCode-684. Redundant Connection](https://leetcode.cn/problems/redundant-connection/) 考察的正是这个应用 
+> 一. 前面的"whether adding an edge between them would result in a cycle" [LeetCode-684. Redundant Connection](https://leetcode.cn/problems/redundant-connection/) 考察的正是这个应用 
+
+The **Disjoint Set algorithm** can be used to detect cycles in an undirected graph. By iterating through all edges and using the Union-Find structure to keep track of connected components, we can determine if adding an edge would form a cycle.
+
+```python
+class DisjointSet:
+    def __init__(self, n):
+        self.parent = list(range(n))
+        self.rank = [0] * n
+
+    def find(self, u):
+        if self.parent[u] != u:
+            self.parent[u] = self.find(self.parent[u])
+        return self.parent[u]
+
+    def union(self, u, v):
+        root_u = self.find(u)
+        root_v = self.find(v)
+        if root_u != root_v:
+            if self.rank[root_u] > self.rank[root_v]:
+                self.parent[root_v] = root_u
+            elif self.rank[root_u] < self.rank[root_v]:
+                self.parent[root_u] = root_v
+            else:
+                self.parent[root_v] = root_u
+                self.rank[root_u] += 1
+
+def has_cycle(edges, n):
+    ds = DisjointSet(n)
+    for u, v in edges:
+        if ds.find(u) == ds.find(v):
+            return True
+        ds.union(u, v)
+    return False
+
+# Example usage
+edges = [(0, 1), (1, 2), (2, 0), (3, 4)]
+n = 5  # Number of vertices
+print("Graph has cycle:", has_cycle(edges, n))
+```
+
+
+
+#### [Kruskal's algorithm](https://en.wikipedia.org/wiki/Kruskal's_algorithm) for finding the [minimum spanning tree](https://en.wikipedia.org/wiki/Minimum_spanning_tree) of a graph
+
+Disjoint-set data structures play a key role in [Kruskal's algorithm](https://en.wikipedia.org/wiki/Kruskal's_algorithm) for finding the [minimum spanning tree](https://en.wikipedia.org/wiki/Minimum_spanning_tree) of a graph. The importance of minimum spanning trees means that disjoint-set data structures underlie a wide variety of algorithms. 
+
+```python
+class DisjointSet:
+    def __init__(self, n):
+        self.parent = list(range(n))
+        self.rank = [0] * n
+
+    def find(self, u):
+        if self.parent[u] != u:
+            self.parent[u] = self.find(self.parent[u])
+        return self.parent[u]
+
+    def union(self, u, v):
+        root_u = self.find(u)
+        root_v = self.find(v)
+        if root_u != root_v:
+            if self.rank[root_u] > self.rank[root_v]:
+                self.parent[root_v] = root_u
+            elif self.rank[root_u] < self.rank[root_v]:
+                self.parent[root_u] = root_v
+            else:
+                self.parent[root_v] = root_u
+                self.rank[root_u] += 1
+
+def kruskal(edges, n):
+    ds = DisjointSet(n)
+    mst = []
+    edges.sort(key=lambda x: x[2])  # Sort edges by weight
+
+    for u, v, weight in edges:
+        if ds.find(u) != ds.find(v):
+            ds.union(u, v)
+            mst.append((u, v, weight))
+
+    return mst
+
+# Example usage
+edges = [(0, 1, 10), (0, 2, 6), (0, 3, 5), (1, 3, 15), (2, 3, 4)]
+n = 4  # Number of vertices
+mst = kruskal(edges, n)
+print("Minimum Spanning Tree:", mst)
+```
+
+This data structure is used by the [Boost Graph Library](https://en.wanweibaike.com/wiki-Boost_Graph_Library) to implement its [Incremental Connected Components](http://www.boost.org/libs/graph/doc/incremental_components.html) functionality. It is also a key component in implementing [Kruskal's algorithm](https://en.wanweibaike.com/wiki-Kruskal's_algorithm) to find the [minimum spanning tree](https://en.wanweibaike.com/wiki-Minimum_spanning_tree) of a graph.
 
 ### [Unification](https://en.wikipedia.org/wiki/Unification_(computer_science))
 
 The Union–Find algorithm is used in high-performance implementations of [unification](https://en.wikipedia.org/wiki/Unification_(computer_science)).
 
-### [Kruskal's algorithm](https://en.wikipedia.org/wiki/Kruskal's_algorithm) for finding the [minimum spanning tree](https://en.wikipedia.org/wiki/Minimum_spanning_tree) of a graph
 
-Disjoint-set data structures play a key role in [Kruskal's algorithm](https://en.wikipedia.org/wiki/Kruskal's_algorithm) for finding the [minimum spanning tree](https://en.wikipedia.org/wiki/Minimum_spanning_tree) of a graph. The importance of minimum spanning trees means that disjoint-set data structures underlie a wide variety of algorithms. 
-
-In addition, disjoint-set data structures also have applications to symbolic computation, as well in compilers, especially for [register allocation](https://en.wikipedia.org/wiki/Register_allocation) problems.
-
-This data structure is used by the [Boost Graph Library](https://en.wanweibaike.com/wiki-Boost_Graph_Library) to implement its [Incremental Connected Components](http://www.boost.org/libs/graph/doc/incremental_components.html) functionality. It is also a key component in implementing [Kruskal's algorithm](https://en.wanweibaike.com/wiki-Kruskal's_algorithm) to find the [minimum spanning tree](https://en.wanweibaike.com/wiki-Minimum_spanning_tree) of a graph.
 
 ### [Hoshen-Kopelman algorithm](https://en.wikipedia.org/wiki/Hoshen–Kopelman_algorithm) 
 
@@ -360,6 +680,10 @@ The [Hoshen-Kopelman algorithm](https://en.wikipedia.org/wiki/Hoshen–Kopelman_
 > NOTE: [LeetCode-130. Surrounded Regions-中等](https://leetcode.cn/problems/surrounded-regions/)
 
 
+
+### Others
+
+In addition, disjoint-set data structures also have applications to symbolic computation, as well in compilers, especially for [register allocation](https://en.wikipedia.org/wiki/Register_allocation) problems.
 
 ## 从relation的角度来看待disjoint set
 

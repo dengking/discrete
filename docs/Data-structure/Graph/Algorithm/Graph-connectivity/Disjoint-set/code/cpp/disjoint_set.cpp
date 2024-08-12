@@ -24,10 +24,10 @@ public:
         if (parent_[idx] != idx) {
             // 在向上寻找的过程中同时进行优化: 它会将从idx到set representative/root的这条路上的所有的节点都设置为指向set representative/root
             parent_[idx] = find_by_recursion(parent_[idx]);
-            return parent_[idx]; // 需要注意，它返回的是修改后的值
-        } else {
-            return parent_[idx];
         }
+        // 需要注意，它返回的是修改后的值
+        return parent_[idx];
+
     }
 
     /// @brief 使用iteration的方式实现find set representative/root
@@ -83,6 +83,7 @@ public:
         int i_root = find_by_path_split(i);
         int j_root = find_by_path_split(j);
         if (i_root != j_root) {
+            link(i_root, j_root);
             parent_[i_root] = j_root;
             --set_cnt_;
         }
@@ -95,6 +96,7 @@ public:
         int i_root = find_by_path_split(i);
         int j_root = find_by_path_split(j);
         if (i_root != j_root) {
+            link(i_root, j_root);
             if (size_[i_root] < size_[j_root]) {
                 parent_[i_root] = j_root;
                 size_[j_root] += size_[i_root];
@@ -113,6 +115,7 @@ public:
         int i_root = find_by_path_split(i);
         int j_root = find_by_path_split(j);
         if (i_root != j_root) {
+            link(i_root, j_root);
             if (rank_[i_root] < rank_[j_root]) {
                 parent_[i_root] = j_root;
             } else if (rank_[i_root] > rank_[j_root]) {
@@ -126,7 +129,10 @@ public:
     }
 
 private:
-    void link(int i, int j){
+    /// 合并ihej所在地的circular linked list
+    /// \param i
+    /// \param j
+    void link(int i, int j) {
         int tmp = next_[j];
         next_[j] = next_[i];
         next_[i] = tmp;

@@ -1,4 +1,4 @@
-# Connectivity 、Connected-component
+# Connectivity &Connected-component&Transitive-closure
 
 
 
@@ -32,7 +32,7 @@ After each addition/deletion of an edge, the dynamic connectivity structure shou
 
 
 
-## Connected component
+## Connected component&Transitive-closure
 
 一、计算所有的connected component
 

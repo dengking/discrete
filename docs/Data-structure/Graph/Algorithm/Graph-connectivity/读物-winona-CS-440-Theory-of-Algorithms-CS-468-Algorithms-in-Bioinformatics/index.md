@@ -49,67 +49,42 @@
 
 
 ```c++
-// #include <bits/stdc++.h>
 #include <iostream>
-#include <string>
-#include <algorithm>
 #include <vector>
-#include <bitset>
-#include <map>
-#include <set>
-#include <list>
-#include <stack>
-#include <unordered_map>
-#include <unordered_set>
-#include <queue>
-#include <deque>
-#include <cmath>
-#include <numeric>
-#include <climits>
-#include <random>
-#include <memory>
 
-using namespace std;
-
-void warshal(std::vector<std::vector<bool>> &graph, int n)
-{
-  for (int k = 0; k < n; k++)
-  {
-    for (int i = 0; i < n; i++)
-    {
-      for (int j = 0; j < n; j++)
-      {
-        graph[i][j] = graph[i][j] || (graph[i][k] && graph[k][j]);
-      }
+void warshal(std::vector<std::vector<bool>> &graph, int n) {
+    for (int k = 0; k < n; k++) {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                graph[i][j] = graph[i][j] || (graph[i][k] && graph[k][j]);
+            }
+        }
     }
-  }
 }
-void print_graph(std::vector<std::vector<bool>> &graph)
-{
-  for (auto &&row : graph)
-  {
-    for (auto &&col : row)
-    {
-      std::cout << col << ",";
+
+void print_graph(std::vector<std::vector<bool>> &graph) {
+    for (auto &&row: graph) {
+        for (auto &&col: row) {
+            std::cout << col << ",";
+        }
+        std::cout << std::endl;
     }
-    std::cout << std::endl;
-  }
 }
-int main()
-{
-  std::vector<std::vector<bool>> g{
-      {0, 1, 0, 0},
-      {0, 0, 0, 1},
-      {0, 0, 0, 0},
-      {1, 0, 1, 0} //
-  };
-  std::cout << "before:" << std::endl;
-  print_graph(g);
 
-  warshal(g, g[0].size());
+int main() {
+    std::vector<std::vector<bool>> g{
+            {0, 1, 0, 0},
+            {0, 0, 0, 1},
+            {0, 0, 0, 0},
+            {1, 0, 1, 0} //
+    };
+    std::cout << "before:" << std::endl;
+    print_graph(g);
 
-  std::cout << "after:" << std::endl;
-  print_graph(g);
+    warshal(g, g[0].size());
+
+    std::cout << "after:" << std::endl;
+    print_graph(g);
 }
 // g++ test.cpp --std=c++11 -pedantic -Wall -Wextra
 
