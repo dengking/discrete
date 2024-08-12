@@ -265,7 +265,14 @@ end function
 
 #### Retrieve all members of a set
 
-如何获得disjoint-set中的各个set(connected component)? 这是我在做 [LeetCode-130. Surrounded Regions-中等](https://leetcode.cn/problems/surrounded-regions/) 的时候想到的一个问题。实现方式是circular linked list，具体实现涉及如下操作:
+如何获得disjoint-set中的各个set(connected component)? 这是我在做 [LeetCode-130. Surrounded Regions-中等](https://leetcode.cn/problems/surrounded-regions/) 的时候想到的一个问题，有两种实现方式:
+
+- 方式1: circular linked list
+- 方式2: union-all-then-group-by-root
+
+##### 方式1: circular linked list
+
+实现方式是circular linked list，具体实现涉及如下操作:
 
 - 将两个环形linked list合并为一个大的环形linked list: 可以想象有两个旋转方向相同的circular linked list，分别给定两者中的任何一个node，让这两个node分别指向对方的next的就可以构成一个更大的、旋转方向相同的circular linked list。
 - 遍历circular linked list
@@ -322,6 +329,67 @@ end function
   > ```
   >
   > 
+
+##### 方式2: union-all-then-cluster
+
+```python
+from collections import defaultdict
+from typing import *
+
+
+class DisjointSet:
+    def __init__(self, n):
+        self.parent = list(range(n))
+        self.rank = [0] * n
+
+    def find(self, u):
+        if self.parent[u] != u:
+            self.parent[u] = self.find(self.parent[u])  # Path compression
+        return self.parent[u]
+
+    def union(self, u, v):
+        root_u = self.find(u)
+        root_v = self.find(v)
+        if root_u != root_v:
+            if self.rank[root_u] > self.rank[root_v]:
+                self.parent[root_v] = root_u
+            elif self.rank[root_u] < self.rank[root_v]:
+                self.parent[root_u] = root_v
+            else:
+                self.parent[root_v] = root_u
+                self.rank[root_u] += 1
+
+
+def find_connected_components(edges: List, n: int):
+    ds = DisjointSet(n)
+
+    # Perform union operation for each edge
+    for u, v in edges:
+        ds.union(u, v)
+
+    # Find the root of each vertex
+    components = defaultdict(list)
+    for vertex in range(n):
+        root = ds.find(vertex)
+        components[root].append(vertex)
+
+    return list(components.values())
+
+
+def main():
+    # Example usage
+    edges = [(0, 1), (1, 2), (3, 4)]
+    n = 5  # Number of vertices
+    connected_components = find_connected_components(edges, n)
+    print("Connected Components:", connected_components)
+
+
+if __name__ == '__main__':
+    main()
+
+```
+
+
 
 #### Deletion of edges
 
@@ -703,9 +771,9 @@ In addition, disjoint-set data structures also have applications to symbolic com
 
 ## LeetCode
 
-https://leetcode.cn/tag/union-find/problemset/
+https://leetcode.cn/tag/union-find/problemset/ 
 
-[LeetCode-128. Longest Consecutive Sequence-中等](https://leetcode.cn/problems/longest-consecutive-sequence/)
+[LeetCode-128. Longest Consecutive Sequence-中等](https://leetcode.cn/problems/longest-consecutive-sequence/) 
 
 1. 对于非连续的数，parent关系使用map来进行存储。
 
@@ -713,7 +781,7 @@ https://leetcode.cn/tag/union-find/problemset/
 
 
 
-[LeetCode-130. Surrounded Regions-中等](https://leetcode.cn/problems/surrounded-regions/)
+[LeetCode-130. Surrounded Regions-中等](https://leetcode.cn/problems/surrounded-regions/) 
 
 [Hoshen–Kopelman algorithm](https://en.wikipedia.org/wiki/Hoshen%E2%80%93Kopelman_algorithm) 
 
@@ -727,7 +795,7 @@ from typing import *
 
 class DisjointSet:
     def __init__(self, n: int):
-        self.parent = [i for i in range(n)]
+        self.parent = list(range(n))
         self.size = [1] * n
 
     def union(self, i, j) -> bool:

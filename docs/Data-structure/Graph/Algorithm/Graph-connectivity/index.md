@@ -195,6 +195,73 @@ disjoint-set(union-find-set): disjoint-set中的set正好和connected-component�
 
 
 
+```python
+from collections import defaultdict
+from typing import *
+
+
+class DisjointSet:
+    def __init__(self, n):
+        self.parent = list(range(n))
+        self.rank = [0] * n
+
+    def find(self, u):
+        if self.parent[u] != u:
+            self.parent[u] = self.find(self.parent[u])  # Path compression
+        return self.parent[u]
+
+    def union(self, u, v):
+        root_u = self.find(u)
+        root_v = self.find(v)
+        if root_u != root_v:
+            if self.rank[root_u] > self.rank[root_v]:
+                self.parent[root_v] = root_u
+            elif self.rank[root_u] < self.rank[root_v]:
+                self.parent[root_u] = root_v
+            else:
+                self.parent[root_v] = root_u
+                self.rank[root_u] += 1
+
+
+def find_connected_components(edges: List, n: int):
+    ds = DisjointSet(n)
+
+    # Perform union operation for each edge
+    for u, v in edges:
+        ds.union(u, v)
+
+    # Find the root of each vertex
+    components = defaultdict(list)
+    for vertex in range(n):
+        root = ds.find(vertex)
+        components[root].append(vertex)
+
+    return list(components.values())
+
+
+def main():
+    # Example usage
+    edges = [(0, 1), (1, 2), (3, 4)]
+    n = 5  # Number of vertices
+    connected_components = find_connected_components(edges, n)
+    print("Connected Components:", connected_components)
+
+
+if __name__ == '__main__':
+    main()
+
+```
+
+### LeetCode
+
+[LeetCode-1319. Number of Operations to Make Network Connected](https://leetcode.com/problems/number-of-operations-to-make-network-connected/) 
+
+disjoint set中set的个数
+
+[LeetCode-2685. Count the Number of Complete Components](https://leetcode.com/problems/count-the-number-of-complete-components/) 
+
+disjoint set中set的个数
+
 ## Connected component border
 
 一. 素材
