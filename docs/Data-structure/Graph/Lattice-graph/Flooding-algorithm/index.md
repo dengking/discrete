@@ -1,8 +1,8 @@
 # Flooding algorithm
 
-一、给一个/多个seed、probe，按照connectivity，沿着topology，找到它的所有的connected component。
+一. 在 labuladong [Flood Fill 算法详解](https://mp.weixin.qq.com/s/Y7snQIraCC6PRhj9ZSnlzw) 中，发现了这个算法，第一感觉就是 "探针"、"试探": 给一个/多个seed、probe，按照connectivity，沿着topology，找到它的所有的connected component。
 
-过于seed，在 labuladong [Flood Fill 算法详解](https://mp.weixin.qq.com/s/Y7snQIraCC6PRhj9ZSnlzw) 中给出了扫雷、开心消消乐的例子:
+对于seed，在 labuladong [Flood Fill 算法详解](https://mp.weixin.qq.com/s/Y7snQIraCC6PRhj9ZSnlzw) 中给出了扫雷、开心消消乐的例子:
 
 > 这种算法思想还在许多其他地方有应用。比如说扫雷游戏，有时候你点一个方格，会一下子展开一片区域，这个展开过程，就是 FloodFill 算法实现的。
 >
@@ -20,9 +20,9 @@
 
 
 
-二、"泛洪"，这翻译是非常形象的、"浸染"、flood水流流过相邻区域
+二. "泛洪"，这翻译是非常形象的、"浸染"、flood水流流过相邻区域
 
-三、 [lattice graph](https://en.wikipedia.org/wiki/Lattice_graph) 
+三. [lattice graph](https://en.wikipedia.org/wiki/Lattice_graph) 
 
 四、watershed algorithm(分水岭算法)
 
@@ -36,13 +36,13 @@ A **flooding algorithm** is an [algorithm](https://en.wikipedia.org/wiki/Algorit
 
 > NOTE:
 >
-> 一、翻译如下: "泛洪算法是一种将材料分布到图的每个部分的算法。这个名字来源于洪水泛滥的概念"
+> 一. 翻译如下: "泛洪算法是一种将材料分布到图的每个部分的算法。这个名字来源于洪水泛滥的概念"
 
 Flooding algorithms are used in [computer networking](https://en.wikipedia.org/wiki/Flooding_(computer_networking)) and [graphics](https://en.wikipedia.org/wiki/Flood_fill). **Flooding algorithms** are also useful for solving many mathematical problems, including [maze](https://en.wikipedia.org/wiki/Maze) problems and many problems in [graph theory](https://en.wikipedia.org/wiki/Graph_theory).
 
 > NOTE:
 >
-> 一、"maze"即"迷宫"
+> 一. "maze"即"迷宫"
 
 Different flooding algorithms can be applied for different problems, and run with different [time complexities](https://en.wikipedia.org/wiki/Time_complexities): 
 
@@ -52,7 +52,7 @@ For example, the [flood fill](https://en.wikipedia.org/wiki/Flood_fill) algorith
 
 > NOTE:
 >
-> 一、翻译如下: "例如，洪水填充算法是一种简单但相对健壮的算法，适用于复杂的几何形状，可以确定(目标)区域的哪一部分与多维数组中的给定(源)节点相连，并且可以简单地推广到任意图结构。"
+> 一. 翻译如下: "例如，洪水填充算法是一种简单但相对健壮的算法，适用于复杂的几何形状，可以确定(目标)区域的哪一部分与多维数组中的给定(源)节点相连，并且可以简单地推广到任意图结构。"
 >
 > "which part of the (target) area that is [connected](https://en.wikipedia.org/wiki/Glossary_of_graph_theory#Connectivity) to a given (source) node in a multi-dimensional [array](https://en.wikipedia.org/wiki/Array_data_structure)" 其实就是 "connected-component"
 >
@@ -71,8 +71,6 @@ If there instead are several **source nodes**, there are no obstructions(障碍�
 
 
 ## Flood fill 泛洪算法
-
-一. 在 labuladong [Flood Fill 算法详解](https://mp.weixin.qq.com/s/Y7snQIraCC6PRhj9ZSnlzw) 中，发现了这个算法，第一感觉就是 "探针"、"试探"。
 
 
 
@@ -138,3 +136,8 @@ The jump flooding algorithm and its variants may be used for:
 
 
 
+## LeetCode
+
+### [LeetCode-733. 图像渲染-简单](https://leetcode.cn/problems/flood-fill/) 
+
+英文原题: [LeetCode-733. Flood Fill](https://leetcode.com/problems/flood-fill/) 

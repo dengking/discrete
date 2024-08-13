@@ -261,4 +261,6 @@ TODO
 
 ## Disjoint set
 
-### [LeetCode-684. Redundant Connection](https://leetcode.cn/problems/redundant-connection/)
+需要注意的是: 这种算法所能够判定的circle和DFS所能够判定的circle是不同的，典型的例子就是 [LeetCode-684. Redundant Connection](https://leetcode.cn/problems/redundant-connection/) ，如果使用前面的DFS算法，它是不会判断保护circle的。
+
+### [LeetCode-684. Redundant Connection](https://leetcode.cn/problems/redundant-connection/) 
