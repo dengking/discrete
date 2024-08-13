@@ -1,25 +1,23 @@
 # Search algorithms
 
-关于search algorithm，wikipedia [Search algorithm](https://en.wikipedia.org/wiki/Search_algorithm)总结地不错。
-
 ## wikipedia [Search algorithm](https://en.wikipedia.org/wiki/Search_algorithm)
 
 > NOTE: 
 >
-> 一、关于search algorithm，wikipedia [Search algorithm](https://en.wikipedia.org/wiki/Search_algorithm)总结地不错，本文以它作为入门，然后对search algorithm进行总结，作为software engineer，我们需要关注的有：
+> 一. 关于search algorithm，wikipedia [Search algorithm](https://en.wikipedia.org/wiki/Search_algorithm)总结地不错，本文以它作为入门，然后对search algorithm进行总结，作为software engineer，我们需要关注的有：
 >
 > - 原理
 > - 实现技巧
 >
-> 二、这篇文章对search algorithm的描述是非常好的，尤其是对问题的分类
+> 二. 这篇文章对search algorithm的描述是非常好的，尤其是对问题的分类
 >
-> 三、其实本文描述的"search algorithm"是一个非常宽泛的概念，它囊括了非常多的algorithm，因为很多问题都可以看做是search
+> 三. 其实本文描述的"search algorithm"是一个非常宽泛的概念，它囊括了非常多的algorithm，因为很多问题都可以看做是search
 >
-> 四、search space、state space、feasible region
+> 四. search space、state space、feasible region
 
 In [computer science](https://en.wikipedia.org/wiki/Computer_science), a **search algorithm** is any [algorithm](https://en.wikipedia.org/wiki/Algorithm) which solves the [search problem](https://en.wikipedia.org/wiki/Search_problem), namely, to retrieve information stored within some data structure, or calculated in the [search space](https://en.wikipedia.org/wiki/Feasible_region)（可行域、解空间） of a [problem domain](https://en.wikipedia.org/wiki/Problem_domain), either with [discrete or continuous values](https://en.wikipedia.org/wiki/Continuous_or_discrete_variable). Specific applications of search algorithms include:
 
-1、Problems in  [combinatorial optimization](https://en.wikipedia.org/wiki/Combinatorial_optimization) , such as:
+1. Problems in  [combinatorial optimization](https://en.wikipedia.org/wiki/Combinatorial_optimization) , such as:
 
 1.1 The [vehicle routing problem](https://en.wikipedia.org/wiki/Vehicle_routing_problem), a form of [shortest path problem](https://en.wikipedia.org/wiki/Shortest_path_problem) 
 
@@ -27,33 +25,32 @@ In [computer science](https://en.wikipedia.org/wiki/Computer_science), a **searc
 
 1.2 The [knapsack problem](https://en.wikipedia.org/wiki/Knapsack_problem): Given a set of items, each with a weight and a value, determine the number of each item to include in a collection so that the total weight is less than or equal to a given limit and the total value is as large as possible.
 
-1.3 The [nurse scheduling problem](https://en.wikipedia.org/wiki/Nurse_scheduling_problem)
+1.3 The [nurse scheduling problem](https://en.wikipedia.org/wiki/Nurse_scheduling_problem) 
 
-2、Problems in [constraint satisfaction](https://en.wikipedia.org/wiki/Constraint_satisfaction_problem), such as:
+2. Problems in [constraint satisfaction](https://en.wikipedia.org/wiki/Constraint_satisfaction_problem), such as:
 
 2.1 The [map coloring problem](https://en.wikipedia.org/wiki/Map_coloring_problem)
 
-3、Filling in a [sudoku](https://en.wikipedia.org/wiki/Sudoku) or [crossword puzzle](https://en.wikipedia.org/wiki/Crossword_puzzle)
+3. Filling in a [sudoku](https://en.wikipedia.org/wiki/Sudoku) or [crossword puzzle](https://en.wikipedia.org/wiki/Crossword_puzzle)
 
-4、In [game theory](https://en.wikipedia.org/wiki/Game_theory) and especially [combinatorial game theory](https://en.wikipedia.org/wiki/Combinatorial_game_theory), choosing the best move to make next (such as with the [minmax](https://en.wikipedia.org/wiki/Minmax) algorithm)
+4. In [game theory](https://en.wikipedia.org/wiki/Game_theory) and especially [combinatorial game theory](https://en.wikipedia.org/wiki/Combinatorial_game_theory), choosing the best move to make next (such as with the [minmax](https://en.wikipedia.org/wiki/Minmax) algorithm)
 
-5、Finding a combination or password from the whole set of possibilities
+5. Finding a combination or password from the whole set of possibilities
 
-6、[Factoring](https://en.wikipedia.org/wiki/Factorization) an integer (an important problem in [cryptography](https://en.wikipedia.org/wiki/Cryptography))
+6. [Factoring](https://en.wikipedia.org/wiki/Factorization) an integer (an important problem in [cryptography](https://en.wikipedia.org/wiki/Cryptography))
 
 > NOTE: 分解一个integer
 
-7、Optimizing an industrial process, such as a [chemical reaction](https://en.wikipedia.org/wiki/Chemical_reaction), by changing the parameters of the process (like temperature, pressure, and pH)
+7. Optimizing an industrial process, such as a [chemical reaction](https://en.wikipedia.org/wiki/Chemical_reaction), by changing the parameters of the process (like temperature, pressure, and pH)
 
-8、Retrieving a record from a [database](https://en.wikipedia.org/wiki/Database)
+8. Retrieving a record from a [database](https://en.wikipedia.org/wiki/Database)
 
-9、Finding the maximum or minimum value in a [list](https://en.wikipedia.org/wiki/List_(abstract_data_type)) or [array](https://en.wikipedia.org/wiki/Array_data_structure)
+9. Finding the maximum or minimum value in a [list](https://en.wikipedia.org/wiki/List_(abstract_data_type)) or [array](https://en.wikipedia.org/wiki/Array_data_structure)
 
-10、Checking to see if a given value is present in a set of values
+10. Checking to see if a given value is present in a set of values
 
-> NOTE: 
+> NOTE: 通过上面的描述可知，"search"是一个宽泛的概念，很多内容都可以归入其中。
 >
-> 通过上面的描述可知，"search"是一个宽泛的概念，很多内容都可以归入其中。
 
 The classic search problems described above and [web search](https://en.wikipedia.org/wiki/Web_search) are both problems in [information retrieval](https://en.wikipedia.org/wiki/Information_retrieval), but are generally studied as separate subfields and are solved and evaluated differently. are generally focused on filtering and that find documents most relevant to human queries. Classic search algorithms are typically evaluated on how fast they can find a solution, and whether or not that solution is guaranteed to be optimal. Though **information retrieval algorithms** must be fast, the quality of ranking is more important, as is whether or not good results have been left out and bad results included.
 
@@ -139,13 +136,13 @@ There are also search methods designed for [quantum computers](https://en.wikipe
 
 ### 缩减搜索空间
 
-1、 [LeetCode-11. 盛最多水的容器](https://leetcode.cn/problems/container-with-most-water/)  # [nettee](https://leetcode.cn/u/nettee/) [一张图告诉你 O(n) 的双指针解法的本质原理（C++/Java）](https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted/solutions/87919/yi-zhang-tu-gao-su-ni-on-de-shuang-zhi-zhen-jie-fa/)  
+1. [LeetCode-11. 盛最多水的容器](https://leetcode.cn/problems/container-with-most-water/)  # [nettee](https://leetcode.cn/u/nettee/) [一张图告诉你 O(n) 的双指针解法的本质原理（C++/Java）](https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted/solutions/87919/yi-zhang-tu-gao-su-ni-on-de-shuang-zhi-zhen-jie-fa/)  
 
-这个解法非常好的阐述了这种思想
+   这个解法非常好的阐述了这种思想
 
-[LeetCode-167. Two Sum II - Input array is sorted](https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted/)
+   [LeetCode-167. Two Sum II - Input array is sorted](https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted/)
 
-2、binary search就是典型的通过缩减搜索空间来加速搜索
+2. binary search就是典型的通过缩减搜索空间来加速搜索
 
-3、DFS-backtrack剪枝
+3. DFS-backtrack剪枝
 
