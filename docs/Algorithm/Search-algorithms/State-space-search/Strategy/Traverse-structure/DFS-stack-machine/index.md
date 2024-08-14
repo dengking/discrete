@@ -244,5 +244,6 @@ dfs-with return
 
 return-base-case:
 
-- disjoint-set
+- disjoint-set: root node
+- dfs linked list: tail node
 
