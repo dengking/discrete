@@ -2,17 +2,13 @@
 
 本章描述的structure包括: 
 
-一、concrete structure
+一. concrete structure
 
 主要包括: linked-list、tree、graph
 
-二、abstract structure
+二. virtual structure
 
-linked-list 、tree、graph都是concrete strucutre，而state/solution space是virtual structure，它通常是：
-
-1、backtrack过程中生成
-
-2、recursion、function activation frame对应node、选择对应边来生成的，在实际运行过程中，通过一条path来保存状态。
+我们将一些问题的state/solution space也看作是一种structure，为了和concrete structure进行区分，我们将它们称为 virtual structure，从
 
 ## Random access VS sequencial access
 

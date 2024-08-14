@@ -1,6 +1,6 @@
 # Search algorithms
 
-## wikipedia [Search algorithm](https://en.wikipedia.org/wiki/Search_algorithm)
+## wikipedia [Search algorithm](https://en.wikipedia.org/wiki/Search_algorithm) 
 
 > NOTE: 
 >

@@ -1,20 +1,18 @@
 # State space search
 
-素材：
+素材: 
 
-1. wikipedia [State space search](https://en.wikipedia.org/wiki/State_space_search)
+1. wikipedia [State space search](https://en.wikipedia.org/wiki/State_space_search) 
 
-2. wikipedia [State space](https://en.wikipedia.org/wiki/State_space)
+2. wikipedia [State space](https://en.wikipedia.org/wiki/State_space) 
 
-3. wikipedia [Search algorithm](https://en.wikipedia.org/wiki/Search_algorithm)
+3. wikipedia [Search algorithm](https://en.wikipedia.org/wiki/Search_algorithm) 
 
-4. `计算机算法设计与分析-5-回溯法`
-
-其中也有关于"state space search"的内容。
+4. `计算机算法设计与分析-5-回溯法`，其中也有关于"state space search"的内容
 
 ## 前言
 
-通过wikipedia [Search algorithm](https://en.wikipedia.org/wiki/Search_algorithm)，我们可以看到：“search”是一个非常宏大的主题，有时候有这样的感觉：computer science解决很多问题的解法最终都可以归入search的范轴。正因为search algorithm的无处不在，所以对它的研究是非常有必要的。
+通过wikipedia [Search algorithm](https://en.wikipedia.org/wiki/Search_algorithm)，我们可以看到：“search”是一个非常宏大的主题，(有时候有这样的感觉)computer science解决很多问题的解法最终都可以归入search的范轴。正因为search algorithm的无处不在，所以对它的研究是非常有必要的。
 
 
 
@@ -31,13 +29,11 @@
 | virtual                 | 参见 维基百科 [Search algorithm](https://en.wikipedia.org/wiki/Search_algorithm) `#` For virtual search spaces 章节 |
 | physical/concrete       | - list<br>- tree<br>- graph                                  |
 
-按照“结构化思维”可知：不管是virtual还是physical/concrete，它们本质上都可以使用relation来进行描述，它们本质上都是**discrete structure**，因此可以使用相同的algorithm来解决它们的问题。
+按照“结构化思维”可知：不管是virtual search space还是physical/concrete search space，它们本质上都可以使用relation来进行抽象描述，它们都可以归入**discrete structure**范畴；对于virtual search space和concrete search space，如果它们遵循相同的relation，那么：
 
-virtual search space和concrete search space遵循相同的relation，因此：
+1. 它们呈现相同的structure
 
-1、它们呈现相同的structure
-
-2、可以使用相同的algorithm来实现它们的computation
+2. 可以使用相同的algorithm来实现它们的computation
 
 由于人们的思维往往是易于接受具体，所以对于virtual space这种比较抽象的，我们往往使用具体事物来进行刻画，比如使用search tree来描述问题的解空间，因此，后面在描述各种search strategy的时候，我们是基于concrete structure来进行描述的，这样便于理解，所以讲这部分内容都放到了`Relation-structure-computation\Structure`章节中。
 

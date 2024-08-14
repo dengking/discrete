@@ -23,6 +23,8 @@ DFS是一个非常繁杂的主题，涉及到的内容非常多，本文对DFS�
 
 上述结构从上到下逐步复杂。
 
+TODO: 需要补充从linked list到tree到graph的traverse的差异，并且补充通用的框架
+
 素材:
 
 wikipedia [Tree traversal](https://en.wikipedia.org/wiki/Tree_traversal) 
@@ -30,6 +32,26 @@ wikipedia [Tree traversal](https://en.wikipedia.org/wiki/Tree_traversal)
 wikipedia [Graph traversal](https://en.wikipedia.org/wiki/Graph_traversal) 
 
 wikipedia [Depth-first search](https://en.wikipedia.org/wiki/Depth-first_search) 
+
+## DFS执行过程分析
+
+draft: 对于concrete structure(linked list、tree、graph)的DFS，最终肯定会回到start node。
+
+### DFS-return
+
+可以沿着current path，以bottom-up的方式将返回值逐步传播到起始地方，下面是一些例子:
+
+#### DFS-return-base-case
+
+disjoint-set: root node
+
+TODO: 补充例子，从形状上来看，它所返回的其实是last node
+
+dfs linked list: tail node
+
+TODO: 补充例子
+
+
 
 ## Vertex orderings / 处理节点次序
 
@@ -66,6 +88,10 @@ wikipedia [Depth-first search](https://en.wikipedia.org/wiki/Depth-first_search)
 
 ## DFS pre-order
 
+
+
+### Pre-action
+
 pre-action: 在recursively traverse the current node's [children|adjacent nodes] **前**执行的操作，一般包括:
 
 - base case
@@ -74,9 +100,17 @@ pre-action: 在recursively traverse the current node's [children|adjacent nodes]
 
 ## DFS post order
 
+
+
+### Post-action+return value=produce
+
 post-action: 在recursively traverse the current node's [children|adjacent nodes] **后**执行的操作，一般包括:
 
 - produce bottum-up
+
+
+
+
 
 ### 例题:
 
@@ -112,13 +146,7 @@ labuladong [美团面试官：你对二叉树后续遍历一无所知](https://m
 
 
 
-## 一些特殊的topic
 
-一、dfs-return-value
-
-二、prunc
-
-三、dfs-last
 
 ## DFS生成tree
 
@@ -232,18 +260,9 @@ labuladong [用 Git 来讲讲二叉树最近公共祖先](https://mp.weixin.qq.c
 
 dfs-with return
 
-## 执行过程
-
-对于tree的BFS，最终肯定会回到root node。
-
 
 
 [LeetCode-491. 递增子序列](https://leetcode.cn/problems/increasing-subsequences/) 中等
 
-## DFS-return
 
-return-base-case:
-
-- disjoint-set: root node
-- dfs linked list: tail node
 
