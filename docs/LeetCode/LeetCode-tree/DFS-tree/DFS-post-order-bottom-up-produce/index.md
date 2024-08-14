@@ -2,17 +2,23 @@
 
 素材:
 
-一、labuladong [团灭 LeetCode 打家劫舍问题](https://mp.weixin.qq.com/s/z44hk0MW14_mAQd7988mfw) # House Robber III
+一. labuladong [团灭 LeetCode 打家劫舍问题](https://mp.weixin.qq.com/s/z44hk0MW14_mAQd7988mfw) # House Robber III
 
 其中给出的返回一个tuple的写法是非常经典的，后面的很多题都是仿照的它的写法
 
-二、labuladong [美团面试官：你对二叉树后续遍历一无所知](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247490891&idx=1&sn=677a7e887fa551e994ba73bcb2538cea&scene=21#wechat_redirect)
+二. labuladong [美团面试官：你对二叉树后续遍历一无所知](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247490891&idx=1&sn=677a7e887fa551e994ba73bcb2538cea&scene=21#wechat_redirect)
 
 
 
-## DFS-post-order-return-value-optimization
+## DFS-post-order-return-value
 
-### LeetCode
+tree和linked list皆可看作是graph的简化(graph相对于binary tree(两条)、linked list(单条)仅仅是多了一个for循环来处理它的所有的adjacent nodes)，下面以graph为模板进行说明: 
+
+递归关系: TODO: 递归关系肯定是由current node 和 它后面的node构成问题的完整的解
+
+形象化解释: 站在current node，综合它的adjacent nodes的解，构造(produce)完整的解
+
+### LeetCode optimization
 
 | 题目                                                         |      |
 | ------------------------------------------------------------ | ---- |

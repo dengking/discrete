@@ -4,15 +4,15 @@ DFS是一个非常繁杂的主题，涉及到的内容非常多，本文对DFS�
 
 下面提供了分析DFS算法的几种方式:
 
-1、structure
+1. structure
 
-2、处理节点次序
+2. 处理节点次序
 
-3、问题类别
+3. 问题类别
 
 ## Structure
 
-第一种方式是根据structure来进行划分，需要注意的是，此处的structure包括concrete structure也包括abstract structure。
+第一种方式是根据structure来进行划分，需要注意的是，此处的structure指的是discrete structure，它包括了concrete structure(linked list、tree、graph)和virtual abstract structure(state-solution-space)。
 
 | 分类                     | 章节              |
 | ------------------------ | ----------------- |
@@ -23,15 +23,70 @@ DFS是一个非常繁杂的主题，涉及到的内容非常多，本文对DFS�
 
 上述结构从上到下逐步复杂。
 
+素材:
+
+wikipedia [Tree traversal](https://en.wikipedia.org/wiki/Tree_traversal) 
+
+wikipedia [Graph traversal](https://en.wikipedia.org/wiki/Graph_traversal) 
+
+wikipedia [Depth-first search](https://en.wikipedia.org/wiki/Depth-first_search) 
+
+## Vertex orderings / 处理节点次序
+
+由于tree的结构的复杂度处于 linked list 和 graph之间，因此使用它来描述 vertex ordering 是最合适的，其它的类比即可
+
+素材: 
+
+wikipedia [Tree traversal # Depth-first search](https://en.wikipedia.org/wiki/Tree_traversal#Depth-first_search) 
+
+> To traverse binary trees with depth-first search, perform the following operations at each node:[[3\]](https://en.wikipedia.org/wiki/Tree_traversal#cite_note-3)[[4\]](https://en.wikipedia.org/wiki/Tree_traversal#cite_note-4)
+>
+> 1. If the current node is empty then return.
+>
+> 2. Execute the following three operations in a certain order:
+>
+>    **N**: Visit the current node.
+>
+>    **L**: Recursively traverse the current node's left subtree.
+>
+>    **R**: Recursively traverse the current node's right subtree.
+
+wikipedia [Depth-first search](https://en.wikipedia.org/wiki/Depth-first_search) 
+
+| 次序/order             | tree    | graph |
+| ---------------------- | ------- | ----- |
+| **Pre-order**          | **NLR** |       |
+| **In-order**           | **LNR** | No    |
+| **Post-order**         | **LRN** |       |
+| **Reverse pre-order**  | **NRL** |       |
+| **Reverse post-order** | **RLN** |       |
+| **Reverse in-order**   | **RNL** |       |
 
 
-## 处理节点次序
 
-| 次序/order |      |      |
-| ---------- | ---- | ---- |
-| pre-order  |      |      |
-| in-order   |      |      |
-| post-order |      |      |
+## DFS pre-order
+
+pre-action: 在recursively traverse the current node's [children|adjacent nodes] **前**执行的操作，一般包括:
+
+- base case
+
+- prune 剪枝
+
+## DFS post order
+
+post-action: 在recursively traverse the current node's [children|adjacent nodes] **后**执行的操作，一般包括:
+
+- produce bottum-up
+
+### 例题:
+
+[LeetCode-剑指 Offer 06. 从尾到头打印链表](https://leetcode.cn/problems/cong-wei-dao-tou-da-yin-lian-biao-lcof/)
+
+labuladong [用 Git 来讲讲二叉树最近公共祖先](https://mp.weixin.qq.com/s/9RKzBcr3I592spAsuMH45g) 
+
+labuladong [美团面试官：你对二叉树后续遍历一无所知](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247490891&idx=1&sn=677a7e887fa551e994ba73bcb2538cea&scene=21#wechat_redirect)
+
+其中使用的技巧和打家劫舍三非常类似。
 
 
 
@@ -51,11 +106,9 @@ DFS是一个非常繁杂的主题，涉及到的内容非常多，本文对DFS�
 
 
 
-| 题目                                                         |      |      |
-| ------------------------------------------------------------ | ---- | ---- |
-| [LeetCode-337-打家劫舍-III-中等](https://leetcode.cn/problems/house-robber-iii/) |      |      |
-| [LeetCode-787-K 站中转内最便宜的航班-中等](https://leetcode.cn/problems/cheapest-flights-within-k-stops/) |      |      |
-|                                                              |      |      |
+[LeetCode-337-打家劫舍-III-中等](https://leetcode.cn/problems/house-robber-iii/) 
+
+[LeetCode-787-K 站中转内最便宜的航班-中等](https://leetcode.cn/problems/cheapest-flights-within-k-stops/) 
 
 
 
@@ -187,28 +240,9 @@ dfs-with return
 
 [LeetCode-491. 递增子序列](https://leetcode.cn/problems/increasing-subsequences/) 中等
 
-dfs-last
+## DFS-return
 
-## DFS pre-order:
+return-base-case:
 
-base case
-
-prune 剪枝
-
-## DFS post order
-
-post-action
-
-bottum-up
-
-### 例题:
-
-[LeetCode-剑指 Offer 06. 从尾到头打印链表](https://leetcode.cn/problems/cong-wei-dao-tou-da-yin-lian-biao-lcof/)
-
-labuladong [用 Git 来讲讲二叉树最近公共祖先](https://mp.weixin.qq.com/s/9RKzBcr3I592spAsuMH45g) 
-
-labuladong [美团面试官：你对二叉树后续遍历一无所知](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247490891&idx=1&sn=677a7e887fa551e994ba73bcb2538cea&scene=21#wechat_redirect)
-
-其中使用的技巧和打家劫舍三非常类似。
-
+- disjoint-set
 
