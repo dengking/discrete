@@ -1,6 +1,6 @@
-[TOC]
+# Precedence graph
 
 
 
-# [Precedence graph](https://en.wikipedia.org/wiki/Precedence_graph)
+## wikipedia [Precedence graph](https://en.wikipedia.org/wiki/Precedence_graph) 
 

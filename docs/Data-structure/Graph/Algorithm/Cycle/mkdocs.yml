@@ -1,4 +1,7 @@
 nav:
-    - Cycle-detection: Cycle-detection
+    - Introduction: index.md
+    - Graph-cycle-resolve: Graph-cycle-resolve
+    - Graph-cycle-detection: Graph-cycle-detection
+    - Linked-list-cycle-detection: Linked-list-cycle-detection
     - Max-Cycle: Max-Cycle
     

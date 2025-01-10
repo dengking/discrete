@@ -4,7 +4,7 @@ nav:
     - Graph-Model: Graph-Model
     # graph的计算机表示    
     - Graph-representations: Graph-representations
-    - Implementation: Implementation
+    - Implementation&Tools: Implementation&Tools
     - Algorithm: Algorithm
     - Lattice-graph: Lattice-graph
     

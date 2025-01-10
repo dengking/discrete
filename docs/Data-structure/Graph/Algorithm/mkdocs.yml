@@ -2,6 +2,7 @@ nav:
     - Introduction: index.md
     - Graph-algorithm-paradigm: Graph-algorithm-paradigm
     - Traverse-graph: Traverse-graph
+    - Graph-in-level-layer-hierachy: Graph-in-level-layer-hierachy
     - Spanning-tree: Spanning-tree  
     - Topological-sorting: Topological-sorting      
     - Graph-cycle-detection: Graph-cycle-detection

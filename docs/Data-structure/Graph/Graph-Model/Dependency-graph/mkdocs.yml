@@ -2,4 +2,5 @@ nav:
     - Introduction: index.md
     - Precedence-graph: Precedence-graph
     - Circular-dependency: Circular-dependency
-    - Dependency-resolving-algorithm: Dependency-resolving-algorithm
+    
+    

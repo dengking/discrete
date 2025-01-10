@@ -255,7 +255,13 @@ The key difference between **cycle detection** in directed and undirected graphs
 
 ## BFS: Kahn's algorithm topological sorting
 
-TODO
+wikipedia [Topological sorting](https://en.wikipedia.org/wiki/Topological_sorting) 
+
+> Any DAG has at least one topological ordering, and [algorithms](https://en.wikipedia.org/wiki/Algorithm) are known for constructing a topological ordering of any DAG in [linear time](https://en.wikipedia.org/wiki/Linear_time). 
+
+显然，如果无法执行topological sorting，那么就存在环
+
+
 
 
 
