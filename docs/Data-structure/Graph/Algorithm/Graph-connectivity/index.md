@@ -1,22 +1,16 @@
 # Connectivity &Connected-component&Transitive-closure
 
-
-
 ## wikipedia [Connectivity (graph theory)](https://en.wikipedia.org/wiki/Connectivity_(graph_theory))
-
-
 
 ## Dynamic connectivity
 
 ---
 
 > Reference:
->
+> 
 > [stanford-CS166-Graph connectivity](https://web.stanford.edu/class/cs166/)  
 
 ---
-
-
 
 ### wikipedia [Dynamic connectivity](https://en.wikipedia.org/wiki/Dynamic_connectivity)
 
@@ -29,8 +23,6 @@ The set *V* of vertices of the graph is fixed, but the set *E* of edges can chan
 - Edges can be either added or deleted (this can be called *fully dynamic connectivity*).
 
 After each addition/deletion of an edge, the dynamic connectivity structure should adapt 
-
-
 
 ## Connected component&Transitive-closure
 
@@ -46,13 +38,7 @@ a. transitive closure是求解各个connected component的，如果输入已经�
 
 b. disjoint-set(union-find-set)用于快速判断两个node是否属于同一个component，如果输入是discrete的，那么使用它会比较方便
 
-
-
 ### wikipedia [Component (graph theory)](https://en.wikipedia.org/wiki/Component_(graph_theory))
-
-
-
-
 
 ### Algorithms
 
@@ -62,8 +48,6 @@ Closures of Relations(从relation-structure的角度来进行分析)
 
 2. one-by-one
 
-
-
 The problem can also be solved by:
 
 - [Floyd–Warshall algorithm](https://en.wikipedia.org/wiki/Floyd–Warshall_algorithm) 
@@ -72,21 +56,17 @@ The problem can also be solved by:
 
 根据graph representation，选择合适的algorithm。
 
-
-
-#### [Floyd–Warshall algorithm](https://en.wikipedia.org/wiki/Floyd–Warshall_algorithm) 
+#### [Floyd–Warshall algorithm](https://en.wikipedia.org/wiki/Floyd–Warshall_algorithm)
 
 ---
 
 > References: 
->
+> 
 > wikipedia [Floyd–Warshall algorithm](https://en.wikipedia.org/wiki/Floyd–Warshall_algorithm)
->
+> 
 > winona [CS 440 Theory of Algorithms / CS 468 Algorithms in Bioinformatics](https://cs.winona.edu/lin/cs440/ch08-2.pdf) 
 
 ---
-
-
 
 #### Repeated BFS
 
@@ -102,11 +82,7 @@ Graph-repeated-BFS-flood-fill-transitive-closure
 
 注意，需要为每个node都执行一次。
 
-
-
 ##### Java
-
-
 
 ```Java
 package com.test.www;
@@ -186,14 +162,11 @@ public class GraphTransitiveClosure<T> {
         return closures;
     }
 }
-
 ```
 
 #### Disjoint-set(union-find-set)
 
 disjoint-set(union-find-set): disjoint-set中的set正好和connected-component相对应
-
-
 
 ```python
 from collections import defaultdict
@@ -249,7 +222,6 @@ def main():
 
 if __name__ == '__main__':
     main()
-
 ```
 
 ### LeetCode
@@ -281,4 +253,3 @@ disjoint set中set的个数
 ## Connected-component labeling
 
 参见 `Connected-component-labeling` 章节
-
