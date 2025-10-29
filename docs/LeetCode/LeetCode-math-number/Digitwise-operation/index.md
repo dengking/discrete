@@ -1,7 +1,5 @@
 # Digit-wise operation
 
-
-
 [LeetCode-7. 整数反转-中等](https://leetcode.cn/problems/reverse-integer/) 
 
 1、integer-overflow-underflow-prediction
@@ -23,6 +21,5 @@
 [LeetCode-260. 只出现一次的数字 III- middle](https://leetcode.cn/problems/single-number-iii/) 
 
 [LeetCode-233. 数字 1 的个数-困难](https://leetcode.cn/problems/number-of-digit-one/) 
-
 
 
