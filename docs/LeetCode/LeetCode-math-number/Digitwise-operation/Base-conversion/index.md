@@ -133,8 +133,6 @@ $$
 F = d_1 \times n^{-1} + d_2 \times n^{-2} + d_3 \times n^{-3} + \dots
 $$
 
-$$
-
 where each digit $d_i$ is an integer in the range $[0, n-1]$.
 
 Here is the step-by-step algorithm:
@@ -150,9 +148,10 @@ Here is the step-by-step algorithm:
 5. **Repeat:** Go back to step 2 and repeat the process with the new `frac`.
 
 6. **Stop:** The process stops when either:
-* The fractional part becomes 0 (a terminating fraction).
-
-* You reach a desired number of precision digits (for non-terminating fractions).
+   
+   1. The fractional part becomes 0 (a terminating fraction).
+   
+   2. You reach a desired number of precision digits (for non-terminating fractions).
 
 ---
 
@@ -193,150 +192,207 @@ This Python function implements the generalized "Multiply by n" algorithm. It ca
 
 ```python
 def decimal_fraction_to_base_n(num, base, limit=32):
+    """Converts the fractional part of a decimal number to its base-n representation.
+    Args:
+    num (float): The decimal number. The function will only consider its fractional part.
+    base (int): The target base (e.g., 2 for binary, 8 for octal, 16 for hex).
+    Must be between 2 and 36.
+    limit (int): The maximum number of digits to generate after the point.
 
-"""
+    Returns:
 
-Converts the fractional part of a decimal number to its base-n representation.
+    str: The base-n representation of the fractional part, e.g., "0.101".
 
+    """
+    if not 2 <= base <= 36:
+        raise ValueError("Base must be between 2 and 36.")
 
+    # String of characters to represent digits from 0 to 35
+    digits = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    # Isolate the fractional part of the number
+    frac = num - int(num)
+    if frac < 0:
+        frac += 1
+    if frac == 0:
+        return "0.0"
 
-Args:
-
-num (float): The decimal number. The function will only consider its fractional part.
-
-base (int): The target base (e.g., 2 for binary, 8 for octal, 16 for hex).
-
-Must be between 2 and 36.
-
-limit (int): The maximum number of digits to generate after the point.
-
-
-
-Returns:
-
-str: The base-n representation of the fractional part, e.g., "0.101".
-
-"""
-
-if not 2 <= base <= 36:
-
-raise ValueError("Base must be between 2 and 36.")
-
-
-
-# String of characters to represent digits from 0 to 35
-
-digits = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-
-
-
-# Isolate the fractional part of the number
-
-frac = num - int(num)
-
-if frac < 0:
-
-frac += 1
-
-if frac == 0:
-
-return "0.0"
-
-
-
-result = "0."
-
-# Loop until the fraction becomes 0 or we hit the precision limit
-
-while frac > 0:
-
-# Check if we have reached the precision limit
-
-if len(result) - 2 >= limit:
-
-print(f"Warning: Reached precision limit of {limit} digits. The fraction may be non-terminating.")
-
-break
-
-
-
-# Multiply by the base to shift the next digit into the integer part
-
-frac *= base
-
-# The integer part is our next digit
-
-digit_value = int(frac)
-
-# Append the character representation of the digit
-
-result += digits[digit_value]
-
-# Subtract the integer part to get the new fraction for the next iteration
-
-frac -= digit_value
-
-
-
-return result
-
+    result = "0."
+    # Loop until the fraction becomes 0 or we hit the precision limit
+    while frac > 0:
+        # Check if we have reached the precision limit
+        if len(result) - 2 >= limit:
+            print(f"Warning: Reached precision limit of {limit} digits. The fraction may be non-terminating.")
+            break
+        # Multiply by the base to shift the next digit into the integer part
+        frac *= base
+        # The integer part is our next digit
+        digit_value = int(frac)
+        # Append the character representation of the digit
+        result += digits[digit_value]
+        # Subtract the integer part to get the new fraction for the next iteration
+        frac -= digit_value
+    return result
 
 
 # --- Examples ---
 
 
-
 # 1. Decimal 0.84375 to Octal (Base 8) - Terminating
-
 dec_val_1 = 0.84375
-
 base_1 = 8
-
 result_1 = decimal_fraction_to_base_n(dec_val_1, base_1)
-
 print(f"Decimal {dec_val_1} in base {base_1} is: {result_1}")
 
 # Expected output: Decimal 0.84375 in base 8 is: 0.66
 
 
-
 # 2. Decimal 0.7 to Hexadecimal (Base 16) - Non-terminating
-
 dec_val_2 = 0.7
-
 base_2 = 16
-
 result_2 = decimal_fraction_to_base_n(dec_val_2, base_2, limit=10)
-
 print(f"Decimal {dec_val_2} in base {base_2} is: {result_2}")
 
 # Expected output: Decimal 0.7 in base 16 is: 0.B333333333
 
 
-
 # 3. Decimal 0.1 to Binary (Base 2) - Non-terminating
 
 dec_val_3 = 0.1
-
 base_3 = 2
-
 result_3 = decimal_fraction_to_base_n(dec_val_3, base_3, limit=16)
-
 print(f"Decimal {dec_val_3} in base {base_3} is: {result_3}")
 
 # Expected output: Decimal 0.1 in base 2 is: 0.0001100110011001
 
 
-
 # 4. Decimal 0.5 to Base 3 - Non-terminating
 
 dec_val_4 = 0.5
-
 base_4 = 3
-
 result_4 = decimal_fraction_to_base_n(dec_val_4, base_4, limit=10)
-
 print(f"Decimal {dec_val_4} in base {base_4} is: {result_4}")
-
 # Expected output: Decimal 0.5 in base 3 is: 0.1111111111
 ```
+
+## Why converting decimal fraction to its base-n number will cause infinite repeating decimal
+
+Of course. This is a fantastic question that gets to the heart of how number systems work. The reason a simple, terminating decimal in one base can become an infinite, repeating decimal in another base is all about **prime factors**.
+
+Let's break it down, starting with our familiar base-10 system.
+
+### The Rule for Terminating Decimals in Base-10
+
+First, what *is* a terminating decimal like `0.5` or `0.375`? It's just a fraction where the denominator(分母) is a power of 10.
+
+* $0.5 = \frac{5}{10}$
+* $0.375 = \frac{375}{1000}$
+* $0.12 = \frac{12}{100}$
+
+Now, let's look at the prime factors of the base, which is 10.
+
+
+$$
+10 = 2 \times 5
+$$
+
+
+
+This means any power of 10 will only have prime factors of 2 and 5.
+
+
+$$
+1000 = 10^3 = (2 \times 5)^3 = 2^3 \times 5^3
+$$
+
+A fraction $\frac{p}{q}$ (in its simplest form) can only be written as a terminating decimal in base-10 if its denominator `q` can be turned into a power of 10 by multiplying it by some integer. This is only possible if the prime factors of `q` are **exclusively 2s and/or 5s**.
+
+**Examples in Base-10:**
+
+* $\frac{1}{8}$: The denominator is $8 = 2^3$. The only prime factor is 2. **Result: Terminates** ($0.125$).
+* $\frac{3}{20}$: The denominator is $20 = 2^2 \times 5$. The prime factors are 2 and 5. **Result: Terminates** ($0.15$).
+* $\frac{1}{3}$: The denominator is $3$. The prime factor is 3, which is **not** 2 or 5. It's impossible to multiply 3 by any integer to get a power of 10. **Result: Repeats** ($0.333...$).
+* $\frac{1}{7}$: The denominator is $7$. The prime factor is 7, which is **not** 2 or 5. **Result: Repeats** ($0.142857142857...$).
+
+### Generalizing the Rule to Any Base-n
+
+We can now generalize this rule for any number base `n`.
+
+> A fraction $\frac{p}{q}$ will have a **terminating** representation in base-`n` if and only if all the prime factors of its denominator `q` are also prime factors of the base `n`.
+
+If the denominator `q` has even a single prime factor that is *not* a prime factor of the base `n`, the representation in that base will be **infinite and repeating**.
+
+### The "Why" of Your Question
+
+Let's apply this rule to answer your specific question: "Why does converting a decimal fraction to its base-n number cause an infinite repeating decimal?"
+
+Let's take the simple decimal fraction `0.1` (which is $\frac{1}{10}$) and try to convert it to binary (base-2).
+
+1. **The Fraction:** $\frac{1}{10}$
+2. **The Target Base:** Base-2.
+3. **Prime Factors of the Base (2):** The only prime factor is `{2}`.
+4. **Prime Factors of the Denominator (10):** The prime factors are `{2, 5}`.
+
+Now, we check the rule: Does the denominator `10` have any prime factors that are *not* in the set of the base's prime factors?
+
+* Yes. The denominator has a prime factor of **5**.
+* The base-2 system only "understands" powers of 2. It has no way to perfectly represent a division by 5.
+
+Because of this mismatch in prime factors, the fraction $\frac{1}{10}$ **cannot terminate** in base-2. It is forced to become an infinite, repeating sequence.
+
+**The Calculation:**
+If you perform the conversion of $\frac{1}{10}$ to binary, you get:
+$$
+0.0001100110011..._2
+$$
+The block `0011` repeats forever.
+
+### More Examples to Make it Clear
+
+**Example 1: Convert $\frac{1}{3}$ to Base-3 (Ternary)**
+
+* **Fraction:** $\frac{1}{3}$
+
+* **Target Base:** Base-3
+
+* **Prime factors of base (3):** `{3}`
+
+* **Prime factors of denominator (3):** `{3}`
+
+* **Check:** All prime factors of the denominator are also prime factors of the base.
+
+* **Result:** It **terminates**.
+  
+  $$
+  \frac{1}{3} \text{ in base-3 is } 0.1_3
+  $$
+  
+  (Just like $\frac{1}{10}$ in base-10 is $0.1_{10}$)
+
+**Example 2: Convert $\frac{1}{2}$ to Base-3 (Ternary)**
+
+* **Fraction:** $\frac{1}{2}$
+
+* **Target Base:** Base-3
+
+* **Prime factors of base (3):** `{3}`
+
+* **Prime factors of denominator (2):** `{2}`
+
+* **Check:** The denominator has a prime factor (2) that is not a prime factor of the base.
+
+* **Result:** It **repeats**.
+  
+  $$
+  \frac{1}{2} \text{ in base-3 is } 0.1111..._3 
+  $$
+
+### Summary
+
+| Conversion                       | Fraction               | Prime Factors of Denominator | Prime Factors of Base | Mismatch? | Result                   |
+|:-------------------------------- |:---------------------- |:---------------------------- |:--------------------- |:--------- |:------------------------ |
+| $\frac{1}{8}$ to Base-10         | $\frac{1}{2^3}$        | `{2}`                        | `{2, 5}`              | No        | **Terminates** (0.125)   |
+| $\frac{1}{3}$ to Base-10         | $\frac{1}{3}$          | `{3}`                        | `{2, 5}`              | Yes (3)   | **Repeats** (0.333...)   |
+| `0.1` ($\frac{1}{10}$) to Base-2 | $\frac{1}{2 \times 5}$ | `{2, 5}`                     | `{2}`                 | Yes (5)   | **Repeats** (0.00011...) |
+| `0.5` ($\frac{1}{2}$) to Base-3  | $\frac{1}{2}$          | `{2}`                        | `{3}`                 | Yes (2)   | **Repeats** (0.111...)   |
+
+The phenomenon of a number being terminating in one base but repeating in another is a direct consequence of the **relationship between the prime factors of the fraction's denominator and the prime factors of the number base itself.**
