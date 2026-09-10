@@ -1,5 +1,5 @@
 # Power set
 
-power set=超集
+power set=超集=幂集
 
 ## wikipedia [Power set](https://en.wikipedia.org/wiki/Power_set)
