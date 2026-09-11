@@ -2,7 +2,6 @@ nav:
     - Introduction: index.md
 
     - Partially-order: Partially-order
-    - Total-order: Total-order
-    - Well-order: Well-order
+    - Total-order&Well-order: Total-order&Well-order
     - Preorder: Preorder.md    
     - Greatest-and-least-elements: Greatest-and-least-elements
