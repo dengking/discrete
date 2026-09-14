@@ -22,9 +22,21 @@ To simulate the operation of a DFA on a given input string, one needs to keep tr
 
 ### Construction
 
-The **powerset construction** applies most directly to an NFA that does not allow state transformations without consuming input symbols (aka: "$\varepsilon$-moves"). Such an automaton may be defined as a 5-tuple $(Q, \Sigma, T, q_0, F)$, in which $Q$ is the set of states, $\Sigma$ is the set of input symbols, $T$ is the transition function (mapping a state and an input symbol to a set of states), $q_0$ is the initial state, and $F$ is the set of accepting states. The corresponding DFA has states corresponding to subsets of $Q$. The initial state of the DFA is $\{q_0\}$, the (one-element) set of initial states. The transition function of the DFA maps a state $S$ (representing a subset of $Q$) and an input symbol $x$ to the set $T(S,x) = \bigcup\{T(q,x) \mid q \in S\}$, the set of all states that can be reached by an $x$-transition from a state in $S$. A state $S$ of the DFA is an accepting state if and only if at least one member of $S$ is an accepting state of the NFA.$^{[2][3]}$
+The **powerset construction** applies most directly to an NFA that does not allow state transformations without consuming input symbols (aka: "$\varepsilon$-moves"). Such an automaton may be defined as a 5-tuple $(Q, \Sigma, T, q_0, F)$, in which: 
 
-In the simplest version of the powerset construction, the set of all states of the DFA is the **powerset** of $Q$, the set of all possible subsets of $Q$. However, many states of the resulting DFA may be useless as they may be unreachable from the initial state. An alternative version of the construction creates only the states that are actually reachable.$^{[4]}$
+- $Q$ is the set of states
+
+- $\Sigma$ is the set of input symbols
+
+- $T$ is the transition function (mapping a state and an input symbol to a set of states)
+
+- $q_0$ is the initial state
+
+- $F$ is the set of accepting states
+
+The corresponding DFA has states corresponding to subsets of $Q$. The initial state of the DFA is $\{q_0\}$, the (one-element) set of **initial states**. The **transition function** of the DFA maps a state $S$ (representing a subset of $Q$) and an input symbol $x$ to the set $T(S,x) = \bigcup\{T(q,x) \mid q \in S\}$, the set of all states that can be reached by an $x$-transition from a state in $S$. A state $S$ of the DFA is an accepting state if and only if at least one member of $S$ is an **accepting state** of the NFA.$^{[2][3]}$
+
+In the simplest version of the **powerset construction**, the set of all states of the DFA is the **powerset** of $Q$, the set of all possible subsets of $Q$. However, many states of the resulting DFA may be useless as they may be unreachable from the **initial state**. An alternative version of the construction creates only the states that are actually reachable.$^{[4]}$
 
 #### NFA with $\varepsilon$-moves
 
