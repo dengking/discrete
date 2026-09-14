@@ -1,5 +1,8 @@
 nav:
     - Introduction: index.md
+    - Finite-state-machine: Finite-state-machine
     - Regex: Regex
-    - Regex-Engine: Regex-Engine
+    - Regex-Engine: Regex-Engine.md
+    - Powerset-construction: Powerset-construction
+    
     
