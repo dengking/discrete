@@ -1,3 +1,6 @@
 nav:
     - Introduction: index.md
+    - DFA: DFA.md
+    - NFA: NFA.md
+    - DFA-VS-NFA: DFA-VS-NFA.md
     - Event-driven-finite-state-machine: Event-driven-finite-state-machine
