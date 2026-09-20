@@ -37,5 +37,3 @@
 | LCP  | Longest Common Prefix     | 最长公共前缀 |
 | inf  | infimum                   | 下确界    |
 | sup  | supremum                  | 上确界    |
-
-
