@@ -1,7 +1,6 @@
 # Recursion in computer science
 
 
-
 ## wikipedia [Recursion (computer science)](https://en.wikipedia.org/wiki/Recursion_(computer_science))
 
 > NOTE: 
@@ -153,9 +152,6 @@ In actual implementation, rather than a pure recursive function (single check fo
 On the basis of elegance, **wrapper functions** are generally approved, while short-circuiting the base case is frowned upon, particularly in academia. Hybrid algorithms are often used for efficiency, to reduce the overhead of recursion in small cases, and arm's-length recursion is a special case of this.
 
 
-
-
-
 ### Recursion versus iteration
 
 Recursion and [iteration](https://en.wikipedia.org/wiki/Iteration) are equally expressive: recursion can be replaced by iteration with an explicit [call stack](https://en.wikipedia.org/wiki/Call_stack), while iteration can be replaced with [tail recursion](https://en.wikipedia.org/wiki/Tail_call). Which approach is preferable depends on the problem under consideration and the language used. In [imperative programming](https://en.wikipedia.org/wiki/Imperative_programming), iteration is preferred, particularly for simple recursion, as it avoids the overhead of function calls and call stack management, but recursion is generally used for **multiple recursion**. By contrast, in [functional languages](https://en.wikipedia.org/wiki/Functional_programming) recursion is preferred, with tail recursion optimization leading to little overhead. Implementing an algorithm using iteration may not be easily achievable.
@@ -174,9 +170,6 @@ unsigned int factorial(unsigned int n) {
 ```
 
 
-
-
-
 #### Multiply recursive problems
 
 Multiply recursive problems are inherently recursive, because of prior state they need to track. One example is [tree traversal](https://en.wikipedia.org/wiki/Tree_traversal) as in [depth-first search](https://en.wikipedia.org/wiki/Depth-first_search); though both recursive and iterative methods are used,[[19\]](https://en.wikipedia.org/wiki/Recursion_(computer_science)#cite_note-19) they contrast with list traversal and linear search in a list, which is a singly recursive and thus naturally iterative method. Other examples include [divide-and-conquer algorithms](https://en.wikipedia.org/wiki/Divide-and-conquer_algorithm) such as [Quicksort](https://en.wikipedia.org/wiki/Quicksort), and functions such as the [Ackermann function](https://en.wikipedia.org/wiki/Ackermann_function). All of these algorithms can be implemented iteratively with the help of an explicit [stack](https://en.wikipedia.org/wiki/Stack_(data_structure)), but the programmer effort involved in managing the stack, and the complexity of the resulting program, arguably outweigh any advantages of the iterative solution.
@@ -186,8 +179,6 @@ Multiply recursive problems are inherently recursive, because of prior state the
 #### Refactoring recursion
 
 Recursive algorithms can be replaced with non-recursive counterparts.[[20\]](https://en.wikipedia.org/wiki/Recursion_(computer_science)#cite_note-20). One method for replacing recursive algorithms is to simulate them using [heap memory](https://en.wikipedia.org/wiki/Memory_management) in place of [stack memory](https://en.wikipedia.org/wiki/Stack-based_memory_allocation).[[21\]](https://en.wikipedia.org/wiki/Recursion_(computer_science)#cite_note-21) An alternative is to develop a replacement algorithm entirely based on non-recursive methods, which can be challenging.[[22\]](https://en.wikipedia.org/wiki/Recursion_(computer_science)#cite_note-22) For example, recursive algorithms for [matching wildcards](https://en.wikipedia.org/wiki/Matching_wildcards), such as [Rich Salz](https://en.wikipedia.org/wiki/Rich_Salz)' [wildmat](https://en.wikipedia.org/wiki/Wildmat) algorithm,[[23\]](https://en.wikipedia.org/wiki/Recursion_(computer_science)#cite_note-23) were once typical. Non-recursive algorithms for the same purpose, such as the [Krauss matching wildcards algorithm](https://en.wikipedia.org/wiki/Krauss_matching_wildcards_algorithm), have been developed to avoid the drawbacks of recursion[[24\]](https://en.wikipedia.org/wiki/Recursion_(computer_science)#cite_note-24) and have improved only gradually based on techniques such as collecting [tests](https://en.wikipedia.org/wiki/Software_testing) and [profiling](https://en.wikipedia.org/wiki/Profiling_(computer_programming)) performance.[[25\]](https://en.wikipedia.org/wiki/Recursion_(computer_science)#cite_note-25)
-
-
 
 ### Tail-recursive functions
 
